@@ -121,6 +121,8 @@ const int StraightLineDist = 100; // Aim to travel 100cm in AutoStraightLine mod
 enum DroneState {Initialise, Ready, Armed, Flying, Landing, Stopped, Faulted, Debug};
 enum DroneFlightMode {OperatorControl, AutoStraightLine, ArmOnly};
 DroneState currentState = Initialise;
+DroneFlightMode currentFlightMode = ArmOnly;
+
 
 void setup() {
   // Main Comms Serial to PC
