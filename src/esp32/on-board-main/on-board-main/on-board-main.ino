@@ -56,6 +56,14 @@ bfs::SbusRx sbus_rx(&Serial1);
 bfs::SbusTx sbus_tx(&Serial1);
 std::array<int16_t, bfs::SbusRx::NUM_CH()> sbus_data;
 
+// Variable for throttle control, float value 0 to 1.
+double nav_lift = 0;
+
+// Variable for other 3 channels, floats -1 to 1
+double nav_yaw = 0;    // Yaw is turn left/right
+double nav_fwd = 0;    // Forward movement/Backward is -ve forward
+double nav_stf = 0;    // Strafting left/right movement
+
 // SD Card Interface
 File config_file; // Read in configuration for drone
 File output_file; // Output PLY file
