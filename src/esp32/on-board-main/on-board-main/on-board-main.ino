@@ -130,6 +130,35 @@ void setup() {
   // Start SBUS on pins
   sbus_rx.Begin(sbus_rxPin, sbus_txPin);
   sbus_tx.Begin(sbus_rxPin, sbus_txPin);
+
+  // Set trig pins as outputs
+  pinMode(us_trigPin1, OUTPUT);
+  pinMode(us_trigPin2, OUTPUT);
+  pinMode(us_trigPin3, OUTPUT);
+  pinMode(us_trigPin4, OUTPUT);
+  pinMode(us_trigPin5, OUTPUT);
+  pinMode(us_trigPin6, OUTPUT);
+
+  // Set echo pins as inputs
+  pinMode(us_echoPin1, INPUT);
+  pinMode(us_echoPin2, INPUT);
+  pinMode(us_echoPin3, INPUT);
+  pinMode(us_echoPin4, INPUT);
+  pinMode(us_echoPin5, INPUT);
+  pinMode(us_echoPin6, INPUT);
+
+  // Create binary semaphores
+  us_step1Semaphore = xSemaphoreCreateBinary();
+  us_step2Semaphore = xSemaphoreCreateBinary();
+  us_step3Semaphore = xSemaphoreCreateBinary();
+  us_step4Semaphore = xSemaphoreCreateBinary();
+  us_step5Semaphore = xSemaphoreCreateBinary();
+  us_step6Semaphore = xSemaphoreCreateBinary();
+  
+  us_startSemaphore = xSemaphoreCreateBinary();
+
+
+
 }
 
 void loop() {
