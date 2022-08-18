@@ -39,6 +39,9 @@ const int us_echoPin6 = 15;
 const int i2c_sdaPin = 21;
 const int i2c_sclPin = 22;
 
+#define I2C_SDA i2c_sdaPin;
+#define I2C_SCL i2c_sclPin;
+
 // FC SBUS Pins
 const int sbus_rxPin = 16;
 const int sbus_txPin = 17; 
