@@ -68,6 +68,18 @@ double nav_stf = 0;    // Strafting left/right movement
 File config_file; // Read in configuration for drone
 File output_file; // Output PLY file
 
+// Variables for storing US results. Only to be written to by US threads
+//  to avoid race conditions
+int us1_distance;
+int us2_distance;
+int us3_distance;
+int us4_distance;
+int us5_distance;
+int us6_distance;
+
+// Current temperature from thermistor
+int tmp_temperature;
+
 // Binary semaphore definitions for enforcing US order
 // Each US requires its own semaphore. US1 requires Step 1 and releases Step 2
 SemaphoreHandle_t us_step1Semaphore;
