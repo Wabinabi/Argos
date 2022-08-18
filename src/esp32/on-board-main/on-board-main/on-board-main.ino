@@ -56,6 +56,9 @@ bfs::SbusRx sbus_rx(&Serial1);
 bfs::SbusTx sbus_tx(&Serial1);
 std::array<int16_t, bfs::SbusRx::NUM_CH()> sbus_data;
 
+// Defining constants
+const int MAX_US_DISTANCE 400;
+
 // Variable for throttle control, float value 0 to 1.
 double nav_lift = 0;
 
@@ -93,12 +96,12 @@ SemaphoreHandle_t us_step6Semaphore;
 SemaphoreHandle_t us_startSemaphore;
 
 // Task handle definitions for US threads
-TaskHandle_t Ultrasonic1;
-TaskHandle_t Ultrasonic2;
-TaskHandle_t Ultrasonic3;
-TaskHandle_t Ultrasonic4;
-TaskHandle_t Ultrasonic5;
-TaskHandle_t Ultrasonic6;
+TaskHandle_t th_Ultrasonic1;
+TaskHandle_t th_Ultrasonic2;
+TaskHandle_t th_Ultrasonic3;
+TaskHandle_t th_Ultrasonic4;
+TaskHandle_t th_Ultrasonic5;
+TaskHandle_t th_Ultrasonic6;
 
 // Task handle for other threads
 TaskHandle_t Scribe;  // Writes US Data to SD Card. Scribe controls Semaphore "start"
@@ -113,15 +116,71 @@ TaskHandle_t Pilot;   // Constantly writes to the SBUS line
  * Landing    - Drone will attempt to land by lowering throttle
  * Stopped    - Drone will cease all movement and read next mission
  * Faulted    - Similar to stopped, but does not reset even after powering on/off
- * Debug      - For testing
+ * Debug      - For unit testing
 */
-
 const int StraightLineDist = 100; // Aim to travel 100cm in AutoStraightLine mode
 
+// Enums for drone FSM
 enum DroneState {Initialise, Ready, Armed, Flying, Landing, Stopped, Faulted, Debug};
 enum DroneFlightMode {OperatorControl, AutoStraightLine, ArmOnly};
+enum DroneDebugTest {SBUS_COMMS, ARMING_DISARMING, SD_READ_WRITE}; // Unit testing scenarios
+
+// Drone initial states
 DroneState currentState = Initialise;
 DroneFlightMode currentFlightMode = ArmOnly;
+
+// Checks to see if a serial link can be established
+bool serialEnabled = false;
+
+
+/* --------------------- Task code for threads --------------------- */
+// Initial trials with class methods or void* parameters for code re-use didn't go so well
+//  Keeping it simple and writing out the code 6 times
+
+void us_Task1() {
+  int pinNumber = us_trigPin1;
+  int echoPin = us_trigPin1;
+  
+
+  // Semaphore sequencing. Pre = The step required, Post = the step after
+  SemaphoreHandle_t preSemaphore = us_step1Semaphore;
+  SemaphoreHandle_t postSemaphore = us_step2Semaphore;
+
+  // Task code starts here
+  int ldistance;
+  int lduration;
+  for (;;) {
+    delayMicroseconds(10);
+
+    //Get Sequence Semaphore
+    xSemaphoreTake(preSemaphore, portMAX_DELAY);
+    // Ultrasonic Code - Critical Section starts here
+    // Clear the trig pin
+    digitalWrite(pinNumber, LOW);
+    delayMicroseconds(2);
+    // Sets the trigPin on HIGH state for 10 us
+    digitalWrite(pinNumber, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(pinNumber, LOW);
+    // Reads the echoPin, returns the sound wave travel time in us
+    lduration = pulseIn(echoPin, HIGH);
+    // Calculating the distance
+    ldistance = lduration * 0.034 / 2;
+
+    us1_distance = min(ldistance,MAX_US_DISTANCE); // < ---- Change static value here   
+    // End critical section
+
+    if (serialEnabled) {
+      Serial.print(us1_distance);
+      Serial.print(" ");
+    }
+
+    delay(80); // A delay of >70ms is recommended
+    xSemaphoreGive(postSemaphore);
+  }
+}
+
+
 
 
 void setup() {
@@ -159,12 +218,19 @@ void setup() {
   
   us_startSemaphore = xSemaphoreCreateBinary();
 
+  xTaskCreatePinnedToCore(
+    us_Task1,               /* Task function. */
+    "US Task 1",            /* name of task. */
+    2056,                  /* Stack size of task */
+    NULL,                   /* parameter of the task */
+    1,                      /* priority of the task */
+    &th_Ultrasonic1,        /* Task handle to keep track of created task */
+    1);                     /* pin task to core 1 */
 
 
 }
 
 void loop() {
-
 
   // Main loop for the state
   switch(currentState) {
