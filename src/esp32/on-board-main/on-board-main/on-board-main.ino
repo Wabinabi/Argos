@@ -109,17 +109,17 @@ TaskHandle_t Pilot;   // Constantly writes to the SBUS line
 /* Initialise - Drone starting up and checks all devices
  * Ready      - Drone is ready to arm and start mission, requires operator input
  * Armed      - Drone starts arming process and spins propellers
- * Flying     - Drone is in the air and flying, active  
- * Landing    -
- * Stopped    -
- * Faulted    -
- * Debug      -
+ * Flying     - Drone is in the air and flying. Drone uses Flight Modes for operation
+ * Landing    - Drone will attempt to land by lowering throttle
+ * Stopped    - Drone will cease all movement and read next mission
+ * Faulted    - Similar to stopped, but does not reset even after powering on/off
+ * Debug      - For testing
 */
 
 const int StraightLineDist = 100; // Aim to travel 100cm in AutoStraightLine mode
 
 enum DroneState {Initialise, Ready, Armed, Flying, Landing, Stopped, Faulted, Debug};
-enum DroneFlightMode {OperatorControl, AutoStraightLine};
+enum DroneFlightMode {OperatorControl, AutoStraightLine, ArmOnly};
 DroneState currentState = Initialise;
 
 void setup() {
