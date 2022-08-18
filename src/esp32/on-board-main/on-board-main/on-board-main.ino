@@ -165,17 +165,51 @@ void loop() {
 
 
   // Main loop for the state
-  switch( currentState ) {
-
+  switch(currentState) {
     case Initialise:
+
+
       break;
+
     case Ready:
+
+      break;
+
+    case Armed:
+
+      break;
+
+    case Flying:
+      switch(currentFlightMode) {
+        case OperatorControl:
+          break;
+
+        case AutoStraightLine:
+          break;
+      }
+
+
+      break;
+
+    case Landing:
+
+      break;
+
+    case Stopped:
+
+      break;
+
+    case Faulted:
+
+      break;
+
+    case Debug:
+
       break;
   }
 
   // Checking for state transfer conditions
   switch( currentState ) {
-
     case Initialise:
       break;
     case Ready:
@@ -184,7 +218,6 @@ void loop() {
 
   // Completing state transfer
   switch( currentState ) {
-
     case Initialise:
       break;
     case Ready:
