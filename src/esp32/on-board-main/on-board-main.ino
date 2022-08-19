@@ -126,8 +126,10 @@ TaskHandle_t th_Ultrasonic5;
 TaskHandle_t th_Ultrasonic6;
 
 // Task handle for other threads
-TaskHandle_t Scribe;  // Writes US Data to SD Card. Scribe controls Semaphore "start"
-TaskHandle_t Pilot;   // Constantly writes to the SBUS line
+TaskHandle_t th_Scribe;  // Writes US Data to SD Card. Scribe controls Semaphore "start"
+TaskHandle_t th_Pilot;   // Constantly writes to the SBUS line
+TaskHandle_t th_Comms;   // Handles LED sequencing and colours
+TaskHandle_t th_Switch;  // Handles Switching for testing purposes
 
 // Drone state for Finite State Machine
 
@@ -145,7 +147,7 @@ const int StraightLineDist = 100; // Aim to travel 100cm in AutoStraightLine mod
 // Enums for drone FSM
 enum DroneState {Initialise, Ready, Armed, Flying, Landing, Stopped, Faulted, Debug};
 enum DroneFlightMode {OperatorControl, AutoStraightLine, ArmOnly};
-enum DroneDebugTest {SBUS_COMMS, ARMING_DISARMING, SD_READ_WRITE}; // Unit testing scenarios
+enum DroneDebugTest {SBUS_COMMS, ARMING_DISARMING, SD_READ_WRITE, LED_RESPONSE}; // Unit testing scenarios
 
 // Drone initial states
 DroneState currentState = Initialise;
@@ -202,6 +204,177 @@ void us_Task1(void * parameters) {
   }
 }
 
+void debug_switchModes(void * parameters) {
+  xSemaphoreTake(debug_switchModesSemaphore, portMAX_DELAY);
+  
+  for (;;) {
+    // If the switch modes semaphore is released, AS7 will constantly switch modes
+
+    currentState = Initialise;
+    Serial.println("Moving to Initialise Mode");
+    vTaskDelay(debug_switchModesDelay);
+
+    currentState = Ready;
+    Serial.println("Moving to ReadyMode");
+    vTaskDelay(debug_switchModesDelay);
+
+    currentState = Armed;
+    Serial.println("Moving to Armed Mode");
+    vTaskDelay(debug_switchModesDelay);
+
+    currentState = Flying;
+    Serial.println("Moving to Flying-Default Mode");
+    vTaskDelay(debug_switchModesDelay);
+
+    currentFlightMode = ArmOnly;
+    Serial.println("Moving to Flying-ArmOnly Mode");
+    vTaskDelay(debug_switchModesDelay);
+
+    currentFlightMode = OperatorControl;
+    Serial.println("Moving to Flying-OperatorControl Mode");
+    vTaskDelay(debug_switchModesDelay);
+
+    currentFlightMode = AutoStraightLine;
+    Serial.println("Moving to Flying-AutoStraightLine Mode");
+    vTaskDelay(debug_switchModesDelay);
+
+    currentState = Debug;
+    Serial.println("Moving to Debug Mode");
+    
+    vTaskDelay(debug_switchModesDelay);
+    
+    
+  }
+}
+
+void debug_LEDComms(void * parameters) {
+  // Always-On LEDs:
+  //  LED 0 is LEFT (RED)
+  //  LED 7 is RIGHT (GREEN)
+  //  CRGB colours can be found at http://fastled.io/docs/3.1/struct_c_r_g_b.html
+  
+  // Task code starts here
+  for (;;) {
+    debug_led[0] = CRGB::Red;
+    debug_led[debug_ledNum-1] = CRGB::Green;
+
+    // delay is vTaskDelay( xDelay );
+    // Main loop for the state
+    switch(currentState) {
+      case Initialise:
+        for (int i = 1; i < debug_ledNum-1; i++) {
+          debug_led[i] = CRGB::Gold;
+        }
+
+        FastLED.show();
+        vTaskDelay(debug_normDelay);
+        for (int i = 1; i < debug_ledNum-1; i++) {
+          debug_led[i] = CRGB::Black;
+        }
+
+        FastLED.show();
+        vTaskDelay(debug_normDelay);
+        break;
+
+      case Ready:
+        for (int i = 1; i < debug_ledNum-1; i++) {
+          debug_led[i] = CRGB::DodgerBlue;
+        }
+
+        FastLED.show();
+        vTaskDelay(debug_slowDelay);
+        for (int i = 1; i < debug_ledNum-1; i++) {
+          debug_led[i] = CRGB::Black;
+        }
+
+        FastLED.show();
+        vTaskDelay(debug_slowDelay);
+        break;
+
+      case Armed:
+          for (int i = 1; i < debug_ledNum-1; i++) {
+            debug_led[i] = CRGB::DodgerBlue;
+          }
+  
+          FastLED.show();
+          vTaskDelay(debug_normDelay);
+          for (int i = 1; i < debug_ledNum-1; i++) {
+            debug_led[i] = CRGB::Orange;
+          }
+  
+          FastLED.show();
+          vTaskDelay(debug_normDelay);
+            
+        break;
+
+      case Flying:
+        
+        switch(currentFlightMode) {
+          case OperatorControl:
+            for (int i = 1; i < debug_ledNum-1; i++) {
+              debug_led[i] = CRGB::DeepPink;
+            }
+            debug_led[1] = CRGB::Grey;
+            debug_led[6] = CRGB::Grey;
+            FastLED.show();
+            vTaskDelay(debug_normDelay);
+            for (int i = 1; i < debug_ledNum-1; i++) {
+              debug_led[i] = CRGB::Black;
+            }
+            debug_led[1] = CRGB::Grey;
+            debug_led[6] = CRGB::Grey;
+            FastLED.show();
+            vTaskDelay(debug_normDelay);
+            break;
+
+          case AutoStraightLine:
+            for (int i = 1; i < debug_ledNum-1; i++) {
+              debug_led[i] = CRGB::DodgerBlue;
+            }
+            debug_led[1] = CRGB::Grey;
+            debug_led[6] = CRGB::Grey;
+            FastLED.show();
+            vTaskDelay(debug_normDelay);
+            for (int i = 1; i < debug_ledNum-1; i++) {
+              debug_led[i] = CRGB::LawnGreen;
+            }
+            
+            debug_led[1] = CRGB::Grey;
+            debug_led[6] = CRGB::Grey;
+            FastLED.show();
+            vTaskDelay(debug_normDelay);
+            break;
+        }
+
+        
+        break;
+
+      case Landing:
+
+        break;
+
+      case Stopped:
+
+        break;
+
+      case Faulted:
+
+        break;
+
+      case Debug:
+        for (int i = 0; i < 8; i++) {
+          fill_palette(debug_led, 8, i * 255/8, 255/8, debugPal, 128, LINEARBLEND);
+          FastLED.show();
+          vTaskDelay(debug_fastDelay);
+        }
+        
+        FastLED.show();
+
+        break;
+    }
+  }
+}
+
 
 
 
@@ -230,6 +403,10 @@ void setup() {
   pinMode(us_echoPin5, INPUT);
   pinMode(us_echoPin6, INPUT);
 
+  // Set up rear status LEDs (Glowbit 1x8 or any 8-length WS2812B)
+  FastLED.addLeds<LED_TYPE, debug_ledPin, COLOR_ORDER>(debug_led, debug_ledNum).setCorrection( TypicalLEDStrip );
+  FastLED.setBrightness( debug_ledBrightness );
+
   // Create binary semaphores
   us_step1Semaphore = xSemaphoreCreateBinary();
   us_step2Semaphore = xSemaphoreCreateBinary();
@@ -239,6 +416,9 @@ void setup() {
   us_step6Semaphore = xSemaphoreCreateBinary();
   
   us_startSemaphore = xSemaphoreCreateBinary();
+  debug_switchModesSemaphore = xSemaphoreCreateBinary();
+
+  xSemaphoreGive(debug_switchModesSemaphore);
 
   xTaskCreatePinnedToCore(
     us_Task1,               /* Task function. */
@@ -249,6 +429,23 @@ void setup() {
     &th_Ultrasonic1,        /* Task handle to keep track of created task */
     1);                     /* pin task to core 1 */
 
+  xTaskCreatePinnedToCore(
+    debug_LEDComms,         /* Task function. */
+    "LED Comms",            /* name of task. */
+    2056,                  /* Stack size of task */
+    NULL,                   /* parameter of the task */
+    3,                      /* priority of the task */
+    &th_Comms,        /* Task handle to keep track of created task */
+    1);                     /* pin task to core 1 */
+
+  xTaskCreatePinnedToCore(
+    debug_switchModes,         /* Task function. */
+    "Switch Modes",            /* name of task. */
+    2056,                  /* Stack size of task */
+    NULL,                   /* parameter of the task */
+    3,                      /* priority of the task */
+    &th_Switch,        /* Task handle to keep track of created task */
+    1);                     /* pin task to core 1 */
 
 }
 
