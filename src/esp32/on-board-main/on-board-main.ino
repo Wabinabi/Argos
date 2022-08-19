@@ -10,10 +10,10 @@
  *
  */
 
-#include "sbus.h"   // SBUS Communication Library with FC
-
-#include <SPI.h>    // for SD Card
-#include <SD.h>     // for SD Card
+#include <sbus.h>     // SBUS Communication Library with FC
+#include <FastLED.h>  // Glowbit/WS2812B Library
+#include <SPI.h>      // for SD Card
+#include <SD.h>       // for SD Card
 
 // Define Pins for devices.
 //  format "device_function"
@@ -41,6 +41,25 @@ const int i2c_sclPin = 22;
 
 #define I2C_SDA i2c_sdaPin;
 #define I2C_SCL i2c_sclPin;
+
+// Define LED constants and pins
+const int debug_ledPin = 3;
+const int debug_ledNum = 8;
+const int debug_ledBrightness = 128;
+#define LED_TYPE    WS2811
+#define COLOR_ORDER GRB
+CRGB debug_led[debug_ledNum];
+
+DEFINE_GRADIENT_PALETTE( debug_palette ) {
+  0,     255,  20,  147, // Fuchsia
+128,     0,   255,  255,
+255,     255,  20,  147};
+CRGBPalette16 debugPal = debug_palette;
+
+const TickType_t debug_fastDelay = 100 / portTICK_PERIOD_MS; // 100ms tick delay
+const TickType_t debug_normDelay = 500 / portTICK_PERIOD_MS; // 500ms tick delay
+const TickType_t debug_slowDelay = 1000 / portTICK_PERIOD_MS; // 1000ms tick delay
+const TickType_t debug_switchModesDelay = 5000 / portTICK_PERIOD_MS; // The delay between mode switching for debugging
 
 // FC SBUS Pins
 const int sbus_rxPin = 16;
@@ -94,6 +113,9 @@ SemaphoreHandle_t us_step6Semaphore;
 
 // Used by the Scribe thread after all 6 measurements taken
 SemaphoreHandle_t us_startSemaphore;
+
+// Used to Start/Stop Mode Switching
+SemaphoreHandle_t debug_switchModesSemaphore;
 
 // Task handle definitions for US threads
 TaskHandle_t th_Ultrasonic1;
