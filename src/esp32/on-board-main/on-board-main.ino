@@ -418,7 +418,8 @@ void setup() {
   us_startSemaphore = xSemaphoreCreateBinary();
   debug_switchModesSemaphore = xSemaphoreCreateBinary();
 
-  xSemaphoreGive(debug_switchModesSemaphore);
+  // Use this semaphore to enable automatic mode switching
+  //xSemaphoreGive(debug_switchModesSemaphore);
 
   xTaskCreatePinnedToCore(
     us_Task1,               /* Task function. */
@@ -438,14 +439,14 @@ void setup() {
     &th_Comms,        /* Task handle to keep track of created task */
     1);                     /* pin task to core 1 */
 
-  xTaskCreatePinnedToCore(
-    debug_switchModes,         /* Task function. */
-    "Switch Modes",            /* name of task. */
-    2056,                  /* Stack size of task */
-    NULL,                   /* parameter of the task */
-    3,                      /* priority of the task */
-    &th_Switch,        /* Task handle to keep track of created task */
-    1);                     /* pin task to core 1 */
+  // xTaskCreatePinnedToCore(
+  //   debug_switchModes,        /* Task function. */
+  //   "Switch Modes",           /* name of task. */
+  //   2056,                     /* Stack size of task */
+  //   NULL,                     /* parameter of the task */
+  //   3,                        /* priority of the task */
+  //   &th_Switch,               /* Task handle to keep track of created task */
+  //   1);                       /* pin task to core 1 */
 
 }
 
