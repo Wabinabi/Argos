@@ -57,7 +57,7 @@ bfs::SbusTx sbus_tx(&Serial1);
 std::array<int16_t, bfs::SbusRx::NUM_CH()> sbus_data;
 
 // Defining constants
-const int MAX_US_DISTANCE 400;
+const int MAX_US_DISTANCE = 400;
 
 // Variable for throttle control, float value 0 to 1.
 double nav_lift = 0;
@@ -137,7 +137,7 @@ bool serialEnabled = false;
 // Initial trials with class methods or void* parameters for code re-use didn't go so well
 //  Keeping it simple and writing out the code 6 times
 
-void us_Task1() {
+void us_Task1(void * parameters) {
   int pinNumber = us_trigPin1;
   int echoPin = us_trigPin1;
   
@@ -294,20 +294,20 @@ void loop() {
 
 
 
-  if(sbus_rx.Read()) {
-    sbus_data = sbus_rx.ch();
-     for (int i = 0; i < 16; i++) {
-        Serial.print(sbus_data[i]);
-       Serial.print(" ");
-     }
-  }
+  // if(sbus_rx.Read()) {
+  //   sbus_data = sbus_rx.ch();
+  //    for (int i = 0; i < 16; i++) {
+  //       Serial.print(sbus_data[i]);
+  //      Serial.print(" ");
+  //    }
+  // }
 
   
-   Serial.println();
+  //  Serial.println();
 
-  /* Set the SBUS TX data to the received data */
-  sbus_tx.ch(sbus_data);
-  /* Write the data to the servos */
-  sbus_tx.Write();
+  // /* Set the SBUS TX data to the received data */
+  // sbus_tx.ch(sbus_data);
+  // /* Write the data to the servos */
+  // sbus_tx.Write();
   
 }
