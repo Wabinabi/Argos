@@ -511,23 +511,5 @@ void loop() {
     case Ready:
       break;
   }
-
-
-
-  // if(sbus_rx.Read()) {
-  //   sbus_data = sbus_rx.ch();
-  //    for (int i = 0; i < 16; i++) {
-  //       Serial.print(sbus_data[i]);
-  //      Serial.print(" ");
-  //    }
-  // }
-
-  
-  //  Serial.println();
-
-  // /* Set the SBUS TX data to the received data */
-  // sbus_tx.ch(sbus_data);
-  // /* Write the data to the servos */
-  // sbus_tx.Write();
   
 }
