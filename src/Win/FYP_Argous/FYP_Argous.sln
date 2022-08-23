@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32802.440
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FYP_Argous", "FYP_Argous.csproj", "{10ECBB62-8782-4C9B-A072-3709C6980AB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10ECBB62-8782-4C9B-A072-3709C6980AB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10ECBB62-8782-4C9B-A072-3709C6980AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10ECBB62-8782-4C9B-A072-3709C6980AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10ECBB62-8782-4C9B-A072-3709C6980AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7ECAE992-2356-4A43-B1FD-108BC07DBF4E}
+	EndGlobalSection
+EndGlobal
