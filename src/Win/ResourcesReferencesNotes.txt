@@ -1,0 +1,12 @@
+Opening an external application from inside WinForms:
+	https://www.youtube.com/watch?v=KvHZxprWVO8&ab_channel=TheAmazingCodeverse
+	https://www.youtube.com/watch?v=l9h5Y_uxNy4&t=0s&ab_channel=TheAmazingCodeverse (auto opening an application)
+
+!!!CC opens externally and not within the window.
+https://stackoverflow.com/questions/758494/how-can-i-run-another-application-within-a-panel-of-my-c-sharp-program
+
+Helped remove the CC loading screen, still loading outside of the frame:
+https://stackoverflow.com/questions/5836176/docking-window-inside-another-window
+================================================================================
+Reading a text file and saving it:
+https://www.youtube.com/watch?v=DXxV5GyIQx8&ab_channel=CPlus%2B

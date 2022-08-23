@@ -1,0 +1,10 @@
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\bin\Debug\FYP_Argous.exe.config
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\bin\Debug\FYP_Argous.exe
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\bin\Debug\FYP_Argous.pdb
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\obj\Debug\FYP_Argous.csproj.AssemblyReference.cache
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\obj\Debug\FYP_Argous.Form1.resources
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\obj\Debug\FYP_Argous.Properties.Resources.resources
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\obj\Debug\FYP_Argous.csproj.GenerateResource.cache
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\obj\Debug\FYP_Argous.csproj.CoreCompileInputs.cache
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\obj\Debug\FYP_Argous.exe
+E:\Documents\Gitkraken repositories\Argous\src\Win\FYP_Argous\obj\Debug\FYP_Argous.pdb
