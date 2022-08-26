@@ -4,7 +4,7 @@
  * @brief The main on-board sketch for the Ecobat Project
  *
  * @author Jimmy Trac
- * Contact: jt@nekox.net 
+ * Contact: support@nekox.net 
  * 
  * @note will complete banner later
  *
@@ -242,6 +242,9 @@ void debug_switchModes(void * parameters) {
 
     currentState = Debug;
     Serial.println("Moving to Debug Mode");
+
+    currentState = Faulted;
+    Serial.println("Moving to Faulted Mode");
     
     vTaskDelay(debug_switchModesDelay);
     
@@ -250,11 +253,42 @@ void debug_switchModes(void * parameters) {
 }
 
 void debug_LEDComms(void * parameters) {
-  // Always-On LEDs:
-  //  LED 0 is LEFT (RED)
-  //  LED 7 is RIGHT (GREEN)
-  //  CRGB colours can be found at http://fastled.io/docs/3.1/struct_c_r_g_b.html
+  /*
+  Always-On LEDs:
+   LED 0 is LEFT (RED)
+   LED 7 is RIGHT (GREEN)
+   CRGB colours can be found at http://fastled.io/docs/3.1/struct_c_r_g_b.html
   
+  Key:
+    Blue relates to flying-related tasks
+    Lime relates to autonomous-related tasks
+    
+    LED 0 and 7 are always RED and GREEN unless Debugging
+    LED 1 and 6 are always WHITE when flying
+
+  Initialise:
+    Normal Speed - Flashing Yellow
+  Ready:
+    Slower Speed - Flashing Blue
+  Armed:
+    Normal Speed - Flashing BlueOrange
+  Flying:
+    ArmOnly:
+      NA
+    OperatorControl:
+      Normal Speed - Flashing Pink
+    AutoStraightLine:
+      Normal Speed - Flashing Blue-Lime
+  Faulted:
+    Fast Speed - Flashing Red, LEDs 1 and 6 Orange
+  Debug:
+
+
+
+
+
+  */
+
   // Task code starts here
   for (;;) {
     debug_led[0] = CRGB::Red;
@@ -360,6 +394,14 @@ void debug_LEDComms(void * parameters) {
         break;
 
       case Faulted:
+        for (int i = 1; i < debug_ledNum-1; i++) {
+              debug_led[i] = CRGB::Red;
+            }
+            debug_led[1] = CRGB::Orange;
+            debug_led[6] = CRGB::Orange;
+            FastLED.show();
+            vTaskDelay(debug_fastDelay);
+            break;
 
         break;
 
