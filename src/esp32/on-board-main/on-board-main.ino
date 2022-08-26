@@ -470,7 +470,7 @@ void setup() {
     "US Task",              /* name of task. */
     8192,                   /* Stack size of task */
     NULL,                   /* parameter of the task */
-    configMAX_PRIORITIES-1, /* priority of the task */
+    2, /* priority of the task */
     &th_Ultrasonic,         /* Task handle to keep track of created task */
     1);                     /* pin task to core 1 */
 
