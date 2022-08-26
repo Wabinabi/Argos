@@ -18,19 +18,8 @@
 // Define Pins for devices.
 //  format "device_function"
 
-// Ultrasonic Driver pins
-const int us_trigPin1 = 32;
-const int us_echoPin1 = 35;
-const int us_trigPin2 = 25;
-const int us_echoPin2 = 33;
-const int us_trigPin3 = 12;
-const int us_echoPin3 = 13;
-const int us_trigPin4 = 27;
-const int us_echoPin4 = 14;
-const int us_trigPin5 = 4;
-const int us_echoPin5 = 0;
-const int us_trigPin6 = 2;
-const int us_echoPin6 = 15;
+int us_trigPin[NUM_US_SENSORS] = {};
+int us_echoPin[NUM_US_SENSORS] = {};
 
 // SD Card Pins
 #define CS_PIN 5
@@ -77,6 +66,7 @@ std::array<int16_t, bfs::SbusRx::NUM_CH()> sbus_data;
 
 // Defining constants
 const int MAX_US_DISTANCE = 400;
+const int NUM_US_SENSORS = 6;
 
 // Variable for throttle control, float value 0 to 1.
 double nav_lift = 0;
@@ -90,40 +80,34 @@ double nav_stf = 0;    // Strafting left/right movement
 File config_file; // Read in configuration for drone
 File output_file; // Output PLY file
 
-// Variables for storing US results. Only to be written to by US threads
-//  to avoid race conditions
-int us1_distance;
-int us2_distance;
-int us3_distance;
-int us4_distance;
-int us5_distance;
-int us6_distance;
+// Variable for storing US results. Only to be written to by US threads
+int us_distance[NUM_US_SENSORS];
 
 // Current temperature from thermistor
 int tmp_temperature;
 
 // Binary semaphore definitions for enforcing US order
 // Each US requires its own semaphore. US1 requires Step 1 and releases Step 2
-SemaphoreHandle_t us_step1Semaphore;
-SemaphoreHandle_t us_step2Semaphore;
-SemaphoreHandle_t us_step3Semaphore;
-SemaphoreHandle_t us_step4Semaphore;
-SemaphoreHandle_t us_step5Semaphore;
-SemaphoreHandle_t us_step6Semaphore;
+//SemaphoreHandle_t us_step1Semaphore;
+//SemaphoreHandle_t us_step2Semaphore;
+//SemaphoreHandle_t us_step3Semaphore;
+//SemaphoreHandle_t us_step4Semaphore;
+//SemaphoreHandle_t us_step5Semaphore;
+//SemaphoreHandle_t us_step6Semaphore;
 
 // Used by the Scribe thread after all 6 measurements taken
-SemaphoreHandle_t us_startSemaphore;
+SemaphoreHandle_t us_enableSemaphore;
 
 // Used to Start/Stop Mode Switching
 SemaphoreHandle_t debug_switchModesSemaphore;
 
 // Task handle definitions for US threads
-TaskHandle_t th_Ultrasonic1;
-TaskHandle_t th_Ultrasonic2;
-TaskHandle_t th_Ultrasonic3;
-TaskHandle_t th_Ultrasonic4;
-TaskHandle_t th_Ultrasonic5;
-TaskHandle_t th_Ultrasonic6;
+TaskHandle_t th_Ultrasonic;
+//TaskHandle_t th_Ultrasonic2;
+//TaskHandle_t th_Ultrasonic3;
+//TaskHandle_t th_Ultrasonic4;
+//TaskHandle_t th_Ultrasonic5;
+//TaskHandle_t th_Ultrasonic6;
 
 // Task handle for other threads
 TaskHandle_t th_Scribe;  // Writes US Data to SD Card. Scribe controls Semaphore "start"
@@ -156,51 +140,69 @@ DroneFlightMode currentFlightMode = ArmOnly;
 // Checks to see if a serial link can be established
 bool serialEnabled = false;
 
+/* --------------------- Function code --------------------- */
+void init_SD() {
+  if (!SD.begin(CS_PIN)) {
+    Serial.println("Error, SD Initialization Failed");
+    return;
+  }
+
+  File testFile = SD.open("/SDTest.txt", FILE_WRITE);
+  if (testFile) {
+    testFile.println("Hello ESP32 SD");
+    testFile.close();
+    Serial.println("Success, data written to SDTest.txt");
+  } else {
+    Serial.println("Error, couldn't not open SDTest.txt");
+  }
+
+}
+
+
 
 /* --------------------- Task code for threads --------------------- */
 // Initial trials with class methods or void* parameters for code re-use didn't go so well
 //  Keeping it simple and writing out the code 6 times
 
-void us_Task1(void * parameters) {
-  int pinNumber = us_trigPin1;
-  int echoPin = us_trigPin1;
-  
+void us_Task(void * parameters) { 
 
   // Semaphore sequencing. Pre = The step required, Post = the step after
-  SemaphoreHandle_t preSemaphore = us_step1Semaphore;
-  SemaphoreHandle_t postSemaphore = us_step2Semaphore;
+  //SemaphoreHandle_t preSemaphore = us_step1Semaphore;
+  //SemaphoreHandle_t postSemaphore = us_step2Semaphore;
 
   // Task code starts here
   int ldistance;
   int lduration;
   for (;;) {
+    xSemaphoreTake(us_enableSemaphore, portMAX_DELAY);
+    for (int i = 0; i < NUM_US_SENSORS; i++) {
     delayMicroseconds(10);
 
     //Get Sequence Semaphore
-    xSemaphoreTake(preSemaphore, portMAX_DELAY);
     // Ultrasonic Code - Critical Section starts here
     // Clear the trig pin
-    digitalWrite(pinNumber, LOW);
+    digitalWrite(us_trigPin[i], LOW);
     delayMicroseconds(2);
     // Sets the trigPin on HIGH state for 10 us
-    digitalWrite(pinNumber, HIGH);
+    digitalWrite(us_trigPin[i], HIGH);
     delayMicroseconds(10);
-    digitalWrite(pinNumber, LOW);
+    digitalWrite(us_trigPin[i], LOW);
     // Reads the echoPin, returns the sound wave travel time in us
-    lduration = pulseIn(echoPin, HIGH);
+    lduration = pulseIn(us_echoPin[i], HIGH);
     // Calculating the distance
     ldistance = lduration * 0.034 / 2;
 
-    us1_distance = min(ldistance,MAX_US_DISTANCE); // < ---- Change static value here   
+    us_distance[i] = min(ldistance,MAX_US_DISTANCE); // < ---- Change static value here   
     // End critical section
 
     if (serialEnabled) {
-      Serial.print(us1_distance);
+      Serial.print(us_distance[i]);
       Serial.print(" ");
     }
 
     delay(80); // A delay of >70ms is recommended
-    xSemaphoreGive(postSemaphore);
+    }
+    xSemaphoreGive(us_enableSemaphore);
   }
 }
 
@@ -388,55 +390,58 @@ void setup() {
   sbus_tx.Begin(sbus_rxPin, sbus_txPin);
 
   // Set trig pins as outputs
-  pinMode(us_trigPin1, OUTPUT);
-  pinMode(us_trigPin2, OUTPUT);
-  pinMode(us_trigPin3, OUTPUT);
-  pinMode(us_trigPin4, OUTPUT);
-  pinMode(us_trigPin5, OUTPUT);
-  pinMode(us_trigPin6, OUTPUT);
+  pinMode(us_trigPin[0], OUTPUT);
+  pinMode(us_trigPin[1], OUTPUT);
+  pinMode(us_trigPin[2], OUTPUT);
+  pinMode(us_trigPin[3], OUTPUT);
+  pinMode(us_trigPin[4], OUTPUT);
+  pinMode(us_trigPin[5], OUTPUT);
 
   // Set echo pins as inputs
-  pinMode(us_echoPin1, INPUT);
-  pinMode(us_echoPin2, INPUT);
-  pinMode(us_echoPin3, INPUT);
-  pinMode(us_echoPin4, INPUT);
-  pinMode(us_echoPin5, INPUT);
-  pinMode(us_echoPin6, INPUT);
+  pinMode(us_echoPin[0], INPUT);
+  pinMode(us_echoPin[1], INPUT);
+  pinMode(us_echoPin[2], INPUT);
+  pinMode(us_echoPin[3], INPUT);
+  pinMode(us_echoPin[4], INPUT);
+  pinMode(us_echoPin[5], INPUT);
 
   // Set up rear status LEDs (Glowbit 1x8 or any 8-length WS2812B)
   FastLED.addLeds<LED_TYPE, debug_ledPin, COLOR_ORDER>(debug_led, debug_ledNum).setCorrection( TypicalLEDStrip );
   FastLED.setBrightness( debug_ledBrightness );
 
   // Create binary semaphores
-  us_step1Semaphore = xSemaphoreCreateBinary();
-  us_step2Semaphore = xSemaphoreCreateBinary();
-  us_step3Semaphore = xSemaphoreCreateBinary();
-  us_step4Semaphore = xSemaphoreCreateBinary();
-  us_step5Semaphore = xSemaphoreCreateBinary();
-  us_step6Semaphore = xSemaphoreCreateBinary();
+  // us_step1Semaphore = xSemaphoreCreateBinary();
+  // us_step2Semaphore = xSemaphoreCreateBinary();
+  // us_step3Semaphore = xSemaphoreCreateBinary();
+  // us_step4Semaphore = xSemaphoreCreateBinary();
+  // us_step5Semaphore = xSemaphoreCreateBinary();
+  // us_step6Semaphore = xSemaphoreCreateBinary();
   
-  us_startSemaphore = xSemaphoreCreateBinary();
+  us_enableSemaphore = xSemaphoreCreateBinary();
   debug_switchModesSemaphore = xSemaphoreCreateBinary();
 
+  // Call initialise functions for drone modules
+  init_SD();
+
   // Use this semaphore to enable automatic mode switching
-  //xSemaphoreGive(debug_switchModesSemaphore);
+  xSemaphoreGive(debug_switchModesSemaphore);
 
   xTaskCreatePinnedToCore(
-    us_Task1,               /* Task function. */
-    "US Task 1",            /* name of task. */
-    2056,                  /* Stack size of task */
+    us_Task,                /* Task function. */
+    "US Task",              /* name of task. */
+    8192,                   /* Stack size of task */
     NULL,                   /* parameter of the task */
-    1,                      /* priority of the task */
-    &th_Ultrasonic1,        /* Task handle to keep track of created task */
+    configMAX_PRIORITIES-1, /* priority of the task */
+    &th_Ultrasonic,         /* Task handle to keep track of created task */
     1);                     /* pin task to core 1 */
 
   xTaskCreatePinnedToCore(
     debug_LEDComms,         /* Task function. */
     "LED Comms",            /* name of task. */
-    2056,                  /* Stack size of task */
+    2056,                   /* Stack size of task */
     NULL,                   /* parameter of the task */
-    3,                      /* priority of the task */
-    &th_Comms,        /* Task handle to keep track of created task */
+    1,                      /* priority of the task */
+    &th_Comms,              /* Task handle to keep track of created task */
     1);                     /* pin task to core 1 */
 
   // xTaskCreatePinnedToCore(
