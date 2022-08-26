@@ -435,6 +435,20 @@ void setup() {
   sbus_rx.Begin(sbus_rxPin, sbus_txPin);
   sbus_tx.Begin(sbus_rxPin, sbus_txPin);
 
+  // Ultrasonic Driver pins
+  us_trigPin[0] = 32;
+  us_echoPin[0] = 35;
+  us_trigPin[1] = 25;
+  us_echoPin[1] = 33;
+  us_trigPin[2] = 12;
+  us_echoPin[2] = 13;
+  us_trigPin[3] = 27;
+  us_echoPin[3] = 14;
+  us_trigPin[4] = 4;
+  us_echoPin[4] = 0;
+  us_trigPin[5] = 2;
+  us_echoPin[5] = 15;
+
   // Set trig pins as outputs
   pinMode(us_trigPin[0], OUTPUT);
   pinMode(us_trigPin[1], OUTPUT);
