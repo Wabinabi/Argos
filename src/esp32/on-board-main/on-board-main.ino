@@ -14,6 +14,9 @@
 #include <FastLED.h>  // Glowbit/WS2812B Library
 #include <SPI.h>      // for SD Card
 #include <SD.h>       // for SD Card
+#include <stack>      // For logging
+
+
 
 // Define Pins for devices.
 //  format "device_function"
@@ -57,7 +60,16 @@ const int sbus_txPin = 17;
 // Thermistor analogue Pin
 const int tmp_aPin = 34;
 
-// Defining variables and objects
+/* --------------------- Defining Constants --------------------- */
+
+// Debugging levels
+#define LOG_LEVEL_SILENT  0
+#define LOG_LEVEL_FATAL   1
+#define LOG_LEVEL_ERROR   2
+#define LOG_LEVEL_WARNING 3
+#define LOG_LEVEL_INFO    4
+#define LOG_LEVEL_NOTICE  4
+#define LOG_LEVEL_TRACE   5
 
 // SBUS Comms with FC
 bfs::SbusRx sbus_rx(&Serial1);
@@ -79,6 +91,7 @@ double nav_stf = 0;    // Strafting left/right movement
 // SD Card Interface
 File config_file; // Read in configuration for drone
 File output_file; // Output PLY file
+File log_file;    // Output Log file
 
 // Variable for storing US results. Only to be written to by US threads
 int us_distance[NUM_US_SENSORS];
@@ -93,11 +106,20 @@ SemaphoreHandle_t enable_pilotSemaphore;
 // Used to Start/Stop Mode Switching
 SemaphoreHandle_t debug_switchModesSemaphore;
 
-// Task handle definitions for US threads
-TaskHandle_t th_Ultrasonic;
+// Enable the Scribe, also forces one scribe at a time.
+SemaphoreHandle_t enable_scribeSemaphore;
 
-// Task handle for other threads
-TaskHandle_t th_Scribe;  // Writes US Data to SD Card. Scribe controls Semaphore "start"
+// Used for reading the message stacks for the scribe task
+SemaphoreHandle_t scribe_logSemaphore;
+SemaphoreHandle_t scribe_msgSemaphore;
+
+// Mutex for the message stacks
+SemaphoreHandle_t scribe_logStackMutex;
+SemaphoreHandle_t scribe_msgStackMutex;
+
+// Task handle for main threads
+TaskHandle_t th_Ultrasonic;
+TaskHandle_t th_Scribe;  // Maintains SD card.
 TaskHandle_t th_Pilot;   // Constantly writes to the SBUS line
 TaskHandle_t th_Comms;   // Handles LED sequencing and colours
 TaskHandle_t th_Switch;  // Handles Switching for testing purposes
@@ -124,8 +146,8 @@ enum DroneDebugTest {SBUS_COMMS, ARMING_DISARMING, SD_READ_WRITE, LED_RESPONSE};
 DroneState currentState = Initialise;
 DroneFlightMode currentFlightMode = ArmOnly;
 
-// Checks to see if a serial link can be established
-bool serialEnabled = false;
+// 
+std::stack<std::string> message_stack;
 
 /* --------------------- Function code --------------------- */
 void init_SD() {
@@ -144,6 +166,20 @@ void init_SD() {
   }
 
 }
+
+void log(int logLevel, String message) {
+
+}
+
+void log_fatal (String message) {
+
+}
+
+void log_error (String message);
+void log_warning (String message);
+void log_notice  (String message);
+void log_trace   (String message);
+void log_verbose (String message);
 
 
 
@@ -182,10 +218,11 @@ void us_Task(void * parameters) {
     us_distance[i] = min(ldistance,MAX_US_DISTANCE); // < ---- Change static value here   
     // End critical section
 
-    if (serialEnabled) {
-      Serial.print(us_distance[i]);
-      Serial.print(" ");
-    }
+    // TODO: replace with logging task
+    //if (serialEnabled) {
+    //  Serial.print(us_distance[i]);
+    //  Serial.print(" ");
+    //}
 
     delay(80); // A delay of >70ms is recommended
     }
@@ -205,6 +242,21 @@ void pilot_Task(void * parameters) {
 
   for (;;) {
     xSemaphoreTake(enable_pilotSemaphore, portMAX_DELAY);
+
+    if(sbus_rx.Read()) {
+      sbus_data = sbus_rx.ch();
+      for (int i = 0; i < 16; i++) {
+          Serial.print(sbus_data[i]);
+        Serial.print(" ");
+      }
+    }
+
+    /* Set the SBUS TX data to the received data */
+    sbus_tx.ch(sbus_data);
+    /* Write the data to the servos */
+    sbus_tx.Write();
+
+
 
 
     xSemaphoreGive(enable_pilotSemaphore);
@@ -427,6 +479,7 @@ void debug_LEDComms(void * parameters) {
 
 
 void setup() {
+  /* --------------------- Config --------------------- */
   // Main Comms Serial to PC
   Serial.begin(115200);
   Serial.println("Starting AS7 Serial Communications");
@@ -464,27 +517,39 @@ void setup() {
   pinMode(us_echoPin[3], INPUT);
   pinMode(us_echoPin[4], INPUT);
   pinMode(us_echoPin[5], INPUT);
+  
 
   // Set up rear status LEDs (Glowbit 1x8 or any 8-length WS2812B)
   FastLED.addLeds<LED_TYPE, debug_ledPin, COLOR_ORDER>(debug_led, debug_ledNum).setCorrection( TypicalLEDStrip );
   FastLED.setBrightness( debug_ledBrightness );
 
   // Create binary semaphores
-  // us_step1Semaphore = xSemaphoreCreateBinary();
-  // us_step2Semaphore = xSemaphoreCreateBinary();
-  // us_step3Semaphore = xSemaphoreCreateBinary();
-  // us_step4Semaphore = xSemaphoreCreateBinary();
-  // us_step5Semaphore = xSemaphoreCreateBinary();
-  // us_step6Semaphore = xSemaphoreCreateBinary();
-  
   enable_usSemaphore = xSemaphoreCreateBinary();
+  enable_scribeSemaphore = xSemaphoreCreateBinary();
+  enable_pilotSemaphore = xSemaphoreCreateBinary();
   debug_switchModesSemaphore = xSemaphoreCreateBinary();
 
-  // Call initialise functions for drone modules
-  init_SD();
+  scribe_logStackMutex = xSemaphoreCreateBinary();
+  scribe_msgStackMutex = xSemaphoreCreateBinary();
+
+  // Create Semaphores for tracking the number of messages/logs
+  scribe_logSemaphore = xSemaphoreCreateCounting(65535,0);
+  scribe_msgSemaphore = xSemaphoreCreateCounting(65535,0);
+
+  // Enable startup tasks
+  xSemaphoreGive(enable_usSemaphore);
+  xSemaphoreGive(enable_scribeSemaphore);
+  xSemaphoreGive(enable_pilotSemaphore);
+
+  // Mutexes for messages
+  xSemaphoreGive(scribe_logStackMutex);
+  xSemaphoreGive(scribe_msgStackMutex);
 
   // Use this semaphore to enable automatic mode switching
   xSemaphoreGive(debug_switchModesSemaphore);
+
+  /* --------------------- Initialise Modules --------------------- */
+  init_SD();
 
   xTaskCreatePinnedToCore(
     us_Task,                /* Task function. */
@@ -503,6 +568,8 @@ void setup() {
     1,                      /* priority of the task */
     &th_Comms,              /* Task handle to keep track of created task */
     1);                     /* pin task to core 1 */
+
+
 
   // xTaskCreatePinnedToCore(
   //   debug_switchModes,        /* Task function. */
