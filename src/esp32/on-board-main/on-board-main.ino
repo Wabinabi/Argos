@@ -161,7 +161,7 @@ void us_Task(void * parameters) {
   int ldistance;
   int lduration;
   for (;;) {
-    xSemaphoreTake(us_enableSemaphore, portMAX_DELAY);
+    xSemaphoreTake(enable_usSemaphore, portMAX_DELAY);
     for (int i = 0; i < NUM_US_SENSORS; i++) {
     delayMicroseconds(10);
 
@@ -189,9 +189,29 @@ void us_Task(void * parameters) {
 
     delay(80); // A delay of >70ms is recommended
     }
-    xSemaphoreGive(us_enableSemaphore);
+    xSemaphoreGive(enable_usSemaphore);
   }
 }
+
+void pilot_Task(void * parameters) { 
+  // Task code starts here
+
+  /*
+  This is the pilot task which keeps the sbus 
+
+
+
+  */
+
+  for (;;) {
+    xSemaphoreTake(enable_pilotSemaphore, portMAX_DELAY);
+
+
+    xSemaphoreGive(enable_pilotSemaphore);
+
+  }
+}
+
 
 void debug_switchModes(void * parameters) {
   xSemaphoreTake(debug_switchModesSemaphore, portMAX_DELAY);
@@ -443,7 +463,7 @@ void setup() {
   // us_step5Semaphore = xSemaphoreCreateBinary();
   // us_step6Semaphore = xSemaphoreCreateBinary();
   
-  us_enableSemaphore = xSemaphoreCreateBinary();
+  enable_usSemaphore = xSemaphoreCreateBinary();
   debug_switchModesSemaphore = xSemaphoreCreateBinary();
 
   // Call initialise functions for drone modules
@@ -501,6 +521,7 @@ void loop() {
     case Flying:
       switch(currentFlightMode) {
         case OperatorControl:
+
           break;
 
         case AutoStraightLine:
