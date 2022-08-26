@@ -282,10 +282,7 @@ void debug_LEDComms(void * parameters) {
   Faulted:
     Fast Speed - Flashing Red, LEDs 1 and 6 Orange
   Debug:
-
-
-
-
+    Blue-Pink Gradient
 
   */
 
