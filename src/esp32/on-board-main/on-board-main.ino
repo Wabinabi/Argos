@@ -86,28 +86,15 @@ int us_distance[NUM_US_SENSORS];
 // Current temperature from thermistor
 int tmp_temperature;
 
-// Binary semaphore definitions for enforcing US order
-// Each US requires its own semaphore. US1 requires Step 1 and releases Step 2
-//SemaphoreHandle_t us_step1Semaphore;
-//SemaphoreHandle_t us_step2Semaphore;
-//SemaphoreHandle_t us_step3Semaphore;
-//SemaphoreHandle_t us_step4Semaphore;
-//SemaphoreHandle_t us_step5Semaphore;
-//SemaphoreHandle_t us_step6Semaphore;
-
 // Used by the Scribe thread after all 6 measurements taken
-SemaphoreHandle_t us_enableSemaphore;
+SemaphoreHandle_t enable_usSemaphore;
+SemaphoreHandle_t enable_pilotSemaphore;
 
 // Used to Start/Stop Mode Switching
 SemaphoreHandle_t debug_switchModesSemaphore;
 
 // Task handle definitions for US threads
 TaskHandle_t th_Ultrasonic;
-//TaskHandle_t th_Ultrasonic2;
-//TaskHandle_t th_Ultrasonic3;
-//TaskHandle_t th_Ultrasonic4;
-//TaskHandle_t th_Ultrasonic5;
-//TaskHandle_t th_Ultrasonic6;
 
 // Task handle for other threads
 TaskHandle_t th_Scribe;  // Writes US Data to SD Card. Scribe controls Semaphore "start"
