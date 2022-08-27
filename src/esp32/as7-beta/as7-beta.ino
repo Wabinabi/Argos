@@ -21,6 +21,8 @@
 #include <SD.h>       // for SD Card
 #include <stack>      // For logging
 
+#include "as7-drone.h"
+#include "as7-sdlogging.h"
 
 /* ------------------------ Definitions and Constants ------------------------ */
 // Where possible, we will be using constant integers to enforce type checking.
@@ -107,7 +109,7 @@ bfs::SbusTx SBUS_TX(&Serial1);
 std::array<int16_t, bfs::SbusRx::NUM_CH()> sbus_data;
 
 
-CRGB debug_led[debug_ledNum];
+//CRGB debug_led[debug_ledNum];
 
 int US_TRIGPIN[NUM_US_SENSORS] = {};
 int US_ECHOPIN[NUM_US_SENSORS] = {};
@@ -134,5 +136,34 @@ TaskHandle_t th_Comms;   // Handles LED sequencing and colours
 TaskHandle_t th_Switch;  // Handles Switching for testing purposes
 
 
+/* ------------------------ Main Objects ------------------------ */
+
+//AS7::Drone drone;
+//AS7::Logger logger;
+
+/* ------------------------ Main Loop Starts Here ------------------------ */
+
+void setup()
+{
+    Serial.begin(115200);
+    Serial.println("AS7 starting up");
+    Serial.println("(c) Ecobat Project 2022");
+
+    if (SIMULATION_ENABLE) {
+        Serial.println("SimulationMode Enabled");
+    }
+    //sbus_rx.Begin(sbus_rxPin, sbus_txPin);
+    //sbus_tx.Begin(sbus_rxPin, sbus_txPin);
+
+    // Set up rear status LEDs (Glowbit 1x8 or any 8-length WS2812B)
+    //FastLED.addLeds<LED_TYPE, debug_ledPin, COLOR_ORDER>(debug_led, debug_ledNum).setCorrection( TypicalLEDStrip );
+    //FastLED.setBrightness( debug_ledBrightness );
 
 
+	// Set pinModes
+}
+
+void loop()
+{
+	
+}

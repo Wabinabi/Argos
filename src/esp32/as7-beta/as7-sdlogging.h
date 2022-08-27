@@ -5,8 +5,8 @@
  * The goal of this logger is to tie logging and comms into one location and delegate to a thread
  */
 #pragma once
-#ifndef ultrasonic_h
-#define ultrasonic_h
+#ifndef AS7SDLOGGING_H
+#define AS7SDLOGGING_H
 
 #include <Arduino.h>
 
@@ -23,5 +23,22 @@ SemaphoreHandle_t sem_msg;
 // Mutex for the message stacks
 SemaphoreHandle_t sem_logStackMutex;
 SemaphoreHandle_t sem_msgStackMutex;
+
+TaskHandle_t th_logger;
+
+
+namespace AS7 
+{
+    class Logger
+    {
+    private:
+
+    public:
+        Logger();
+        void run();
+    };
+}
+
+
 
 #endif
