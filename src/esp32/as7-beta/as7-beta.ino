@@ -1,19 +1,50 @@
 /**
- * @file as7-beta.ino
- * @brief The main on-board sketch for the Ecobat Project
- * @author Jimmy Trac support@nekox.net 
- * 
+ * @file as7-beta.ino 
+ * @brief Summary of module
+ * @author Jimmy Trac jt@nekox.net, Monique Kuhn monique.n.kuhn@gmail.com, Bi Wan Low bwlow39@gmail.com
+ *
  * AS7 On Board Software (beta)
  *  version 0.0.1
  *  https://github.com/Wabinabi/Argous
  * 
+ * The Argous S7 is the prototyping aerial platform for the Autonomous Underground Cave Mapping Project. 
  * 
- * This file is mainly used for setting up and configuration
- *  See as7-main.ino 
+ * Hardware List:
+ *  ESP32-DEVKIT C
+ *  Matek H743-SLIM
+ *  Turnigy HK-MT6B
+ *  HC-SR04 Ultrasonic Sensor Sonar Distance
+ *  DFROBOT SEN0168 Triple Axis Accelerometer, BMA220 (Tiny)
  * 
+ *                 ESP32 Devkic C
+ *                  +----------+  
+ *                  |          |  
+ *        +-----+---+----------+---+-----+
+ *       <- 3V3 |                  | GND -> 
+ *       <- EN  |                  |  23 ->  
+ *       <- VP  |                  |  22 -> 
+ *       <- VN  |                  |  TX ->
+ *       <- 34  |                  |  RX -> 
+ *       <- 35  |                  |  21 -> 
+ *       <- 32  |                  | GND -> 
+ *       <- 33  |                  |  19 ->
+ *       <- 25  |                  |  18 ->
+ *       <- 26  |                  |   5 ->
+ *       <- 27  |                  |  17 -> 
+ *       <- 14  |                  |  16 -> 
+ *       <- 12  |                  |   4 -> 
+ *       <- GND |                  |   0 -> 
+ *       <- 13  |                  |   2 -> 
+ *       <- D2  |                  |  15 -> 
+ *       <- D3  |                  |  D1 -> 
+ *       <- CMD |                  |  D0 ->  
+ *       <- 5V  |                  | CLK -> 
+ *        +-----+------------------+-----+  
  * 
  *
+ *
  */
+ 
 
 #include <sbus.h>     // SBUS Communication Library with FC
 #include <FastLED.h>  // WS2812B Library
@@ -139,7 +170,7 @@ TaskHandle_t th_Switch;  // Handles Switching for testing purposes
 /* ------------------------ Main Objects ------------------------ */
 
 //AS7::Drone drone;
-//AS7::Logger logger;
+AS7::Logger logger(&Serial);
 
 /* ------------------------ Main Loop Starts Here ------------------------ */
 
