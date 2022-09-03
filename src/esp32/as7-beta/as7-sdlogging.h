@@ -3,6 +3,7 @@
  * 
  * This is AS7's Logger. It prints to serial and SD card. 
  * The goal of this logger is to tie logging and comms into one location and delegate to a thread
+ * Read this for getters and setters inside freertos https://forums.freertos.org/t/freertos-task-in-a-c-class/13984
  */
 #pragma once
 #ifndef AS7SDLOGGING_H
@@ -24,30 +25,40 @@ namespace AS7
     class Logger
     {
     private:
-        std::stack<std::string> msg_stack;
-        std::stack<std::string> log_stack;
+        std::stack<std::string> _msg_stack;
+        std::stack<std::string> _log_stack;
         // Used for reading the message stacks for the scribe task
-        SemaphoreHandle_t sem_log;
-        SemaphoreHandle_t sem_msg;
+        SemaphoreHandle_t _sem_log;
+        SemaphoreHandle_t _sem_msg;
         
         // Mutex for the message stacks
-        SemaphoreHandle_t sem_logStackMutex;
-        SemaphoreHandle_t sem_msgStackMutex;
-        
+        SemaphoreHandle_t _sem_logStackMutex;
+        SemaphoreHandle_t _sem_msgStackMutex;
+
         TaskHandle_t th_logger;
+        Print* _printer;
 
-        Print* printer;
+        Print* getPrinter();
 
-        void handleMessage(std::string message);
 
-        
+        // figure out how to init stacks -> https://iq.opengenus.org/stack-initialization-cpp-stl/
+        std::string getTestMessage();
+        std::stack<std::string> getMsgStack();
+        std::stack<std::string> getLogStack();
 
+        SemaphoreHandle_t getSemLog();
+        SemaphoreHandle_t getSemMsg();
+        SemaphoreHandle_t getSemLogStackMutex();
+        SemaphoreHandle_t getSemMsgStackMutex();
+
+        void mainTask(void* parameters);
+        void enqueueMessage(std::string message);
+
+        static void startTaskImpl(void*);
 
     public:
         Logger(Print* output);
         void start(int core, int priority);
-
-        
 
         // The main logging tasks 
         void inform(std::string message);

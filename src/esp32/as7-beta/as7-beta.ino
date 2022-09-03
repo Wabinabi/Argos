@@ -184,7 +184,7 @@ void setup()
       Serial.println("SimulationMode Enabled");
     }
 
-    logger.inform("This is the logger!");
+    logger.start(1, 1);
     //sbus_rx.Begin(sbus_rxPin, sbus_txPin);
     //sbus_tx.Begin(sbus_rxPin, sbus_txPin);
 
