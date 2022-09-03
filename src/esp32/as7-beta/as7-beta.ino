@@ -181,8 +181,10 @@ void setup()
     Serial.println("(c) Ecobat Project 2022");
 
     if (SIMULATION_ENABLE) {
-        Serial.println("SimulationMode Enabled");
+      Serial.println("SimulationMode Enabled");
     }
+
+    logger.inform("This is the logger!");
     //sbus_rx.Begin(sbus_rxPin, sbus_txPin);
     //sbus_tx.Begin(sbus_rxPin, sbus_txPin);
 

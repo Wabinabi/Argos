@@ -36,10 +36,30 @@ namespace AS7
         
         TaskHandle_t th_logger;
 
+        Print* printer;
+
+        void handleMessage(std::string message);
+
+        
+
 
     public:
         Logger(Print* output);
         void start(int core, int priority);
+
+        
+
+        // The main logging tasks 
+        void inform(std::string message);
+        void notice(std::string message);
+        void warn(std::string message);
+        void error(std::string message);
+        void fatal(std::string message);
+        void verbose(std::string message);
+
+        void record(int x, int y, int z);
+
+
     };
 }
 
