@@ -35,6 +35,10 @@ namespace AS7
         SemaphoreHandle_t _sem_logStackMutex;
         SemaphoreHandle_t _sem_msgStackMutex;
 
+        // Sem for Enabling/Disabling Task
+        SemaphoreHandle_t _sem_enableMutex;
+        bool _running = false; // tracks if the thread is running or stopped
+
         TaskHandle_t th_logger;
         Print* _printer;
 
@@ -51,14 +55,32 @@ namespace AS7
         SemaphoreHandle_t getSemLogStackMutex();
         SemaphoreHandle_t getSemMsgStackMutex();
 
-        void mainTask(void* parameters);
-        void enqueueMessage(std::string message);
+        SemaphoreHandle_t getSemEnableMutex();
 
+        void mainTask(void* parameters);
+
+        // Adds a message to be recorded to the SD card
+        // diagnotics probably? will flush out later
+        void enqueueMsg(std::string message); 
+
+        // Adds a message to be sent to the console and onto the SD card
+        void enqueueLog(std::string message);
+
+        // for PLY generation, will need to be flushed out.
+        // String since we can also send header information
+        void enqueuePnt(std::string points);
+
+        std::string popLogStack();
+
+        // Implementation to start FreeRTOS tasks in classes
         static void startTaskImpl(void*);
 
     public:
         Logger(Print* output);
-        void start(int core, int priority);
+        void start(int core=1, int priority=1);
+        void pause();
+        void resume();
+
 
         // The main logging tasks 
         void inform(std::string message);
