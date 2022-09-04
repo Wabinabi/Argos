@@ -49,19 +49,14 @@ namespace AS7
         xSemaphoreGive(_sem_msgStackMutex);
     }
 
-    void Logger::enqueueLog(std::string message) {
+    void Logger::enqueueLog(std::string message, int verbosity) {
         xSemaphoreTake(_sem_logStackMutex, portMAX_DELAY);
         _log_stack.push(message);
         xSemaphoreGive(_sem_logStackMutex);
     }
 
     
-    
-     
-
-    //std::string getTestMessage() {}
     Print* Logger::getPrinter() {return _printer;}
-
 
     std::stack<std::string> Logger::getMsgStack() { return _msg_stack; }
     std::stack<std::string> Logger::getLogStack() { return _log_stack; }
@@ -73,28 +68,29 @@ namespace AS7
 
     SemaphoreHandle_t Logger::getSemEnableMutex() { return _sem_enableMutex; }
 
-    void Logger::inform(std::string message) {
-        enqueueLog("[Inform] " + message);
-    }
+    int Logger::verbosity() {return _verbosity; }
+    void Logger::setVerbosity(int verbosity) {_verbosity = verbosity; };
 
-    void Logger::notice(std::string message) {
-        enqueueLog("[Notice] " + message);
+    bool Logger::running() {return _running; }
+
+    void Logger::inform(std::string message) {
+        enqueueLog("[Inform] " + message, LOG_LEVEL_INFORM);
     }
 
     void Logger::warn(std::string message) {
-        enqueueLog("[Warning] " + message);
+        enqueueLog("[Warning] " + message, LOG_LEVEL_WARNING);
     }
 
     void Logger::error(std::string message) {
-        enqueueLog("[Error] " + message);
+        enqueueLog("[Error] " + message, LOG_LEVEL_ERROR);
     }
 
     void Logger::fatal(std::string message) {
-        enqueueLog("[Fatal] " + message);
+        enqueueLog("[Fatal] " + message, LOG_LEVEL_FATAL);
     }
 
     void Logger::verbose(std::string message) {
-        enqueueLog("[Verbose] " + message);
+        enqueueLog("[Verbose] " + message, LOG_LEVEL_VERBOSE);
     }
 
     void Logger::startTaskImpl(void* _this) {
@@ -123,7 +119,8 @@ namespace AS7
         
     }
 
-    void Logger::start(int core, int priority) {
+    void Logger::start(int core, int priority, int verbosity) {
+        _verbosity = verbosity;
         
         xTaskCreatePinnedToCore(
         this->Logger::startTaskImpl,                /* Task function. */

@@ -180,14 +180,16 @@ enum DroneDebugTest {SBUS_COMMS, ARMING_DISARMING, SD_READ_WRITE, LED_RESPONSE};
 
 // Drone initial states
 DroneState currentState = Initialise;
+DroneState nextState = Initialise;
 DroneFlightMode currentFlightMode = ArmOnly;
 
 
 /* --------------------- Function code --------------------- */
 void init_SD() {
   if (!SD.begin(CS_PIN)) {
-    Serial.println("Error, SD Initialization Failed");
-    return;
+    //Serial.println("Error, SD Initialization Failed");
+    logger.fatal("SD initialisation failed, is the SD module loose or not connected?");
+    logger.verbose("");
   }
 
   File testFile = SD.open("/SDTest.txt", FILE_WRITE);
@@ -292,31 +294,31 @@ void debug_switchModes(void * parameters) {
 
     currentState = Initialise;
     Serial.println("Moving to Initialise Mode");
-    vTaskDelay(debug_switchModesDelay);
+    vTaskDelay(TICK_LONGLONG);
 
     currentState = Ready;
     Serial.println("Moving to ReadyMode");
-    vTaskDelay(debug_switchModesDelay);
+    vTaskDelay(TICK_LONGLONG);
 
     currentState = Armed;
     Serial.println("Moving to Armed Mode");
-    vTaskDelay(debug_switchModesDelay);
+    vTaskDelay(TICK_LONGLONG);
 
     currentState = Flying;
     Serial.println("Moving to Flying-Default Mode");
-    vTaskDelay(debug_switchModesDelay);
+    vTaskDelay(TICK_LONGLONG);
 
     currentFlightMode = ArmOnly;
     Serial.println("Moving to Flying-ArmOnly Mode");
-    vTaskDelay(debug_switchModesDelay);
+    vTaskDelay(TICK_LONGLONG);
 
     currentFlightMode = OperatorControl;
     Serial.println("Moving to Flying-OperatorControl Mode");
-    vTaskDelay(debug_switchModesDelay);
+    vTaskDelay(TICK_LONGLONG);
 
     currentFlightMode = AutoStraightLine;
     Serial.println("Moving to Flying-AutoStraightLine Mode");
-    vTaskDelay(debug_switchModesDelay);
+    vTaskDelay(TICK_LONGLONG);
 
     currentState = Debug;
     Serial.println("Moving to Debug Mode");
@@ -324,7 +326,7 @@ void debug_switchModes(void * parameters) {
     currentState = Faulted;
     Serial.println("Moving to Faulted Mode");
     
-    vTaskDelay(debug_switchModesDelay);
+    vTaskDelay(TICK_LONGLONG);
     
     
   }
@@ -494,6 +496,10 @@ void FL_LEDComms(void * parameters) {
   }
 }
 
+/* ------------------------ Main Objects ------------------------ */
+
+//AS7::Drone drone;
+AS7::Logger logger(&Serial);
 
 
 
@@ -501,7 +507,10 @@ void setup() {
   /* --------------------- Config --------------------- */
   // Main Comms Serial to PC
   Serial.begin(115200);
-  Serial.println("Starting AS7 Serial Communications");
+  Serial.println("AS7 starting up");
+  Serial.println("(c) Ecobat Project 2022");
+
+  logger.start(1, 2);
 
   // Start SBUS on pins
   sbus_rx.Begin(SBUS_RXPIN, SBUS_TXPIN);
@@ -556,13 +565,15 @@ void setup() {
 
   /* --------------------- Initialise Modules --------------------- */
   init_SD();
+  
+
 
   xTaskCreatePinnedToCore(
     us_Task,                /* Task function. */
     "US Task",              /* name of task. */
     8192,                   /* Stack size of task */
     NULL,                   /* parameter of the task */
-    2, /* priority of the task */
+    4, /* priority of the task */
     &th_Ultrasonic,         /* Task handle to keep track of created task */
     1);                     /* pin task to core 1 */
 
@@ -584,6 +595,15 @@ void setup() {
   //   3,                        /* priority of the task */
   //   &th_Switch,               /* Task handle to keep track of created task */
   //   1);                       /* pin task to core 1 */
+  
+  logger.inform("AS7 has finished setup and is moving to main loop");
+
+  if (SIMULATION_ENABLE) {
+    Serial.println("-------------------- Simulation Enabled! --------------------");
+    logger.inform("AS7 is starting in simulation mode!");
+  }
+
+  
 
 }
 
@@ -592,6 +612,8 @@ void loop() {
   // Main loop for the state
   switch(currentState) {
     case Initialise:
+
+      if (logger.running()) {logger.inform("Logging is enabled"); }
 
 
       break;
@@ -635,19 +657,20 @@ void loop() {
   }
 
   // Checking for state transfer conditions
-  switch( currentState ) {
-    case Initialise:
-      break;
-    case Ready:
-      break;
+  if (currentState != nextState) {
+    // Transfer States
+
+    // Completing state transfer
+    switch( currentState ) {
+      case Initialise:
+        break;
+      case Ready:
+        break;
+    }
+
+    currentState=nextState;
   }
 
-  // Completing state transfer
-  switch( currentState ) {
-    case Initialise:
-      break;
-    case Ready:
-      break;
-  }
+  
   
 }

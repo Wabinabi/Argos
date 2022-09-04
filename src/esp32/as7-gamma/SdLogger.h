@@ -10,9 +10,16 @@
 #define AS7SDLOGGING_H
 
 #include <Arduino.h>
-#include <stack>      // For logging
+#include <stack>
 
-
+// Defines the maximum level of messages sent through the serial port
+// e.g. a level of WARNING (3) will only allow warnings, errors, and fatal issues to be sent to the serial port.
+#define LOG_LEVEL_SILENT  0
+#define LOG_LEVEL_FATAL   1
+#define LOG_LEVEL_ERROR   2
+#define LOG_LEVEL_WARNING 3
+#define LOG_LEVEL_INFO    4
+#define LOG_LEVEL_VERBOSE 5
 
 namespace AS7 
 {
@@ -37,6 +44,7 @@ namespace AS7
         Print* _printer;
 
         Print* getPrinter();
+        int _verbosity = LOG_LEVEL_INFO;
 
 
         // figure out how to init stacks -> https://iq.opengenus.org/stack-initialization-cpp-stl/
@@ -71,9 +79,14 @@ namespace AS7
 
     public:
         Logger(Print* output);
-        void start(int core=1, int priority=1);
+        void start(int core=1, int priority=1, int verbosity=LOG_LEVEL_INFO);
         void pause();
         void resume();
+
+        bool running();
+        int  verbosity();
+
+        void setVerbosity(int verbosity);
 
 
         // The main logging tasks 
