@@ -52,6 +52,7 @@
 #include <map>        // Dictionary/mapping
 
 #include "SdLogger.h"
+#include "Drone.h"
 
 // Pin Mapping
 #define I2C_SDA 21  // I2C Pin Mapping
@@ -208,16 +209,16 @@ void init_SD() {
   if (!SD.begin(CS_PIN)) {
     //Serial.println("Error, SD Initialization Failed");
     logger.fatal("SD initialisation failed, is the SD module loose or not connected?");
-    logger.verbose("");
+    logger.verbose("SD.Begin(CS_PIN) failed to return a true value.");
   }
 
   File testFile = SD.open("/SDTest.txt", FILE_WRITE);
   if (testFile) {
     testFile.println("Hello ESP32 SD");
     testFile.close();
-    Serial.println("Success, data written to SDTest.txt");
+    //Serial.println("Success, data written to SDTest.txt");
   } else {
-    Serial.println("Error, couldn't not open SDTest.txt");
+    //Serial.println("Error, couldn't not open SDTest.txt");
   }
 
 }
@@ -636,6 +637,8 @@ void loop() {
 
     case Ready:
 
+
+
       break;
 
     case Armed:
@@ -685,7 +688,7 @@ void loop() {
     }
 
 
-    logger.inform("AS7 moving to state " + droneStateMap[nextState]);
+    logger.inform("AS7 moving to state: " + droneStateMap[nextState]);
     currentState=nextState;
   }
 

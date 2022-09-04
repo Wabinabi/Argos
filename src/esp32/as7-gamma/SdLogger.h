@@ -11,6 +11,8 @@
 
 #include <Arduino.h>
 #include <stack>
+#include <SPI.h>
+#include <SD.h>
 
 // Defines the maximum level of messages sent through the serial port
 // e.g. a level of WARNING (3) will only allow warnings, errors, and fatal issues to be sent to the serial port.
@@ -20,12 +22,14 @@
 #define LOG_LEVEL_WARNING 3
 #define LOG_LEVEL_INFORM    4
 #define LOG_LEVEL_VERBOSE 5
+#define CS_PIN 5
 
 namespace AS7 
 {
     class Logger
     {
     private:
+
         std::stack<std::string> _msg_stack;
         std::stack<std::string> _log_stack;
         // Used for reading the message stacks for the scribe task
@@ -76,6 +80,8 @@ namespace AS7
 
         // Implementation to start FreeRTOS tasks in classes
         static void startTaskImpl(void*);
+
+        void initialiseSD();
 
     public:
         Logger(Print* output);
