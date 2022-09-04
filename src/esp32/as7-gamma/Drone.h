@@ -21,14 +21,24 @@
 
 namespace AS7 
 {
-    class Logger
+    class Drone
     {
     private:
+
+    TaskHandle_t th_logger;
+    static void startTaskImpl(void*);
+    void mainTask(void* parameters);
 
 
     public:
 
+    Drone();
     bool OperatorAcknowledge(int channel=1);
+    void eStop();
+
+    
+
+    
 
 
     };
