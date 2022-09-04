@@ -49,6 +49,8 @@
 #include <SPI.h>      // for SD Card
 #include <SD.h>       // for SD Card
 
+#include <map>        // Dictionary/mapping
+
 #include "SdLogger.h"
 
 // Pin Mapping
@@ -178,10 +180,27 @@ enum DroneState {Initialise, Ready, Armed, Flying, Landing, Stopped, Faulted, De
 enum DroneFlightMode {OperatorControl, AutoStraightLine, ArmOnly};
 enum DroneDebugTest {SBUS_COMMS, ARMING_DISARMING, SD_READ_WRITE, LED_RESPONSE}; // Unit testing scenarios
 
+std::map<DroneState, std::string> droneStateMap = {
+  {Initialise, "Initialise"},
+  {Ready, "Ready"},
+  {Armed, "Armed"},
+  {Flying, "Flying"},
+  {Landing, "Landing"},
+  {Stopped, "Stopped"},
+  {Faulted, "Faulted"},
+  {Debug, "Debug"}
+ };
+
 // Drone initial states
 DroneState currentState = Initialise;
 DroneState nextState = Initialise;
 DroneFlightMode currentFlightMode = ArmOnly;
+
+
+/* ------------------------ Main Objects ------------------------ */
+
+//AS7::Drone drone;
+AS7::Logger logger(&Serial);
 
 
 /* --------------------- Function code --------------------- */
@@ -496,11 +515,6 @@ void FL_LEDComms(void * parameters) {
   }
 }
 
-/* ------------------------ Main Objects ------------------------ */
-
-//AS7::Drone drone;
-AS7::Logger logger(&Serial);
-
 
 
 void setup() {
@@ -616,6 +630,8 @@ void loop() {
       if (logger.running()) {logger.inform("Logging is enabled"); }
 
 
+      nextState = Ready;
+
       break;
 
     case Ready:
@@ -668,6 +684,8 @@ void loop() {
         break;
     }
 
+
+    logger.inform("AS7 moving to state " + droneStateMap[nextState]);
     currentState=nextState;
   }
 

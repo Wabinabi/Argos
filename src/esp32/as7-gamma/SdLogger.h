@@ -18,7 +18,7 @@
 #define LOG_LEVEL_FATAL   1
 #define LOG_LEVEL_ERROR   2
 #define LOG_LEVEL_WARNING 3
-#define LOG_LEVEL_INFO    4
+#define LOG_LEVEL_INFORM    4
 #define LOG_LEVEL_VERBOSE 5
 
 namespace AS7 
@@ -44,7 +44,7 @@ namespace AS7
         Print* _printer;
 
         Print* getPrinter();
-        int _verbosity = LOG_LEVEL_INFO;
+        int _verbosity = LOG_LEVEL_INFORM;
 
 
         // figure out how to init stacks -> https://iq.opengenus.org/stack-initialization-cpp-stl/
@@ -66,7 +66,7 @@ namespace AS7
         void enqueueMsg(std::string message); 
 
         // Adds a message to be sent to the console and onto the SD card
-        void enqueueLog(std::string message);
+        void enqueueLog(std::string message, int verbosity);
 
         // for PLY generation, will need to be flushed out.
         // String since we can also send header information
@@ -79,7 +79,7 @@ namespace AS7
 
     public:
         Logger(Print* output);
-        void start(int core=1, int priority=1, int verbosity=LOG_LEVEL_INFO);
+        void start(int core=1, int priority=1, int verbosity=LOG_LEVEL_INFORM);
         void pause();
         void resume();
 
@@ -91,7 +91,6 @@ namespace AS7
 
         // The main logging tasks 
         void inform(std::string message);
-        void notice(std::string message);
         void warn(std::string message);
         void error(std::string message);
         void fatal(std::string message);
