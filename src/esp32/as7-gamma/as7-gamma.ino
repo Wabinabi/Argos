@@ -202,6 +202,7 @@ DroneFlightMode currentFlightMode = ArmOnly;
 
 //AS7::Drone drone;
 AS7::Logger logger(&Serial);
+AS7::Drone drone(&logger);
 
 
 /* --------------------- Function code --------------------- */
@@ -561,8 +562,6 @@ void setup() {
   //xSemaphoreGive(debug_switchModesSemaphore);
 
   /* --------------------- Initialise Modules --------------------- */
-  init_SD();
-  
 
 
   xTaskCreatePinnedToCore(

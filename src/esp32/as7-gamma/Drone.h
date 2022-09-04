@@ -18,6 +18,8 @@
 #include <Arduino.h>
 #include <sbus.h>     // SBUS Communication Library with FC
 
+#include "SdLogger.h" // Use the SD Logger to share messages
+
 
 namespace AS7 
 {
@@ -25,21 +27,28 @@ namespace AS7
     {
     private:
 
-    TaskHandle_t th_logger;
+    TaskHandle_t th_drone;
     static void startTaskImpl(void*);
     void mainTask(void* parameters);
 
+    bool _running = false;
+    SemaphoreHandle_t _sem_enableMutex;
+    SemaphoreHandle_t getSemEnableMutex();
+
+    Logger* _logger;
+
+    
 
     public:
 
-    Drone();
-    bool OperatorAcknowledge(int channel=1);
+    Drone(Logger *logger);
+
+    bool operatorAcknowledge(int channel=1);
     void eStop();
 
-    
-
-    
-
+    void start(int core, int priority);
+    void pause();
+    void resume();
 
     };
 }

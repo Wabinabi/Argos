@@ -2,17 +2,7 @@
 
 namespace AS7
 {
-    Logger::Logger(Print* output) {
-        _printer = output;
-
-        _sem_logStackMutex = xSemaphoreCreateBinary();
-        _sem_enableMutex = xSemaphoreCreateBinary();
-
-        
-        xSemaphoreGive(_sem_logStackMutex);
-
-        
-    }
+    
 
     void Logger::mainTask(void * parameters) { 
         std::string msg;
@@ -119,10 +109,10 @@ namespace AS7
     //  For now we won't be implementing protection here since it could cause debugging issues
     void Logger::pause() {
         if (!_running) {
-            // log a warning and do nothing
+            warn("Request to pause logger denied: Logger already paused.");
         } else {
             _running = false;
-            xSemaphoreTake(getSemLogStackMutex(), portMAX_DELAY);
+            xSemaphoreTake(getSemEnableMutex(), portMAX_DELAY);
         }
     }
 
@@ -131,7 +121,7 @@ namespace AS7
             _running = true;
             xSemaphoreGive(_sem_enableMutex);
         } else {
-            // log a warning and do nothing
+            warn("Request to resume logger denied: Logger already running");
         }
         
     }
@@ -141,16 +131,28 @@ namespace AS7
         
         xTaskCreatePinnedToCore(
         this->Logger::startTaskImpl,                /* Task function. */
-        "US Task",              /* name of task. */
+        "Logger",              /* name of task. */
         8192,                   /* Stack size of task */
         this,                   /* parameter of the task */
         1, /* priority of the task */
         &th_logger,         /* Task handle to keep track of created task */
         1);                     /* pin task to core 1 */
 
+        _running = true;
         xSemaphoreGive(_sem_enableMutex);
     }
 
     
+    Logger::Logger(Print* output) {
+        _printer = output;
+        initialiseSD();
 
+        _sem_logStackMutex = xSemaphoreCreateBinary();
+        _sem_enableMutex = xSemaphoreCreateBinary();
+
+        
+        xSemaphoreGive(_sem_logStackMutex);
+
+        
+    }
 }
