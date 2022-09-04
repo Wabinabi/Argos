@@ -57,7 +57,7 @@
 // Pin Mapping
 #define I2C_SDA 21  // I2C Pin Mapping
 #define I2C_SCL 22  // 
-#define CS_PIN 5    // SD Card Clock Pin
+//#define CS_PIN 5    // SD Card Clock Pin
 
 #define SIMULATION_ENABLE false // Enables simulating IO on the ESP32
 
