@@ -12,12 +12,6 @@
 #include <Arduino.h>
 #include <stack>      // For logging
 
-const int LOG_LEVEL_FATAL = 0;
-const int LOG_LEVEL_ERROR = 1;
-const int LOG_LEVEL_WARNING = 2;
-const int LOG_LEVEL_INFO = 3;
-const int LOG_LEVEL_NOTICE = 4;
-
 
 
 namespace AS7 
