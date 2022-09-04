@@ -200,9 +200,8 @@ DroneFlightMode currentFlightMode = ArmOnly;
 
 /* ------------------------ Main Objects ------------------------ */
 
-//AS7::Drone drone;
 AS7::Logger logger(&Serial);
-AS7::Drone drone(&logger);
+AS7::Drone drone(&logger, &sbus_rx, &sbus_tx, &sbus_data);
 
 
 /* --------------------- Function code --------------------- */
@@ -254,15 +253,11 @@ void us_Task(void * parameters) {
   }
 }
 
+/*
 void pilot_Task(void * parameters) { 
   // Task code starts here
 
-  /*
   This is the pilot task which keeps the sbus 
-
-
-
-  */
 
   for (;;) {
     xSemaphoreTake(enable_pilotSemaphore, portMAX_DELAY);
@@ -275,18 +270,13 @@ void pilot_Task(void * parameters) {
       }
     }
 
-    /* Set the SBUS TX data to the received data */
     sbus_tx.ch(sbus_data);
-    /* Write the data to the servos */
     sbus_tx.Write();
-
-
-
-
     xSemaphoreGive(enable_pilotSemaphore);
 
   }
 }
+*/
 
 
 void debug_switchModes(void * parameters) {
@@ -508,13 +498,17 @@ void setup() {
   Serial.println("AS7 starting up");
   Serial.println("(c) Ecobat Project 2022");
 
-  logger.start(1, 2);
+  logger.start(2, 2);
 
-  // Start SBUS on pins
   sbus_rx.Begin(SBUS_RXPIN, SBUS_TXPIN);
   sbus_tx.Begin(SBUS_RXPIN, SBUS_TXPIN);
 
+  drone.start();
+
+  
+
   // Ultrasonic Driver pins
+  
   US_TRIGPIN[0] = 32;
   US_ECHOPIN[0] = 35;
   US_TRIGPIN[1] = 25;
@@ -548,40 +542,42 @@ void setup() {
   // Set up rear status LEDs (Glowbit 1x8 or any 8-length WS2812B)
   FastLED.addLeds<LED_TYPE, FL_LEDPIN, COLOR_ORDER>(FL_LED, FL_LEDNUM).setCorrection( TypicalLEDStrip );
   FastLED.setBrightness( FL_LEDBRIGHTNESS );
-
+  
   // Create binary semaphores
   enable_usSemaphore = xSemaphoreCreateBinary();
-  enable_pilotSemaphore = xSemaphoreCreateBinary();
+  //enable_pilotSemaphore = xSemaphoreCreateBinary();
   debug_switchModesSemaphore = xSemaphoreCreateBinary();
 
   // Enable startup tasks
-  xSemaphoreGive(enable_usSemaphore);
-  xSemaphoreGive(enable_pilotSemaphore);
+  //xSemaphoreGive(enable_usSemaphore);
+  //xSemaphoreGive(enable_pilotSemaphore);
 
   // Use this semaphore to enable automatic mode switching
   //xSemaphoreGive(debug_switchModesSemaphore);
+  
 
   /* --------------------- Initialise Modules --------------------- */
 
+/*
 
   xTaskCreatePinnedToCore(
-    us_Task,                /* Task function. */
-    "US Task",              /* name of task. */
-    8192,                   /* Stack size of task */
-    NULL,                   /* parameter of the task */
-    4, /* priority of the task */
-    &th_Ultrasonic,         /* Task handle to keep track of created task */
-    1);                     /* pin task to core 1 */
+    us_Task,
+    "US Task",
+    8192,
+    NULL,  
+    4, 
+    &th_Ultrasonic,
+    1);
 
   xTaskCreatePinnedToCore(
-    FL_LEDComms,         /* Task function. */
-    "LED Comms",            /* name of task. */
-    2056,                   /* Stack size of task */
-    NULL,                   /* parameter of the task */
-    1,                      /* priority of the task */
-    &th_Comms,              /* Task handle to keep track of created task */
-    1);                     /* pin task to core 1 */
-
+    FL_LEDComms,
+    "LED Comms",
+    2056,
+    NULL,
+    1,
+    &th_Comms,
+    1);
+*/
 
   // xTaskCreatePinnedToCore(
   //   debug_switchModes,        /* Task function. */
@@ -592,7 +588,7 @@ void setup() {
   //   &th_Switch,               /* Task handle to keep track of created task */
   //   1);                       /* pin task to core 1 */
   
-  logger.inform("AS7 has finished setup and is moving to main loop");
+  //logger.inform("AS7 has finished setup and is moving to main loop");
 
   if (SIMULATION_ENABLE) {
     Serial.println("-------------------- Simulation Enabled! --------------------");

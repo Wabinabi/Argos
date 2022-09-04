@@ -39,7 +39,7 @@ namespace AS7
     }
 
 
-    void Drone::start(int core=1, int priority=configMAX_PRIORITIES) {
+    void Drone::start(int core, int priority) {
         
         xTaskCreatePinnedToCore(
         this->Drone::startTaskImpl,                /* Task function. */
@@ -54,8 +54,12 @@ namespace AS7
 
     }
 
-    Drone::Drone(Logger* logger) {
+    Drone::Drone(Logger* logger,bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx, std::array<int16_t, bfs::SbusRx::NUM_CH()>* sbus_data) {
         _logger = logger;
+        _sbus_rx = sbus_rx;
+        _sbus_tx = sbus_tx;
+        _sbus_data = sbus_data;
+
     }
 
 }

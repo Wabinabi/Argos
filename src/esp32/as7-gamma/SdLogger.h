@@ -50,8 +50,6 @@ namespace AS7
         Print* getPrinter();
         int _verbosity = LOG_LEVEL_INFORM;
 
-
-        // figure out how to init stacks -> https://iq.opengenus.org/stack-initialization-cpp-stl/
         std::string getTestMessage();
         std::stack<std::string> getMsgStack();
         std::stack<std::string> getLogStack();
@@ -63,7 +61,6 @@ namespace AS7
 
         SemaphoreHandle_t getSemEnableMutex();
 
-        
 
         // Adds a message to be recorded to the SD card
         // diagnotics probably? will flush out later

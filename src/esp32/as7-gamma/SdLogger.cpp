@@ -145,7 +145,7 @@ namespace AS7
     
     Logger::Logger(Print* output) {
         _printer = output;
-        initialiseSD();
+        //initialiseSD();
 
         _sem_logStackMutex = xSemaphoreCreateBinary();
         _sem_enableMutex = xSemaphoreCreateBinary();
