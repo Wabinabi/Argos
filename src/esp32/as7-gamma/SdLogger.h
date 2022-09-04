@@ -44,7 +44,7 @@ namespace AS7
         SemaphoreHandle_t _sem_enableMutex;
         bool _running = false; // tracks if the thread is running or stopped
 
-        TaskHandle_t th_logger;
+        
         Print* _printer;
 
         Print* getPrinter();
@@ -63,7 +63,7 @@ namespace AS7
 
         SemaphoreHandle_t getSemEnableMutex();
 
-        void mainTask(void* parameters);
+        
 
         // Adds a message to be recorded to the SD card
         // diagnotics probably? will flush out later
@@ -80,6 +80,8 @@ namespace AS7
 
         // Implementation to start FreeRTOS tasks in classes
         static void startTaskImpl(void*);
+        TaskHandle_t th_logger;
+        void mainTask(void* parameters);
 
         void initialiseSD();
 
