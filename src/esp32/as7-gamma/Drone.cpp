@@ -3,7 +3,7 @@
 
 namespace AS7 
 {
-    SemaphoreHandle_t Drone::getSemEnableMutex() { return _sem_enableMutex; }
+    SemaphoreHandle_t Drone::getSemEnableMutex() { return _semEnableMutex; }
 
     void Drone::startTaskImpl(void* _this) {
         ((Drone*)_this)->mainTask(NULL);
@@ -31,12 +31,30 @@ namespace AS7
     void Drone::resume() {
         if (!_running) {
             _running = true;
-            xSemaphoreGive(_sem_enableMutex);
+            xSemaphoreGive(_semEnableMutex);
         } else {
             // log a warning and do nothing
         }
         
     }
+
+    // hello
+    // add enqueue
+    // and stack
+    // add reader
+    // add sbus writer (always writing to sbus)
+    // add things that write to sbus -- sbus writer therefore needs semaphore for WRITE not READ
+    // add functions to change whats writetn to sbus, syz and ch
+    // and then simpler fuunctions like things to do (raise up and fly)
+    // add in tuning for flight mode and stuff
+
+    // add amounts and variables
+    // add tuning adjustments for min-maxing the amount
+    //  -> as in scalaing
+
+    // add operator override
+    // add operttor estop
+
 
 
     void Drone::start(int core, int priority) {
@@ -47,7 +65,7 @@ namespace AS7
         8192,                   /* Stack size of task */
         this,                   /* parameter of the task */
         1, /* priority of the task */
-        &th_drone,         /* Task handle to keep track of created task */
+        &thDrone,         /* Task handle to keep track of created task */
         1);                     /* pin task to core 1 */
 
         _running = true;
