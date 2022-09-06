@@ -33,26 +33,40 @@ namespace AS7
 
         bool _running = false;
 
-        SemaphoreHandle_t _semEnableMutex;      // Enables/Disables main drone task
-        SemaphoreHandle_t getSemEnableMutex();  // Returns the enable mutex
+        SemaphoreHandle_t _semEnableMutex;          // Enables/Disables main drone task
+        SemaphoreHandle_t getSemEnableMutex();      // Returns the enable mutex
+
+        SemaphoreHandle_t _semWriteChannelMutex();  // Mutex Lock for the tx data array
+        SemaphoreHandle_t getWriteChannelMutex();   // Returns the write mutex for threading implementation
 
         Logger* _logger;
 
         bfs::SbusRx* _sbusRx;   // SBUS Receive Channel Object
         bfs::SbusTx* _sbusTx;   // SBUS Transmit Channel Object
-        std::array<int16_t, bfs::SbusRx::NUM_CH()>* _sbusData;  // Array containing sbus data
 
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusChLower;    // Lower bounds for each SBUS channel
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusChUpper;    // Upper bounds for each SBUS Channel
+        std::array<int16_t, bfs::SbusRx::NUM_CH()>* _sbusRxData;    // Array of data received from the Radio Control
+        std::array<int16_t, bfs::SbusRx::NUM_CH()>* _sbusTxData;    // Array of data to transmit to the Flight Controller
+
+        // Channels that will be transmitted to the drone
+        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusTxChLower;    // Lower bounds for SBUS Transmit channels
+        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusTxChUpper;    // Upper bounds for SBUS Transmit Channels
+
+        // Channels that are received from the transmitter
+        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusRxChLower;    // Lower bounds for SBUS Receiver channels
+        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusRxChUpper;    // Upper bounds for SBUS Receiver Channels
+
+
 
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
-        // Writes a floating point value (-1 to 1) to the SBUS Channel
-        //  -1 represents the lower bound, 1 represents upper bound
-        //  Any out-of-bound values will be clamped to (-1, 1)
-        int writeChannel(float value, int16_t channel);
+        void writeChannel(int16_t value, int16_t ch);   // writes the value into the sbus transmit channel
+        int16_t readChannel(int16_t ch);                // Reads the value from the channel
+        float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds
+
+        float clamp(float value, float lbound, float ubound);   // Returns values inside of upper bound and lower bound.
 
     public:
+        
         Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx, std::array<int16_t, bfs::SbusRx::NUM_CH()>* sbus_data);
 
         bool operatorAcknowledge(int channel=1);
@@ -62,7 +76,12 @@ namespace AS7
         void pause();
         void resume();
 
-        bool channelConfirm(int ch, int threshold);
+        bool channelConfirm(int16_t ch, int16_t threshold);
+
+        // Writes a floating point value (-1 to 1) to the SBUS Channel
+        //  -1 represents the lower bound, 1 represents upper bound
+        //  Any out-of-bound values will be clamped to (-1, 1)
+        void setChannel(float value, int16_t channel);
     };
 }
 
