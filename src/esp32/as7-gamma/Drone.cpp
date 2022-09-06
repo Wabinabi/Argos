@@ -69,8 +69,16 @@ namespace AS7
         1);                     /* pin task to core 1 */
 
         _running = true;
-
+        _logger->verbose("Drone class started");
     }
+
+    void Drone::initUpperLowerBoundArrays() {
+        _logger->verbose("Setting all channel lower bounds to" + std::to_string(SBUS_CHANNEL_LOWER));
+        _logger->verbose("Setting all channel upper bounds to" + std::to_string(SBUS_CHANNEL_UPPER));
+        std::fill_n(_sbusChLower, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_LOWER);
+        std::fill_n(_sbusChUpper, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_UPPER);
+    }
+    
 
     Drone::Drone(Logger* logger,bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx, std::array<int16_t, bfs::SbusRx::NUM_CH()>* sbus_data) {
         _logger = logger;
@@ -78,6 +86,9 @@ namespace AS7
         _sbusTx = sbus_tx;
         _sbusData = sbus_data;
 
+        initUpperLowerBoundArrays();
     }
+
+
 
 }

@@ -28,22 +28,29 @@ namespace AS7
     {
     private:
         TaskHandle_t thDrone;
-        static void startTaskImpl(void*);
-        void mainTask(void* parameters);
+        static void startTaskImpl(void*);   // Task implementation for classes
+        void mainTask(void* parameters);    // The threaded taskk  
 
         bool _running = false;
-        SemaphoreHandle_t _semEnableMutex;
-        SemaphoreHandle_t getSemEnableMutex();
+
+        SemaphoreHandle_t _semEnableMutex;      // Enables/Disables main drone task
+        SemaphoreHandle_t getSemEnableMutex();  // Returns the enable mutex
 
         Logger* _logger;
 
-        bfs::SbusRx* _sbusRx;
-        bfs::SbusTx* _sbusTx;
-        std::array<int16_t, bfs::SbusRx::NUM_CH()>* _sbusData;
+        bfs::SbusRx* _sbusRx;   // SBUS Receive Channel Object
+        bfs::SbusTx* _sbusTx;   // SBUS Transmit Channel Object
+        std::array<int16_t, bfs::SbusRx::NUM_CH()>* _sbusData;  // Array containing sbus data
 
-        // Upper and Lower bounds for each channel.
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusChLower;
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusChUpper;
+        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusChLower;    // Lower bounds for each SBUS channel
+        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusChUpper;    // Upper bounds for each SBUS Channel
+
+        void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
+
+        // Writes a floating point value (-1 to 1) to the SBUS Channel
+        //  -1 represents the lower bound, 1 represents upper bound
+        //  Any out-of-bound values will be clamped to (-1, 1)
+        int writeChannel(float value, int16_t channel);
 
     public:
         Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx, std::array<int16_t, bfs::SbusRx::NUM_CH()>* sbus_data);
@@ -56,7 +63,6 @@ namespace AS7
         void resume();
 
         bool channelConfirm(int ch, int threshold);
-
     };
 }
 
