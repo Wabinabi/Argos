@@ -44,8 +44,8 @@ namespace AS7
         bfs::SbusRx* _sbusRx;   // SBUS Receive Channel Object
         bfs::SbusTx* _sbusTx;   // SBUS Transmit Channel Object
 
-        std::array<int16_t, bfs::SbusRx::NUM_CH()>* _sbusRxData;    // Array of data received from the Radio Control
-        std::array<int16_t, bfs::SbusRx::NUM_CH()>* _sbusTxData;    // Array of data to transmit to the Flight Controller
+        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusRxData;    // Array of data received from the Radio Control
+        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusTxData;    // Array of data to transmit to the Flight Controller
 
         // Channels that will be transmitted to the drone
         std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusTxChLower;    // Lower bounds for SBUS Transmit channels
@@ -55,11 +55,9 @@ namespace AS7
         std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusRxChLower;    // Lower bounds for SBUS Receiver channels
         std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusRxChUpper;    // Upper bounds for SBUS Receiver Channels
 
-
-
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
-        void writeChannel(int16_t value, int16_t ch);   // writes the value into the sbus transmit channel
+        void writeChannel(int16_t value, int8_t ch);   // writes the value into the sbus transmit channel
         int16_t readChannel(int16_t ch);                // Reads the value from the channel
         float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds
 
@@ -67,7 +65,7 @@ namespace AS7
 
     public:
         
-        Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx, std::array<int16_t, bfs::SbusRx::NUM_CH()>* sbus_data);
+        Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx);
 
         bool operatorAcknowledge(int channel=1);
         void eStop();

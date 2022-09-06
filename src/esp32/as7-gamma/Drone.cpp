@@ -81,27 +81,32 @@ namespace AS7
         std::fill_n(_sbusRxChUpper, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_UPPER);
     }
 
-    
+    void Drone::writeChannel(int16_t value, int8_t ch) {
+        _sbusTxData[ch] = value;
+    }
 
-    void setChannel(float value, int16_t channel) {
+    int16_t Drone::readChannel(int16_t ch) {
+        return _sbusRxData[ch];
+    }
+    float Drone::readChannel_f(int16_t ch) {
+
+    }
+
+    void Drone::setChannel(float value, int16_t channel) {
         float _value = clamp(value, -1, 1);
-
-        
     }
     
-    float clamp(float value, float lbound, float ubound) {
+    float Drone::clamp(float value, float lbound, float ubound) {
         return min(ubound, max(lbound, value));
     }
 
-    Drone::Drone(Logger* logger,bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx, std::array<int16_t, bfs::SbusRx::NUM_CH()>* sbus_data) {
+    Drone::Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx) {
         _logger = logger;
         _sbusRx = sbus_rx;
         _sbusTx = sbus_tx;
-        _sbusData = sbus_data;
+        //_sbusRxData = sbusRxData;
+        //_sbusTxData = sbusTxData;
 
         initUpperLowerBoundArrays();
     }
-
-
-
 }

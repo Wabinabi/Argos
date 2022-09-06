@@ -123,9 +123,10 @@ DEFINE_GRADIENT_PALETTE( DEV_PALLETE ) {
 CRGBPalette16 DEVPAL = DEV_PALLETE;
 
 // SBUS Comms with FC
-bfs::SbusRx sbus_rx(&Serial1);
-bfs::SbusTx sbus_tx(&Serial1);
-std::array<int16_t, bfs::SbusRx::NUM_CH()> sbus_data;
+bfs::SbusRx sbusRx(&Serial1);
+bfs::SbusTx sbusTx(&Serial1);
+std::array<int16_t, bfs::SbusRx::NUM_CH()> sbusTxData;
+std::array<int16_t, bfs::SbusRx::NUM_CH()> sbusRxData;
 
 // SD Card Interface
 File config_file; // Read in configuration for drone
@@ -201,7 +202,8 @@ DroneFlightMode currentFlightMode = ArmOnly;
 /* ------------------------ Main Objects ------------------------ */
 
 AS7::Logger logger(&Serial);
-AS7::Drone drone(&logger, &sbus_rx, &sbus_tx, &sbus_data);
+//AS7::Drone drone(&logger, &sbusRx, &sbusTx, &sbusRxData, &sbusTxData);
+AS7::Drone drone(&logger, &sbusRx, &sbusTx);
 
 
 /* --------------------- Function code --------------------- */
@@ -500,8 +502,8 @@ void setup() {
 
   logger.start(2, 2);
 
-  sbus_rx.Begin(SBUS_RXPIN, SBUS_TXPIN);
-  sbus_tx.Begin(SBUS_RXPIN, SBUS_TXPIN);
+  sbusRx.Begin(SBUS_RXPIN, SBUS_TXPIN);
+  sbusTx.Begin(SBUS_RXPIN, SBUS_TXPIN);
 
   drone.start();
 
@@ -614,11 +616,20 @@ void loop() {
 
     case Ready:
 
+      // wait for sbus signal from drone
+      // something like dorne.readch(threshold, ch)
+
 
 
       break;
 
     case Armed:
+
+      // drone is arming
+      // basically queue drone to do arming thing 
+      //' eue drone wait
+      // then wait a bit more
+      // then move to flying
 
       break;
 
