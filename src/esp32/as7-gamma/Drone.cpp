@@ -74,9 +74,9 @@ namespace AS7
 
     Drone::Drone(Logger* logger,bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx, std::array<int16_t, bfs::SbusRx::NUM_CH()>* sbus_data) {
         _logger = logger;
-        _sbus_rx = sbus_rx;
-        _sbus_tx = sbus_tx;
-        _sbus_data = sbus_data;
+        _sbusRx = sbus_rx;
+        _sbusTx = sbus_tx;
+        _sbusData = sbus_data;
 
     }
 
