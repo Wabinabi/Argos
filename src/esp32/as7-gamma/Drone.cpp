@@ -75,13 +75,15 @@ namespace AS7
     void Drone::initUpperLowerBoundArrays() {
         _logger->verbose("Setting all channel lower bounds to" + std::to_string(SBUS_CHANNEL_LOWER));
         _logger->verbose("Setting all channel upper bounds to" + std::to_string(SBUS_CHANNEL_UPPER));
-        std::fill_n(_sbusChLower, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_LOWER);
-        std::fill_n(_sbusChUpper, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_UPPER);
+        std::fill_n(_sbusTxChLower, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_LOWER);
+        std::fill_n(_sbusTxChUpper, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_UPPER);
+        std::fill_n(_sbusRxChLower, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_LOWER);
+        std::fill_n(_sbusRxChUpper, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_UPPER);
     }
 
     
 
-    void writeChannel(float value, int16_t channel) {
+    void setChannel(float value, int16_t channel) {
         float _value = clamp(value, -1, 1);
 
         
