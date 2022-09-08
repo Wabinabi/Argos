@@ -16,19 +16,27 @@ namespace AS7
 
     void Drone::navigationTask(void * parameters) { 
         for (;;) {
-            xSemaphoreTake(getSemEnableMutex(), portMAX_DELAY);
+            xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
             
-            xSemaphoreGive(getSemEnableMutex());
+            xSemaphoreGive(getSemDroneEnableMutex());
         }
     }
 
     void Drone::controllerTask(void * parameters) { 
         for (;;) {
 
-            if (_enableEmergencyStop) {
-                
-            }
+            xSemaphoreTake(getSemControlEnableMutex(), portMAX_DELAY);
 
+            if (_sbusRx->Read()) {
+                setSbusRxData(_sbusRx->ch());
+            }
+            
+
+            if (_enableEmergencyStop) {
+            
+            xSemaphoreGive(getSemControlEnableMutex());
+ 
+            }
         }
     }
 
@@ -81,21 +89,22 @@ namespace AS7
             // log a warning and do nothing
         } else {
             _running = false;
-            xSemaphoreTake(getSemEnableMutex(), portMAX_DELAY);
+            xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
         }
     }
 
     void Drone::resume() {
         if (!_running) {
             _running = true;
-            xSemaphoreGive(_semEnableMutex);
+            xSemaphoreGive(getSemDroneEnableMutex());
         } else {
             // log a warning and do nothing
         }
         
     }
 
-    SemaphoreHandle_t Drone::getSemEnableMutex() { return _semEnableMutex; }
+    SemaphoreHandle_t Drone::getSemDroneEnableMutex() { return _semDroneEnableMutex; }
+    SemaphoreHandle_t Drone::getSemControlEnableMutex() { return _semControlEnableMutex; }
 
     void Drone::initUpperLowerBoundArrays() {
         
@@ -195,7 +204,8 @@ namespace AS7
         //_sbusRxData = sbusRxData;
         //_sbusTxData = sbusTxData;
 
-        _semEnableMutex = xSemaphoreCreateBinary();
+        _semDroneEnableMutex = xSemaphoreCreateBinary();
+        _semControlEnableMutex = xSemaphoreCreateBinary();
         initUpperLowerBoundArrays();
     }
 }

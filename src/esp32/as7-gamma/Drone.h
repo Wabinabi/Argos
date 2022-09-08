@@ -83,8 +83,11 @@ namespace AS7
         bool getEnableOperatorControl();
         bool getEnableEmergencyStop();
 
-        SemaphoreHandle_t _semEnableMutex;          // Enables/Disables main drone task
-        SemaphoreHandle_t getSemEnableMutex();      // Returns the enable mutex
+        SemaphoreHandle_t _semDroneEnableMutex;          // Enables/Disables main drone task
+        SemaphoreHandle_t _semControlEnableMutex;          // Enables/Disables main drone task
+        SemaphoreHandle_t getSemDroneEnableMutex();      // Returns the enable mutex
+        SemaphoreHandle_t getSemControlEnableMutex();      // Returns the enable mutex
+
 
         SemaphoreHandle_t _semWriteChannelMutex();  // Mutex Lock for the tx data array
         SemaphoreHandle_t getWriteChannelMutex();   // Returns the write mutex for threading implementation
