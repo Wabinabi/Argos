@@ -17,12 +17,16 @@
 
 #include <Arduino.h>
 #include <sbus.h>     // SBUS Communication Library with FC
+#include <vector>
+
 #include "SdLogger.h" // Use the SD Logger to share messages
 
 #define SBUS_CHANNEL_LOWER 0        // Default lower bound for sbus channels
 #define SBUS_CHANNEL_UPPER 4096     // Default upper bound for sbus channels
 #define NUM_CH 16                   // Number of SBUS channels. Always 16. Equivalent to bfs::SbusRx::NUM_CH()
 #define DOF 6 // Degrees of freedom for the drone. 0-5 represent x, y, z, roll (rl), pitch (pt), yaw (yw) (Euler ZYX Convention)
+
+
 namespace AS7 
 {
     enum DroneCommandType {Blind, Guided, Landing};
@@ -40,7 +44,7 @@ namespace AS7
     //
     // Note: Blind Commands can also be used as buttons and inputs to the FC, not just for navigation
     //
-    struct {
+    typedef struct {
         DroneCommandType type;              // Blind = Purely a drone command, Guided = Assisted with sensors
         std::array<float, NUM_CH> channels; // A float for each channel from (-1, 1)
         int duration;                       // in ms
@@ -70,6 +74,7 @@ namespace AS7
         void navigationTask(void* parameters);    // The threaded task
         void controllerTask(void* parameters);
 
+        std::queue<DroneCommand> _droneCommand;
 
         bool _running = false;                  // Indicates current state of main drone task
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
@@ -106,9 +111,11 @@ namespace AS7
         int16_t readChannel(int16_t ch);                // Reads the value from the channel
         float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds
 
+        DroneCommand dequeueCommand();
+
         float clamp(float value, float lbound, float ubound);   // Returns values inside of upper bound and lower bound.
 
-        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);    // Returns the channels in a formatted string        
+        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);    // Returns the channels in a formatted string    
 
     public:
         
@@ -121,9 +128,11 @@ namespace AS7
         void pause();
         void resume();
 
-        void enableOperatorControl(); // Operator control. Passes 
+        void enableOperatorControl();
         void disableOperatorControl();
         
+        void enqueueCommand(DroneCommand cmd);
+
         void emergencyStop();
         void resetEmergencyStop();
 

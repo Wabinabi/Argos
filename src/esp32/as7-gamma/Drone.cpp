@@ -9,16 +9,17 @@ namespace AS7
         ((Drone*)_this)->navigationTask(NULL);
     }
 
+        void Drone::startCtlTask(void* _this) {
+        ((Drone*)_this)->controllerTask(NULL);
+    }
+
+
     void Drone::navigationTask(void * parameters) { 
         for (;;) {
             xSemaphoreTake(getSemEnableMutex(), portMAX_DELAY);
             
             xSemaphoreGive(getSemEnableMutex());
         }
-    }
-
-    void Drone::startCtlTask(void* _this) {
-        ((Drone*)_this)->controllerTask(NULL);
     }
 
     void Drone::controllerTask(void * parameters) { 
