@@ -94,6 +94,14 @@ namespace AS7
         return formattedData;
     }
 
+    std::string Drone::getSbusRxArray() {
+        return formatSbusArray(_sbusRxData);
+    }
+
+    std::string Drone::getSbusTxArray() {
+        return formatSbusArray(_sbusTxData);
+    }
+
     void Drone::writeChannel(int16_t value, int8_t ch) {
         _sbusTxData[ch] = value;
     }
