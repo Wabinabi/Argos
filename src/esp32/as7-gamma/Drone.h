@@ -46,6 +46,7 @@ namespace AS7
     //
     typedef struct {
         DroneCommandType type;              // Blind = Purely a drone command, Guided = Assisted with sensors
+        std::string desc;                   // A description for the logger
         std::array<float, NUM_CH> channels; // A float for each channel from (-1, 1)
         int duration;                       // in ms
 
@@ -74,7 +75,7 @@ namespace AS7
         void navigationTask(void* parameters);    // The threaded task
         void controllerTask(void* parameters);
 
-        std::queue<DroneCommand> _droneCommand;
+        std::queue<DroneCommand> _droneCommandQueue;
 
         bool _running = false;                  // Indicates current state of main drone task
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
@@ -84,13 +85,15 @@ namespace AS7
         bool getEnableEmergencyStop();
 
         SemaphoreHandle_t _semDroneEnableMutex;          // Enables/Disables main drone task
-        SemaphoreHandle_t _semControlEnableMutex;          // Enables/Disables main drone task
+        SemaphoreHandle_t _semControlEnableMutex;        // Enables/Disables main drone task
         SemaphoreHandle_t getSemDroneEnableMutex();      // Returns the enable mutex
-        SemaphoreHandle_t getSemControlEnableMutex();      // Returns the enable mutex
-
+        SemaphoreHandle_t getSemControlEnableMutex();    // Returns the enable mutex
 
         SemaphoreHandle_t _semWriteChannelMutex();  // Mutex Lock for the tx data array
         SemaphoreHandle_t getWriteChannelMutex();   // Returns the write mutex for threading implementation
+
+        SemaphoreHandle_t _semCommandQueueMutex;    // Mutex lock for drone command queue
+        SemaphoreHandle_t getCommandQueueMutex();
 
         Logger* _logger;
 
@@ -107,6 +110,8 @@ namespace AS7
         // Channels that are received from the transmitter
         std::array<int16_t, NUM_CH> _sbusRxChLower;    // Lower bounds for SBUS Receiver channels
         std::array<int16_t, NUM_CH> _sbusRxChUpper;    // Upper bounds for SBUS Receiver Channels
+
+        std::array<int16_t, NUM_CH> _sbusEStopTx;      // Data to be written in case of an E-Stop. Not all channels are to be zeroed! 
 
         // Methods for getting and setting data for task theads
         std::array<int16_t, NUM_CH> getSbusRxData();
@@ -143,6 +148,9 @@ namespace AS7
 
         void emergencyStop();
         void resetEmergencyStop();
+
+        void generateEStopTx();
+        std::array<int16_t, NUM_CH> getEStopTx();
 
         std::string getSbusRxArray();
         std::string getSbusTxArray();

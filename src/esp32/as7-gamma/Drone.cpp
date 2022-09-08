@@ -23,8 +23,8 @@ namespace AS7
     }
 
     void Drone::controllerTask(void * parameters) { 
+        
         for (;;) {
-
             xSemaphoreTake(getSemControlEnableMutex(), portMAX_DELAY);
 
             if (_sbusRx->Read()) {
@@ -33,10 +33,11 @@ namespace AS7
             
 
             if (_enableEmergencyStop) {
+                //setSbusRxData();
             
-            xSemaphoreGive(getSemControlEnableMutex());
  
             }
+            xSemaphoreGive(getSemControlEnableMutex());
         }
     }
 
@@ -86,10 +87,11 @@ namespace AS7
 
     void Drone::pause() {
         if (!_running) {
-            // log a warning and do nothing
+            _logger->warn("Drone pause request received despite drone not running.");
         } else {
             _running = false;
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
+            _logger->verbose("Drone paused.");
         }
     }
 
@@ -97,8 +99,9 @@ namespace AS7
         if (!_running) {
             _running = true;
             xSemaphoreGive(getSemDroneEnableMutex());
+            _logger->verbose("Drone resumed.");
         } else {
-            // log a warning and do nothing
+            _logger->warn("Drone resume request received despite drone running.");
         }
         
     }
@@ -119,6 +122,8 @@ namespace AS7
         }
     }
 
+    // Returns a string with all 16 channel values
+    // Used for converting sbus data into a string for serial logging
     std::string Drone::formatSbusArray(std::array<int16_t, NUM_CH> chData) {
         std::string formattedData = "";
         for (int i = 0; i < NUM_CH; i++) {
@@ -144,13 +149,29 @@ namespace AS7
     }
 
     DroneCommand Drone::dequeueCommand() {
+        xSemaphoreTake(_semCommandQueueMutex, portMAX_DELAY);   // Ensures only one task accesses this queue at a time
 
+        DroneCommand cmd = _droneCommandQueue.front();
+        _droneCommandQueue.pop();
+
+        // Log information on dequeued command
+        _logger->inform("Dequeueing drone command: " + cmd.desc);
+        _logger->verbose("Command <" + cmd.desc + "> - Type " + std::to_string(cmd.type));
+
+        xSemaphoreGive(_semCommandQueueMutex);
     }
 
     /* ---------------------------------- Public Member Methods ---------------------------------- */ 
 
     void Drone::enqueueCommand(DroneCommand cmd) {
+        xSemaphoreTake(_semCommandQueueMutex, portMAX_DELAY);   // Ensures only one task accesses this queue at a time
+        
+        // Log information on enqueued command
+        _logger->inform("Dequeueing drone command: " + cmd.desc);
+        _logger->verbose("Command <" + cmd.desc + "> - Type " + std::to_string(cmd.type));
 
+        _droneCommandQueue.push(cmd);
+        xSemaphoreGive(_semCommandQueueMutex);
     }
 
     void Drone::enableOperatorControl() {
@@ -177,13 +198,13 @@ namespace AS7
 
     std::string Drone::getSbusRxArray() {
         std::string formattedArray = formatSbusArray(_sbusRxData);
-        _logger->verbose("SBUS Rx Array: " + formattedArray);
+        _logger->verbose("Getting SBUS Rx Array: " + formattedArray);
         return formattedArray;
     }
 
     std::string Drone::getSbusTxArray() {
         std::string formattedArray = formatSbusArray(_sbusTxData);
-        _logger->verbose("SBUS Tx Array: " + formattedArray);
+        _logger->verbose("Getting SBUS Tx Array: " + formattedArray);
         return formattedArray;
     }
 
@@ -206,6 +227,7 @@ namespace AS7
 
         _semDroneEnableMutex = xSemaphoreCreateBinary();
         _semControlEnableMutex = xSemaphoreCreateBinary();
+        _semCommandQueueMutex = xSemaphoreCreateBinary();
         initUpperLowerBoundArrays();
     }
 }
