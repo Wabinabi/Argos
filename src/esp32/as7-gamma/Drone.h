@@ -21,9 +21,31 @@
 
 #define SBUS_CHANNEL_LOWER 0        // Default lower bound for sbus channels
 #define SBUS_CHANNEL_UPPER 4096     // Default upper bound for sbus channels
-
+#define NUM_CH 16                   // Number of SBUS channels. Always 16. Equivalent to bfs::SbusRx::NUM_CH()
+#define DOF 6 // Degrees of freedom for the drone. 0-5 represent x, y, z, roll (rl), pitch (pt), yaw (yw) (Euler ZYX Convention)
 namespace AS7 
 {
+    enum DroneCommandType {Blind, Guided};
+
+    struct {
+        DroneCommandType type;              // Blind = Purely a drone command, Guided = Assisted with sensors
+        std::array<float, NUM_CH> channels; // A float for each channel from (-1, 1)
+        // Prefix P = Position; V = Velocity. Units on per-member basis and are *convention* (not checked)
+        int p_x;    // Position to hold (some distance unit tbc)
+        int p_y;
+        int p_z;
+        float v_x;    // Velocity to hold (-1 to 1) floating point value
+        float v_y;    // e.g. 0.1 is equivalent to 10% forward thrust
+        float v_z;
+        int p_rl;
+        int p_pt;
+        int p_yw;
+        float v_rl;
+        float v_pt;
+        float v_yw;
+
+    } DroneCommand;
+
     class Drone
     {
     private:
@@ -49,16 +71,16 @@ namespace AS7
         bfs::SbusRx* _sbusRx;   // SBUS Receive Channel Object
         bfs::SbusTx* _sbusTx;   // SBUS Transmit Channel Object
 
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusRxData;    // Array of data received from the Radio Control
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusTxData;    // Array of data to transmit to the Flight Controller
+        std::array<int16_t, NUM_CH> _sbusRxData;    // Array of data received from the Radio Control
+        std::array<int16_t, NUM_CH> _sbusTxData;    // Array of data to transmit to the Flight Controller
 
         // Channels that will be transmitted to the drone
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusTxChLower;    // Lower bounds for SBUS Transmit channels
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusTxChUpper;    // Upper bounds for SBUS Transmit Channels
+        std::array<int16_t, NUM_CH> _sbusTxChLower;    // Lower bounds for SBUS Transmit channels
+        std::array<int16_t, NUM_CH> _sbusTxChUpper;    // Upper bounds for SBUS Transmit Channels
 
         // Channels that are received from the transmitter
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusRxChLower;    // Lower bounds for SBUS Receiver channels
-        std::array<int16_t, bfs::SbusRx::NUM_CH()> _sbusRxChUpper;    // Upper bounds for SBUS Receiver Channels
+        std::array<int16_t, NUM_CH> _sbusRxChLower;    // Lower bounds for SBUS Receiver channels
+        std::array<int16_t, NUM_CH> _sbusRxChUpper;    // Upper bounds for SBUS Receiver Channels
 
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
@@ -68,7 +90,7 @@ namespace AS7
 
         float clamp(float value, float lbound, float ubound);   // Returns values inside of upper bound and lower bound.
 
-        std::string formatSbusArray(std::array<int16_t, bfs::SbusRx::NUM_CH()> chData);    // Returns the channels in a formatted string        
+        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);    // Returns the channels in a formatted string        
 
     public:
         
