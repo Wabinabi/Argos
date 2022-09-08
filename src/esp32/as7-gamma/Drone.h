@@ -57,11 +57,13 @@ namespace AS7
 
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
-        void writeChannel(int16_t value, int8_t ch);   // writes the value into the sbus transmit channel
+        void writeChannel(int16_t value, int8_t ch);    // writes the value into the sbus transmit channel
         int16_t readChannel(int16_t ch);                // Reads the value from the channel
         float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds
 
         float clamp(float value, float lbound, float ubound);   // Returns values inside of upper bound and lower bound.
+
+        std::string formatSbusArray(std::array<int16_t, bfs::SbusRx::NUM_CH()> chData);    // Returns the channels in a formatted string        
 
     public:
         
@@ -75,6 +77,9 @@ namespace AS7
         void resume();
 
         bool channelConfirm(int16_t ch, int16_t threshold);
+
+        std::string getSbusRxArray();
+        std::string getSbusTxArray();
 
         // Writes a floating point value (-1 to 1) to the SBUS Channel
         //  -1 represents the lower bound, 1 represents upper bound

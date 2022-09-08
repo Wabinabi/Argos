@@ -75,13 +75,8 @@ namespace AS7
 
     void Drone::initUpperLowerBoundArrays() {
         
-        _logger->verbose("Setting all channel lower bounds to" + std::to_string(SBUS_CHANNEL_LOWER));
-        _logger->verbose("Setting all channel upper bounds to" + std::to_string(SBUS_CHANNEL_UPPER));
-        //std::fill_n(_sbusTxChLower, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_LOWER);
-        //std::fill_n(_sbusTxChUpper, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_UPPER);
-        //std::fill_n(_sbusRxChLower, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_LOWER);
-        //std::fill_n(_sbusRxChUpper, bfs::SbusRx::NUM_CH(), SBUS_CHANNEL_UPPER);
-        _logger->verbose(("Setting all channel upper bounds to" + std::to_string(bfs::SbusRx::NUM_CH())));
+        _logger->verbose("Setting all channel lower bounds to " + std::to_string(SBUS_CHANNEL_LOWER));
+        _logger->verbose("Setting all channel upper bounds to " + std::to_string(SBUS_CHANNEL_UPPER));
 
         for (int i = 0; i < bfs::SbusRx::NUM_CH(); i++) {
             _sbusTxChLower[i] = SBUS_CHANNEL_LOWER;
@@ -89,6 +84,14 @@ namespace AS7
             _sbusRxChLower[i] = SBUS_CHANNEL_LOWER;
             _sbusRxChUpper[i] = SBUS_CHANNEL_UPPER;
         }
+    }
+
+    std::string Drone::formatSbusArray(std::array<int16_t, bfs::SbusRx::NUM_CH()> chData) {
+        std::string formattedData = "";
+        for (int i = 0; i < bfs::SbusRx::NUM_CH(); i++) {
+            formattedData += " " + std::to_string(chData[i]);
+        }
+        return formattedData;
     }
 
     void Drone::writeChannel(int16_t value, int8_t ch) {
