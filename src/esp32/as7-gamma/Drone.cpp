@@ -34,7 +34,7 @@ namespace AS7
 
             if (_enableEmergencyStop) {
                 //setSbusRxData();
-            
+                
  
             }
             xSemaphoreGive(getSemControlEnableMutex());
@@ -136,12 +136,13 @@ namespace AS7
         return _sbusRxData[ch];
     }
     float Drone::readChannel_f(int16_t ch) {
-        float chValue = (readChannel(ch) - _sbusRxChLower[ch]) / (_sbusRxChUpper[ch] - _sbusRxChLower[ch]);
+        float chValue = (readChannel(ch) - 2 * _sbusRxChLower[ch]) / (_sbusRxChUpper[ch] - _sbusRxChLower[ch]);
         return chValue;
     }
 
     void Drone::setChannel(float value, int16_t channel) {
         float _value = clamp(value, -1, 1);
+        //TODO implement channel setting with semaohore and correct setting
     }
     
     float Drone::clamp(float value, float lbound, float ubound) {
@@ -172,6 +173,13 @@ namespace AS7
 
         _droneCommandQueue.push(cmd);
         xSemaphoreGive(_semCommandQueueMutex);
+    }
+
+    void Drone::generateEStopTx() {
+        for (int i = 0; i < NUM_CH; i++) {
+            _sbusEStopTx[i] = 0; // TODO implement 0.5f for certain TX as a helper function
+        }
+
     }
 
     void Drone::enableOperatorControl() {
