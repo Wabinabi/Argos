@@ -105,13 +105,19 @@ namespace AS7
         std::array<int16_t, NUM_CH> _sbusRxChLower;    // Lower bounds for SBUS Receiver channels
         std::array<int16_t, NUM_CH> _sbusRxChUpper;    // Upper bounds for SBUS Receiver Channels
 
+        // Methods for getting and setting data for task theads
+        std::array<int16_t, NUM_CH> getSbusRxData();
+        std::array<int16_t, NUM_CH> getSbusTxData();
+        void setSbusRxData(std::array<int16_t, NUM_CH> data);
+        void setSbusTxData(std::array<int16_t, NUM_CH> data);
+
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
         void writeChannel(int16_t value, int8_t ch);    // writes the value into the sbus transmit channel
         int16_t readChannel(int16_t ch);                // Reads the value from the channel
         float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds
 
-        DroneCommand dequeueCommand();
+        DroneCommand dequeueCommand();  // Remove drone command, returns command from queue
 
         float clamp(float value, float lbound, float ubound);   // Returns values inside of upper bound and lower bound.
 
@@ -121,22 +127,19 @@ namespace AS7
         
         Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx);
 
-        bool operatorAcknowledge(int channel=1);
-        void eStop();
+        bool channelConfirm(int16_t channel=1, float threshold=0.7f);    // Returns true if the channel above threshold. e.g. button press
 
         void start(int core=1, int priority=configMAX_PRIORITIES);
         void pause();
         void resume();
 
-        void enableOperatorControl();
-        void disableOperatorControl();
-        
         void enqueueCommand(DroneCommand cmd);
+
+        void enableOperatorControl();   // Enables pass-through from RX to TX. Latching
+        void disableOperatorControl();
 
         void emergencyStop();
         void resetEmergencyStop();
-
-        bool channelConfirm(int16_t ch, int16_t threshold);
 
         std::string getSbusRxArray();
         std::string getSbusTxArray();

@@ -24,6 +24,11 @@ namespace AS7
 
     void Drone::controllerTask(void * parameters) { 
         for (;;) {
+
+            if (_enableEmergencyStop) {
+                
+            }
+
         }
     }
 
@@ -129,7 +134,15 @@ namespace AS7
         return min(ubound, max(lbound, value));
     }
 
+    DroneCommand Drone::dequeueCommand() {
+
+    }
+
     /* ---------------------------------- Public Member Methods ---------------------------------- */ 
+
+    void Drone::enqueueCommand(DroneCommand cmd) {
+
+    }
 
     void Drone::enableOperatorControl() {
         _logger->warn("Operator override enabled");
@@ -147,6 +160,10 @@ namespace AS7
     void Drone::resetEmergencyStop() {
         _logger->warn("Emergency stop reset");
         _enableEmergencyStop = false;
+    }
+
+    bool Drone::channelConfirm(int16_t channel, float threshold) {
+        return readChannel_f(channel) > threshold;
     }
 
     std::string Drone::getSbusRxArray() {
