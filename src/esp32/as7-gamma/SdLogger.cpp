@@ -10,22 +10,22 @@ namespace AS7
             xSemaphoreTake(getSemEnableMutex(), portMAX_DELAY);
 
             // Check the log size
-            xSemaphoreTake(getSemLogStackMutex(), portMAX_DELAY);
-            if (!getLogStack().empty()) {
-              msg = popLogStack();
+            xSemaphoreTake(getSemLogQueueMutex(), portMAX_DELAY);
+            if (!getLogQueue().empty()) {
+              msg = dequeueLog();
               
                 getPrinter()->println(msg.c_str());
                 // write to SD card
             }
-            xSemaphoreGive(getSemLogStackMutex());
+            xSemaphoreGive(getSemLogQueueMutex());
             
             xSemaphoreGive(getSemEnableMutex());
         }
     }
 
-    std::string Logger::popLogStack() {
-      std::string top = _log_stack.top();
-      _log_stack.pop();
+    std::string Logger::dequeueLog() {
+      std::string top = _log_Queue.front();
+      _log_Queue.pop();
       return top;
     }
 
@@ -36,25 +36,25 @@ namespace AS7
         //printer->println(message.c_str());
         // log onto SD card
 
-        xSemaphoreGive(_sem_msgStackMutex);
+        xSemaphoreGive(_sem_msgQueueMutex);
     }
 
     void Logger::enqueueLog(std::string message, int verbosity) {
-        xSemaphoreTake(_sem_logStackMutex, portMAX_DELAY);
-        _log_stack.push(message);
-        xSemaphoreGive(_sem_logStackMutex);
+        xSemaphoreTake(_sem_logQueueMutex, portMAX_DELAY);
+        _log_Queue.push(message);
+        xSemaphoreGive(_sem_logQueueMutex);
     }
 
     
     Print* Logger::getPrinter() {return _printer;}
 
-    std::stack<std::string> Logger::getMsgStack() { return _msg_stack; }
-    std::stack<std::string> Logger::getLogStack() { return _log_stack; }
+    std::queue<std::string> Logger::getMsgQueue() { return _msg_Queue; }
+    std::queue<std::string> Logger::getLogQueue() { return _log_Queue; }
 
     SemaphoreHandle_t Logger::getSemLog() { return _sem_log; }
     SemaphoreHandle_t Logger::getSemMsg() { return _sem_msg; }
-    SemaphoreHandle_t Logger::getSemLogStackMutex() { return _sem_logStackMutex; }
-    SemaphoreHandle_t Logger::getSemMsgStackMutex() { return _sem_msgStackMutex; }
+    SemaphoreHandle_t Logger::getSemLogQueueMutex() { return _sem_logQueueMutex; }
+    SemaphoreHandle_t Logger::getSemMsgQueueMutex() { return _sem_msgQueueMutex; }
 
     SemaphoreHandle_t Logger::getSemEnableMutex() { return _sem_enableMutex; }
 
@@ -132,7 +132,7 @@ namespace AS7
         xTaskCreatePinnedToCore(
         this->Logger::startTaskImpl,                /* Task function. */
         "Logger",              /* name of task. */
-        8192,                   /* Stack size of task */
+        8192,                   /* Queue size of task */
         this,                   /* parameter of the task */
         1, /* priority of the task */
         &th_logger,         /* Task handle to keep track of created task */
@@ -147,11 +147,11 @@ namespace AS7
         _printer = output;
         //initialiseSD();
 
-        _sem_logStackMutex = xSemaphoreCreateBinary();
+        _sem_logQueueMutex = xSemaphoreCreateBinary();
         _sem_enableMutex = xSemaphoreCreateBinary();
 
         
-        xSemaphoreGive(_sem_logStackMutex);
+        xSemaphoreGive(_sem_logQueueMutex);
 
         
     }
