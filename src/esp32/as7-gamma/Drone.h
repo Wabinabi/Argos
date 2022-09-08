@@ -31,7 +31,12 @@ namespace AS7
         static void startTaskImpl(void*);   // Task implementation for classes
         void mainTask(void* parameters);    // The threaded taskk  
 
-        bool _running = false;
+        bool _running = false;                  // Indicates current state of main drone task
+        bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
+        bool _enableEmergencyStop = false;      // When enabled, all TX channels are set to 0
+
+        bool enableOperatorControl();
+        bool enableEmergencyStop();
 
         SemaphoreHandle_t _semEnableMutex;          // Enables/Disables main drone task
         SemaphoreHandle_t getSemEnableMutex();      // Returns the enable mutex
@@ -76,6 +81,12 @@ namespace AS7
         void pause();
         void resume();
 
+        void enableOperatorControl(); // Operator control. Passes 
+        void disableOperatorControl();
+        
+        void emergencyStop();
+        void resetEmergencyStop();
+
         bool channelConfirm(int16_t ch, int16_t threshold);
 
         std::string getSbusRxArray();
@@ -85,6 +96,7 @@ namespace AS7
         //  -1 represents the lower bound, 1 represents upper bound
         //  Any out-of-bound values will be clamped to (-1, 1)
         void setChannel(float value, int16_t channel);
+        float getChannel(int16_t channel);
     };
 }
 

@@ -94,23 +94,12 @@ namespace AS7
         return formattedData;
     }
 
-    std::string Drone::getSbusRxArray() {
-        return formatSbusArray(_sbusRxData);
-    }
-
-    std::string Drone::getSbusTxArray() {
-        return formatSbusArray(_sbusTxData);
-    }
-
-    void Drone::writeChannel(int16_t value, int8_t ch) {
-        _sbusTxData[ch] = value;
-    }
-
     int16_t Drone::readChannel(int16_t ch) {
         return _sbusRxData[ch];
     }
     float Drone::readChannel_f(int16_t ch) {
-
+        float chValue = (readChannel(ch) - _sbusRxChLower[ch]) / (_sbusRxChUpper[ch] - _sbusRxChLower[ch]);
+        return chValue;
     }
 
     void Drone::setChannel(float value, int16_t channel) {
@@ -119,6 +108,48 @@ namespace AS7
     
     float Drone::clamp(float value, float lbound, float ubound) {
         return min(ubound, max(lbound, value));
+    }
+
+    /* ----------------- Public Member Methods -----------------*/ 
+
+    void Drone::enableOperatorControl() {
+        _logger->warn("Operator override enabled");
+        _enableOperatorControl = true;
+    }
+    void Drone::disableOperatorControl() {
+        _logger->warn("Operator override reset");
+        _enableOperatorControl = false;
+    }
+    
+    void Drone::emergencyStop() {
+        _logger->fatal("Emergency stop enabled");
+        _enableEmergencyStop = true;
+    }
+    void Drone::resetEmergencyStop() {
+        _logger->warn("Emergency stop reset");
+        _enableEmergencyStop = false;
+    }
+
+    std::string Drone::getSbusRxArray() {
+        std::string formattedArray = formatSbusArray(_sbusRxData);
+        _logger->verbose("SBUS Rx Array: " + formattedArray);
+        return formattedArray;
+    }
+
+    std::string Drone::getSbusTxArray() {
+        std::string formattedArray = formatSbusArray(_sbusTxData);
+        _logger->verbose("SBUS Tx Array: " + formattedArray);
+        return formattedArray;
+    }
+
+    void Drone::writeChannel(int16_t value, int8_t ch) {
+        xSemaphoreTake(getWriteChannelMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
+        _sbusTxData[ch] = value;
+        xSemaphoreGive(getWriteChannelMutex());
+    }
+
+    float Drone::getChannel(int16_t channel) {
+        return readChannel_f(channel);
     }
 
     Drone::Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx) {
