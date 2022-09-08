@@ -3,9 +3,9 @@
 
 namespace AS7 
 {
-    SemaphoreHandle_t Drone::getSemEnableMutex() { return _semEnableMutex; }
-
-    void Drone::startTaskImpl(void* _this) {
+    /* ---------------------------------- Task Methods ---------------------------------- */ 
+    
+    void Drone::startNavTask(void* _this) {
         ((Drone*)_this)->navigationTask(NULL);
     }
 
@@ -16,6 +16,59 @@ namespace AS7
             xSemaphoreGive(getSemEnableMutex());
         }
     }
+
+    void Drone::startCtlTask(void* _this) {
+        ((Drone*)_this)->controllerTask(NULL);
+    }
+
+    void Drone::controllerTask(void * parameters) { 
+        for (;;) {
+        }
+    }
+
+    
+
+    // hello
+    // add enqueue
+    // and stack
+    // add reader
+    // add sbus writer (always writing to sbus)
+    // add things that write to sbus -- sbus writer therefore needs semaphore for WRITE not READ
+    // add functions to change whats writetn to sbus, syz and ch
+    // and then simpler fuunctions like things to do (raise up and fly)
+    // add in tuning for flight mode and stuff
+
+    // add amounts and variables
+    // add tuning adjustments for min-maxing the amount
+    //  -> as in scalaing
+
+    // add operator override
+    // add operttor estop
+
+    void Drone::start(int core, int priority) {
+        xTaskCreatePinnedToCore(
+        this->Drone::startNavTask,
+        "Navigation",  
+        8192,
+        this,
+        1,
+        &thDrone,
+        configMAX_PRIORITIES);
+
+        xTaskCreatePinnedToCore(
+        this->Drone::startCtlTask,
+        "Controller",  
+        8192,
+        this,
+        1,
+        &thRemote,
+        configMAX_PRIORITIES);
+
+        _running = true;
+        _logger->verbose("Drone class started");
+    }
+
+    /* ---------------------------------- Private Member Methods ---------------------------------- */ 
 
     void Drone::pause() {
         if (!_running) {
@@ -36,45 +89,14 @@ namespace AS7
         
     }
 
-    // hello
-    // add enqueue
-    // and stack
-    // add reader
-    // add sbus writer (always writing to sbus)
-    // add things that write to sbus -- sbus writer therefore needs semaphore for WRITE not READ
-    // add functions to change whats writetn to sbus, syz and ch
-    // and then simpler fuunctions like things to do (raise up and fly)
-    // add in tuning for flight mode and stuff
-
-    // add amounts and variables
-    // add tuning adjustments for min-maxing the amount
-    //  -> as in scalaing
-
-    // add operator override
-    // add operttor estop
-
-
-
-    void Drone::start(int core, int priority) {
-        xTaskCreatePinnedToCore(
-        this->Drone::startTaskImpl,                /* Task function. */
-        "Drone",              /* name of task. */
-        8192,                   /* Stack size of task */
-        this,                   /* parameter of the task */
-        1, /* priority of the task */
-        &thDrone,         /* Task handle to keep track of created task */
-        1);                     /* pin task to core 1 */
-
-        _running = true;
-        _logger->verbose("Drone class started");
-    }
+    SemaphoreHandle_t Drone::getSemEnableMutex() { return _semEnableMutex; }
 
     void Drone::initUpperLowerBoundArrays() {
         
         _logger->verbose("Setting all channel lower bounds to " + std::to_string(SBUS_CHANNEL_LOWER));
         _logger->verbose("Setting all channel upper bounds to " + std::to_string(SBUS_CHANNEL_UPPER));
 
-        for (int i = 0; i < bfs::SbusRx::NUM_CH(); i++) {
+        for (int i = 0; i < NUM_CH; i++) {
             _sbusTxChLower[i] = SBUS_CHANNEL_LOWER;
             _sbusTxChUpper[i] = SBUS_CHANNEL_UPPER;
             _sbusRxChLower[i] = SBUS_CHANNEL_LOWER;
@@ -82,9 +104,9 @@ namespace AS7
         }
     }
 
-    std::string Drone::formatSbusArray(std::array<int16_t, bfs::SbusRx::NUM_CH()> chData) {
+    std::string Drone::formatSbusArray(std::array<int16_t, NUM_CH> chData) {
         std::string formattedData = "";
-        for (int i = 0; i < bfs::SbusRx::NUM_CH(); i++) {
+        for (int i = 0; i < NUM_CH; i++) {
             formattedData += " " + std::to_string(chData[i]);
         }
         return formattedData;
@@ -106,7 +128,7 @@ namespace AS7
         return min(ubound, max(lbound, value));
     }
 
-    /* ----------------- Public Member Methods -----------------*/ 
+    /* ---------------------------------- Public Member Methods ---------------------------------- */ 
 
     void Drone::enableOperatorControl() {
         _logger->warn("Operator override enabled");

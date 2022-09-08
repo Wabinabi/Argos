@@ -64,8 +64,12 @@ namespace AS7
     {
     private:
         TaskHandle_t thDrone;
-        static void startTaskImpl(void*);   // Task implementation for classes
+        TaskHandle_t thRemote;
+        static void startNavTask(void*);   // Task implementation for classes
+        static void startCtlTask(void*);
         void navigationTask(void* parameters);    // The threaded task
+        void controllerTask(void* parameters);
+
 
         bool _running = false;                  // Indicates current state of main drone task
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
