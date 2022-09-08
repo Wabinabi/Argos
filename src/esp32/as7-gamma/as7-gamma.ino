@@ -51,13 +51,12 @@
 
 #include <map>        // Dictionary/mapping
 
-#include "SdLogger.h"
-#include "Drone.h"
+#include "SdLogger.h" // Main logging mechanism and SD Control
+#include "Drone.h"    // Main drone interface and RX/TX Control
 
 // Pin Mapping
 #define I2C_SDA 21  // I2C Pin Mapping
 #define I2C_SCL 22  // 
-//#define CS_PIN 5    // SD Card Clock Pin
 
 #define SIMULATION_ENABLE false // Enables simulating IO on the ESP32
 
@@ -125,8 +124,8 @@ CRGBPalette16 DEVPAL = DEV_PALLETE;
 // SBUS Comms with FC
 bfs::SbusRx sbusRx(&Serial1);
 bfs::SbusTx sbusTx(&Serial1);
-std::array<int16_t, bfs::SbusRx::NUM_CH()> sbusTxData;
-std::array<int16_t, bfs::SbusRx::NUM_CH()> sbusRxData;
+std::array<int16_t, NUM_CH> sbusTxData;
+std::array<int16_t, NUM_CH> sbusRxData;
 
 // SD Card Interface
 File config_file; // Read in configuration for drone
