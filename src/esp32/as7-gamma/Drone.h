@@ -35,8 +35,8 @@ namespace AS7
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
         bool _enableEmergencyStop = false;      // When enabled, all TX channels are set to 0
 
-        bool enableOperatorControl();
-        bool enableEmergencyStop();
+        bool getEnableOperatorControl();
+        bool getEnableEmergencyStop();
 
         SemaphoreHandle_t _semEnableMutex;          // Enables/Disables main drone task
         SemaphoreHandle_t getSemEnableMutex();      // Returns the enable mutex

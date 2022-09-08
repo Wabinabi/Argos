@@ -507,8 +507,6 @@ void setup() {
 
   drone.start();
 
-  
-
   // Ultrasonic Driver pins
   
   US_TRIGPIN[0] = 32;
@@ -636,7 +634,8 @@ void loop() {
     case Flying:
       switch(currentFlightMode) {
         case OperatorControl:
-
+            //set operator control, which is a bool nea drone which dsaibles io and sets i=o
+            drone.enableOperatorControl();
           break;
 
         case AutoStraightLine:
