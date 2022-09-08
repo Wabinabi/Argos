@@ -25,11 +25,26 @@
 #define DOF 6 // Degrees of freedom for the drone. 0-5 represent x, y, z, roll (rl), pitch (pt), yaw (yw) (Euler ZYX Convention)
 namespace AS7 
 {
-    enum DroneCommandType {Blind, Guided};
+    enum DroneCommandType {Blind, Guided, Landing};
 
+    // Drone Command Structure/Format
+    //  Two types: Blind and Guided, set by enum DroneCommandType
+    //  Blind commands only refer to the channel array and duration
+    //  Guided commands will attempt to use on-board sensors to control the drone
+    //
+    // Landing is a special type where the drone will lower thrust just below its known weight to land
+    //  If possible, it will use the bottom sensors to guide landing
+    //  Landing is equivalent to setting v_y to some pre-defined value in blind mode.
+    //
+    // Drone commands are enqueued to the drone, and will be executed FIFO.
+    //
+    // Note: Blind Commands can also be used as buttons and inputs to the FC, not just for navigation
+    //
     struct {
         DroneCommandType type;              // Blind = Purely a drone command, Guided = Assisted with sensors
         std::array<float, NUM_CH> channels; // A float for each channel from (-1, 1)
+        int duration;                       // in ms
+
         // Prefix P = Position; V = Velocity. Units on per-member basis and are *convention* (not checked)
         int p_x;    // Position to hold (some distance unit tbc)
         int p_y;
@@ -43,7 +58,6 @@ namespace AS7
         float v_rl;
         float v_pt;
         float v_yw;
-
     } DroneCommand;
 
     class Drone
@@ -51,7 +65,7 @@ namespace AS7
     private:
         TaskHandle_t thDrone;
         static void startTaskImpl(void*);   // Task implementation for classes
-        void mainTask(void* parameters);    // The threaded taskk  
+        void navigationTask(void* parameters);    // The threaded task
 
         bool _running = false;                  // Indicates current state of main drone task
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX

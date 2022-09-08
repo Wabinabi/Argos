@@ -6,10 +6,10 @@ namespace AS7
     SemaphoreHandle_t Drone::getSemEnableMutex() { return _semEnableMutex; }
 
     void Drone::startTaskImpl(void* _this) {
-        ((Drone*)_this)->mainTask(NULL);
+        ((Drone*)_this)->navigationTask(NULL);
     }
 
-    void Drone::mainTask(void * parameters) { 
+    void Drone::navigationTask(void * parameters) { 
         for (;;) {
             xSemaphoreTake(getSemEnableMutex(), portMAX_DELAY);
             
@@ -17,8 +17,6 @@ namespace AS7
         }
     }
 
-    // We're going with the assumption that there's only one logger
-    //  For now we won't be implementing protection here since it could cause debugging issues
     void Drone::pause() {
         if (!_running) {
             // log a warning and do nothing
@@ -58,8 +56,6 @@ namespace AS7
 
 
     void Drone::start(int core, int priority) {
-        
-        
         xTaskCreatePinnedToCore(
         this->Drone::startTaskImpl,                /* Task function. */
         "Drone",              /* name of task. */
