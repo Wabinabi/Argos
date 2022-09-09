@@ -10,7 +10,7 @@
 #define AS7SDLOGGING_H
 
 #include <Arduino.h>
-#include <stack>
+#include <queue>
 #include <SPI.h>
 #include <SD.h>
 
@@ -30,15 +30,15 @@ namespace AS7
     {
     private:
 
-        std::stack<std::string> _msg_stack;
-        std::stack<std::string> _log_stack;
-        // Used for reading the message stacks for the scribe task
+        std::queue<std::string> _msg_Queue;
+        std::queue<std::string> _log_Queue;
+        // Used for reading the message Queues for the scribe task
         SemaphoreHandle_t _sem_log;
         SemaphoreHandle_t _sem_msg;
         
-        // Mutex for the message stacks
-        SemaphoreHandle_t _sem_logStackMutex;
-        SemaphoreHandle_t _sem_msgStackMutex;
+        // Mutex for the message Queues
+        SemaphoreHandle_t _sem_logQueueMutex;
+        SemaphoreHandle_t _sem_msgQueueMutex;
 
         // Sem for Enabling/Disabling Task
         SemaphoreHandle_t _sem_enableMutex;
@@ -50,20 +50,17 @@ namespace AS7
         Print* getPrinter();
         int _verbosity = LOG_LEVEL_INFORM;
 
-
-        // figure out how to init stacks -> https://iq.opengenus.org/stack-initialization-cpp-stl/
         std::string getTestMessage();
-        std::stack<std::string> getMsgStack();
-        std::stack<std::string> getLogStack();
+        std::queue<std::string> getMsgQueue();
+        std::queue<std::string> getLogQueue();
 
         SemaphoreHandle_t getSemLog();
         SemaphoreHandle_t getSemMsg();
-        SemaphoreHandle_t getSemLogStackMutex();
-        SemaphoreHandle_t getSemMsgStackMutex();
+        SemaphoreHandle_t getSemLogQueueMutex();
+        SemaphoreHandle_t getSemMsgQueueMutex();
 
         SemaphoreHandle_t getSemEnableMutex();
 
-        
 
         // Adds a message to be recorded to the SD card
         // diagnotics probably? will flush out later
@@ -76,7 +73,7 @@ namespace AS7
         // String since we can also send header information
         void enqueuePnt(std::string points);
 
-        std::string popLogStack();
+        std::string dequeueLog();
 
         // Implementation to start FreeRTOS tasks in classes
         static void startTaskImpl(void*);
