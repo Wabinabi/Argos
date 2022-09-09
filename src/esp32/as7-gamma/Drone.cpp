@@ -25,8 +25,41 @@ namespace AS7
     // If there are no more commands, the drone will indicate droneCommandsCompleted
 
     void Drone::navigationTask(void * parameters) { 
-        for (;;) {
+        for (;;) {           
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
+            
+            // check if queue is empty
+            // if it is not, then we'll set the drone staretd to true
+
+            
+            
+
+            // 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             
             xSemaphoreGive(getSemDroneEnableMutex());
         }

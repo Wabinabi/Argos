@@ -83,13 +83,6 @@ namespace AS7
 
         std::queue<DroneCommand> _droneCommandQueue;
 
-        bool _running = false;                  // Indicates current state of main drone task
-        bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
-        bool _enableEmergencyStop = false;      // When enabled, all TX channels are set to 0
-
-        bool getEnableOperatorControl();
-        bool getEnableEmergencyStop();
-
         SemaphoreHandle_t _semDroneEnableMutex;          // Enables/Disables main drone task
         SemaphoreHandle_t _semControlEnableMutex;        // Enables/Disables main drone task
         SemaphoreHandle_t getSemDroneEnableMutex();      // Returns the enable mutex
@@ -132,19 +125,35 @@ namespace AS7
 
         void writeChannel(int16_t value, int8_t ch);    // writes the value into the sbus transmit channel
         int16_t readChannel(int16_t ch);                // Reads the value from the channel
-        float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds
+        float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds10
 
-        DroneCommand dequeueCommand();  // Remove drone command, returns command from queue
-
+        // Helper/Utility functions
         float clamp(float value, float lbound, float ubound);   // Returns values inside of upper bound and lower bound.
-
         std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);    // Returns the channels in a formatted string  
 
-        bfs::SbusRx* getSbusRx();
-        bfs::SbusTx* getSbusTx();
+        bfs::SbusRx* getSbusRx();   // Returns SBUS RX object for task implementation
+        bfs::SbusTx* getSbusTx();   // Returns SBUS TX object for task implementation
 
-        bool _droneCommandsStarted = false;
-        bool _droneCommandsCompleted = false;
+        bool _droneCommandsStarted = false;     // Indicates if the drone has started processing commands
+        bool _droneCommandsCompleted = false;   // Indicates that there are no commands left (queue is empty)
+
+        bool _hasArmed = false;         // Remembers if the drone has undergone an arming process
+        bool _armingAllowed = false;    // Set by main program. Once allowed, drone will start processing instructions
+        inline bool droneAllowedToFly() const {return _armingAllowed;} // Returns _armingAllowed bit
+        inline bool droneHasArmed() const {return _hasArmed;}          // Returns if dorn has armed previously
+        inline void setDroneHasArmed() {_hasArmed = true;}
+
+        inline void setDroneCommandsStarted() {_droneCommandsStarted = true;}
+        inline void setDroneCommandsCompleted() {_droneCommandsCompleted = true;}
+        inline bool nextCommandAvailable();
+
+        bool _running = false;                  // Indicates current state of main drone task
+        bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
+        bool _enableEmergencyStop = false;      // When enabled, all TX channels are set to 0
+
+        bool getEnableOperatorControl();        // Returns operator control bit
+        bool getEnableEmergencyStop();          // Returns e-stop bit
+
 
     public:
         
@@ -162,7 +171,10 @@ namespace AS7
         void pause();
         void resume();
 
-        void enqueueCommand(DroneCommand cmd);
+        void enqueueCommand(DroneCommand cmd);  // Adds command to drone queue
+        DroneCommand dequeueCommand();          // Remove drone command, returns command from queue
+
+        inline void allowArming() {_armingAllowed = true;}  // Allows drone to start processing commands
 
         void enableOperatorControl();   // Enables pass-through from RX to TX. Latching
         void disableOperatorControl();
