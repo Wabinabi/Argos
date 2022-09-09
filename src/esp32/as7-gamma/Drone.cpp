@@ -44,6 +44,7 @@ namespace AS7
                 switch(currentCommand.type) {
 
                     case Blind:
+
                         break;
 
                     case Guided:
@@ -78,6 +79,8 @@ namespace AS7
                         // This thread runs often and therefore would flood the verbose serial port.
                     }
                     setDroneCommandsCompleted(); // indicate that drone has no commands
+                    // When the drone has no commands, we send the e-stop tx packet to the FC, unless there's another one we want to send
+                    setSbusTxData(getEStopTx());
                 }
             }
             xSemaphoreGive(getSemDroneEnableMutex());
