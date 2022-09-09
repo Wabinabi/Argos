@@ -98,6 +98,7 @@ namespace AS7
         SemaphoreHandle_t getCommandQueueMutex();
 
         Logger* _logger;
+        Logger* getLogger();
 
         bfs::SbusRx* _sbusRx;   // SBUS Receive Channel Object
         bfs::SbusTx* _sbusTx;   // SBUS Transmit Channel Object

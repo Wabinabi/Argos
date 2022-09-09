@@ -36,75 +36,33 @@ namespace AS7
         for (;;) {
                   
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
-            
-            // check if queue is empty
-            // if it is not, then we'll set the drone staretd to true
 
-            // set current command
-            // 
-
-            if (getHasActiveComamnd()) { // Check if we have an active command
-            // We have an active command, we want to process the command and check finishTime at the end.
+            // Main Block
+            if (getHasActiveComamnd()) {
+                // Process Command block
+                // 
 
 
 
-            setHasActiveCommand(millis() > finishTime); // If we've passed our command duratino, we unset the active command
+                setHasActiveCommand(millis() > finishTime); // If we've passed our command duration, we unset the active command
+            } else {
+                // Get Command Block
+                //  As there is no active command, we will attempt to get one and set it up
 
-            } else {                                   // No active currently active command
                 if (nextCommandAvailable()) {          // Check if there's a command available
                     if (droneAllowedToFly()) {         // Check if the drone is allowed to fly
-                    
                         currentCommand = dequeueCommand();
+                        finishTime = currentCommand.duration + millis();
+                        getLogger()->inform("Starting new command: " + currentCommand.desc + " for " + std::to_string(currentCommand.duration) + "ms");
+                        getLogger()->verbose("Command to finish at " + std::to_string(finishTime) + "ms");
 
-                    
-
-
-                    } else {
-                        // indicate that drone is not armed yet
+                    } else { // Drone is not allowed to fly yet
+                        //_logger->verbose("Drone is not armed yet, waiting for arming...");
+                        // This thread runs often and therefore would flood the verbose serial port.
                     }
-                    // indicate that drone has no commnds
-                    setDroneCommandsCompleted();
+                    setDroneCommandsCompleted(); // indicate that drone has no commands
                 }
-
-
-
             }
-            
-
-            // block for getting commands
-            
-            // block for processing commands
-            
-            
-            
-             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
             xSemaphoreGive(getSemDroneEnableMutex());
         }
     }
@@ -220,6 +178,8 @@ namespace AS7
     SemaphoreHandle_t Drone::getSemControlEnableMutex() { return _semControlEnableMutex; }
     SemaphoreHandle_t Drone::getTxChMutex() { return _semTxChMutex; }
     SemaphoreHandle_t Drone::getRxChMutex() { return _semRxChMutex; }
+
+    Logger* Drone::getLogger() { return _logger;}
 
     bfs::SbusRx* Drone::getSbusRx() { return _sbusRx; }
     bfs::SbusTx* Drone::getSbusTx() { return _sbusTx; }
