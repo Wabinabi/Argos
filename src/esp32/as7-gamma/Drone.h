@@ -116,8 +116,8 @@ namespace AS7
         std::array<int16_t, NUM_CH> _sbusEStopTx;      // Data to be written in case of an E-Stop. Not all channels are to be zeroed! 
 
         // Methods for getting and setting data for task theads
-        std::array<int16_t, NUM_CH> getSbusRxData();
-        std::array<int16_t, NUM_CH> getSbusTxData();
+        inline std::array<int16_t, NUM_CH> getSbusRxData() {return _sbusRxData; }
+        inline std::array<int16_t, NUM_CH> getSbusTxData() {return _sbusTxData; }
         void setSbusRxData(std::array<int16_t, NUM_CH> data);
         void setSbusTxData(std::array<int16_t, NUM_CH> data);
 
@@ -155,8 +155,8 @@ namespace AS7
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
         bool _enableEmergencyStop = false;      // When enabled, all TX channels are set to 0
 
-        bool getEnableOperatorControl();        // Returns operator control bit
-        bool getEnableEmergencyStop();          // Returns e-stop bit
+        inline bool getEnableOperatorControl() {return _enableOperatorControl; }        // Returns operator control bit
+        inline bool getEnableEmergencyStop() {return _enableEmergencyStop; }          // Returns e-stop bit
 
 
     public:

@@ -32,6 +32,7 @@ namespace AS7
 
     void Drone::navigationTask(void * parameters) { 
         unsigned long finishTime = millis(); // Keeps track of the end time of our current command
+        DroneCommand currentCommand;
         for (;;) {
                   
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
@@ -47,26 +48,31 @@ namespace AS7
 
 
 
-            setHasActiveCommand(millis() > finishTime) // If we've passed our command duratino, we unset the active command
-            } else {
+            setHasActiveCommand(millis() > finishTime); // If we've passed our command duratino, we unset the active command
+
+            } else {                                   // No active currently active command
+                if (nextCommandAvailable()) {          // Check if there's a command available
+                    if (droneAllowedToFly()) {         // Check if the drone is allowed to fly
+                    
+                        currentCommand = dequeueCommand();
+
+                    
+
+
+                    } else {
+                        // indicate that drone is not armed yet
+                    }
+                    // indicate that drone has no commnds
+                    setDroneCommandsCompleted();
+                }
+
 
 
             }
             
 
             // block for getting commands
-            if (nextCommandAvailable()) {
-                if (droneAllowedToFly()) {
-                
-
-
-                } else {
-                    // indicate that drone is not armed yet
-                }
-                // indicate that drone has no commnds
-                setDroneCommandsCompleted();
-            }
-
+            
             // block for processing commands
             
             
