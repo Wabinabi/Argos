@@ -134,8 +134,7 @@ namespace AS7
         bfs::SbusRx* getSbusRx();   // Returns SBUS RX object for task implementation
         bfs::SbusTx* getSbusTx();   // Returns SBUS TX object for task implementation
 
-        bool _droneCommandsStarted = false;     // Indicates if the drone has started processing commands
-        bool _droneCommandsCompleted = false;   // Indicates that there are no commands left (queue is empty)
+        
 
         bool _hasArmed = false;         // Remembers if the drone has undergone an arming process
         bool _armingAllowed = false;    // Set by main program. Once allowed, drone will start processing instructions
@@ -143,9 +142,14 @@ namespace AS7
         inline bool droneHasArmed() const {return _hasArmed;}          // Returns if dorn has armed previously
         inline void setDroneHasArmed() {_hasArmed = true;}
 
-        inline void setDroneCommandsStarted() {_droneCommandsStarted = true;}
-        inline void setDroneCommandsCompleted() {_droneCommandsCompleted = true;}
-        inline bool nextCommandAvailable();
+        bool _droneCommandsStarted = false;     // Indicates if the drone has started processing commands
+        bool _droneCommandsCompleted = false;   // Indicates that there are no commands left (queue is empty)
+        bool _droneHasActiveCommand = false;
+        inline bool getHasActiveComamnd() const {return _droneHasActiveCommand;}
+        inline void setHasActiveCommand(bool value) {_droneHasActiveCommand = value;}
+        inline void setDroneCommandsStarted() {_droneCommandsStarted = true;}           // Latching check that the drone has started commands
+        inline void setDroneCommandsCompleted() {_droneCommandsCompleted = true;}       // Latching check that the rone has completed commands. If commands haven't stareted, then this indicates empty.
+        inline bool nextCommandAvailable(); // Checks if command queue size is not equal to zero.
 
         bool _running = false;                  // Indicates current state of main drone task
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX

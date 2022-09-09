@@ -23,18 +23,56 @@ namespace AS7
     // 
     // All commands will adhere to the correct ramp rate or easing function provided. Not sure how this will be implemented yet ( :D )
     // If there are no more commands, the drone will indicate droneCommandsCompleted
+    //
+    // process is:
+    // Checks if there is a current command running
+    // checks if there is a command available
+    //
+    //
 
     void Drone::navigationTask(void * parameters) { 
-        for (;;) {           
+        unsigned long finishTime = millis(); // Keeps track of the end time of our current command
+        for (;;) {
+                  
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
             
             // check if queue is empty
             // if it is not, then we'll set the drone staretd to true
 
-            
+            // set current command
+            // 
+
+            if (getHasActiveComamnd()) { // Check if we have an active command
+            // We have an active command, we want to process the command and check finishTime at the end.
+
+
+
+            setHasActiveCommand(mills() > finishTime) // If we've passed our command duratino, we unset the active command
+            } else {
+
+
+            }
             
 
-            // 
+            // block for getting commands
+            if (nextCommandAvailable()) {
+                if (droneAllowedToFly()) {
+                
+
+
+                } else {
+                    // indicate that drone is not armed yet
+                }
+                // indicate that drone has no commnds
+                setDroneCommandsCompleted();
+            }
+
+            // block for processing commands
+            
+            
+            
+             
+
 
 
 
