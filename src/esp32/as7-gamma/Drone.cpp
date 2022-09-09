@@ -229,8 +229,8 @@ namespace AS7
         return formattedData;
     }
 
-    // Returns the corrected value for this channel (adjusted for min/max and abs of the channel)
-    //  This will only use the values for the tx channels
+    // Returns the corrected integer value for this channel (adjusted for min/max and abs of the channel)
+    //  This will only use the values for the TX channels
     int16_t Drone::convChannel_i(float value, int8_t ch) {
         float _value;
         int16_t _adjustedValue;
@@ -245,15 +245,29 @@ namespace AS7
         }
 
         return _adjustedValue;
+    }
 
+    // Returns the corrected floating point value for this channel (adjusted for min/max and abs of the channel)
+    //  This will only use the values for the RX channels
+    float Drone::convChannel_f(int16_t value, int8_t ch) {
+        int16_t _value = clamp(value, _sbusRxChUpper[ch], _sbusRxChLower[ch]);
+        int16_t _adjustedValue;
+
+        if (_sbusAbsChannels[ch]) { // This is an absolute channel. Returns (0, 1)
+            _adjustedValue = (_value - _sbusRxChLower[ch]) / (_sbusRxChUpper[ch] - _sbusRxChLower[ch]);
+        } else { // Returns (-1, 1)
+            _adjustedValue = (_value - (_sbusRxChLower[ch] * 1.5)) / ((_sbusRxChUpper[ch] - _sbusRxChLower[ch])/2);
+        }
+
+        return _adjustedValue;
     }
 
     int16_t Drone::readChannel(int16_t ch) {
         return _sbusRxData[ch];
     }
+    
     float Drone::readChannel_f(int16_t ch) {
-        //use abs channel 
-        float chValue =convChannel_i(readChannel(ch), ch);
+        float chValue =convChannel_f(readChannel(ch), ch);
         return chValue;
     }
 

@@ -142,7 +142,8 @@ namespace AS7
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
         void writeChannel(int16_t value, int8_t ch);    // writes the value into the sbus transmit channel
-        int16_t getChannel_i(float value, int8_t ch);   // Returns the adjusted int16_t value for that channel
+        int16_t convChannel_i(float value, int8_t ch);   // Returns the adjusted int16_t value for that channel
+        float convChannel_f(int16_t value, int8_t ch);   // Returns the adjusted int16_t value for that channel
         int16_t readChannel(int16_t ch);                // Reads the value from the channel
         float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds10
 
