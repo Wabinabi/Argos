@@ -85,7 +85,16 @@ namespace AS7
             if (_sbusRx->Read()) {
                 setSbusRxData(_sbusRx->ch());
             }
-            
+
+            // Estop and Override Check
+            // This may differ depending on your controller
+            if (readChannel_f(CH_ESTOP) > 0.4f) { // EStop Threshold
+                emergencyStop(); // Toggle EStop
+            } else if (readChannel(CH_FLIGHTMODE) > 0.7f) {
+                enableOperatorControl();
+            }
+
+            // Set Data
             if (getEnableEmergencyStop()) {
                 getSbusTx()->ch(getEStopTx());          // Writes EStop Packet to TX
             } else if (getEnableOperatorControl()) {
@@ -180,6 +189,7 @@ namespace AS7
     SemaphoreHandle_t Drone::getRxChMutex() { return _semRxChMutex; }
 
     Logger* Drone::getLogger() { return _logger;}
+    std::array<bool, NUM_CH> Drone::getSbusAbsChannels() {return _sbusAbsChannels; }
 
     bfs::SbusRx* Drone::getSbusRx() { return _sbusRx; }
     bfs::SbusTx* Drone::getSbusTx() { return _sbusTx; }
@@ -219,16 +229,33 @@ namespace AS7
         return formattedData;
     }
 
+    // returns the corrected value for this channel
+    int16_t Drone::setChannel_i(float value, int8_t ch) {
+        float _value = clamp(value, -1, 1);
+        // some function to convert 0.5f to ch correctly based on low and hi array TODO
+
+        if (_sbusAbsChannels[ch]) { 
+
+        } else {
+
+        }
+
+
+    }
+
     int16_t Drone::readChannel(int16_t ch) {
         return _sbusRxData[ch];
     }
     float Drone::readChannel_f(int16_t ch) {
+        //use abs channel 
         float chValue = (readChannel(ch) - 2 * _sbusRxChLower[ch]) / (_sbusRxChUpper[ch] - _sbusRxChLower[ch]);
         return chValue;
     }
 
+    
+
     void Drone::setChannel(float value, int16_t channel) {
-        float _value = clamp(value, -1, 1);
+        
         //TODO implement channel setting with semaohore and correct setting
     }
     
@@ -262,13 +289,45 @@ namespace AS7
         xSemaphoreGive(_semCommandQueueMutex);
     }
 
+    void Drone::generateAbsChannels() {
+        _sbusAbsChannels[0]  = true;    // Throttle
+        _sbusAbsChannels[1]  = false;
+        _sbusAbsChannels[2]  = false;
+        _sbusAbsChannels[3]  = false;
+        _sbusAbsChannels[4]  = false;
+        _sbusAbsChannels[5]  = false;
+        _sbusAbsChannels[6]  = false;
+        _sbusAbsChannels[7]  = true;
+        _sbusAbsChannels[8]  = true;
+        _sbusAbsChannels[9]  = true;
+        _sbusAbsChannels[10] = true;
+        _sbusAbsChannels[11] = true;
+        _sbusAbsChannels[12] = true;
+        _sbusAbsChannels[13] = true;
+        _sbusAbsChannels[14] = true;
+        _sbusAbsChannels[15] = true;
+    }
+
     void Drone::generateEStopTx() {
-        for (int i = 0; i < NUM_CH; i++) {
-            _sbusEStopTx[i] = 0; // TODO implement 0.5f for certain TX as a helper function
-        }
+        _sbusEStopTx[0]  = 0;
+        _sbusEStopTx[1]  = setChannel_i();
+        _sbusEStopTx[2]  = 0;
+        _sbusEStopTx[3]  = 0;
+        _sbusEStopTx[4]  = 0;
+        _sbusEStopTx[5]  = 0;
+        _sbusEStopTx[6]  = 0;
+        _sbusEStopTx[7]  = 0;
+        _sbusEStopTx[8]  = 0;
+        _sbusEStopTx[9]  = 0;
+        _sbusEStopTx[10] = 0;
+        _sbusEStopTx[11] = 0;
+        _sbusEStopTx[12] = 0;
+        _sbusEStopTx[13] = 0;
+        _sbusEStopTx[14] = 0;
+        _sbusEStopTx[15] = 0;
+
         _logger->inform("Generating E-Stop Tx Package");
         _logger->verbose("E-Stop Tx: " + formatSbusArray(_sbusEStopTx));
-
     }
 
     std::array<int16_t, NUM_CH> Drone::getEStopTx() {
@@ -339,6 +398,9 @@ namespace AS7
         xSemaphoreGive(_semTxChMutex);
         xSemaphoreGive(_semRxChMutex);
 
-        initUpperLowerBoundArrays();
+        // Utility functions to initialise arrays
+        initUpperLowerBoundArrays();    // Set the upper and lower bounds for all ch arrays
+        generateAbsChannels();          // Set the default absolute channels
+        generateEStopTx();              // Create packet for E-Stops
     }
 }

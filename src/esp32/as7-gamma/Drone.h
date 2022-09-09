@@ -27,6 +27,18 @@
 #define DOF 6 // Degrees of freedom for the drone. 0-5 represent x, y, z, roll (rl), pitch (pt), yaw (yw) (Euler ZYX Convention)
 
 
+// Channel definitions
+//  These channels index from ZERO. Ch[0] = CH1!
+#define CH_THROTTLE     0   // Left stick y axis (starts from 0)
+#define CH_YAW          1   // Left stick x axis
+#define CH_STRAIGHT     2   // Right stick y axis
+#define CH_STRAFE       3   // Right stick x axis
+#define CH_BUTTON1      4   // Button on middle of controller
+#define CH_SW1          5   // Right toggle switch
+#define CH_FLIGHTMODE   6   // Left toggle switch
+#define CH_ESTOP        7   // Other button?
+
+
 namespace AS7 
 {
     enum DroneCommandType {Blind, Guided, Landing, Arm};
@@ -106,6 +118,11 @@ namespace AS7
         std::array<int16_t, NUM_CH> _sbusRxData;    // Array of data received from the Radio Control
         std::array<int16_t, NUM_CH> _sbusTxData;    // Array of data to transmit to the Flight Controller
 
+        std::array<bool, NUM_CH> _sbusAbsChannels;      // When true, the channel is (0, 1). Otherwise channels default to (-1, 1). 
+        std::array<bool, NUM_CH> getSbusAbsChannels();  // Returns an array which defines if a channel is absolute (true) or not (false).
+        void generateAbsChannels();                     // Sets the default Absolute Channels
+        
+
         // Channels that will be transmitted to the drone
         std::array<int16_t, NUM_CH> _sbusTxChLower;    // Lower bounds for SBUS Transmit channels
         std::array<int16_t, NUM_CH> _sbusTxChUpper;    // Upper bounds for SBUS Transmit Channels
@@ -125,6 +142,7 @@ namespace AS7
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
         void writeChannel(int16_t value, int8_t ch);    // writes the value into the sbus transmit channel
+        int16_t setChannel_i(float value, int8_t ch);   // Returns the adjusted int16_t value for that channel
         int16_t readChannel(int16_t ch);                // Reads the value from the channel
         float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds10
 
@@ -136,7 +154,6 @@ namespace AS7
         bfs::SbusTx* getSbusTx();   // Returns SBUS TX object for task implementation
 
         
-
         bool _hasArmed = false;         // Remembers if the drone has undergone an arming process
         bool _armingAllowed = false;    // Set by main program. Once allowed, drone will start processing instructions
         inline bool droneAllowedToFly() const {return _armingAllowed;} // Returns _armingAllowed bit
