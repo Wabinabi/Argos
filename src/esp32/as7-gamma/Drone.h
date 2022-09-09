@@ -89,8 +89,11 @@ namespace AS7
         SemaphoreHandle_t getSemDroneEnableMutex();      // Returns the enable mutex
         SemaphoreHandle_t getSemControlEnableMutex();    // Returns the enable mutex
 
-        SemaphoreHandle_t _semWriteChannelMutex();  // Mutex Lock for the tx data array
-        SemaphoreHandle_t getWriteChannelMutex();   // Returns the write mutex for threading implementation
+        SemaphoreHandle_t _semTxChMutex;  // Mutex Lock for the tx data array
+        SemaphoreHandle_t getTxChMutex();   // Returns the write mutex for threading implementation
+
+        SemaphoreHandle_t _semRxChMutex;  // Mutex Lock for the rx data array
+        SemaphoreHandle_t getRxChMutex();   // Returns the write mutex for threading implementation
 
         SemaphoreHandle_t _semCommandQueueMutex;    // Mutex lock for drone command queue
         SemaphoreHandle_t getCommandQueueMutex();
@@ -129,13 +132,21 @@ namespace AS7
 
         float clamp(float value, float lbound, float ubound);   // Returns values inside of upper bound and lower bound.
 
-        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);    // Returns the channels in a formatted string    
+        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);    // Returns the channels in a formatted string  
+
+        bfs::SbusRx* getSbusRx();
+        bfs::SbusTx* getSbusTx();
 
     public:
         
         Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx);
 
         bool channelConfirm(int16_t channel=1, float threshold=0.7f);    // Returns true if the channel above threshold. e.g. button press
+        
+        // Drone status is indicated by an int, though it could be indicated by an enum later on with DEFINEs
+        //  Current statuses could be drone_starting, drone_waitin0gdrone_in_progress, drone_estop, drone_operator_over, drone_finished
+        //  Not sure how the internal mechanism could work -- this could be a bunmch of bools with increasnig preference for noe another another? maybe we shouldn't even consider status inside the drone *command* class
+        int droneStatus();
 
         void start(int core=1, int priority=configMAX_PRIORITIES);
         void pause();

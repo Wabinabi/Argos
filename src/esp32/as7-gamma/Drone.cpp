@@ -22,21 +22,39 @@ namespace AS7
         }
     }
 
+
+    // Controller Task/Thread implementation
+    //  Runs on Drone::Start() and can be stopped using Drone::pause,
+    //  
+    // Aims to keep the channel alive by constantly sending information to the tx channel (pin).
+    //  Emergency stops are proceeded here. To ensure that the E-Stop and Operator Override always work correctly,
+    //   they have been nested in an if-else function
+    //  This should give preference to the emergency stop, then override, then normal drone commands (if any). 
+    //  If there are no commands, the drone should indicate it's state
+
     void Drone::controllerTask(void * parameters) { 
-        
         for (;;) {
             xSemaphoreTake(getSemControlEnableMutex(), portMAX_DELAY);
 
+            // If there is available data, update the internally received data
             if (_sbusRx->Read()) {
                 setSbusRxData(_sbusRx->ch());
             }
             
+            if (getEnableEmergencyStop()) {
+                setSbusTxData(getEStopTx());    // Writes EStop Packet to TX             
+            } else if (getEnableOperatorControl()) {
+                setSbusTxData(_sbusRx->ch());   // Writes received RX packets to TX channel. Drone acts as pass-through
+            } else { // Normal Drone Commands
 
-            if (_enableEmergencyStop) {
-                //setSbusRxData();
+            // skip if there's no new commansd
+            // pop command off
+
                 
- 
             }
+
+            // Transmit data to drone
+            getSbusTx()->ch(getSbusTxData());
             xSemaphoreGive(getSemControlEnableMutex());
         }
     }
@@ -59,6 +77,10 @@ namespace AS7
 
     // add operator override
     // add operttor estop
+
+    // dont forget about ramp rates
+    //  they will need to be slowly adjusted up so the drone doesnt jerk
+    //  rates might change per ch
 
     void Drone::start(int core, int priority) {
         xTaskCreatePinnedToCore(
@@ -106,8 +128,26 @@ namespace AS7
         
     }
 
+    // Getters for task access
     SemaphoreHandle_t Drone::getSemDroneEnableMutex() { return _semDroneEnableMutex; }
     SemaphoreHandle_t Drone::getSemControlEnableMutex() { return _semControlEnableMutex; }
+    SemaphoreHandle_t Drone::getTxChMutex() { return _semTxChMutex; }
+    SemaphoreHandle_t Drone::getRxChMutex() { return _semRxChMutex; }
+
+    bfs::SbusRx* Drone::getSbusRx() { return _sbusRx; }
+    bfs::SbusTx* Drone::getSbusTx() { return _sbusTx; }
+
+    // Setters for task access and write persmissions
+    void Drone::setSbusRxData(std::array<int16_t, NUM_CH> data) {
+        xSemaphoreTake(getRxChMutex(), portMAX_DELAY);
+            _sbusRxData = data;
+        xSemaphoreGive(getRxChMutex());
+    }
+    void Drone::setSbusTxData(std::array<int16_t, NUM_CH> data) {
+        xSemaphoreTake(getTxChMutex(), portMAX_DELAY);
+            _sbusRxData = data;
+        xSemaphoreGive(getTxChMutex());
+    }
 
     void Drone::initUpperLowerBoundArrays() {
         
@@ -179,7 +219,14 @@ namespace AS7
         for (int i = 0; i < NUM_CH; i++) {
             _sbusEStopTx[i] = 0; // TODO implement 0.5f for certain TX as a helper function
         }
+        _logger->inform("Generating E-Stop Tx Package");
+        _logger->verbose("E-Stop Tx: " + formatSbusArray(_sbusEStopTx));
 
+    }
+
+    std::array<int16_t, NUM_CH> Drone::getEStopTx() {
+        _logger->verbose("Returning E-Stop TX");
+        return _sbusEStopTx;
     }
 
     void Drone::enableOperatorControl() {
@@ -217,9 +264,9 @@ namespace AS7
     }
 
     void Drone::writeChannel(int16_t value, int8_t ch) {
-        xSemaphoreTake(getWriteChannelMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
+        xSemaphoreTake(getTxChMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
         _sbusTxData[ch] = value;
-        xSemaphoreGive(getWriteChannelMutex());
+        xSemaphoreGive(getTxChMutex());
     }
 
     float Drone::getChannel(int16_t channel) {
@@ -236,6 +283,15 @@ namespace AS7
         _semDroneEnableMutex = xSemaphoreCreateBinary();
         _semControlEnableMutex = xSemaphoreCreateBinary();
         _semCommandQueueMutex = xSemaphoreCreateBinary();
+        _semTxChMutex = xSemaphoreCreateBinary();
+        _semRxChMutex = xSemaphoreCreateBinary();
+
+        xSemaphoreGive(_semDroneEnableMutex);
+        xSemaphoreGive(_semControlEnableMutex);
+        xSemaphoreGive(_semCommandQueueMutex);
+        xSemaphoreGive(_semTxChMutex);
+        xSemaphoreGive(_semRxChMutex);
+
         initUpperLowerBoundArrays();
     }
 }
