@@ -230,16 +230,23 @@ namespace AS7
     }
 
     // returns the corrected value for this channel
-    int16_t Drone::setChannel_i(float value, int8_t ch) {
-        float _value = clamp(value, -1, 1);
+    //  This will only use the values for the tx channels
+    int16_t Drone::convChannel_i(float value, int8_t ch) {
+        float _value;
+        int16_t _adjustedValue;
         // some function to convert 0.5f to ch correctly based on low and hi array TODO
 
-        if (_sbusAbsChannels[ch]) { 
-
+        if (_sbusAbsChannels[ch]) { // This is an absolute channel. Accepts (0, 1)
+            _value = clamp(value, 0, 1);
+            _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
         } else {
-
+            _value = clamp(value, -1, 1);
+            _value += 1; // Range is now (0, 2)
+            _value /= 2; // Range is now (0, 1), we can use the same formula as above.
+            _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
         }
 
+        return _adjustedValue;
 
     }
 
@@ -248,7 +255,7 @@ namespace AS7
     }
     float Drone::readChannel_f(int16_t ch) {
         //use abs channel 
-        float chValue = (readChannel(ch) - 2 * _sbusRxChLower[ch]) / (_sbusRxChUpper[ch] - _sbusRxChLower[ch]);
+        float chValue =convChannel_i(readChannel(ch), ch);
         return chValue;
     }
 
@@ -310,11 +317,11 @@ namespace AS7
 
     void Drone::generateEStopTx() {
         _sbusEStopTx[0]  = 0;
-        _sbusEStopTx[1]  = setChannel_i();
-        _sbusEStopTx[2]  = 0;
-        _sbusEStopTx[3]  = 0;
-        _sbusEStopTx[4]  = 0;
-        _sbusEStopTx[5]  = 0;
+        _sbusEStopTx[1]  = convChannel_i(0.5f);
+        _sbusEStopTx[2]  = convChannel_i(0.5f);
+        _sbusEStopTx[3]  = convChannel_i(0.5f);
+        _sbusEStopTx[4]  = convChannel_i(0.5f);
+        _sbusEStopTx[5]  = convChannel_i(0.5f);
         _sbusEStopTx[6]  = 0;
         _sbusEStopTx[7]  = 0;
         _sbusEStopTx[8]  = 0;
