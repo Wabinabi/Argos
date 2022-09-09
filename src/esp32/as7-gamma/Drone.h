@@ -39,6 +39,12 @@
 #define CH_ESTOP        7   // Other button?
 
 
+// Cv = Control Value, Pv = Present Value. Use CV to control PV
+#define RAMPRATE_NONE       0   // No ramp rate.            Pv = Cv
+#define RAMPRATE_LINEAR     1   // Linear ramp rate,        Pv += Constant until Pv > Cv
+#define RAMPRATE_PROP       2   // Proportional Ramp Rate   Pv = (Cv - Pv) * Constant
+
+
 namespace AS7 
 {
     enum DroneCommandType {Blind, Guided, Landing, Arm};
@@ -148,8 +154,9 @@ namespace AS7
         float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds10
 
         // Helper/Utility functions
-        float clamp(float value, float lbound, float ubound);   // Returns values inside of upper bound and lower bound.
-        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);    // Returns the channels in a formatted string  
+        float clamp(float value, float lbound, float ubound);                           // Returns values inside of upper bound and lower bound.
+        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);                // Returns the channels in a formatted string  
+        float rampValue(float value, float target = 0, float rate = 0, int rampRateType = RAMPRATE_LINEAR);   // Returns the next ramped value depending on ramp type
 
         bfs::SbusRx* getSbusRx();   // Returns SBUS RX object for task implementation
         bfs::SbusTx* getSbusTx();   // Returns SBUS TX object for task implementation

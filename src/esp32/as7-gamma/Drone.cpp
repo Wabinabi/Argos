@@ -42,7 +42,7 @@ namespace AS7
                 // Process Command block
                 // 
 
-
+                // add ramp rate function with defines RAMPRATE_LINEAR, RAMPRATE_INVERSE, RAMPRATE_NONE
 
                 setHasActiveCommand(millis() > finishTime); // If we've passed our command duration, we unset the active command
             } else {
@@ -227,6 +227,52 @@ namespace AS7
             formattedData += " " + std::to_string(chData[i]);
         }
         return formattedData;
+    }
+
+    // Returns the next ramped up value
+    // Ramp Rates restrict the amount a value can increase and shape the way there.
+    // NOTE THAT THIS FUNCTION IS TIME-INDEPENDENT!
+    //
+    // For example:
+    //  Current Value = 0f    (e.g. a current SBUS channel) 
+    //  Target Value  = 0.5f  (e.g. Drone needs to be at 50% thrust)
+    //  Rate          = 0.05f (e.g. We want to slowly accelerate to 50% thrust)
+    //
+    // No Ramp Rate - Instant jump
+    // Returns 0.5f
+    //
+    // Ramp Rate Linear - Literally linear
+    // Returns 0.05, 0.10, 0.15... 0.5
+    //
+    // Ramp Rate Proportional - Changes by RATE% of the diffence. In this case, 5% of the difference
+    // Returns 0.025, 0.0485, 0.0713, 0.0927... -> 0.5 (but mathematically never reaches)
+    //
+    // A ramp rate of 0.4f would be:
+    // Returns 0.2, 0.32, 0.329, 0.4352, 0.461, 0.486, 0.491, 0.494, 0.495, 0.498...
+    //
+    float Drone::rampValue(float value, float target, float rate, int rampRateType) {
+        float _returnValue;
+
+        switch(rampRateType) {
+
+            case RAMPRATE_LINEAR:
+                if (min(value + rate, target) < target) {
+                    _returnValue = min(value + rate, target);
+                } else {
+                    _returnValue = target;
+                }
+
+                break;
+
+            case RAMPRATE_PROP:
+                    _returnValue = (target - value) * rate;
+                break;
+
+            default: // Default to no ramping or RAMPRATE_NONE
+                _returnValue = value;
+        }
+
+        return _returnValue;
     }
 
     // Returns the corrected integer value for this channel (adjusted for min/max and abs of the channel)
