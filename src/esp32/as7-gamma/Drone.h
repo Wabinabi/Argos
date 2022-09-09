@@ -164,8 +164,6 @@ namespace AS7
         
         bool _hasArmed = false;         // Remembers if the drone has undergone an arming process
         bool _armingAllowed = false;    // Set by main program. Once allowed, drone will start processing instructions
-        inline bool droneAllowedToFly() const {return _armingAllowed;} // Returns _armingAllowed bit
-        inline bool droneHasArmed() const {return _hasArmed;}          // Returns if dorn has armed previously
         inline void setDroneHasArmed() {_hasArmed = true;}
 
         bool _droneCommandsStarted = false;     // Indicates if the drone has started processing commands
@@ -205,6 +203,8 @@ namespace AS7
         DroneCommand dequeueCommand();          // Remove drone command, returns command from queue
 
         inline void allowArming() {_armingAllowed = true;}  // Allows drone to start processing commands
+        inline bool droneAllowedToFly() const {return _armingAllowed;} // Returns _armingAllowed bit
+        inline bool droneHasArmed() const {return _hasArmed;}          // Returns if dorn has armed previously
 
         void enableOperatorControl();   // Enables pass-through from RX to TX. Latching
         void disableOperatorControl();

@@ -40,9 +40,26 @@ namespace AS7
             // Main Block
             if (getHasActiveComamnd()) {
                 // Process Command block
-                // 
+                
+                switch(currentCommand.type) {
 
-                // add ramp rate function with defines RAMPRATE_LINEAR, RAMPRATE_INVERSE, RAMPRATE_NONE
+                    case Blind:
+                        break;
+
+                    case Guided:
+                        break;
+
+                    case Landing:
+                        break;
+
+                    case Arm:
+                        break;
+
+
+                }
+
+
+
 
                 setHasActiveCommand(millis() > finishTime); // If we've passed our command duration, we unset the active command
             } else {
@@ -112,25 +129,25 @@ namespace AS7
     
 
     // hello
-    // add enqueue
-    // and stack
-    // add reader
-    // add sbus writer (always writing to sbus)
-    // add things that write to sbus -- sbus writer therefore needs semaphore for WRITE not READ
-    // add functions to change whats writetn to sbus, syz and ch
+    // X add enqueue
+    // X and stack
+    // X add reader
+    // X add sbus writer (always writing to sbus)
+    // X add things that write to sbus -- sbus writer therefore needs semaphore for WRITE not READ
+    // X add functions to change whats writetn to sbus, syz and ch
     // and then simpler fuunctions like things to do (raise up and fly)
     // add in tuning for flight mode and stuff
 
     // add amounts and variables
-    // add tuning adjustments for min-maxing the amount
-    //  -> as in scalaing
+    // X add tuning adjustments for min-maxing the amount
+    // X  -> as in scalaing
 
-    // add operator override
-    // add operttor estop
+    // X add operator override
+    // X add operttor estop
 
-    // dont forget about ramp rates
-    //  they will need to be slowly adjusted up so the drone doesnt jerk
-    //  rates might change per ch
+    // X dont forget about ramp rates
+    // X they will need to be slowly adjusted up so the drone doesnt jerk
+    // X rates might change per ch
 
     void Drone::start(int core, int priority) {
         xTaskCreatePinnedToCore(
@@ -465,5 +482,6 @@ namespace AS7
         initUpperLowerBoundArrays();    // Set the upper and lower bounds for all ch arrays
         generateAbsChannels();          // Set the default absolute channels
         generateEStopTx();              // Create packet for E-Stops
+        _logger->inform("Drone Class Initialised.");
     }
 }
