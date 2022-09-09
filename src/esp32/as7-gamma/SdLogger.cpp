@@ -83,6 +83,10 @@ namespace AS7
         enqueueLog("[Verbose] " + message, LOG_LEVEL_VERBOSE);
     }
 
+    void Logger::plot(std::string message) {
+        enqueueLog(message, LOG_LEVEL_VERBOSE);
+    }
+
     void Logger::startTaskImpl(void* _this) {
     ((Logger*)_this)->mainTask(NULL);
     }
@@ -92,7 +96,9 @@ namespace AS7
             //Serial.println("Error, SD Initialization Failed");
             fatal("SD initialisation failed, is the SD module loose or not connected?");
             verbose("SD.Begin(CS_PIN) failed to return a true value.");
-        }
+        } 
+        _sdDetected = true;
+        inform("SD card detected. SD Logging enabled.");
 
         File testFile = SD.open("/SDTest.txt", FILE_WRITE);
         if (testFile) {
@@ -142,17 +148,20 @@ namespace AS7
         xSemaphoreGive(_sem_enableMutex);
     }
 
+    void Logger::disableSDLogging() {
+        _sdEnabled = true;
+        warn("SD logging has been disabled! Results will not be recorded to SD Card");
+        
+    }
     
     Logger::Logger(Print* output) {
         _printer = output;
-        //initialiseSD();
 
         _sem_logQueueMutex = xSemaphoreCreateBinary();
         _sem_enableMutex = xSemaphoreCreateBinary();
-
-        
         xSemaphoreGive(_sem_logQueueMutex);
 
+        initialiseSD();
         
     }
 }

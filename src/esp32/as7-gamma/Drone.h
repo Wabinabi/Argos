@@ -27,6 +27,24 @@
 #define DOF 6 // Degrees of freedom for the drone. 0-5 represent x, y, z, roll (rl), pitch (pt), yaw (yw) (Euler ZYX Convention)
 
 
+// Channel definitions
+//  These channels index from ZERO. Ch[0] = CH1!
+#define CH_THROTTLE     0   // Left stick y axis (starts from 0)
+#define CH_YAW          1   // Left stick x axis
+#define CH_STRAIGHT     2   // Right stick y axis
+#define CH_STRAFE       3   // Right stick x axis
+#define CH_BUTTON1      4   // Button on middle of controller
+#define CH_SW1          5   // Right toggle switch
+#define CH_FLIGHTMODE   6   // Left toggle switch
+#define CH_ESTOP        7   // Other button?
+
+
+// Cv = Control Value, Pv = Present Value. Use CV to control PV
+#define RAMPRATE_NONE       0   // No ramp rate.            Pv = Cv
+#define RAMPRATE_LINEAR     1   // Linear ramp rate,        Pv += Constant until Pv > Cv
+#define RAMPRATE_PROP       2   // Proportional Ramp Rate   Pv = (Cv - Pv) * Constant
+
+
 namespace AS7 
 {
     enum DroneCommandType {Blind, Guided, Landing, Arm};
@@ -98,12 +116,18 @@ namespace AS7
         SemaphoreHandle_t getCommandQueueMutex();
 
         Logger* _logger;
+        Logger* getLogger();
 
         bfs::SbusRx* _sbusRx;   // SBUS Receive Channel Object
         bfs::SbusTx* _sbusTx;   // SBUS Transmit Channel Object
 
         std::array<int16_t, NUM_CH> _sbusRxData;    // Array of data received from the Radio Control
         std::array<int16_t, NUM_CH> _sbusTxData;    // Array of data to transmit to the Flight Controller
+
+        std::array<bool, NUM_CH> _sbusAbsChannels;      // When true, the channel is (0, 1). Otherwise channels default to (-1, 1). 
+        std::array<bool, NUM_CH> getSbusAbsChannels();  // Returns an array which defines if a channel is absolute (true) or not (false).
+        void generateAbsChannels();                     // Sets the default Absolute Channels
+        
 
         // Channels that will be transmitted to the drone
         std::array<int16_t, NUM_CH> _sbusTxChLower;    // Lower bounds for SBUS Transmit channels
@@ -116,30 +140,30 @@ namespace AS7
         std::array<int16_t, NUM_CH> _sbusEStopTx;      // Data to be written in case of an E-Stop. Not all channels are to be zeroed! 
 
         // Methods for getting and setting data for task theads
-        std::array<int16_t, NUM_CH> getSbusRxData();
-        std::array<int16_t, NUM_CH> getSbusTxData();
+        inline std::array<int16_t, NUM_CH> getSbusRxData() {return _sbusRxData; }
+        inline std::array<int16_t, NUM_CH> getSbusTxData() {return _sbusTxData; }
         void setSbusRxData(std::array<int16_t, NUM_CH> data);
         void setSbusTxData(std::array<int16_t, NUM_CH> data);
 
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
         void writeChannel(int16_t value, int8_t ch);    // writes the value into the sbus transmit channel
+        int16_t convChannel_i(float value, int8_t ch);   // Returns the adjusted int16_t value for that channel
+        float convChannel_f(int16_t value, int8_t ch);   // Returns the adjusted int16_t value for that channel
         int16_t readChannel(int16_t ch);                // Reads the value from the channel
         float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds10
 
         // Helper/Utility functions
-        float clamp(float value, float lbound, float ubound);   // Returns values inside of upper bound and lower bound.
-        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);    // Returns the channels in a formatted string  
+        float clamp(float value, float lbound, float ubound);                           // Returns values inside of upper bound and lower bound.
+        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);                // Returns the channels in a formatted string  
+        float rampValue(float value, float target = 0, float rate = 0, int rampRateType = RAMPRATE_LINEAR);   // Returns the next ramped value depending on ramp type
 
         bfs::SbusRx* getSbusRx();   // Returns SBUS RX object for task implementation
         bfs::SbusTx* getSbusTx();   // Returns SBUS TX object for task implementation
 
         
-
         bool _hasArmed = false;         // Remembers if the drone has undergone an arming process
         bool _armingAllowed = false;    // Set by main program. Once allowed, drone will start processing instructions
-        inline bool droneAllowedToFly() const {return _armingAllowed;} // Returns _armingAllowed bit
-        inline bool droneHasArmed() const {return _hasArmed;}          // Returns if dorn has armed previously
         inline void setDroneHasArmed() {_hasArmed = true;}
 
         bool _droneCommandsStarted = false;     // Indicates if the drone has started processing commands
@@ -155,8 +179,8 @@ namespace AS7
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
         bool _enableEmergencyStop = false;      // When enabled, all TX channels are set to 0
 
-        bool getEnableOperatorControl();        // Returns operator control bit
-        bool getEnableEmergencyStop();          // Returns e-stop bit
+        inline bool getEnableOperatorControl() {return _enableOperatorControl; }        // Returns operator control bit
+        inline bool getEnableEmergencyStop() {return _enableEmergencyStop; }          // Returns e-stop bit
 
 
     public:
@@ -179,6 +203,8 @@ namespace AS7
         DroneCommand dequeueCommand();          // Remove drone command, returns command from queue
 
         inline void allowArming() {_armingAllowed = true;}  // Allows drone to start processing commands
+        inline bool droneAllowedToFly() const {return _armingAllowed;} // Returns _armingAllowed bit
+        inline bool droneHasArmed() const {return _hasArmed;}          // Returns if dorn has armed previously
 
         void enableOperatorControl();   // Enables pass-through from RX to TX. Latching
         void disableOperatorControl();

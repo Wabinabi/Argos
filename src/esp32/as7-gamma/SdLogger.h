@@ -24,6 +24,8 @@
 #define LOG_LEVEL_VERBOSE 5
 #define CS_PIN 5
 
+#define PLOTTER_ENABLE true
+
 namespace AS7 
 {
     class Logger
@@ -43,6 +45,8 @@ namespace AS7
         // Sem for Enabling/Disabling Task
         SemaphoreHandle_t _sem_enableMutex;
         bool _running = false; // tracks if the thread is running or stopped
+        bool _sdEnabled = false;
+        bool _sdDetected = false;
 
         
         Print* _printer;
@@ -102,7 +106,9 @@ namespace AS7
         void verbose(std::string message);
 
         void record(int x, int y, int z);
+        void plot(std::string message);
 
+        void enableSDLogging();
 
     };
 }

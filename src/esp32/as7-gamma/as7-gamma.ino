@@ -500,6 +500,7 @@ void setup() {
   Serial.println("(c) Ecobat Project 2022");
 
   logger.start(2, 2);
+  logger.enableSDLogging();
 
   sbusRx.Begin(SBUS_RXPIN, SBUS_TXPIN);
   sbusTx.Begin(SBUS_RXPIN, SBUS_TXPIN);
@@ -599,13 +600,19 @@ void setup() {
 }
 
 void loop() {
+  
+  AS7::DroneCommand armingCommand;
+  armingCommand.desc = "This is a test arming command!";
+  armingCommand.type = AS7::Arm;
+  armingCommand.duration = 1000;
+
+  
 
   // Main loop for the state
   switch(currentState) {
     case Initialise:
 
-      if (logger.running()) {logger.inform("Logging is enabled"); }
-
+      if (logger.running()) {logger.inform("Initialise: Logger is reporting healthy."); }
 
       nextState = Ready;
 
@@ -615,12 +622,15 @@ void loop() {
 
       // wait for sbus signal from drone
       // something like dorne.readch(threshold, ch)
-
-
+      drone.allowArming();
+      if (drone.droneAllowedToFly()) {nextState = Armed; }
 
       break;
 
     case Armed:
+
+      drone.enqueueCommand(armingCommand);
+      delay(10000);
 
       // drone is arming
       // basically queue drone to do arming thing 
@@ -633,8 +643,7 @@ void loop() {
     case Flying:
       switch(currentFlightMode) {
         case OperatorControl:
-            //set operator control, which is a bool nea drone which dsaibles io and sets i=o
-            drone.enableOperatorControl();
+
           break;
 
         case AutoStraightLine:
