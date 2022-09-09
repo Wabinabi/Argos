@@ -47,7 +47,7 @@ namespace AS7
 
 
 
-            setHasActiveCommand(mills() > finishTime) // If we've passed our command duratino, we unset the active command
+            setHasActiveCommand(millis() > finishTime) // If we've passed our command duratino, we unset the active command
             } else {
 
 
