@@ -73,19 +73,20 @@ namespace AS7
         std::string desc;                   // A description for the logger
         std::array<float, NUM_CH> channels; // A float for each channel from (-1, 1)
         int duration;                       // in ms
+        float rateMultiplier = 1.0f;          // Can be thought of as "aggressiveness" of controls
 
         // Prefix P = Position; V = Velocity. Units on per-member basis and are *convention* (not checked)
-        int p_x;    // Position to hold (some distance unit tbc)
+        int p_x;        // Position to hold (some distance unit tbc)
         int p_y;
         int p_z;
-        float v_x;    // Velocity to hold (-1 to 1) floating point value
-        float v_y;    // e.g. 0.1 is equivalent to 10% forward thrust
+        float v_x;      // Velocity to hold (-1 to 1) floating point value
+        float v_y;      // e.g. 0.1 is equivalent to 10% forward thrust
         float v_z;
-        int p_rl;
-        int p_pt;
+        int p_rl;       // Not directly controllable on a drone
+        int p_pt;       // Not directly controllable on a drone
         int p_yw;
-        float v_rl;
-        float v_pt;
+        float v_rl;     // Not directly controllable on a drone
+        float v_pt;     // Not directly controllable on a drone
         float v_yw;
     } DroneCommand;
 
@@ -148,15 +149,27 @@ namespace AS7
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
         void writeChannel(int16_t value, int8_t ch);    // writes the value into the sbus transmit channel
-        int16_t convChannel_i(float value, int8_t ch);   // Returns the adjusted int16_t value for that channel
-        float convChannel_f(int16_t value, int8_t ch);   // Returns the adjusted int16_t value for that channel
-        int16_t readChannel(int16_t ch);                // Reads the value from the channel
-        float readChannel_f(int16_t ch);                // Reads the floating point value from the channel, adjusted for upper and lower bounds10
+        void writeChannel_f(float value, int8_t ch);    // writes the value into the sbus transmit channel
+
+        int16_t convRxChannel_i(float value, int8_t ch);  // Returns the adjusted int16_t value for that channel
+        float convRxChannel_f(int16_t value, int8_t ch);  // Returns the adjusted int16_t value for that channel
+
+        int16_t convTxChannel_i(float value, int8_t ch);  // Returns the adjusted int16_t value for that channel
+        float convTxChannel_f(int16_t value, int8_t ch);  // Returns the adjusted int16_t value for that channel
+
+        int16_t readRxChannel(int16_t ch);              // Reads the value from the channel
+        float readRxChannel_f(int16_t ch);              // Reads the floating point value from the channel, adjusted for upper and lower bounds
+
+        int16_t readTxChannel(int16_t ch);              // Reads the current value being written to the controller
+        float readTxChannel_f(int16_t ch);              // Returns the current value as a floating point number
 
         // Helper/Utility functions
         float clamp(float value, float lbound, float ubound);                           // Returns values inside of upper bound and lower bound.
         std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);                // Returns the channels in a formatted string  
         float rampValue(float value, float target = 0, float rate = 0, int rampRateType = RAMPRATE_LINEAR);   // Returns the next ramped value depending on ramp type
+
+        // Combines rampValue with current channel data for ramping.
+        void rampChannel(float target, int8_t ch, float rate, int rampRateType = RAMPRATE_LINEAR);
 
         bfs::SbusRx* getSbusRx();   // Returns SBUS RX object for task implementation
         bfs::SbusTx* getSbusTx();   // Returns SBUS TX object for task implementation
@@ -217,12 +230,6 @@ namespace AS7
 
         std::string getSbusRxArray();
         std::string getSbusTxArray();
-
-        // Writes a floating point value (-1 to 1) to the SBUS Channel
-        //  -1 represents the lower bound, 1 represents upper bound
-        //  Any out-of-bound values will be clamped to (-1, 1)
-        void setChannel(float value, int16_t channel);
-        float getChannel(int16_t channel);
     };
 }
 

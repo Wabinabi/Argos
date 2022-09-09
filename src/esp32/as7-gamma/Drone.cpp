@@ -28,10 +28,14 @@ namespace AS7
     // Checks if there is a current command running
     // checks if there is a command available
     //
-    //
+    // STRAIGHT X
+    // SIDEWAYS Y
+    // UPWARRDS Z
+
 
     void Drone::navigationTask(void * parameters) { 
         unsigned long finishTime = millis(); // Keeps track of the end time of our current command
+        getLogger()->verbose("this is the navigation task!");
         DroneCommand currentCommand;
         for (;;) {
                   
@@ -42,9 +46,15 @@ namespace AS7
                 // Process Command block
                 
                 switch(currentCommand.type) {
-
+                            
                     case Blind:
+                        // Blind is only concerned with velocities, not position.
+                        rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.15f, RAMPRATE_LINEAR);
+                        rampChannel(currentCommand.v_y, CH_STRAFE, 0.15f, RAMPRATE_LINEAR);
+                        rampChannel(currentCommand.v_z, CH_THROTTLE, 0.3f, RAMPRATE_LINEAR);
+                        rampChannel(currentCommand.v_yw, CH_YAW, 0.15f, RAMPRATE_LINEAR);
 
+                        //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
                         break;
 
                     case Guided:
@@ -73,6 +83,7 @@ namespace AS7
                         finishTime = currentCommand.duration + millis();
                         getLogger()->inform("Starting new command: " + currentCommand.desc + " for " + std::to_string(currentCommand.duration) + "ms");
                         getLogger()->verbose("Command to finish at " + std::to_string(finishTime) + "ms");
+                        setHasActiveCommand(true);
 
                     } else { // Drone is not allowed to fly yet
                         //_logger->verbose("Drone is not armed yet, waiting for arming...");
@@ -83,6 +94,9 @@ namespace AS7
                     setSbusTxData(getEStopTx());
                 }
             }
+
+            // Delay for 1ms
+            vTaskDelay(50 / portTICK_PERIOD_MS);
             xSemaphoreGive(getSemDroneEnableMutex());
         }
     }
@@ -108,9 +122,9 @@ namespace AS7
 
             // Estop and Override Check
             // This may differ depending on your controller
-            if (readChannel_f(CH_ESTOP) > 0.4f) { // EStop Threshold
+            if (readRxChannel_f(CH_ESTOP) > 0.4f) { // EStop Threshold
                 emergencyStop(); // Toggle EStop
-            } else if (readChannel(CH_FLIGHTMODE) > 0.7f) {
+            } else if (readRxChannel(CH_FLIGHTMODE) > 0.7f) {
                 enableOperatorControl();
             }
 
@@ -156,7 +170,7 @@ namespace AS7
         xTaskCreatePinnedToCore(
         this->Drone::startNavTask,
         "Navigation",  
-        8192,
+        16384,
         this,
         1,
         &thDrone,
@@ -165,7 +179,7 @@ namespace AS7
         xTaskCreatePinnedToCore(
         this->Drone::startCtlTask,
         "Controller",  
-        8192,
+        16384,
         this,
         1,
         &thRemote,
@@ -295,9 +309,13 @@ namespace AS7
         return _returnValue;
     }
 
+    void Drone::rampChannel(float target, int8_t ch, float rate, int rampRateType) {
+        writeChannel_f(rampValue(readTxChannel_f(ch), target, rate, rampRateType), ch);
+    }
+
     // Returns the corrected integer value for this channel (adjusted for min/max and abs of the channel)
     //  This will only use the values for the TX channels
-    int16_t Drone::convChannel_i(float value, int8_t ch) {
+    int16_t Drone::convRxChannel_i(float value, int8_t ch) {
         float _value;
         int16_t _adjustedValue;
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Accepts (0, 1)
@@ -315,7 +333,7 @@ namespace AS7
 
     // Returns the corrected floating point value for this channel (adjusted for min/max and abs of the channel)
     //  This will only use the values for the RX channels
-    float Drone::convChannel_f(int16_t value, int8_t ch) {
+    float Drone::convRxChannel_f(int16_t value, int8_t ch) {
         int16_t _value = clamp(value, _sbusRxChUpper[ch], _sbusRxChLower[ch]);
         int16_t _adjustedValue;
 
@@ -328,19 +346,67 @@ namespace AS7
         return _adjustedValue;
     }
 
-    int16_t Drone::readChannel(int16_t ch) {
+    // Returns the corrected integer value for this channel (adjusted for min/max and abs of the channel)
+    //  This will only use the values for the TX channels
+    int16_t Drone::convTxChannel_i(float value, int8_t ch) {
+        float _value;
+        int16_t _adjustedValue;
+        if (_sbusAbsChannels[ch]) { // This is an absolute channel. Accepts (0, 1)
+            _value = clamp(value, 0, 1);
+            _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
+        } else {
+            _value = clamp(value, -1, 1);
+            _value += 1; // Range is now (0, 2)
+            _value /= 2; // Range is now (0, 1), we can use the same formula as above.
+            _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
+        }
+
+        return _adjustedValue;
+    }
+
+    // Returns the corrected floating point value for this channel (adjusted for min/max and abs of the channel)
+    //  This will only use the values for the Tx channels
+    float Drone::convTxChannel_f(int16_t value, int8_t ch) {
+        int16_t _value = clamp(value, _sbusTxChUpper[ch], _sbusTxChLower[ch]);
+        int16_t _adjustedValue;
+
+        if (_sbusAbsChannels[ch]) { // This is an absolute channel. Returns (0, 1)
+            _adjustedValue = (_value - _sbusTxChLower[ch]) / (_sbusTxChUpper[ch] - _sbusTxChLower[ch]);
+        } else { // Returns (-1, 1)
+            _adjustedValue = (_value - (_sbusTxChLower[ch] * 1.5)) / ((_sbusTxChUpper[ch] - _sbusTxChLower[ch])/2);
+        }
+
+        return _adjustedValue;
+    }
+
+    int16_t Drone::readRxChannel(int16_t ch) {
         return _sbusRxData[ch];
     }
     
-    float Drone::readChannel_f(int16_t ch) {
-        float chValue =convChannel_f(readChannel(ch), ch);
+    float Drone::readRxChannel_f(int16_t ch) {
+        float chValue = convRxChannel_f(readRxChannel(ch), ch);
         return chValue;
     }
 
-    void Drone::setChannel(float value, int16_t channel) {
-        
-        //TODO implement channel setting with semaohore and correct setting
+    int16_t Drone::readTxChannel(int16_t ch) {
+        return _sbusTxData[ch];
     }
+    
+    float Drone::readTxChannel_f(int16_t ch) {
+        float chValue = convTxChannel_f(readTxChannel(ch), ch);
+        return chValue;
+    }
+
+    void Drone::writeChannel_f(float value, int8_t ch) {
+        writeChannel(convRxChannel_f(value, ch), ch);
+    }
+
+    void Drone::writeChannel(int16_t value, int8_t ch) {
+        xSemaphoreTake(getTxChMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
+        _sbusTxData[ch] = value;
+        xSemaphoreGive(getTxChMutex());
+    }
+
     
     float Drone::clamp(float value, float lbound, float ubound) {
         return min(ubound, max(lbound, value));
@@ -356,7 +422,9 @@ namespace AS7
         _logger->inform("Dequeueing drone command: " + cmd.desc);
         _logger->verbose("Command <" + cmd.desc + "> - Type " + std::to_string(cmd.type));
 
+        
         xSemaphoreGive(_semCommandQueueMutex);
+        return cmd;
     }
 
     /* ---------------------------------- Public Member Methods ---------------------------------- */ 
@@ -393,11 +461,11 @@ namespace AS7
 
     void Drone::generateEStopTx() {
         _sbusEStopTx[0]  = 0;
-        _sbusEStopTx[1]  = convChannel_i(0.5f, 1);
-        _sbusEStopTx[2]  = convChannel_i(0.5f, 2);
-        _sbusEStopTx[3]  = convChannel_i(0.5f, 3);
-        _sbusEStopTx[4]  = convChannel_i(0.5f, 4);
-        _sbusEStopTx[5]  = convChannel_i(0.5f, 5);
+        _sbusEStopTx[1]  = convRxChannel_i(0.5f, 1);
+        _sbusEStopTx[2]  = convRxChannel_i(0.5f, 2);
+        _sbusEStopTx[3]  = convRxChannel_i(0.5f, 3);
+        _sbusEStopTx[4]  = convRxChannel_i(0.5f, 4);
+        _sbusEStopTx[5]  = convRxChannel_i(0.5f, 5);
         _sbusEStopTx[6]  = 0;
         _sbusEStopTx[7]  = 0;
         _sbusEStopTx[8]  = 0;
@@ -437,7 +505,7 @@ namespace AS7
     }
 
     bool Drone::channelConfirm(int16_t channel, float threshold) {
-        return readChannel_f(channel) > threshold;
+        return readRxChannel_f(channel) > threshold;
     }
 
     std::string Drone::getSbusRxArray() {
@@ -452,15 +520,7 @@ namespace AS7
         return formattedArray;
     }
 
-    void Drone::writeChannel(int16_t value, int8_t ch) {
-        xSemaphoreTake(getTxChMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
-        _sbusTxData[ch] = value;
-        xSemaphoreGive(getTxChMutex());
-    }
-
-    float Drone::getChannel(int16_t channel) {
-        return readChannel_f(channel);
-    }
+    
 
     Drone::Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx) {
         _logger = logger;

@@ -1,3 +1,4 @@
+
 /** 04/09/2022 this will be done today no matter what
  * @file as7-beta.ino 
  * @brief Summary of module
@@ -597,7 +598,7 @@ void setup() {
     logger.inform("AS7 is starting in simulation mode!");
   }
 
-  
+  Serial.println("finishing up at end of setup");
 
 }
 
@@ -607,6 +608,8 @@ void loop() {
   armingCommand.desc = "This is a test arming command!";
   armingCommand.type = AS7::Arm;
   armingCommand.duration = 1000;
+  logger.inform("we're looping~");
+  Serial.println("we're looping!");
 
   
 
@@ -632,7 +635,7 @@ void loop() {
     case Armed:
 
       drone.enqueueCommand(armingCommand);
-      delay(10000);
+      delay(1500);
 
       // drone is arming
       // basically queue drone to do arming thing 
