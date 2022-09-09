@@ -29,7 +29,7 @@
 
 namespace AS7 
 {
-    enum DroneCommandType {Blind, Guided, Landing};
+    enum DroneCommandType {Blind, Guided, Landing, Arm};
 
     // Drone Command Structure/Format
     //  Two types: Blind and Guided, set by enum DroneCommandType
@@ -39,6 +39,12 @@ namespace AS7
     // Landing is a special type where the drone will lower thrust just below its known weight to land
     //  If possible, it will use the bottom sensors to guide landing
     //  Landing is equivalent to setting v_y to some pre-defined value in blind mode.
+    //
+    // Arm is a special type that will send the arming command to the drone.
+    //  As SBUS is one-way at the moment, it's not possible to *know* if the drone is armed but we can generally assume
+    //   that after a certain duration, the drone is armed.
+    //  Because of this, there is no way to know if the drone is disarmed as it will disarm automatically from the FC
+    //  More advanced implementations using two-way SBUS or ideally MAVLink can get around this limmitation.
     //
     // Drone commands are enqueued to the drone, and will be executed FIFO.
     //
@@ -136,6 +142,9 @@ namespace AS7
 
         bfs::SbusRx* getSbusRx();
         bfs::SbusTx* getSbusTx();
+
+        bool _droneCommandsStarted = false;
+        bool _droneCommandsCompleted = false;
 
     public:
         

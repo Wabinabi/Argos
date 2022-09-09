@@ -9,10 +9,20 @@ namespace AS7
         ((Drone*)_this)->navigationTask(NULL);
     }
 
-        void Drone::startCtlTask(void* _this) {
+    void Drone::startCtlTask(void* _this) {
         ((Drone*)_this)->controllerTask(NULL);
     }
 
+
+    // Drone Navigation Task
+    //  Runs on Drone::Start() and can be stoped by using Drone::pause().
+    //
+    // Processes commands from the command queue. Goes through them one-by-one.
+    // Commands are popped from the queue and are stored as the "current command".
+    //  The current millis() + cmd.duration is saved. Once millis() exceeds the saved value, the function proceeds to the next command
+    // 
+    // All commands will adhere to the correct ramp rate or easing function provided. Not sure how this will be implemented yet ( :D )
+    // If there are no more commands, the drone will indicate droneCommandsCompleted
 
     void Drone::navigationTask(void * parameters) { 
         for (;;) {
@@ -24,7 +34,7 @@ namespace AS7
 
 
     // Controller Task/Thread implementation
-    //  Runs on Drone::Start() and can be stopped using Drone::pause,
+    //  Runs on Drone::Start() and can be stopped using Drone::pause().
     //  
     // Aims to keep the channel alive by constantly sending information to the tx channel (pin).
     //  Emergency stops are proceeded here. To ensure that the E-Stop and Operator Override always work correctly,
