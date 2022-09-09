@@ -42,19 +42,15 @@ namespace AS7
             }
             
             if (getEnableEmergencyStop()) {
-                setSbusTxData(getEStopTx());    // Writes EStop Packet to TX             
+                getSbusTx()->ch(getEStopTx());          // Writes EStop Packet to TX
             } else if (getEnableOperatorControl()) {
-                setSbusTxData(_sbusRx->ch());   // Writes received RX packets to TX channel. Drone acts as pass-through
-            } else { // Normal Drone Commands
-
-            // skip if there's no new commansd
-            // pop command off
-
-                
+                getSbusTx()->ch(getSbusRxData());       // Writes received RX packets to TX channel. Drone acts as pass-through
+            } else { 
+                getSbusTx()->ch(getSbusTxData());       // Transmits normal data to drone              
             }
 
             // Transmit data to drone
-            getSbusTx()->ch(getSbusTxData());
+            getSbusTx()->Write();
             xSemaphoreGive(getSemControlEnableMutex());
         }
     }
