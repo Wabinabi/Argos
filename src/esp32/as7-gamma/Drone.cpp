@@ -229,13 +229,11 @@ namespace AS7
         return formattedData;
     }
 
-    // returns the corrected value for this channel
+    // Returns the corrected value for this channel (adjusted for min/max and abs of the channel)
     //  This will only use the values for the tx channels
     int16_t Drone::convChannel_i(float value, int8_t ch) {
         float _value;
         int16_t _adjustedValue;
-        // some function to convert 0.5f to ch correctly based on low and hi array TODO
-
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Accepts (0, 1)
             _value = clamp(value, 0, 1);
             _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
@@ -258,8 +256,6 @@ namespace AS7
         float chValue =convChannel_i(readChannel(ch), ch);
         return chValue;
     }
-
-    
 
     void Drone::setChannel(float value, int16_t channel) {
         
@@ -317,11 +313,11 @@ namespace AS7
 
     void Drone::generateEStopTx() {
         _sbusEStopTx[0]  = 0;
-        _sbusEStopTx[1]  = convChannel_i(0.5f);
-        _sbusEStopTx[2]  = convChannel_i(0.5f);
-        _sbusEStopTx[3]  = convChannel_i(0.5f);
-        _sbusEStopTx[4]  = convChannel_i(0.5f);
-        _sbusEStopTx[5]  = convChannel_i(0.5f);
+        _sbusEStopTx[1]  = convChannel_i(0.5f, 1);
+        _sbusEStopTx[2]  = convChannel_i(0.5f, 2);
+        _sbusEStopTx[3]  = convChannel_i(0.5f, 3);
+        _sbusEStopTx[4]  = convChannel_i(0.5f, 4);
+        _sbusEStopTx[5]  = convChannel_i(0.5f, 5);
         _sbusEStopTx[6]  = 0;
         _sbusEStopTx[7]  = 0;
         _sbusEStopTx[8]  = 0;
