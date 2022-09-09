@@ -149,7 +149,7 @@ namespace AS7
         inline void setHasActiveCommand(bool value) {_droneHasActiveCommand = value;}
         inline void setDroneCommandsStarted() {_droneCommandsStarted = true;}           // Latching check that the drone has started commands
         inline void setDroneCommandsCompleted() {_droneCommandsCompleted = true;}       // Latching check that the rone has completed commands. If commands haven't stareted, then this indicates empty.
-        inline bool nextCommandAvailable(); // Checks if command queue size is not equal to zero.
+        inline bool nextCommandAvailable() {return _droneCommandQueue.size() != 0;}     // Checks if command queue size is not equal to zero.
 
         bool _running = false;                  // Indicates current state of main drone task
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
