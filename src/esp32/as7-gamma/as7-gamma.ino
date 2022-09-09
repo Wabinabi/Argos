@@ -54,6 +54,9 @@
 #include "SdLogger.h" // Main logging mechanism and SD Control
 #include "Drone.h"    // Main drone interface and RX/TX Control
 
+// Define Global Configs
+#define SD_DISABLED true  // For testing
+
 // Pin Mapping
 #define I2C_SDA 21  // I2C Pin Mapping
 #define I2C_SCL 22  // 
@@ -500,7 +503,6 @@ void setup() {
   Serial.println("(c) Ecobat Project 2022");
 
   logger.start(2, 2);
-  logger.enableSDLogging();
 
   sbusRx.Begin(SBUS_RXPIN, SBUS_TXPIN);
   sbusTx.Begin(SBUS_RXPIN, SBUS_TXPIN);

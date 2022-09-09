@@ -24,7 +24,8 @@
 #define LOG_LEVEL_VERBOSE 5
 #define CS_PIN 5
 
-#define PLOTTER_ENABLE true
+#define PLOTTER_ENABLE false // only prints plots, for testing.
+#define SD_DISABLED false
 
 namespace AS7 
 {
@@ -108,7 +109,7 @@ namespace AS7
         void record(int x, int y, int z);
         void plot(std::string message);
 
-        void enableSDLogging();
+        void disableSDLogging();        // Disables SD Logging, even if SD Card is attached.
 
     };
 }

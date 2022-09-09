@@ -92,22 +92,29 @@ namespace AS7
     }
 
     void Logger::initialiseSD() {
-        if (!SD.begin(CS_PIN)) {
+        if (!SD_DISABLED) {
+            if (!SD.begin(CS_PIN)) {
             //Serial.println("Error, SD Initialization Failed");
             fatal("SD initialisation failed, is the SD module loose or not connected?");
             verbose("SD.Begin(CS_PIN) failed to return a true value.");
-        } 
-        _sdDetected = true;
-        inform("SD card detected. SD Logging enabled.");
+            } 
 
-        File testFile = SD.open("/SDTest.txt", FILE_WRITE);
-        if (testFile) {
-            testFile.println("Hello ESP32 SD");
-            testFile.close();
-            //Serial.println("Success, data written to SDTest.txt");
+            _sdDetected = true;
+            inform("SD card detected. SD Logging enabled.");
+
+            File testFile = SD.open("/SDTest.txt", FILE_WRITE);
+            if (testFile) {
+                testFile.println("Hello ESP32 SD");
+                testFile.close();
+                //Serial.println("Success, data written to SDTest.txt");
+            } else {
+                //Serial.println("Error, couldn't not open SDTest.txt");
+            }
         } else {
-            //Serial.println("Error, couldn't not open SDTest.txt");
+            warn("SD Logging has been disabled globally! Data will not be recorded to SD");
         }
+        
+        
     }
 
 
