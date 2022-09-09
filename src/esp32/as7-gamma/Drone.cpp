@@ -109,11 +109,13 @@ namespace AS7
 
     void Drone::pause() {
         if (!_running) {
-            _logger->warn("Drone pause request received despite drone not running.");
+            _logger->error("Drone pause request received despite drone not running.");
         } else {
             _running = false;
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
-            _logger->verbose("Drone paused.");
+            xSemaphoreTake(getSemControlEnableMutex(), portMAX_DELAY);
+            _logger->verbose("Drone and Control Enable Mutexes taken");
+            _logger->warn("Drone thread operation paused");
         }
     }
 
@@ -121,9 +123,11 @@ namespace AS7
         if (!_running) {
             _running = true;
             xSemaphoreGive(getSemDroneEnableMutex());
-            _logger->verbose("Drone resumed.");
+            xSemaphoreGive(getSemControlEnableMutex());
+            _logger->verbose("Drone Control and Enable Mutexes released");
+            _logger->warn("Drone thread operation resumed");
         } else {
-            _logger->warn("Drone resume request received despite drone running.");
+            _logger->error("Drone resume request received despite drone running.");
         }
         
     }

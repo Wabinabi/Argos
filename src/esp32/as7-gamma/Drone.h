@@ -140,7 +140,6 @@ namespace AS7
     public:
         
         Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx);
-
         bool channelConfirm(int16_t channel=1, float threshold=0.7f);    // Returns true if the channel above threshold. e.g. button press
         
         // Drone status is indicated by an int, though it could be indicated by an enum later on with DEFINEs
@@ -148,6 +147,8 @@ namespace AS7
         //  Not sure how the internal mechanism could work -- this could be a bunmch of bools with increasnig preference for noe another another? maybe we shouldn't even consider status inside the drone *command* class
         int droneStatus();
 
+        // Main theread control
+        //  Operates both the controller and navigator threads
         void start(int core=1, int priority=configMAX_PRIORITIES);
         void pause();
         void resume();
