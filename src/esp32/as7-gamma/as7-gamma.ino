@@ -55,9 +55,6 @@
 #include "SdLogger.h" // Main logging mechanism and SD Control
 #include "Drone.h"    // Main drone interface and RX/TX Control
 
-// Define Global Configs
-#define SD_DISABLED true  // For testing
-
 // Pin Mapping
 #define I2C_SDA 21  // I2C Pin Mapping
 #define I2C_SCL 22  // 
@@ -257,31 +254,6 @@ void us_Task(void * parameters) {
     xSemaphoreGive(enable_usSemaphore);
   }
 }
-
-/*
-void pilot_Task(void * parameters) { 
-  // Task code starts here
-
-  This is the pilot task which keeps the sbus 
-
-  for (;;) {
-    xSemaphoreTake(enable_pilotSemaphore, portMAX_DELAY);
-
-    if(sbus_rx.Read()) {
-      sbus_data = sbus_rx.ch();
-      for (int i = 0; i < 16; i++) {
-          Serial.print(sbus_data[i]);
-        Serial.print(" ");
-      }
-    }
-
-    sbus_tx.ch(sbus_data);
-    sbus_tx.Write();
-    xSemaphoreGive(enable_pilotSemaphore);
-
-  }
-}
-*/
 
 
 void debug_switchModes(void * parameters) {

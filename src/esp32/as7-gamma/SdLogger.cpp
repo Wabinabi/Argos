@@ -18,9 +18,8 @@ namespace AS7
                 // write to SD card
             }
             xSemaphoreGive(getSemLogQueueMutex());
-            
             xSemaphoreGive(getSemEnableMutex());
-            vTaskDelay(500 / portTICK_PERIOD_MS);
+            vTaskDelay((1000/LOGGER_FREQ) / portTICK_PERIOD_MS); // Allow other tasks to take control
         }
     }
 
@@ -95,22 +94,24 @@ namespace AS7
     void Logger::initialiseSD() {
         if (!SD_DISABLED) {
             if (!SD.begin(CS_PIN)) {
-            //Serial.println("Error, SD Initialization Failed");
             fatal("SD initialisation failed, is the SD module loose or not connected?");
             verbose("SD.Begin(CS_PIN) failed to return a true value.");
-            } 
-
-            _sdDetected = true;
-            inform("SD card detected. SD Logging enabled.");
-
-            File testFile = SD.open("/SDTest.txt", FILE_WRITE);
-            if (testFile) {
-                testFile.println("Hello ESP32 SD");
-                testFile.close();
-                //Serial.println("Success, data written to SDTest.txt");
             } else {
-                //Serial.println("Error, couldn't not open SDTest.txt");
+                _sdDetected = true;
+                inform("SD card detected. SD Logging enabled.");
+
+                File testFile = SD.open("/SDTest.txt", FILE_WRITE);
+                if (testFile) {
+                    testFile.println("Hello ESP32 SD");
+                    testFile.close();
+                    //Serial.println("Success, data written to SDTest.txt");
+                } else {
+                    //Serial.println("Error, couldn't not open SDTest.txt");
+                }
+
             }
+
+            
         } else {
             warn("SD Logging has been disabled globally! Data will not be recorded to SD");
         }

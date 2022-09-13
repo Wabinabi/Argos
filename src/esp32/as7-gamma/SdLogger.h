@@ -24,6 +24,8 @@
 #define LOG_LEVEL_VERBOSE 5
 #define CS_PIN 5
 
+#define LOGGER_FREQ 50       // Update rate in Hertz
+
 #define PLOTTER_ENABLE false // only prints plots, for testing.
 #define SD_DISABLED false
 

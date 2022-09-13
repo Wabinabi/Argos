@@ -6,7 +6,6 @@ namespace AS7
     /* ---------------------------------- Task Methods ---------------------------------- */ 
     
     void Drone::startNavTask(void* _this) {
-        Serial.println("[Serial] Starting the nav task");
         ((Drone*)_this)->navigationTask(NULL);
     }
 
@@ -42,8 +41,6 @@ namespace AS7
         
         for (;;) {
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
-            getLogger()->verbose("running Navigator");
-
             // Main Block
             if (getHasActiveComamnd()) {
                 // Process Command block
@@ -67,6 +64,12 @@ namespace AS7
                         break;
 
                     case Arm:
+                    
+                        // Send arming command
+                        rampChannel( 1.0f, CH_STRAIGHT, 0.15f, RAMPRATE_NONE);
+                        rampChannel(-1.0f, CH_STRAFE, 0.15f, RAMPRATE_NONE);
+                        rampChannel( 0.0f, CH_THROTTLE, 0.3f, RAMPRATE_NONE);
+                        rampChannel( 1.0f, CH_YAW, 0.15f, RAMPRATE_NONE);
                         break;
 
 
@@ -82,10 +85,8 @@ namespace AS7
 
                 if (nextCommandAvailable()) {          // Check if there's a command available
                     if (droneAllowedToFly()) {         // Check if the drone is allowed to fly
-                        Serial.println("this is before the dequeue command"); 
                         currentCommand = dequeueCommand();
                         finishTime = currentCommand.duration + millis();
-                        Serial.println("this is a test log"); 
                         getLogger()->inform("Starting new command: " + currentCommand.desc + " for " + std::to_string(currentCommand.duration) + "ms");
                         getLogger()->verbose("Command to finish at " + std::to_string(finishTime) + "ms");
                         setHasActiveCommand(true);
@@ -101,7 +102,7 @@ namespace AS7
             }
             xSemaphoreGive(getSemDroneEnableMutex());
             // Delay for 1ms
-            vTaskDelay(500 / portTICK_PERIOD_MS);
+            vTaskDelay((1000/NAV_FREQ) / portTICK_PERIOD_MS);
         }
     }
 
@@ -146,7 +147,7 @@ namespace AS7
             // Transmit data to drone
             getSbusTx()->Write();
             xSemaphoreGive(getSemControlEnableMutex());
-            vTaskDelay(500 / portTICK_PERIOD_MS);
+            vTaskDelay((1000/CTL_FREQ) / portTICK_PERIOD_MS);
         }
     }
 
@@ -185,11 +186,10 @@ namespace AS7
         &thDrone,
         core);
 
-        Serial.print("Nav");
         if (xReturned == pdPASS ) {
-            Serial.println(" successfully started");
+            getLogger()->verbose("Navigator thread successfully started");
         } else {
-            Serial.println(" failed to start");
+            getLogger()->fatal("Navigator thread failed to start, is the core set correctly or the memory allocation too big to allocate?");
         }
         
 
@@ -202,15 +202,13 @@ namespace AS7
         &thRemote,
         core);
 
-        Serial.print("Ctl");
         if (xReturned == pdPASS ) {
-            Serial.println(" successfully started");
+            getLogger()->verbose("Controller thread successfully started");
         } else {
-            Serial.println(" failed to start");
+            getLogger()->fatal("Controller thread failed to start, is the core set correctly or the memory allocation too big to allocate?");
         }
-
+    
         _running = true;
-        _logger->verbose("Drone tasks started");
     }
 
     /* ---------------------------------- Private Member Methods ---------------------------------- */ 

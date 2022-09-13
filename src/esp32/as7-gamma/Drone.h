@@ -24,8 +24,12 @@
 #define SBUS_CHANNEL_LOWER 0        // Default lower bound for sbus channels
 #define SBUS_CHANNEL_UPPER 4096     // Default upper bound for sbus channels
 #define NUM_CH 16                   // Number of SBUS channels. Always 16. Equivalent to bfs::SbusRx::NUM_CH()
-#define DOF 6 // Degrees of freedom for the drone. 0-5 represent x, y, z, roll (rl), pitch (pt), yaw (yw) (Euler ZYX Convention)
+#define DOF 6                       // Degrees of freedom for the drone. 0-5 represent x, y, z, roll (rl), pitch (pt), yaw (yw) (Euler ZYX Convention)
 
+// Thread update frequencies (to reduce starvation of the watchdog)
+//  Feed your watchdogs, people! They do important household chores!
+#define NAV_FREQ 250    // Navigation update rate, Hz (Default: 250 Hz)
+#define CTL_FREQ 250    // Controller update rate, Hz (Default: 250 Hz)
 
 // Channel definitions
 //  These channels index from ZERO. Ch[0] = CH1!
@@ -43,7 +47,6 @@
 #define RAMPRATE_NONE       0   // No ramp rate.            Pv = Cv
 #define RAMPRATE_LINEAR     1   // Linear ramp rate,        Pv += Constant until Pv > Cv
 #define RAMPRATE_PROP       2   // Proportional Ramp Rate   Pv = (Cv - Pv) * Constant
-
 
 namespace AS7 
 {
