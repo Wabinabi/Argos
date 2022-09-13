@@ -6,6 +6,7 @@ namespace AS7
     /* ---------------------------------- Task Methods ---------------------------------- */ 
     
     void Drone::startNavTask(void* _this) {
+        Serial.println("[Serial] Starting the nav task");
         ((Drone*)_this)->navigationTask(NULL);
     }
 
@@ -34,12 +35,14 @@ namespace AS7
 
 
     void Drone::navigationTask(void * parameters) { 
+        getLogger()->verbose("Navigation task thread reporting running status");
         unsigned long finishTime = millis(); // Keeps track of the end time of our current command
-        getLogger()->verbose("this is the navigation task!");
+        
         DroneCommand currentCommand;
+        
         for (;;) {
-                  
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
+            getLogger()->verbose("running Navigator");
 
             // Main Block
             if (getHasActiveComamnd()) {
@@ -79,8 +82,10 @@ namespace AS7
 
                 if (nextCommandAvailable()) {          // Check if there's a command available
                     if (droneAllowedToFly()) {         // Check if the drone is allowed to fly
+                        Serial.println("this is before the dequeue command"); 
                         currentCommand = dequeueCommand();
                         finishTime = currentCommand.duration + millis();
+                        Serial.println("this is a test log"); 
                         getLogger()->inform("Starting new command: " + currentCommand.desc + " for " + std::to_string(currentCommand.duration) + "ms");
                         getLogger()->verbose("Command to finish at " + std::to_string(finishTime) + "ms");
                         setHasActiveCommand(true);
@@ -94,10 +99,9 @@ namespace AS7
                     setSbusTxData(getEStopTx());
                 }
             }
-
-            // Delay for 1ms
-            vTaskDelay(50 / portTICK_PERIOD_MS);
             xSemaphoreGive(getSemDroneEnableMutex());
+            // Delay for 1ms
+            vTaskDelay(500 / portTICK_PERIOD_MS);
         }
     }
 
@@ -112,8 +116,10 @@ namespace AS7
     //  If there are no commands, the drone should indicate it's state
 
     void Drone::controllerTask(void * parameters) { 
+        getLogger()->verbose("Controller task thread reporting running status");
         for (;;) {
             xSemaphoreTake(getSemControlEnableMutex(), portMAX_DELAY);
+            getLogger()->verbose("running Navigator");
 
             // If there is available data, update the internally received data
             if (_sbusRx->Read()) {
@@ -140,6 +146,7 @@ namespace AS7
             // Transmit data to drone
             getSbusTx()->Write();
             xSemaphoreGive(getSemControlEnableMutex());
+            vTaskDelay(500 / portTICK_PERIOD_MS);
         }
     }
 
@@ -167,26 +174,43 @@ namespace AS7
     // X rates might change per ch
 
     void Drone::start(int core, int priority) {
-        xTaskCreatePinnedToCore(
+        BaseType_t xReturned;
+
+        xReturned = xTaskCreatePinnedToCore(
         this->Drone::startNavTask,
         "Navigation",  
-        16384,
+        8192,
         this,
-        1,
+        priority,
         &thDrone,
-        configMAX_PRIORITIES);
+        core);
 
-        xTaskCreatePinnedToCore(
+        Serial.print("Nav");
+        if (xReturned == pdPASS ) {
+            Serial.println(" successfully started");
+        } else {
+            Serial.println(" failed to start");
+        }
+        
+
+        xReturned = xTaskCreatePinnedToCore(
         this->Drone::startCtlTask,
         "Controller",  
-        16384,
+        8192,
         this,
-        1,
+        priority,
         &thRemote,
-        configMAX_PRIORITIES);
+        core);
+
+        Serial.print("Ctl");
+        if (xReturned == pdPASS ) {
+            Serial.println(" successfully started");
+        } else {
+            Serial.println(" failed to start");
+        }
 
         _running = true;
-        _logger->verbose("Drone class started");
+        _logger->verbose("Drone tasks started");
     }
 
     /* ---------------------------------- Private Member Methods ---------------------------------- */ 
@@ -419,6 +443,7 @@ namespace AS7
         _droneCommandQueue.pop();
 
         // Log information on dequeued command
+        _logger->fatal("I am a test command!");
         _logger->inform("Dequeueing drone command: " + cmd.desc);
         _logger->verbose("Command <" + cmd.desc + "> - Type " + std::to_string(cmd.type));
 
@@ -433,7 +458,7 @@ namespace AS7
         xSemaphoreTake(_semCommandQueueMutex, portMAX_DELAY);   // Ensures only one task accesses this queue at a time
         
         // Log information on enqueued command
-        _logger->inform("Dequeueing drone command: " + cmd.desc);
+        _logger->inform("Enqueing drone command: " + cmd.desc);
         _logger->verbose("Command <" + cmd.desc + "> - Type " + std::to_string(cmd.type));
 
         _droneCommandQueue.push(cmd);

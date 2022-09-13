@@ -11,7 +11,7 @@ namespace AS7
 
             // Check the log size
             xSemaphoreTake(getSemLogQueueMutex(), portMAX_DELAY);
-            if (!getLogQueue().empty()) {
+            while (!getLogQueue().empty()) {
               msg = dequeueLog();
               
                 getPrinter()->println(msg.c_str());
@@ -20,6 +20,7 @@ namespace AS7
             xSemaphoreGive(getSemLogQueueMutex());
             
             xSemaphoreGive(getSemEnableMutex());
+            vTaskDelay(500 / portTICK_PERIOD_MS);
         }
     }
 
@@ -147,9 +148,9 @@ namespace AS7
         "Logger",              /* name of task. */
         8192,                   /* Queue size of task */
         this,                   /* parameter of the task */
-        1, /* priority of the task */
+        priority, /* priority of the task */
         &th_logger,         /* Task handle to keep track of created task */
-        1);                     /* pin task to core 1 */
+        core);                     /* pin task to core 1 */
 
         _running = true;
         xSemaphoreGive(_sem_enableMutex);
@@ -168,7 +169,7 @@ namespace AS7
         _sem_enableMutex = xSemaphoreCreateBinary();
         xSemaphoreGive(_sem_logQueueMutex);
 
-        initialiseSD();
+        //initialiseSD();
         
     }
 }

@@ -503,12 +503,12 @@ void setup() {
   Serial.println("AS7 starting up");
   Serial.println("(c) Ecobat Project 2022");
 
-  logger.start(2, 2);
+  logger.start(0, 2);
 
   sbusRx.Begin(SBUS_RXPIN, SBUS_TXPIN);
   sbusTx.Begin(SBUS_RXPIN, SBUS_TXPIN);
 
-  drone.start();
+  
 
   // Ultrasonic Driver pins
   
@@ -597,8 +597,7 @@ void setup() {
     Serial.println("-------------------- Simulation Enabled! --------------------");
     logger.inform("AS7 is starting in simulation mode!");
   }
-
-  Serial.println("finishing up at end of setup");
+  drone.start();
 
 }
 
@@ -615,7 +614,9 @@ void loop() {
 
   // Main loop for the state
   switch(currentState) {
+    Serial.println("switching state!");
     case Initialise:
+    Serial.println("initing!");
 
       if (logger.running()) {logger.inform("Initialise: Logger is reporting healthy."); }
 
@@ -624,6 +625,7 @@ void loop() {
       break;
 
     case Ready:
+    Serial.println("rdyyy!");
 
       // wait for sbus signal from drone
       // something like dorne.readch(threshold, ch)
@@ -633,6 +635,8 @@ void loop() {
       break;
 
     case Armed:
+
+    Serial.println("armedd!");
 
       drone.enqueueCommand(armingCommand);
       delay(1500);

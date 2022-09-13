@@ -208,7 +208,7 @@ namespace AS7
 
         // Main theread control
         //  Operates both the controller and navigator threads
-        void start(int core=1, int priority=configMAX_PRIORITIES);
+        void start(int core=1, int priority=3);
         void pause();
         void resume();
 
