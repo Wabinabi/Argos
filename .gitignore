@@ -1,5 +1,4 @@
 
-src/esp32/on-board-main/on-board-main/.vscode/arduino.json
-src/esp32/on-board-main/on-board-main/.vscode/c_cpp_properties.json
-src/esp32/on-board-main/.vscode/c_cpp_properties.json
-src/esp32/on-board-main/.vscode/arduino.json
+src/esp32/*/.vscode/
+src/esp32/*/arduino.json
+src/esp32/as7-beta/build/*
