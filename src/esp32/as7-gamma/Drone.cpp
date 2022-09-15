@@ -368,22 +368,32 @@ namespace AS7
     // Returns the corrected floating point value for this channel (adjusted for min/max and abs of the channel)
     //  This will only use the values for the RX channels
     float Drone::convRxChannel_f(int16_t value, int8_t ch) {
-        int16_t _value = clamp(value, _sbusRxChUpper[ch], _sbusRxChLower[ch]);
+        //_logger->verbose("Pre Conversion Channel: " + std::to_string(value));
+        //int16_t _value = clamp(value, _sbusRxChUpper[ch], _sbusRxChLower[ch]);
         float _adjustedValue;
 
-        _logger->verbose("Converting Channel: " + std::to_string(ch));
-        _logger->verbose("Converting value: " + std::to_string(value));
+        float _chLower = _sbusRxChLower[ch];
+        float _chUpper = _sbusRxChUpper[ch];
+        float _chValue = value;
+
+        //_logger->verbose("Converting Channel: " + std::to_string(ch));
+        //_logger->verbose("Converting value: " + std::to_string(_chValue) + " converted from " + std::to_string(value));
 
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Returns (0, 1)
-            _adjustedValue = (_value - _sbusRxChLower[ch]) / (_sbusRxChUpper[ch] - _sbusRxChLower[ch]);
-            _logger->inform("This channel is absolute");
+            //_logger->verbose("Numerator: " + std::to_string(_chValue - _chLower));
+            //_logger->verbose("Demoninator: " + std::to_string(_chUpper - _chLower));
+            
+            //_logger->verbose("Actual numerator: " + std::to_string(_adjustedValue));
+            _adjustedValue = (_chValue - _chLower) / (_chUpper - _chLower);
+            //_logger->inform("This channel is absolute");
         } else { // Returns (-1, 1)
-            _adjustedValue = (_value - (_sbusRxChLower[ch] * 1.5)) / ((_sbusRxChUpper[ch] - _sbusRxChLower[ch])/2);
-            _logger->inform("This channel is not absolute");
+            _adjustedValue = (value - (_chLower * 1.5)) / ((_chUpper - _chLower)/2);
+            //_logger->inform("This channel is not absolute");
         }
 
-        _logger->verbose("The range of this channel is: " + std::to_string(_sbusRxChLower[ch]) + "-" + std::to_string(_sbusRxChUpper[ch]));
-        _logger->verbose("Adjusted value is: " + std::to_string(_adjustedValue));
+        //_logger->verbose("The range of this channel is: " + std::to_string(_sbusRxChLower[ch]) + "-" + std::to_string(_sbusRxChUpper[ch]));
+        //_logger->verbose("The range using floats is: " + std::to_string(_chLower) + "-" + std::to_string(_chUpper));
+        //_logger->verbose("Adjusted value is: " + std::to_string(_adjustedValue));
 
         return _adjustedValue;
     }
