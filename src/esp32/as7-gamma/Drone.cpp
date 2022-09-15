@@ -155,6 +155,7 @@ namespace AS7
             }
 
             // Transmit data to drone
+            getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
             getSbusTx()->Write();
             xSemaphoreGive(getSemControlEnableMutex());
             vTaskDelay((1000/CTL_FREQ) / portTICK_PERIOD_MS);
@@ -351,10 +352,8 @@ namespace AS7
         float _value;
         int16_t _adjustedValue;
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Accepts (0, 1)
-            _value = clamp(value, 0, 1);
             _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
         } else {
-            _value = clamp(value, -1, 1);
             _value += 1; // Range is now (0, 2)
             _value /= 2; // Range is now (0, 1), we can use the same formula as above.
             _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
@@ -402,10 +401,8 @@ namespace AS7
         float _value;
         int16_t _adjustedValue;
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Accepts (0, 1)
-            _value = clamp(value, 0, 1);
             _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
         } else {
-            _value = clamp(value, -1, 1);
             _value += 1; // Range is now (0, 2)
             _value /= 2; // Range is now (0, 1), we can use the same formula as above.
             _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
@@ -417,13 +414,12 @@ namespace AS7
     // Returns the corrected floating point value for this channel (adjusted for min/max and abs of the channel)
     //  This will only use the values for the Tx channels
     float Drone::convTxChannel_f(int16_t value, int8_t ch) {
-        int16_t _value = clamp(value, _sbusTxChUpper[ch], _sbusTxChLower[ch]);
         int16_t _adjustedValue;
 
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Returns (0, 1)
-            _adjustedValue = (_value - _sbusTxChLower[ch]) / (_sbusTxChUpper[ch] - _sbusTxChLower[ch]);
+            _adjustedValue = ((float)value - _sbusTxChLower[ch]) / (_sbusTxChUpper[ch] - _sbusTxChLower[ch]);
         } else { // Returns (-1, 1)
-            _adjustedValue = (_value - (_sbusTxChLower[ch] * 1.5)) / ((_sbusTxChUpper[ch] - _sbusTxChLower[ch])/2);
+            _adjustedValue = ((float)value - (_sbusTxChLower[ch] * 1.5)) / ((_sbusTxChUpper[ch] - _sbusTxChLower[ch])/2);
         }
 
         return _adjustedValue;
