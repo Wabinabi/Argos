@@ -71,8 +71,9 @@ const int STATUS_NUM_LEDS = 8;
 const int STATUS_LED_BRIGHTNESS = 128;
 
 // Ultrasonic Pin Mapping
-const int NUM_US_SENSORS = 6;
-const int MAX_US_DISTANCE = 400;
+const int NUM_US_SENSORS = 6;     // Number of US sensors
+const int NUM_US_POINTS = 3;      // Number of points to average for value
+const int MAX_US_DISTANCE = 400;  // Maximum distance to be used for US Sensors
 
 const int US_TRIGPIN_0 = 32;
 const int US_ECHOPIN_0 = 35;
@@ -134,7 +135,7 @@ File output_file; // Output PLY file
 File log_file;    // Output Log file
 
 // Variable for storing US results. Only to be written to by US threads
-int us_distance[NUM_US_SENSORS];
+int us_distance[NUM_US_SENSORS][NUM_US_POINTS];
 
 // Current temperature from thermistor
 int tmp_temperature;
@@ -214,40 +215,26 @@ AS7::Drone drone(&logger, &sbusRx, &sbusTx);
 
 void us_Task(void * parameters) { 
 
-  // Semaphore sequencing. Pre = The step required, Post = the step after
-  //SemaphoreHandle_t preSemaphore = us_step1Semaphore;
-  //SemaphoreHandle_t postSemaphore = us_step2Semaphore;
-
   // Task code starts here
-  int ldistance;
-  int lduration;
+  int _distance;
+  int _duration;
+  int _pointCount = 0;
   for (;;) {
     xSemaphoreTake(enable_usSemaphore, portMAX_DELAY);
+    _pointCount = (_pointCount++) % NUM_US_POINTS; // Cycles between 0 and NUM_US_POINTS
+
     for (int i = 0; i < NUM_US_SENSORS; i++) {
-    delayMicroseconds(10);
-
-    //Get Sequence Semaphore
-    // Ultrasonic Code - Critical Section starts here
-    // Clear the trig pin
-    digitalWrite(US_TRIGPIN[i], LOW);
+    //delayMicroseconds(10);    // Delay for 10us to provide some time between US executions
+    digitalWrite(US_TRIGPIN[i], LOW);       // Clear the trig pin
     delayMicroseconds(2);
-    // Sets the trigPin on HIGH state for 10 us
-    digitalWrite(US_TRIGPIN[i], HIGH);
+    digitalWrite(US_TRIGPIN[i], HIGH);      // Sets the trigPin on HIGH state for 10 us
     delayMicroseconds(10);
     digitalWrite(US_TRIGPIN[i], LOW);
-    // Reads the echoPin, returns the sound wave travel time in us
-    lduration = pulseIn(US_ECHOPIN[i], HIGH);
-    // Calculating the distance
-    ldistance = lduration * 0.034 / 2;
+    _duration = pulseIn(US_ECHOPIN[i], HIGH); // Reads the echoPin, returns the sound wave travel time in us
+    _duration = _duration * 0.034 / 2;        // get duration in cm (rounded down due to int)
+    us_distance[i][_pointCount] = min(_distance,MAX_US_DISTANCE); // < ---- Change static value here   
 
-    us_distance[i] = min(ldistance,MAX_US_DISTANCE); // < ---- Change static value here   
-    // End critical section
-
-    // TODO: replace with logging task
-    //if (serialEnabled) {
-    //  Serial.print(us_distance[i]);
-    //  Serial.print(" ");
-    //}
+    // Section for performing any filtering on US inputs
 
     delay(80); // A delay of >70ms is recommended
     }
