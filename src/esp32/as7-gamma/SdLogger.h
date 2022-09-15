@@ -18,12 +18,12 @@
 
 // Defines the maximum level of messages sent through the serial port
 // e.g. a level of WARNING (3) will only allow warnings, errors, and fatal issues to be sent to the serial port.
-#define LOG_LEVEL_SILENT  0
-#define LOG_LEVEL_FATAL   1
-#define LOG_LEVEL_ERROR   2
-#define LOG_LEVEL_WARNING 3
+#define LOG_LEVEL_SILENT    0
+#define LOG_LEVEL_FATAL     1
+#define LOG_LEVEL_ERROR     2
+#define LOG_LEVEL_WARNING   3
 #define LOG_LEVEL_INFORM    4
-#define LOG_LEVEL_VERBOSE 5
+#define LOG_LEVEL_VERBOSE   5
 #define CS_PIN 5
 
 #define LOGGER_FREQ 50       // Update rate in Hertz
@@ -55,7 +55,19 @@ namespace AS7
 
         std::map<std::string, int> _data;
 
-        
+        File _logFile;
+        File _dataFile;
+        File _configFile;
+
+        File getLogFile();
+        File getDataFile();
+        File getConfigFile();
+
+        void openLogFile();
+        void closeLogFile();
+
+        const std::string _logFileLocation = "/as7.log";
+
         Print* _printer;
 
         Print* getPrinter();

@@ -1,6 +1,5 @@
 #include "Drone.h"
 
-
 namespace AS7 
 {
     /* ---------------------------------- Task Methods ---------------------------------- */ 
@@ -31,6 +30,16 @@ namespace AS7
     // STRAIGHT X
     // SIDEWAYS Y
     // UPWARRDS Z
+    //
+    // Channel 1 Left   - Right     201-1846
+    // Channel 2 Up     - Down      201-1846
+    // Channel 3 LowTh  - HiTh      240-1791
+    // Channel 4 YawL   - YawR      500-1500
+    // Channel 5 LLever             240-1807
+    // Channel 6 FLIGHT MODE
+    // Channel 7 Button             240-1807
+    // Channel 8 RLever             240-1807
+
 
 
     void Drone::navigationTask(void * parameters) { 
@@ -124,13 +133,17 @@ namespace AS7
             // If there is available data, update the internally received data
             if (_sbusRx->Read()) {
                 setSbusRxData(_sbusRx->ch());
+                //getLogger()->verbose(formatSbusArray(getSbusRxData()));
             }
 
+            getLogger()->inform(std::to_string(readRxChannel_f(CH_FLIGHTMODE)));
+            getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
             // Estop and Override Check
             // This may differ depending on your controller
             if (readRxChannel_f(CH_ESTOP) > 0.4f) { // EStop Threshold
                 emergencyStop(); // Toggle EStop
             } else if (readRxChannel(CH_FLIGHTMODE) > 0.7f) {
+                //getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
                 enableOperatorControl();
             }
 
@@ -356,13 +369,21 @@ namespace AS7
     //  This will only use the values for the RX channels
     float Drone::convRxChannel_f(int16_t value, int8_t ch) {
         int16_t _value = clamp(value, _sbusRxChUpper[ch], _sbusRxChLower[ch]);
-        int16_t _adjustedValue;
+        float _adjustedValue;
+
+        _logger->verbose("Converting Channel: " + std::to_string(ch));
+        _logger->verbose("Converting value: " + std::to_string(value));
 
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Returns (0, 1)
             _adjustedValue = (_value - _sbusRxChLower[ch]) / (_sbusRxChUpper[ch] - _sbusRxChLower[ch]);
+            _logger->inform("This channel is absolute");
         } else { // Returns (-1, 1)
             _adjustedValue = (_value - (_sbusRxChLower[ch] * 1.5)) / ((_sbusRxChUpper[ch] - _sbusRxChLower[ch])/2);
+            _logger->inform("This channel is not absolute");
         }
+
+        _logger->verbose("The range of this channel is: " + std::to_string(_sbusRxChLower[ch]) + "-" + std::to_string(_sbusRxChUpper[ch]));
+        _logger->verbose("Adjusted value is: " + std::to_string(_adjustedValue));
 
         return _adjustedValue;
     }
@@ -442,7 +463,6 @@ namespace AS7
         // Log information on dequeued command
         _logger->inform("Dequeueing drone command: " + cmd.desc);
         _logger->verbose("Command <" + cmd.desc + "> - Type " + std::to_string(cmd.type));
-
         
         xSemaphoreGive(_semCommandQueueMutex);
         return cmd;
@@ -461,15 +481,16 @@ namespace AS7
         xSemaphoreGive(_semCommandQueueMutex);
     }
 
+    // Absolute Channels are (0, 1) whereas normal channels are (-1, 1)
     void Drone::generateAbsChannels() {
-        _sbusAbsChannels[0]  = true;    // Throttle
+        _sbusAbsChannels[0]  = false;
         _sbusAbsChannels[1]  = false;
-        _sbusAbsChannels[2]  = false;
+        _sbusAbsChannels[2]  = true;    // Ch3 Throttle
         _sbusAbsChannels[3]  = false;
-        _sbusAbsChannels[4]  = false;
+        _sbusAbsChannels[4]  = true;    // Ch5 Left Switch
         _sbusAbsChannels[5]  = false;
-        _sbusAbsChannels[6]  = false;
-        _sbusAbsChannels[7]  = true;
+        _sbusAbsChannels[6]  = false;   // Ch7 Button
+        _sbusAbsChannels[7]  = true;    // Ch6 Right Switch
         _sbusAbsChannels[8]  = true;
         _sbusAbsChannels[9]  = true;
         _sbusAbsChannels[10] = true;
@@ -481,12 +502,12 @@ namespace AS7
     }
 
     void Drone::generateEStopTx() {
-        _sbusEStopTx[0]  = 0;
+        _sbusEStopTx[0]  = convRxChannel_i(0.5f, 0);
         _sbusEStopTx[1]  = convRxChannel_i(0.5f, 1);
-        _sbusEStopTx[2]  = convRxChannel_i(0.5f, 2);
+        _sbusEStopTx[2]  = 0;
         _sbusEStopTx[3]  = convRxChannel_i(0.5f, 3);
         _sbusEStopTx[4]  = convRxChannel_i(0.5f, 4);
-        _sbusEStopTx[5]  = convRxChannel_i(0.5f, 5);
+        _sbusEStopTx[5]  = 0;
         _sbusEStopTx[6]  = 0;
         _sbusEStopTx[7]  = 0;
         _sbusEStopTx[8]  = 0;
@@ -508,20 +529,20 @@ namespace AS7
     }
 
     void Drone::enableOperatorControl() {
-        _logger->warn("Operator override enabled");
+        if (!_enableOperatorControl) _logger->warn("Operator override enabled");
         _enableOperatorControl = true;
     }
     void Drone::disableOperatorControl() {
-        _logger->warn("Operator override reset");
+        if (_enableOperatorControl) _logger->warn("Operator override reset");
         _enableOperatorControl = false;
     }
     
     void Drone::emergencyStop() {
-        _logger->fatal("Emergency stop enabled");
+        if (!_enableEmergencyStop) _logger->fatal("Emergency stop enabled");
         _enableEmergencyStop = true;
     }
     void Drone::resetEmergencyStop() {
-        _logger->warn("Emergency stop reset");
+        if (_enableEmergencyStop) _logger->warn("Emergency stop reset");
         _enableEmergencyStop = false;
     }
 

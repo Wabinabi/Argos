@@ -22,7 +22,7 @@
 #include "SdLogger.h" // Use the SD Logger to share messages
 
 #define SBUS_CHANNEL_LOWER 0        // Default lower bound for sbus channels
-#define SBUS_CHANNEL_UPPER 4096     // Default upper bound for sbus channels
+#define SBUS_CHANNEL_UPPER 2056     // Default upper bound for sbus channels
 #define NUM_CH 16                   // Number of SBUS channels. Always 16. Equivalent to bfs::SbusRx::NUM_CH()
 #define DOF 6                       // Degrees of freedom for the drone. 0-5 represent x, y, z, roll (rl), pitch (pt), yaw (yw) (Euler ZYX Convention)
 
@@ -33,14 +33,14 @@
 
 // Channel definitions
 //  These channels index from ZERO. Ch[0] = CH1!
-#define CH_THROTTLE     0   // Left stick y axis (starts from 0)
-#define CH_YAW          1   // Left stick x axis
-#define CH_STRAIGHT     2   // Right stick y axis
-#define CH_STRAFE       3   // Right stick x axis
-#define CH_BUTTON1      4   // Button on middle of controller
-#define CH_SW1          5   // Right toggle switch
-#define CH_FLIGHTMODE   6   // Left toggle switch
-#define CH_ESTOP        7   // Other button?
+#define CH_THROTTLE     2   // Left stick y axis (starts from 0)
+#define CH_YAW          3   // Left stick x axis
+#define CH_STRAIGHT     1   // Right stick y axis
+#define CH_STRAFE       0   // Right stick x axis
+//#define CH_BUTTON1      6   // Button on middle of controller
+#define CH_SW1          7   // Right toggle switch
+#define CH_FLIGHTMODE   4   // Left toggle switch
+#define CH_ESTOP        6   // Other button?
 
 
 // Cv = Control Value, Pv = Present Value. Use CV to control PV

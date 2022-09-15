@@ -68,7 +68,7 @@
 /* -------------------- Pin Mapping -------------------- */
 const int STATUS_FASTLED_PIN = 3;
 const int STATUS_NUM_LEDS = 8;
-const int STATUS_LED_BRIGHTNESS = 128;
+const int STATUS_LED_BRIGHTNESS = 64;
 
 // Ultrasonic Pin Mapping
 const int NUM_US_SENSORS = 6;     // Number of US sensors
@@ -112,7 +112,7 @@ const TickType_t TICK_LONGLONG = 5000 / portTICK_PERIOD_MS;
 
 // Define FastLED constants
 const int FL_LEDNUM = 8;
-const int FL_LEDBRIGHTNESS = 128;
+const int FL_LEDBRIGHTNESS = 64;
 #define LED_TYPE    WS2811
 #define COLOR_ORDER GRB
 CRGB FL_LED[FL_LEDNUM];
@@ -530,6 +530,7 @@ void setup() {
     4, 
     &th_Ultrasonic,
     1);
+  */
 
   xTaskCreatePinnedToCore(
     FL_LEDComms,
@@ -539,7 +540,7 @@ void setup() {
     1,
     &th_Comms,
     1);
-*/
+
 
   // xTaskCreatePinnedToCore(
   //   debug_switchModes,        /* Task function. */
@@ -569,9 +570,7 @@ void loop() {
 
   // Main loop for the state
   switch(currentState) {
-    Serial.println("switching state!");
     case Initialise:
-    Serial.println("initing!");
 
       if (logger.running()) {logger.inform("Initialise: Logger is reporting healthy."); }
 
@@ -580,8 +579,6 @@ void loop() {
       break;
 
     case Ready:
-    Serial.println("rdyyy!");
-
       // wait for sbus signal from drone
       // something like dorne.readch(threshold, ch)
       drone.allowArming();
@@ -590,8 +587,6 @@ void loop() {
       break;
 
     case Armed:
-
-    Serial.println("armedd!");
 
       drone.enqueueCommand(armingCommand);
       delay(1500);
@@ -646,9 +641,11 @@ void loop() {
         break;
     }
 
-
     logger.inform("AS7 moving to state: " + droneStateMap[nextState]);
     currentState=nextState;
+
+
+    
   }
 
   

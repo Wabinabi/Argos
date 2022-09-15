@@ -8,19 +8,24 @@ namespace AS7
         std::string msg;
         for (;;) {
             xSemaphoreTake(getSemEnableMutex(), portMAX_DELAY);
+            openLogFile();
 
             // Check the log size
             xSemaphoreTake(getSemLogQueueMutex(), portMAX_DELAY);
             while (!getLogQueue().empty()) {
               msg = dequeueLog();
               
+
+                getLogFile().println(msg.c_str());
                 getPrinter()->println(msg.c_str());
                 // write to SD card
             }
             xSemaphoreGive(getSemLogQueueMutex());
             xSemaphoreGive(getSemEnableMutex());
+            closeLogFile();
             vTaskDelay((1000/LOGGER_FREQ) / portTICK_PERIOD_MS); // Allow other tasks to take control
         }
+        
     }
 
     std::string Logger::dequeueLog() {
@@ -28,6 +33,8 @@ namespace AS7
       _log_Queue.pop();
       return top;
     }
+
+    
 
 
     void Logger::enqueueMsg(std::string message) {
@@ -105,14 +112,15 @@ namespace AS7
             } else {
                 _sdDetected = true;
                 inform("SD card detected. SD Logging enabled.");
+                inform("(C) 2022 Ecobat Project");
 
-                File testFile = SD.open("/SDTest.txt", FILE_WRITE);
+                File testFile = SD.open("/SDVerification.txt", FILE_WRITE);
+
                 if (testFile) {
-                    testFile.println("Hello ESP32 SD");
+                    testFile.println("Hello from AS7!");
                     testFile.close();
-                    //Serial.println("Success, data written to SDTest.txt");
                 } else {
-                    //Serial.println("Error, couldn't not open SDTest.txt");
+                    fatal("SD test file could not be written to!");
                 }
 
             }
@@ -163,6 +171,24 @@ namespace AS7
         xSemaphoreGive(_sem_enableMutex);
     }
 
+    File Logger::getLogFile() {
+        return _logFile;
+    }
+    File Logger::getConfigFile() {
+        return _configFile;
+    }
+    File Logger::getDataFile() {
+        return _dataFile;
+    }
+
+    void Logger::openLogFile() {
+        _logFile = SD.open("/as7.log", FILE_APPEND);
+    }
+
+    void Logger::closeLogFile() {
+        _logFile.close();
+    }
+
     void Logger::disableSDLogging() {
         _sdEnabled = true;
         warn("SD logging has been disabled! Results will not be recorded to SD Card");
@@ -176,7 +202,7 @@ namespace AS7
         _sem_enableMutex = xSemaphoreCreateBinary();
         xSemaphoreGive(_sem_logQueueMutex);
 
-        //initialiseSD();
+        initialiseSD();
         
     }
 }
