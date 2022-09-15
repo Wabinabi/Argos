@@ -14,6 +14,8 @@
 #include <SPI.h>
 #include <SD.h>
 
+#include <map>
+
 // Defines the maximum level of messages sent through the serial port
 // e.g. a level of WARNING (3) will only allow warnings, errors, and fatal issues to be sent to the serial port.
 #define LOG_LEVEL_SILENT  0
@@ -50,6 +52,8 @@ namespace AS7
         bool _running = false; // tracks if the thread is running or stopped
         bool _sdEnabled = false;
         bool _sdDetected = false;
+
+        std::map<std::string, int> _data;
 
         
         Print* _printer;
@@ -99,6 +103,10 @@ namespace AS7
         int  verbosity();
 
         void setVerbosity(int verbosity);
+
+        void recordData(std::string key, int value);
+        void pushData();
+
 
 
         // The main logging tasks 

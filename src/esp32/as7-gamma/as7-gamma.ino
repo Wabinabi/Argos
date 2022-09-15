@@ -566,10 +566,6 @@ void loop() {
   armingCommand.desc = "This is a test arming command!";
   armingCommand.type = AS7::Arm;
   armingCommand.duration = 1000;
-  logger.inform("we're looping~");
-  Serial.println("we're looping!");
-
-  
 
   // Main loop for the state
   switch(currentState) {

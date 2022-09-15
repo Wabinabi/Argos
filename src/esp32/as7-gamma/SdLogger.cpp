@@ -91,6 +91,12 @@ namespace AS7
     ((Logger*)_this)->mainTask(NULL);
     }
 
+    void Logger::recordData(std::string key, int value) {
+        _data[key] = value;
+        fatal("size of the array:");
+        fatal(std::to_string(_data.size()));
+    }
+
     void Logger::initialiseSD() {
         if (!SD_DISABLED) {
             if (!SD.begin(CS_PIN)) {

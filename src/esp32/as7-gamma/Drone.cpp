@@ -120,7 +120,6 @@ namespace AS7
         getLogger()->verbose("Controller task thread reporting running status");
         for (;;) {
             xSemaphoreTake(getSemControlEnableMutex(), portMAX_DELAY);
-            getLogger()->verbose("running Navigator");
 
             // If there is available data, update the internally received data
             if (_sbusRx->Read()) {
@@ -441,7 +440,6 @@ namespace AS7
         _droneCommandQueue.pop();
 
         // Log information on dequeued command
-        _logger->fatal("I am a test command!");
         _logger->inform("Dequeueing drone command: " + cmd.desc);
         _logger->verbose("Command <" + cmd.desc + "> - Type " + std::to_string(cmd.type));
 
