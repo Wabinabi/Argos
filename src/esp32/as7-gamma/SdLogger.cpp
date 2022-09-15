@@ -71,23 +71,23 @@ namespace AS7
     bool Logger::running() {return _running; }
 
     void Logger::inform(std::string message) {
-        enqueueLog("[Inform] " + message, LOG_LEVEL_INFORM);
+        enqueueLog("[ "+std::to_string(millis())+" ms Inform] " + message, LOG_LEVEL_INFORM);
     }
 
     void Logger::warn(std::string message) {
-        enqueueLog("[Warning] " + message, LOG_LEVEL_WARNING);
+        enqueueLog("[ "+std::to_string(millis())+" ms Warning] " + message, LOG_LEVEL_WARNING);
     }
 
     void Logger::error(std::string message) {
-        enqueueLog("[Error] " + message, LOG_LEVEL_ERROR);
+        enqueueLog("[ "+std::to_string(millis())+" ms Error] " + message, LOG_LEVEL_ERROR);
     }
 
     void Logger::fatal(std::string message) {
-        enqueueLog("[Fatal] " + message, LOG_LEVEL_FATAL);
+        enqueueLog("[ "+std::to_string(millis())+" ms Fatal] " + message, LOG_LEVEL_FATAL);
     }
 
     void Logger::verbose(std::string message) {
-        enqueueLog("[Verbose] " + message, LOG_LEVEL_VERBOSE);
+        enqueueLog("[ "+std::to_string(millis())+" ms Verbose] " + message, LOG_LEVEL_VERBOSE);
     }
 
     void Logger::plot(std::string message) {

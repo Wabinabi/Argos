@@ -136,13 +136,11 @@ namespace AS7
                 //getLogger()->verbose(formatSbusArray(getSbusRxData()));
             }
 
-            getLogger()->inform(std::to_string(readRxChannel_f(CH_FLIGHTMODE)));
-            getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
             // Estop and Override Check
             // This may differ depending on your controller
             if (readRxChannel_f(CH_ESTOP) > 0.4f) { // EStop Threshold
                 emergencyStop(); // Toggle EStop
-            } else if (readRxChannel(CH_FLIGHTMODE) > 0.7f) {
+            } else if (readRxChannel_f(CH_FLIGHTMODE) > 0.7f) {
                 //getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
                 enableOperatorControl();
             }
