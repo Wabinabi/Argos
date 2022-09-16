@@ -355,12 +355,7 @@ namespace AS7
                     _returnValue = target;
                 }
                 */
-
-               float difference = target - value;
-               _returnValue = value + clamp(difference, -1 * rate, rate);
-
-
-
+               _returnValue = value + clamp(target - value, -1 * rate, rate);
                 break;
 
             case RAMPRATE_PROP:
