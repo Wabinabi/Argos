@@ -94,8 +94,8 @@ namespace AS7
                 // Get Command Block
                 //  As there is no active command, we will attempt to get one and set it up
 
-                if (nextCommandAvailable()) {          // Check if there's a command available
-                    if (droneAllowedToFly()) {         // Check if the drone is allowed to fly
+                if (nextCommandAvailable() & getDroneHasArmed()) {      // Check if there's a command available
+                    if (droneAllowedToFly()) {                          // Check if the drone is allowed to fly
                         currentCommand = dequeueCommand();
                         finishTime = currentCommand.duration + millis();
                         getLogger()->inform("Starting new command: " + currentCommand.desc + " for " + std::to_string(currentCommand.duration) + "ms");

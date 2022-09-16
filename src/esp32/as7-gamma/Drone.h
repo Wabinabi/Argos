@@ -42,7 +42,7 @@
 #define CH_FLIGHTMODE   4   // Left toggle switch
 #define CH_ESTOP        6   // Other button?
 
-#define STATUS_UPDATE_DELAY 250 // Number of updates to wait before sending controller status
+#define STATUS_UPDATE_DELAY 1000 // Number of updates to wait before sending controller status
 
 
 // Cv = Control Value, Pv = Present Value. Use CV to control PV

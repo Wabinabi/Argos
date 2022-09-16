@@ -573,6 +573,16 @@ void setup() {
 
   drone.enqueueCommand(armingCommand);
 
+  AS7::DroneCommand blindCommand;
+  blindCommand.desc = "This is a blind command!";
+  blindCommand.type = AS7::Blind;
+  blindCommand.duration = 10000;
+
+  blindCommand.v_x = 0.9f;
+  blindCommand.v_z = 0.9f;
+  
+  drone.enqueueCommand(blindCommand);
+
 }
 
 void loop() {
