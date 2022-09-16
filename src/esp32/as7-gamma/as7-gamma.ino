@@ -582,7 +582,8 @@ void loop() {
       // wait for sbus signal from drone
       // something like dorne.readch(threshold, ch)
       drone.allowArming();
-      if (drone.droneAllowedToFly()) {nextState = Armed; }
+      //if (drone.droneAllowedToFly()) {nextState = Armed; }
+      if (drone.channelConfirm(CH_FLIGHTMODE > 0.4f)) {nextState = Armed; }
 
       break;
 
