@@ -51,6 +51,7 @@ namespace AS7
         for (;;) {
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
             // Main Block
+            //getLogger()->verbose("Drone active command status:" + std::to_string(getHasActiveComamnd()));
             if (getHasActiveComamnd()) {
                 // Process Command block
                 
@@ -88,13 +89,18 @@ namespace AS7
 
 
                 }
-                
-                setHasActiveCommand(millis() > finishTime); // If we've passed our command duration, we unset the active command
+                if (!getDroneHasArmed()) {
+                    finishTime = currentCommand.duration + millis();
+                }
+                //getLogger()->verbose("Mills vs FinishTime: " + std::to_string(millis()) + " vs. " + std::to_string(finishTime));    
+                setHasActiveCommand(millis() < finishTime); // If we've passed our command duration, we unset the active command
             } else {
+                getLogger()->inform("Command completed, seeking new command");
                 // Get Command Block
                 //  As there is no active command, we will attempt to get one and set it up
 
-                if (nextCommandAvailable() & getDroneHasArmed()) {      // Check if there's a command available
+                if (nextCommandAvailable()) {      // Check if there's a command available
+                    getLogger()->verbose("New command found");
                     if (droneAllowedToFly()) {                          // Check if the drone is allowed to fly
                         currentCommand = dequeueCommand();
                         finishTime = currentCommand.duration + millis();
@@ -108,6 +114,7 @@ namespace AS7
                     }
                     setDroneCommandsCompleted(); // indicate that drone has no commands
                     // When the drone has no commands, we send the e-stop tx packet to the FC, unless there's another one we want to send
+                    
                     setSbusTxData(getEStopTx());
                 }
             }
@@ -336,14 +343,23 @@ namespace AS7
     float Drone::rampValue(float value, float target, float rate, int rampRateType) {
         float _returnValue;
 
+        getLogger()->verbose("RampValue value, target, rate, rampratetype:");
+        getLogger()->verbose(std::to_string(value)+"/"+std::to_string(target)+"/"+std::to_string(rate)+"/"+std::to_string(rampRateType));
+
         switch(rampRateType) {
 
             case RAMPRATE_LINEAR:
-                if (min(value + rate, target) < target) {
+                /*if (min(value + rate, target) < target) {
                     _returnValue = min(value + rate, target);
                 } else {
                     _returnValue = target;
                 }
+                */
+
+               float difference = target - value;
+               _returnValue = value + clamp(difference, -1 * rate, rate);
+
+
 
                 break;
 
@@ -352,9 +368,10 @@ namespace AS7
                 break;
 
             default: // Default to no ramping or RAMPRATE_NONE
-                _returnValue = value;
+                _returnValue = target;
+                break;
         }
-
+        getLogger()->verbose("RampValue returned value:" + std::to_string(_returnValue));
         return _returnValue;
     }
 
@@ -460,7 +477,9 @@ namespace AS7
     }
 
     void Drone::writeChannel_f(float value, int8_t ch) {
-        writeChannel(convRxChannel_f(value, ch), ch);
+        getLogger()->verbose("WriteChannel value: " + std::to_string(value));
+        getLogger()->verbose("converted value value: " + std::to_string(convRxChannel_i(value, ch)));
+        writeChannel(convRxChannel_i(value, ch), ch);
     }
 
     void Drone::writeChannel(int16_t value, int8_t ch) {
