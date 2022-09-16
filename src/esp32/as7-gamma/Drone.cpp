@@ -57,36 +57,38 @@ namespace AS7
                 switch(currentCommand.type) {
                             
                     case Blind:
-                        // Blind is only concerned with velocities, not position.
-                        rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.15f, RAMPRATE_LINEAR);
-                        rampChannel(currentCommand.v_y, CH_STRAFE, 0.15f, RAMPRATE_LINEAR);
-                        rampChannel(currentCommand.v_z, CH_THROTTLE, 0.3f, RAMPRATE_LINEAR);
-                        rampChannel(currentCommand.v_yw, CH_YAW, 0.15f, RAMPRATE_LINEAR);
+                        if (getDroneHasArmed()) {
+                            // Blind is only concerned with velocities, not position.
+                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.15f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.15f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.3f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_yw, CH_YAW, 0.15f, RAMPRATE_LINEAR);
 
-                        //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
+                            //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
+                            
+                        }
                         break;
 
                     case Guided:
+
                         break;
 
                     case Landing:
+
                         break;
 
                     case Arm:
-                    
                         // Send arming command
                         rampChannel( 1.0f, CH_STRAIGHT, 0.15f, RAMPRATE_NONE);
                         rampChannel(-1.0f, CH_STRAFE, 0.15f, RAMPRATE_NONE);
                         rampChannel( 0.0f, CH_THROTTLE, 0.3f, RAMPRATE_NONE);
                         rampChannel( 1.0f, CH_YAW, 0.15f, RAMPRATE_NONE);
+                        setDroneHasArmed();
                         break;
 
 
                 }
-
-
-
-
+                
                 setHasActiveCommand(millis() > finishTime); // If we've passed our command duration, we unset the active command
             } else {
                 // Get Command Block
@@ -145,6 +147,8 @@ namespace AS7
                 enableOperatorControl();
             }
 
+            
+
             // Set Data
             if (getEnableEmergencyStop()) {
                 getSbusTx()->ch(getEStopTx());          // Writes EStop Packet to TX
@@ -154,14 +158,26 @@ namespace AS7
                 getSbusTx()->ch(getSbusTxData());       // Transmits normal data to drone              
             }
 
+            // Share status to logger every STATUS_UPDATE_DELAY updates
+            if (getControllerStatusCount()) {
+                getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
+                getLogger()->verbose("TX Channel: " + formatSbusArray(getSbusTx()->ch()));
+            }
+
             // Transmit data to drone
-            getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
+            //getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
             getSbusTx()->Write();
             xSemaphoreGive(getSemControlEnableMutex());
             vTaskDelay((1000/CTL_FREQ) / portTICK_PERIOD_MS);
         }
     }
 
+    // Returns true every 250 calls
+    bool Drone::getControllerStatusCount() {
+        _controllerStatusCount++;
+        _controllerStatusCount = _controllerStatusCount % STATUS_UPDATE_DELAY;
+        return _controllerStatusCount == 0;        
+    }
     
 
     // hello
@@ -528,7 +544,7 @@ namespace AS7
     }
 
     std::array<int16_t, NUM_CH> Drone::getEStopTx() {
-        _logger->verbose("Returning E-Stop TX");
+        //_logger->verbose("Returning E-Stop TX");
         return _sbusEStopTx;
     }
 

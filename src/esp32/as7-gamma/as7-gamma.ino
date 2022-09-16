@@ -431,10 +431,17 @@ void FL_LEDComms(void * parameters) {
         for (int i = 1; i < FL_LEDNUM-1; i++) {
               FL_LED[i] = CRGB::Red;
             }
-            FL_LED[1] = CRGB::Orange;
-            FL_LED[6] = CRGB::Orange;
+            FL_LED[1] = CRGB::Red;
+            FL_LED[6] = CRGB::Red;
             FastLED.show();
-            vTaskDelay(TICK_SHORT);
+            vTaskDelay(TICK_MEDIUM);
+            for (int i = 1; i < FL_LEDNUM-1; i++) {
+              FL_LED[i] = CRGB::Black;
+            }
+            FL_LED[1] = CRGB::Grey;
+            FL_LED[6] = CRGB::Grey;
+            FastLED.show();
+            vTaskDelay(TICK_MEDIUM);
             break;
 
         break;
@@ -559,14 +566,18 @@ void setup() {
   }
   drone.start();
 
+  AS7::DroneCommand armingCommand;
+  armingCommand.desc = "This is a test arming command!";
+  armingCommand.type = AS7::Arm;
+  armingCommand.duration = 10000;
+
+  drone.enqueueCommand(armingCommand);
+
 }
 
 void loop() {
   
-  AS7::DroneCommand armingCommand;
-  armingCommand.desc = "This is a test arming command!";
-  armingCommand.type = AS7::Arm;
-  armingCommand.duration = 1000;
+  
 
   // Main loop for the state
   switch(currentState) {
@@ -583,14 +594,14 @@ void loop() {
       // something like dorne.readch(threshold, ch)
       drone.allowArming();
       //if (drone.droneAllowedToFly()) {nextState = Armed; }
-      if (drone.channelConfirm(CH_FLIGHTMODE > 0.4f)) {nextState = Armed; }
+      if (drone.channelConfirm(CH_FLIGHTMODE, 0.4f)) {nextState = Armed; }
 
       break;
 
     case Armed:
 
-      drone.enqueueCommand(armingCommand);
-      delay(1500);
+      
+      //delay(1500);
 
       // drone is arming
       // basically queue drone to do arming thing 
@@ -628,6 +639,13 @@ void loop() {
     case Debug:
 
       break;
+  }
+
+  if (drone.getEnableEmergencyStop()) { // Drone has triggered E-Stop
+    nextState = Faulted;
+  } else if (drone.getEnableOperatorControl()) {
+    nextState = Flying;
+    currentFlightMode = OperatorControl;
   }
 
   // Checking for state transfer conditions

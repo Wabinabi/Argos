@@ -42,6 +42,8 @@
 #define CH_FLIGHTMODE   4   // Left toggle switch
 #define CH_ESTOP        6   // Other button?
 
+#define STATUS_UPDATE_DELAY 250 // Number of updates to wait before sending controller status
+
 
 // Cv = Control Value, Pv = Present Value. Use CV to control PV
 #define RAMPRATE_NONE       0   // No ramp rate.            Pv = Cv
@@ -132,6 +134,9 @@ namespace AS7
         std::array<bool, NUM_CH> getSbusAbsChannels();  // Returns an array which defines if a channel is absolute (true) or not (false).
         void generateAbsChannels();                     // Sets the default Absolute Channels
         
+        int _controllerStatusCount = 0;
+        bool getControllerStatusCount();
+
 
         // Channels that will be transmitted to the drone
         std::array<int16_t, NUM_CH> _sbusTxChLower;    // Lower bounds for SBUS Transmit channels
@@ -181,6 +186,7 @@ namespace AS7
         bool _hasArmed = false;         // Remembers if the drone has undergone an arming process
         bool _armingAllowed = false;    // Set by main program. Once allowed, drone will start processing instructions
         inline void setDroneHasArmed() {_hasArmed = true;}
+        inline bool getDroneHasArmed() {return _hasArmed; }
 
         bool _droneCommandsStarted = false;     // Indicates if the drone has started processing commands
         bool _droneCommandsCompleted = false;   // Indicates that there are no commands left (queue is empty)
@@ -195,9 +201,7 @@ namespace AS7
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
         bool _enableEmergencyStop = false;      // When enabled, all TX channels are set to 0
 
-        inline bool getEnableOperatorControl() {return _enableOperatorControl; }        // Returns operator control bit
-        inline bool getEnableEmergencyStop() {return _enableEmergencyStop; }          // Returns e-stop bit
-
+        
 
     public:
         
@@ -208,6 +212,10 @@ namespace AS7
         //  Current statuses could be drone_starting, drone_waitin0gdrone_in_progress, drone_estop, drone_operator_over, drone_finished
         //  Not sure how the internal mechanism could work -- this could be a bunmch of bools with increasnig preference for noe another another? maybe we shouldn't even consider status inside the drone *command* class
         int droneStatus();
+
+        inline bool getEnableOperatorControl() {return _enableOperatorControl; }        // Returns operator control bit
+        inline bool getEnableEmergencyStop() {return _enableEmergencyStop; }          // Returns e-stop bit
+
 
         // Main theread control
         //  Operates both the controller and navigator threads
