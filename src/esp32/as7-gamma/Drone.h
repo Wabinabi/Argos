@@ -42,7 +42,7 @@
 #define CH_FLIGHTMODE   4   // Left toggle switch
 #define CH_ESTOP        6   // Other button?
 
-#define STATUS_UPDATE_DELAY 1000 // Number of updates to wait before sending controller status
+#define STATUS_UPDATE_DELAY 10 // Number of updates to wait before sending controller status
 
 
 // Cv = Control Value, Pv = Present Value. Use CV to control PV
@@ -157,7 +157,8 @@ namespace AS7
         void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
 
         void writeChannel(int16_t value, int8_t ch);    // writes the value into the sbus transmit channel
-        void writeChannel_f(float value, int8_t ch);    // writes the value into the sbus transmit channel
+        void writeRxChannel_f(float value, int8_t ch);    // writes the value into the sbus transmit channel
+        void writeTxChannel_f(float value, int8_t ch);    // writes the value into the sbus transmit channel
 
         int16_t convRxChannel_i(float value, int8_t ch);  // Returns the adjusted int16_t value for that channel
         float convRxChannel_f(int16_t value, int8_t ch);  // Returns the adjusted int16_t value for that channel

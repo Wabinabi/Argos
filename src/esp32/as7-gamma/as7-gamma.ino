@@ -578,10 +578,25 @@ void setup() {
   blindCommand.type = AS7::Blind;
   blindCommand.duration = 10000;
 
+  blindCommand.v_y = 0.0f;
   blindCommand.v_x = 0.9f;
   blindCommand.v_z = 0.9f;
   
   drone.enqueueCommand(blindCommand);
+
+
+  blindCommand.desc = "This is a 2nd blind command!";
+  blindCommand.type = AS7::Blind;
+  blindCommand.duration = 10000;
+
+  blindCommand.v_x = -0.5f;
+  blindCommand.v_y = 0.0f;
+  blindCommand.v_z = -1.0f; // illegal pre sure
+  blindCommand.v_yw = 0.0f;
+  
+  drone.enqueueCommand(blindCommand);
+
+
 
 }
 
