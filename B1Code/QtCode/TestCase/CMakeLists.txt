@@ -21,7 +21,6 @@ set(PROJECT_SOURCES
         mainwindow.ui
         datatranslator.h
         datatranslator.cpp
-        TestCase.csv
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
