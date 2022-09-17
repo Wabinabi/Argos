@@ -10,7 +10,7 @@ DataTranslator::~DataTranslator(){}
 
 void DataTranslator::SetFilePath(QString dataLocation,QString dataDestination){
     _dataPath = dataLocation;
-    _destPath = dataDestination;
+    _destPath = QFileInfo(dataDestination).absoluteDir().absolutePath();
 }
 
 bool DataTranslator::GenerateFile(){
@@ -74,6 +74,16 @@ bool DataTranslator::AssignColumn(){
 
 bool DataTranslator::Calculate(){
     }
+    QString today = QDate::currentDate().toString("yyyy-MM-dd");
+    QString filename = _destPath + "/" + today + ".txt";
+
+        QFile file(filename);
+        if (file.open(QIODevice::ReadWrite)) {
+            QTextStream stream(&file);
+            stream << today << "\n";
+            file.close();
+        } else return false;
+
     return true;
 }
 
