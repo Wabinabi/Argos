@@ -51,9 +51,6 @@ bool DataTranslator::ReadData(){
             else { _data.append(row); }
         }
 
-        qDebug() << _headers;
-        qDebug() << _data;
-
         return true;
 }
 
@@ -73,13 +70,10 @@ bool DataTranslator::AssignColumn(){
         }
         i++;
     }
-
-    qDebug() << _titles;
     return true;
 }
 
 bool DataTranslator::Calculate(){
-    }
     QString today = QDate::currentDate().toString("yyyy-MM-dd");
     QString filename = _destPath + "/" + today + ".txt";
 
