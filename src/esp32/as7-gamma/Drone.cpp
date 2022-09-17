@@ -56,14 +56,23 @@ namespace AS7
                 // Process Command block
                 
                 switch(currentCommand.type) {
+
+                    rampChannel(0.5f, 8, 0.0f,  RAMPRATE_NONE);
+                    rampChannel(0.5f, 9, 0.0f,  RAMPRATE_NONE);
+                    rampChannel(0.5f, 10, 0.0f, RAMPRATE_NONE);
+                    rampChannel(0.5f, 11, 0.0f, RAMPRATE_NONE);
+                    rampChannel(0.5f, 12, 0.0f, RAMPRATE_NONE);
+                    rampChannel(0.5f, 13, 0.0f, RAMPRATE_NONE);
+                    rampChannel(0.5f, 14, 0.0f, RAMPRATE_NONE);
+                    rampChannel(0.5f, 15, 0.0f, RAMPRATE_NONE);
                             
                     case Blind:
                         if (getDroneHasArmed()) {
                             // Blind is only concerned with velocities, not position.
-                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.00015f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.00015f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.0003f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_yw, CH_YAW, 0.00015f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.05f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.10f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_yw, CH_YAW, 0.05f, RAMPRATE_LINEAR);
 
                             //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
                             
@@ -147,7 +156,7 @@ namespace AS7
 
             // Estop and Override Check
             // This may differ depending on your controller
-            if (readRxChannel_f(CH_ESTOP) > 0.4f) { // EStop Threshold
+            if (readRxChannel_f(CH_ESTOP) > 0.7f) { // EStop Threshold
                 emergencyStop(); // Toggle EStop
             } else if (readRxChannel_f(CH_FLIGHTMODE) > 0.7f) {
                 //getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
@@ -169,6 +178,7 @@ namespace AS7
             if (getControllerStatusCount()) {
                 //getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
                 getLogger()->inform("TX Channel: " + formatSbusArray(getSbusTx()->ch()));
+                getLogger()->inform("RX Channel: " + formatSbusArray(getSbusRx()->ch()));
             }
 
             // Transmit data to drone
@@ -418,7 +428,7 @@ namespace AS7
             _adjustedValue = (_chValue - _chLower) / (_chUpper - _chLower);
             //_logger->inform("This channel is absolute");
         } else { // Returns (-1, 1)
-            _adjustedValue = (value - (_chLower * 1.5)) / ((_chUpper - _chLower)/2);
+            _adjustedValue =  (value - ((_chUpper - _chLower) / 2)) / ((_chUpper - _chLower)/2);
             //_logger->inform("This channel is not absolute");
         }
 
@@ -564,17 +574,17 @@ namespace AS7
         _sbusEStopTx[2]  = 0;
         _sbusEStopTx[3]  = convRxChannel_i(0.5f, 3);
         _sbusEStopTx[4]  = convRxChannel_i(0.5f, 4);
-        _sbusEStopTx[5]  = 0;
-        _sbusEStopTx[6]  = 0;
-        _sbusEStopTx[7]  = 0;
-        _sbusEStopTx[8]  = 0;
-        _sbusEStopTx[9]  = 0;
-        _sbusEStopTx[10] = 0;
-        _sbusEStopTx[11] = 0;
-        _sbusEStopTx[12] = 0;
-        _sbusEStopTx[13] = 0;
-        _sbusEStopTx[14] = 0;
-        _sbusEStopTx[15] = 0;
+        _sbusEStopTx[5]  = convRxChannel_i(0.5f, 5);
+        _sbusEStopTx[6]  = convRxChannel_i(0.5f, 6);
+        _sbusEStopTx[7]  = convRxChannel_i(0.5f, 7);
+        _sbusEStopTx[8]  = convRxChannel_i(0.5f, 8);
+        _sbusEStopTx[9]  = convRxChannel_i(0.5f, 9);
+        _sbusEStopTx[10] = convRxChannel_i(0.5f, 10);
+        _sbusEStopTx[11] = convRxChannel_i(0.5f, 11);
+        _sbusEStopTx[12] = convRxChannel_i(0.5f, 12);
+        _sbusEStopTx[13] = convRxChannel_i(0.5f, 13);
+        _sbusEStopTx[14] = convRxChannel_i(0.5f, 14);
+        _sbusEStopTx[15] = convRxChannel_i(0.5f, 15);
 
         _logger->inform("Generating E-Stop Tx Package");
         _logger->verbose("E-Stop Tx: " + formatSbusArray(_sbusEStopTx));
