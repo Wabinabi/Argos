@@ -60,11 +60,17 @@ bool DataTranslator::ReadData(){
 bool DataTranslator::AssignColumn(){
     int index = 0;
     int i = 0;
+    Point hold;
 
     foreach (QVector<QString> value, _titles){
         index = _headers.indexOf(value[1]);
         if (index < 0){return false;}
         _titles[i][2] = QString::number(index);
+        if(value[0].contains("US_")){
+            hold.sensor = value[0];
+            hold.value = 0; hold.x = 0; hold.y = 0; hold.z = 0;
+            _points.append(hold);
+        }
         i++;
     }
 
