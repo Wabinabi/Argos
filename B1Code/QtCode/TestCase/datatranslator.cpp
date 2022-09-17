@@ -87,6 +87,36 @@ bool DataTranslator::Calculate(){
         if (file.open(QIODevice::ReadWrite)) {
             QTextStream stream(&file);
             stream << today << "\n";
+            for(int i = 0; i < _data.count(); i++){
+                //Defined Data for Readability
+                Drone.x = _data[i][_titles[0][2].toInt()].toDouble();
+                Drone.y = _data[i][_titles[1][2].toInt()].toDouble();
+                Drone.z = _data[i][_titles[2][2].toInt()].toDouble();
+                Drone.angle = _data[i][_titles[3][2].toInt()].toDouble();
+
+                //Loop through sensors and record values
+                for(int j = 0; j < _points.count(); j++){
+                    _points[j].value = _data[i][_titles[4 + j][2].toInt()].toDouble();
+                    //negative vlaues
+                    if (_points[j].sensor.contains("n")){
+                        _points[j].value *= (-1);
+                    }
+                    _points[j].x = Drone.x;
+                    _points[j].y = Drone.y;
+                    _points[j].z = Drone.z;
+
+                    if (_points[j].sensor.contains("_X")){
+                        _points[j].x += _points[j].value;
+                    }
+                    if (_points[j].sensor.contains("_Y")){
+                        _points[j].y += _points[j].value;
+                    }
+                    if (_points[j].sensor.contains("_Z")){
+                        _points[j].z += _points[j].value;
+                    }
+                    stream << _points[j].x << " " << _points[j].y << " " << _points[j].z << "\n";
+                }
+            }
             file.close();
         } else return false;
 
