@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include <QFile>
+#include <QDir>
+#include <QTextStream>
+#include <QDate>
 #include <QString>
 #include <QStringList>
 #include <QDebug>
@@ -25,7 +28,6 @@ private:
 
     QVector<QString> _headers;
     QVector<QVector<QString>> _data;
-    QVector<QVector<QString>> _points;
 
     //InteralString, ExternalString, cloumn
     //InternalString shouldn't be changed
@@ -42,21 +44,21 @@ private:
         {"US_Zn"       , "US_Down"     , "-1"}
     };
 
+    struct Point{
+        QString sensor;
+        double value;
+        double x;
+        double y;
+        double z;
+    };
+    QVector<Point> _points;
+
     struct {
         double x;
         double y;
         double z;
         double angle;
     } Drone;
-
-    struct {
-        double Yp;
-        double Yn;
-        double Xp;
-        double Xn;
-        double Zp;
-        double Zn;
-    }USsensor;
 
     bool ReadData();
     bool AssignColumn();
