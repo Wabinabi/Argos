@@ -1,0 +1,3 @@
+Test Version,DronePos_X,DronePos_Y,DronePos_Z,DroneHeading,US_Yp,US_Xp,US_Yn,US_Xn,US_Up,US_Down
+1,0,0,0,0,1,3,5,3,6,0
+2,1,0,0,0,1,2,5,4,6,0
