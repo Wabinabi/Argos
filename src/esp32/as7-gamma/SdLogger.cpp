@@ -29,19 +29,19 @@ namespace AS7
             openDataFile();
             if (_hasEnqueuedData) {
 
-                getDataFile().print(std::to_string(_enqueuedData["Test Version"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["DronePos_X"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["DronePos_Y"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["DronePos_Y"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["DroneHeading"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["US_Yp"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["US_Xp"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["US_Yn"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["US_Xn"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["US_Up"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["US_Down"]).c_str());
+                getDataFile().print((std::to_string(_enqueuedData["Test Version"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["DronePos_X"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["DronePos_Y"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["DronePos_Y"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["DroneHeading"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["US_0"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["US_1"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["US_2"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["US_3"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["US_4"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["US_5"])+",").c_str());
                 getDataFile().print(std::to_string(_enqueuedData["millis"]).c_str());
-                getDataFile().println("\n");
+                getDataFile().print("\n");
 
                 _hasEnqueuedData = false;
             }
@@ -133,6 +133,7 @@ namespace AS7
 
     void Logger::pushData() {
         xSemaphoreTake(_sem_dataEnqMutex, portMAX_DELAY);
+        _activeData["millis"] = millis();
         _enqueuedData = _activeData;
         _hasEnqueuedData = true;
         xSemaphoreGive(_sem_dataEnqMutex);
@@ -162,18 +163,18 @@ namespace AS7
                 logFile = SD.open(_dataFileLocation.c_str(), FILE_WRITE);
 
                 if (logFile) {
-                    logFile.println("Test Version, DronePos_X, DronePos_Y, DronePos_Z, DroneHeading, US_Yp, US_Xp, US_Yn, US_Xn, US_Up, US_Down, millis");
+                    logFile.println("Test Version, DronePos_X, DronePos_Y, DronePos_Z, DroneHeading, US_0, US_1, US_2, US_3, US_4, US_5, millis");
                     _activeData["Test Version"]=0;
                     _activeData["DronePos_X"]=0;
                     _activeData["DronePos_Y"]=0;
                     _activeData["DronePos_Y"]=0;
                     _activeData["DroneHeading"]=0;
-                    _activeData["US_Yp"]=0;
-                    _activeData["US_Xp"]=0;
-                    _activeData["US_Yn"]=0;
-                    _activeData["US_Xn"]=0;
-                    _activeData["US_Up"]=0;
-                    _activeData["US_Down"]=0;
+                    _activeData["US_0"]=0;
+                    _activeData["US_1"]=0;
+                    _activeData["US_2"]=0;
+                    _activeData["US_3"]=0;
+                    _activeData["US_4"]=0;
+                    _activeData["US_5"]=0;
                     _activeData["millis"]=0;
                     logFile.close();
                 } else {

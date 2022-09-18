@@ -73,7 +73,7 @@ const int STATUS_LED_BRIGHTNESS = 32;
 // Ultrasonic Pin Mapping
 const int NUM_US_SENSORS = 6;     // Number of US sensors
 const int NUM_US_POINTS = 3;      // Number of points to average for value
-const int MAX_US_DISTANCE = 400;  // Maximum distance to be used for US Sensors
+const int MAX_US_DISTANCE = 2000;  // Maximum distance to be used for US Sensors
 
 const int US_TRIGPIN_0 = 32;
 const int US_ECHOPIN_0 = 35;
@@ -224,22 +224,25 @@ void us_Task(void * parameters) {
     _pointCount = (_pointCount++) % NUM_US_POINTS; // Cycles between 0 and NUM_US_POINTS
 
     for (int i = 0; i < NUM_US_SENSORS; i++) {
-    //delayMicroseconds(10);    // Delay for 10us to provide some time between US executions
-    digitalWrite(US_TRIGPIN[i], LOW);       // Clear the trig pin
-    delayMicroseconds(2);
-    digitalWrite(US_TRIGPIN[i], HIGH);      // Sets the trigPin on HIGH state for 10 us
-    delayMicroseconds(10);
-    digitalWrite(US_TRIGPIN[i], LOW);
-    _duration = pulseIn(US_ECHOPIN[i], HIGH); // Reads the echoPin, returns the sound wave travel time in us
-    _distance = _duration * 0.034 / 2;        // get duration in cm (rounded down due to int)
-    us_distance[i][_pointCount] = min(_distance,MAX_US_DISTANCE);
+      //delayMicroseconds(10);    // Delay for 10us to provide some time between US executions
+      digitalWrite(US_TRIGPIN[i], LOW);       // Clear the trig pin
+      delayMicroseconds(2);
+      digitalWrite(US_TRIGPIN[i], HIGH);      // Sets the trigPin on HIGH state for 10 us
+      delayMicroseconds(10);
+      digitalWrite(US_TRIGPIN[i], LOW);
+      _duration = pulseIn(US_ECHOPIN[i], HIGH); // Reads the echoPin, returns the sound wave travel time in us
+      _distance = _duration * 0.034 / 2;        // get duration in cm (rounded down due to int)
+      us_distance[i][_pointCount] = min(_distance,MAX_US_DISTANCE);
 
-    logger.inform("Recording data from US " + std::to_string(i) + "->" + std::to_string(_distance));
-    // Section for performing any filtering on US inputs
+      logger.inform("Recording data from US " + std::to_string(i) + "->" + std::to_string(_distance));
+      logger.recordData("US_"+std::to_string(i),_distance);
+      
+      // Section for performing any filtering on US inputs
 
-    delay(80); // A delay of >70ms is recommended
+      delay(80); // A delay of >70ms is recommended
     }
     xSemaphoreGive(enable_usSemaphore);
+    logger.pushData();
   }
 }
 
@@ -516,10 +519,10 @@ void setup() {
   // Create binary semaphores
   enable_usSemaphore = xSemaphoreCreateBinary();
   //enable_pilotSemaphore = xSemaphoreCreateBinary();
-  debug_switchModesSemaphore = xSemaphoreCreateBinary();
+  //debug_switchModesSemaphore = xSemaphoreCreateBinary();
 
   // Enable startup tasks
-  //xSemaphoreGive(enable_usSemaphore);
+  xSemaphoreGive(enable_usSemaphore);
   //xSemaphoreGive(enable_pilotSemaphore);
 
   // Use this semaphore to enable automatic mode switching
@@ -535,9 +538,9 @@ void setup() {
     "US Task",
     4096,
     NULL,  
-    4, 
+    1, 
     &th_Ultrasonic,
-    1);
+    0);
   
 
   xTaskCreatePinnedToCore(
@@ -547,7 +550,7 @@ void setup() {
     NULL,
     1,
     &th_Comms,
-    1);
+    0);
 
 
   // xTaskCreatePinnedToCore(

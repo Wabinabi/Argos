@@ -117,7 +117,7 @@ namespace AS7
                 }
 
                 if (nextCommandAvailable()) {      // Check if there's a command available
-                    getLogger()->verbose("New command found");
+                    //getLogger()->verbose("New command found");
                     if (droneAllowedToFly()) {                          // Check if the drone is allowed to fly
                         currentCommand = dequeueCommand();
                         finishTime = currentCommand.duration + millis();
