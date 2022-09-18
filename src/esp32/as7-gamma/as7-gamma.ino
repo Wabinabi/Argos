@@ -134,6 +134,8 @@ File config_file; // Read in configuration for drone
 File output_file; // Output PLY file
 File log_file;    // Output Log file
 
+bool recordingEnabled = false; // Stores whether or not the current drone command is indicating data gathering should be enabled
+
 // Variable for storing US results. Only to be written to by US threads
 int us_distance[NUM_US_SENSORS][NUM_US_POINTS];
 
@@ -242,6 +244,7 @@ void us_Task(void * parameters) {
       delay(80); // A delay of >70ms is recommended
     }
     xSemaphoreGive(enable_usSemaphore);
+    logger.recordData("recordingEnabled",recordingEnabled);
     logger.pushData();
   }
 }
@@ -597,6 +600,7 @@ void setup() {
   blindCommand.v_y = 0.0f;
   blindCommand.v_z = 1.0f;
   blindCommand.v_yw = 0.0f;
+  blindCommand.dataRecording = true;
   
   drone.enqueueCommand(blindCommand);
   blindCommand.desc = "This is a 2nd blind command!";
@@ -617,6 +621,7 @@ void setup() {
   blindCommand.v_y = 0.0f;
   blindCommand.v_z = 1.0f;
   blindCommand.v_yw = 0.0f;
+  blindCommand.dataRecording = false;
   
   drone.enqueueCommand(blindCommand);
 
@@ -678,6 +683,8 @@ void loop() {
       break;
 
     case Flying:
+      recordingEnabled = drone.shouldGatherData();
+
       switch(currentFlightMode) {
         case OperatorControl:
 

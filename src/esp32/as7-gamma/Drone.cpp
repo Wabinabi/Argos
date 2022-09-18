@@ -23,13 +23,17 @@ namespace AS7
     // All commands will adhere to the correct ramp rate or easing function provided. Not sure how this will be implemented yet ( :D )
     // If there are no more commands, the drone will indicate droneCommandsCompleted
     //
-    // process is:
-    // Checks if there is a current command running
-    // checks if there is a command available
+    // Commands will only start executing if Drone::allowArming() is called
+    // The first command should always be to arm, otherwise the drone will be hung up
+    //  This is a known issue but does not impair normal operation
+    //
+    // Conventions:
     //
     // STRAIGHT X
     // SIDEWAYS Y
     // UPWARRDS Z
+    //
+    // Current limits for transmitter:
     //
     // Channel 1 Left   - Right     201-1846
     // Channel 2 Up     - Down      201-1846
@@ -64,6 +68,9 @@ namespace AS7
             if (getHasActiveComamnd()) {
                 // Process Command block
                 
+                // Echo data recording status
+                setDataGathering(currentCommand.dataRecording);
+
                 switch(currentCommand.type) {
 
                     

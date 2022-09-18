@@ -41,6 +41,7 @@ namespace AS7
                 getDataFile().print((std::to_string(_enqueuedData["US_4"])+",").c_str());
                 getDataFile().print((std::to_string(_enqueuedData["US_5"])+",").c_str());
                 getDataFile().print(std::to_string(_enqueuedData["millis"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["recordingEnabled"]).c_str());
                 getDataFile().print("\n");
 
                 _hasEnqueuedData = false;
@@ -163,7 +164,7 @@ namespace AS7
                 logFile = SD.open(_dataFileLocation.c_str(), FILE_WRITE);
 
                 if (logFile) {
-                    logFile.println("Test Version, DronePos_X, DronePos_Y, DronePos_Z, DroneHeading, US_0, US_1, US_2, US_3, US_4, US_5, millis");
+                    logFile.println("Test Version, DronePos_X, DronePos_Y, DronePos_Z, DroneHeading, US_0, US_1, US_2, US_3, US_4, US_5, millis, recordingEnabled");
                     _activeData["Test Version"]=0;
                     _activeData["DronePos_X"]=0;
                     _activeData["DronePos_Y"]=0;
@@ -176,6 +177,7 @@ namespace AS7
                     _activeData["US_4"]=0;
                     _activeData["US_5"]=0;
                     _activeData["millis"]=0;
+                    _activeData["recordingEnabled"]=0;
                     logFile.close();
                 } else {
                     fatal("Data CSV could not be written to!");

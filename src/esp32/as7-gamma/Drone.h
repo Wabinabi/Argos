@@ -93,6 +93,7 @@ namespace AS7
         float v_rl;     // Not directly controllable on a drone
         float v_pt;     // Not directly controllable on a drone
         float v_yw;
+        bool dataRecording; // indicates if the drone should record data, used to synchronise sensors and current drone state
     } DroneCommand;
 
     class Drone
@@ -235,6 +236,10 @@ namespace AS7
 
         void emergencyStop();
         void resetEmergencyStop();
+
+        bool _dataGatheringEnabled = false;
+        inline void setDataGathering(bool value) {_dataGatheringEnabled = value; }
+        inline bool shouldGatherData() {return _dataGatheringEnabled;} // Returns true if the current drone command is requesting data gathering
 
         void generateEStopTx();
         std::array<int16_t, NUM_CH> getEStopTx();
