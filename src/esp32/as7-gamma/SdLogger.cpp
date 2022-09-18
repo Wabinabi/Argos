@@ -21,6 +21,13 @@ namespace AS7
                 // write to SD card
             }
             xSemaphoreGive(getSemLogQueueMutex());
+            
+            xSemaphoreTake(getSemDataEnqMutex(), portMAX_DELAY);
+            if (_hasEnqueuedData) {
+                
+
+            }
+            xSemaphoreGive(getSemDataEnqMutex());
             xSemaphoreGive(getSemEnableMutex());
             closeLogFile();
             vTaskDelay((1000/LOGGER_FREQ) / portTICK_PERIOD_MS); // Allow other tasks to take control
@@ -99,9 +106,17 @@ namespace AS7
     }
 
     void Logger::recordData(std::string key, int value) {
-        _data[key] = value;
-        fatal("size of the array:");
-        fatal(std::to_string(_data.size()));
+        xSemaphoreTake(_sem_dataMutex, portMAX_DELAY);
+        _activeData[key] = value;
+        xSemaphoreGive(_sem_dataMutex);
+        
+    }
+
+    void Logger::pushData() {
+        xSemaphoreTake(_sem_dataEnqMutex, portMAX_DELAY);
+        _enqueuedData = _activeData;
+        _hasEnqueuedData = true;
+        xSemaphoreGive(_sem_dataEnqMutex);
     }
 
     void Logger::initialiseSD() {
@@ -114,13 +129,24 @@ namespace AS7
                 inform("SD card detected. SD Logging enabled.");
                 inform("(C) 2022 Ecobat Project");
 
-                File testFile = SD.open("/SDVerification.txt", FILE_WRITE);
+                // Clear previous logs
+                File logFile = SD.open(_logFileLocation.c_str(), FILE_WRITE);
 
-                if (testFile) {
-                    testFile.println("Hello from AS7!");
-                    testFile.close();
+                if (logFile) {
+                    logFile.println("AS7 Log file - (C) Ecobat Project 2022");
+                    logFile.close();
                 } else {
-                    fatal("SD test file could not be written to!");
+                    fatal("AS7 Log file could not be written to!");
+                }
+
+                // Clear and set CSV
+                logFile = SD.open(_dataFileLocation.c_str(), FILE_WRITE);
+
+                if (logFile) {
+                    logFile.println("Test Version, DronePos_X, DronePos_Y, DronePos_Z, DroneHeading, US_Yp, US_Xp, US_Yn, US_Xn, US_Up, US_Down");
+                    logFile.close();
+                } else {
+                    fatal("Data CSV could not be written to!");
                 }
 
             }
@@ -182,17 +208,24 @@ namespace AS7
     }
 
     void Logger::openLogFile() {
-        _logFile = SD.open("/as7.log", FILE_APPEND);
+        _logFile = SD.open(_logFileLocation.c_str(), FILE_APPEND);
     }
 
     void Logger::closeLogFile() {
         _logFile.close();
     }
 
+    void Logger::openDataFile() {
+        _dataFile = SD.open(_dataFileLocation.c_str(), FILE_APPEND);
+    }
+
+    void Logger::closeDataFile() {
+        _dataFile.close();
+    }
+
     void Logger::disableSDLogging() {
         _sdEnabled = true;
         warn("SD logging has been disabled! Results will not be recorded to SD Card");
-        
     }
     
     Logger::Logger(Print* output) {
@@ -200,7 +233,12 @@ namespace AS7
 
         _sem_logQueueMutex = xSemaphoreCreateBinary();
         _sem_enableMutex = xSemaphoreCreateBinary();
+        _sem_dataMutex = xSemaphoreCreateBinary();
+        _sem_dataEnqMutex = xSemaphoreCreateBinary();
+        
         xSemaphoreGive(_sem_logQueueMutex);
+        xSemaphoreGive(_sem_dataMutex);
+        xSemaphoreGive(_sem_dataEnqMutex);
 
         initialiseSD();
         

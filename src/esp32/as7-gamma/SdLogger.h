@@ -47,13 +47,18 @@ namespace AS7
         SemaphoreHandle_t _sem_logQueueMutex;
         SemaphoreHandle_t _sem_msgQueueMutex;
 
+        SemaphoreHandle_t _sem_dataMutex;
+        SemaphoreHandle_t _sem_dataEnqMutex;
+
         // Sem for Enabling/Disabling Task
         SemaphoreHandle_t _sem_enableMutex;
         bool _running = false; // tracks if the thread is running or stopped
         bool _sdEnabled = false;
         bool _sdDetected = false;
 
-        std::map<std::string, int> _data;
+        std::map<std::string, int> _activeData;     // Data that is actively written to
+        std::map<std::string, int> _enqueuedData;   // Used as a buffer before being written
+        bool _hasEnqueuedData = false;
 
         File _logFile;
         File _dataFile;
@@ -63,10 +68,13 @@ namespace AS7
         File getDataFile();
         File getConfigFile();
 
-        void openLogFile();
-        void closeLogFile();
+        void openLogFile();     // Opens Log file on SD in Append
+        void openDataFile();    // Opens Data file on SD in Append
+        void closeLogFile();    // Closes Log File
+        void closeDataFile();   // Closes Data File
 
-        const std::string _logFileLocation = "/as7.log";
+        const std::string _logFileLocation = "/as7.log"; // Location of the logging file, includes extension. Use .c_str() to for SD library
+        const std::string _dataFileLocation = "/data.csv"; // Location of the data file, includes extension. Use .c_str() to for SD library
 
         Print* _printer;
 
@@ -81,6 +89,9 @@ namespace AS7
         SemaphoreHandle_t getSemMsg();
         SemaphoreHandle_t getSemLogQueueMutex();
         SemaphoreHandle_t getSemMsgQueueMutex();
+
+        inline SemaphoreHandle_t getSemDataMutex() {return _sem_dataMutex; }
+        inline SemaphoreHandle_t getSemDataEnqMutex() {return _sem_dataEnqMutex; }
 
         SemaphoreHandle_t getSemEnableMutex();
 
