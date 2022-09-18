@@ -241,7 +241,7 @@ void us_Task(void * parameters) {
       
       // Section for performing any filtering on US inputs
 
-      delay(80); // A delay of >70ms is recommended
+       vTaskDelay(80/ portTICK_PERIOD_MS); // A delay of >70ms is recommended
     }
     xSemaphoreGive(enable_usSemaphore);
     logger.recordData("recordingEnabled",recordingEnabled);
