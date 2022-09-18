@@ -93,8 +93,12 @@ namespace AS7
                         // Send arming command
                         rampChannel( 0.9f, CH_STRAIGHT, 0.15f, RAMPRATE_NONE);
                         rampChannel(-0.9f, CH_STRAFE, 0.15f, RAMPRATE_NONE);
-                        rampChannel( 0.0f, CH_THROTTLE, 0.3f, RAMPRATE_NONE);
+                        rampChannel( 0.1f, CH_THROTTLE, 0.3f, RAMPRATE_NONE);
                         rampChannel( 0.9f, CH_YAW, 0.15f, RAMPRATE_NONE);
+                        rampChannel(-0.9f, 4, 0.15f, RAMPRATE_NONE);
+                        rampChannel( 0.0f, 5, 0.15f, RAMPRATE_NONE);
+                        rampChannel(-0.9f, 6, 0.15f, RAMPRATE_NONE);
+                        rampChannel(-0.9f, 7, 0.15f, RAMPRATE_NONE);
                         setDroneHasArmed();
                         break;
 
@@ -157,7 +161,7 @@ namespace AS7
             _dataAvailable =_sbusRx->Read();
             
             if (_dataAvailable) {
-                setSbusRxData(_sbusRx->ch());
+                setSbusRxData(getSbusRx()->ch());
 
                 if (getSbusRxData()[15] > 900 & getSbusRxData()[14] > 900 & getSbusRxData()[13] > 900 & getSbusRxData()[12] > 900 & getSbusRxData()[11] > 900 & getSbusRxData()[10] > 900) {
                 //getLogger()->verbose(formatSbusArray(getSbusRxData()));
@@ -182,6 +186,10 @@ namespace AS7
                 }
 
                 // Share status to logger every STATUS_UPDATE_DELAY updates
+                if (getControllerStatusCount()) {
+                    //getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
+                    getLogger()->inform("DATA: " + std::to_string(_dataAvailable) + " TX: " + formatSbusArray(getSbusTx()->ch()) + " RX: " + formatSbusArray(getSbusRx()->ch()));
+                }
                 
 
                 // Transmit data to drone
@@ -190,10 +198,7 @@ namespace AS7
                 }
             }
 
-            if (getControllerStatusCount()) {
-                    //getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
-                    getLogger()->inform("DATA: " + std::to_string(_dataAvailable) + " TX: " + formatSbusArray(getSbusTx()->ch()) + " RX: " + formatSbusArray(getSbusRx()->ch()));
-                }
+            
 
             
             xSemaphoreGive(getSemControlEnableMutex());

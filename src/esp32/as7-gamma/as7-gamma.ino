@@ -68,7 +68,7 @@
 /* -------------------- Pin Mapping -------------------- */
 const int STATUS_FASTLED_PIN = 3;
 const int STATUS_NUM_LEDS = 8;
-const int STATUS_LED_BRIGHTNESS = 64;
+const int STATUS_LED_BRIGHTNESS = 32;
 
 // Ultrasonic Pin Mapping
 const int NUM_US_SENSORS = 6;     // Number of US sensors
