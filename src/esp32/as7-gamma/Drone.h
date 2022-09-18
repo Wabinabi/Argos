@@ -29,7 +29,7 @@
 // Thread update frequencies (to reduce starvation of the watchdog)
 //  Feed your watchdogs, people! They do important household chores!
 #define NAV_FREQ 250    // Navigation update rate, Hz (Default: 250 Hz)
-#define CTL_FREQ 250    // Controller update rate, Hz (Default: 250 Hz)
+#define CTL_FREQ 1000   // Controller update rate, Hz (Default: 250 Hz)
 
 // Channel definitions
 //  These channels index from ZERO. Ch[0] = CH1!

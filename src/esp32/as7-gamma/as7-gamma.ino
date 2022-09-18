@@ -569,7 +569,7 @@ void setup() {
   AS7::DroneCommand armingCommand;
   armingCommand.desc = "This is a test arming command!";
   armingCommand.type = AS7::Arm;
-  armingCommand.duration = 10000;
+  armingCommand.duration = 15000;
 
   drone.enqueueCommand(armingCommand);
 
@@ -591,7 +591,7 @@ void setup() {
 
   blindCommand.v_x = -0.5f;
   blindCommand.v_y = 0.0f;
-  blindCommand.v_z = 1.0f; // illegal pre sure
+  blindCommand.v_z = 1.0f;
   blindCommand.v_yw = 0.0f;
   
   drone.enqueueCommand(blindCommand);

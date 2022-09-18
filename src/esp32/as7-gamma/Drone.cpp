@@ -47,6 +47,15 @@ namespace AS7
         unsigned long finishTime = millis(); // Keeps track of the end time of our current command
         
         DroneCommand currentCommand;
+
+        rampChannel(0.0f, 8, 0.0f,  RAMPRATE_NONE);
+        rampChannel(0.0f, 9, 0.0f,  RAMPRATE_NONE);
+        rampChannel(0.0f, 10, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 11, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 12, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 13, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 14, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 15, 0.0f, RAMPRATE_NONE);
         
         for (;;) {
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
@@ -57,14 +66,7 @@ namespace AS7
                 
                 switch(currentCommand.type) {
 
-                    rampChannel(0.5f, 8, 0.0f,  RAMPRATE_NONE);
-                    rampChannel(0.5f, 9, 0.0f,  RAMPRATE_NONE);
-                    rampChannel(0.5f, 10, 0.0f, RAMPRATE_NONE);
-                    rampChannel(0.5f, 11, 0.0f, RAMPRATE_NONE);
-                    rampChannel(0.5f, 12, 0.0f, RAMPRATE_NONE);
-                    rampChannel(0.5f, 13, 0.0f, RAMPRATE_NONE);
-                    rampChannel(0.5f, 14, 0.0f, RAMPRATE_NONE);
-                    rampChannel(0.5f, 15, 0.0f, RAMPRATE_NONE);
+                    
                             
                     case Blind:
                         if (getDroneHasArmed()) {
@@ -89,10 +91,10 @@ namespace AS7
 
                     case Arm:
                         // Send arming command
-                        rampChannel( 1.0f, CH_STRAIGHT, 0.15f, RAMPRATE_NONE);
-                        rampChannel(-1.0f, CH_STRAFE, 0.15f, RAMPRATE_NONE);
+                        rampChannel( 0.9f, CH_STRAIGHT, 0.15f, RAMPRATE_NONE);
+                        rampChannel(-0.9f, CH_STRAFE, 0.15f, RAMPRATE_NONE);
                         rampChannel( 0.0f, CH_THROTTLE, 0.3f, RAMPRATE_NONE);
-                        rampChannel( 1.0f, CH_YAW, 0.15f, RAMPRATE_NONE);
+                        rampChannel( 0.9f, CH_YAW, 0.15f, RAMPRATE_NONE);
                         setDroneHasArmed();
                         break;
 
@@ -124,7 +126,7 @@ namespace AS7
                     setDroneCommandsCompleted(); // indicate that drone has no commands
                     // When the drone has no commands, we send the e-stop tx packet to the FC, unless there's another one we want to send
                     
-                    setSbusTxData(getEStopTx());
+                    //setSbusTxData(getEStopTx());
                 }
             }
             xSemaphoreGive(getSemDroneEnableMutex());
@@ -145,45 +147,55 @@ namespace AS7
 
     void Drone::controllerTask(void * parameters) { 
         getLogger()->verbose("Controller task thread reporting running status");
+        bool _dataAvailable;
+
         for (;;) {
             xSemaphoreTake(getSemControlEnableMutex(), portMAX_DELAY);
-
-            // If there is available data, update the internally received data
-            if (_sbusRx->Read()) {
-                setSbusRxData(_sbusRx->ch());
-                //getLogger()->verbose(formatSbusArray(getSbusRxData()));
-            }
-
-            // Estop and Override Check
-            // This may differ depending on your controller
-            if (readRxChannel_f(CH_ESTOP) > 0.7f) { // EStop Threshold
-                emergencyStop(); // Toggle EStop
-            } else if (readRxChannel_f(CH_FLIGHTMODE) > 0.7f) {
-                //getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
-                enableOperatorControl();
-            }
-
             
 
-            // Set Data
-            if (getEnableEmergencyStop()) {
-                getSbusTx()->ch(getEStopTx());          // Writes EStop Packet to TX
-            } else if (getEnableOperatorControl()) {
-                getSbusTx()->ch(getSbusRxData());       // Writes received RX packets to TX channel. Drone acts as pass-through
-            } else { 
-                getSbusTx()->ch(getSbusTxData());       // Transmits normal data to drone              
+            // If there is available data, update the internally received data
+            _dataAvailable =_sbusRx->Read();
+            
+            if (_dataAvailable) {
+                setSbusRxData(_sbusRx->ch());
+
+                if (getSbusRxData()[15] > 900 & getSbusRxData()[14] > 900 & getSbusRxData()[13] > 900 & getSbusRxData()[12] > 900 & getSbusRxData()[11] > 900 & getSbusRxData()[10] > 900) {
+                //getLogger()->verbose(formatSbusArray(getSbusRxData()));
+                // Estop and Override Check
+                // This may differ depending on your controller
+                if (readRxChannel_f(CH_ESTOP) > 0.7f) { // EStop Threshold
+                    emergencyStop(); // Toggle EStop
+                } else if (readRxChannel_f(CH_FLIGHTMODE) > 0.7f) {
+                    //getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
+                    enableOperatorControl();
+                }
+
+                
+
+                // Set Data
+                if (getEnableEmergencyStop()) {
+                    getSbusTx()->ch(getEStopTx());          // Writes EStop Packet to TX
+                } else if (getEnableOperatorControl()) {
+                    getSbusTx()->ch(getSbusRxData());       // Writes received RX packets to TX channel. Drone acts as pass-through
+                } else { 
+                    getSbusTx()->ch(getSbusTxData());       // Transmits normal data to drone              
+                }
+
+                // Share status to logger every STATUS_UPDATE_DELAY updates
+                
+
+                // Transmit data to drone
+                //getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
+                getSbusTx()->Write();
+                }
             }
 
-            // Share status to logger every STATUS_UPDATE_DELAY updates
             if (getControllerStatusCount()) {
-                //getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
-                getLogger()->inform("TX Channel: " + formatSbusArray(getSbusTx()->ch()));
-                getLogger()->inform("RX Channel: " + formatSbusArray(getSbusRx()->ch()));
-            }
+                    //getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
+                    getLogger()->inform("DATA: " + std::to_string(_dataAvailable) + " TX: " + formatSbusArray(getSbusTx()->ch()) + " RX: " + formatSbusArray(getSbusRx()->ch()));
+                }
 
-            // Transmit data to drone
-            //getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
-            getSbusTx()->Write();
+            
             xSemaphoreGive(getSemControlEnableMutex());
             vTaskDelay((1000/CTL_FREQ) / portTICK_PERIOD_MS);
         }
@@ -300,11 +312,13 @@ namespace AS7
             _sbusRxData = data;
         xSemaphoreGive(getRxChMutex());
     }
+    /*
     void Drone::setSbusTxData(std::array<int16_t, NUM_CH> data) {
         xSemaphoreTake(getTxChMutex(), portMAX_DELAY);
             _sbusRxData = data;
         xSemaphoreGive(getTxChMutex());
     }
+    */
 
     void Drone::initUpperLowerBoundArrays() {
         
@@ -324,7 +338,7 @@ namespace AS7
     std::string Drone::formatSbusArray(std::array<int16_t, NUM_CH> chData) {
         std::string formattedData = "";
         for (int i = 0; i < NUM_CH; i++) {
-            formattedData += " " + std::to_string(chData[i]);
+            formattedData += "\t" + std::to_string(chData[i]);
         }
         return formattedData;
     }
@@ -558,14 +572,14 @@ namespace AS7
         _sbusAbsChannels[5]  = false;
         _sbusAbsChannels[6]  = false;   // Ch7 Button
         _sbusAbsChannels[7]  = true;    // Ch6 Right Switch
-        _sbusAbsChannels[8]  = true;
-        _sbusAbsChannels[9]  = true;
-        _sbusAbsChannels[10] = true;
-        _sbusAbsChannels[11] = true;
-        _sbusAbsChannels[12] = true;
-        _sbusAbsChannels[13] = true;
-        _sbusAbsChannels[14] = true;
-        _sbusAbsChannels[15] = true;
+        _sbusAbsChannels[8]  = false;
+        _sbusAbsChannels[9]  = false;
+        _sbusAbsChannels[10] = false;
+        _sbusAbsChannels[11] = false;
+        _sbusAbsChannels[12] = false;
+        _sbusAbsChannels[13] = false;
+        _sbusAbsChannels[14] = false;
+        _sbusAbsChannels[15] = false;
     }
 
     void Drone::generateEStopTx() {
