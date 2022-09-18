@@ -527,17 +527,17 @@ void setup() {
 
   /* --------------------- Initialise Modules --------------------- */
 
-/*
+
 
   xTaskCreatePinnedToCore(
     us_Task,
     "US Task",
-    8192,
+    4096,
     NULL,  
     4, 
     &th_Ultrasonic,
     1);
-  */
+  
 
   xTaskCreatePinnedToCore(
     FL_LEDComms,
@@ -569,17 +569,17 @@ void setup() {
   AS7::DroneCommand armingCommand;
   armingCommand.desc = "This is a test arming command!";
   armingCommand.type = AS7::Arm;
-  armingCommand.duration = 15000;
+  armingCommand.duration = 8000;
 
   drone.enqueueCommand(armingCommand);
 
   AS7::DroneCommand blindCommand;
   blindCommand.desc = "This is a blind command!";
   blindCommand.type = AS7::Blind;
-  blindCommand.duration = 10000;
+  blindCommand.duration = 1000;
 
   blindCommand.v_y = 0.0f;
-  blindCommand.v_x = 0.9f;
+  blindCommand.v_x = 0.0f;
   blindCommand.v_z = 0.9f;
   
   drone.enqueueCommand(blindCommand);
@@ -587,11 +587,42 @@ void setup() {
 
   blindCommand.desc = "This is a 2nd blind command!";
   blindCommand.type = AS7::Blind;
-  blindCommand.duration = 20000;
+  blindCommand.duration = 1000;
 
   blindCommand.v_x = -0.5f;
   blindCommand.v_y = 0.0f;
   blindCommand.v_z = 1.0f;
+  blindCommand.v_yw = 0.0f;
+  
+  drone.enqueueCommand(blindCommand);
+  blindCommand.desc = "This is a 2nd blind command!";
+  blindCommand.type = AS7::Blind;
+  blindCommand.duration = 1000;
+
+  blindCommand.v_x = 0.9f;
+  blindCommand.v_y = 0.0f;
+  blindCommand.v_z = 0.3f;
+  blindCommand.v_yw = 0.4f;
+  
+  drone.enqueueCommand(blindCommand);
+  blindCommand.desc = "This is a 2nd blind command!";
+  blindCommand.type = AS7::Blind;
+  blindCommand.duration = 1000;
+
+  blindCommand.v_x = 0.0f;
+  blindCommand.v_y = 0.0f;
+  blindCommand.v_z = 1.0f;
+  blindCommand.v_yw = 0.0f;
+  
+  drone.enqueueCommand(blindCommand);
+
+  blindCommand.desc = "This is a 3rd blind command!";
+  blindCommand.type = AS7::Blind;
+  blindCommand.duration = 20000;
+
+  blindCommand.v_x = 0.0f;
+  blindCommand.v_y = 0.0f;
+  blindCommand.v_z = 0.005f;
   blindCommand.v_yw = 0.0f;
   
   drone.enqueueCommand(blindCommand);
@@ -617,9 +648,12 @@ void loop() {
     case Ready:
       // wait for sbus signal from drone
       // something like dorne.readch(threshold, ch)
-      drone.allowArming();
+      
       //if (drone.droneAllowedToFly()) {nextState = Armed; }
-      if (drone.channelConfirm(CH_FLIGHTMODE, 0.4f)) {nextState = Armed; }
+      if (drone.channelConfirm(CH_FLIGHTMODE, 0.4f)) {
+        drone.allowArming();
+        nextState = Armed; 
+      }
 
       break;
 
@@ -633,6 +667,9 @@ void loop() {
       //' eue drone wait
       // then wait a bit more
       // then move to flying
+      if (drone.getDroneArmComplete()) {
+        nextState = Flying;
+      }
 
       break;
 

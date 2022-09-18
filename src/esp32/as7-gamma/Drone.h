@@ -201,8 +201,7 @@ namespace AS7
         bool _running = false;                  // Indicates current state of main drone task
         bool _enableOperatorControl = false;    // When enabled, remote control commands are passed directly to drone from RX to TX
         bool _enableEmergencyStop = false;      // When enabled, all TX channels are set to 0
-
-        
+        bool _armingComplete = false;
 
     public:
         
@@ -216,7 +215,7 @@ namespace AS7
 
         inline bool getEnableOperatorControl() {return _enableOperatorControl; }        // Returns operator control bit
         inline bool getEnableEmergencyStop() {return _enableEmergencyStop; }          // Returns e-stop bit
-
+        inline bool getDroneArmComplete() {return _armingComplete; }
 
         // Main theread control
         //  Operates both the controller and navigator threads

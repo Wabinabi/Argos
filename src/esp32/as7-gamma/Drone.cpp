@@ -71,10 +71,10 @@ namespace AS7
                     case Blind:
                         if (getDroneHasArmed()) {
                             // Blind is only concerned with velocities, not position.
-                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.05f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.10f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_yw, CH_YAW, 0.05f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.0005f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.0005f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.0010f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_yw, CH_YAW, 0.0005f, RAMPRATE_LINEAR);
 
                             //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
                             
@@ -95,17 +95,14 @@ namespace AS7
                         rampChannel(-0.9f, CH_STRAFE, 0.15f, RAMPRATE_NONE);
                         rampChannel( 0.1f, CH_THROTTLE, 0.3f, RAMPRATE_NONE);
                         rampChannel( 0.9f, CH_YAW, 0.15f, RAMPRATE_NONE);
-                        rampChannel(-0.9f, 4, 0.15f, RAMPRATE_NONE);
-                        rampChannel( 0.0f, 5, 0.15f, RAMPRATE_NONE);
+                        rampChannel( 0.9f, 4, 0.15f, RAMPRATE_NONE);
+                        rampChannel(-0.8f, 5, 0.15f, RAMPRATE_NONE);
                         rampChannel(-0.9f, 6, 0.15f, RAMPRATE_NONE);
-                        rampChannel(-0.9f, 7, 0.15f, RAMPRATE_NONE);
+                        rampChannel( 0.1f, 7, 0.15f, RAMPRATE_NONE);
                         setDroneHasArmed();
                         break;
 
 
-                }
-                if (!getDroneHasArmed()) {
-                    finishTime = currentCommand.duration + millis();
                 }
                 //getLogger()->verbose("Mills vs FinishTime: " + std::to_string(millis()) + " vs. " + std::to_string(finishTime));    
                 setHasActiveCommand(millis() < finishTime); // If we've passed our command duration, we unset the active command
@@ -113,6 +110,11 @@ namespace AS7
                 //getLogger()->inform("Command completed, seeking new command");
                 // Get Command Block
                 //  As there is no active command, we will attempt to get one and set it up
+
+                if (currentCommand.type == Arm) {
+                    // Drone has just completed an arming command
+                    _armingComplete = true;
+                }
 
                 if (nextCommandAvailable()) {      // Check if there's a command available
                     getLogger()->verbose("New command found");
@@ -153,9 +155,16 @@ namespace AS7
         getLogger()->verbose("Controller task thread reporting running status");
         bool _dataAvailable;
 
+        
+
         for (;;) {
             xSemaphoreTake(getSemControlEnableMutex(), portMAX_DELAY);
             
+            // Share status to logger every STATUS_UPDATE_DELAY updates
+            if (getControllerStatusCount()) {
+                //getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
+                getLogger()->inform("DATA: " + std::to_string(_dataAvailable) + " TX: " + formatSbusArray(getSbusTx()->ch()) + " RX: " + formatSbusArray(getSbusRx()->ch()));
+            }
 
             // If there is available data, update the internally received data
             _dataAvailable =_sbusRx->Read();
@@ -174,29 +183,22 @@ namespace AS7
                     enableOperatorControl();
                 }
 
-                
-
-                // Set Data
-                if (getEnableEmergencyStop()) {
-                    getSbusTx()->ch(getEStopTx());          // Writes EStop Packet to TX
-                } else if (getEnableOperatorControl()) {
-                    getSbusTx()->ch(getSbusRxData());       // Writes received RX packets to TX channel. Drone acts as pass-through
-                } else { 
-                    getSbusTx()->ch(getSbusTxData());       // Transmits normal data to drone              
-                }
-
-                // Share status to logger every STATUS_UPDATE_DELAY updates
-                if (getControllerStatusCount()) {
-                    //getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
-                    getLogger()->inform("DATA: " + std::to_string(_dataAvailable) + " TX: " + formatSbusArray(getSbusTx()->ch()) + " RX: " + formatSbusArray(getSbusRx()->ch()));
-                }
-                
-
                 // Transmit data to drone
                 //getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
                 getSbusTx()->Write();
                 }
             }
+
+            // Set Data
+            if (getEnableEmergencyStop()) {
+                getSbusTx()->ch(getEStopTx());          // Writes EStop Packet to TX
+            } else if (getEnableOperatorControl()) {
+                getSbusTx()->ch(getSbusRxData());       // Writes received RX packets to TX channel. Drone acts as pass-through
+            } else { 
+                getSbusTx()->ch(getSbusTxData());       // Transmits normal data to drone              
+            }
+            
+
 
             
 
