@@ -231,9 +231,10 @@ void us_Task(void * parameters) {
     delayMicroseconds(10);
     digitalWrite(US_TRIGPIN[i], LOW);
     _duration = pulseIn(US_ECHOPIN[i], HIGH); // Reads the echoPin, returns the sound wave travel time in us
-    _duration = _duration * 0.034 / 2;        // get duration in cm (rounded down due to int)
-    us_distance[i][_pointCount] = min(_distance,MAX_US_DISTANCE); // < ---- Change static value here   
+    _distance = _duration * 0.034 / 2;        // get duration in cm (rounded down due to int)
+    us_distance[i][_pointCount] = min(_distance,MAX_US_DISTANCE);
 
+    logger.inform("Recording data from US " + std::to_string(i) + "->" + std::to_string(_distance));
     // Section for performing any filtering on US inputs
 
     delay(80); // A delay of >70ms is recommended

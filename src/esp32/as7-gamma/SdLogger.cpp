@@ -8,10 +8,11 @@ namespace AS7
         std::string msg;
         for (;;) {
             xSemaphoreTake(getSemEnableMutex(), portMAX_DELAY);
-            openLogFile();
+            
 
             // Check the log size
             xSemaphoreTake(getSemLogQueueMutex(), portMAX_DELAY);
+            openLogFile();
             while (!getLogQueue().empty()) {
               msg = dequeueLog();
               
@@ -20,16 +21,34 @@ namespace AS7
                 getPrinter()->println(msg.c_str());
                 // write to SD card
             }
+            closeLogFile();
             xSemaphoreGive(getSemLogQueueMutex());
             
+            
             xSemaphoreTake(getSemDataEnqMutex(), portMAX_DELAY);
+            openDataFile();
             if (_hasEnqueuedData) {
-                
 
+                getDataFile().print(std::to_string(_enqueuedData["Test Version"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["DronePos_X"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["DronePos_Y"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["DronePos_Y"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["DroneHeading"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["US_Yp"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["US_Xp"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["US_Yn"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["US_Xn"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["US_Up"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["US_Down"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["millis"]).c_str());
+                getDataFile().println("\n");
+
+                _hasEnqueuedData = false;
             }
+            closeDataFile();
             xSemaphoreGive(getSemDataEnqMutex());
             xSemaphoreGive(getSemEnableMutex());
-            closeLogFile();
+            
             vTaskDelay((1000/LOGGER_FREQ) / portTICK_PERIOD_MS); // Allow other tasks to take control
         }
         
@@ -143,14 +162,25 @@ namespace AS7
                 logFile = SD.open(_dataFileLocation.c_str(), FILE_WRITE);
 
                 if (logFile) {
-                    logFile.println("Test Version, DronePos_X, DronePos_Y, DronePos_Z, DroneHeading, US_Yp, US_Xp, US_Yn, US_Xn, US_Up, US_Down");
+                    logFile.println("Test Version, DronePos_X, DronePos_Y, DronePos_Z, DroneHeading, US_Yp, US_Xp, US_Yn, US_Xn, US_Up, US_Down, millis");
+                    _activeData["Test Version"]=0;
+                    _activeData["DronePos_X"]=0;
+                    _activeData["DronePos_Y"]=0;
+                    _activeData["DronePos_Y"]=0;
+                    _activeData["DroneHeading"]=0;
+                    _activeData["US_Yp"]=0;
+                    _activeData["US_Xp"]=0;
+                    _activeData["US_Yn"]=0;
+                    _activeData["US_Xn"]=0;
+                    _activeData["US_Up"]=0;
+                    _activeData["US_Down"]=0;
+                    _activeData["millis"]=0;
                     logFile.close();
                 } else {
                     fatal("Data CSV could not be written to!");
                 }
 
             }
-
             
         } else {
             warn("SD Logging has been disabled globally! Data will not be recorded to SD");
