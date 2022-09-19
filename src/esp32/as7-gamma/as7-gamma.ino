@@ -84,10 +84,10 @@ const int US_TRIGPIN_1 = 25;
 const int US_ECHOPIN_1 = 33;
 const int US_TRIGPIN_2 = 12;
 const int US_ECHOPIN_2 = 13;
-const int US_TRIGPIN_3 = 27;
-const int US_ECHOPIN_3 = 14;
-const int US_TRIGPIN_4 = 4;
-const int US_ECHOPIN_4 = 0;
+const int US_TRIGPIN_3 = 14;
+const int US_ECHOPIN_3 = 27;
+const int US_TRIGPIN_4 = 0;
+const int US_ECHOPIN_4 = 4;
 const int US_TRIGPIN_5 = 2;
 const int US_ECHOPIN_5 = 15;
 
@@ -581,18 +581,18 @@ void setup() {
   sbusTx.Begin(SBUS_RXPIN, SBUS_TXPIN);
 
   // Ultrasonic Driver pins
-  US_TRIGPIN[0] = 32;
-  US_ECHOPIN[0] = 35;
-  US_TRIGPIN[1] = 25;
-  US_ECHOPIN[1] = 33;
-  US_TRIGPIN[2] = 12;
-  US_ECHOPIN[2] = 13;
-  US_TRIGPIN[3] = 27;
-  US_ECHOPIN[3] = 14;
-  US_TRIGPIN[4] = 4;
-  US_ECHOPIN[4] = 0;
-  US_TRIGPIN[5] = 2;
-  US_ECHOPIN[5] = 15;
+  US_TRIGPIN[0] = US_TRIGPIN_0;
+  US_ECHOPIN[0] = US_ECHOPIN_0;
+  US_TRIGPIN[1] = US_TRIGPIN_1;
+  US_ECHOPIN[1] = US_ECHOPIN_1;
+  US_TRIGPIN[2] = US_TRIGPIN_2;
+  US_ECHOPIN[2] = US_ECHOPIN_2;
+  US_TRIGPIN[3] = US_TRIGPIN_3;
+  US_ECHOPIN[3] = US_ECHOPIN_3;
+  US_TRIGPIN[4] = US_TRIGPIN_4;
+  US_ECHOPIN[4] = US_ECHOPIN_4;
+  US_TRIGPIN[5] = US_TRIGPIN_5;
+  US_ECHOPIN[5] = US_ECHOPIN_5;
 
   // Set trig pins as outputs
   pinMode(US_TRIGPIN[0], OUTPUT);
