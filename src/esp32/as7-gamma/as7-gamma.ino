@@ -144,6 +144,14 @@ float compass_z;    // Compass Z axis reading (millliTeslas)
 float compass_heading; // Compass heading in degrees
 const float declinationAngle = 0.192228625; // Melbourne's magnetic declination is +11 deg 50 s. See https://www.magnetic-declination.com/
 
+float accel_x_offset; // The offset from 'zeroing' x
+float accel_y_offset; // The offset from 'zeroing' y
+float accel_z_offset; // The offset from 'zeroing' z
+
+float estDronePos_x; // The estimated drone x position based on the accelerometer
+float estDronePos_y; // The estimated drone y position based on the accelerometer
+float estDronePos_z; // The estimated drone z position based on the accelerometer
+
 sensors_event_t compass_event; // The returned data from the compass
 
 // SBUS Comms with FC
@@ -670,11 +678,6 @@ void setup() {
   Wire.begin();
   Wire.beginTransmission(0x0A); // address of the accelerometer
 
-  // Set up the Compass
-  if(!compass.begin()) {
-    logger.fatal("Compass was unable to start, could the module be loose?");
-  }
-
   // Range Settings
   Wire.write(0x22); // Register Address
   Wire.write(0x00); // Range value (0x00)
@@ -683,6 +686,12 @@ void setup() {
   Wire.write(0x20); // Register Address
   Wire.write(0x05); // Refer to datasheet on wiki
   Wire.endTransmission();
+
+  // Set up the Compass
+  if(!compass.begin()) {
+    logger.fatal("Compass was unable to start, could the module be loose?");
+  }
+
 
   // Initialise drone class
   drone.start();
