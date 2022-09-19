@@ -49,6 +49,7 @@
 #include <FastLED.h>  // Glowbit/WS2812B Library
 #include <SPI.h>      // for SD Card
 #include <SD.h>       // for SD Card
+#include <Wire.h>     // for i2c access with the accelerometer and compass
 
 #include <map>        // Dictionary/mapping
 
@@ -110,6 +111,8 @@ const TickType_t TICK_MEDIUM = 500 / portTICK_PERIOD_MS;
 const TickType_t TICK_LONG = 1000 / portTICK_PERIOD_MS;
 const TickType_t TICK_LONGLONG = 5000 / portTICK_PERIOD_MS;
 
+#define ACC_FREQ 200  // Minimum Frequency to poll the accelerometer and magnometer. Default: 200hz
+
 // Define FastLED constants
 const int FL_LEDNUM = 8;
 const int FL_LEDBRIGHTNESS = 64;
@@ -122,6 +125,16 @@ DEFINE_GRADIENT_PALETTE( DEV_PALLETE ) {
 128,     0,   255,  255,
 255,     255,  20,  147};
 CRGBPalette16 DEVPAL = DEV_PALLETE;
+
+// Accelerometer and Magnometer definitions
+int8_t accel_x_int; // X Byte read from accelerometer
+int8_t accel_y_int; // Y Byte read from accelerometer
+int8_t accel_z_int; // Z Byte read from accelerometer
+float accel_x; // X-axis g's from the accelerometer
+float accel_y; // Y-axis g's from the accelerometer
+float accel_z; // Z-axis g's from the accelerometer
+const float DIV_I=16; // Divisor from word (2 bytes, 16 bits) to float
+byte accelData[3]; // Buffer for storing accelerometer registers
 
 // SBUS Comms with FC
 bfs::SbusRx sbusRx(&Serial1);
@@ -161,11 +174,10 @@ SemaphoreHandle_t scribe_logStackMutex;
 SemaphoreHandle_t scribe_msgStackMutex;
 
 // Task handle for main threads
-TaskHandle_t th_Ultrasonic;
-TaskHandle_t th_Scribe;  // Maintains SD card.
-TaskHandle_t th_Pilot;   // Constantly writes to the SBUS line
-TaskHandle_t th_Comms;   // Handles LED sequencing and colours
-TaskHandle_t th_Switch;  // Handles Switching for testing purposes
+TaskHandle_t th_Ultrasonic; // Task handle for ultrasonic thread
+TaskHandle_t th_Comms;      // Task handle for LED sequencing and colours
+TaskHandle_t th_Accel;      // Task handle for the accelerometer thread
+TaskHandle_t th_Switch;     // Task handle for switching. Used for testing
 
 // Drone state for Finite State Machine
 
@@ -178,8 +190,6 @@ TaskHandle_t th_Switch;  // Handles Switching for testing purposes
  * Faulted    - Similar to stopped, but does not reset even after powering on/off
  * Debug      - For unit testing
 */
-const int StraightLineDist = 100; // Aim to travel 100cm in AutoStraightLine mode
-
 // Enums for drone FSM
 enum DroneState {Initialise, Ready, Armed, Flying, Landing, Stopped, Faulted, Debug};
 enum DroneFlightMode {OperatorControl, AutoStraightLine, ArmOnly};
@@ -204,19 +214,57 @@ DroneFlightMode currentFlightMode = ArmOnly;
 
 /* ------------------------ Main Objects ------------------------ */
 
-AS7::Logger logger(&Serial);
-//AS7::Drone drone(&logger, &sbusRx, &sbusTx, &sbusRxData, &sbusTxData);
-AS7::Drone drone(&logger, &sbusRx, &sbusTx);
-
+AS7::Logger logger(&Serial);                  // Logger reference used to send information to the serial and manage the SD card
+AS7::Drone drone(&logger, &sbusRx, &sbusTx);  // Drone reference to control the drone and its comms
 
 /* --------------------- Function code --------------------- */
+// Updates the accelerometer values accel_x accel_y accel_z
+void readAccelerometer() {
+  Wire.beginTransmission(0x0A); // address of the accelerometer
+  
+  // reset the accelerometer
+  Wire.write(0x04); // Y data
+  Wire.endTransmission();
+  Wire.requestFrom(0x0A,1);     // request 6 bytes from slave device #2
+  while(Wire.available())       // slave may send less than requested
+  {
+    accelData[0] = Wire.read();   // receive a byte as character
+  }
+
+  accel_x_int=(int8_t)accelData[0]>>2;
+
+  Wire.beginTransmission(0x0A);   // address of the accelerometer
+  // reset the accelerometer
+  Wire.write(0x06); // Y data
+  Wire.endTransmission();
+  Wire.requestFrom(0x0A,1);       // request 6 bytes from slave device #2
+  while(Wire.available())         // slave may send less than requested
+  {
+    accelData[1] = Wire.read();   // receive a byte as characte
+  }
+  accel_y_int=(int8_t)accelData[1]>>2;
+
+  Wire.beginTransmission(0x0A);   // address of the accelerometer
+  // reset the accelerometer
+  Wire.write(0x08); // Y data
+  Wire.endTransmission();
+  Wire.requestFrom(0x0A,1);       // request 6 bytes from slave device #2
+    while(Wire.available())        // slave may send less than requested
+  {
+    accelData[2] = Wire.read();   // receive a byte as characte
+  }
+    accel_z_int=(int8_t)accelData[2]>>2;
+
+    accel_x=(float)accel_x_int/DIV_I;
+    accel_y=(float)accel_y_int/DIV_I;
+    accel_z=(float)accel_z_int/DIV_I;
+
+    logger.recordData("accel_x", accel_x);
+}
 
 /* --------------------- Task code for threads --------------------- */
-// Initial trials with class methods or void* parameters for code re-use didn't go so well
-//  Keeping it simple and writing out the code 6 times
 
-void us_Task(void * parameters) { 
-
+void taskUltrasonicSensor(void * parameters) { 
   // Task code starts here
   int _distance;
   int _duration;
@@ -246,6 +294,15 @@ void us_Task(void * parameters) {
     xSemaphoreGive(enable_usSemaphore);
     logger.recordData("recordingEnabled",recordingEnabled);
     logger.pushData();
+  }
+}
+
+// Accelerometer threaded task code 
+//  Runs continuously on startup and updates accel_x, accel_y, accel_z
+void taskAccelerometer(void * parameters) {
+  for (;;) {
+    readAccelerometer();
+    vTaskDelay((1000 / ACC_FREQ)/ portTICK_PERIOD_MS);
   }
 }
 
@@ -295,40 +352,37 @@ void debug_switchModes(void * parameters) {
     
   }
 }
-
-void FL_LEDComms(void * parameters) {
-  /*
-  Always-On LEDs:
-   LED 0 is LEFT (RED)
-   LED 7 is RIGHT (GREEN)
-   CRGB colours can be found at http://fastled.io/docs/3.1/struct_c_r_g_b.html
   
-  Key:
-    Blue relates to flying-related tasks
-    Lime relates to autonomous-related tasks
-    
-    LED 0 and 7 are always RED and GREEN unless Debugging
-    LED 1 and 6 are always WHITE when flying
+// Always-On LEDs:
+//  LED 0 is LEFT (RED)
+//  LED 7 is RIGHT (GREEN)
+//  CRGB colours can be found at http://fastled.io/docs/3.1/struct_c_r_g_b.html
+// 
+// Key:
+//   Blue relates to flying-related tasks
+//   Lime relates to autonomous-related tasks
+//   
+//   LED 0 and 7 are always RED and GREEN unless Debugging
+//   LED 1 and 6 are always WHITE when flying// 
+// Initialise:
+//   Normal Speed - Flashing Yellow
+// Ready:
+//   Slower Speed - Flashing Blue
+// Armed:
+//   Normal Speed - Flashing BlueOrange
+// Flying:
+//   ArmOnly:
+//     NA
+//   OperatorControl:
+//     Normal Speed - Flashing Pink
+//   AutoStraightLine:
+//     Normal Speed - Flashing Blue-Lime
+// Faulted:
+//   Fast Speed - Flashing Red, LEDs 1 and 6 Orange
+// Debug:
+//   Blue-Pink Gradient
+void taskStatusLeds(void * parameters) {
 
-  Initialise:
-    Normal Speed - Flashing Yellow
-  Ready:
-    Slower Speed - Flashing Blue
-  Armed:
-    Normal Speed - Flashing BlueOrange
-  Flying:
-    ArmOnly:
-      NA
-    OperatorControl:
-      Normal Speed - Flashing Pink
-    AutoStraightLine:
-      Normal Speed - Flashing Blue-Lime
-  Faulted:
-    Fast Speed - Flashing Red, LEDs 1 and 6 Orange
-  Debug:
-    Blue-Pink Gradient
-
-  */
 
   // Task code starts here
   for (;;) {
@@ -464,6 +518,7 @@ void FL_LEDComms(void * parameters) {
 
         break;
     }
+    vTaskDelay(100  / portTICK_PERIOD_MS); 
   }
 }
 
@@ -484,7 +539,6 @@ void setup() {
   
 
   // Ultrasonic Driver pins
-  
   US_TRIGPIN[0] = 32;
   US_ECHOPIN[0] = 35;
   US_TRIGPIN[1] = 25;
@@ -534,11 +588,9 @@ void setup() {
 
   /* --------------------- Initialise Modules --------------------- */
 
-
-
   xTaskCreatePinnedToCore(
-    us_Task,
-    "US Task",
+    taskUltrasonicSensor,
+    "AS7 Ultrasonic Sensor Thread",
     4096,
     NULL,  
     1, 
@@ -547,15 +599,24 @@ void setup() {
   
 
   xTaskCreatePinnedToCore(
-    FL_LEDComms,
-    "LED Comms",
+    taskStatusLeds,
+    "AS7 LED Status Thread",
     2056,
     NULL,
     1,
     &th_Comms,
     0);
 
+  xTaskCreatePinnedToCore(
+    taskAccelerometer,
+    "AS7 Accelerometer Thread",
+    2056,
+    NULL,
+    1,
+    &th_Accel,
+    0);
 
+  // Uncomment for task switcher
   // xTaskCreatePinnedToCore(
   //   debug_switchModes,        /* Task function. */
   //   "Switch Modes",           /* name of task. */
@@ -565,12 +626,26 @@ void setup() {
   //   &th_Switch,               /* Task handle to keep track of created task */
   //   1);                       /* pin task to core 1 */
   
-  //logger.inform("AS7 has finished setup and is moving to main loop");
-
   if (SIMULATION_ENABLE) {
     Serial.println("-------------------- Simulation Enabled! --------------------");
     logger.inform("AS7 is starting in simulation mode!");
   }
+
+  /* --------------------- Initialise Hardware --------------------- */
+  // Set up the Accelerometer
+  Wire.begin();
+  Wire.beginTransmission(0x0A); // address of the accelerometer
+
+  // Range Settings
+  Wire.write(0x22); // Register Address
+  Wire.write(0x00); // Range value (0x00)
+
+  // Low Pass Filter
+  Wire.write(0x20); // Register Address
+  Wire.write(0x05); // Refer to datasheet on wiki
+  Wire.endTransmission();
+
+  // Initialise drone class
   drone.start();
 
   AS7::DroneCommand armingCommand;
@@ -622,10 +697,32 @@ void setup() {
   blindCommand.v_z = 1.0f;
   blindCommand.v_yw = 0.0f;
   blindCommand.dataRecording = false;
+
+  drone.enqueueCommand(blindCommand);
+  blindCommand.desc = "This is a 2nd blind command!";
+  blindCommand.type = AS7::Blind;
+  blindCommand.duration = 1000;
+
+  blindCommand.v_x = 0.0f;
+  blindCommand.v_y = 0.0f;
+  blindCommand.v_z = 0.3f;
+  blindCommand.v_yw = 0.0f;
+  blindCommand.dataRecording = false;
+
+  drone.enqueueCommand(blindCommand);
+  blindCommand.desc = "This is a 2nd blind command!";
+  blindCommand.type = AS7::Blind;
+  blindCommand.duration = 1000;
+
+  blindCommand.v_x = 0.0f;
+  blindCommand.v_y = 0.0f;
+  blindCommand.v_z = 0.9f;
+  blindCommand.v_yw = 0.0f;
+  blindCommand.dataRecording = false;
   
   drone.enqueueCommand(blindCommand);
 
-  blindCommand.desc = "This is a 3rd blind command!";
+  blindCommand.desc = "This is the final command!";
   blindCommand.type = AS7::Blind;
   blindCommand.duration = 20000;
 
@@ -641,7 +738,6 @@ void setup() {
 }
 
 void loop() {
-  
   
 
   // Main loop for the state
@@ -737,7 +833,7 @@ void loop() {
     currentState=nextState;
 
 
-    
+    vTaskDelay(5  / portTICK_PERIOD_MS); 
   }
 
   

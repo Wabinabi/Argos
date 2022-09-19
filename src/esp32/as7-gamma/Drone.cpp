@@ -98,10 +98,10 @@ namespace AS7
 
                     case Arm:
                         // Send arming command
-                        rampChannel( 0.9f, CH_STRAIGHT, 0.15f, RAMPRATE_NONE);
-                        rampChannel(-0.9f, CH_STRAFE, 0.15f, RAMPRATE_NONE);
-                        rampChannel( 0.1f, CH_THROTTLE, 0.3f, RAMPRATE_NONE);
-                        rampChannel( 0.9f, CH_YAW, 0.15f, RAMPRATE_NONE);
+                        rampChannel( 0.9f, CH_STRAIGHT, 0.005f, RAMPRATE_LINEAR);
+                        rampChannel(-0.9f, CH_STRAFE, 0.005f, RAMPRATE_LINEAR);
+                        rampChannel( 0.1f, CH_THROTTLE, 0.005f, RAMPRATE_LINEAR);
+                        rampChannel( 0.9f, CH_YAW, 0.005f, RAMPRATE_LINEAR);
                         rampChannel( 0.9f, 4, 0.15f, RAMPRATE_NONE);
                         rampChannel(-0.8f, 5, 0.15f, RAMPRATE_NONE);
                         rampChannel(-0.9f, 6, 0.15f, RAMPRATE_NONE);

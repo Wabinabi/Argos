@@ -130,8 +130,6 @@ namespace AS7
         void recordData(std::string key, int value);
         void pushData();
 
-
-
         // The main logging tasks 
         void inform(std::string message);
         void warn(std::string message);
@@ -139,7 +137,6 @@ namespace AS7
         void fatal(std::string message);
         void verbose(std::string message);
 
-        void record(int x, int y, int z);
         void plot(std::string message);
 
         void disableSDLogging();        // Disables SD Logging, even if SD Card is attached.

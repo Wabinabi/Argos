@@ -20,6 +20,7 @@ namespace AS7
                 getLogFile().println(msg.c_str());
                 getPrinter()->println(msg.c_str());
                 // write to SD card
+                vTaskDelay(1 / portTICK_PERIOD_MS); // limit watchdog starvation
             }
             closeLogFile();
             xSemaphoreGive(getSemLogQueueMutex());
@@ -30,18 +31,24 @@ namespace AS7
             if (_hasEnqueuedData) {
 
                 getDataFile().print((std::to_string(_enqueuedData["Test Version"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["DronePos_X"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["DronePos_Y"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["DronePos_Y"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["DroneHeading"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["US_0"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["US_1"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["US_2"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["US_3"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["US_4"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["US_5"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["drone_x"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["drone_y"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["drone_y"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["us_0"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["us_1"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["us_2"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["us_3"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["us_4"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["us_5"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["accel_x"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["accel_y"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["accel_z"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["heading"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["compass_x"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["compass_y"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["compass_z"])+",").c_str());
                 getDataFile().print(std::to_string(_enqueuedData["millis"]).c_str());
-                getDataFile().print(std::to_string(_enqueuedData["recordingEnabled"]).c_str());
+                getDataFile().print(std::to_string(_enqueuedData["recording_enabled"]).c_str());
                 getDataFile().print("\n");
 
                 _hasEnqueuedData = false;
@@ -164,20 +171,26 @@ namespace AS7
                 logFile = SD.open(_dataFileLocation.c_str(), FILE_WRITE);
 
                 if (logFile) {
-                    logFile.println("Test Version, DronePos_X, DronePos_Y, DronePos_Z, DroneHeading, US_0, US_1, US_2, US_3, US_4, US_5, millis, recordingEnabled");
+                    logFile.println("Test Version, drone_x, drone_y, DronePos_Z, DroneHeading, us_0, us_1, us_2, us_3, us_4, us_5, accel_x, accel_y, accel_z, heading, compass_x, compass_y, compass_z, millis, recording_enabled");
                     _activeData["Test Version"]=0;
-                    _activeData["DronePos_X"]=0;
-                    _activeData["DronePos_Y"]=0;
-                    _activeData["DronePos_Y"]=0;
-                    _activeData["DroneHeading"]=0;
-                    _activeData["US_0"]=0;
-                    _activeData["US_1"]=0;
-                    _activeData["US_2"]=0;
-                    _activeData["US_3"]=0;
-                    _activeData["US_4"]=0;
-                    _activeData["US_5"]=0;
+                    _activeData["drone_x"]=0;
+                    _activeData["drone_y"]=0;
+                    _activeData["drone_y"]=0;
+                    _activeData["us_0"]=0;
+                    _activeData["us_1"]=0;
+                    _activeData["us_2"]=0;
+                    _activeData["us_3"]=0;
+                    _activeData["us_4"]=0;
+                    _activeData["us_5"]=0;
+                    _activeData["accel_x"]=0;
+                    _activeData["accel_y"]=0;
+                    _activeData["accel_z"]=0;
+                    _activeData["heading"]=0;
+                    _activeData["compass_x"]=0;
+                    _activeData["compass_y"]=0;
+                    _activeData["compass_z"]=0;
                     _activeData["millis"]=0;
-                    _activeData["recordingEnabled"]=0;
+                    _activeData["recording_enabled"]=0;
                     logFile.close();
                 } else {
                     fatal("Data CSV could not be written to!");
