@@ -49,7 +49,9 @@
 #include <FastLED.h>  // Glowbit/WS2812B Library
 #include <SPI.h>      // for SD Card
 #include <SD.h>       // for SD Card
+
 #include <Wire.h>     // for i2c access with the accelerometer and compass
+#include <Adafruit_MMC5883.h>
 
 #include <map>        // Dictionary/mapping
 
@@ -136,6 +138,14 @@ float accel_z; // Z-axis g's from the accelerometer
 const float DIV_I=16; // Divisor from word (2 bytes, 16 bits) to float
 byte accelData[3]; // Buffer for storing accelerometer registers
 
+float compass_x;    // Compass X axis reading (millliTeslas)
+float compass_y;    // Compass Y axis reading (millliTeslas)
+float compass_z;    // Compass Z axis reading (millliTeslas)
+float compass_heading; // Compass heading in degrees
+const float declinationAngle = 0.192228625; // Melbourne's magnetic declination is +11 deg 50 s. See https://www.magnetic-declination.com/
+
+sensors_event_t compass_event; // The returned data from the compass
+
 // SBUS Comms with FC
 bfs::SbusRx sbusRx(&Serial1);
 bfs::SbusTx sbusTx(&Serial1);
@@ -217,6 +227,7 @@ DroneFlightMode currentFlightMode = ArmOnly;
 AS7::Logger logger(&Serial);                  // Logger reference used to send information to the serial and manage the SD card
 AS7::Drone drone(&logger, &sbusRx, &sbusTx);  // Drone reference to control the drone and its comms
 
+Adafruit_MMC5883 compass = Adafruit_MMC5883(11111); // Assign a unique ID to the MMC5883 Compass
 /* --------------------- Function code --------------------- */
 // Updates the accelerometer values accel_x accel_y accel_z
 void readAccelerometer() {
@@ -258,8 +269,6 @@ void readAccelerometer() {
     accel_x=(float)accel_x_int/DIV_I;
     accel_y=(float)accel_y_int/DIV_I;
     accel_z=(float)accel_z_int/DIV_I;
-
-    logger.recordData("accel_x", accel_x);
 }
 
 /* --------------------- Task code for threads --------------------- */
@@ -292,7 +301,7 @@ void taskUltrasonicSensor(void * parameters) {
        vTaskDelay(80/ portTICK_PERIOD_MS); // A delay of >70ms is recommended
     }
     xSemaphoreGive(enable_usSemaphore);
-    logger.recordData("recordingEnabled",recordingEnabled);
+    logger.recordData("recordingEnabled",drone.recordingEnabled());
     logger.pushData();
   }
 }
@@ -301,11 +310,38 @@ void taskUltrasonicSensor(void * parameters) {
 //  Runs continuously on startup and updates accel_x, accel_y, accel_z
 void taskAccelerometer(void * parameters) {
   for (;;) {
-    readAccelerometer();
+
+    readAccelerometer(); // Update accelerometer data
+
+    // Push data to logger
+    logger.recordData("accel_x", accel_x);
+    logger.recordData("accel_y", accel_y);
+    logger.recordData("accel_z", accel_z);
+    
+    compass.getEvent(&compass_event); // Get compass data
+
+    // Get compass data from event
+    compass_x = compass_event.magnetic.x; 
+    compass_y = compass_event.magnetic.y;
+    compass_z = compass_event.magnetic.z;
+
+    // Get compass heading and account for declination angle
+    compass_heading = atan2(compass_y, compass_x) - declinationAngle;
+
+    if(compass_heading < 0) { compass_heading += 2*PI; }    // Correct for when signs are reversed
+    if(compass_heading > 2*PI) { compass_heading -= 2*PI; } // Check for wrap with declination
+
+    compass_heading = compass_heading * 180/M_PI; // Convert to degrees for ease of use
+
+    // Push data to logger
+    logger.recordData("compass_x", compass_x);
+    logger.recordData("compass_y", compass_y);
+    logger.recordData("compass_z", compass_z);
+    logger.recordData("heading", compass_heading);
+
     vTaskDelay((1000 / ACC_FREQ)/ portTICK_PERIOD_MS);
   }
 }
-
 
 void debug_switchModes(void * parameters) {
   xSemaphoreTake(debug_switchModesSemaphore, portMAX_DELAY);
@@ -536,8 +572,6 @@ void setup() {
   sbusRx.Begin(SBUS_RXPIN, SBUS_TXPIN);
   sbusTx.Begin(SBUS_RXPIN, SBUS_TXPIN);
 
-  
-
   // Ultrasonic Driver pins
   US_TRIGPIN[0] = 32;
   US_ECHOPIN[0] = 35;
@@ -635,6 +669,11 @@ void setup() {
   // Set up the Accelerometer
   Wire.begin();
   Wire.beginTransmission(0x0A); // address of the accelerometer
+
+  // Set up the Compass
+  if(!compass.begin()) {
+    logger.fatal("Compass was unable to start, could the module be loose?");
+  }
 
   // Range Settings
   Wire.write(0x22); // Register Address
@@ -779,7 +818,6 @@ void loop() {
       break;
 
     case Flying:
-      recordingEnabled = drone.shouldGatherData();
 
       switch(currentFlightMode) {
         case OperatorControl:

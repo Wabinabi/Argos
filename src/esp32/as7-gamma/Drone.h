@@ -239,7 +239,7 @@ namespace AS7
 
         bool _dataGatheringEnabled = false;
         inline void setDataGathering(bool value) {_dataGatheringEnabled = value; }
-        inline bool shouldGatherData() {return _dataGatheringEnabled;} // Returns true if the current drone command is requesting data gathering
+        inline bool recordingEnabled() {return _dataGatheringEnabled;} // Returns true if the current drone command is requesting data gathering
 
         void generateEStopTx();
         std::array<int16_t, NUM_CH> getEStopTx();
