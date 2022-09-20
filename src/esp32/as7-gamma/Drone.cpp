@@ -78,10 +78,10 @@ namespace AS7
                     case Blind:
                         if (getDroneHasArmed()) {
                             // Blind is only concerned with velocities, not position.
-                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.0005f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.0005f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.0010f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_yw, CH_YAW, 0.0005f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.0002f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.0002f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.0002f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_yw, CH_YAW, 0.0002f, RAMPRATE_LINEAR);
 
                             //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
                             

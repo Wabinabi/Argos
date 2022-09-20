@@ -33,7 +33,7 @@ namespace AS7
                 getDataFile().print((std::to_string(_enqueuedData["Test Version"])+",").c_str());
                 getDataFile().print((std::to_string(_enqueuedData["drone_x"])+",").c_str());
                 getDataFile().print((std::to_string(_enqueuedData["drone_y"])+",").c_str());
-                getDataFile().print((std::to_string(_enqueuedData["drone_y"])+",").c_str());
+                getDataFile().print((std::to_string(_enqueuedData["drone_z"])+",").c_str());
                 getDataFile().print((std::to_string(_enqueuedData["us_0"])+",").c_str());
                 getDataFile().print((std::to_string(_enqueuedData["us_1"])+",").c_str());
                 getDataFile().print((std::to_string(_enqueuedData["us_2"])+",").c_str());
@@ -132,7 +132,7 @@ namespace AS7
     ((Logger*)_this)->mainTask(NULL);
     }
 
-    void Logger::recordData(std::string key, int value) {
+    void Logger::recordData(std::string key, float value) {
         xSemaphoreTake(_sem_dataMutex, portMAX_DELAY);
         _activeData[key] = value;
         xSemaphoreGive(_sem_dataMutex);
@@ -171,7 +171,7 @@ namespace AS7
                 logFile = SD.open(_dataFileLocation.c_str(), FILE_WRITE);
 
                 if (logFile) {
-                    logFile.println("Test Version, drone_x, drone_y, DronePos_Z, DroneHeading, us_0, us_1, us_2, us_3, us_4, us_5, accel_x, accel_y, accel_z, heading, compass_x, compass_y, compass_z, millis, recording_enabled");
+                    logFile.println("Test Version, drone_x, drone_y, drone_z, us_0, us_1, us_2, us_3, us_4, us_5, accel_x, accel_y, accel_z, heading, compass_x, compass_y, compass_z, millis, recording_enabled");
                     _activeData["Test Version"]=0;
                     _activeData["drone_x"]=0;
                     _activeData["drone_y"]=0;

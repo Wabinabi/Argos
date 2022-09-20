@@ -302,7 +302,7 @@ void taskUltrasonicSensor(void * parameters) {
       us_distance[i][_pointCount] = min(_distance,MAX_US_DISTANCE);
 
       logger.inform("Recording data from US " + std::to_string(i) + "->" + std::to_string(_distance));
-      logger.recordData("US_"+std::to_string(i),_distance);
+      logger.recordData("us_"+std::to_string(i),_distance);
       
       // Section for performing any filtering on US inputs
 

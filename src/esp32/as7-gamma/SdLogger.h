@@ -56,8 +56,8 @@ namespace AS7
         bool _sdEnabled = false;
         bool _sdDetected = false;
 
-        std::map<std::string, int> _activeData;     // Data that is actively written to
-        std::map<std::string, int> _enqueuedData;   // Used as a buffer before being written
+        std::map<std::string, float> _activeData;     // Data that is actively written to
+        std::map<std::string, float> _enqueuedData;   // Used as a buffer before being written
         bool _hasEnqueuedData = false;
 
         File _logFile;
@@ -127,7 +127,7 @@ namespace AS7
 
         void setVerbosity(int verbosity);
 
-        void recordData(std::string key, int value);
+        void recordData(std::string key, float value);
         void pushData();
 
         // The main logging tasks 
