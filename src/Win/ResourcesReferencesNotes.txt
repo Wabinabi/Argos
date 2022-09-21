@@ -1,12 +1,23 @@
-Opening an external application from inside WinForms:
-	https://www.youtube.com/watch?v=KvHZxprWVO8&ab_channel=TheAmazingCodeverse
-	https://www.youtube.com/watch?v=l9h5Y_uxNy4&t=0s&ab_channel=TheAmazingCodeverse (auto opening an application)
+Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
+- LOW: When hiding pages, the close child window closes the program
+- 
 
-!!!CC opens externally and not within the window.
-https://stackoverflow.com/questions/758494/how-can-i-run-another-application-within-a-panel-of-my-c-sharp-program
 
-Helped remove the CC loading screen, still loading outside of the frame:
-https://stackoverflow.com/questions/5836176/docking-window-inside-another-window
-================================================================================
-Reading a text file and saving it:
-https://www.youtube.com/watch?v=DXxV5GyIQx8&ab_channel=CPlus%2B
+What Mink is working on now:
+- display 3D model within the DATAmodel.cpp
+
+
+
+
+Side thoughts:
+- In the 3D model, the different colour options can support colour blindess/ night time/blue light
+- 3D model: flight path
+- 3D model: add time function to cloud points. Time recorded to x,y,z
+- 3D model: add filter function, hide points that fall outside of selected time frame
+
+
+
+===========STUFF THAT HAS BEEN COMPLETED===================
+
+=================MINK'S RANDO NOTES========================
+- Wire frame: https://drive.google.com/file/d/1HZjIMIIsOeRHFitesahdV5oPBWg40f4h/view?usp=sharing
