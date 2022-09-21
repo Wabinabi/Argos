@@ -1,6 +1,5 @@
 #include "Drone.h"
 
-
 namespace AS7 
 {
     /* ---------------------------------- Task Methods ---------------------------------- */ 
@@ -24,13 +23,27 @@ namespace AS7
     // All commands will adhere to the correct ramp rate or easing function provided. Not sure how this will be implemented yet ( :D )
     // If there are no more commands, the drone will indicate droneCommandsCompleted
     //
-    // process is:
-    // Checks if there is a current command running
-    // checks if there is a command available
+    // Commands will only start executing if Drone::allowArming() is called
+    // The first command should always be to arm, otherwise the drone will be hung up
+    //  This is a known issue but does not impair normal operation
+    //
+    // Conventions:
     //
     // STRAIGHT X
     // SIDEWAYS Y
     // UPWARRDS Z
+    //
+    // Current limits for transmitter:
+    //
+    // Channel 1 Left   - Right     201-1846
+    // Channel 2 Up     - Down      201-1846
+    // Channel 3 LowTh  - HiTh      240-1791
+    // Channel 4 YawL   - YawR      500-1500
+    // Channel 5 LLever             240-1807
+    // Channel 6 FLIGHT MODE
+    // Channel 7 Button             240-1807
+    // Channel 8 RLever             240-1807
+
 
 
     void Drone::navigationTask(void * parameters) { 
@@ -38,53 +51,81 @@ namespace AS7
         unsigned long finishTime = millis(); // Keeps track of the end time of our current command
         
         DroneCommand currentCommand;
+
+        rampChannel(0.0f, 8, 0.0f,  RAMPRATE_NONE);
+        rampChannel(0.0f, 9, 0.0f,  RAMPRATE_NONE);
+        rampChannel(0.0f, 10, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 11, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 12, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 13, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 14, 0.0f, RAMPRATE_NONE);
+        rampChannel(0.0f, 15, 0.0f, RAMPRATE_NONE);
         
         for (;;) {
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
             // Main Block
+            //getLogger()->verbose("Drone active command status:" + std::to_string(getHasActiveComamnd()));
             if (getHasActiveComamnd()) {
                 // Process Command block
                 
+                // Echo data recording status
+                setDataGathering(currentCommand.dataRecording);
+
                 switch(currentCommand.type) {
+
+                    
                             
                     case Blind:
-                        // Blind is only concerned with velocities, not position.
-                        rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.15f, RAMPRATE_LINEAR);
-                        rampChannel(currentCommand.v_y, CH_STRAFE, 0.15f, RAMPRATE_LINEAR);
-                        rampChannel(currentCommand.v_z, CH_THROTTLE, 0.3f, RAMPRATE_LINEAR);
-                        rampChannel(currentCommand.v_yw, CH_YAW, 0.15f, RAMPRATE_LINEAR);
+                        if (getDroneHasArmed()) {
+                            // Blind is only concerned with velocities, not position.
+                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.0002f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.0002f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.0002f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_yw, CH_YAW, 0.0002f, RAMPRATE_LINEAR);
 
-                        //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
+                            //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
+                            
+                        }
                         break;
 
                     case Guided:
+
                         break;
 
                     case Landing:
+
                         break;
 
                     case Arm:
-                    
                         // Send arming command
-                        rampChannel( 1.0f, CH_STRAIGHT, 0.15f, RAMPRATE_NONE);
-                        rampChannel(-1.0f, CH_STRAFE, 0.15f, RAMPRATE_NONE);
-                        rampChannel( 0.0f, CH_THROTTLE, 0.3f, RAMPRATE_NONE);
-                        rampChannel( 1.0f, CH_YAW, 0.15f, RAMPRATE_NONE);
+                        rampChannel( 0.9f, CH_STRAIGHT, 0.005f, RAMPRATE_LINEAR);
+                        rampChannel(-0.9f, CH_STRAFE, 0.005f, RAMPRATE_LINEAR);
+                        rampChannel( 0.1f, CH_THROTTLE, 0.005f, RAMPRATE_LINEAR);
+                        rampChannel( 0.9f, CH_YAW, 0.005f, RAMPRATE_LINEAR);
+                        rampChannel( 0.9f, 4, 0.15f, RAMPRATE_NONE);
+                        rampChannel(-0.8f, 5, 0.15f, RAMPRATE_NONE);
+                        rampChannel(-0.9f, 6, 0.15f, RAMPRATE_NONE);
+                        rampChannel( 0.1f, 7, 0.15f, RAMPRATE_NONE);
+                        setDroneHasArmed();
                         break;
 
 
                 }
-
-
-
-
-                setHasActiveCommand(millis() > finishTime); // If we've passed our command duration, we unset the active command
+                //getLogger()->verbose("Mills vs FinishTime: " + std::to_string(millis()) + " vs. " + std::to_string(finishTime));    
+                setHasActiveCommand(millis() < finishTime); // If we've passed our command duration, we unset the active command
             } else {
+                //getLogger()->inform("Command completed, seeking new command");
                 // Get Command Block
                 //  As there is no active command, we will attempt to get one and set it up
 
-                if (nextCommandAvailable()) {          // Check if there's a command available
-                    if (droneAllowedToFly()) {         // Check if the drone is allowed to fly
+                if (currentCommand.type == Arm) {
+                    // Drone has just completed an arming command
+                    _armingComplete = true;
+                }
+
+                if (nextCommandAvailable()) {      // Check if there's a command available
+                    //getLogger()->verbose("New command found");
+                    if (droneAllowedToFly()) {                          // Check if the drone is allowed to fly
                         currentCommand = dequeueCommand();
                         finishTime = currentCommand.duration + millis();
                         getLogger()->inform("Starting new command: " + currentCommand.desc + " for " + std::to_string(currentCommand.duration) + "ms");
@@ -97,7 +138,8 @@ namespace AS7
                     }
                     setDroneCommandsCompleted(); // indicate that drone has no commands
                     // When the drone has no commands, we send the e-stop tx packet to the FC, unless there's another one we want to send
-                    setSbusTxData(getEStopTx());
+                    
+                    //setSbusTxData(getEStopTx());
                 }
             }
             xSemaphoreGive(getSemDroneEnableMutex());
@@ -118,21 +160,40 @@ namespace AS7
 
     void Drone::controllerTask(void * parameters) { 
         getLogger()->verbose("Controller task thread reporting running status");
+        bool _dataAvailable;
+
+        
+
         for (;;) {
             xSemaphoreTake(getSemControlEnableMutex(), portMAX_DELAY);
-            getLogger()->verbose("running Navigator");
-
-            // If there is available data, update the internally received data
-            if (_sbusRx->Read()) {
-                setSbusRxData(_sbusRx->ch());
+            
+            // Share status to logger every STATUS_UPDATE_DELAY updates
+            if (getControllerStatusCount()) {
+                //getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
+                getLogger()->inform("DATA: " + std::to_string(_dataAvailable) + " TX: " + formatSbusArray(getSbusTx()->ch()) + " RX: " + formatSbusArray(getSbusRx()->ch()));
             }
 
-            // Estop and Override Check
-            // This may differ depending on your controller
-            if (readRxChannel_f(CH_ESTOP) > 0.4f) { // EStop Threshold
-                emergencyStop(); // Toggle EStop
-            } else if (readRxChannel(CH_FLIGHTMODE) > 0.7f) {
-                enableOperatorControl();
+            // If there is available data, update the internally received data
+            _dataAvailable =_sbusRx->Read();
+            
+            if (_dataAvailable) {
+                setSbusRxData(getSbusRx()->ch());
+
+                if (getSbusRxData()[15] > 900 & getSbusRxData()[14] > 900 & getSbusRxData()[13] > 900 & getSbusRxData()[12] > 900 & getSbusRxData()[11] > 900 & getSbusRxData()[10] > 900) {
+                //getLogger()->verbose(formatSbusArray(getSbusRxData()));
+                // Estop and Override Check
+                // This may differ depending on your controller
+                if (readRxChannel_f(CH_ESTOP) > 0.7f) { // EStop Threshold
+                    emergencyStop(); // Toggle EStop
+                } else if (readRxChannel_f(CH_FLIGHTMODE) > 0.7f) {
+                    //getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
+                    enableOperatorControl();
+                }
+
+                // Transmit data to drone
+                //getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
+                getSbusTx()->Write();
+                }
             }
 
             // Set Data
@@ -143,14 +204,23 @@ namespace AS7
             } else { 
                 getSbusTx()->ch(getSbusTxData());       // Transmits normal data to drone              
             }
+            
 
-            // Transmit data to drone
-            getSbusTx()->Write();
+
+            
+
+            
             xSemaphoreGive(getSemControlEnableMutex());
             vTaskDelay((1000/CTL_FREQ) / portTICK_PERIOD_MS);
         }
     }
 
+    // Returns true every 250 calls
+    bool Drone::getControllerStatusCount() {
+        _controllerStatusCount++;
+        _controllerStatusCount = _controllerStatusCount % STATUS_UPDATE_DELAY;
+        return _controllerStatusCount == 0;        
+    }
     
 
     // hello
@@ -256,11 +326,13 @@ namespace AS7
             _sbusRxData = data;
         xSemaphoreGive(getRxChMutex());
     }
+    /*
     void Drone::setSbusTxData(std::array<int16_t, NUM_CH> data) {
         xSemaphoreTake(getTxChMutex(), portMAX_DELAY);
             _sbusRxData = data;
         xSemaphoreGive(getTxChMutex());
     }
+    */
 
     void Drone::initUpperLowerBoundArrays() {
         
@@ -280,7 +352,7 @@ namespace AS7
     std::string Drone::formatSbusArray(std::array<int16_t, NUM_CH> chData) {
         std::string formattedData = "";
         for (int i = 0; i < NUM_CH; i++) {
-            formattedData += " " + std::to_string(chData[i]);
+            formattedData += "\t" + std::to_string(chData[i]);
         }
         return formattedData;
     }
@@ -309,15 +381,20 @@ namespace AS7
     float Drone::rampValue(float value, float target, float rate, int rampRateType) {
         float _returnValue;
 
+        //getLogger()->verbose("RampValue value, target, rate, rampratetype:");
+        //getLogger()->verbose(std::to_string(value)+"/"+std::to_string(target)+"/"+std::to_string(rate)+"/"+std::to_string(rampRateType));
+
         switch(rampRateType) {
 
             case RAMPRATE_LINEAR:
-                if (min(value + rate, target) < target) {
+                /*if (min(value + rate, target) < target) {
                     _returnValue = min(value + rate, target);
                 } else {
                     _returnValue = target;
                 }
-
+                */
+               
+               _returnValue = value + clamp(target - value, -1 * rate, rate);
                 break;
 
             case RAMPRATE_PROP:
@@ -325,29 +402,33 @@ namespace AS7
                 break;
 
             default: // Default to no ramping or RAMPRATE_NONE
-                _returnValue = value;
+                _returnValue = target;
+                break;
         }
-
+        //getLogger()->verbose("RampValue returned value:" + std::to_string(_returnValue));
         return _returnValue;
     }
 
     void Drone::rampChannel(float target, int8_t ch, float rate, int rampRateType) {
-        writeChannel_f(rampValue(readTxChannel_f(ch), target, rate, rampRateType), ch);
+        //getLogger()->verbose("Ramping ch " + std::to_string(ch) + " -> in:" + std::to_string(readTxChannel_f(ch)));
+        writeTxChannel_f(rampValue(readTxChannel_f(ch), target, rate, rampRateType), ch);
     }
 
     // Returns the corrected integer value for this channel (adjusted for min/max and abs of the channel)
     //  This will only use the values for the TX channels
     int16_t Drone::convRxChannel_i(float value, int8_t ch) {
-        float _value;
         int16_t _adjustedValue;
+
+        float _chLower = _sbusRxChLower[ch];
+        float _chUpper = _sbusRxChUpper[ch];
+        float _chValue = value;
+
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Accepts (0, 1)
-            _value = clamp(value, 0, 1);
-            _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
+            _adjustedValue = _chLower + (_chUpper - _chLower) * value;
         } else {
-            _value = clamp(value, -1, 1);
-            _value += 1; // Range is now (0, 2)
-            _value /= 2; // Range is now (0, 1), we can use the same formula as above.
-            _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
+            value += 1; // Range is now (0, 2)
+            value /= 2; // Range is now (0, 1), we can use the same formula as above.
+            _adjustedValue = _chLower + (_chUpper - _chLower) * value;
         }
 
         return _adjustedValue;
@@ -356,14 +437,32 @@ namespace AS7
     // Returns the corrected floating point value for this channel (adjusted for min/max and abs of the channel)
     //  This will only use the values for the RX channels
     float Drone::convRxChannel_f(int16_t value, int8_t ch) {
-        int16_t _value = clamp(value, _sbusRxChUpper[ch], _sbusRxChLower[ch]);
-        int16_t _adjustedValue;
+        //_logger->verbose("Pre Conversion Channel: " + std::to_string(value));
+        //int16_t _value = clamp(value, _sbusRxChUpper[ch], _sbusRxChLower[ch]);
+        float _adjustedValue;
+
+        float _chLower = _sbusRxChLower[ch];
+        float _chUpper = _sbusRxChUpper[ch];
+        float _chValue = value;
+
+        //_logger->verbose("Converting Channel: " + std::to_string(ch));
+        //_logger->verbose("Converting value: " + std::to_string(_chValue) + " converted from " + std::to_string(value));
 
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Returns (0, 1)
-            _adjustedValue = (_value - _sbusRxChLower[ch]) / (_sbusRxChUpper[ch] - _sbusRxChLower[ch]);
+            //_logger->verbose("Numerator: " + std::to_string(_chValue - _chLower));
+            //_logger->verbose("Demoninator: " + std::to_string(_chUpper - _chLower));
+            
+            //_logger->verbose("Actual numerator: " + std::to_string(_adjustedValue));
+            _adjustedValue = (_chValue - _chLower) / (_chUpper - _chLower);
+            //_logger->inform("This channel is absolute");
         } else { // Returns (-1, 1)
-            _adjustedValue = (_value - (_sbusRxChLower[ch] * 1.5)) / ((_sbusRxChUpper[ch] - _sbusRxChLower[ch])/2);
+            _adjustedValue =  (value - ((_chUpper - _chLower) / 2)) / ((_chUpper - _chLower)/2);
+            //_logger->inform("This channel is not absolute");
         }
+
+        //_logger->verbose("The range of this channel is: " + std::to_string(_sbusRxChLower[ch]) + "-" + std::to_string(_sbusRxChUpper[ch]));
+        //_logger->verbose("The range using floats is: " + std::to_string(_chLower) + "-" + std::to_string(_chUpper));
+        //_logger->verbose("Adjusted value is: " + std::to_string(_adjustedValue));
 
         return _adjustedValue;
     }
@@ -371,16 +470,18 @@ namespace AS7
     // Returns the corrected integer value for this channel (adjusted for min/max and abs of the channel)
     //  This will only use the values for the TX channels
     int16_t Drone::convTxChannel_i(float value, int8_t ch) {
-        float _value;
         int16_t _adjustedValue;
+
+        float _chLower = _sbusTxChLower[ch];
+        float _chUpper = _sbusTxChUpper[ch];
+        float _chValue = value;
+
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Accepts (0, 1)
-            _value = clamp(value, 0, 1);
-            _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
+            _adjustedValue = _chLower + (_chUpper - _chLower) * value;
         } else {
-            _value = clamp(value, -1, 1);
-            _value += 1; // Range is now (0, 2)
-            _value /= 2; // Range is now (0, 1), we can use the same formula as above.
-            _adjustedValue = _sbusTxChLower[ch] + (_sbusTxChUpper[ch] - _sbusTxChLower[ch]) * _value;
+            value += 1; // Range is now (0, 2)
+            value /= 2; // Range is now (0, 1), we can use the same formula as above.
+            _adjustedValue = _chLower + (_chUpper - _chLower) * value;
         }
 
         return _adjustedValue;
@@ -389,14 +490,20 @@ namespace AS7
     // Returns the corrected floating point value for this channel (adjusted for min/max and abs of the channel)
     //  This will only use the values for the Tx channels
     float Drone::convTxChannel_f(int16_t value, int8_t ch) {
-        int16_t _value = clamp(value, _sbusTxChUpper[ch], _sbusTxChLower[ch]);
-        int16_t _adjustedValue;
+        
+        float _adjustedValue;
+
+        float _chLower = _sbusTxChLower[ch];
+        float _chUpper = _sbusTxChUpper[ch];
+        float _chValue = value;
 
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Returns (0, 1)
-            _adjustedValue = (_value - _sbusTxChLower[ch]) / (_sbusTxChUpper[ch] - _sbusTxChLower[ch]);
+            _adjustedValue = (_chValue - _chLower) / (_chUpper - _chLower);
         } else { // Returns (-1, 1)
-            _adjustedValue = (_value - (_sbusTxChLower[ch] * 1.5)) / ((_sbusTxChUpper[ch] - _sbusTxChLower[ch])/2);
+            _adjustedValue = (value - ((_chUpper - _chLower) / 2)) / ((_chUpper - _chLower)/2);
         }
+
+        //getLogger()->verbose("ConvTxChannel_f (" + std::to_string(value) + ") =" + std::to_string(_adjustedValue));
 
         return _adjustedValue;
     }
@@ -415,18 +522,26 @@ namespace AS7
     }
     
     float Drone::readTxChannel_f(int16_t ch) {
+        //getLogger()->verbose("Reading in channel: " + std::to_string(readTxChannel(ch)) +"->"+std::to_string(convTxChannel_f(readTxChannel(ch), ch)));
         float chValue = convTxChannel_f(readTxChannel(ch), ch);
         return chValue;
     }
 
-    void Drone::writeChannel_f(float value, int8_t ch) {
-        writeChannel(convRxChannel_f(value, ch), ch);
+    void Drone::writeRxChannel_f(float value, int8_t ch) {
+        writeChannel(convRxChannel_i(value, ch), ch);
+    }
+
+    void Drone::writeTxChannel_f(float value, int8_t ch) {
+        //getLogger()->verbose("WriteChannel_f: " + std::to_string(ch) + " -> f/value: " + std::to_string(value) + "/" + std::to_string(convTxChannel_i(value, ch)));
+        writeChannel(convTxChannel_i(value, ch), ch);
     }
 
     void Drone::writeChannel(int16_t value, int8_t ch) {
         xSemaphoreTake(getTxChMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
+        //getLogger()->verbose("Writechannel is setting sbus value to " + std::to_string(value) + " in ch " + std::to_string(ch));
         _sbusTxData[ch] = value;
         xSemaphoreGive(getTxChMutex());
+        //getLogger()->verbose("Exiting writechannel!");
     }
 
     
@@ -441,10 +556,8 @@ namespace AS7
         _droneCommandQueue.pop();
 
         // Log information on dequeued command
-        _logger->fatal("I am a test command!");
         _logger->inform("Dequeueing drone command: " + cmd.desc);
         _logger->verbose("Command <" + cmd.desc + "> - Type " + std::to_string(cmd.type));
-
         
         xSemaphoreGive(_semCommandQueueMutex);
         return cmd;
@@ -463,67 +576,68 @@ namespace AS7
         xSemaphoreGive(_semCommandQueueMutex);
     }
 
+    // Absolute Channels are (0, 1) whereas normal channels are (-1, 1)
     void Drone::generateAbsChannels() {
-        _sbusAbsChannels[0]  = true;    // Throttle
+        _sbusAbsChannels[0]  = false;
         _sbusAbsChannels[1]  = false;
-        _sbusAbsChannels[2]  = false;
+        _sbusAbsChannels[2]  = true;    // Ch3 Throttle
         _sbusAbsChannels[3]  = false;
-        _sbusAbsChannels[4]  = false;
+        _sbusAbsChannels[4]  = true;    // Ch5 Left Switch
         _sbusAbsChannels[5]  = false;
-        _sbusAbsChannels[6]  = false;
-        _sbusAbsChannels[7]  = true;
-        _sbusAbsChannels[8]  = true;
-        _sbusAbsChannels[9]  = true;
-        _sbusAbsChannels[10] = true;
-        _sbusAbsChannels[11] = true;
-        _sbusAbsChannels[12] = true;
-        _sbusAbsChannels[13] = true;
-        _sbusAbsChannels[14] = true;
-        _sbusAbsChannels[15] = true;
+        _sbusAbsChannels[6]  = false;   // Ch7 Button
+        _sbusAbsChannels[7]  = true;    // Ch6 Right Switch
+        _sbusAbsChannels[8]  = false;
+        _sbusAbsChannels[9]  = false;
+        _sbusAbsChannels[10] = false;
+        _sbusAbsChannels[11] = false;
+        _sbusAbsChannels[12] = false;
+        _sbusAbsChannels[13] = false;
+        _sbusAbsChannels[14] = false;
+        _sbusAbsChannels[15] = false;
     }
 
     void Drone::generateEStopTx() {
-        _sbusEStopTx[0]  = 0;
+        _sbusEStopTx[0]  = convRxChannel_i(0.5f, 0);
         _sbusEStopTx[1]  = convRxChannel_i(0.5f, 1);
-        _sbusEStopTx[2]  = convRxChannel_i(0.5f, 2);
+        _sbusEStopTx[2]  = 0;
         _sbusEStopTx[3]  = convRxChannel_i(0.5f, 3);
         _sbusEStopTx[4]  = convRxChannel_i(0.5f, 4);
         _sbusEStopTx[5]  = convRxChannel_i(0.5f, 5);
-        _sbusEStopTx[6]  = 0;
-        _sbusEStopTx[7]  = 0;
-        _sbusEStopTx[8]  = 0;
-        _sbusEStopTx[9]  = 0;
-        _sbusEStopTx[10] = 0;
-        _sbusEStopTx[11] = 0;
-        _sbusEStopTx[12] = 0;
-        _sbusEStopTx[13] = 0;
-        _sbusEStopTx[14] = 0;
-        _sbusEStopTx[15] = 0;
+        _sbusEStopTx[6]  = convRxChannel_i(0.5f, 6);
+        _sbusEStopTx[7]  = convRxChannel_i(0.5f, 7);
+        _sbusEStopTx[8]  = convRxChannel_i(0.5f, 8);
+        _sbusEStopTx[9]  = convRxChannel_i(0.5f, 9);
+        _sbusEStopTx[10] = convRxChannel_i(0.5f, 10);
+        _sbusEStopTx[11] = convRxChannel_i(0.5f, 11);
+        _sbusEStopTx[12] = convRxChannel_i(0.5f, 12);
+        _sbusEStopTx[13] = convRxChannel_i(0.5f, 13);
+        _sbusEStopTx[14] = convRxChannel_i(0.5f, 14);
+        _sbusEStopTx[15] = convRxChannel_i(0.5f, 15);
 
         _logger->inform("Generating E-Stop Tx Package");
         _logger->verbose("E-Stop Tx: " + formatSbusArray(_sbusEStopTx));
     }
 
     std::array<int16_t, NUM_CH> Drone::getEStopTx() {
-        _logger->verbose("Returning E-Stop TX");
+        //_logger->verbose("Returning E-Stop TX");
         return _sbusEStopTx;
     }
 
     void Drone::enableOperatorControl() {
-        _logger->warn("Operator override enabled");
+        if (!_enableOperatorControl) _logger->warn("Operator override enabled");
         _enableOperatorControl = true;
     }
     void Drone::disableOperatorControl() {
-        _logger->warn("Operator override reset");
+        if (_enableOperatorControl) _logger->warn("Operator override reset");
         _enableOperatorControl = false;
     }
     
     void Drone::emergencyStop() {
-        _logger->fatal("Emergency stop enabled");
+        if (!_enableEmergencyStop) _logger->fatal("Emergency stop enabled");
         _enableEmergencyStop = true;
     }
     void Drone::resetEmergencyStop() {
-        _logger->warn("Emergency stop reset");
+        if (_enableEmergencyStop) _logger->warn("Emergency stop reset");
         _enableEmergencyStop = false;
     }
 

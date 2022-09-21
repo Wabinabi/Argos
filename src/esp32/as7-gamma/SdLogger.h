@@ -14,17 +14,19 @@
 #include <SPI.h>
 #include <SD.h>
 
+#include <map>
+
 // Defines the maximum level of messages sent through the serial port
 // e.g. a level of WARNING (3) will only allow warnings, errors, and fatal issues to be sent to the serial port.
-#define LOG_LEVEL_SILENT  0
-#define LOG_LEVEL_FATAL   1
-#define LOG_LEVEL_ERROR   2
-#define LOG_LEVEL_WARNING 3
+#define LOG_LEVEL_SILENT    0
+#define LOG_LEVEL_FATAL     1
+#define LOG_LEVEL_ERROR     2
+#define LOG_LEVEL_WARNING   3
 #define LOG_LEVEL_INFORM    4
-#define LOG_LEVEL_VERBOSE 5
+#define LOG_LEVEL_VERBOSE   5
 #define CS_PIN 5
 
-#define LOGGER_FREQ 50       // Update rate in Hertz
+#define LOGGER_FREQ 100      // Update rate in Hertz
 
 #define PLOTTER_ENABLE false // only prints plots, for testing.
 #define SD_DISABLED false
@@ -45,13 +47,35 @@ namespace AS7
         SemaphoreHandle_t _sem_logQueueMutex;
         SemaphoreHandle_t _sem_msgQueueMutex;
 
+        SemaphoreHandle_t _sem_dataMutex;
+        SemaphoreHandle_t _sem_dataEnqMutex;
+
         // Sem for Enabling/Disabling Task
         SemaphoreHandle_t _sem_enableMutex;
         bool _running = false; // tracks if the thread is running or stopped
         bool _sdEnabled = false;
         bool _sdDetected = false;
 
-        
+        std::map<std::string, float> _activeData;     // Data that is actively written to
+        std::map<std::string, float> _enqueuedData;   // Used as a buffer before being written
+        bool _hasEnqueuedData = false;
+
+        File _logFile;
+        File _dataFile;
+        File _configFile;
+
+        File getLogFile();
+        File getDataFile();
+        File getConfigFile();
+
+        void openLogFile();     // Opens Log file on SD in Append
+        void openDataFile();    // Opens Data file on SD in Append
+        void closeLogFile();    // Closes Log File
+        void closeDataFile();   // Closes Data File
+
+        const std::string _logFileLocation = "/as7.log"; // Location of the logging file, includes extension. Use .c_str() to for SD library
+        const std::string _dataFileLocation = "/data.csv"; // Location of the data file, includes extension. Use .c_str() to for SD library
+
         Print* _printer;
 
         Print* getPrinter();
@@ -65,6 +89,9 @@ namespace AS7
         SemaphoreHandle_t getSemMsg();
         SemaphoreHandle_t getSemLogQueueMutex();
         SemaphoreHandle_t getSemMsgQueueMutex();
+
+        inline SemaphoreHandle_t getSemDataMutex() {return _sem_dataMutex; }
+        inline SemaphoreHandle_t getSemDataEnqMutex() {return _sem_dataEnqMutex; }
 
         SemaphoreHandle_t getSemEnableMutex();
 
@@ -100,6 +127,8 @@ namespace AS7
 
         void setVerbosity(int verbosity);
 
+        void recordData(std::string key, float value);
+        void pushData();
 
         // The main logging tasks 
         void inform(std::string message);
@@ -108,7 +137,6 @@ namespace AS7
         void fatal(std::string message);
         void verbose(std::string message);
 
-        void record(int x, int y, int z);
         void plot(std::string message);
 
         void disableSDLogging();        // Disables SD Logging, even if SD Card is attached.
