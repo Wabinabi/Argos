@@ -1,0 +1,3247 @@
+AS7 Log file - (C) Ecobat Project 2022
+[ 80 ms Inform] SD card detected. SD Logging enabled.
+[ 80 ms Inform] (C) 2022 Ecobat Project
+[ 153 ms Verbose] Setting all channel lower bounds to 0
+[ 153 ms Verbose] Setting all channel upper bounds to 2056
+[ 153 ms Inform] Generating E-Stop Tx Package
+[ 154 ms Verbose] E-Stop Tx: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542
+[ 154 ms Inform] Drone Class Initialised.
+[ 176 ms Fatal] Compass was unable to start, could the module be loose?
+[ 209 ms Verbose] Navigation task thread reporting running status
+[ 210 ms Verbose] Ramping ch 8 -> in:-1.000000
+[ 210 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 210 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 210 ms Verbose] Ramping ch 9 -> in:-1.000000
+[ 210 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 210 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 211 ms Verbose] Ramping ch 10 -> in:-1.000000
+[ 211 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 211 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 211 ms Verbose] Ramping ch 11 -> in:-1.000000
+[ 211 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 211 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 211 ms Verbose] Ramping ch 12 -> in:-1.000000
+[ 211 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 212 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 212 ms Verbose] Ramping ch 13 -> in:-1.000000
+[ 212 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 212 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 212 ms Verbose] Ramping ch 14 -> in:-1.000000
+[ 212 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 212 ms Inform] Recording data from US 0->611
+[ 212 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 212 ms Verbose] Ramping ch 15 -> in:-1.000000
+[ 212 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 213 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 213 ms Verbose] Navigator thread successfully started
+[ 213 ms Verbose] Controller task thread reporting running status
+[ 213 ms Verbose] Controller thread successfully started
+[ 213 ms Inform] Enqueing drone command: Arming Drone
+[ 213 ms Verbose] Command <Arming Drone> - Type 3
+[ 213 ms Inform] Enqueing drone command: Flying up a little bit - 10% initial thrust
+[ 213 ms Verbose] Command <Flying up a little bit - 10% initial thrust> - Type 0
+[ 214 ms Inform] Enqueing drone command: Flying forward at 5%
+[ 214 ms Verbose] Command <Flying forward at 5%> - Type 0
+[ 214 ms Inform] Enqueing drone command: Stopping Drone
+[ 214 ms Verbose] Command <Stopping Drone> - Type 0
+[ 214 ms Inform] Initialise: Logger is reporting healthy.
+[ 214 ms Inform] AS7 moving to state: Ready
+[ 292 ms Inform] Recording data from US 1->2
+[ 462 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 527 ms Inform] Recording data from US 2->184
+[ 613 ms Inform] Recording data from US 3->98
+[ 708 ms Inform] Recording data from US 4->257
+[ 713 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 807 ms Inform] Recording data from US 5->246
+[ 914 ms Inform] Recording data from US 0->453
+[ 978 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1002 ms Inform] Recording data from US 1->2
+[ 1093 ms Inform] Recording data from US 2->185
+[ 1179 ms Inform] Recording data from US 3->98
+[ 1228 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1268 ms Inform] Recording data from US 4->149
+[ 1359 ms Inform] Recording data from US 5->174
+[ 1474 ms Inform] Recording data from US 0->607
+[ 1478 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1559 ms Inform] Recording data from US 1->2
+[ 1650 ms Inform] Recording data from US 2->184
+[ 1728 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1978 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2228 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2478 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2728 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2731 ms Inform] Recording data from US 3->0
+[ 2828 ms Inform] Recording data from US 4->258
+[ 2919 ms Inform] Recording data from US 5->174
+[ 2978 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1089	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 3047 ms Inform] Recording data from US 0->530
+[ 3127 ms Inform] Recording data from US 1->2
+[ 3218 ms Inform] Recording data from US 2->137
+[ 3228 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 3302 ms Inform] Recording data from US 3->64
+[ 3399 ms Inform] Recording data from US 4->258
+[ 3487 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 3489 ms Inform] Recording data from US 5->173
+[ 3607 ms Inform] Recording data from US 0->548
+[ 3687 ms Inform] Recording data from US 1->2
+[ 3737 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 3782 ms Inform] Recording data from US 2->235
+[ 3871 ms Inform] Recording data from US 3->149
+[ 3966 ms Inform] Recording data from US 4->257
+[ 3987 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 4065 ms Inform] Recording data from US 5->246
+[ 4178 ms Inform] Recording data from US 0->551
+[ 4241 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1086	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 4258 ms Inform] Recording data from US 1->2
+[ 4376 ms Inform] Recording data from US 2->166
+[ 4460 ms Inform] Recording data from US 3->64
+[ 4493 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 4555 ms Inform] Recording data from US 4->257
+[ 4644 ms Inform] Recording data from US 5->149
+[ 4743 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1089	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 4844 ms Inform] Recording data from US 0->2033
+[ 4929 ms Inform] Recording data from US 1->2
+[ 4994 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1097	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 5031 ms Inform] Recording data from US 2->370
+[ 5118 ms Inform] Recording data from US 3->116
+[ 5213 ms Inform] Recording data from US 4->258
+[ 5244 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1096	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 5306 ms Inform] Recording data from US 5->217
+[ 5421 ms Inform] Recording data from US 0->580
+[ 5495 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 5503 ms Inform] Recording data from US 1->2
+[ 5619 ms Inform] Recording data from US 2->184
+[ 5708 ms Inform] Recording data from US 3->64
+[ 5745 ms Inform] DATA: 1 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1099	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 5803 ms Inform] Recording data from US 4->257
+[ 5893 ms Inform] Recording data from US 5->173
+[ 5995 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 6008 ms Inform] Recording data from US 0->581
+[ 6113 ms Inform] Recording data from US 1->2
+[ 6210 ms Inform] Recording data from US 2->246
+[ 6245 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1089	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 6299 ms Inform] Recording data from US 3->64
+[ 6400 ms Inform] Recording data from US 4->257
+[ 6490 ms Inform] Recording data from US 5->168
+[ 6496 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1089	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 6608 ms Inform] Recording data from US 0->581
+[ 6688 ms Inform] Recording data from US 1->2
+[ 6746 ms Inform] DATA: 1 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1085	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 6795 ms Inform] Recording data from US 2->237
+[ 6884 ms Inform] Recording data from US 3->149
+[ 6979 ms Inform] Recording data from US 4->257
+[ 6996 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1088	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 7069 ms Inform] Recording data from US 5->174
+[ 7248 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1089	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 7269 ms Inform] Recording data from US 0->2032
+[ 7371 ms Inform] Recording data from US 1->2
+[ 7462 ms Inform] Recording data from US 2->143
+[ 7498 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 7551 ms Inform] Recording data from US 3->149
+[ 7646 ms Inform] Recording data from US 4->258
+[ 7746 ms Inform] Recording data from US 5->246
+[ 7748 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1088	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 7866 ms Inform] Recording data from US 0->581
+[ 7951 ms Inform] Recording data from US 1->2
+[ 7998 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 8050 ms Inform] Recording data from US 2->234
+[ 8139 ms Inform] Recording data from US 3->149
+[ 8234 ms Inform] Recording data from US 4->258
+[ 8248 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1086	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 8326 ms Inform] Recording data from US 5->200
+[ 8439 ms Inform] Recording data from US 0->549
+[ 8505 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 8519 ms Inform] Recording data from US 1->2
+[ 8681 ms Inform] Recording data from US 2->149
+[ 8755 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 8767 ms Inform] Recording data from US 3->103
+[ 8889 ms Inform] Recording data from US 4->258
+[ 8987 ms Inform] Recording data from US 5->246
+[ 9006 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1096	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 9090 ms Inform] Recording data from US 0->386
+[ 9170 ms Inform] Recording data from US 1->2
+[ 9260 ms Inform] Recording data from US 2->145
+[ 9265 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1081	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 9347 ms Inform] Recording data from US 3->115
+[ 9442 ms Inform] Recording data from US 4->257
+[ 9527 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 9538 ms Inform] Recording data from US 5->202
+[ 9678 ms Inform] Recording data from US 0->550
+[ 9760 ms Inform] Recording data from US 1->2
+[ 9777 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 9859 ms Inform] Recording data from US 2->246
+[ 9948 ms Inform] Recording data from US 3->150
+[ 10037 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1089	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 10043 ms Inform] Recording data from US 4->258
+[ 10128 ms Inform] Recording data from US 5->82
+[ 10247 ms Inform] Recording data from US 0->579
+[ 10287 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1088	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 10331 ms Inform] Recording data from US 1->2
+[ 10420 ms Inform] Recording data from US 2->145
+[ 10508 ms Inform] Recording data from US 3->132
+[ 10538 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 10606 ms Inform] Recording data from US 4->258
+[ 10696 ms Inform] Recording data from US 5->173
+[ 10788 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 10811 ms Inform] Recording data from US 0->582
+[ 10964 ms Inform] Recording data from US 1->2
+[ 11039 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1088	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 11054 ms Inform] Recording data from US 2->157
+[ 11160 ms Inform] Recording data from US 3->149
+[ 11255 ms Inform] Recording data from US 4->258
+[ 11289 ms Inform] DATA: 1 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 11349 ms Inform] Recording data from US 5->234
+[ 11464 ms Inform] Recording data from US 0->581
+[ 11539 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 11544 ms Inform] Recording data from US 1->2
+[ 11661 ms Inform] Recording data from US 2->156
+[ 11750 ms Inform] Recording data from US 3->149
+[ 11789 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 11849 ms Inform] Recording data from US 4->257
+[ 11939 ms Inform] Recording data from US 5->173
+[ 12042 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 12087 ms Inform] Recording data from US 0->1143
+[ 12167 ms Inform] Recording data from US 1->2
+[ 12262 ms Inform] Recording data from US 2->250
+[ 12292 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 12349 ms Inform] Recording data from US 3->64
+[ 12450 ms Inform] Recording data from US 4->258
+[ 12540 ms Inform] Recording data from US 5->173
+[ 12542 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1096	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 12658 ms Inform] Recording data from US 0->579
+[ 12741 ms Inform] Recording data from US 1->2
+[ 12792 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1097	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 12842 ms Inform] Recording data from US 2->143
+[ 12931 ms Inform] Recording data from US 3->64
+[ 13031 ms Inform] Recording data from US 4->257
+[ 13043 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 13128 ms Inform] Recording data from US 5->246
+[ 13278 ms Inform] Recording data from US 0->1180
+[ 13307 ms Inform] DATA: 1 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1096	240	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 13358 ms Inform] Recording data from US 1->2
+[ 13384 ms Inform] AS7 moving to state: Armed
+[ 13385 ms Inform] Dequeueing drone command: Arming Drone
+[ 13385 ms Verbose] Command <Arming Drone> - Type 3
+[ 13385 ms Inform] Starting new command: Arming Drone for 8000ms
+[ 13385 ms Verbose] Command to finish at 21385ms
+[ 13389 ms Verbose] Ramping ch 1 -> in:-1.000000
+[ 13419 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13419 ms Verbose] -1.000000/0.900000/0.050000/1
+[ 13419 ms Verbose] Ramping ch 0 -> in:-1.000000
+[ 13419 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13419 ms Verbose] -1.000000/-0.900000/0.050000/1
+[ 13419 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 13420 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13420 ms Verbose] 0.000000/0.100000/0.050000/1
+[ 13420 ms Verbose] Ramping ch 3 -> in:-1.000000
+[ 13420 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13420 ms Verbose] -1.000000/0.900000/0.050000/1
+[ 13420 ms Verbose] Ramping ch 4 -> in:0.000000
+[ 13420 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13421 ms Verbose] 0.000000/0.900000/0.150000/0
+[ 13421 ms Verbose] Ramping ch 5 -> in:-1.000000
+[ 13421 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13421 ms Verbose] -1.000000/-0.800000/0.150000/0
+[ 13421 ms Verbose] Ramping ch 6 -> in:-1.000000
+[ 13421 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13422 ms Verbose] -1.000000/-0.900000/0.150000/0
+[ 13422 ms Verbose] Ramping ch 7 -> in:0.000000
+[ 13422 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13423 ms Verbose] 0.000000/0.100000/0.150000/0
+[ 13427 ms Verbose] Ramping ch 1 -> in:-0.950389
+[ 13427 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13427 ms Verbose] -0.950389/0.900000/0.050000/1
+[ 13427 ms Verbose] Ramping ch 0 -> in:-0.950389
+[ 13427 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13428 ms Verbose] -0.950389/-0.900000/0.050000/1
+[ 13428 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 13428 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13428 ms Verbose] 0.049611/0.100000/0.050000/1
+[ 13428 ms Verbose] Ramping ch 3 -> in:-0.950389
+[ 13428 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13429 ms Verbose] -0.950389/0.900000/0.050000/1
+[ 13429 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 13429 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13429 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 13429 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 13429 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13430 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 13430 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 13431 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13431 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 13662 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 13662 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13662 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 13564 ms Inform] DATA: 0 TX: 	102	102	204	102	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 13448 ms Inform] Recording data from US 2->151
+[ 13666 ms Verbose] Ramping ch 1 -> in:-0.900778
+[ 13666 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13666 ms Verbose] -0.900778/0.900000/0.050000/1
+[ 13666 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 13666 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13667 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 13667 ms Verbose] Ramping ch 2 -> in:0.099222
+[ 13667 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13668 ms Verbose] 0.099222/0.100000/0.050000/1
+[ 13668 ms Verbose] Ramping ch 3 -> in:-0.900778
+[ 13668 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13668 ms Verbose] -0.900778/0.900000/0.050000/1
+[ 13669 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 13669 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13670 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 13670 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 13670 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13670 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 13670 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 13671 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13671 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 13672 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 13672 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13672 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 13676 ms Verbose] Ramping ch 1 -> in:-0.851167
+[ 13849 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13849 ms Verbose] -0.851167/0.900000/0.050000/1
+[ 13849 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 13849 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13849 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 13850 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 13850 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13850 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 13850 ms Verbose] Ramping ch 3 -> in:-0.851167
+[ 13850 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13850 ms Verbose] -0.851167/0.900000/0.050000/1
+[ 13850 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 13851 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13851 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 13851 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 13851 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13851 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 13749 ms Inform] Recording data from US 3->64
+[ 13851 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 13851 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13852 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 13852 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 13852 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13852 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 13856 ms Verbose] Ramping ch 1 -> in:-0.801556
+[ 13856 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13856 ms Verbose] -0.801556/0.900000/0.050000/1
+[ 13856 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 13856 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13857 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 13857 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 13857 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13857 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 13857 ms Verbose] Ramping ch 3 -> in:-0.801556
+[ 13857 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13858 ms Verbose] -0.801556/0.900000/0.050000/1
+[ 13858 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 13858 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13858 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 13858 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 13858 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13858 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 13859 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 13859 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13859 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 13859 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 13859 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13859 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 13863 ms Verbose] Ramping ch 1 -> in:-0.751945
+[ 14115 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14115 ms Verbose] -0.751945/0.900000/0.050000/1
+[ 14115 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 14115 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14115 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 14115 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 14115 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14116 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 13932 ms Inform] DATA: 0 TX: 	102	255	205	255	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 14116 ms Verbose] Ramping ch 3 -> in:-0.751945
+[ 14116 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14116 ms Verbose] -0.751945/0.900000/0.050000/1
+[ 14116 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 14116 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14117 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 14117 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 14117 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 13946 ms Inform] Recording data from US 4->258
+[ 14117 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 14117 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 14117 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14118 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 14118 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 14118 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14119 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 14124 ms Verbose] Ramping ch 1 -> in:-0.702335
+[ 14124 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14124 ms Verbose] -0.702335/0.900000/0.050000/1
+[ 14124 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 14124 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14125 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 14126 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 14126 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14126 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 14126 ms Verbose] Ramping ch 3 -> in:-0.702335
+[ 14126 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14127 ms Verbose] -0.702335/0.900000/0.050000/1
+[ 14127 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 14337 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14337 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 14338 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 14338 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14338 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 14338 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 14338 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14338 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 14338 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 14339 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14339 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 14207 ms Inform] Recording data from US 5->173
+[ 14343 ms Verbose] Ramping ch 1 -> in:-0.652724
+[ 14343 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14343 ms Verbose] -0.652724/0.900000/0.050000/1
+[ 14343 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 14343 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14344 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 14344 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 14344 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14344 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 14344 ms Verbose] Ramping ch 3 -> in:-0.652724
+[ 14344 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14345 ms Verbose] -0.652724/0.900000/0.050000/1
+[ 14345 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 14345 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14345 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 14345 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 14345 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14345 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 14346 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 14346 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14347 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 14347 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 14347 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14347 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 14351 ms Verbose] Ramping ch 1 -> in:-0.603113
+[ 14547 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14384 ms Inform] DATA: 0 TX: 	102	408	205	408	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1088	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 14548 ms Verbose] -0.603113/0.900000/0.050000/1
+[ 14548 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 14548 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14548 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 14548 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 14549 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14549 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 14550 ms Verbose] Ramping ch 3 -> in:-0.603113
+[ 14550 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14550 ms Verbose] -0.603113/0.900000/0.050000/1
+[ 14550 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 14550 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14551 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 14552 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 14552 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14552 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 14552 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 14552 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14553 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 14554 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 14554 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14554 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 14559 ms Verbose] Ramping ch 1 -> in:-0.553502
+[ 14559 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14559 ms Verbose] -0.553502/0.900000/0.050000/1
+[ 14559 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 14559 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14560 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 14560 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 14560 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14560 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 14560 ms Verbose] Ramping ch 3 -> in:-0.553502
+[ 14560 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14561 ms Verbose] -0.553502/0.900000/0.050000/1
+[ 14561 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 14561 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14562 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 14562 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 14562 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14562 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 14562 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 14563 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14563 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 14563 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 14563 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14563 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 14567 ms Verbose] Ramping ch 1 -> in:-0.503891
+[ 14567 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14567 ms Verbose] -0.503891/0.900000/0.050000/1
+[ 14567 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 14567 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14455 ms Inform] Recording data from US 0->580
+[ 14568 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 14568 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 14568 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14568 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 14568 ms Verbose] Ramping ch 3 -> in:-0.503891
+[ 14569 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14569 ms Verbose] -0.503891/0.900000/0.050000/1
+[ 14569 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 14569 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14569 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 14569 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 14569 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14570 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 14570 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 14571 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14571 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 14571 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 14571 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14571 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 14575 ms Verbose] Ramping ch 1 -> in:-0.454280
+[ 14575 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14575 ms Verbose] -0.454280/0.900000/0.050000/1
+[ 14575 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 14575 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14576 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 14577 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 14577 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15022 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 15022 ms Verbose] Ramping ch 3 -> in:-0.454280
+[ 15022 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15023 ms Verbose] -0.454280/0.900000/0.050000/1
+[ 15023 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 15023 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 14821 ms Inform] DATA: 0 TX: 	102	612	205	561	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 15024 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 15024 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 15024 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15024 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 15025 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 15025 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15026 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 14649 ms Inform] Recording data from US 1->2
+[ 15026 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 15026 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15026 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 15031 ms Verbose] Ramping ch 1 -> in:-0.404669
+[ 15031 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15031 ms Verbose] -0.404669/0.900000/0.050000/1
+[ 15031 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 15031 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15032 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 15033 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 15033 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15033 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 15033 ms Verbose] Ramping ch 3 -> in:-0.404669
+[ 15033 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15034 ms Verbose] -0.404669/0.900000/0.050000/1
+[ 15034 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 15034 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15035 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 15035 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 15035 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15035 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 15036 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 15036 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15036 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 15261 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 15261 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15262 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 15117 ms Inform] Recording data from US 2->184
+[ 15265 ms Verbose] Ramping ch 1 -> in:-0.355058
+[ 15265 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15265 ms Verbose] -0.355058/0.900000/0.050000/1
+[ 15265 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 15265 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15266 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 15266 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 15266 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15266 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 15266 ms Verbose] Ramping ch 3 -> in:-0.355058
+[ 15266 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15266 ms Verbose] -0.355058/0.900000/0.050000/1
+[ 15267 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 15267 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15267 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 15267 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 15267 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15267 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 15268 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 15268 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15268 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 15268 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 15268 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15268 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 15272 ms Verbose] Ramping ch 1 -> in:-0.305447
+[ 15272 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15272 ms Verbose] -0.305447/0.900000/0.050000/1
+[ 15272 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 15272 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15273 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 15273 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 15273 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15273 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 15273 ms Verbose] Ramping ch 3 -> in:-0.305447
+[ 15273 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15274 ms Verbose] -0.305447/0.900000/0.050000/1
+[ 15274 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 15494 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15494 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 15495 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 15495 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15289 ms Inform] DATA: 0 TX: 	102	765	205	765	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 15496 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 15496 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 15496 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15496 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 15497 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 15497 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15349 ms Inform] Recording data from US 3->56
+[ 15498 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 15503 ms Verbose] Ramping ch 1 -> in:-0.255837
+[ 15503 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15503 ms Verbose] -0.255837/0.900000/0.050000/1
+[ 15503 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 15503 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15504 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 15504 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 15505 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15505 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 15505 ms Verbose] Ramping ch 3 -> in:-0.255837
+[ 15505 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15506 ms Verbose] -0.255837/0.900000/0.050000/1
+[ 15506 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 15506 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15506 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 15507 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 15507 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15689 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 15689 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 15689 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15689 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 15689 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 15689 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15690 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 15593 ms Inform] Recording data from US 4->249
+[ 15693 ms Verbose] Ramping ch 1 -> in:-0.206226
+[ 15693 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15693 ms Verbose] -0.206226/0.900000/0.050000/1
+[ 15693 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 15693 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15694 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 15694 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 15695 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15695 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 15695 ms Verbose] Ramping ch 3 -> in:-0.206226
+[ 15695 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15695 ms Verbose] -0.206226/0.900000/0.050000/1
+[ 15695 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 15695 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15696 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 15696 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 15696 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15696 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 15696 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 15696 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15697 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 15697 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 15697 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15697 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 15701 ms Verbose] Ramping ch 1 -> in:-0.156615
+[ 15884 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15885 ms Verbose] -0.156615/0.900000/0.050000/1
+[ 15885 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 15759 ms Inform] DATA: 0 TX: 	102	867	205	867	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 15885 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15886 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 15886 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 15886 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15886 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 15887 ms Verbose] Ramping ch 3 -> in:-0.156615
+[ 15887 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15781 ms Inform] Recording data from US 5->173
+[ 15888 ms Verbose] -0.156615/0.900000/0.050000/1
+[ 15888 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 15888 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15888 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 15888 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 15889 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15889 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 15890 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 15890 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15890 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 15890 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 15890 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15891 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 15896 ms Verbose] Ramping ch 1 -> in:-0.107004
+[ 15896 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15896 ms Verbose] -0.107004/0.900000/0.050000/1
+[ 15896 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 15896 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 15897 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 16079 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 16079 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16079 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 16079 ms Verbose] Ramping ch 3 -> in:-0.107004
+[ 16079 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16079 ms Verbose] -0.107004/0.900000/0.050000/1
+[ 16080 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 16080 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16080 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 16080 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 16080 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16080 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 16080 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 16081 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16081 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 16081 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 16081 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16081 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 16085 ms Verbose] Ramping ch 1 -> in:-0.057393
+[ 16085 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16085 ms Verbose] -0.057393/0.900000/0.050000/1
+[ 16085 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 16086 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16086 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 16086 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 16086 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16086 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 16086 ms Verbose] Ramping ch 3 -> in:-0.057393
+[ 16086 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16087 ms Verbose] -0.057393/0.900000/0.050000/1
+[ 16087 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 16087 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16087 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 16087 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 16087 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16088 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 16088 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 16089 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16089 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 16089 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 16089 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16089 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 16093 ms Verbose] Ramping ch 1 -> in:-0.007782
+[ 16093 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16093 ms Verbose] -0.007782/0.900000/0.050000/1
+[ 16093 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 16094 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16094 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 16095 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 16095 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16095 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 16095 ms Verbose] Ramping ch 3 -> in:-0.007782
+[ 16095 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16095 ms Verbose] -0.007782/0.900000/0.050000/1
+[ 16096 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 16096 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16096 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 16096 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 16096 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16096 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 16097 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 16097 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16097 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 16097 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 16097 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16097 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 16101 ms Verbose] Ramping ch 1 -> in:0.041829
+[ 16101 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16101 ms Verbose] 0.041829/0.900000/0.050000/1
+[ 16101 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 16102 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16102 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 16103 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 16103 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16103 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 16103 ms Verbose] Ramping ch 3 -> in:0.041829
+[ 16103 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16103 ms Verbose] 0.041829/0.900000/0.050000/1
+[ 16104 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 16104 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16104 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 16104 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 16104 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16104 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 16105 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 16105 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16105 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 16105 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 16105 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16105 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 16109 ms Verbose] Ramping ch 1 -> in:0.091440
+[ 16109 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16109 ms Verbose] 0.091440/0.900000/0.050000/1
+[ 16109 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 16110 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16110 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 16110 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 16110 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16110 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 16110 ms Verbose] Ramping ch 3 -> in:0.091440
+[ 16111 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16111 ms Verbose] 0.091440/0.900000/0.050000/1
+[ 16111 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 16111 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16111 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 16111 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 16111 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16112 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 16113 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 16113 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16113 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 16113 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 16113 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16113 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 16117 ms Verbose] Ramping ch 1 -> in:0.141051
+[ 16117 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16117 ms Verbose] 0.141051/0.900000/0.050000/1
+[ 16117 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 16118 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16118 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 16118 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 16118 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16118 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 16118 ms Verbose] Ramping ch 3 -> in:0.141051
+[ 16119 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16119 ms Verbose] 0.141051/0.900000/0.050000/1
+[ 16119 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 16119 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16119 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 16119 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 16119 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16120 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 16120 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 16120 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16120 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 16120 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 16120 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16121 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 16125 ms Verbose] Ramping ch 1 -> in:0.190661
+[ 16125 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16125 ms Verbose] 0.190661/0.900000/0.050000/1
+[ 16125 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 16126 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16126 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 16126 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 16126 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16126 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 16126 ms Verbose] Ramping ch 3 -> in:0.190661
+[ 16126 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16127 ms Verbose] 0.190661/0.900000/0.050000/1
+[ 16127 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 16127 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16127 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 16127 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 16127 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16128 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 16128 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 16128 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16128 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 16128 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 16128 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16129 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 16133 ms Verbose] Ramping ch 1 -> in:0.240272
+[ 16133 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16133 ms Verbose] 0.240272/0.900000/0.050000/1
+[ 16133 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 16134 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16134 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 16134 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 16134 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16134 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 16134 ms Verbose] Ramping ch 3 -> in:0.240272
+[ 16135 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16135 ms Verbose] 0.240272/0.900000/0.050000/1
+[ 16135 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 16135 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16135 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 16135 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 16135 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16136 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 16136 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 16136 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16136 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 16136 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 16136 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16137 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 16002 ms Inform] Recording data from US 0->581
+[ 16141 ms Verbose] Ramping ch 1 -> in:0.289883
+[ 16141 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16141 ms Verbose] 0.289883/0.900000/0.050000/1
+[ 16141 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 16141 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16142 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 16142 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 16142 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16142 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 16142 ms Verbose] Ramping ch 3 -> in:0.289883
+[ 16142 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16143 ms Verbose] 0.289883/0.900000/0.050000/1
+[ 16143 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 16143 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16143 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 16143 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 16143 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16143 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 16144 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 16144 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16144 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 16144 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 16144 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16144 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 16148 ms Verbose] Ramping ch 1 -> in:0.339494
+[ 16148 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16148 ms Verbose] 0.339494/0.900000/0.050000/1
+[ 16148 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 16149 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16149 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 17348 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 17348 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17348 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 17349 ms Verbose] Ramping ch 3 -> in:0.339494
+[ 17349 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16169 ms Inform] DATA: 0 TX: 	102	1428	205	1377	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 17349 ms Verbose] 0.339494/0.900000/0.050000/1
+[ 17350 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 17350 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17350 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 17350 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 17350 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17350 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 17350 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 17350 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 16229 ms Inform] Recording data from US 1->109
+[ 17351 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 17352 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 17352 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17352 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 17357 ms Verbose] Ramping ch 1 -> in:0.389105
+[ 17357 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17357 ms Verbose] 0.389105/0.900000/0.050000/1
+[ 17357 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 17357 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17358 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 17358 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 17359 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17359 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 17359 ms Verbose] Ramping ch 3 -> in:0.389105
+[ 17359 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17360 ms Verbose] 0.389105/0.900000/0.050000/1
+[ 17360 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 17360 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17557 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 17557 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 17557 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17557 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 17558 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 17558 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17558 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 17558 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 17558 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17558 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 17441 ms Inform] Recording data from US 2->167
+[ 17562 ms Verbose] Ramping ch 1 -> in:0.438716
+[ 17562 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17562 ms Verbose] 0.438716/0.900000/0.050000/1
+[ 17562 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 17562 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17563 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 17563 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 17563 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17563 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 17563 ms Verbose] Ramping ch 3 -> in:0.438716
+[ 17563 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17564 ms Verbose] 0.438716/0.900000/0.050000/1
+[ 17564 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 17564 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17564 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 17564 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 17564 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17564 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 17565 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 17565 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17566 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 17566 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 17566 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17566 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 17570 ms Verbose] Ramping ch 1 -> in:0.488327
+[ 17768 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17619 ms Inform] DATA: 1 TX: 	102	1530	205	1530	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 17768 ms Verbose] 0.488327/0.900000/0.050000/1
+[ 17768 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 17768 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17769 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 17769 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 17769 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17769 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 17769 ms Verbose] Ramping ch 3 -> in:0.488327
+[ 17769 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17769 ms Verbose] 0.488327/0.900000/0.050000/1
+[ 17770 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 17770 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17643 ms Inform] Recording data from US 3->64
+[ 17771 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 17771 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 17771 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17771 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 17771 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 17772 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17772 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 17773 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 17773 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17773 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 17778 ms Verbose] Ramping ch 1 -> in:0.537938
+[ 17778 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17778 ms Verbose] 0.537938/0.900000/0.050000/1
+[ 17778 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 17778 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17779 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 17779 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 17963 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17963 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 17963 ms Verbose] Ramping ch 3 -> in:0.537938
+[ 17963 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17964 ms Verbose] 0.537938/0.900000/0.050000/1
+[ 17965 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 17965 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17965 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 17965 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 17965 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17965 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 17866 ms Inform] Recording data from US 4->249
+[ 17966 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 17966 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17966 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 17966 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 17966 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17966 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 17970 ms Verbose] Ramping ch 1 -> in:0.587549
+[ 17970 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17970 ms Verbose] 0.587549/0.900000/0.050000/1
+[ 17970 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 17970 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17971 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 17971 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 17971 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17971 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 17971 ms Verbose] Ramping ch 3 -> in:0.587549
+[ 17971 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17972 ms Verbose] 0.587549/0.900000/0.050000/1
+[ 17972 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 17972 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17972 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 17972 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 17972 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17973 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 17973 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 17973 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17974 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 17974 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 17974 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 17974 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 17978 ms Verbose] Ramping ch 1 -> in:0.637160
+[ 18207 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18039 ms Inform] DATA: 0 TX: 	102	1683	205	1683	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 18208 ms Verbose] 0.637160/0.900000/0.050000/1
+[ 18208 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 18208 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18208 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 18209 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 18209 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18055 ms Inform] Recording data from US 5->173
+[ 18210 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 18210 ms Verbose] Ramping ch 3 -> in:0.637160
+[ 18210 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18210 ms Verbose] 0.637160/0.900000/0.050000/1
+[ 18210 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 18211 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18211 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 18212 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 18212 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18212 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 18212 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 18212 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18213 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 18213 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 18213 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18214 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 18219 ms Verbose] Ramping ch 1 -> in:0.686770
+[ 18370 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18371 ms Verbose] 0.686770/0.900000/0.050000/1
+[ 18371 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 18371 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18371 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 18371 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 18371 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18372 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 18372 ms Verbose] Ramping ch 3 -> in:0.686770
+[ 18372 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18373 ms Verbose] 0.686770/0.900000/0.050000/1
+[ 18373 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 18373 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18373 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 18373 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 18374 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18374 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 18374 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 18374 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18374 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 18375 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 18375 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18375 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 18379 ms Verbose] Ramping ch 1 -> in:0.736381
+[ 18379 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18379 ms Verbose] 0.736381/0.900000/0.050000/1
+[ 18379 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 18380 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18380 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 18381 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 18381 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18381 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 18381 ms Verbose] Ramping ch 3 -> in:0.736381
+[ 18381 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18381 ms Verbose] 0.736381/0.900000/0.050000/1
+[ 18382 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 18382 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18382 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 18382 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 18382 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18382 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 18383 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 18383 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18383 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 18383 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 18383 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18383 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 18387 ms Verbose] Ramping ch 1 -> in:0.785992
+[ 18387 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18387 ms Verbose] 0.785992/0.900000/0.050000/1
+[ 18387 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 18388 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18388 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 18389 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 18389 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18389 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 18389 ms Verbose] Ramping ch 3 -> in:0.785992
+[ 18389 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18390 ms Verbose] 0.785992/0.900000/0.050000/1
+[ 18390 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 18390 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18390 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 18390 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 18390 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18391 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 18391 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 18391 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18391 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 18391 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 18391 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18392 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 18324 ms Inform] Recording data from US 0->580
+[ 18395 ms Verbose] Ramping ch 1 -> in:0.835603
+[ 18395 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18395 ms Verbose] 0.835603/0.900000/0.050000/1
+[ 18395 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 18395 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18396 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 18396 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 18396 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18396 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 18396 ms Verbose] Ramping ch 3 -> in:0.835603
+[ 18396 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18397 ms Verbose] 0.835603/0.900000/0.050000/1
+[ 18397 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 18397 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18397 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 18397 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 18397 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18398 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 18398 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 18398 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18399 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 18399 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 18399 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18399 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 18403 ms Verbose] Ramping ch 1 -> in:0.885214
+[ 18901 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18901 ms Verbose] 0.885214/0.900000/0.050000/1
+[ 18901 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 18902 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18902 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 18480 ms Inform] DATA: 0 TX: 	102	1938	205	1938	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 18903 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 18903 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18903 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 18903 ms Verbose] Ramping ch 3 -> in:0.885214
+[ 18903 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18904 ms Verbose] 0.885214/0.900000/0.050000/1
+[ 18904 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 18905 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18472 ms Inform] Recording data from US 1->2
+[ 18905 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 18905 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 18905 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18906 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 18906 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 18906 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18907 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 18907 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 18907 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18907 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 18912 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 18912 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18912 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 18912 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 18912 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18913 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 18914 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 18914 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18914 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 18914 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 18914 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 18915 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 18915 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19129 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19129 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19129 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19129 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19130 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19130 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19130 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19130 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19130 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19130 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19130 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 18995 ms Inform] Recording data from US 2->168
+[ 19134 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 19134 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19134 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19134 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 19134 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19135 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 19135 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 19135 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19135 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 19135 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 19135 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19136 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19136 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19136 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19136 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19136 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19136 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19136 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19137 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19137 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19138 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19138 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19138 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19138 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 19142 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 19342 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19343 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19343 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 19343 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19171 ms Inform] DATA: 0 TX: 	102	1953	205	1953	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 19343 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 19343 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 19343 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19343 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 19344 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 19344 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19344 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19344 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19344 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19344 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19345 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19345 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19215 ms Inform] Recording data from US 3->64
+[ 19346 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19346 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19346 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19346 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19346 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19347 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19347 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 19353 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 19353 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19353 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19353 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 19353 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19354 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 19355 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 19540 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19541 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 19541 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 19541 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19541 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19541 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19541 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19542 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19542 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19542 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19542 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19542 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19542 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19543 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19543 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19543 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19543 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 19440 ms Inform] Recording data from US 4->257
+[ 19547 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 19547 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19547 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19547 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 19547 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19548 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 19548 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 19548 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19548 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 19548 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 19548 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19549 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19549 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19549 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19549 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19549 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19549 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19549 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19550 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19550 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19551 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19551 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19551 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19551 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 19555 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 19786 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19612 ms Inform] DATA: 0 TX: 	102	1953	205	1953	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 19787 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19787 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 19787 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19787 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 19787 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 19787 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19788 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 19634 ms Inform] Recording data from US 5->166
+[ 19789 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 19789 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19789 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19789 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19789 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19790 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19790 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19790 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19791 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19791 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19791 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19791 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19792 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19792 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19793 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 19798 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 19950 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19951 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19951 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 19951 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19951 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 19951 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 19951 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19951 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 19952 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 19952 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19953 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19953 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19953 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19953 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19953 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19953 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19954 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19954 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19954 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19954 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19954 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19954 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19955 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 19959 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 19959 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19959 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19959 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 19960 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19960 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 19960 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 19960 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19960 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 19960 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 19960 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19961 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19961 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19961 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19961 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19961 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19961 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19962 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19962 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19962 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19963 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19963 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19963 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19963 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 19967 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 19967 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19967 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19967 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 19967 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19968 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 19968 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 19968 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19968 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 19968 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 19968 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19969 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19969 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19969 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19969 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19969 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19969 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19970 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19970 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19970 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19903 ms Inform] Recording data from US 0->580
+[ 19970 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19970 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19970 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19971 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 19974 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 19974 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19974 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19974 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 19974 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19975 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 19976 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 19976 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19976 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 19976 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 19976 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19976 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 19977 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 19977 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19977 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 19977 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 19977 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19977 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 19977 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 19978 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19978 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 19978 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 19978 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 19978 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 19982 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 20477 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20477 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20477 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 20478 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20478 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 20478 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 20478 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20478 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 20478 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 20478 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20479 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20063 ms Inform] DATA: 0 TX: 	102	1953	205	1953	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 20479 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 20480 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20480 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 20480 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 20480 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20480 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 20481 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 20481 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20482 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 20482 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 20482 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20482 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 20487 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 20487 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20487 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20487 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 20487 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20488 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 20488 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 20489 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20489 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 20489 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 20489 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20490 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20490 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 20744 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20744 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 20745 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 20745 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20743 ms Inform] DATA: 0 TX: 	102	1953	205	1953	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1089	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 20746 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 20746 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 20746 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20746 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 20746 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 20746 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20747 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 20750 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 20750 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20750 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20750 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 20750 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20751 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 20751 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 20751 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20751 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 20751 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 20751 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20752 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20752 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 20752 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20752 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 20752 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 20752 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20752 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 20753 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 20753 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20754 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 20754 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 20754 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20754 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 20758 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 20969 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20969 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20969 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 20969 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20969 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 20970 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 20970 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20970 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 20970 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 20970 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20970 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20970 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 20970 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20971 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 20971 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 20971 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20971 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 20971 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 20971 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20972 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 20972 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 20972 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20972 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 20976 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 20976 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20976 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20976 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 20976 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20977 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 20977 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 20977 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20977 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 20977 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 20977 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20978 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 20978 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 20978 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20978 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 20978 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 20978 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20979 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 20979 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 20979 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20979 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 20979 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 20979 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 20980 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 20983 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 21234 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21235 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 21004 ms Inform] DATA: 0 TX: 	102	1953	205	1953	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 21235 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 21235 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21235 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 21235 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 21235 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21236 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 21236 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 21236 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21236 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 21236 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 21236 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21237 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 21237 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 21237 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21052 ms Inform] Recording data from US 1->0
+[ 21238 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 21238 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 21238 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21238 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 21239 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 21239 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21240 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 21245 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 21245 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21245 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 21245 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 21245 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21246 ms Verbose] -0.900778/-0.900000/0.050000/1
+[ 21247 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 21247 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21247 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 21443 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 21443 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21443 ms Verbose] 0.899805/0.900000/0.050000/1
+[ 21443 ms Verbose] Ramping ch 4 -> in:0.899805
+[ 21443 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21443 ms Verbose] 0.899805/0.900000/0.150000/0
+[ 21444 ms Verbose] Ramping ch 5 -> in:-0.800584
+[ 21444 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21444 ms Verbose] -0.800584/-0.800000/0.150000/0
+[ 21444 ms Verbose] Ramping ch 6 -> in:-0.900778
+[ 21444 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21444 ms Verbose] -0.900778/-0.900000/0.150000/0
+[ 21444 ms Verbose] Ramping ch 7 -> in:0.099708
+[ 21445 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21445 ms Verbose] 0.099708/0.100000/0.150000/0
+[ 21328 ms Inform] Recording data from US 2->184
+[ 21449 ms Inform] Dequeueing drone command: Flying up a little bit - 10% initial thrust
+[ 21449 ms Verbose] Command <Flying up a little bit - 10% initial thrust> - Type 0
+[ 21449 ms Inform] Starting new command: Flying up a little bit - 10% initial thrust for 2000ms
+[ 21449 ms Verbose] Command to finish at 23449ms
+[ 21449 ms Inform] AS7 moving to state: Flying
+[ 21453 ms Verbose] Ramping ch 1 -> in:0.899805
+[ 21453 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21453 ms Verbose] 0.899805/0.000000/0.030000/1
+[ 21453 ms Verbose] Ramping ch 0 -> in:-0.900778
+[ 21453 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21454 ms Verbose] -0.900778/0.000000/0.030000/1
+[ 21454 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 21454 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21454 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 21454 ms Verbose] Ramping ch 3 -> in:0.899805
+[ 21454 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21455 ms Verbose] 0.899805/0.000000/0.030000/1
+[ 21458 ms Verbose] Ramping ch 1 -> in:0.869650
+[ 21650 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21651 ms Verbose] 0.869650/0.000000/0.030000/1
+[ 21499 ms Inform] DATA: 0 TX: 	132	1922	205	1922	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 21651 ms Verbose] Ramping ch 0 -> in:-0.871595
+[ 21652 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21652 ms Verbose] -0.871595/0.000000/0.030000/1
+[ 21652 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 21652 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21653 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 21653 ms Verbose] Ramping ch 3 -> in:0.869650
+[ 21653 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21529 ms Inform] Recording data from US 3->64
+[ 21654 ms Verbose] 0.869650/0.000000/0.030000/1
+[ 21659 ms Verbose] Ramping ch 1 -> in:0.839494
+[ 21659 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21659 ms Verbose] 0.839494/0.000000/0.030000/1
+[ 21659 ms Verbose] Ramping ch 0 -> in:-0.842412
+[ 21659 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21660 ms Verbose] -0.842412/0.000000/0.030000/1
+[ 21660 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 21661 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21661 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 21661 ms Verbose] Ramping ch 3 -> in:0.839494
+[ 21661 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21662 ms Verbose] 0.839494/0.000000/0.030000/1
+[ 21665 ms Verbose] Ramping ch 1 -> in:0.809339
+[ 21826 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21826 ms Verbose] 0.809339/0.000000/0.030000/1
+[ 21827 ms Verbose] Ramping ch 0 -> in:-0.813230
+[ 21827 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21827 ms Verbose] -0.813230/0.000000/0.030000/1
+[ 21827 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 21827 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21827 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 21827 ms Verbose] Ramping ch 3 -> in:0.809339
+[ 21827 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21828 ms Verbose] 0.809339/0.000000/0.030000/1
+[ 21749 ms Inform] Recording data from US 4->257
+[ 21832 ms Verbose] Ramping ch 1 -> in:0.779183
+[ 21832 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21832 ms Verbose] 0.779183/0.000000/0.030000/1
+[ 21832 ms Verbose] Ramping ch 0 -> in:-0.784047
+[ 21832 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21833 ms Verbose] -0.784047/0.000000/0.030000/1
+[ 21833 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 21833 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21833 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 21833 ms Verbose] Ramping ch 3 -> in:0.779183
+[ 21833 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21834 ms Verbose] 0.779183/0.000000/0.030000/1
+[ 21837 ms Verbose] Ramping ch 1 -> in:0.749027
+[ 21837 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21837 ms Verbose] 0.749027/0.000000/0.030000/1
+[ 21837 ms Verbose] Ramping ch 0 -> in:-0.754864
+[ 21837 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21838 ms Verbose] -0.754864/0.000000/0.030000/1
+[ 21839 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 21839 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21839 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 21839 ms Verbose] Ramping ch 3 -> in:0.749027
+[ 21839 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21839 ms Verbose] 0.749027/0.000000/0.030000/1
+[ 21843 ms Verbose] Ramping ch 1 -> in:0.718872
+[ 22040 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22040 ms Verbose] 0.718872/0.000000/0.030000/1
+[ 22040 ms Verbose] Ramping ch 0 -> in:-0.725681
+[ 22041 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22041 ms Verbose] -0.725681/0.000000/0.030000/1
+[ 21914 ms Inform] DATA: 0 TX: 	282	1767	205	1767	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 22042 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22042 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22042 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22042 ms Verbose] Ramping ch 3 -> in:0.718872
+[ 22042 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 21920 ms Inform] Recording data from US 5->173
+[ 22043 ms Verbose] 0.718872/0.000000/0.030000/1
+[ 22047 ms Verbose] Ramping ch 1 -> in:0.688716
+[ 22047 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22047 ms Verbose] 0.688716/0.000000/0.030000/1
+[ 22047 ms Verbose] Ramping ch 0 -> in:-0.696498
+[ 22047 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22048 ms Verbose] -0.696498/0.000000/0.030000/1
+[ 22048 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22048 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22049 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22049 ms Verbose] Ramping ch 3 -> in:0.688716
+[ 22049 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22049 ms Verbose] 0.688716/0.000000/0.030000/1
+[ 22053 ms Verbose] Ramping ch 1 -> in:0.658560
+[ 22217 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22217 ms Verbose] 0.658560/0.000000/0.030000/1
+[ 22217 ms Verbose] Ramping ch 0 -> in:-0.667315
+[ 22217 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22217 ms Verbose] -0.667315/0.000000/0.030000/1
+[ 22218 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22218 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22218 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22218 ms Verbose] Ramping ch 3 -> in:0.658560
+[ 22218 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22218 ms Verbose] 0.658560/0.000000/0.030000/1
+[ 22222 ms Verbose] Ramping ch 1 -> in:0.628405
+[ 22222 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22222 ms Verbose] 0.628405/0.000000/0.030000/1
+[ 22222 ms Verbose] Ramping ch 0 -> in:-0.638132
+[ 22222 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22223 ms Verbose] -0.638132/0.000000/0.030000/1
+[ 22223 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22223 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22223 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22223 ms Verbose] Ramping ch 3 -> in:0.628405
+[ 22223 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22224 ms Verbose] 0.628405/0.000000/0.030000/1
+[ 22228 ms Verbose] Ramping ch 1 -> in:0.598249
+[ 22228 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22228 ms Verbose] 0.598249/0.000000/0.030000/1
+[ 22228 ms Verbose] Ramping ch 0 -> in:-0.608949
+[ 22229 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22229 ms Verbose] -0.608949/0.000000/0.030000/1
+[ 22229 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22229 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22229 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22229 ms Verbose] Ramping ch 3 -> in:0.598249
+[ 22230 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22230 ms Verbose] 0.598249/0.000000/0.030000/1
+[ 22234 ms Verbose] Ramping ch 1 -> in:0.568093
+[ 22234 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22234 ms Verbose] 0.568093/0.000000/0.030000/1
+[ 22234 ms Verbose] Ramping ch 0 -> in:-0.579767
+[ 22234 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22235 ms Verbose] -0.579767/0.000000/0.030000/1
+[ 22235 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22157 ms Inform] Recording data from US 0->582
+[ 22235 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22235 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22235 ms Verbose] Ramping ch 3 -> in:0.568093
+[ 22235 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22236 ms Verbose] 0.568093/0.000000/0.030000/1
+[ 22240 ms Verbose] Ramping ch 1 -> in:0.537938
+[ 22240 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22240 ms Verbose] 0.537938/0.000000/0.030000/1
+[ 22240 ms Verbose] Ramping ch 0 -> in:-0.550584
+[ 22241 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22241 ms Verbose] -0.550584/0.000000/0.030000/1
+[ 22241 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22241 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22241 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22241 ms Verbose] Ramping ch 3 -> in:0.537938
+[ 22242 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22242 ms Verbose] 0.537938/0.000000/0.030000/1
+[ 22246 ms Verbose] Ramping ch 1 -> in:0.507782
+[ 22558 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22559 ms Verbose] 0.507782/0.000000/0.030000/1
+[ 22559 ms Verbose] Ramping ch 0 -> in:-0.521401
+[ 22312 ms Inform] DATA: 0 TX: 	492	1550	205	1550	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1091	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 22559 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22559 ms Verbose] -0.521401/0.000000/0.030000/1
+[ 22559 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22559 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22560 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22560 ms Verbose] Ramping ch 3 -> in:0.507782
+[ 22560 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22560 ms Verbose] 0.507782/0.000000/0.030000/1
+[ 22316 ms Inform] Recording data from US 1->2
+[ 22565 ms Verbose] Ramping ch 1 -> in:0.477626
+[ 22565 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22565 ms Verbose] 0.477626/0.000000/0.030000/1
+[ 22565 ms Verbose] Ramping ch 0 -> in:-0.492218
+[ 22565 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22566 ms Verbose] -0.492218/0.000000/0.030000/1
+[ 22566 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22566 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22567 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22567 ms Verbose] Ramping ch 3 -> in:0.477626
+[ 22567 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22567 ms Verbose] 0.477626/0.000000/0.030000/1
+[ 22571 ms Verbose] Ramping ch 1 -> in:0.447471
+[ 22724 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22724 ms Verbose] 0.447471/0.000000/0.030000/1
+[ 22724 ms Verbose] Ramping ch 0 -> in:-0.463035
+[ 22724 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22724 ms Verbose] -0.463035/0.000000/0.030000/1
+[ 22725 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22725 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22725 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22725 ms Verbose] Ramping ch 3 -> in:0.447471
+[ 22725 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22725 ms Verbose] 0.447471/0.000000/0.030000/1
+[ 22646 ms Inform] Recording data from US 2->81
+[ 22729 ms Verbose] Ramping ch 1 -> in:0.417315
+[ 22729 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22729 ms Verbose] 0.417315/0.000000/0.030000/1
+[ 22729 ms Verbose] Ramping ch 0 -> in:-0.433852
+[ 22729 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22730 ms Verbose] -0.433852/0.000000/0.030000/1
+[ 22730 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22730 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22730 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22730 ms Verbose] Ramping ch 3 -> in:0.417315
+[ 22730 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22731 ms Verbose] 0.417315/0.000000/0.030000/1
+[ 22734 ms Verbose] Ramping ch 1 -> in:0.387160
+[ 22734 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22734 ms Verbose] 0.387160/0.000000/0.030000/1
+[ 22734 ms Verbose] Ramping ch 0 -> in:-0.404669
+[ 22734 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22735 ms Verbose] -0.404669/0.000000/0.030000/1
+[ 22735 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22735 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22735 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22735 ms Verbose] Ramping ch 3 -> in:0.387160
+[ 22735 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22736 ms Verbose] 0.387160/0.000000/0.030000/1
+[ 22739 ms Verbose] Ramping ch 1 -> in:0.357004
+[ 22937 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22938 ms Verbose] 0.357004/0.000000/0.030000/1
+[ 22824 ms Inform] DATA: 0 TX: 	642	1395	205	1395	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 22938 ms Verbose] Ramping ch 0 -> in:-0.375486
+[ 22938 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22938 ms Verbose] -0.375486/0.000000/0.030000/1
+[ 22938 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22938 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22939 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22939 ms Verbose] Ramping ch 3 -> in:0.357004
+[ 22939 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22939 ms Verbose] 0.357004/0.000000/0.030000/1
+[ 22810 ms Inform] Recording data from US 3->57
+[ 22944 ms Verbose] Ramping ch 1 -> in:0.326848
+[ 22944 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22944 ms Verbose] 0.326848/0.000000/0.030000/1
+[ 22944 ms Verbose] Ramping ch 0 -> in:-0.346303
+[ 22944 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22945 ms Verbose] -0.346303/0.000000/0.030000/1
+[ 22945 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 22946 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22946 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 22946 ms Verbose] Ramping ch 3 -> in:0.326848
+[ 22946 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 22946 ms Verbose] 0.326848/0.000000/0.030000/1
+[ 22951 ms Verbose] Ramping ch 1 -> in:0.296693
+[ 23103 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23103 ms Verbose] 0.296693/0.000000/0.030000/1
+[ 23103 ms Verbose] Ramping ch 0 -> in:-0.317121
+[ 23103 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23103 ms Verbose] -0.317121/0.000000/0.030000/1
+[ 23103 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 23104 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23104 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 23104 ms Verbose] Ramping ch 3 -> in:0.296693
+[ 23104 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23104 ms Verbose] 0.296693/0.000000/0.030000/1
+[ 23022 ms Inform] Recording data from US 4->33
+[ 23108 ms Verbose] Ramping ch 1 -> in:0.266537
+[ 23108 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23108 ms Verbose] 0.266537/0.000000/0.030000/1
+[ 23108 ms Verbose] Ramping ch 0 -> in:-0.287938
+[ 23108 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23109 ms Verbose] -0.287938/0.000000/0.030000/1
+[ 23109 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 23110 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23110 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 23110 ms Verbose] Ramping ch 3 -> in:0.266537
+[ 23110 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23110 ms Verbose] 0.266537/0.000000/0.030000/1
+[ 23114 ms Verbose] Ramping ch 1 -> in:0.236381
+[ 23114 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23114 ms Verbose] 0.236381/0.000000/0.030000/1
+[ 23114 ms Verbose] Ramping ch 0 -> in:-0.258755
+[ 23114 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23115 ms Verbose] -0.258755/0.000000/0.030000/1
+[ 23115 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 23286 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23206 ms Inform] DATA: 0 TX: 	792	1240	205	1271	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1092	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 23286 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 23286 ms Verbose] Ramping ch 3 -> in:0.236381
+[ 23286 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23286 ms Verbose] 0.236381/0.000000/0.030000/1
+[ 23190 ms Inform] Recording data from US 5->75
+[ 23291 ms Verbose] Ramping ch 1 -> in:0.206226
+[ 23291 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23291 ms Verbose] 0.206226/0.000000/0.030000/1
+[ 23291 ms Verbose] Ramping ch 0 -> in:-0.229572
+[ 23291 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23292 ms Verbose] -0.229572/0.000000/0.030000/1
+[ 23292 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 23292 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23293 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 23293 ms Verbose] Ramping ch 3 -> in:0.206226
+[ 23293 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23293 ms Verbose] 0.206226/0.000000/0.030000/1
+[ 23297 ms Verbose] Ramping ch 1 -> in:0.176070
+[ 23297 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23297 ms Verbose] 0.176070/0.000000/0.030000/1
+[ 23297 ms Verbose] Ramping ch 0 -> in:-0.200389
+[ 23297 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23298 ms Verbose] -0.200389/0.000000/0.030000/1
+[ 23298 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 23451 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23452 ms Verbose] 0.099708/0.100000/0.050000/1
+[ 23452 ms Verbose] Ramping ch 3 -> in:0.176070
+[ 23452 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23452 ms Verbose] 0.176070/0.000000/0.030000/1
+[ 23456 ms Inform] Dequeueing drone command: Flying forward at 5%
+[ 23456 ms Verbose] Command <Flying forward at 5%> - Type 0
+[ 23456 ms Inform] Starting new command: Flying forward at 5% for 2000ms
+[ 23456 ms Verbose] Command to finish at 25456ms
+[ 23460 ms Verbose] Ramping ch 1 -> in:0.145914
+[ 23460 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23460 ms Verbose] 0.145914/-0.300000/0.030000/1
+[ 23460 ms Verbose] Ramping ch 0 -> in:-0.171206
+[ 23460 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23461 ms Verbose] -0.171206/0.000000/0.030000/1
+[ 23461 ms Verbose] Ramping ch 2 -> in:0.099708
+[ 23461 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23461 ms Verbose] 0.099708/0.050000/0.050000/1
+[ 23461 ms Verbose] Ramping ch 3 -> in:0.145914
+[ 23461 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23462 ms Verbose] 0.145914/0.000000/0.030000/1
+[ 23466 ms Verbose] Ramping ch 1 -> in:0.115759
+[ 23466 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23466 ms Verbose] 0.115759/-0.300000/0.030000/1
+[ 23466 ms Verbose] Ramping ch 0 -> in:-0.142023
+[ 23467 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23467 ms Verbose] -0.142023/0.000000/0.030000/1
+[ 23467 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 23467 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23467 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 23467 ms Verbose] Ramping ch 3 -> in:0.115759
+[ 23467 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23468 ms Verbose] 0.115759/0.000000/0.030000/1
+[ 23472 ms Verbose] Ramping ch 1 -> in:0.085603
+[ 23380 ms Inform] Recording data from US 0->200
+[ 23472 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23472 ms Verbose] 0.085603/-0.300000/0.030000/1
+[ 23472 ms Verbose] Ramping ch 0 -> in:-0.112840
+[ 23473 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23473 ms Verbose] -0.112840/0.000000/0.030000/1
+[ 23473 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 23473 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23473 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 23473 ms Verbose] Ramping ch 3 -> in:0.085603
+[ 23474 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23474 ms Verbose] 0.085603/0.000000/0.030000/1
+[ 23478 ms Verbose] Ramping ch 1 -> in:0.055447
+[ 23478 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23478 ms Verbose] 0.055447/-0.300000/0.030000/1
+[ 23478 ms Verbose] Ramping ch 0 -> in:-0.083658
+[ 23479 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23479 ms Verbose] -0.083658/0.000000/0.030000/1
+[ 23479 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 23479 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23479 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 23479 ms Verbose] Ramping ch 3 -> in:0.055447
+[ 23480 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23480 ms Verbose] 0.055447/0.000000/0.030000/1
+[ 23484 ms Verbose] Ramping ch 1 -> in:0.025292
+[ 23834 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23554 ms Inform] DATA: 0 TX: 	972	1054	102	1054	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1096	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 23835 ms Verbose] 0.025292/-0.300000/0.030000/1
+[ 23835 ms Verbose] Ramping ch 0 -> in:-0.054475
+[ 23835 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23835 ms Verbose] -0.054475/0.000000/0.030000/1
+[ 23836 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 23836 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23561 ms Inform] Recording data from US 1->150
+[ 23836 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 23837 ms Verbose] Ramping ch 3 -> in:0.025292
+[ 23837 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23837 ms Verbose] 0.025292/0.000000/0.030000/1
+[ 23841 ms Verbose] Ramping ch 1 -> in:-0.004864
+[ 23841 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23841 ms Verbose] -0.004864/-0.300000/0.030000/1
+[ 23841 ms Verbose] Ramping ch 0 -> in:-0.025292
+[ 23841 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23842 ms Verbose] -0.025292/0.000000/0.030000/1
+[ 23842 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 23843 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23843 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 23843 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 23843 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23844 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 23847 ms Verbose] Ramping ch 1 -> in:-0.035019
+[ 23997 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23997 ms Verbose] -0.035019/-0.300000/0.030000/1
+[ 23998 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 23998 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23998 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 23998 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 23998 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23998 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 23998 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 23999 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 23999 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 23922 ms Inform] Recording data from US 2->106
+[ 24003 ms Verbose] Ramping ch 1 -> in:-0.065175
+[ 24003 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24003 ms Verbose] -0.065175/-0.300000/0.030000/1
+[ 24003 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24003 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24004 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24004 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24004 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24004 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24004 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24004 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24005 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24008 ms Verbose] Ramping ch 1 -> in:-0.095331
+[ 24008 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24008 ms Verbose] -0.095331/-0.300000/0.030000/1
+[ 24008 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24009 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24009 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24010 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24185 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24185 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24185 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24185 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24186 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24104 ms Inform] DATA: 0 TX: 	1028	899	102	1028	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1096	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 24083 ms Inform] Recording data from US 3->49
+[ 24191 ms Verbose] Ramping ch 1 -> in:-0.125486
+[ 24191 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24191 ms Verbose] -0.125486/-0.300000/0.030000/1
+[ 24191 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24191 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24192 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24192 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24192 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24193 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24193 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24193 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24193 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24197 ms Verbose] Ramping ch 1 -> in:-0.155642
+[ 24322 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24322 ms Verbose] -0.155642/-0.300000/0.030000/1
+[ 24322 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24322 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24322 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24323 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24323 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24323 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24323 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24323 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24323 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24273 ms Inform] Recording data from US 4->80
+[ 24327 ms Verbose] Ramping ch 1 -> in:-0.185798
+[ 24327 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24327 ms Verbose] -0.185798/-0.300000/0.030000/1
+[ 24327 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24327 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24328 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24328 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24328 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24328 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24328 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24328 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24328 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24332 ms Verbose] Ramping ch 1 -> in:-0.215953
+[ 24332 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24332 ms Verbose] -0.215953/-0.300000/0.030000/1
+[ 24332 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24332 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24333 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24333 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24334 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24334 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24508 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24508 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24509 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24450 ms Inform] DATA: 0 TX: 	1028	775	102	1028	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1097	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 24410 ms Inform] Recording data from US 5->101
+[ 24514 ms Verbose] Ramping ch 1 -> in:-0.246109
+[ 24514 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24514 ms Verbose] -0.246109/-0.300000/0.030000/1
+[ 24514 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24514 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24515 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24515 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24515 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24515 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24515 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24515 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24516 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24520 ms Verbose] Ramping ch 1 -> in:-0.276265
+[ 24520 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24520 ms Verbose] -0.276265/-0.300000/0.030000/1
+[ 24520 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24520 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24521 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24521 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24670 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24670 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24670 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24670 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24670 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24674 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 24674 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24674 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 24674 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24674 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24675 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24675 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24675 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24675 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24675 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24675 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24676 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24679 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 24679 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24679 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 24679 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24679 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24680 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24680 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24681 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24681 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24681 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24681 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24681 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24685 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 24685 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24685 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 24685 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24685 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24686 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24686 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24686 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24686 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24686 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24686 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24687 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24690 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 24690 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24690 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 24598 ms Inform] Recording data from US 0->106
+[ 24690 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24690 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24691 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24691 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24691 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24691 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24691 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24691 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24691 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24695 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 24695 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24695 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 24695 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 24695 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24696 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24696 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 24696 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24696 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 24696 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 24696 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24697 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 24700 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 25053 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25053 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 25053 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25053 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25053 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25054 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 25054 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24775 ms Inform] DATA: 0 TX: 	1028	719	102	1028	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1096	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 25055 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 25055 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25055 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 24777 ms Inform] Recording data from US 1->82
+[ 25055 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25060 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 25060 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25060 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 25060 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25060 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25061 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25061 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 25061 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25062 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 25062 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25062 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25062 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25066 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 25217 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25218 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 25218 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25218 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25218 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25218 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 25218 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25219 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 25219 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25219 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25220 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25146 ms Inform] Recording data from US 2->186
+[ 25224 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 25224 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25224 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 25224 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25224 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25225 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25225 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 25225 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25226 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 25226 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25226 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25226 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25230 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 25378 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25316 ms Inform] DATA: 0 TX: 	1028	719	102	1028	1850	205	102	205	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	1024	1024	240	1094	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 25379 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 25379 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25379 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25379 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25379 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 25379 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25380 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 25380 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25381 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25381 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25303 ms Inform] Recording data from US 3->48
+[ 25385 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 25385 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25386 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 25386 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25386 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25386 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25386 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 25386 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25386 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 25387 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25387 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25387 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25391 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 25542 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25542 ms Verbose] -0.300584/-0.300000/0.030000/1
+[ 25542 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25542 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25543 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25543 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 25543 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25543 ms Verbose] 0.049611/0.050000/0.050000/1
+[ 25543 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25543 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25543 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25411 ms Fatal] Emergency stop enabled
+[ 25544 ms Inform] AS7 moving to state: Faulted
+[ 25471 ms Inform] Recording data from US 4->141
+[ 25548 ms Inform] Dequeueing drone command: Stopping Drone
+[ 25548 ms Verbose] Command <Stopping Drone> - Type 0
+[ 25548 ms Inform] Starting new command: Stopping Drone for 5000ms
+[ 25548 ms Verbose] Command to finish at 30548ms
+[ 25553 ms Verbose] Ramping ch 1 -> in:-0.300584
+[ 25553 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25553 ms Verbose] -0.300584/0.000000/0.030000/1
+[ 25553 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25553 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25553 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25554 ms Verbose] Ramping ch 2 -> in:0.049611
+[ 25554 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25696 ms Verbose] 0.049611/0.000000/0.050000/1
+[ 25697 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25697 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25697 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25630 ms Inform] Recording data from US 5->98
+[ 25701 ms Verbose] Ramping ch 1 -> in:-0.271401
+[ 25701 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25701 ms Verbose] -0.271401/0.000000/0.030000/1
+[ 25701 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25701 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25702 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25702 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 25702 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25702 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 25702 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25702 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25702 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25706 ms Verbose] Ramping ch 1 -> in:-0.242218
+[ 25706 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25706 ms Verbose] -0.242218/0.000000/0.030000/1
+[ 25706 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25706 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25707 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25707 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 25707 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25707 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 25707 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25707 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25707 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25711 ms Verbose] Ramping ch 1 -> in:-0.213035
+[ 25876 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25877 ms Verbose] -0.213035/0.000000/0.030000/1
+[ 25877 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25877 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25780 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1077	1024	1024	1807	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 25878 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25878 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 25878 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25878 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 25878 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25878 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25879 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25884 ms Verbose] Ramping ch 1 -> in:-0.183852
+[ 25884 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25884 ms Verbose] -0.183852/0.000000/0.030000/1
+[ 25884 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25884 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25885 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25885 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 25885 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25886 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 25886 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25886 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25886 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25890 ms Verbose] Ramping ch 1 -> in:-0.154669
+[ 25890 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25890 ms Verbose] -0.154669/0.000000/0.030000/1
+[ 25890 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25890 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25891 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25891 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 25891 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25891 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 25891 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25891 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25891 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25791 ms Inform] Recording data from US 0->201
+[ 25895 ms Verbose] Ramping ch 1 -> in:-0.125486
+[ 25895 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25895 ms Verbose] -0.125486/0.000000/0.030000/1
+[ 25895 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25895 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25896 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25896 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 25896 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25896 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 25896 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25896 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25896 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25900 ms Verbose] Ramping ch 1 -> in:-0.096304
+[ 25900 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25900 ms Verbose] -0.096304/0.000000/0.030000/1
+[ 25900 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 25900 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25901 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25901 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 25901 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25901 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 25901 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 25901 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 25901 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 25905 ms Verbose] Ramping ch 1 -> in:-0.067121
+[ 26239 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26144 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1064	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 26239 ms Verbose] -0.067121/0.000000/0.030000/1
+[ 26239 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26239 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26239 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26240 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26240 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26240 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26240 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26240 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26240 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26007 ms Inform] Recording data from US 1->510
+[ 26245 ms Verbose] Ramping ch 1 -> in:-0.037938
+[ 26245 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26245 ms Verbose] -0.037938/0.000000/0.030000/1
+[ 26245 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26245 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26246 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26246 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26246 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26247 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26247 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26247 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26247 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26251 ms Verbose] Ramping ch 1 -> in:-0.008755
+[ 26402 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26402 ms Verbose] -0.008755/0.000000/0.030000/1
+[ 26402 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26403 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26403 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26403 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26403 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26403 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26403 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26403 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26403 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26329 ms Inform] Recording data from US 2->138
+[ 26407 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 26407 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26407 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26407 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26407 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26408 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26408 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26408 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26408 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26408 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26408 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26408 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26412 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 26412 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26412 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26412 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26412 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26413 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26413 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26413 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26413 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26413 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26413 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26413 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26417 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 26617 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26617 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26617 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26617 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26618 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26618 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26505 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1071	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 26618 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26619 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26619 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26619 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26619 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26488 ms Inform] Recording data from US 3->45
+[ 26624 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 26624 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26624 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26624 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26624 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26625 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26625 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26625 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26626 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26626 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26626 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26626 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26631 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 26825 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26825 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26826 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26826 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26826 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26826 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26826 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26826 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26826 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26826 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26827 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26707 ms Inform] Recording data from US 4->118
+[ 26831 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 26831 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26831 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26831 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26831 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26831 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26832 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26832 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26832 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26832 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26832 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26832 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26836 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 26836 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26836 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26836 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26836 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26837 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26837 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 26837 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26837 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 26837 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 26837 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 26837 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26841 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27039 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27040 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27040 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 26885 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1066	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 27040 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27041 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27041 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27041 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27041 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27041 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27042 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27042 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 26916 ms Inform] Recording data from US 5->134
+[ 27047 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27047 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27047 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27047 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27047 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27048 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27048 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27048 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27049 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27049 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27049 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27049 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27054 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27205 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27205 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27205 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27205 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27205 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27205 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27205 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27206 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27206 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27206 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27206 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27210 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27210 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27210 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27210 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27210 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27211 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27211 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27211 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27211 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27211 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27211 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27211 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27215 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27215 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27215 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27215 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27215 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27216 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27216 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27216 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27216 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27216 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27216 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27217 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27220 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27220 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27220 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27220 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27220 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27221 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27221 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27222 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27222 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27222 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27222 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27222 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27133 ms Inform] Recording data from US 0->183
+[ 27226 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27226 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27226 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27226 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27226 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27227 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27227 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27227 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27228 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27228 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27228 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27228 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27232 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27232 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27232 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27232 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27232 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27233 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27233 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27233 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27233 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27233 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27233 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27233 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27237 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27611 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27311 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1078	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 27611 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27612 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27612 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27612 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27612 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27612 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27613 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27613 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27613 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27342 ms Inform] Recording data from US 1->622
+[ 27614 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27619 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27619 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27619 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27619 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27619 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27620 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27620 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27620 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27621 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27621 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27621 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27621 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27625 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27775 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27775 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27775 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27775 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27775 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27775 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27775 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27776 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27776 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27776 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27776 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27701 ms Inform] Recording data from US 2->131
+[ 27780 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27780 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27780 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27780 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27780 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27780 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27781 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27781 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27781 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27781 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27781 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27781 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27785 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 27785 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27785 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27785 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 27785 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27786 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27786 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 27786 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27786 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 27786 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 27786 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27786 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27790 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28001 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28002 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 27878 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1058	1024	1024	1807	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 28003 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28003 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28003 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28003 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28003 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28003 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28004 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28004 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 27860 ms Inform] Recording data from US 3->45
+[ 28005 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28010 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28010 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28010 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28010 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28010 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28010 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28011 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28011 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28011 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28011 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28012 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28012 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28016 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28166 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28167 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28167 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28167 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28167 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28167 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28167 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28167 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28167 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28168 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28168 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28091 ms Inform] Recording data from US 4->108
+[ 28172 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28172 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28172 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28172 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28172 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28172 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28173 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28173 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28173 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28173 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28173 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28173 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28177 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28177 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28177 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28177 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28177 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28178 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28178 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28178 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28178 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28178 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28178 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28178 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28182 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28380 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28380 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28380 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28381 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28381 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28269 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1060	1024	1024	1807	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 28381 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28382 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28382 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28382 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28382 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28382 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28256 ms Inform] Recording data from US 5->109
+[ 28387 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28387 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28387 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28387 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28387 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28388 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28388 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28388 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28389 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28389 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28389 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28389 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28394 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28545 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28545 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28545 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28545 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28545 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28545 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28545 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28546 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28546 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28546 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28546 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28550 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28550 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28550 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28550 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28550 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28551 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28551 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28551 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28551 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28551 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28551 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28551 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28555 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28555 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28555 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28555 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28555 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28556 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28556 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28556 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28556 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28556 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28556 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28556 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28560 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28560 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28560 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28560 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28560 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28561 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28561 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28561 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28561 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28561 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28561 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28561 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28565 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28565 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28565 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28565 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28565 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28475 ms Inform] Recording data from US 0->201
+[ 28566 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28566 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28566 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28566 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28566 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28566 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28566 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28570 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28570 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28570 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28570 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28570 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28571 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28571 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28571 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28571 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28571 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28571 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28571 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28575 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28964 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28652 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1053	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 28964 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28965 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28965 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28965 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28965 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28965 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28966 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28966 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28966 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28967 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28770 ms Inform] Recording data from US 1->2117
+[ 28972 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 28972 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28972 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28972 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 28972 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28973 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28973 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 28973 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28974 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 28974 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 28974 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 28974 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 28978 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29128 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29128 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29129 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29129 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29129 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29129 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29129 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29129 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29129 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29129 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29130 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29058 ms Inform] Recording data from US 2->169
+[ 29133 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29133 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29133 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29133 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29133 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29134 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29134 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29134 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29134 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29134 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29134 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29134 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29138 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29138 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29138 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29138 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29138 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29139 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29139 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29139 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29139 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29139 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29139 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29140 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29143 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29343 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29344 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29344 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29344 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29229 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1050	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 29345 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29345 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29345 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29345 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29345 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29346 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29346 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29214 ms Inform] Recording data from US 3->45
+[ 29350 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29350 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29350 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29350 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29350 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29351 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29351 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29351 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29352 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29352 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29352 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29352 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29356 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29510 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29511 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29511 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29511 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29511 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29511 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29511 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29511 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29512 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29512 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29512 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29434 ms Inform] Recording data from US 4->131
+[ 29516 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29516 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29516 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29516 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29516 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29517 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29517 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29517 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29517 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29517 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29517 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29517 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29521 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29521 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29521 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29521 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29521 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29522 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29522 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29523 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29697 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29697 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29697 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29697 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29613 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1060	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 29600 ms Inform] Recording data from US 5->113
+[ 29701 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29701 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29701 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29701 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29701 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29702 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29702 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29702 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29703 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29703 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29703 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29703 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29707 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29707 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29707 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29707 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29707 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29708 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29708 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29708 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29863 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29863 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29863 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29863 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29867 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29867 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29867 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29867 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29867 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29868 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29868 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29868 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29869 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29869 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29869 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29869 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29873 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29873 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29873 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29873 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29873 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29874 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29874 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29874 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29874 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29874 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29874 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29874 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29878 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29878 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29878 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29878 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29878 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29879 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29879 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29879 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29879 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29879 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29879 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29879 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29883 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29883 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29883 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29883 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29883 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29884 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29884 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29885 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29885 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29885 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29885 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29885 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29889 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29889 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29889 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29889 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29889 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29890 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29890 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29890 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29890 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29890 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29890 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29890 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29894 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29894 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29894 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29894 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29894 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29895 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29895 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29895 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29895 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29895 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29895 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29895 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29899 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29899 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29899 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29899 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29899 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29900 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29900 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29900 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29900 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29900 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29900 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29900 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29904 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29904 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29904 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29904 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29904 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29905 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29905 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29905 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29905 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29905 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29905 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29905 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29909 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29909 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29909 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29909 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29909 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29910 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29910 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29910 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29910 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29910 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29910 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29910 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29914 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29914 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29914 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29914 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29914 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29915 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29915 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29916 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29916 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29916 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29916 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29916 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29920 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29920 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29920 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29920 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29920 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29921 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29921 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29921 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29921 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29921 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29921 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29921 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29792 ms Inform] Recording data from US 0->202
+[ 29925 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29925 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29925 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29925 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29925 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29926 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29926 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29926 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29926 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29926 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29926 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29926 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29930 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 29930 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29930 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29930 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 29930 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29931 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29931 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 29932 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29932 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 29932 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 29932 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29932 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 29936 ms Verbose] Ramping ch 1 -> in:0.000000
+[ 30765 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 29977 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1050	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 30766 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 30766 ms Verbose] Ramping ch 0 -> in:0.000000
+[ 30766 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 30766 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 30766 ms Verbose] Ramping ch 2 -> in:0.000000
+[ 30766 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 30767 ms Verbose] 0.000000/0.000000/0.050000/1
+[ 30767 ms Verbose] Ramping ch 3 -> in:0.000000
+[ 30130 ms Inform] Recording data from US 1->2034
+[ 30767 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 30768 ms Verbose] 0.000000/0.000000/0.030000/1
+[ 30969 ms Inform] Recording data from US 2->2069
+[ 31028 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1063	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 31057 ms Inform] Recording data from US 3->104
+[ 31282 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1061	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 31289 ms Inform] Recording data from US 4->2081
+[ 31411 ms Inform] Recording data from US 5->110
+[ 31492 ms Inform] Recording data from US 0->3
+[ 31532 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1063	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 31603 ms Inform] Recording data from US 1->291
+[ 31783 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1066	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 31825 ms Inform] Recording data from US 2->2270
+[ 31916 ms Inform] Recording data from US 3->46
+[ 32033 ms Inform] DATA: 1 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1066	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 32124 ms Inform] Recording data from US 4->2080
+[ 32218 ms Inform] Recording data from US 5->89
+[ 32285 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1064	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 32299 ms Inform] Recording data from US 0->9
+[ 32535 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1069	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 32555 ms Inform] Recording data from US 1->2109
+[ 32688 ms Inform] Recording data from US 2->296
+[ 32778 ms Inform] Recording data from US 3->50
+[ 32785 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1064	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 32981 ms Inform] Recording data from US 4->2079
+[ 33058 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1071	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 33070 ms Inform] Recording data from US 5->87
+[ 33151 ms Inform] Recording data from US 0->2
+[ 33268 ms Inform] Recording data from US 1->620
+[ 33310 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1063	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 33379 ms Inform] Recording data from US 2->293
+[ 33465 ms Inform] Recording data from US 3->54
+[ 33564 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1063	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 33668 ms Inform] Recording data from US 4->2080
+[ 33769 ms Inform] Recording data from US 5->80
+[ 33815 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1071	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 33861 ms Inform] Recording data from US 0->2
+[ 33951 ms Inform] Recording data from US 1->165
+[ 34065 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1063	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 34161 ms Inform] Recording data from US 2->2069
+[ 34247 ms Inform] Recording data from US 3->56
+[ 34316 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1067	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 34450 ms Inform] Recording data from US 4->2080
+[ 34542 ms Inform] Recording data from US 5->80
+[ 34566 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1067	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 34623 ms Inform] Recording data from US 0->2
+[ 34740 ms Inform] Recording data from US 1->618
+[ 34818 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1063	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 34840 ms Inform] Recording data from US 2->227
+[ 35003 ms Inform] Recording data from US 3->54
+[ 35072 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1063	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 35206 ms Inform] Recording data from US 4->2080
+[ 35291 ms Inform] Recording data from US 5->78
+[ 35322 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1063	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 35396 ms Inform] Recording data from US 0->5
+[ 35513 ms Inform] Recording data from US 1->620
+[ 35572 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1067	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 35611 ms Inform] Recording data from US 2->308
+[ 35696 ms Inform] Recording data from US 3->55
+[ 35791 ms Inform] Recording data from US 4->250
+[ 35822 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1063	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 35884 ms Inform] Recording data from US 5->135
+[ 35971 ms Inform] Recording data from US 0->2
+[ 36072 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1061	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 36187 ms Inform] Recording data from US 1->2109
+[ 36326 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1060	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 36363 ms Inform] Recording data from US 2->1627
+[ 36454 ms Inform] Recording data from US 3->56
+[ 36556 ms Inform] Recording data from US 4->312
+[ 36577 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1061	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 36641 ms Inform] Recording data from US 5->73
+[ 36722 ms Inform] Recording data from US 0->9
+[ 36836 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1061	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 36940 ms Inform] Recording data from US 1->2111
+[ 37045 ms Inform] Recording data from US 2->296
+[ 37089 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1060	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 37129 ms Inform] Recording data from US 3->60
+[ 37336 ms Inform] Recording data from US 4->2132
+[ 37339 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1055	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 37420 ms Inform] Recording data from US 5->62
+[ 37589 ms Inform] Recording data from US 0->1499
+[ 37589 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1058	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 37686 ms Inform] Recording data from US 1->292
+[ 37791 ms Inform] Recording data from US 2->297
+[ 37840 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1056	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 37892 ms Inform] Recording data from US 3->67
+[ 37992 ms Inform] Recording data from US 4->296
+[ 38083 ms Inform] Recording data from US 5->63
+[ 38090 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1053	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 38189 ms Inform] Recording data from US 0->440
+[ 38294 ms Inform] Recording data from US 1->296
+[ 38361 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1060	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 38408 ms Inform] Recording data from US 2->517
+[ 38498 ms Inform] Recording data from US 3->57
+[ 38598 ms Inform] Recording data from US 4->296
+[ 38613 ms Inform] DATA: 0 TX: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542 RX: 	1024	1024	240	1056	1024	1024	240	240	1024	1024	1024	1024	1024	1024	1024	1024
+[ 38682 ms Inform] Recording data from US 5->68
+[ 38805 ms Inform] Recording data from US 0->608

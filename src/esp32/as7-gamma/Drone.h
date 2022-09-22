@@ -44,6 +44,7 @@
 
 #define STATUS_UPDATE_DELAY 250 // Number of updates to wait before sending controller status
 
+#define THROTTLE_LIMIT 0.5f
 
 // Cv = Control Value, Pv = Present Value. Use CV to control PV
 #define RAMPRATE_NONE       0   // No ramp rate.            Pv = Cv
