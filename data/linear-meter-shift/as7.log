@@ -1,0 +1,182 @@
+AS7 Log file - (C) Ecobat Project 2022
+[ 224 ms Inform] SD card detected. SD Logging enabled.
+[ 224 ms Inform] (C) 2022 Ecobat Project
+[ 361 ms Verbose] Setting all channel lower bounds to 0
+[ 361 ms Verbose] Setting all channel upper bounds to 2056
+[ 361 ms Inform] Generating E-Stop Tx Package
+[ 361 ms Verbose] E-Stop Tx: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542
+[ 361 ms Inform] Drone Class Initialised.
+[ 397 ms Verbose] Navigation task thread reporting running status
+[ 413 ms Verbose] Ramping ch 8 -> in:-1.000000
+[ 413 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 414 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 414 ms Verbose] Ramping ch 9 -> in:-1.000000
+[ 414 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 414 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 414 ms Verbose] Ramping ch 10 -> in:-1.000000
+[ 414 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 414 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 414 ms Verbose] Ramping ch 11 -> in:-1.000000
+[ 414 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 415 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 415 ms Verbose] Ramping ch 12 -> in:-1.000000
+[ 415 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 415 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 415 ms Verbose] Ramping ch 13 -> in:-1.000000
+[ 415 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 415 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 416 ms Verbose] Ramping ch 14 -> in:-1.000000
+[ 416 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 416 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 391 ms Inform] Recording data from US 0->117
+[ 416 ms Verbose] Ramping ch 15 -> in:-1.000000
+[ 416 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 416 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 397 ms Verbose] Navigator thread successfully started
+[ 416 ms Verbose] Controller task thread reporting running status
+[ 417 ms Verbose] Controller thread successfully started
+[ 417 ms Inform] Enqueing drone command: Arming Drone
+[ 417 ms Verbose] Command <Arming Drone> - Type 3
+[ 417 ms Inform] Enqueing drone command: Flying up a little bit - 10% initial thrust
+[ 417 ms Verbose] Command <Flying up a little bit - 10% initial thrust> - Type 0
+[ 417 ms Inform] Enqueing drone command: Flying forward at 5%
+[ 417 ms Verbose] Command <Flying forward at 5%> - Type 0
+[ 417 ms Inform] Enqueing drone command: Stopping Drone
+[ 417 ms Verbose] Command <Stopping Drone> - Type 0
+[ 417 ms Inform] Initialise: Logger is reporting healthy.
+[ 418 ms Inform] AS7 moving to state: Ready
+[ 496 ms Inform] Recording data from US 1->2
+[ 666 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 738 ms Inform] Recording data from US 2->33
+[ 825 ms Inform] Recording data from US 3->130
+[ 916 ms Inform] Recording data from US 4->181
+[ 925 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1004 ms Inform] Recording data from US 5->23
+[ 1095 ms Inform] Recording data from US 0->115
+[ 1175 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1176 ms Inform] Recording data from US 1->3
+[ 1262 ms Inform] Recording data from US 2->33
+[ 1354 ms Inform] Recording data from US 3->98
+[ 1425 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1448 ms Inform] Recording data from US 4->215
+[ 1530 ms Inform] Recording data from US 5->42
+[ 1621 ms Inform] Recording data from US 0->114
+[ 1675 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1701 ms Inform] Recording data from US 1->3
+[ 1788 ms Inform] Recording data from US 2->33
+[ 1875 ms Inform] Recording data from US 3->131
+[ 1925 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1966 ms Inform] Recording data from US 4->182
+[ 2053 ms Inform] Recording data from US 5->112
+[ 2154 ms Inform] Recording data from US 0->349
+[ 2175 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2239 ms Inform] Recording data from US 1->3
+[ 2322 ms Inform] Recording data from US 2->33
+[ 2418 ms Inform] Recording data from US 3->261
+[ 2428 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2509 ms Inform] Recording data from US 4->180
+[ 2599 ms Inform] Recording data from US 5->45
+[ 2678 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2711 ms Inform] Recording data from US 0->540
+[ 2791 ms Inform] Recording data from US 1->3
+[ 2873 ms Inform] Recording data from US 2->34
+[ 2928 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2966 ms Inform] Recording data from US 3->102
+[ 3065 ms Inform] Recording data from US 4->263
+[ 3155 ms Inform] Recording data from US 5->57
+[ 3178 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 3247 ms Inform] Recording data from US 0->116
+[ 3327 ms Inform] Recording data from US 1->3
+[ 3414 ms Inform] Recording data from US 2->130
+[ 3429 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 3502 ms Inform] Recording data from US 3->127
+[ 3593 ms Inform] Recording data from US 4->180
+[ 3680 ms Inform] Recording data from US 5->110
+[ 3688 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 3768 ms Inform] Recording data from US 0->28
+[ 3854 ms Inform] Recording data from US 1->3
+[ 3938 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 3940 ms Inform] Recording data from US 2->108
+[ 4027 ms Inform] Recording data from US 3->109
+[ 4118 ms Inform] Recording data from US 4->181
+[ 4188 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 4202 ms Inform] Recording data from US 5->60
+[ 4320 ms Inform] Recording data from US 0->410
+[ 4400 ms Inform] Recording data from US 1->3
+[ 4438 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 4482 ms Inform] Recording data from US 2->36
+[ 4572 ms Inform] Recording data from US 3->75
+[ 4666 ms Inform] Recording data from US 4->147
+[ 4688 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 4747 ms Inform] Recording data from US 5->27
+[ 4836 ms Inform] Recording data from US 0->87
+[ 4917 ms Inform] Recording data from US 1->3
+[ 4938 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 5003 ms Inform] Recording data from US 2->109
+[ 5096 ms Inform] Recording data from US 3->103
+[ 5185 ms Inform] Recording data from US 4->139
+[ 5189 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 5386 ms Inform] Recording data from US 5->2053
+[ 5449 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 5487 ms Inform] Recording data from US 0->82
+[ 5569 ms Inform] Recording data from US 1->3
+[ 5657 ms Inform] Recording data from US 2->37
+[ 5699 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 5742 ms Inform] Recording data from US 3->84
+[ 5834 ms Inform] Recording data from US 4->136
+[ 5949 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 6035 ms Inform] Recording data from US 5->2055
+[ 6119 ms Inform] Recording data from US 0->69
+[ 6199 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 6199 ms Inform] Recording data from US 1->3
+[ 6280 ms Inform] Recording data from US 2->25
+[ 6366 ms Inform] Recording data from US 3->91
+[ 6449 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 6458 ms Inform] Recording data from US 4->191
+[ 6563 ms Inform] Recording data from US 5->167
+[ 6653 ms Inform] Recording data from US 0->51
+[ 6699 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 6739 ms Inform] Recording data from US 1->3
+[ 6826 ms Inform] Recording data from US 2->23
+[ 6914 ms Inform] Recording data from US 3->64
+[ 6949 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 7009 ms Inform] Recording data from US 4->143
+[ 7092 ms Inform] Recording data from US 5->63
+[ 7174 ms Inform] Recording data from US 0->25
+[ 7203 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 7264 ms Inform] Recording data from US 1->3
+[ 7353 ms Inform] Recording data from US 2->39
+[ 7441 ms Inform] Recording data from US 3->80
+[ 7453 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 7536 ms Inform] Recording data from US 4->235
+[ 7626 ms Inform] Recording data from US 5->62
+[ 7710 ms Inform] Recording data from US 0->26
+[ 7712 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 7791 ms Inform] Recording data from US 1->3
+[ 7872 ms Inform] Recording data from US 2->26
+[ 7959 ms Inform] Recording data from US 3->78
+[ 7962 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 8053 ms Inform] Recording data from US 4->142
+[ 8142 ms Inform] Recording data from US 5->51
+[ 8212 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 8237 ms Inform] Recording data from US 0->26
+[ 8317 ms Inform] Recording data from US 1->3
+[ 8402 ms Inform] Recording data from US 2->26
+[ 8462 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 8505 ms Inform] Recording data from US 3->80
+[ 8595 ms Inform] Recording data from US 4->137
+[ 8677 ms Inform] Recording data from US 5->42
+[ 8712 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 8784 ms Inform] Recording data from US 0->449
+[ 8870 ms Inform] Recording data from US 1->3
+[ 8958 ms Inform] Recording data from US 2->26
+[ 8965 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 9044 ms Inform] Recording data from US 3->80
+[ 9134 ms Inform] Recording data from US 4->144
+[ 9215 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 9216 ms Inform] Recording data from US 5->36
+[ 9324 ms Inform] Recording data from US 0->473
+[ 9409 ms Inform] Recording data from US 1->3
+[ 9465 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 9492 ms Inform] Recording data from US 2->26
+[ 9582 ms Inform] Recording data from US 3->80
