@@ -532,8 +532,12 @@ namespace AS7
     }
 
     void Drone::writeTxChannel_f(float value, int8_t ch) {
+        float _value = value;
+        if (ch == CH_THROTTLE) {
+            _value = min(value, THROTTLE_LIMIT);
+        }
         //getLogger()->verbose("WriteChannel_f: " + std::to_string(ch) + " -> f/value: " + std::to_string(value) + "/" + std::to_string(convTxChannel_i(value, ch)));
-        writeChannel(convTxChannel_i(value, ch), ch);
+        writeChannel(convTxChannel_i(_value, ch), ch);
     }
 
     void Drone::writeChannel(int16_t value, int8_t ch) {
