@@ -4,8 +4,9 @@ Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
 
 
 What Mink is working on now:
-- display 3D model within the DATAmodel.cpp
-
+- Finalise software wire frame with dummy buttons and boxes
+What Mink is working on next:
+- Read file from Datamodel.cpp
 
 
 
@@ -18,6 +19,7 @@ Side thoughts:
 
 
 ===========STUFF THAT HAS BEEN COMPLETED===================
+- display 3D model within the DATAmodel.cpp
 
 =================MINK'S RANDO NOTES========================
 - Wire frame: https://drive.google.com/file/d/1HZjIMIIsOeRHFitesahdV5oPBWg40f4h/view?usp=sharing
