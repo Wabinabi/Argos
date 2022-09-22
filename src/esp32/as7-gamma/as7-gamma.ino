@@ -366,6 +366,7 @@ void taskAccelerometer(void * parameters) {
       accel_x_offset = accel_x;
       accel_y_offset = accel_y;
       accel_z_offset = accel_z;
+      accelerometerCalibrated = true;
     }
 
     // Get the low-pass filtered readings

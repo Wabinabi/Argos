@@ -191,6 +191,7 @@ namespace AS7
                     logFile.print("raw_vel_x, raw_vel_y, raw_vel_z, filt_vel_x, filt_vel_y, filt_vel_z, ");
                     logFile.print("raw_pos_x, raw_pos_y, raw_pos_z, filt_pos_x, filt_pos_y, filt_pos_z, ");
                     logFile.print("heading, compass_x, compass_y, compass_z, millis, recording_enabled");
+                    logFile.println();
                     _activeData["Test Version"]=0;
                     _activeData["drone_x"]=0;
                     _activeData["drone_y"]=0;
