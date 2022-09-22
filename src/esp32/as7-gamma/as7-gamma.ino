@@ -816,26 +816,38 @@ void setup() {
 
   drone.enqueueCommand(armingCommand);
 
-  blindCommand.desc = "Flying up a little bit - 20% initial thrust";
+  blindCommand.desc = "Flying up a little bit - 10% initial thrust";
   blindCommand.type = AS7::Blind;
   blindCommand.duration = 2000;
 
   blindCommand.v_y = 0.0f;
   blindCommand.v_x = 0.0f;
-  blindCommand.v_z = 0.4f;
+  blindCommand.v_z = 0.15f;
   blindCommand.v_yw = 0.0f;
   
   drone.enqueueCommand(blindCommand);
-  blindCommand.desc = "Flying forward at 30%";
+  blindCommand.desc = "Flying forward at 5%";
   blindCommand.type = AS7::Blind;
   blindCommand.duration = 2000;
 
   blindCommand.v_y = 0.0f;
   blindCommand.v_x = -0.3f;
-  blindCommand.v_z = 0.1f;
+  blindCommand.v_z = 0.15f;
   blindCommand.v_yw = 0.0f;
   
   drone.enqueueCommand(blindCommand);
+
+  blindCommand.desc = "Stopping Drone";
+  blindCommand.type = AS7::Blind;
+  blindCommand.duration = 5000;
+
+  blindCommand.v_y = 0.0f;
+  blindCommand.v_x = 0.0f;
+  blindCommand.v_z = 0.0f;
+  blindCommand.v_yw = 0.0f;
+  
+  drone.enqueueCommand(blindCommand);
+
 
 }
 
