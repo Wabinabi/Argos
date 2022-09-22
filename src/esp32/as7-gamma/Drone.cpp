@@ -78,10 +78,10 @@ namespace AS7
                     case Blind:
                         if (getDroneHasArmed()) {
                             // Blind is only concerned with velocities, not position.
-                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.0002f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.0002f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.0002f, RAMPRATE_LINEAR);
-                            rampChannel(currentCommand.v_yw, CH_YAW, 0.0002f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.001f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_y, CH_STRAFE, 0.001f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_z, CH_THROTTLE, 0.001f, RAMPRATE_LINEAR);
+                            rampChannel(currentCommand.v_yw, CH_YAW, 0.001f, RAMPRATE_LINEAR);
 
                             //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
                             
@@ -98,10 +98,10 @@ namespace AS7
 
                     case Arm:
                         // Send arming command
-                        rampChannel( 0.9f, CH_STRAIGHT, 0.005f, RAMPRATE_LINEAR);
-                        rampChannel(-0.9f, CH_STRAFE, 0.005f, RAMPRATE_LINEAR);
+                        rampChannel( 0.9f, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR);
+                        rampChannel(-0.9f, CH_STRAFE, 0.05f, RAMPRATE_LINEAR);
                         rampChannel( 0.1f, CH_THROTTLE, 0.005f, RAMPRATE_LINEAR);
-                        rampChannel( 0.9f, CH_YAW, 0.005f, RAMPRATE_LINEAR);
+                        rampChannel( 0.9f, CH_YAW, 0.05f, RAMPRATE_LINEAR);
                         rampChannel( 0.9f, 4, 0.15f, RAMPRATE_NONE);
                         rampChannel(-0.8f, 5, 0.15f, RAMPRATE_NONE);
                         rampChannel(-0.9f, 6, 0.15f, RAMPRATE_NONE);
@@ -381,8 +381,8 @@ namespace AS7
     float Drone::rampValue(float value, float target, float rate, int rampRateType) {
         float _returnValue;
 
-        //getLogger()->verbose("RampValue value, target, rate, rampratetype:");
-        //getLogger()->verbose(std::to_string(value)+"/"+std::to_string(target)+"/"+std::to_string(rate)+"/"+std::to_string(rampRateType));
+        getLogger()->verbose("RampValue value, target, rate, rampratetype:");
+        getLogger()->verbose(std::to_string(value)+"/"+std::to_string(target)+"/"+std::to_string(rate)+"/"+std::to_string(rampRateType));
 
         switch(rampRateType) {
 
@@ -410,7 +410,7 @@ namespace AS7
     }
 
     void Drone::rampChannel(float target, int8_t ch, float rate, int rampRateType) {
-        //getLogger()->verbose("Ramping ch " + std::to_string(ch) + " -> in:" + std::to_string(readTxChannel_f(ch)));
+        getLogger()->verbose("Ramping ch " + std::to_string(ch) + " -> in:" + std::to_string(readTxChannel_f(ch)));
         writeTxChannel_f(rampValue(readTxChannel_f(ch), target, rate, rampRateType), ch);
     }
 
@@ -601,14 +601,14 @@ namespace AS7
     }
 
     void Drone::generateEStopTx() {
-        _sbusEStopTx[0]  = convRxChannel_i(0.5f, 0);
-        _sbusEStopTx[1]  = convRxChannel_i(0.5f, 1);
+        _sbusEStopTx[0]  = convRxChannel_i(0.0f, 0);
+        _sbusEStopTx[1]  = convRxChannel_i(0.0f, 1);
         _sbusEStopTx[2]  = 0;
-        _sbusEStopTx[3]  = convRxChannel_i(0.5f, 3);
-        _sbusEStopTx[4]  = convRxChannel_i(0.5f, 4);
-        _sbusEStopTx[5]  = convRxChannel_i(0.5f, 5);
-        _sbusEStopTx[6]  = convRxChannel_i(0.5f, 6);
-        _sbusEStopTx[7]  = convRxChannel_i(0.5f, 7);
+        _sbusEStopTx[3]  = convRxChannel_i(0.0f, 3);
+        _sbusEStopTx[4]  = convRxChannel_i(0.2f, 4);
+        _sbusEStopTx[5]  = convRxChannel_i(0.0f, 5);
+        _sbusEStopTx[6]  = convRxChannel_i(0.0f, 6);
+        _sbusEStopTx[7]  = convRxChannel_i(0.2f, 7);
         _sbusEStopTx[8]  = convRxChannel_i(0.5f, 8);
         _sbusEStopTx[9]  = convRxChannel_i(0.5f, 9);
         _sbusEStopTx[10] = convRxChannel_i(0.5f, 10);

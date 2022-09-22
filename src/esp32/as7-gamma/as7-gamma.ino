@@ -1,4 +1,4 @@
-
+ 
 /** 04/09/2022 this will be done today no matter what
  * @file as7-beta.ino 
  * @brief Summary of module
@@ -179,9 +179,11 @@ float compass_z;    // Compass Z axis reading (millliTeslas)
 float compass_heading; // Compass heading in degrees
 const float declinationAngle = 0.192228625; // Melbourne's magnetic declination is +11 deg 50 s. See https://www.magnetic-declination.com/
 
-float accel_x_offset; // The offset from 'zeroing' x
-float accel_y_offset; // The offset from 'zeroing' y
-float accel_z_offset; // The offset from 'zeroing' z
+float accel_x_offset = 0; // The offset from 'zeroing' x
+float accel_y_offset = 0; // The offset from 'zeroing' y
+float accel_z_offset = 0; // The offset from 'zeroing' z
+
+bool accelerometerCalibrated = false; // Indicates if the accelerometer offsets have been set
 
 float estDronePos_x; // The estimated drone x position based on the accelerometer
 float estDronePos_y; // The estimated drone y position based on the accelerometer
@@ -309,9 +311,14 @@ void readAccelerometer() {
   }
     accel_z_int=(int8_t)accelData[2]>>2;
 
-    accel_x=(float)accel_x_int*GRAVITY_CMS/DIV_I;
-    accel_y=(float)accel_y_int*GRAVITY_CMS/DIV_I;
-    accel_z=(float)accel_z_int*GRAVITY_CMS/DIV_I;
+    // Rounding to reduce noise (minimum value 4 or higher from raw value)
+    accel_x_int = round((float)accel_x_int / 4);
+    accel_y_int = round((float)accel_y_int / 4);
+    accel_z_int = round((float)accel_z_int / 4);
+
+    accel_x=(float)accel_x_int*GRAVITY_CMS/DIV_I - accel_x_offset;
+    accel_y=(float)accel_y_int*GRAVITY_CMS/DIV_I - accel_y_offset;
+    accel_z=(float)accel_z_int*GRAVITY_CMS/DIV_I - accel_z_offset;
 }
 
 /* --------------------- Task code for threads --------------------- */
@@ -355,6 +362,12 @@ void taskAccelerometer(void * parameters) {
   for (;;) {
     readAccelerometer(); // Update accelerometer data
 
+    if (!accelerometerCalibrated) {
+      accel_x_offset = accel_x;
+      accel_y_offset = accel_y;
+      accel_z_offset = accel_z;
+    }
+
     // Get the low-pass filtered readings
     //  This returns the average of the last 5 accerometers
     accel_x_readings[accel_index] = accel_x;
@@ -379,7 +392,7 @@ void taskAccelerometer(void * parameters) {
     //  This section uses both the filtered and non-filtered values.
 
     accel_curr_millis = millis();
-    accel_delta_s = (accel_curr_millis - accel_prev_millis)/1000;
+    accel_delta_s = ((float)accel_curr_millis - (float)accel_prev_millis)/1000;
 
     // Work out the estimated velocity in cm/s
     // vel(cm/s) = accel_x (cm/s2) * s
@@ -391,13 +404,13 @@ void taskAccelerometer(void * parameters) {
     filt_vel_y += accel_filt_y * accel_delta_s;
     filt_vel_z += accel_filt_z * accel_delta_s;
 
-    raw_pos_x += accel_x * accel_delta_s;
-    raw_pos_y += accel_y * accel_delta_s;
-    raw_pos_z += accel_z * accel_delta_s;
+    raw_pos_x += raw_vel_x * accel_delta_s;
+    raw_pos_y += raw_vel_y * accel_delta_s;
+    raw_pos_z += raw_vel_z * accel_delta_s;
 
-    filt_pos_x += accel_filt_x * accel_delta_s;
-    filt_pos_y += accel_filt_y * accel_delta_s;
-    filt_pos_z += accel_filt_z * accel_delta_s;
+    filt_pos_x += filt_vel_x * accel_delta_s;
+    filt_pos_y += filt_vel_y * accel_delta_s;
+    filt_pos_z += filt_vel_z * accel_delta_s;
 
     // Push data to logger
     logger.recordData("raw_accel_x", accel_x);
@@ -422,7 +435,6 @@ void taskAccelerometer(void * parameters) {
     logger.recordData("filt_pos_z", filt_pos_z);
     
     accel_index = (accel_index++) % NUM_ACCEL_READINGS;
-
 
     compass.getEvent(&compass_event); // Get compass data
 
@@ -796,91 +808,34 @@ void setup() {
   drone.start();
 
   AS7::DroneCommand armingCommand;
-  armingCommand.desc = "This is a test arming command!";
+  AS7::DroneCommand blindCommand;
+
+  armingCommand.desc = "Arming Drone";
   armingCommand.type = AS7::Arm;
   armingCommand.duration = 8000;
 
   drone.enqueueCommand(armingCommand);
 
-  AS7::DroneCommand blindCommand;
-  blindCommand.desc = "This is a blind command!";
+  blindCommand.desc = "Flying up a little bit - 20% initial thrust";
   blindCommand.type = AS7::Blind;
-  blindCommand.duration = 1000;
+  blindCommand.duration = 2000;
 
   blindCommand.v_y = 0.0f;
   blindCommand.v_x = 0.0f;
-  blindCommand.v_z = 0.9f;
-  
-  drone.enqueueCommand(blindCommand);
-
-
-  blindCommand.desc = "This is a 2nd blind command!";
-  blindCommand.type = AS7::Blind;
-  blindCommand.duration = 1000;
-
-  blindCommand.v_x = -0.5f;
-  blindCommand.v_y = 0.0f;
-  blindCommand.v_z = 1.0f;
-  blindCommand.v_yw = 0.0f;
-  blindCommand.dataRecording = true;
-  
-  drone.enqueueCommand(blindCommand);
-  blindCommand.desc = "This is a 2nd blind command!";
-  blindCommand.type = AS7::Blind;
-  blindCommand.duration = 1000;
-
-  blindCommand.v_x = 0.9f;
-  blindCommand.v_y = 0.0f;
-  blindCommand.v_z = 0.3f;
-  blindCommand.v_yw = 0.4f;
-  
-  drone.enqueueCommand(blindCommand);
-  blindCommand.desc = "This is a 2nd blind command!";
-  blindCommand.type = AS7::Blind;
-  blindCommand.duration = 1000;
-
-  blindCommand.v_x = 0.0f;
-  blindCommand.v_y = 0.0f;
-  blindCommand.v_z = 1.0f;
-  blindCommand.v_yw = 0.0f;
-  blindCommand.dataRecording = false;
-
-  drone.enqueueCommand(blindCommand);
-  blindCommand.desc = "This is a 2nd blind command!";
-  blindCommand.type = AS7::Blind;
-  blindCommand.duration = 1000;
-
-  blindCommand.v_x = 0.0f;
-  blindCommand.v_y = 0.0f;
-  blindCommand.v_z = 0.3f;
-  blindCommand.v_yw = 0.0f;
-  blindCommand.dataRecording = false;
-
-  drone.enqueueCommand(blindCommand);
-  blindCommand.desc = "This is a 2nd blind command!";
-  blindCommand.type = AS7::Blind;
-  blindCommand.duration = 1000;
-
-  blindCommand.v_x = 0.0f;
-  blindCommand.v_y = 0.0f;
-  blindCommand.v_z = 0.9f;
-  blindCommand.v_yw = 0.0f;
-  blindCommand.dataRecording = false;
-  
-  drone.enqueueCommand(blindCommand);
-
-  blindCommand.desc = "This is the final command!";
-  blindCommand.type = AS7::Blind;
-  blindCommand.duration = 20000;
-
-  blindCommand.v_x = 0.0f;
-  blindCommand.v_y = 0.0f;
-  blindCommand.v_z = 0.005f;
+  blindCommand.v_z = 0.4f;
   blindCommand.v_yw = 0.0f;
   
   drone.enqueueCommand(blindCommand);
+  blindCommand.desc = "Flying forward at 30%";
+  blindCommand.type = AS7::Blind;
+  blindCommand.duration = 2000;
 
-
+  blindCommand.v_y = 0.0f;
+  blindCommand.v_x = -0.3f;
+  blindCommand.v_z = 0.1f;
+  blindCommand.v_yw = 0.0f;
+  
+  drone.enqueueCommand(blindCommand);
 
 }
 
