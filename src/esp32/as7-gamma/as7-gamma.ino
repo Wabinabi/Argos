@@ -68,6 +68,8 @@
 #define LED_TYPE    WS2811
 #define COLOR_ORDER GRB
 
+#define GRAVITY_CMS 980.6 // The acceleration due to gravity in cm/s2
+
 /* -------------------- Pin Mapping -------------------- */
 const int STATUS_FASTLED_PIN = 3;
 const int STATUS_NUM_LEDS = 8;
@@ -132,11 +134,44 @@ CRGBPalette16 DEVPAL = DEV_PALLETE;
 int8_t accel_x_int; // X Byte read from accelerometer
 int8_t accel_y_int; // Y Byte read from accelerometer
 int8_t accel_z_int; // Z Byte read from accelerometer
+float accel_total_x; // Sum of the last NUM_ACCEL_READINGS, used for averaging
+float accel_total_y; // Sum of the last NUM_ACCEL_READINGS, used for averaging
+float accel_total_z; // Sum of the last NUM_ACCEL_READINGS, used for averaging
+const float DIV_I=16; // Divisor from word (2 bytes, 16 bits) to float
+byte accelData[3]; // Buffer for storing accelerometer registers
+
+const int NUM_ACCEL_READINGS = 5;
+unsigned long accel_prev_millis = 0;  // Stores the previous time the acccelerometer was read. Used to find Delta-T when integrating for position
+unsigned long accel_curr_millis = 0;  // Stores the current time the acccelerometer was read. Used to find Delta-T when integrating for position
+float accel_delta_s = 0;  // Time since last reading (s)
+float accel_x_readings[NUM_ACCEL_READINGS]; // Stores the 5 previous accerometer points 
+float accel_y_readings[NUM_ACCEL_READINGS]; // Stores the 5 previous accerometer points 
+float accel_z_readings[NUM_ACCEL_READINGS]; // Stores the 5 previous accerometer points 
+int accel_index = 0;
+
 float accel_x; // X-axis g's from the accelerometer
 float accel_y; // Y-axis g's from the accelerometer
 float accel_z; // Z-axis g's from the accelerometer
-const float DIV_I=16; // Divisor from word (2 bytes, 16 bits) to float
-byte accelData[3]; // Buffer for storing accelerometer registers
+
+float accel_filt_x; // Average of the last NUM_ACCEL_READINGS x-axis g's
+float accel_filt_y; // Average of the last NUM_ACCEL_READINGS y-axis g's
+float accel_filt_z; // Average of the last NUM_ACCEL_READINGS z-axis g's
+
+float raw_vel_x = 0; // The estimated drone x-axis velocity
+float raw_vel_y = 0; // The estimated drone y-axis velocity
+float raw_vel_z = 0; // The estimated drone z-axis velocity
+
+float filt_vel_x = 0; // The estimated drone x-velocity using the filtered value
+float filt_vel_y = 0; // The estimated drone y-velocity using the filtered value
+float filt_vel_z = 0; // The estimated drone z-velocity using the filtered value
+
+float raw_pos_x = 0; // The estimated drone x-position using the raw accel value
+float raw_pos_y = 0; // The estimated drone y-position using the raw accel value
+float raw_pos_z = 0; // The estimated drone z-position using the raw accel value
+
+float filt_pos_x = 0; // The estimated drone x-position using the filtered accel value
+float filt_pos_y = 0; // The estimated drone y-position using the filtered accel value
+float filt_pos_z = 0; // The estimated drone z-position using the filtered accel value
 
 float compass_x;    // Compass X axis reading (millliTeslas)
 float compass_y;    // Compass Y axis reading (millliTeslas)
@@ -274,9 +309,9 @@ void readAccelerometer() {
   }
     accel_z_int=(int8_t)accelData[2]>>2;
 
-    accel_x=(float)accel_x_int/DIV_I;
-    accel_y=(float)accel_y_int/DIV_I;
-    accel_z=(float)accel_z_int/DIV_I;
+    accel_x=(float)accel_x_int*GRAVITY_CMS/DIV_I;
+    accel_y=(float)accel_y_int*GRAVITY_CMS/DIV_I;
+    accel_z=(float)accel_z_int*GRAVITY_CMS/DIV_I;
 }
 
 /* --------------------- Task code for threads --------------------- */
@@ -318,14 +353,77 @@ void taskUltrasonicSensor(void * parameters) {
 //  Runs continuously on startup and updates accel_x, accel_y, accel_z
 void taskAccelerometer(void * parameters) {
   for (;;) {
-
     readAccelerometer(); // Update accelerometer data
 
+    // Get the low-pass filtered readings
+    //  This returns the average of the last 5 accerometers
+    accel_x_readings[accel_index] = accel_x;
+    accel_y_readings[accel_index] = accel_y;
+    accel_z_readings[accel_index] = accel_z;
+
+    accel_total_x = 0;
+    accel_total_y = 0;
+    accel_total_z = 0;
+
+    for (int i = 0; i < NUM_ACCEL_READINGS; i++) {
+      accel_total_x += accel_x_readings[i];
+      accel_total_y += accel_y_readings[i];
+      accel_total_z += accel_z_readings[i];
+    }
+
+    accel_filt_x = accel_total_x / NUM_ACCEL_READINGS;
+    accel_filt_y = accel_total_y / NUM_ACCEL_READINGS;
+    accel_filt_z = accel_total_z / NUM_ACCEL_READINGS;
+
+    // Inertial position estimation using the accelerometer
+    //  This section uses both the filtered and non-filtered values.
+
+    accel_curr_millis = millis();
+    accel_delta_s = (accel_curr_millis - accel_prev_millis)/1000;
+
+    // Work out the estimated velocity in cm/s
+    // vel(cm/s) = accel_x (cm/s2) * s
+    raw_vel_x += accel_x * accel_delta_s;
+    raw_vel_y += accel_y * accel_delta_s;
+    raw_vel_z += accel_z * accel_delta_s;
+
+    filt_vel_x += accel_filt_x * accel_delta_s;
+    filt_vel_y += accel_filt_y * accel_delta_s;
+    filt_vel_z += accel_filt_z * accel_delta_s;
+
+    raw_pos_x += accel_x * accel_delta_s;
+    raw_pos_y += accel_y * accel_delta_s;
+    raw_pos_z += accel_z * accel_delta_s;
+
+    filt_pos_x += accel_filt_x * accel_delta_s;
+    filt_pos_y += accel_filt_y * accel_delta_s;
+    filt_pos_z += accel_filt_z * accel_delta_s;
+
     // Push data to logger
-    logger.recordData("accel_x", accel_x);
-    logger.recordData("accel_y", accel_y);
-    logger.recordData("accel_z", accel_z);
+    logger.recordData("raw_accel_x", accel_x);
+    logger.recordData("raw_accel_y", accel_y);
+    logger.recordData("raw_accel_z", accel_z);
+    logger.recordData("filt_accel_x", accel_filt_x);
+    logger.recordData("filt_accel_y", accel_filt_y);
+    logger.recordData("filt_accel_z", accel_filt_z);
     
+    logger.recordData("raw_vel_x", raw_vel_x);
+    logger.recordData("raw_vel_y", raw_vel_y);
+    logger.recordData("raw_vel_z", raw_vel_z);
+    logger.recordData("filt_vel_x", filt_vel_x);
+    logger.recordData("filt_vel_y", filt_vel_y);
+    logger.recordData("filt_vel_z", filt_vel_z);
+    
+    logger.recordData("raw_pos_x", raw_pos_x);
+    logger.recordData("raw_pos_y", raw_pos_y);
+    logger.recordData("raw_pos_z", raw_pos_z);
+    logger.recordData("filt_pos_x", filt_pos_x);
+    logger.recordData("filt_pos_y", filt_pos_y);
+    logger.recordData("filt_pos_z", filt_pos_z);
+    
+    accel_index = (accel_index++) % NUM_ACCEL_READINGS;
+
+
     compass.getEvent(&compass_event); // Get compass data
 
     // Get compass data from event
@@ -347,6 +445,7 @@ void taskAccelerometer(void * parameters) {
     logger.recordData("compass_z", compass_z);
     logger.recordData("heading", compass_heading);
 
+    accel_prev_millis = millis();
     vTaskDelay((1000 / ACC_FREQ)/ portTICK_PERIOD_MS);
   }
 }
