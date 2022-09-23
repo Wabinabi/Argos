@@ -103,20 +103,18 @@ namespace AS7
 
                         // let's ramp throttle up near 1m and use a relu-like function
 
-                        //left sensor
                         float _us_left = getUsLeft();
                         float _us_right = getUsRight();
+                        float _us_down = getUsDown();
+                        float _compassHeading = getCompassHeading();
 
                         // thresholding above 2m (we ignore) and below 10cm (ignore)
 
                         _us_left = min(_us_left, 200.0f); // cap at 200
                         _us_right = min(_us_right, 200.0f); // cap at 200
 
-                        float left_bias;
-                        float right_bias;
-
-                        left_bias = 0.5f - _us_left / 400;
-                        right_bias = 0.5f - _us_right / 400;
+                        float left_bias = 0.5f - _us_left / 400;
+                        float right_bias = 0.5f - _us_right / 400;
 
                         // left and right bias are betwen -0.5 and 0.5
                         // we can add these together to get a value between the two
@@ -129,11 +127,11 @@ namespace AS7
                         // our control command is this times a Proportional value (P control, though I and D are probably important too)
                         // for example, if we had a p_z of 70 and our current is 10, we want to send 60 * 0.005 = 0.3 = 30% throttle
 
-                        v_x = (currentCommand.p_z - getUsDown()) * 0.005;
+                        v_x = (currentCommand.p_z - _us_down) * 0.005;
                         v_x = min(v_x, THROTTLE_LIMIT);
 
                         // Likewise for compass yaw
-                        v_yw = (currentCommand.p_yw - getCompassHeading()) * 0.05; // This is a very agressive value! This is due to yaw being slow!
+                        v_yw = (currentCommand.p_yw - _compassHeading) * 0.05; // This is a very agressive value! This is due to yaw being slow!
                         v_yw = min(v_yw, 0.8f);
 
                         rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR); // We keep the x as we're assuming a tunnel
@@ -141,6 +139,10 @@ namespace AS7
                         rampChannel(v_x, CH_THROTTLE, 0.10f, RAMPRATE_LINEAR);
                         rampChannel(v_yw, CH_YAW, 0.05f, RAMPRATE_LINEAR);
 
+                        // logging information
+                        getLogger()->verbose("V_Y: " + std::to_string(v_y) + "\t - Left Bias (Raw) / Right Bias (Raw) - " + std::to_string(left_bias) + " (" + std::to_string(_us_left) + ") / " + std::to_string(right_bias) + " (" + std::to_string(_us_right) + ")");
+                        getLogger()->verbose("V_Z: " + std::to_string(v_z) + "\t - Target - Current = Error - " + std::to_string(currentCommand.p_z) + " - " + std::to_string(_us_down));
+                        getLogger()->verbose("VYW: " + std::to_string(v_yw) + "\t - Target - Current = Error - " + std::to_string(currentCommand.p_yw) + " - " + std::to_string(_compassHeading));
                         break;
 
                     case Landing:
