@@ -131,7 +131,7 @@ namespace AS7
                         v_x = min(v_x, THROTTLE_LIMIT);
 
                         // Likewise for compass yaw
-                        v_yw = (currentCommand.p_yw - _compassHeading) * 0.05; // This is a very agressive value! This is due to yaw being slow!
+                        v_yw = (currentCommand.p_yw - _compassHeading) * -0.05f; // This is a very agressive value! This is due to yaw being slow!
                         v_yw = min(v_yw, 0.8f);
 
                         rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR); // We keep the x as we're assuming a tunnel
