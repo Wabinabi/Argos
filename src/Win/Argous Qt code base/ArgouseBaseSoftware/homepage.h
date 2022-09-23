@@ -2,6 +2,10 @@
 #define HOMEPAGE_H
 
 #include <QMainWindow>
+#include <QMessageBox>
+#include <QFile>
+#include <QVector>
+#include <QFileDialog>
 
 #include "tripdata.h"
 
@@ -19,6 +23,10 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+
+    void on_ImportBtn_clicked();
+
+    void on_BrowseBtn_clicked();
 
 private:
     Ui::HomePage *ui;
