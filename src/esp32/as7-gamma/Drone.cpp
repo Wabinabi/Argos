@@ -122,7 +122,7 @@ namespace AS7
                         // we can add these together to get a value between the two
                         // this is the value sent to the strafe channel
 
-                        v_y = right_bias - left_bias;
+                        v_y = (right_bias - left_bias) * -1;
 
                         // our vertical position requires position control!
                         // currentCommand.p_z contains a cm value we want to hold
@@ -133,13 +133,13 @@ namespace AS7
                         v_x = min(v_x, THROTTLE_LIMIT);
 
                         // Likewise for compass yaw
-                        v_yw = (currentCommand.p_yw - getCompassHeading()) * 0.05; // This is a very agressive value!
+                        v_yw = (currentCommand.p_yw - getCompassHeading()) * 0.05; // This is a very agressive value! This is due to yaw being slow!
                         v_yw = min(v_yw, 0.8f);
 
                         rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR); // We keep the x as we're assuming a tunnel
                         rampChannel(v_y, CH_STRAFE, 0.05f, RAMPRATE_LINEAR);
                         rampChannel(v_x, CH_THROTTLE, 0.10f, RAMPRATE_LINEAR);
-                        rampChannel(currentCommand.v_yw, CH_YAW, 0.05f, RAMPRATE_LINEAR);
+                        rampChannel(v_yw, CH_YAW, 0.05f, RAMPRATE_LINEAR);
 
                         break;
 
