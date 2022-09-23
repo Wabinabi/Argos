@@ -219,7 +219,28 @@ namespace AS7
         inline bool getEnableEmergencyStop() {return _enableEmergencyStop; }          // Returns e-stop bit
         inline bool getDroneArmComplete() {return _armingComplete; }
 
-        // Main theread control
+        // Assume everything is far so we don't shock the drone into a position
+        
+        float usFront = 200;     // Distance measurement from the front US sensor
+        float usBack = 200;      // Distance measurement from the back US sensor
+        float usLeft = 200;      // Distance measurement from the left US sensor
+        float usRight = 200;     // Distance measurement from the right US sensor
+        float usUp = 200;        // Distance measurement from the upwards US sensor
+        float usDown = 200;      // Distance measurement from the downwards US sensor
+
+        inline float getUsFront() {return usFront; };
+        inline float getUsBack() {return usBack; };
+        inline float getUsLeft() {return usLeft; };
+        inline float getUsRight() {return usRight; };
+        inline float getUsUp() {return usUp; };
+        inline float getUsDown() {return usDown; };
+
+        float compassHeading;
+        inline float getCompassHeading() {return compassHeading; };
+        
+
+
+        // Main thread control
         //  Operates both the controller and navigator threads
         void start(int core=1, int priority=3);
         void pause();

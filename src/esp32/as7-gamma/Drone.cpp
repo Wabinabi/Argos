@@ -89,6 +89,57 @@ namespace AS7
                         break;
 
                     case Guided:
+                        // p + x y z yw
+                        // v + x y z yw
+
+                        // Control variables
+                        float v_x = 0.0f;
+                        float v_y = 0.0f;
+                        float v_z = 0.0f;
+                        float v_yw = 0.0f;
+                        
+                        // we'll be doing avoidance rather than guiding any position
+                        // we'll use a flat rate of 1m from any left/right surface
+
+                        // let's ramp throttle up near 1m and use a relu-like function
+
+                        //left sensor
+                        float _us_left = getUsLeft();
+                        float _us_right = getUsRight();
+
+                        // thresholding above 2m (we ignore) and below 10cm (ignore)
+
+                        _us_left = min(_us_left, 200.0f); // cap at 200
+                        _us_right = min(_us_right, 200.0f); // cap at 200
+
+                        float left_bias;
+                        float right_bias;
+
+                        left_bias = 0.5f - _us_left / 400;
+                        right_bias = 0.5f - _us_right / 400;
+
+                        // left and right bias are betwen -0.5 and 0.5
+                        // we can add these together to get a value between the two
+                        // this is the value sent to the strafe channel
+
+                        v_y = right_bias - left_bias;
+
+                        // our vertical position requires position control!
+                        // currentCommand.p_z contains a cm value we want to hold
+                        // our control command is this times a Proportional value (P control, though I and D are probably important too)
+                        // for example, if we had a p_z of 70 and our current is 10, we want to send 60 * 0.005 = 0.3 = 30% throttle
+
+                        v_x = (currentCommand.p_z - getUsDown()) * 0.005;
+                        v_x = min(v_x, THROTTLE_LIMIT);
+
+                        // Likewise for compass yaw
+                        v_yw = (currentCommand.p_yw - getCompassHeading()) * 0.05; // This is a very agressive value!
+                        v_yw = min(v_yw, 0.8f);
+
+                        rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR); // We keep the x as we're assuming a tunnel
+                        rampChannel(v_y, CH_STRAFE, 0.05f, RAMPRATE_LINEAR);
+                        rampChannel(v_x, CH_THROTTLE, 0.10f, RAMPRATE_LINEAR);
+                        rampChannel(currentCommand.v_yw, CH_YAW, 0.05f, RAMPRATE_LINEAR);
 
                         break;
 
