@@ -46,6 +46,9 @@ void HomePage::on_ImportBtn_clicked()
                         line = stream.readLine();
                         importedData.append(line);
                     }
+            msg.setText("Import complete!");
+            msg.exec();
+
             file.close();
             }
         }
