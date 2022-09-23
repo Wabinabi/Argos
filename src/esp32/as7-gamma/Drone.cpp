@@ -64,7 +64,7 @@ namespace AS7
         for (;;) {
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
             // Main Block
-            //getLogger()->verbose("Drone active command status:" + std::to_string(getHasActiveComamnd()));
+            getLogger()->verbose("Drone active command status:" + std::to_string(getHasActiveComamnd()));
             if (getHasActiveComamnd()) {
                 // Process Command block
                 
@@ -83,7 +83,7 @@ namespace AS7
                             rampChannel(currentCommand.v_z, CH_THROTTLE, 0.05f, RAMPRATE_LINEAR);
                             rampChannel(currentCommand.v_yw, CH_YAW, 0.03f, RAMPRATE_LINEAR);
 
-                            //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
+                            getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
                             
                         }
                         break;
@@ -164,10 +164,10 @@ namespace AS7
 
 
                 }
-                //getLogger()->verbose("Mills vs FinishTime: " + std::to_string(millis()) + " vs. " + std::to_string(finishTime));    
+                getLogger()->verbose("Mills vs FinishTime: " + std::to_string(millis()) + " vs. " + std::to_string(finishTime));    
                 setHasActiveCommand(millis() < finishTime); // If we've passed our command duration, we unset the active command
             } else {
-                //getLogger()->inform("Command completed, seeking new command");
+                getLogger()->inform("Command completed, seeking new command");
                 // Get Command Block
                 //  As there is no active command, we will attempt to get one and set it up
 
@@ -177,7 +177,7 @@ namespace AS7
                 }
 
                 if (nextCommandAvailable()) {      // Check if there's a command available
-                    //getLogger()->verbose("New command found");
+                    getLogger()->verbose("New command found");
                     if (droneAllowedToFly()) {                          // Check if the drone is allowed to fly
                         currentCommand = dequeueCommand();
                         finishTime = currentCommand.duration + millis();
@@ -222,7 +222,7 @@ namespace AS7
             
             // Share status to logger every STATUS_UPDATE_DELAY updates
             if (getControllerStatusCount()) {
-                //getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
+                getLogger()->inform("Controller status: estop/operator: " + std::to_string(getEnableEmergencyStop()) + "/"+  std::to_string(getEnableOperatorControl()));
                 getLogger()->inform("DATA: " + std::to_string(_dataAvailable) + " TX: " + formatSbusArray(getSbusTx()->ch()) + " RX: " + formatSbusArray(getSbusRx()->ch()));
             }
 
@@ -233,18 +233,18 @@ namespace AS7
                 setSbusRxData(getSbusRx()->ch());
 
                 if (getSbusRxData()[15] > 900 & getSbusRxData()[14] > 900 & getSbusRxData()[13] > 900 & getSbusRxData()[12] > 900 & getSbusRxData()[11] > 900 & getSbusRxData()[10] > 900) {
-                //getLogger()->verbose(formatSbusArray(getSbusRxData()));
+                getLogger()->verbose(formatSbusArray(getSbusRxData()));
                 // Estop and Override Check
                 // This may differ depending on your controller
                 if (readRxChannel_f(CH_ESTOP) > 0.7f) { // EStop Threshold
                     emergencyStop(); // Toggle EStop
                 } else if (readRxChannel_f(CH_FLIGHTMODE) > 0.7f) {
-                    //getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
+                    getLogger()->inform(std::to_string(readRxChannel(CH_FLIGHTMODE)));
                     enableOperatorControl();
                 }
 
                 // Transmit data to drone
-                //getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
+                getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
                 getSbusTx()->Write();
                 }
             }
@@ -458,7 +458,7 @@ namespace AS7
                 _returnValue = target;
                 break;
         }
-        //getLogger()->verbose("RampValue returned value:" + std::to_string(_returnValue));
+        getLogger()->verbose("RampValue returned value:" + std::to_string(_returnValue));
         return _returnValue;
     }
 
@@ -556,7 +556,7 @@ namespace AS7
             _adjustedValue = (value - ((_chUpper - _chLower) / 2)) / ((_chUpper - _chLower)/2);
         }
 
-        //getLogger()->verbose("ConvTxChannel_f (" + std::to_string(value) + ") =" + std::to_string(_adjustedValue));
+        getLogger()->verbose("ConvTxChannel_f (" + std::to_string(value) + ") =" + std::to_string(_adjustedValue));
 
         return _adjustedValue;
     }
@@ -575,7 +575,7 @@ namespace AS7
     }
     
     float Drone::readTxChannel_f(int16_t ch) {
-        //getLogger()->verbose("Reading in channel: " + std::to_string(readTxChannel(ch)) +"->"+std::to_string(convTxChannel_f(readTxChannel(ch), ch)));
+        getLogger()->verbose("Reading in channel: " + std::to_string(readTxChannel(ch)) +"->"+std::to_string(convTxChannel_f(readTxChannel(ch), ch)));
         float chValue = convTxChannel_f(readTxChannel(ch), ch);
         return chValue;
     }
@@ -589,16 +589,16 @@ namespace AS7
         if (ch == CH_THROTTLE) {
             _value = min(value, THROTTLE_LIMIT);
         }
-        //getLogger()->verbose("WriteChannel_f: " + std::to_string(ch) + " -> f/value: " + std::to_string(value) + "/" + std::to_string(convTxChannel_i(value, ch)));
+        getLogger()->verbose("WriteChannel_f: " + std::to_string(ch) + " -> f/value: " + std::to_string(value) + "/" + std::to_string(convTxChannel_i(value, ch)));
         writeChannel(convTxChannel_i(_value, ch), ch);
     }
 
     void Drone::writeChannel(int16_t value, int8_t ch) {
         xSemaphoreTake(getTxChMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
-        //getLogger()->verbose("Writechannel is setting sbus value to " + std::to_string(value) + " in ch " + std::to_string(ch));
+        getLogger()->verbose("Writechannel is setting sbus value to " + std::to_string(value) + " in ch " + std::to_string(ch));
         _sbusTxData[ch] = value;
         xSemaphoreGive(getTxChMutex());
-        //getLogger()->verbose("Exiting writechannel!");
+        getLogger()->verbose("Exiting writechannel!");
     }
 
     
