@@ -206,6 +206,7 @@ bool recordingEnabled = false; // Stores whether or not the current drone comman
 
 // Variable for storing US results. Only to be written to by US threads
 int us_distance[NUM_US_SENSORS][NUM_US_POINTS];
+int us_rawDistance[NUM_US_SENSORS];
 
 // Current temperature from thermistor
 int tmp_temperature;
@@ -341,6 +342,8 @@ void taskUltrasonicSensor(void * parameters) {
       digitalWrite(US_TRIGPIN[i], LOW);
       _duration = pulseIn(US_ECHOPIN[i], HIGH); // Reads the echoPin, returns the sound wave travel time in us
       _distance = _duration * 0.034 / 2;        // get duration in cm (rounded down due to int)
+      
+      us_rawDistance[i] = min(_distance,MAX_US_DISTANCE);
       us_distance[i][_pointCount] = min(_distance,MAX_US_DISTANCE);
 
       logger.inform("Recording data from US " + std::to_string(i) + "->" + std::to_string(_distance));
@@ -353,6 +356,15 @@ void taskUltrasonicSensor(void * parameters) {
     xSemaphoreGive(enable_usSemaphore);
     logger.recordData("recordingEnabled",drone.recordingEnabled());
     logger.pushData();
+
+    // Push US data to drone
+    drone.usUp    = us_rawDistance[4];
+    drone.usFront = us_rawDistance[0];
+    drone.usDown  = us_rawDistance[1];
+    drone.usLeft  = us_rawDistance[5];
+    drone.usRight = us_rawDistance[2];
+    drone.usBack  = us_rawDistance[3];
+
   }
 }
 
@@ -457,6 +469,9 @@ void taskAccelerometer(void * parameters) {
     logger.recordData("compass_y", compass_y);
     logger.recordData("compass_z", compass_z);
     logger.recordData("heading", compass_heading);
+
+    // Push data to drone
+    drone.compassHeading = compass_heading;
 
     accel_prev_millis = millis();
     vTaskDelay((1000 / ACC_FREQ)/ portTICK_PERIOD_MS);
