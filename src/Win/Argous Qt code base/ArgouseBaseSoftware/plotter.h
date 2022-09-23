@@ -23,6 +23,8 @@
 #include <QFileDialog>
 #include <QLabel>
 
+
+
 class Plotter : public QObject
 {
     Q_OBJECT
@@ -57,6 +59,11 @@ Q_SIGNALS:
     void fontChanged(const QFont& font);
 
 private:
+    float sourceX(QString line);
+    float sourceY(QString line);
+    float sourceZ(QString line);
+    QVector3D PLYPoint(QString line);
+
     QVector3D randVector();
     Q3DScatter* m_graph;
     int m_fontSize;

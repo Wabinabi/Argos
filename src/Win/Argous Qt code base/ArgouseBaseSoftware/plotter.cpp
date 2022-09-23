@@ -1,9 +1,8 @@
 #include "plotter.h"
 
-//#define RANDOM_SCATTER // Uncomment this to switch to random scatter
 const int numberOfItems = 3600;
 const float curveDivider = 3.0f;
-const int lowerNumberOfItems = 900;
+const int lowerNumberOfItems = 5000;
 const float lowerCurveDivider = 0.75f;
 
 
@@ -49,28 +48,64 @@ void Plotter::addData()
     dataArray->resize(m_itemCount);
     QScatterDataItem* ptrToDataArray = &dataArray->first();
 
-//#ifdef RANDOM_SCATTER
+    //Testing reading in a text PLY file (B1's cube)
+    //Source file -> this will later link to the processed PLY file spat out by import action'
+    QString filename = "test.txt";
+    QFile file(filename);
+    QVector<QString> importedPLYData;
+    QMessageBox msg;
 
+    if(filename.isEmpty()){
+        msg.setText("Test file not present");
+        msg.exec();
+    }else{
+        //get the yummy data and put it in an array
+        QString line;
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+                QTextStream stream(&file);
+                while (!stream.atEnd()){
+                    line = stream.readLine();
+                    importedPLYData.append(line);
+                }
+        msg.setText("Import complete!");
+        msg.exec();
 
-//#else
-    float limit = qSqrt(m_itemCount) / 2.0f;
-    for (float i = -limit; i < limit; i++) {
-        for (float j = -limit; j < limit; j++) {
-            ptrToDataArray->setPosition(QVector3D(i + 0.5f,
-                qCos(qDegreesToRadians((i * j) / m_curveDivider)),
-                j + 0.5f));
-            ptrToDataArray++;
+        file.close();
         }
     }
-//#endif
 
+    //now load the data into the 3Dscatter plot
+    for (float i = 0; i < importedPLYData.length(); i++){
+        ptrToDataArray->setPosition(PLYPoint(importedPLYData[i]));
+        ptrToDataArray++;
+    }
     m_graph->seriesList().at(0)->dataProxy()->resetArray(dataArray);
 }
 
-//void Plotter::closeEvent (QCloseEvent *event)
-//{
-//        event->ignore();
-//}
+//Processes a PLY line and spits out a single 3DVector point
+QVector3D Plotter::PLYPoint(QString line){
+    QString stX = "";
+    QString stY = "";
+    QString stZ = "";
+
+    int pos = 0;
+
+    for(QChar& c : line) {
+        if(c == ' '){pos += 1;}
+        else{
+           if(pos == 0){stX = stX + c;}
+           else if(pos == 1){stY = stY + c;}
+           else if(pos == 2){stZ = stZ + c;}
+        }
+    }
+
+    float fX = stX.toFloat();
+    float fY = stY.toFloat();
+    float fZ = stZ.toFloat();
+
+    return QVector3D(fX, fY, fZ);
+}
+
 
 void Plotter::changeStyle(int style)
 {
