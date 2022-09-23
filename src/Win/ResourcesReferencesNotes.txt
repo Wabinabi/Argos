@@ -4,9 +4,13 @@ Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
 
 
 What Mink is working on now:
-- Finalise software wire frame with dummy buttons and boxes
+- When "import" is hit, a PLY file needs to be generated (decide if this is temp or not, or if it's just an array/vector??). Load the pLY point cloud image from this instead of the test file! 
+	
+
 What Mink is working on next:
-- Read file from Datamodel.cpp
+- Recent Files
+- UI theme development
+
 
 
 
