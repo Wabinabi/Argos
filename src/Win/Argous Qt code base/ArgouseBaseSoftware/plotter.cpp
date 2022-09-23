@@ -1,15 +1,4 @@
 #include "plotter.h"
-#include <QtDataVisualization/qscatterdataproxy.h>
-#include <QtDataVisualization/qvalue3daxis.h>
-#include <QtDataVisualization/q3dscene.h>
-#include <QtDataVisualization/q3dcamera.h>
-#include <QtDataVisualization/qscatter3dseries.h>
-#include <QtDataVisualization/q3dtheme.h>
-#include <QtCore/qmath.h>
-#include <QtCore/qrandom.h>
-#include <QtWidgets/QComboBox>
-#include <QDialog>
-#include <QCloseEvent>
 
 //#define RANDOM_SCATTER // Uncomment this to switch to random scatter
 const int numberOfItems = 3600;
@@ -60,10 +49,10 @@ void Plotter::addData()
     dataArray->resize(m_itemCount);
     QScatterDataItem* ptrToDataArray = &dataArray->first();
 
-#ifdef RANDOM_SCATTER
+//#ifdef RANDOM_SCATTER
 
 
-#else
+//#else
     float limit = qSqrt(m_itemCount) / 2.0f;
     for (float i = -limit; i < limit; i++) {
         for (float j = -limit; j < limit; j++) {
@@ -73,7 +62,7 @@ void Plotter::addData()
             ptrToDataArray++;
         }
     }
-#endif
+//#endif
 
     m_graph->seriesList().at(0)->dataProxy()->resetArray(dataArray);
 }

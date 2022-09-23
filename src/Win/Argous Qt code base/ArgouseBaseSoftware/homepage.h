@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "tripdata.h"
+
 namespace Ui {
 class HomePage;
 }

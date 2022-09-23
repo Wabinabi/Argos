@@ -3,6 +3,22 @@
 
 #include <QDialog>
 
+#include "plotter.h"
+
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QWidget>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QCheckBox>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QFontComboBox>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QMessageBox>
+#include <QtGui/QScreen>
+#include <QtGui/QFontDatabase>
+#include <QCloseEvent>
+
 namespace Ui {
 class DataModel;
 }

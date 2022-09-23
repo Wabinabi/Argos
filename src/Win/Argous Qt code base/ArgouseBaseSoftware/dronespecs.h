@@ -3,6 +3,8 @@
 
 #include <QDialog>
 
+#include "ui_dronespecs.h"
+
 namespace Ui {
 class DroneSpecs;
 }

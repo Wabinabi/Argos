@@ -1,22 +1,6 @@
 #include "datamodel.h"
 #include "ui_datamodel.h"
 
-#include "plotter.h"
-
-#include <QtWidgets/QApplication>
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QVBoxLayout>
-#include <QtWidgets/QPushButton>
-#include <QtWidgets/QCheckBox>
-#include <QtWidgets/QComboBox>
-#include <QtWidgets/QFontComboBox>
-#include <QtWidgets/QLabel>
-#include <QtWidgets/QMessageBox>
-#include <QtGui/QScreen>
-#include <QtGui/QFontDatabase>
-#include <QCloseEvent>
-
 DataModel::DataModel(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DataModel)

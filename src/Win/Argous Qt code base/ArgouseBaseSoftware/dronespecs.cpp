@@ -1,5 +1,4 @@
 #include "dronespecs.h"
-#include "ui_dronespecs.h"
 
 DroneSpecs::DroneSpecs(QWidget *parent) :
     QDialog(parent),

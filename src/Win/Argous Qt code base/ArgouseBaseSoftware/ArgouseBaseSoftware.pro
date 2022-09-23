@@ -1,7 +1,6 @@
 QT -= gui
 QT    += widgets
 QT += core
-QT -= gui
 CONFIG += c++11
 TARGET = test
 CONFIG += console

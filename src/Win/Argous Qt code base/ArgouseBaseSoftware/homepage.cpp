@@ -1,6 +1,6 @@
 #include "homepage.h"
 #include "ui_homepage.h"
-#include "tripdata.h""
+
 
 HomePage::HomePage(QWidget *parent) :
     QMainWindow(parent),
