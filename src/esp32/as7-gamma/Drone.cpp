@@ -60,7 +60,21 @@ namespace AS7
         rampChannel(0.0f, 13, 0.0f, RAMPRATE_NONE);
         rampChannel(0.0f, 14, 0.0f, RAMPRATE_NONE);
         rampChannel(0.0f, 15, 0.0f, RAMPRATE_NONE);
-        
+
+
+        float v_x;
+        float v_y;
+        float v_z;
+        float v_yw;
+
+        float left_bias;
+        float right_bias;
+
+        float _us_left;
+        float _us_right;
+        float _us_down;
+        float _compassHeading;
+
         for (;;) {
             xSemaphoreTake(getSemDroneEnableMutex(), portMAX_DELAY);
             // Main Block
@@ -72,8 +86,6 @@ namespace AS7
                 setDataGathering(currentCommand.dataRecording);
 
                 switch(currentCommand.type) {
-
-                    
                             
                     case Blind:
                         if (getDroneHasArmed()) {
@@ -93,28 +105,28 @@ namespace AS7
                         // v + x y z yw
 
                         // Control variables
-                        float v_x = 0.0f;
-                        float v_y = 0.0f;
-                        float v_z = 0.0f;
-                        float v_yw = 0.0f;
+                        v_x = 0.0f;
+                        v_y = 0.0f;
+                        v_z = 0.0f;
+                        v_yw = 0.0f;
                         
                         // we'll be doing avoidance rather than guiding any position
                         // we'll use a flat rate of 1m from any left/right surface
 
                         // let's ramp throttle up near 1m and use a relu-like function
 
-                        float _us_left = getUsLeft();
-                        float _us_right = getUsRight();
-                        float _us_down = getUsDown();
-                        float _compassHeading = getCompassHeading();
+                        _us_left = getUsLeft();
+                        _us_right = getUsRight();
+                        _us_down = getUsDown();
+                        _compassHeading = getCompassHeading();
 
                         // thresholding above 2m (we ignore) and below 10cm (ignore)
 
                         _us_left = min(_us_left, 200.0f); // cap at 200
                         _us_right = min(_us_right, 200.0f); // cap at 200
 
-                        float left_bias = 0.5f - _us_left / 400;
-                        float right_bias = 0.5f - _us_right / 400;
+                        left_bias = 0.5f - _us_left / 400;
+                        right_bias = 0.5f - _us_right / 400;
 
                         // left and right bias are betwen -0.5 and 0.5
                         // we can add these together to get a value between the two
