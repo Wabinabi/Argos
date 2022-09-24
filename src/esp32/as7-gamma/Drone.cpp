@@ -614,7 +614,7 @@ namespace AS7
 
     void Drone::writeChannel(int16_t value, int8_t ch) {
 
-        int16_t _value = min((int16_t)0, value); // remove any negative values
+        int16_t _value = max((int16_t)0, value); // remove any negative values
 
         xSemaphoreTake(getTxChMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
         getLogger()->verbose("Writechannel is setting sbus value to " + std::to_string(_value) + " in ch " + std::to_string(ch));
