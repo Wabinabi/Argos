@@ -148,12 +148,13 @@ namespace AS7
 
                         rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR); // We keep the x as we're assuming a tunnel
                         rampChannel(v_y, CH_STRAFE, 0.05f, RAMPRATE_LINEAR);
-                        rampChannel(v_x, CH_THROTTLE, 0.10f, RAMPRATE_LINEAR);
+                        rampChannel(v_z, CH_THROTTLE, 0.10f, RAMPRATE_LINEAR);
                         rampChannel(v_yw, CH_YAW, 0.05f, RAMPRATE_LINEAR);
 
                         // logging information
                         getLogger()->verbose("V_Y: " + std::to_string(v_y) + "\t - Left Bias (Raw) / Right Bias (Raw) - " + std::to_string(left_bias) + " (" + std::to_string(_us_left) + ") / " + std::to_string(right_bias) + " (" + std::to_string(_us_right) + ")");
                         getLogger()->verbose("V_Z: " + std::to_string(v_z) + "\t - Target - Current = Error - " + std::to_string(currentCommand.p_z) + " - " + std::to_string(_us_down));
+                        getLogger()->verbose("V_Z P_z - US_DOWN: " + std::to_string(currentCommand.p_z - _us_down));
                         getLogger()->verbose("VYW: " + std::to_string(v_yw) + "\t - Target - Current = Error - " + std::to_string(currentCommand.p_yw) + " - " + std::to_string(_compassHeading));
                         break;
 
