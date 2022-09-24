@@ -757,6 +757,9 @@ void setup() {
 
   /* --------------------- Initialise Modules --------------------- */
 
+  
+  delay(500); // Slight delay to allow drone to settle after being powered on
+
   xTaskCreatePinnedToCore(
     taskUltrasonicSensor,
     "AS7 Ultrasonic Sensor Thread",
@@ -820,11 +823,17 @@ void setup() {
   }
 
 
+
+
   // Initialise drone class
   drone.start();
 
+  readAccelerometer(); // Initialise accelerometer to allow it to calibrate and read compass heading
+
   AS7::DroneCommand armingCommand;
   AS7::DroneCommand blindCommand;
+  AS7::DroneCommand stopCommand;
+  AS7::DroneCommand guidedCommand;
 
   armingCommand.desc = "Arming Drone";
   armingCommand.type = AS7::Arm;
@@ -835,34 +844,34 @@ void setup() {
   blindCommand.desc = "Flying up a little bit - 10% initial thrust";
   blindCommand.type = AS7::Blind;
   blindCommand.duration = 2000;
-
   blindCommand.v_y = 0.0f;
   blindCommand.v_x = 0.0f;
   blindCommand.v_z = 0.15f;
   blindCommand.v_yw = 0.0f;
   
   drone.enqueueCommand(blindCommand);
-  blindCommand.desc = "Flying forward at 5%";
-  blindCommand.type = AS7::Blind;
-  blindCommand.duration = 2000;
 
-  blindCommand.v_y = 0.0f;
-  blindCommand.v_x = -0.3f;
-  blindCommand.v_z = 0.15f;
-  blindCommand.v_yw = 0.0f;
+  guidedCommand.desc = "AS7 Moving to guided tunnel flight";
+  guidedCommand.type = AS7::Guided;
+  guidedCommand.duration = 20000000; // TODO: CHANGE TO ANOTHER TIME
+
+  // Guided tunnel flight does not use left/right  (y)
+  //  we can set an initial forward movement of 10% (x)
+  guidedCommand.v_x = -0.10f;             // Move forward at 10%
+  guidedCommand.v_z = 40.0f;              // Fly 40cm off the ground
+  guidedCommand.v_yw = compass_heading;   // Stay at the current heading
   
-  drone.enqueueCommand(blindCommand);
+  drone.enqueueCommand(guidedCommand);
 
-  blindCommand.desc = "Stopping Drone";
-  blindCommand.type = AS7::Blind;
-  blindCommand.duration = 5000;
-
-  blindCommand.v_y = 0.0f;
-  blindCommand.v_x = 0.0f;
-  blindCommand.v_z = 0.0f;
-  blindCommand.v_yw = 0.0f;
+  stopCommand.desc = "Stopping Drone";
+  stopCommand.type = AS7::Blind;
+  stopCommand.duration = 5000;
+  stopCommand.v_y = 0.0f;
+  stopCommand.v_x = 0.0f;
+  stopCommand.v_z = 0.0f;
+  stopCommand.v_yw = 0.0f;
   
-  drone.enqueueCommand(blindCommand);
+  drone.enqueueCommand(stopCommand);
 
 
 }
