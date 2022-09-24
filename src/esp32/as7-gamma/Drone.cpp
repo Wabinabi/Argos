@@ -125,8 +125,8 @@ namespace AS7
                         _us_left = min(_us_left, 200.0f); // cap at 200
                         _us_right = min(_us_right, 200.0f); // cap at 200
 
-                        left_bias = 0.5f - _us_left / 400;
-                        right_bias = 0.5f - _us_right / 400;
+                        left_bias = 0.5f - (_us_left / 400);
+                        right_bias = 0.5f - (_us_right / 400);
 
                         // left and right bias are betwen -0.5 and 0.5
                         // we can add these together to get a value between the two
@@ -141,6 +141,7 @@ namespace AS7
 
                         v_z = (currentCommand.p_z - _us_down) * 0.005;
                         v_z = min(v_z, THROTTLE_LIMIT);
+                        v_z = max(v_z, 0.02f); // minimum throttle 2%
 
                         // Likewise for compass yaw
                         v_yw = (currentCommand.p_yw - _compassHeading) * -0.05f; // This is a very agressive value! This is due to yaw being slow!
@@ -612,9 +613,12 @@ namespace AS7
     }
 
     void Drone::writeChannel(int16_t value, int8_t ch) {
+
+        int16_t _value = min((int16_t)0, value); // remove any negative values
+
         xSemaphoreTake(getTxChMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
-        getLogger()->verbose("Writechannel is setting sbus value to " + std::to_string(value) + " in ch " + std::to_string(ch));
-        _sbusTxData[ch] = value;
+        getLogger()->verbose("Writechannel is setting sbus value to " + std::to_string(_value) + " in ch " + std::to_string(ch));
+        _sbusTxData[ch] = _value;
         xSemaphoreGive(getTxChMutex());
         getLogger()->verbose("Exiting writechannel!");
     }
