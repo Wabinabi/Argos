@@ -139,8 +139,8 @@ namespace AS7
                         // our control command is this times a Proportional value (P control, though I and D are probably important too)
                         // for example, if we had a p_z of 70 and our current is 10, we want to send 60 * 0.005 = 0.3 = 30% throttle
 
-                        v_x = (currentCommand.p_z - _us_down) * 0.005;
-                        v_x = min(v_x, THROTTLE_LIMIT);
+                        v_z = (currentCommand.p_z - _us_down) * 0.005;
+                        v_z = min(v_z, THROTTLE_LIMIT);
 
                         // Likewise for compass yaw
                         v_yw = (currentCommand.p_yw - _compassHeading) * -0.05f; // This is a very agressive value! This is due to yaw being slow!
@@ -179,7 +179,6 @@ namespace AS7
                 getLogger()->verbose("Mills vs FinishTime: " + std::to_string(millis()) + " vs. " + std::to_string(finishTime));    
                 setHasActiveCommand(millis() < finishTime); // If we've passed our command duration, we unset the active command
             } else {
-                getLogger()->inform("Command completed, seeking new command");
                 // Get Command Block
                 //  As there is no active command, we will attempt to get one and set it up
 
@@ -490,11 +489,17 @@ namespace AS7
 
         if (_sbusAbsChannels[ch]) { // This is an absolute channel. Accepts (0, 1)
             _adjustedValue = _chLower + (_chUpper - _chLower) * value;
+
         } else {
             value += 1; // Range is now (0, 2)
             value /= 2; // Range is now (0, 1), we can use the same formula as above.
             _adjustedValue = _chLower + (_chUpper - _chLower) * value;
+
         }
+
+        // Adjust values to only be between lower and upper
+        _adjustedValue = max(_sbusRxChLower[ch], _adjustedValue);
+        _adjustedValue = min(_sbusRxChUpper[ch], _adjustedValue); 
 
         return _adjustedValue;
     }

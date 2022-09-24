@@ -82,15 +82,15 @@ namespace AS7
         float rateMultiplier = 1.0f;          // Can be thought of as "aggressiveness" of controls
 
         // Prefix P = Position; V = Velocity. Units on per-member basis and are *convention* (not checked)
-        int p_x;        // Position to hold (some distance unit tbc)
-        int p_y;
-        int p_z;
+        float p_x;        // Position to hold (some distance unit tbc)
+        float p_y;
+        float p_z;
         float v_x;      // Velocity to hold (-1 to 1) floating point value
         float v_y;      // e.g. 0.1 is equivalent to 10% forward thrust
         float v_z;
-        int p_rl;       // Not directly controllable on a drone
-        int p_pt;       // Not directly controllable on a drone
-        int p_yw;
+        float p_rl;       // Not directly controllable on a drone
+        float p_pt;       // Not directly controllable on a drone
+        float p_yw;
         float v_rl;     // Not directly controllable on a drone
         float v_pt;     // Not directly controllable on a drone
         float v_yw;

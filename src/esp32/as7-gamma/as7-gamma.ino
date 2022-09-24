@@ -265,7 +265,7 @@ std::map<DroneState, std::string> droneStateMap = {
 // Drone initial states
 DroneState currentState = Initialise;
 DroneState nextState = Initialise;
-DroneFlightMode currentFlightMode = ArmOnly;
+DroneFlightMode currentFlightMode = AutoStraightLine;
 
 
 /* ------------------------ Main Objects ------------------------ */
@@ -858,8 +858,8 @@ void setup() {
   // Guided tunnel flight does not use left/right  (y)
   //  we can set an initial forward movement of 10% (x)
   guidedCommand.v_x = -0.10f;             // Move forward at 10%
-  guidedCommand.v_z = 40.0f;              // Fly 40cm off the ground
-  guidedCommand.v_yw = compass_heading;   // Stay at the current heading
+  guidedCommand.p_z = 40.0f;              // Fly 40cm off the ground
+  guidedCommand.p_yw = compass_heading;   // Stay at the current heading
   
   drone.enqueueCommand(guidedCommand);
 
