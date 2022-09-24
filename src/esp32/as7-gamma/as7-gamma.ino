@@ -765,7 +765,7 @@ void setup() {
     "AS7 Ultrasonic Sensor Thread",
     4096,
     NULL,  
-    1, 
+    2, 
     &th_Ultrasonic,
     0);
   

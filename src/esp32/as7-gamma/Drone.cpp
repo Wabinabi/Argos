@@ -95,7 +95,7 @@ namespace AS7
                             rampChannel(currentCommand.v_z, CH_THROTTLE, 0.05f, RAMPRATE_LINEAR);
                             rampChannel(currentCommand.v_yw, CH_YAW, 0.03f, RAMPRATE_LINEAR);
 
-                            getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
+                            //getLogger()->verbose("Throttle: " + std::to_string(readTxChannel_f(CH_THROTTLE)));
                             
                         }
                         break;
@@ -147,10 +147,10 @@ namespace AS7
                         v_yw = (currentCommand.p_yw - _compassHeading) * -0.05f; // This is a very agressive value! This is due to yaw being slow!
                         v_yw = min(v_yw, 0.8f);
 
-                        rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR); // We keep the x as we're assuming a tunnel
-                        rampChannel(v_y, CH_STRAFE, 0.05f, RAMPRATE_LINEAR);
+                        rampChannel(currentCommand.v_x, CH_STRAIGHT, 0.15f, RAMPRATE_LINEAR); // We keep the x as we're assuming a tunnel
+                        rampChannel(v_y, CH_STRAFE, 0.15f, RAMPRATE_LINEAR);
                         rampChannel(v_z, CH_THROTTLE, 0.10f, RAMPRATE_LINEAR);
-                        rampChannel(v_yw, CH_YAW, 0.05f, RAMPRATE_LINEAR);
+                        rampChannel(v_yw, CH_YAW, 0.15f, RAMPRATE_LINEAR);
 
                         // logging information
                         getLogger()->verbose("V_Y: " + std::to_string(v_y) + "\t - Left Bias (Raw) / Right Bias (Raw) - " + std::to_string(left_bias) + " (" + std::to_string(_us_left) + ") / " + std::to_string(right_bias) + " (" + std::to_string(_us_right) + ")");
@@ -165,10 +165,10 @@ namespace AS7
 
                     case Arm:
                         // Send arming command
-                        rampChannel( 0.9f, CH_STRAIGHT, 0.05f, RAMPRATE_LINEAR);
-                        rampChannel(-0.9f, CH_STRAFE, 0.05f, RAMPRATE_LINEAR);
-                        rampChannel( 0.1f, CH_THROTTLE, 0.05f, RAMPRATE_LINEAR);
-                        rampChannel( 0.9f, CH_YAW, 0.05f, RAMPRATE_LINEAR);
+                        rampChannel( 0.9f, CH_STRAIGHT, 0.1f, RAMPRATE_LINEAR);
+                        rampChannel(-0.9f, CH_STRAFE, 0.1f, RAMPRATE_LINEAR);
+                        rampChannel( 0.1f, CH_THROTTLE, 0.1f, RAMPRATE_LINEAR);
+                        rampChannel( 0.9f, CH_YAW, 0.1f, RAMPRATE_LINEAR);
                         rampChannel( 0.9f, 4, 0.15f, RAMPRATE_NONE);
                         rampChannel(-0.8f, 5, 0.15f, RAMPRATE_NONE);
                         rampChannel(-0.9f, 6, 0.15f, RAMPRATE_NONE);
@@ -178,7 +178,7 @@ namespace AS7
 
 
                 }
-                getLogger()->verbose("Mills vs FinishTime: " + std::to_string(millis()) + " vs. " + std::to_string(finishTime));    
+                //getLogger()->verbose("Mills vs FinishTime: " + std::to_string(millis()) + " vs. " + std::to_string(finishTime));    
                 setHasActiveCommand(millis() < finishTime); // If we've passed our command duration, we unset the active command
             } else {
                 // Get Command Block
@@ -190,7 +190,7 @@ namespace AS7
                 }
 
                 if (nextCommandAvailable()) {      // Check if there's a command available
-                    getLogger()->verbose("New command found");
+                    //getLogger()->verbose("New command found");
                     if (droneAllowedToFly()) {                          // Check if the drone is allowed to fly
                         currentCommand = dequeueCommand();
                         finishTime = currentCommand.duration + millis();
@@ -246,7 +246,7 @@ namespace AS7
                 setSbusRxData(getSbusRx()->ch());
 
                 if (getSbusRxData()[15] > 900 & getSbusRxData()[14] > 900 & getSbusRxData()[13] > 900 & getSbusRxData()[12] > 900 & getSbusRxData()[11] > 900 & getSbusRxData()[10] > 900) {
-                getLogger()->verbose(formatSbusArray(getSbusRxData()));
+                //getLogger()->verbose(formatSbusArray(getSbusRxData()));
                 // Estop and Override Check
                 // This may differ depending on your controller
                 if (readRxChannel_f(CH_ESTOP) > 0.7f) { // EStop Threshold
@@ -257,7 +257,7 @@ namespace AS7
                 }
 
                 // Transmit data to drone
-                getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
+                //getLogger()->inform("TX: " + formatSbusArray(getSbusTxData()));
                 getSbusTx()->Write();
                 }
             }
@@ -575,7 +575,7 @@ namespace AS7
             _adjustedValue = (value - ((_chUpper - _chLower) / 2)) / ((_chUpper - _chLower)/2);
         }
 
-        getLogger()->verbose("ConvTxChannel_f (" + std::to_string(value) + ") =" + std::to_string(_adjustedValue));
+        //getLogger()->verbose("ConvTxChannel_f (" + std::to_string(value) + ") =" + std::to_string(_adjustedValue));
 
         return _adjustedValue;
     }
@@ -594,7 +594,7 @@ namespace AS7
     }
     
     float Drone::readTxChannel_f(int16_t ch) {
-        getLogger()->verbose("Reading in channel: " + std::to_string(readTxChannel(ch)) +"->"+std::to_string(convTxChannel_f(readTxChannel(ch), ch)));
+        //getLogger()->verbose("Reading in channel: " + std::to_string(readTxChannel(ch)) +"->"+std::to_string(convTxChannel_f(readTxChannel(ch), ch)));
         float chValue = convTxChannel_f(readTxChannel(ch), ch);
         return chValue;
     }
@@ -608,7 +608,7 @@ namespace AS7
         if (ch == CH_THROTTLE) {
             _value = min(value, THROTTLE_LIMIT);
         }
-        getLogger()->verbose("WriteChannel_f: " + std::to_string(ch) + " -> f/value: " + std::to_string(value) + "/" + std::to_string(convTxChannel_i(value, ch)));
+        //getLogger()->verbose("WriteChannel_f: " + std::to_string(ch) + " -> f/value: " + std::to_string(value) + "/" + std::to_string(convTxChannel_i(value, ch)));
         writeChannel(convTxChannel_i(_value, ch), ch);
     }
 
@@ -617,10 +617,10 @@ namespace AS7
         int16_t _value = max((int16_t)0, value); // remove any negative values
 
         xSemaphoreTake(getTxChMutex(), portMAX_DELAY); // Get write locks to ensure no race conditions
-        getLogger()->verbose("Writechannel is setting sbus value to " + std::to_string(_value) + " in ch " + std::to_string(ch));
+        //getLogger()->verbose("Writechannel is setting sbus value to " + std::to_string(_value) + " in ch " + std::to_string(ch));
         _sbusTxData[ch] = _value;
         xSemaphoreGive(getTxChMutex());
-        getLogger()->verbose("Exiting writechannel!");
+        //getLogger()->verbose("Exiting writechannel!");
     }
 
     
