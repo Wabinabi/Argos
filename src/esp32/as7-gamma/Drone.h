@@ -55,25 +55,27 @@ namespace AS7
 {
     enum DroneCommandType {Blind, Guided, Landing, Arm};
 
-    // Drone Command Structure/Format
-    //  Two types: Blind and Guided, set by enum DroneCommandType
-    //  Blind commands only refer to the channel array and duration
-    //  Guided commands will attempt to use on-board sensors to control the drone
-    //
-    // Landing is a special type where the drone will lower thrust just below its known weight to land
-    //  If possible, it will use the bottom sensors to guide landing
-    //  Landing is equivalent to setting v_y to some pre-defined value in blind mode.
-    //
-    // Arm is a special type that will send the arming command to the drone.
-    //  As SBUS is one-way at the moment, it's not possible to *know* if the drone is armed but we can generally assume
-    //   that after a certain duration, the drone is armed.
-    //  Because of this, there is no way to know if the drone is disarmed as it will disarm automatically from the FC
-    //  More advanced implementations using two-way SBUS or ideally MAVLink can get around this limmitation.
-    //
-    // Drone commands are enqueued to the drone, and will be executed FIFO.
-    //
-    // Note: Blind Commands can also be used as buttons and inputs to the FC, not just for navigation
-    //
+    /**
+     * @brief Drone Command Structure/Format
+     * 
+     * There are two types: Blind and Guided, set by enum DroneCommandType
+     *  Blind commands only refer to the channel array and duration
+     *  Guided commands will attempt to use on-board sensors to control the drone
+     *
+     * Landing is a special type where the drone will lower thrust just below its known weight to land
+     *  If possible, it will use the bottom sensors to guide landing
+     *  Landing is equivalent to setting v_y to some pre-defined value in blind mode.
+     *
+     * Arm is a special type that will send the arming command to the drone.
+     *  As SBUS is one-way at the moment, it's not possible to *know* if the drone is armed but we can generally assume
+     *   that after a certain duration, the drone is armed.
+     *  Because of this, there is no way to know if the drone is disarmed as it will disarm automatically from the FC
+     *  More advanced implementations using two-way SBUS or ideally MAVLink can get around this limmitation.
+     *
+     * Drone commands are enqueued to the drone, and will be executed FIFO.
+     *
+     * Note: Blind Commands can also be used as buttons and inputs to the FC, not just for navigation
+     */
     typedef struct {
         DroneCommandType type;              // Blind = Purely a drone command, Guided = Assisted with sensors
         std::string desc;                   // A description for the logger
@@ -141,8 +143,8 @@ namespace AS7
 
 
         // Channels that will be transmitted to the drone
-        std::array<int16_t, NUM_CH> _sbusTxChLower;    // Lower bounds for SBUS Transmit channels
-        std::array<int16_t, NUM_CH> _sbusTxChUpper;    // Upper bounds for SBUS Transmit Channels
+        std::array<int16_t, NUM_CH> _sbusTxChLower;    /** Lower bounds for SBUS Transmit channels */
+        std::array<int16_t, NUM_CH> _sbusTxChUpper;    /** Upper bounds for SBUS Transmit Channels */
 
         // Channels that are received from the transmitter
         std::array<int16_t, NUM_CH> _sbusRxChLower;    // Lower bounds for SBUS Receiver channels
