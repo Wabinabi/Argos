@@ -351,7 +351,7 @@ void taskUltrasonicSensor(void * parameters) {
       
       // Section for performing any filtering on US inputs
 
-       vTaskDelay(80/ portTICK_PERIOD_MS); // A delay of >70ms is recommended
+       vTaskDelay(40/ portTICK_PERIOD_MS); // A delay of >70ms is recommended
     }
     xSemaphoreGive(enable_usSemaphore);
     logger.recordData("recordingEnabled",drone.recordingEnabled());
@@ -822,9 +822,6 @@ void setup() {
     logger.fatal("Compass was unable to start, could the module be loose?");
   }
 
-
-
-
   // Initialise drone class
   drone.start();
 
@@ -841,24 +838,24 @@ void setup() {
 
   drone.enqueueCommand(armingCommand);
 
-  blindCommand.desc = "Flying up a little bit - 10% initial thrust";
-  blindCommand.type = AS7::Blind;
-  blindCommand.duration = 2000;
-  blindCommand.v_y = 0.0f;
-  blindCommand.v_x = 0.0f;
-  blindCommand.v_z = 0.15f;
-  blindCommand.v_yw = 0.0f;
+  // blindCommand.desc = "Flying up a little bit - 10% initial thrust";
+  // blindCommand.type = AS7::Blind;
+  // blindCommand.duration = 2000;
+  // blindCommand.v_y = 0.0f;
+  // blindCommand.v_x = 0.0f;
+  // blindCommand.v_z = 0.15f;
+  // blindCommand.v_yw = 0.0f;
   
-  drone.enqueueCommand(blindCommand);
+  // drone.enqueueCommand(blindCommand);
 
   guidedCommand.desc = "AS7 Moving to guided tunnel flight";
   guidedCommand.type = AS7::Guided;
-  guidedCommand.duration = 20000000; // TODO: CHANGE TO ANOTHER TIME
+  guidedCommand.duration = 60000; // TODO: CHANGE TO ANOTHER TIME
 
   // Guided tunnel flight does not use left/right  (y)
   //  we can set an initial forward movement of 10% (x)
   guidedCommand.v_x = -0.10f;             // Move forward at 10%
-  guidedCommand.p_z = 40.0f;              // Fly 40cm off the ground
+  guidedCommand.p_z = 60.0f;              // Fly 40cm off the ground
   guidedCommand.p_yw = compass_heading;   // Stay at the current heading
   
   drone.enqueueCommand(guidedCommand);
