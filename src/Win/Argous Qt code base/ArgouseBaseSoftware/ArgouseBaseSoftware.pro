@@ -2,10 +2,13 @@ QT -= gui
 QT += widgets
 QT += core
 CONFIG += c++11
-TARGET = test
 CONFIG += console
 CONFIG -= app_bundle
+
 TEMPLATE = app
+
+TARGET = test
+
 QT += network
 QT += datavisualization
 
@@ -41,4 +44,5 @@ HEADERS += \
     homepage.h \
     plotter.h \
     tripdata.h
+
 

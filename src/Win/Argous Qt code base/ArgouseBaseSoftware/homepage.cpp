@@ -3,10 +3,24 @@
 
 
 HomePage::HomePage(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::HomePage)
+    QMainWindow(parent), ui(new Ui::HomePage)
 {
     ui->setupUi(this);
+
+    readRecentFilesLog();
+
+    setAttribute(Qt::WA_DeleteOnClose);
+
+    //textEdit = new QTextEdit;
+    //setCentralWidget(textEdit);
+
+    createActions();
+    createMenus();
+    (void)statusBar();
+
+    setWindowFilePath(QString());
+    //resize(400, 300);
+
 }
 
 HomePage::~HomePage()
@@ -14,13 +28,40 @@ HomePage::~HomePage()
     delete ui;
 }
 
+void HomePage::readRecentFilesLog()
+{
+    QString fileName = "FileLog.txt";
+    QFile file(fileName);
+    QMessageBox msg;
+
+    //Reads text file log line by line, if no log file exists- it is built.
+    if(!file.exists()){
+        file.open(QIODevice::WriteOnly | QIODevice::Text);
+        QTextStream out(&file);
+    } else{
+
+        QString line;
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+                QTextStream stream(&file);
+                while (!stream.atEnd()){
+                    line = stream.readLine();
+                    recentFiles.append(line);
+                }
+        msg.setText("Log vector updated");
+        msg.exec();
+
+        file.close();
+        }
+    }
+}
+
+
 void HomePage::on_pushButton_clicked()
 {
     TripData tripData;
     tripData.setModal(false); //takes arguement for True/False, this determines whether the previous window can be accessed while the popup is open
     tripData.exec();
 }
-
 
 void HomePage::on_ImportBtn_clicked()
 {
@@ -52,6 +93,8 @@ void HomePage::on_ImportBtn_clicked()
             file.close();
             }
         }
+
+        updateRecentFileActions(filename);
 }
 
 
@@ -60,4 +103,213 @@ void HomePage::on_BrowseBtn_clicked()
     QString fileLocationStr = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("Txt Files (*.txt)"));
     ui->FileLocation->insertPlainText(fileLocationStr);
 }
+
+void HomePage::newFile()
+{
+    HomePage *other = new HomePage;
+    other->show();
+}
+
+void HomePage::open()
+{
+    QString fileName = QFileDialog::getOpenFileName(this);
+    if (!fileName.isEmpty())
+        loadFile(fileName);
+}
+
+void HomePage::save()
+{
+    if (curFile.isEmpty())
+        saveAs();
+    else
+        saveFile(curFile);
+}
+
+void HomePage::saveAs()
+{
+    QString fileName = QFileDialog::getSaveFileName(this);
+    if (fileName.isEmpty())
+        return;
+
+    saveFile(fileName);
+}
+
+void HomePage::openRecentFile()
+{
+    QAction *action = qobject_cast<QAction *>(sender());
+    if (action)
+        loadFile(action->data().toString());
+}
+
+void HomePage::about()
+{
+   //UPDATE
+   QMessageBox::about(this, tr("About Recent Files"),
+            tr("The <b>Recent Files</b> example demonstrates how to provide a "
+               "recently used file menu in a Qt application."));
+}
+
+void HomePage::createActions()
+{
+    newAct = new QAction(tr("&New"), this);
+    newAct->setShortcuts(QKeySequence::New);
+    newAct->setStatusTip(tr("Create a new file"));
+    connect(newAct, SIGNAL(triggered()), this, SLOT(newFile()));
+
+    openAct = new QAction(tr("&Open..."), this);
+    openAct->setShortcuts(QKeySequence::Open);
+    openAct->setStatusTip(tr("Open an existing file"));
+    connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
+
+    saveAct = new QAction(tr("&Save"), this);
+    saveAct->setShortcuts(QKeySequence::Save);
+    saveAct->setStatusTip(tr("Save the document to disk"));
+    connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
+
+    saveAsAct = new QAction(tr("Save &As..."), this);
+    saveAsAct->setShortcuts(QKeySequence::SaveAs);
+    saveAsAct->setStatusTip(tr("Save the document under a new name"));
+    connect(saveAsAct, SIGNAL(triggered()), this, SLOT(saveAs()));
+
+    TestRecentFile = new QAction(tr("FILENAME..."), this);
+    connect(TestRecentFile, SIGNAL(triggered()), this, SLOT(open()));
+
+    //for (int i = 0; i < MaxRecentFiles; ++i) {
+//        recentFileActs[i] = new QAction(this);
+//        recentFileActs[i]->setVisible(true);
+        //connect(recentFileActs[i], SIGNAL(triggered()),
+                //this, SLOT(openRecentFile()));
+    //}
+
+    exitAct = new QAction(tr("E&xit"), this);
+    exitAct->setShortcuts(QKeySequence::Quit);
+    exitAct->setStatusTip(tr("Exit the application"));
+    connect(exitAct, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
+
+    aboutAct = new QAction(tr("&About"), this);
+    aboutAct->setStatusTip(tr("Show the application's About box"));
+    connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
+
+    aboutQtAct = new QAction(tr("About &Qt"), this);
+    aboutQtAct->setStatusTip(tr("Show the Qt library's About box"));
+    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+}
+
+void HomePage::createMenus()
+{
+    fileMenu = menuBar()->addMenu(tr("&File"));
+    fileMenu->addAction(newAct);
+    fileMenu->addAction(openAct);
+    fileMenu->addAction(saveAct);
+    fileMenu->addAction(saveAsAct);
+
+    fileMenu->addSeparator();
+
+    separatorAct = fileMenu->addSeparator();
+
+    for (int i = 0; i < recentFiles.length(); ++i)
+        fileMenu->addAction(recentFiles[i]);
+
+    fileMenu->addSeparator();
+
+    fileMenu->addAction(exitAct);
+    //updateRecentFileActions();
+
+    menuBar()->addSeparator();
+
+    helpMenu = menuBar()->addMenu(tr("&Help"));
+    helpMenu->addAction(aboutAct);
+    helpMenu->addAction(aboutQtAct);
+}
+
+void HomePage::loadFile(const QString &fileName)
+{
+    QFile file(fileName);
+    if (!file.open(QFile::ReadOnly | QFile::Text)) {
+        QMessageBox::warning(this, tr("Recent Files"),
+                             tr("Cannot read file %1:\n%2.")
+                             .arg(fileName)
+                             .arg(file.errorString()));
+        return;
+    }
+
+    QTextStream in(&file);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    textEdit->setPlainText(in.readAll());
+    QApplication::restoreOverrideCursor();
+
+    setCurrentFile(fileName);
+    statusBar()->showMessage(tr("File loaded"), 2000);
+}
+
+void HomePage::saveFile(const QString &fileName)
+{
+    QFile file(fileName);
+    if (!file.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::warning(this, tr("Recent Files"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(fileName)
+                             .arg(file.errorString()));
+        return;
+    }
+
+    QTextStream out(&file);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    out << textEdit->toPlainText();
+    QApplication::restoreOverrideCursor();
+
+    setCurrentFile(fileName);
+    statusBar()->showMessage(tr("File saved"), 2000);
+}
+
+void HomePage::setCurrentFile(const QString &fileName)
+{
+    curFile = fileName;
+    setWindowFilePath(curFile);
+
+    //QSettings settings;
+    files = settings.value("recentFileList").toStringList();
+    files.removeAll(fileName);
+    files.prepend(fileName);
+    while (files.size() > MaxRecentFiles)
+        files.removeLast();
+
+    settings.setValue("recentFileList", files);
+
+//    foreach (QWidget *widget, QApplication::topLevelWidgets()) {
+//        HomePage *mainWin = qobject_cast<HomePage *>(widget);
+//        if (mainWin)
+//            mainWin->updateRecentFileActions();
+//    }
+}
+
+void HomePage::updateRecentFileActions(const QString &fullFileName)
+{
+    // Shift all elements downwards by working through the vector array backwards.
+    for (int i = recentFiles.size() - 1; i >= 1; i--)
+        recentFiles[i] = recentFiles[i-1];
+    // Add the imported file details to most recent slot
+    recentFiles[0] = fullFileName;
+
+    // Updates the log file
+    QFile file("FileLog.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
+          {
+              // We're going to streaming text to the file
+              QTextStream stream(&file);
+
+              stream << recentFiles[0] << '\n' << recentFiles[1]
+                        << '\n' << recentFiles[2] << '\n' << recentFiles[3] <<'\n';
+
+              file.close();
+          }
+
+    createMenus();
+}
+
+QString HomePage::strippedName(const QString &fullFileName)
+{
+    return QFileInfo(fullFileName).fileName();
+}
+
 

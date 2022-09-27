@@ -1,0 +1,4 @@
+E:/Documents/Gitkraken repositories/Argous/src/Win/Argous Qt code base/build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug/testREC.txt
+E:/Documents/Gitkraken repositories/Argous/src/Win/Argous Qt code base/build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug/test.txt
+E:\Documents\Gitkraken repositories\Argous\src\Win
+E:\Documents\Gitkraken repositories\Argous\

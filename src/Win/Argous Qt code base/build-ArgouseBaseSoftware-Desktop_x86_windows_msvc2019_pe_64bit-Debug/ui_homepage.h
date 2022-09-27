@@ -15,7 +15,6 @@
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
@@ -52,7 +51,6 @@ public:
     QWidget *scrollAreaWidgetContents_2;
     QScrollBar *verticalScrollBar_2;
     QMenuBar *menubar;
-    QMenu *menuFile;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *HomePage)
@@ -147,15 +145,10 @@ public:
         menubar = new QMenuBar(HomePage);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 22));
-        menuFile = new QMenu(menubar);
-        menuFile->setObjectName(QString::fromUtf8("menuFile"));
         HomePage->setMenuBar(menubar);
         statusbar = new QStatusBar(HomePage);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         HomePage->setStatusBar(statusbar);
-
-        menubar->addAction(menuFile->menuAction());
-        menuFile->addAction(actionImport);
 
         retranslateUi(HomePage);
 
@@ -174,7 +167,6 @@ public:
         pushButton_4->setText(QCoreApplication::translate("HomePage", "Drone Details", nullptr));
         label_3->setText(QCoreApplication::translate("HomePage", "Drone History", nullptr));
         label_4->setText(QCoreApplication::translate("HomePage", "Recent Files", nullptr));
-        menuFile->setTitle(QCoreApplication::translate("HomePage", "File", nullptr));
     } // retranslateUi
 
 };

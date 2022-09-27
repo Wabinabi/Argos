@@ -1458,10 +1458,10 @@
         "-fmacro-backtrace-limit=0",
         "-ferror-limit=1000",
         "/TP",
-        "E:\\Documents\\Gitkraken repositories\\Argous\\src\\Win\\Argous Qt code base\\build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\ui_dronespecs.h"
+        "E:\\Documents\\Gitkraken repositories\\Argous\\src\\Win\\Argous Qt code base\\build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\ui_tripdata.h"
     ],
     "directory": "E:/Documents/Gitkraken repositories/Argous/src/Win/Argous Qt code base/build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug/.qtc_clangd",
-    "file": "E:/Documents/Gitkraken repositories/Argous/src/Win/Argous Qt code base/build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug/ui_dronespecs.h"
+    "file": "E:/Documents/Gitkraken repositories/Argous/src/Win/Argous Qt code base/build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug/ui_tripdata.h"
 },
 {
     "arguments": [
@@ -1824,9 +1824,9 @@
         "-fmacro-backtrace-limit=0",
         "-ferror-limit=1000",
         "/TP",
-        "E:\\Documents\\Gitkraken repositories\\Argous\\src\\Win\\Argous Qt code base\\build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\ui_tripdata.h"
+        "E:\\Documents\\Gitkraken repositories\\Argous\\src\\Win\\Argous Qt code base\\build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug\\ui_dronespecs.h"
     ],
     "directory": "E:/Documents/Gitkraken repositories/Argous/src/Win/Argous Qt code base/build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug/.qtc_clangd",
-    "file": "E:/Documents/Gitkraken repositories/Argous/src/Win/Argous Qt code base/build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug/ui_tripdata.h"
+    "file": "E:/Documents/Gitkraken repositories/Argous/src/Win/Argous Qt code base/build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug/ui_dronespecs.h"
 }
 ]
