@@ -139,7 +139,7 @@ namespace AS7
                         // our control command is this times a Proportional value (P control, though I and D are probably important too)
                         // for example, if we had a p_z of 70 and our current is 10, we want to send 60 * 0.005 = 0.3 = 30% throttle
 
-                        v_z = (currentCommand.p_z - _us_down) * 0.005;
+                        v_z = (currentCommand.p_z - _us_down) * 0.003;
                         v_z = min(v_z, THROTTLE_LIMIT);
                         v_z = max(v_z, 0.02f); // minimum throttle 2%
 
