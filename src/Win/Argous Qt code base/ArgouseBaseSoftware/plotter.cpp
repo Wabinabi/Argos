@@ -59,7 +59,6 @@ void Plotter::addData()
         msg.setText("Test file not present");
         msg.exec();
     }else{
-        //get the yummy data and put it in an array
         QString line;
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
                 QTextStream stream(&file);

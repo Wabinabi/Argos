@@ -3,7 +3,6 @@ QT += widgets
 QT += core
 CONFIG += c++11
 CONFIG += console
-CONFIG -= app_bundle
 
 TEMPLATE = app
 
@@ -12,7 +11,7 @@ TARGET = test
 QT += network
 QT += datavisualization
 
-CONFIG += c++17 console
+#CONFIG += c++17 console
 CONFIG -= app_bundle
 
 # You can make your code fail to compile if it uses deprecated APIs.
@@ -28,9 +27,9 @@ SOURCES += \
         tripdata.cpp
 
 # Default rules for deployment.
-qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
-!isEmpty(target.path): INSTALLS += target
+#qnx: target.path = /tmp/$${TARGET}/bin
+#else: unix:!android: target.path = /opt/$${TARGET}/bin
+#!isEmpty(target.path): INSTALLS += target
 
 FORMS += \
     datamodel.ui \

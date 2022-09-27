@@ -7,7 +7,7 @@
 #include <QVector>
 #include <QFileDialog>
 #include <QList>
- #include <QtGui>
+#include <QtGui>
 
 #include "tripdata.h"
 
@@ -36,11 +36,11 @@ private slots:
     void on_BrowseBtn_clicked();
 
     //Recent Files
-    void newFile();
-    void open();
-    void save();
-    void saveAs();
-    void openRecentFile();
+    //void newFile();
+    //void open();
+    //void save();
+    //void saveAs();
+    //void openRecentFile();
     void about();
 
 private:
@@ -54,9 +54,9 @@ private:
     //Recent Files
     void createActions();
     void createMenus();
-    void loadFile(const QString &fileName);
-    void saveFile(const QString &fileName);
-    void setCurrentFile(const QString &fileName);
+    //void loadFile(const QString &fileName);
+    //void saveFile(const QString &fileName);
+    //void setCurrentFile(const QString &fileName);
     void updateRecentFileActions(const QString &fullFileName);
     QString strippedName(const QString &fullFileName);
 

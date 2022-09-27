@@ -7,13 +7,27 @@ Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
 - HIGH: Chance camera preset to be striaght on or not
 - MED: if recent files are the same then don't double list them
 - LOW: the recent files doesn't update if you're to import more than once in a software. I.e., if the current file updates then the 
+- URGENT: The 3D model doesn't pan or select points or zoom on initial implementation. Needs to have stuff clicked prior to working with full functionality
 
+
+===========================================================
 What Mink is working on now:
-- When "import" is hit, a PLY file needs to be generated (decide if this is temp or not, or if it's just an array/vector??). Load the pLY point cloud image from this instead of the test file! 
+- When "import" is hit, a PLY file needs to be generated (decide if this is temp or not, or if it's just an array/vector??). Load the PLY point cloud image from this instead of the test file! 
 
 What Mink is working on next:
+-------------------------------
+- destroy temp files when closing
+- copy PLY files over to temp PLY file
+- read model from the temp file
+-------------------------------
+
+-------------------------------
 - Drone diagnostics (flight time needs to updated with each export)
 - UI theme development
+- delete "temp files" at software close
+- Save feature (diags and ply get saved)
+- update open feature to open the saved file format
+-------------------------------
 
 
 Side thoughts:
@@ -22,6 +36,14 @@ Side thoughts:
 - 3D model: add time function to cloud points. Time recorded to x,y,z
 - 3D model: add filter function, hide points that fall outside of selected time frame
 - Recent Files: refer to how VS code does this. Drop down/hide capacity for Today/This Month/Older
+
+Mink's resources
+- Read all files from a selected directory (for the base log) https://forum.qt.io/topic/64817/how-to-read-all-files-from-a-selected-directory-and-use-them-one-by-one
+- Find file and replace, https://doc.qt.io/qt-6/qtwidgets-dialogs-findfiles-example.html
+
+Recent files:
+- the "update recent Files action needs to be called whenever something is imported
+- imported should be called when opened in menu drop down or whatever
 
 
 ===========STUFF THAT HAS BEEN COMPLETED===================
@@ -32,17 +54,10 @@ Side thoughts:
 - Show recent files in menu (not clickable atm)
 - Update recent files whenever Import button is pushed
 
-=================MINK'S RANDO NOTES========================
+=================Useful links========================
 - Wire frame: https://drive.google.com/file/d/1HZjIMIIsOeRHFitesahdV5oPBWg40f4h/view?usp=sharing
-- Read all files from a selected directory (for the base log) https://forum.qt.io/topic/64817/how-to-read-all-files-from-a-selected-directory-and-use-them-one-by-one
-- Find file and replace, https://doc.qt.io/qt-6/qtwidgets-dialogs-findfiles-example.html
 
 
-Recent files:
-- the "update recent Files action needs to be called whenever something is imported
-- imported should be called when opened in menu drop down or whatever
-
-- open 
 
 =================INSPO QT Designs==========================
 https://www.youtube.com/watch?v=hJKVb7WpQ_c&t=21s&ab_channel=Qt (Dark with Orange dials, sleek)
