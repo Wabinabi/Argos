@@ -17,9 +17,9 @@
    <widget class="QFrame" name="ImportData">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>130</x>
       <y>30</y>
-      <width>351</width>
+      <width>401</width>
       <height>151</height>
      </rect>
     </property>
@@ -34,17 +34,7 @@
       <rect>
        <x>10</x>
        <y>30</y>
-       <width>231</width>
-       <height>31</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QPlainTextEdit" name="plainTextEdit_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>70</y>
-       <width>231</width>
+       <width>291</width>
        <height>31</height>
       </rect>
      </property>
@@ -52,9 +42,9 @@
     <widget class="QPushButton" name="BrowseBtn">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>110</y>
-       <width>101</width>
+       <x>310</x>
+       <y>30</y>
+       <width>81</width>
        <height>31</height>
       </rect>
      </property>
@@ -65,9 +55,9 @@
     <widget class="QPushButton" name="ImportBtn">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>110</y>
-       <width>101</width>
+       <x>120</x>
+       <y>70</y>
+       <width>181</width>
        <height>31</height>
       </rect>
      </property>
@@ -78,8 +68,8 @@
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>240</x>
-       <y>110</y>
+       <x>10</x>
+       <y>70</y>
        <width>101</width>
        <height>31</height>
       </rect>
@@ -101,13 +91,26 @@
       <string>Import Data Widget</string>
      </property>
     </widget>
+    <widget class="QToolButton" name="toolButton">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>30</y>
+       <width>21</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>...</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QFrame" name="DroneVisual">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>540</x>
       <y>30</y>
-      <width>321</width>
+      <width>241</width>
       <height>281</height>
      </rect>
     </property>
@@ -133,7 +136,7 @@
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>210</x>
+       <x>10</x>
        <y>240</y>
        <width>101</width>
        <height>31</height>
@@ -147,9 +150,9 @@
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>540</x>
       <y>319</y>
-      <width>321</width>
+      <width>241</width>
       <height>221</height>
      </rect>
     </property>
@@ -175,9 +178,9 @@
     <widget class="QScrollArea" name="scrollArea">
      <property name="geometry">
       <rect>
-       <x>9</x>
-       <y>29</y>
-       <width>301</width>
+       <x>10</x>
+       <y>30</y>
+       <width>211</width>
        <height>181</height>
       </rect>
      </property>
@@ -189,7 +192,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>299</width>
+        <width>209</width>
         <height>179</height>
        </rect>
       </property>
@@ -212,9 +215,9 @@
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>100</x>
+      <x>130</x>
       <y>190</y>
-      <width>351</width>
+      <width>401</width>
       <height>351</height>
      </rect>
     </property>
@@ -242,8 +245,8 @@
       <rect>
        <x>10</x>
        <y>40</y>
-       <width>331</width>
-       <height>291</height>
+       <width>381</width>
+       <height>301</height>
       </rect>
      </property>
      <property name="widgetResizable">
@@ -254,8 +257,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>329</width>
-        <height>289</height>
+        <width>379</width>
+        <height>299</height>
        </rect>
       </property>
       <widget class="QScrollBar" name="verticalScrollBar_2">
@@ -279,9 +282,15 @@
      <rect>
       <x>-1</x>
       <y>-1</y>
-      <width>81</width>
-      <height>551</height>
+      <width>111</width>
+      <height>561</height>
      </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(69, 142, 149);</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -289,6 +298,73 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>10</y>
+       <width>111</width>
+       <height>91</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap>../../Graphic Assets/15ppi/logoArtboard 5_1.png</pixmap>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>510</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">Text-align:left;
+padding: 10px;</string>
+     </property>
+     <property name="text">
+      <string>  Settings</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../Graphic Assets/icons/15ppi/logoArtboard 6.png</normaloff>../../Graphic Assets/icons/15ppi/logoArtboard 6.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>20</width>
+       <height>16</height>
+      </size>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>480</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">Text-align:left;
+padding: 10px;</string>
+     </property>
+     <property name="text">
+      <string>  Reset</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../Graphic Assets/icons/15ppi/iconArtboard 8.png</normaloff>../../Graphic Assets/icons/15ppi/iconArtboard 8.png</iconset>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

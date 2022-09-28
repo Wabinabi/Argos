@@ -43,7 +43,7 @@ QLabel
 /*-----QMenuBar-----*/
 QMenuBar 
 {
-	background-color: #4a5157;
+	background-color: #69C1CB;
 	color: #fff;
 
 }
@@ -52,7 +52,7 @@ QMenuBar
 QMenuBar::item 
 {
 	background-color: transparent;
-	border-left: 1px solid #003333;
+	border-left: 0px solid #003333;
 	padding: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
