@@ -12,7 +12,7 @@ Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
 
 ===========================================================
 What Mink is working on now:
-- making the software look kinda pretty :)
+- Update layout to match our branding
 
 
 What Mink is working on next:
@@ -26,7 +26,6 @@ What Mink is working on next:
 - Deal with exceptions (you're literally doing smack all) e.g. file does not exist
 -------------------------------
 
-
 Side thoughts:
 - In the 3D model, the different colour options can support colour blindess/ night time/blue light
 - 3D model: flight path
@@ -37,6 +36,7 @@ Side thoughts:
 Mink's resources
 - Read all files from a selected directory (for the base log) https://forum.qt.io/topic/64817/how-to-read-all-files-from-a-selected-directory-and-use-them-one-by-one
 - Find file and replace, https://doc.qt.io/qt-6/qtwidgets-dialogs-findfiles-example.html
+- https://qss-stock.devsecstudio.com/templates.php
 
 Recent files:
 - the "update recent Files action needs to be called whenever something is imported
@@ -53,7 +53,8 @@ Recent files:
 - Destroy temp files when closing
 - Copy PLY files over to temp PLY file
 - read model from the temp file
-- When "import" is hit, a PLY file needs to be generated. 
+- When "import" is hit, a PLY file needs to be generated
+- making the software look kinda pretty with base theme
 
 =================Useful links========================
 - Wire frame: https://drive.google.com/file/d/1HZjIMIIsOeRHFitesahdV5oPBWg40f4h/view?usp=sharing

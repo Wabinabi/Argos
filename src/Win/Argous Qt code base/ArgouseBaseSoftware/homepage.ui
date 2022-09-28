@@ -14,25 +14,12 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>30</y>
-      <width>131</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Import Data Widget</string>
-    </property>
-   </widget>
    <widget class="QFrame" name="ImportData">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>100</x>
       <y>30</y>
-      <width>441</width>
+      <width>351</width>
       <height>151</height>
      </rect>
     </property>
@@ -47,7 +34,7 @@
       <rect>
        <x>10</x>
        <y>30</y>
-       <width>291</width>
+       <width>231</width>
        <height>31</height>
       </rect>
      </property>
@@ -57,7 +44,7 @@
       <rect>
        <x>10</x>
        <y>70</y>
-       <width>291</width>
+       <width>231</width>
        <height>31</height>
       </rect>
      </property>
@@ -65,8 +52,8 @@
     <widget class="QPushButton" name="BrowseBtn">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>30</y>
+       <x>10</x>
+       <y>110</y>
        <width>101</width>
        <height>31</height>
       </rect>
@@ -78,8 +65,8 @@
     <widget class="QPushButton" name="ImportBtn">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>70</y>
+       <x>130</x>
+       <y>110</y>
        <width>101</width>
        <height>31</height>
       </rect>
@@ -91,7 +78,7 @@
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>310</x>
+       <x>240</x>
        <y>110</y>
        <width>101</width>
        <height>31</height>
@@ -99,6 +86,19 @@
      </property>
      <property name="text">
       <string>Trip Data</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Import Data Widget</string>
      </property>
     </widget>
    </widget>
@@ -127,7 +127,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Drone Artwork</string>
+      <string>Drone specs</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_4">
@@ -212,9 +212,9 @@
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>100</x>
       <y>190</y>
-      <width>441</width>
+      <width>351</width>
       <height>351</height>
      </rect>
     </property>
@@ -242,7 +242,7 @@
       <rect>
        <x>10</x>
        <y>40</y>
-       <width>411</width>
+       <width>331</width>
        <height>291</height>
       </rect>
      </property>
@@ -254,7 +254,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>409</width>
+        <width>329</width>
         <height>289</height>
        </rect>
       </property>
@@ -274,11 +274,22 @@
      </widget>
     </widget>
    </widget>
-   <zorder>ImportData</zorder>
-   <zorder>label</zorder>
-   <zorder>DroneVisual</zorder>
-   <zorder>frame</zorder>
-   <zorder>frame_2</zorder>
+   <widget class="QFrame" name="frame_3">
+    <property name="geometry">
+     <rect>
+      <x>-1</x>
+      <y>-1</y>
+      <width>81</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
