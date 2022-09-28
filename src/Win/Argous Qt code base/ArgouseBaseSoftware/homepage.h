@@ -8,6 +8,7 @@
 #include <QFileDialog>
 #include <QList>
 #include <QtGui>
+#include <QCloseEvent>
 
 #include "tripdata.h"
 
@@ -30,10 +31,11 @@ public:
 
 private slots:
 
-    //Buttons
+    // Buttons
     void on_pushButton_clicked();
     void on_ImportBtn_clicked();
     void on_BrowseBtn_clicked();
+
 
     //Recent Files
     //void newFile();
@@ -46,10 +48,18 @@ private slots:
 private:
     Ui::HomePage *ui;
 
+    // Import/process data
+    QVector<QString> importedData;
+
     //Read logs
     void readRecentFilesLog();
     QVector<QString> recentFiles;
 
+    //Create Temp Working files
+    void generate_temp_PLY();
+
+    //Close
+    void closeEvent (QCloseEvent *event);
 
     //Recent Files
     void createActions();

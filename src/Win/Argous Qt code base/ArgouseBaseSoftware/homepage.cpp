@@ -9,18 +9,11 @@ HomePage::HomePage(QWidget *parent) :
 
     readRecentFilesLog();
 
-    setAttribute(Qt::WA_DeleteOnClose);
-
-    //textEdit = new QTextEdit;
-    //setCentralWidget(textEdit);
-
     createActions();
     createMenus();
     (void)statusBar();
 
     setWindowFilePath(QString());
-    //resize(400, 300);
-
 }
 
 HomePage::~HomePage()
@@ -69,7 +62,7 @@ void HomePage::on_ImportBtn_clicked()
     }
 
     QFile file(filename);
-    QVector<QString> importedData;
+
     QMessageBox msg;
 
     // Reads the selected file and stores each line
@@ -92,12 +85,36 @@ void HomePage::on_ImportBtn_clicked()
         }
     }
 
-    //Create a temp directory where we store temp files
+    // Create a temp directory where we store temp files
     std::filesystem::create_directory("temp");
 
-    std::filesystem::remove_all("temp");
+    // Create a text file within the temp folder and populate with the PLY data from the drone
+    generate_temp_PLY();
 
     updateRecentFileActions(filename);
+}
+
+void HomePage::generate_temp_PLY(){
+    QString fileName = "temp/tempPLY.txt";
+    QFile file(fileName);
+    QMessageBox msg;
+
+    if(!file.exists()){
+        file.open(QIODevice::WriteOnly | QIODevice::Text);
+        QTextStream out(&file);
+        file.close();
+    }
+
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
+          {
+              // We're going to streaming text to the file
+              QTextStream stream(&file);
+
+              for (int i = 0; i < importedData.size(); ++i)
+                  stream << importedData[i] << '\n';
+
+              file.close();
+          }
 }
 
 void HomePage::on_BrowseBtn_clicked()
@@ -308,6 +325,12 @@ void HomePage::updateRecentFileActions(const QString &fullFileName)
 QString HomePage::strippedName(const QString &fullFileName)
 {
     return QFileInfo(fullFileName).fileName();
+}
+
+void HomePage::closeEvent (QCloseEvent *event)
+{
+    //Remove temp files
+    std::filesystem::remove_all("temp");
 }
 
 

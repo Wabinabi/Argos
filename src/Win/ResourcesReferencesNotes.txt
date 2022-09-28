@@ -12,21 +12,18 @@ Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
 
 ===========================================================
 What Mink is working on now:
-- When "import" is hit, a PLY file needs to be generated (decide if this is temp or not, or if it's just an array/vector??). Load the PLY point cloud image from this instead of the test file! 
+- making the software look kinda pretty :)
+
 
 What Mink is working on next:
--------------------------------
-- destroy temp files when closing
-- copy PLY files over to temp PLY file
-- read model from the temp file
--------------------------------
-
 -------------------------------
 - Drone diagnostics (flight time needs to updated with each export)
 - UI theme development
 - delete "temp files" at software close
 - Save feature (diags and ply get saved)
 - update open feature to open the saved file format
+- Fix all the bugs
+- Deal with exceptions (you're literally doing smack all) e.g. file does not exist
 -------------------------------
 
 
@@ -53,6 +50,10 @@ Recent files:
 - Generate recent file log if missing
 - Show recent files in menu (not clickable atm)
 - Update recent files whenever Import button is pushed
+- Destroy temp files when closing
+- Copy PLY files over to temp PLY file
+- read model from the temp file
+- When "import" is hit, a PLY file needs to be generated. 
 
 =================Useful links========================
 - Wire frame: https://drive.google.com/file/d/1HZjIMIIsOeRHFitesahdV5oPBWg40f4h/view?usp=sharing

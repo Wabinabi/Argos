@@ -50,7 +50,7 @@ void Plotter::addData()
 
     //Testing reading in a text PLY file (B1's cube)
     //Source file -> this will later link to the processed PLY file spat out by import action'
-    QString filename = "test.txt";
+    QString filename = "temp/tempPLY.txt";
     QFile file(filename);
     QVector<QString> importedPLYData;
     QMessageBox msg;

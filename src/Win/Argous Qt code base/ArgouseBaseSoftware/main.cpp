@@ -9,11 +9,5 @@ int main(int argc, char *argv[])
     HomePage homePage;
     homePage.show();
 
-    #if defined(Q_OS_SYMBIAN)
-         homePage.showMaximized();
-     #else
-         homePage.show();
-     #endif
-
     return a.exec();
 }
