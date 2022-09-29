@@ -6,3 +6,6 @@ B1Code/QtCode/build-TestCase-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/*
 docs/as7-gamma/html
 docs/as7-gamma/latex
 
+src/Win/Argous Qt code base/ArgouseBaseSoftware/ArgouseBaseSoftware.pro.user
+src/Win/Argous Qt code base/ArgouseBaseSoftware/build-ArgouseBaseSoftware-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/*
+src/Win/Argous Qt code base/ArgouseBaseSoftware/build-ArgouseBaseSoftware-Desktop_x86_windows_msvc2019_pe_64bit-Debug/*
