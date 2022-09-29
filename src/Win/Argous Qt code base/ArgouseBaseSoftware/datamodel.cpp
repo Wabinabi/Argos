@@ -6,7 +6,10 @@ DataModel::DataModel(QWidget *parent) :
     ui(new Ui::DataModel)
 {
     ui->setupUi(this);
+    generate3DWidget();
+}
 
+void DataModel::generate3DWidget(){
     Q3DScatter* graph = new Q3DScatter();
     QWidget* container = QWidget::createWindowContainer(graph);
 
@@ -132,7 +135,6 @@ DataModel::DataModel(QWidget *parent) :
 
 DataModel::~DataModel()
 {
-
     delete ui;
 }
 
