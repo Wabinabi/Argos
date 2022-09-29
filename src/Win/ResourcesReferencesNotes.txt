@@ -19,7 +19,7 @@ What Mink is working on now:
 What Mink is working on next:
 -------------------------------
 - Drone diagnostics (flight time needs to updated with each export)
-- UI theme development
+- UI theme development 
 - delete "temp files" at software close
 - Save feature (diags and ply get saved)
 - update open feature to open the saved file format
@@ -33,6 +33,7 @@ Side thoughts:
 - 3D model: add time function to cloud points. Time recorded to x,y,z
 - 3D model: add filter function, hide points that fall outside of selected time frame
 - Recent Files: refer to how VS code does this. Drop down/hide capacity for Today/This Month/Older
+- open multiple trip datas
 
 Mink's resources
 - Read all files from a selected directory (for the base log) https://forum.qt.io/topic/64817/how-to-read-all-files-from-a-selected-directory-and-use-them-one-by-one

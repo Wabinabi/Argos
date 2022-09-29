@@ -34,7 +34,7 @@
       <rect>
        <x>10</x>
        <y>30</y>
-       <width>291</width>
+       <width>381</width>
        <height>31</height>
       </rect>
      </property>
@@ -42,9 +42,9 @@
     <widget class="QPushButton" name="BrowseBtn">
      <property name="geometry">
       <rect>
-       <x>310</x>
-       <y>30</y>
-       <width>81</width>
+       <x>10</x>
+       <y>110</y>
+       <width>101</width>
        <height>31</height>
       </rect>
      </property>
@@ -94,7 +94,7 @@
     <widget class="QToolButton" name="toolButton">
      <property name="geometry">
       <rect>
-       <x>280</x>
+       <x>370</x>
        <y>30</y>
        <width>21</width>
        <height>31</height>
@@ -136,14 +136,43 @@
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>240</y>
+       <x>0</x>
+       <y>261</y>
        <width>101</width>
-       <height>31</height>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
       <string>Drone Details</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>70</y>
+       <width>241</width>
+       <height>161</height>
+      </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(69, 142, 149,100);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../Graphic Assets/drone/droneArtboard 1.png</normaloff>../../Graphic Assets/drone/droneArtboard 1.png</iconset>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>245</width>
+       <height>245</height>
+      </size>
      </property>
     </widget>
    </widget>
@@ -282,7 +311,7 @@
      <rect>
       <x>-1</x>
       <y>-1</y>
-      <width>111</width>
+      <width>91</width>
       <height>561</height>
      </rect>
     </property>
@@ -301,10 +330,10 @@
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>10</x>
        <y>10</y>
-       <width>111</width>
-       <height>91</height>
+       <width>71</width>
+       <height>81</height>
       </rect>
      </property>
      <property name="text">
@@ -321,14 +350,17 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>510</y>
+       <y>480</y>
        <width>111</width>
        <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">Text-align:left;
-padding: 10px;</string>
+padding: 6px;
+background-color: rgb(69, 142, 149, 100);
+border-color: rgb(105, 193, 203);
+border-radius: 0px;</string>
      </property>
      <property name="text">
       <string>  Settings</string>
@@ -344,18 +376,45 @@ padding: 10px;</string>
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_3">
+    <widget class="QPushButton" name="pushButton_6">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>480</y>
+       <y>420</y>
        <width>111</width>
        <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">Text-align:left;
-padding: 10px;</string>
+padding: 6px;
+background-color: rgb(69, 142, 149, 100);
+border-color: rgb(105, 193, 203);
+border-radius: 0px;</string>
+     </property>
+     <property name="text">
+      <string>  File</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../Graphic Assets/icons/15ppi/fileArtboard 12.png</normaloff>../../Graphic Assets/icons/15ppi/fileArtboard 12.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>450</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">Text-align:left;
+padding: 6px;
+background-color: rgb(69, 142, 149, 100);
+border-color: rgb(105, 193, 203);
+border-radius: 0px;</string>
      </property>
      <property name="text">
       <string>  Reset</string>
@@ -363,6 +422,30 @@ padding: 10px;</string>
      <property name="icon">
       <iconset>
        <normaloff>../../Graphic Assets/icons/15ppi/iconArtboard 8.png</normaloff>../../Graphic Assets/icons/15ppi/iconArtboard 8.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>510</y>
+       <width>111</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">Text-align:left;
+padding: 6px;
+background-color: rgb(69, 142, 149, 100);
+border-color: rgb(105, 193, 203);
+border-radius: 0px;</string>
+     </property>
+     <property name="text">
+      <string>  Help</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>../../Graphic Assets/icons/15ppi/helpArtboard 10.png</normaloff>../../Graphic Assets/icons/15ppi/helpArtboard 10.png</iconset>
      </property>
     </widget>
    </widget>

@@ -42,6 +42,7 @@ public:
     QFrame *DroneVisual;
     QLabel *label_2;
     QPushButton *pushButton_4;
+    QPushButton *pushButton_5;
     QFrame *frame;
     QLabel *label_3;
     QScrollArea *scrollArea;
@@ -55,6 +56,8 @@ public:
     QFrame *frame_3;
     QLabel *label_5;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
     QPushButton *pushButton_3;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -75,10 +78,10 @@ public:
         ImportData->setFrameShadow(QFrame::Raised);
         FileLocation = new QPlainTextEdit(ImportData);
         FileLocation->setObjectName(QString::fromUtf8("FileLocation"));
-        FileLocation->setGeometry(QRect(10, 30, 291, 31));
+        FileLocation->setGeometry(QRect(10, 30, 381, 31));
         BrowseBtn = new QPushButton(ImportData);
         BrowseBtn->setObjectName(QString::fromUtf8("BrowseBtn"));
-        BrowseBtn->setGeometry(QRect(310, 30, 81, 31));
+        BrowseBtn->setGeometry(QRect(10, 110, 101, 31));
         ImportBtn = new QPushButton(ImportData);
         ImportBtn->setObjectName(QString::fromUtf8("ImportBtn"));
         ImportBtn->setGeometry(QRect(120, 70, 181, 31));
@@ -90,7 +93,7 @@ public:
         label->setGeometry(QRect(10, 0, 131, 16));
         toolButton = new QToolButton(ImportData);
         toolButton->setObjectName(QString::fromUtf8("toolButton"));
-        toolButton->setGeometry(QRect(280, 30, 21, 31));
+        toolButton->setGeometry(QRect(370, 30, 21, 31));
         DroneVisual = new QFrame(centralwidget);
         DroneVisual->setObjectName(QString::fromUtf8("DroneVisual"));
         DroneVisual->setGeometry(QRect(540, 30, 241, 281));
@@ -101,7 +104,16 @@ public:
         label_2->setGeometry(QRect(10, 0, 131, 16));
         pushButton_4 = new QPushButton(DroneVisual);
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setGeometry(QRect(10, 240, 101, 31));
+        pushButton_4->setGeometry(QRect(0, 261, 101, 20));
+        pushButton_5 = new QPushButton(DroneVisual);
+        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
+        pushButton_5->setGeometry(QRect(0, 70, 241, 161));
+        pushButton_5->setAutoFillBackground(false);
+        pushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(69, 142, 149,100);"));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("../../Graphic Assets/drone/droneArtboard 1.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_5->setIcon(icon);
+        pushButton_5->setIconSize(QSize(245, 245));
         frame = new QFrame(centralwidget);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setGeometry(QRect(540, 319, 241, 221));
@@ -144,33 +156,61 @@ public:
         scrollArea_2->setWidget(scrollAreaWidgetContents_2);
         frame_3 = new QFrame(centralwidget);
         frame_3->setObjectName(QString::fromUtf8("frame_3"));
-        frame_3->setGeometry(QRect(-1, -1, 111, 561));
+        frame_3->setGeometry(QRect(-1, -1, 91, 561));
         frame_3->setAutoFillBackground(false);
         frame_3->setStyleSheet(QString::fromUtf8("background-color: rgb(69, 142, 149);"));
         frame_3->setFrameShape(QFrame::StyledPanel);
         frame_3->setFrameShadow(QFrame::Raised);
         label_5 = new QLabel(frame_3);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(0, 10, 111, 91));
+        label_5->setGeometry(QRect(10, 10, 71, 81));
         label_5->setPixmap(QPixmap(QString::fromUtf8("../../Graphic Assets/15ppi/logoArtboard 5_1.png")));
         label_5->setAlignment(Qt::AlignCenter);
         pushButton_2 = new QPushButton(frame_3);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(0, 510, 111, 31));
+        pushButton_2->setGeometry(QRect(0, 480, 111, 31));
         pushButton_2->setStyleSheet(QString::fromUtf8("Text-align:left;\n"
-"padding: 10px;"));
-        QIcon icon;
-        icon.addFile(QString::fromUtf8("../../Graphic Assets/icons/15ppi/logoArtboard 6.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_2->setIcon(icon);
+"padding: 6px;\n"
+"background-color: rgb(69, 142, 149, 100);\n"
+"border-color: rgb(105, 193, 203);\n"
+"border-radius: 0px;"));
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8("../../Graphic Assets/icons/15ppi/logoArtboard 6.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_2->setIcon(icon1);
         pushButton_2->setIconSize(QSize(20, 16));
+        pushButton_6 = new QPushButton(frame_3);
+        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
+        pushButton_6->setGeometry(QRect(0, 420, 111, 31));
+        pushButton_6->setStyleSheet(QString::fromUtf8("Text-align:left;\n"
+"padding: 6px;\n"
+"background-color: rgb(69, 142, 149, 100);\n"
+"border-color: rgb(105, 193, 203);\n"
+"border-radius: 0px;"));
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8("../../Graphic Assets/icons/15ppi/fileArtboard 12.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_6->setIcon(icon2);
+        pushButton_7 = new QPushButton(frame_3);
+        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
+        pushButton_7->setGeometry(QRect(0, 450, 111, 31));
+        pushButton_7->setStyleSheet(QString::fromUtf8("Text-align:left;\n"
+"padding: 6px;\n"
+"background-color: rgb(69, 142, 149, 100);\n"
+"border-color: rgb(105, 193, 203);\n"
+"border-radius: 0px;"));
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8("../../Graphic Assets/icons/15ppi/iconArtboard 8.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_7->setIcon(icon3);
         pushButton_3 = new QPushButton(frame_3);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(0, 480, 111, 31));
+        pushButton_3->setGeometry(QRect(0, 510, 111, 31));
         pushButton_3->setStyleSheet(QString::fromUtf8("Text-align:left;\n"
-"padding: 10px;"));
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8("../../Graphic Assets/icons/15ppi/iconArtboard 8.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_3->setIcon(icon1);
+"padding: 6px;\n"
+"background-color: rgb(69, 142, 149, 100);\n"
+"border-color: rgb(105, 193, 203);\n"
+"border-radius: 0px;"));
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8("../../Graphic Assets/icons/15ppi/helpArtboard 10.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_3->setIcon(icon4);
         HomePage->setCentralWidget(centralwidget);
         menubar = new QMenuBar(HomePage);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -196,11 +236,14 @@ public:
         toolButton->setText(QCoreApplication::translate("HomePage", "...", nullptr));
         label_2->setText(QCoreApplication::translate("HomePage", "Drone specs", nullptr));
         pushButton_4->setText(QCoreApplication::translate("HomePage", "Drone Details", nullptr));
+        pushButton_5->setText(QString());
         label_3->setText(QCoreApplication::translate("HomePage", "Drone History", nullptr));
         label_4->setText(QCoreApplication::translate("HomePage", "Recent Files", nullptr));
         label_5->setText(QString());
         pushButton_2->setText(QCoreApplication::translate("HomePage", "  Settings", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("HomePage", "  Reset", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("HomePage", "  File", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("HomePage", "  Reset", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("HomePage", "  Help", nullptr));
     } // retranslateUi
 
 };
