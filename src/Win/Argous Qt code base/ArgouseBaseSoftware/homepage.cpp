@@ -126,10 +126,71 @@ void HomePage::importPLY(){
 
 void HomePage::importConf(){
     //store into vector arrays
+
+
 }
 
 void HomePage::importLog(){
     //store into vector arrays
+
+
+    // Change to dynamic later
+    QString filename = ui->FileLocation->toPlainText() + "as7.log";
+
+    if(filename.isEmpty()){
+        on_BrowseBtn_clicked();
+        filename = ui->FileLocation->toPlainText() + "as7.log";
+    }
+
+    QFile file(filename);
+    QMessageBox msg;
+
+    // Reads the selected file and stores each line
+    // Further Processing will need to be performed here! Likely need to create a new function to call
+    if(!file.exists()){
+        msg.setText("Please select a file");
+        msg.exec();
+    }else{
+        QString line;
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+                QTextStream stream(&file);
+                line = stream.readLine(); // Skip the first line
+
+                while (!stream.atEnd()){
+                    line = stream.readLine();
+                    QStringList tokens;
+                    DroneEvent event;
+
+                    tokens = line.split(QRegularExpression("[0-9]+|Inform|Warn|Error|Fatal|Verbose"), Qt::SkipEmptyParts);
+                    // Tokens[0] will always be the time, the second will always be Type
+
+                    event.time = tokens[0].toInt();
+                    event.errorType = tokens[1];
+
+                    int offset = line.indexOf("]");
+                    event.message = line.sliced(offset);
+
+                    eventData.append(event);
+                }
+        msg.setText("Import complete!");
+        msg.exec();
+
+        file.close();
+        }
+    }
+
+    // time type and message
+
+
+    // Create a temp directory where we store temp files
+    std::filesystem::create_directory("temp");
+
+    // Create a text file within the temp folder and populate with the PLY data from the drone
+    generate_temp_PLY();
+
+    updateRecentFileActions(filename);
+
+
 }
 
 void HomePage::generate_temp_PLY(){
