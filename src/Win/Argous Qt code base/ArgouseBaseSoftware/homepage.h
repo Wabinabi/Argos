@@ -9,6 +9,7 @@
 #include <QList>
 #include <QtGui>
 #include <QCloseEvent>
+#include <QScrollArea>
 
 #include "tripdata.h"
 

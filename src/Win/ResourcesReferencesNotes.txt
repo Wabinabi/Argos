@@ -10,7 +10,12 @@ Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
 - URGENT: The 3D model doesn't pan or select points or zoom on initial implementation. Needs to have stuff clicked prior to working with full functionality
 - MED: Dynamic scaling
 
-
+===========================================================
+Jimmy - please help! Ordered in priority...
+- Create sample data folder as per discussion (as7.log, data,csv, as7.config)
+- Start writing the code that identifies events (struct that associates the time log with it)
+- Running stats (when file is imported, check whether this flight no. has been imported previously. If not, update total flight time and no. of trips, is this is the largest flight no. also update "most recent flight")
+- Create text file with drone specs as per discussion
 ===========================================================
 What Mink is working on now:
 - completing all the dummy buttons
