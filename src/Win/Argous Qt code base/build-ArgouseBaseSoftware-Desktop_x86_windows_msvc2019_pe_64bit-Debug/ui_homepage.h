@@ -109,7 +109,7 @@ public:
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
         pushButton_5->setGeometry(QRect(0, 70, 241, 161));
         pushButton_5->setAutoFillBackground(false);
-        pushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(69, 142, 149,100);"));
+        pushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(69, 142, 149,256);"));
         QIcon icon;
         icon.addFile(QString::fromUtf8("../../Graphic Assets/drone/droneArtboard 1.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_5->setIcon(icon);

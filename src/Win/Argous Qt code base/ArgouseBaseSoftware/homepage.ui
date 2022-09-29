@@ -159,7 +159,7 @@
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(69, 142, 149,100);</string>
+      <string notr="true">background-color: rgb(69, 142, 149,256);</string>
      </property>
      <property name="text">
       <string/>
