@@ -49,12 +49,24 @@ private slots:
 private:
     Ui::HomePage *ui;
 
+    typedef struct {
+        int time;
+        QString message;
+        QString errorType;
+    } DroneEvent;
+
     // Import/process data
-    QVector<QString> importedData;
-    void readDroneStats();
-    void importPLY();
-    void importConf();
-    void importLog();
+    QVector<QString> importedData;       // Data from PLY File
+    QVector<DroneEvent> eventData;          //
+    QVector<DroneEvent> emergencyEvents;    // Data from PLY File
+
+
+
+
+    void readDroneStats(); // ?
+    void importPLY(QString dronePLYFile);  // Reads the PLY file from somewhere
+    void importConf(QString droneConfFile); // Reads the config file as7.config
+    void importLog(QString droneLogFile);  // Reads in the log as events
 
     //Read logs
     void readRecentFilesLog();
