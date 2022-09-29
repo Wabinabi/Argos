@@ -64,9 +64,9 @@ private:
 
 
     void readDroneStats(); // ?
-    void importPLY();  // Reads the PLY file from somewhere
-    void importConf(); // Reads the config file as7.config
-    void importLog();  // Reads in the log as events
+    void importPLY(QString dronePLYFile);  // Reads the PLY file from somewhere
+    void importConf(QString droneConfFile); // Reads the config file as7.config
+    void importLog(QString droneLogFile);  // Reads in the log as events
 
     //Read logs
     void readRecentFilesLog();
