@@ -81,10 +81,9 @@ void HomePage::on_ImportBtn_clicked()
         on_BrowseBtn_clicked();
         filename = ui->FileLocation->toPlainText();
     }
-
     QFile file(filename);
-
     QMessageBox msg;
+    QString line = "";
 
     // Reads the selected file and stores each line
     // Further Processing will need to be performed here! Likely need to create a new function to call
@@ -92,7 +91,12 @@ void HomePage::on_ImportBtn_clicked()
         msg.setText("Please select a file");
         msg.exec();
     }else{
-        QString line;
+        //importPLY();
+        //importConf();
+        //importLog();
+
+
+        // This block of text is temporarily substituting PLY processor
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
                 QTextStream stream(&file);
                 while (!stream.atEnd()){
