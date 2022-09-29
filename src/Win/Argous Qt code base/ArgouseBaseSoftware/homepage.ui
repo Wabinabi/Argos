@@ -123,7 +123,7 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>0</y>
        <width>131</width>
        <height>16</height>
@@ -150,7 +150,7 @@
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>70</y>
+       <y>20</y>
        <width>241</width>
        <height>161</height>
       </rect>
@@ -194,51 +194,28 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>131</width>
-       <height>16</height>
+       <x>0</x>
+       <y>0</y>
+       <width>141</width>
+       <height>20</height>
       </rect>
      </property>
      <property name="text">
-      <string>Drone History</string>
+      <string>Running drone stats</string>
      </property>
     </widget>
-    <widget class="QScrollArea" name="scrollArea">
+    <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
-       <width>211</width>
-       <height>181</height>
+       <x>0</x>
+       <y>20</y>
+       <width>241</width>
+       <height>201</height>
       </rect>
      </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
+     <property name="text">
+      <string>TextLabel</string>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>209</width>
-        <height>179</height>
-       </rect>
-      </property>
-      <widget class="QScrollBar" name="verticalScrollBar">
-       <property name="geometry">
-        <rect>
-         <x>280</x>
-         <y>0</y>
-         <width>16</width>
-         <height>181</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </widget>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_2">
