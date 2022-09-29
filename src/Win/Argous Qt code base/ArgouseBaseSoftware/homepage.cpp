@@ -8,6 +8,7 @@ HomePage::HomePage(QWidget *parent) :
     ui->setupUi(this);
 
     readRecentFilesLog();
+    readDroneStats();
 
 
     createActions();
@@ -47,10 +48,22 @@ void HomePage::readRecentFilesLog()
     }
 }
 
-void HomePage::readDroneStats(){
+void HomePage::readDroneStats(){  
     QFile file("../ArgouseBaseSoftware/appdata/droneStats.txt");
-    file.open(QFile::ReadOnly | QFile::Text);
-    ui->Output->setPlaintText(file.readAll());
+    QString line;
+
+    //file.open(QFile::ReadOnly | QFile::Text);
+    //droneStats->setText(file.readAll());
+
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&file);
+        while (!stream.atEnd()){
+
+            line.append(stream.readLine()+"\n");
+        }
+        ui->droneStats->setText(line);
+    }
+    file.close();
 }
 
 void HomePage::on_pushButton_clicked()
@@ -101,17 +114,19 @@ void HomePage::on_ImportBtn_clicked()
 
     updateRecentFileActions(filename);
 }
+
 void HomePage::importPLY(){
     //store into vector arrays similar to importedData
 
 }
+
 void HomePage::importConf(){
     //store into vector arrays
 }
+
 void HomePage::importLog(){
     //store into vector arrays
 }
-
 
 void HomePage::generate_temp_PLY(){
     QString fileName = "temp/tempPLY.txt";
@@ -135,8 +150,6 @@ void HomePage::generate_temp_PLY(){
               file.close();
           }
 }
-
-
 
 void HomePage::on_BrowseBtn_clicked()
 {
