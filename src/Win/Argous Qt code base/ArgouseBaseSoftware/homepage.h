@@ -51,6 +51,10 @@ private:
 
     // Import/process data
     QVector<QString> importedData;
+    void readDroneStats();
+    void importPLY();
+    void importConf();
+    void importLog();
 
     //Read logs
     void readRecentFilesLog();
