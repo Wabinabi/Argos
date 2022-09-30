@@ -85,7 +85,9 @@ void HomePage::on_ImportBtn_clicked()
     QMessageBox msg;
 
     importLog(filename + "/as7.log");
+    importConf(filename + "/as7.config");
 
+    //importPLY(filename + "/as");
 
 
 
@@ -161,6 +163,7 @@ void HomePage::importLog(QString droneLogFile){
                     QStringList tokens;
                     DroneEvent event;
 
+                    // Split the line by [ and ] to get the time and messages
                     tokens = line.split(QRegularExpression("[[]|[]]|ms"), Qt::SkipEmptyParts);
                     // Tokens[0] will always be the time, the second will always be Type
 
@@ -170,7 +173,24 @@ void HomePage::importLog(QString droneLogFile){
                     //int offset = line.indexOf("]");
                     //event.message = line.sliced(offset);
                     event.message = tokens[2];
-                    eventData.append(event);
+
+
+                    // check the event type and import into emergency events or event data
+                    // We'll do string comparisons here to reduce the effort and potential
+                    //  issues related to casting strings into types
+                    //
+                    if ((event.errorType == "Fatal" ) || (event.errorType == "Error")) {
+                        emergencyEvents.append(event);
+                    } else if ((event.errorType == "Inform") || (event.errorType == "Warn")) {
+                        informEvents.append(event);
+                    } else {
+                        // A verbose or identified event
+                        verboseEvents.append(event);
+                    }
+
+
+
+
                 }
         msg.setText("Import complete!");
         msg.exec();

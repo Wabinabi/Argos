@@ -70,10 +70,16 @@ private:
     //  and therefore the following repo-style variables will relate
     //  to only one trip
     QVector<QString> importedData;          // Data from PLY File
-
+    QVector<DroneEvent> informEvents;          // All Verbose and Inform events
     // Processed data
-    QVector<DroneEvent> eventData;          // All Verbose and Inform events
+    QVector<DroneEvent> verboseEvents;          // All Verbose and Inform events
     QVector<DroneEvent> emergencyEvents;    // Warning, Fatal, and Error events
+
+
+    // Read coils for SCADA, essentially.
+    bool tripEStopTriggered = false; // Flag to indicate that an E-Stop was hit
+    bool tripOpOverrideTriggered = false; // Flag to indicate that an Operator Override occurrred
+
 
     // Statistics/Information
     int flightDuration; //
@@ -85,7 +91,7 @@ private:
 
 
 
-    void readDroneStats(); // ?
+    void readDroneStats(); // Read in the drone stats from the appdata dir
     void importPLY(QString dronePLYFile);  // Reads the PLY file from somewhere
     void importConf(QString droneConfFile); // Reads the config file as7.config
     void importLog(QString droneLogFile);  // Reads in the log as events
