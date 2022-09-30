@@ -55,11 +55,33 @@ private:
         QString errorType;
     } DroneEvent;
 
-    // Import/process data
-    QVector<QString> importedData;       // Data from PLY File
-    QVector<DroneEvent> eventData;          //
-    QVector<DroneEvent> emergencyEvents;    // Data from PLY File
+    typedef struct {
+        int time;
+        float y;
+    } DroneDataPoint;
 
+    typedef struct {
+        QString seriesName;
+        QVector<DroneDataPoint> data;
+    } DroneSeriesData;
+
+    // Import/process data
+    //  We're assuming that the user imports one trip at a time
+    //  and therefore the following repo-style variables will relate
+    //  to only one trip
+    QVector<QString> importedData;          // Data from PLY File
+
+    // Processed data
+    QVector<DroneEvent> eventData;          // All Verbose and Inform events
+    QVector<DroneEvent> emergencyEvents;    // Warning, Fatal, and Error events
+
+    // Statistics/Information
+    int flightDuration; //
+    int importDateTime;
+
+    DroneSeriesData altitude;
+    DroneSeriesData temperature;
+    DroneSeriesData throttle;
 
 
 
