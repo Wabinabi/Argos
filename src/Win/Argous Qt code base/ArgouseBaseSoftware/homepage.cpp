@@ -90,14 +90,20 @@ void HomePage::on_ImportBtn_clicked()
     // Create error message
     QMessageBox msg;
     QString errorMsg = "";
+
+    // Import failed flags are set here
+    //  in case there are additional checks for import failed
     if (!importLogSuccess) {
         errorMsg += "Log file not found in the directory! Is as7.log missing or misplaced?\n";
+        importFailed = true;
     }
     if (!importConfSuccess) {
         errorMsg += "Config file not found in the directory! Is as7.config missing or misplaced?\n";
+        importFailed = true;
     }
     if (!importLogSuccess) {
         errorMsg += "Log file not found in the directory! Is as7.log missing or misplaced?\n";
+        importFailed = true;
     }
 
     if (!importLogSuccess || !importConfSuccess ) {msg.exec();}
