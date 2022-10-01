@@ -12,6 +12,7 @@
 #include <QScrollArea>
 
 #include "tripdata.h"
+#include "datatranslator.h"
 
 class QAction;
 class QMenu;

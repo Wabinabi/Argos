@@ -241,6 +241,13 @@ void HomePage::generate_temp_PLY(){
     QFile file(fileName);
     QMessageBox msg;
 
+    QString data = "// TODO ";
+    QString dest = data;
+
+    DataTranslator test = DataTranslator();
+    test.SetFilePath(data, dest);
+    qDebug() << test.GenerateFile();
+
     if(!file.exists()){
         file.open(QIODevice::WriteOnly | QIODevice::Text);
         QTextStream out(&file);
