@@ -28,7 +28,7 @@ bool DataTranslator::GenerateFile(){
         return false;
     }
     if(!OutputToFile()){
-        qDebug() << "ERROR: Failed to calculate data";
+        qDebug() << "ERROR: Failed to write to file";
         return false;
     }
     return true;
