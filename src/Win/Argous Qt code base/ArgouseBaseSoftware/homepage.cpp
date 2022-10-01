@@ -82,17 +82,34 @@ void HomePage::on_ImportBtn_clicked()
         filename = ui->FileLocation->toPlainText();
     }
 
+
+
+    bool importLogSuccess = importLog(filename + "/as7.log");
+    bool importConfSuccess = importConf(filename + "/as7.config");
+
+    // Create error message
     QMessageBox msg;
+    QString errorMsg = "";
 
-    importLog(filename + "/as7.log");
-    importConf(filename + "/as7.config");
+    // Import failed flags are set here
+    //  in case there are additional checks for import failed
+    if (!importLogSuccess) {
+        errorMsg += "Log file not found in the directory! Is as7.log missing or misplaced?\n";
+        importFailed = true;
+    }
+    if (!importConfSuccess) {
+        errorMsg += "Config file not found in the directory! Is as7.config missing or misplaced?\n";
+        importFailed = true;
+    }
+    if (!importLogSuccess) {
+        errorMsg += "Log file not found in the directory! Is as7.log missing or misplaced?\n";
+        importFailed = true;
+    }
 
-    //importPLY(filename + "/as");
+    if (!importLogSuccess || !importConfSuccess ) {msg.exec();}
 
 
-
-
-    /*
+    /*Removed by Jimmy as the following has been moved to new functions
     // Reads the selected file and stores each line
     // Further Processing will need to be performed here! Likely need to create a new function to call
     if(!file.exists()){
@@ -120,8 +137,6 @@ void HomePage::on_ImportBtn_clicked()
         file.close();
         }
 
-
-
     }
     */
 
@@ -134,26 +149,53 @@ void HomePage::on_ImportBtn_clicked()
     //updateRecentFileActions(filename);
 }
 
-void HomePage::importPLY(QString dronePLYFile){
+bool HomePage::importPLY(QString dronePLYFile){
     //store into vector arrays similar to importedData
-
+    return false;
 }
 
-void HomePage::importConf(QString droneConfFile){
+bool HomePage::importConf(QString droneConfFile){
     //store into vector arrays
+    QFile file(droneConfFile);
 
+
+    bool isSuccessful = false; // Remembers if the import was successful
+
+    if(!file.exists()){
+        isSuccessful = false;
+    }else{
+        QString line;
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+                QTextStream stream(&file);
+
+                while (!stream.atEnd()){
+                    line = stream.readLine();
+                    QStringList tokens;
+                    // Split the line by :
+                    // Token 0 key, Token 1 Value
+                    tokens = line.split(QRegularExpression("[:]"), Qt::SkipEmptyParts);
+
+                    droneConfigList.append(tokens[0] + " : "  + tokens[1]);
+                    droneConfig[tokens[0]] = tokens[1];
+                }
+        file.close();
+        isSuccessful = true;
+        }
+    }
+    return isSuccessful;
 
 }
 
-void HomePage::importLog(QString droneLogFile){
+bool HomePage::importLog(QString droneLogFile){
     QFile file(droneLogFile);
     QMessageBox msg;
+
+    bool isSuccessful = false; // Remembers if the import was successful
 
     // Reads the selected file and stores each line
     // Further Processing will need to be performed here! Likely need to create a new function to call
     if(!file.exists()){
-        msg.setText("Please select a directory to be imported");
-        msg.exec();
+        isSuccessful = false;
     }else{
         QString line;
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -176,11 +218,9 @@ void HomePage::importLog(QString droneLogFile){
                     //event.message = line.sliced(offset);
                     event.message = tokens[2];
 
-
                     // check the event type and import into emergency events or event data
                     // We'll do string comparisons here to reduce the effort and potential
                     //  issues related to casting strings into types
-                    //
                     if ((event.errorType == "Fatal" ) || (event.errorType == "Error")) {
                         emergencyEvents.append(event);
                     } else if ((event.errorType == "Inform") || (event.errorType == "Warn")) {
@@ -190,16 +230,12 @@ void HomePage::importLog(QString droneLogFile){
                         verboseEvents.append(event);
                     }
 
-
-
-
                 }
-        msg.setText("Import complete!");
-        msg.exec();
-
         file.close();
+        isSuccessful = true;
         }
     }
+    return isSuccessful;
 }
 
 void HomePage::stashTempPLY(){

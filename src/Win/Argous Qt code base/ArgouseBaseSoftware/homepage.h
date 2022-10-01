@@ -74,6 +74,10 @@ private:
     QVector<DroneEvent> verboseEvents;          // All Verbose and Inform events
     QVector<DroneEvent> emergencyEvents;    // Warning, Fatal, and Error events
 
+    QMap<QString, QString> droneConfig; // The drone config as a key-value map
+    QVector<QString> droneConfigList; // A basic list of strings from the config file
+
+    bool importFailed = false; // Set to true if any data import is not successful
 
     // Read coils for SCADA, essentially.
     bool tripEStopTriggered = false; // Flag to indicate that an E-Stop was hit
@@ -91,9 +95,9 @@ private:
 
 
     void readDroneStats(); // Read in the drone stats from the appdata dir
-    void importPLY(QString dronePLYFile);  // Reads the PLY file from somewhere
-    void importConf(QString droneConfFile); // Reads the config file as7.config
-    void importLog(QString droneLogFile);  // Reads in the log as events
+    bool importPLY(QString dronePLYFile);  // Reads the PLY file from somewhere. Returns true if successful.
+    bool importConf(QString droneConfFile); // Reads the config file as7.config. Returns true if successful.
+    bool importLog(QString droneLogFile);  // Reads in the log as events. Returns true if successful.
 
     //Read logs
     void readRecentFilesLog();
