@@ -14,6 +14,7 @@
 #include <QtCore/QTextStream>
 #include <QtCore/QDebug>
 #include <QtCharts/QValueAxis>
+#include <QMainWindow>
 
 QT_USE_NAMESPACE
 
@@ -37,8 +38,10 @@ private slots:
     void on_DisplayModel_clicked();
 
     //Plotting 2D data
-    QLineSeries reshapeVector(QVector<QString> XYData);
-    void drawXYSeries(QLineSeries XYSeries);
+    //QLineSeries reshapeVector(QVector<QString> XYData);
+//QLineSeries *XYSeries
+    void drawXYSeries();
+    //void drawXYSeries(QVector<QString> XYData);
 
 private:
     Ui::TripData *ui;

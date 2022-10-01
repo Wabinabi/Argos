@@ -3,6 +3,7 @@ QT += widgets
 QT += core
 CONFIG += c++11
 CONFIG += console
+QT += charts
 
 TEMPLATE = app
 
