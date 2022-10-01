@@ -32,16 +32,16 @@ private:
     //InteralString, ExternalString, cloumn
     //InternalString shouldn't be changed
     QVector<QVector<QString>> _titles{
-        {"DronePos_X"  , "DronePos_X"  , "-1"},
-        {"DronePos_Y"  , "DronePos_Y"  , "-1"},
-        {"DronePos_Z"  , "DronePos_Z"  , "-1"},
-        {"DroneHeading", "DroneHeading", "-1"},
-        {"US_Xp"       , "US_Xp"       , "-1"},
-        {"US_Xn"       , "US_Xn"       , "-1"},
-        {"US_Yp"       , "US_Yp"       , "-1"},
-        {"US_Yn"       , "US_Yn"       , "-1"},
-        {"US_Zp"       , "US_Up"       , "-1"},
-        {"US_Zn"       , "US_Down"     , "-1"}
+        {"DronePos_X"  , " filt_pos_x"  , "-1"}, //DronePos_X
+        {"DronePos_Y"  , " filt_pos_y"  , "-1"}, //DronePos_Y
+        {"DronePos_Z"  , " filt_pos_z"  , "-1"}, //DronePos_Z
+        {"DroneHeading", " heading"     , "-1"}, //DroneHeading
+        {"US_Xp"       , " us_0"        , "-1"}, //"US_0" < - Test all US sensors on drone for confirmation.
+        {"US_Xn"       , " us_3"        , "-1"}, //"US_3"
+        {"US_Yp"       , " us_2"        , "-1"}, //"US_2"
+        {"US_Yn"       , " us_5"        , "-1"}, //"US_5"
+        {"US_Zp"       , " us_4"        , "-1"}, //"US_4"
+        {"US_Zn"       , " us_1"        , "-1"}  //"US_1"
     };
 
     struct Point{
