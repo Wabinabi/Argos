@@ -75,14 +75,14 @@ bool DataTranslator::AssignColumn(){
 }
 
 bool DataTranslator::Calculate(){
-    //QString today = QDate::currentDate().toString("yyyy-MM-dd");
-    //QString filename = _destPath + "/" + today + ".txt";
-    QString filename = _destPath;
+      //QString today = QDate::currentDate().toString("yyyy-MM-dd");
+     //QString filename = _destPath + "/" + today + ".txt";
+     QString filename = _destPath;
 
         QFile file(filename);
         if (file.open(QIODevice::ReadWrite)) {
             QTextStream stream(&file);
-            //stream << today << "\n"; // Removed as date-as-frst-line is not required as part of PLY files
+
             for(int i = 0; i < _data.count(); i++){
                 //Defined Data for Readability
                 Drone.x = _data[i][_titles[0][2].toInt()].toDouble();
@@ -97,20 +97,22 @@ bool DataTranslator::Calculate(){
                     if (_points[j].sensor.contains("n")){
                         _points[j].value *= (-1);
                     }
-                    _points[j].x = Drone.x;
-                    _points[j].y = Drone.y;
-                    _points[j].z = Drone.z;
+                    if (!_points[j].sensor.contains("_X")){
+                        _points[j].x = Drone.x;
+                        _points[j].y = Drone.y;
+                        _points[j].z = Drone.z;
 
-                    if (_points[j].sensor.contains("_X")){
-                        _points[j].x += _points[j].value;
+                        if (_points[j].sensor.contains("_X")){
+                            _points[j].x += _points[j].value;
+                        }
+                        if (_points[j].sensor.contains("_Y")){
+                            _points[j].y += _points[j].value;
+                        }
+                        if (_points[j].sensor.contains("_Z")){
+                            _points[j].z += _points[j].value;
+                        }
+                        stream << _points[j].x << " " << _points[j].y << " " << _points[j].z << "\n";
                     }
-                    if (_points[j].sensor.contains("_Y")){
-                        _points[j].y += _points[j].value;
-                    }
-                    if (_points[j].sensor.contains("_Z")){
-                        _points[j].z += _points[j].value;
-                    }
-                    stream << _points[j].x << " " << _points[j].y << " " << _points[j].z << "\n";
                 }
             }
             file.close();
