@@ -10,7 +10,9 @@ DataTranslator::~DataTranslator(){}
 
 void DataTranslator::SetFilePath(QString dataLocation,QString dataDestination){
     _dataPath = dataLocation;
-    _destPath = QFileInfo(dataDestination).absoluteDir().absolutePath();
+    //_destPath = QFileInfo(dataDestination).absoluteDir().absolutePath();
+    qDebug() << "File info location: " << QFileInfo(dataDestination).absoluteDir().absolutePath();
+    _destPath = dataDestination;
 }
 
 bool DataTranslator::GenerateFile(){
@@ -74,13 +76,14 @@ bool DataTranslator::AssignColumn(){
 }
 
 bool DataTranslator::Calculate(){
-    QString today = QDate::currentDate().toString("yyyy-MM-dd");
-    QString filename = _destPath + "/" + today + ".txt";
+    //QString today = QDate::currentDate().toString("yyyy-MM-dd");
+    //QString filename = _destPath + "/" + today + ".txt";
+    QString filename = _destPath;
 
         QFile file(filename);
         if (file.open(QIODevice::ReadWrite)) {
             QTextStream stream(&file);
-            stream << today << "\n";
+            //stream << today << "\n"; // Removed as date-as-frst-line is not required as part of PLY files
             for(int i = 0; i < _data.count(); i++){
                 //Defined Data for Readability
                 Drone.x = _data[i][_titles[0][2].toInt()].toDouble();

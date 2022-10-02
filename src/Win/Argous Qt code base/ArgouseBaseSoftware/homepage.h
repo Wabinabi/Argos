@@ -10,6 +10,7 @@
 #include <QtGui>
 #include <QCloseEvent>
 #include <QScrollArea>
+#include <QDebug>
 
 #include "tripdata.h"
 #include "datatranslator.h"
@@ -96,7 +97,7 @@ private:
 
 
     void readDroneStats(); // Read in the drone stats from the appdata dir
-    bool importPLY(QString dronePLYFile);  // Reads the PLY file from somewhere. Returns true if successful.
+    bool importPLY(QString droneCSVFile);  // Reads the CSV file from somewhere. Returns true if successful.
     bool importConf(QString droneConfFile); // Reads the config file as7.config. Returns true if successful.
     bool importLog(QString droneLogFile);  // Reads in the log as events. Returns true if successful.
 

@@ -84,8 +84,9 @@ void HomePage::on_ImportBtn_clicked()
 
 
 
-    bool importLogSuccess = importLog(filename + "/as7.log");
-    bool importConfSuccess = importConf(filename + "/as7.config");
+    bool importLogSuccess = importLog(filename + "\\as7.log");
+    bool importConfSuccess = importConf(filename + "\\as7.config");
+    bool importPLYSuccess = importPLY(filename + "\\data.csv");
 
     // Create error message
     QMessageBox msg;
@@ -101,12 +102,12 @@ void HomePage::on_ImportBtn_clicked()
         errorMsg += "Config file not found in the directory! Is as7.config missing or misplaced?\n";
         importFailed = true;
     }
-    if (!importLogSuccess) {
-        errorMsg += "Log file not found in the directory! Is as7.log missing or misplaced?\n";
+    if (!importPLYSuccess) {
+        errorMsg += "CSV file not found in the directory! Is data.csv missing or misplaced?\n";
         importFailed = true;
     }
 
-    if (!importLogSuccess || !importConfSuccess ) {msg.exec();}
+    if (!importLogSuccess || !importConfSuccess || !importPLYSuccess) {msg.exec();}
 
 
     /*Removed by Jimmy as the following has been moved to new functions
@@ -149,9 +150,24 @@ void HomePage::on_ImportBtn_clicked()
     //updateRecentFileActions(filename);
 }
 
-bool HomePage::importPLY(QString dronePLYFile){
-    //store into vector arrays similar to importedData
-    return false;
+bool HomePage::importPLY(QString droneCSVFile){
+    // Import the CSV file from the drone and generate a PLY file
+    // Proceeds to call StashPLY to store the information
+
+    // PLY file is saved to disk (probably in appdata) and referenced\
+    //  by plotter.cpp
+    QString dest = "..\\ArgouseBaseSoftware\\appdata\\as7-map.ply";
+
+
+    bool isSuccessful = false; // Remembers if the import was successful
+
+    qDebug() <<droneCSVFile << " - dest: " << dest << Qt::endl;
+    DataTranslator translator = DataTranslator();
+
+    translator.SetFilePath(droneCSVFile, dest);
+    isSuccessful = translator.GenerateFile();
+
+    return isSuccessful;
 }
 
 bool HomePage::importConf(QString droneConfFile){
@@ -238,17 +254,13 @@ bool HomePage::importLog(QString droneLogFile){
     return isSuccessful;
 }
 
+// this ONLY copies the file over
+//  processing is done in the previous importPLY file
 void HomePage::stashTempPLY(){
     QString fileName = "temp/tempPLY.txt";
     QFile file(fileName);
     QMessageBox msg;
 
-    QString data = "// TODO ";
-    QString dest = data;
-
-    DataTranslator test = DataTranslator();
-    test.SetFilePath(data, dest);
-    qDebug() << test.GenerateFile();
 
     if(!file.exists()){
         file.open(QIODevice::WriteOnly | QIODevice::Text);
