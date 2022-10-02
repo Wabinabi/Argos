@@ -112,7 +112,7 @@ void HomePage::on_pushButton_4_clicked()
             QMap<QString, QString>::iterator i;
             for (i = droneConfig.begin(); i != droneConfig.end(); ++i) {
                 QLineEdit *aValue = new QLineEdit(i.value());
-                aValue->setReadOnly(true);
+                aValue->setReadOnly(false);
 
                 layout->addRow(i.key(), aValue);
             }
@@ -122,7 +122,7 @@ void HomePage::on_pushButton_4_clicked()
 
             for (i = droneDetailsMap.begin(); i != droneDetailsMap.end(); ++i) {
                 QLineEdit *aValue = new QLineEdit(i.value());
-                aValue->setReadOnly(true);
+                aValue->setReadOnly(false);
 
                 layout->addRow(i.key(), aValue);
             }
