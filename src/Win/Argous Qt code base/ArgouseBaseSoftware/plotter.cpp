@@ -50,13 +50,14 @@ void Plotter::addData()
 
     //Testing reading in a text PLY file (B1's cube)
     //Source file -> this will later link to the processed PLY file spat out by import action'
-    QString filename = "temp/tempPLY.txt";
+    QString filename = "../ArgouseBaseSoftware/appdata/as7-map.ply";
     QFile file(filename);
     QVector<QString> importedPLYData;
     QMessageBox msg;
 
+
     if(filename.isEmpty()){
-        msg.setText("Test file not present");
+        msg.setText("Mapping data not found! Has the data been successfully imported?");
         msg.exec();
     }else{
         QString line;

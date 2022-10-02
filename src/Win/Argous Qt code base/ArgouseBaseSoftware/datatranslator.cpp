@@ -11,7 +11,6 @@ DataTranslator::~DataTranslator(){}
 void DataTranslator::SetFilePath(QString dataLocation,QString dataDestination){
     _dataPath = dataLocation;
     //_destPath = QFileInfo(dataDestination).absoluteDir().absolutePath();
-    qDebug() << "File info location: " << QFileInfo(dataDestination).absoluteDir().absolutePath();
     _destPath = dataDestination;
 }
 
