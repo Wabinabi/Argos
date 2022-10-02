@@ -158,7 +158,12 @@ void HomePage::on_droneDetailClose_clicked() {
 //B1 Added button functions
 void HomePage::on_droneDetailSave_clicked() {
     qDebug() << "SaveButtonClicked";
-    qDebug() << droneDetails->children();
+    QList items = droneDetails->children()
+    for (i = 0, i < items.count(),i++){
+        if (!qobject_cast<QLabel*>(items[i]) == NULL){
+            qDebug() << items[i]->(text);
+        }
+    }
 
 }
 
