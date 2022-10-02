@@ -74,7 +74,7 @@ void Plotter::addData()
     }
 
     //now load the data into the 3Dscatter plot
-    for (float i = 0; i < importedPLYData.length(); i++){
+    for (int i = 0; i < importedPLYData.length(); i++){
         ptrToDataArray->setPosition(PLYPoint(importedPLYData[i]));
         ptrToDataArray++;
     }
