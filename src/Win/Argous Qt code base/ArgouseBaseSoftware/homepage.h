@@ -14,6 +14,7 @@
 
 #include "tripdata.h"
 #include "datatranslator.h"
+#include "ui_homepage.h"
 
 class QAction;
 class QMenu;
@@ -47,6 +48,8 @@ private slots:
     //void openRecentFile();
     void about();
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::HomePage *ui;
 
@@ -77,11 +80,11 @@ private:
     QVector<DroneEvent> emergencyEvents;    // Warning, Fatal, and Error events
 
     QMap<QString, QString> droneConfig; // The drone config as a key-value map
-    QVector<QString> droneConfigList; // A basic list of strings from the config file
+    QMap<QString, QString> droneDetailsMap; // The drone config as a key-value map
 
 
 
-    bool importFailed = false; // Set to true if any data import is not successful
+    bool importFailed = true; // Set to true if any data import is not successful
 
     // Read coils for SCADA, essentially.
     bool tripEStopTriggered = false; // Flag to indicate that an E-Stop was hit
@@ -101,11 +104,15 @@ private:
     DroneSeriesData readTempValues(QString dataFile);
     DroneSeriesData readAltValues(QString dataFile);
 
+    void on_droneDetailClose_clicked();
+    QPushButton *detailsCloseButton ;
+    QWidget *droneDetails = new QWidget;
+    bool detailsOpened = false;
 
 
     void readDroneStats(); // Read in the drone stats from the appdata dir
     bool importPLY(QString droneCSVFile);  // Reads the CSV file from somewhere. Returns true if successful.
-    bool importConf(QString droneConfFile); // Reads the config file as7.config. Returns true if successful.
+    bool importConf(QString droneConfFile, QMap<QString, QString> *dest); // Reads the config file as7.config. Returns true if successful.
     bool importLog(QString droneLogFile);  // Reads in the log as events. Returns true if successful.
 
     //Read logs

@@ -1,5 +1,6 @@
 #include "homepage.h"
-#include "ui_homepage.h"
+#include <QLineEdit>
+#include <QFormLayout>
 
 
 HomePage::HomePage(QWidget *parent) :
@@ -73,6 +74,64 @@ void HomePage::on_pushButton_clicked()
     TripData tripData;
     tripData.setModal(false); //takes arguement for True/False, this determines whether the previous window can be accessed while the popup is open
     tripData.exec();
+}
+
+
+void HomePage::on_pushButton_4_clicked()
+{
+    // "Drone details" button clicked
+    //  we create a new form layout
+
+
+    if (!droneDetails->isVisible()) {
+        if (importFailed) {
+            QMessageBox msg;
+            msg.setText("Please import drone data first");
+            msg.exec();
+        } else {
+            droneDetails = new QWidget;
+            droneDetails->setWindowModality(Qt::WindowModal);
+
+            detailsCloseButton = new QPushButton("Close");
+            connect(detailsCloseButton, &QPushButton::released, this, &HomePage::on_droneDetailClose_clicked);
+
+
+
+            QFormLayout *layout = new QFormLayout(droneDetails);
+            layout->addRow("Drone Configuration", new QLabel(""));
+
+
+
+            QMap<QString, QString>::iterator i;
+            for (i = droneConfig.begin(); i != droneConfig.end(); ++i) {
+                QLineEdit *aValue = new QLineEdit(i.value());
+                aValue->setReadOnly(true);
+
+                layout->addRow(i.key(), aValue);
+            }
+            layout->addWidget(new QLabel(""));
+
+            layout->addRow("Drone Details", new QLabel(""));
+
+            for (i = droneDetailsMap.begin(); i != droneDetailsMap.end(); ++i) {
+                QLineEdit *aValue = new QLineEdit(i.value());
+                aValue->setReadOnly(true);
+
+                layout->addRow(i.key(), aValue);
+            }
+
+            layout->addWidget(detailsCloseButton);
+
+            droneDetails->resize(595, droneDetails->height());
+            droneDetails->show();
+            detailsOpened = true;
+        }
+    }
+}
+
+void HomePage::on_droneDetailClose_clicked() {
+    droneDetails->hide();
+    detailsOpened = false;
 }
 
 HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString colName)
@@ -199,8 +258,10 @@ void HomePage::on_ImportBtn_clicked()
 
 
     bool importLogSuccess = importLog(filename + "\\as7.log");
-    bool importConfSuccess = importConf(filename + "\\as7.config");
+    bool importConfSuccess = importConf(filename + "\\as7.config", &droneConfig);
     bool importPLYSuccess = importPLY(filename + "\\data.csv");
+
+    bool importDetailsSuccess = importConf("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
 
     // Create error message
     QMessageBox msg;
@@ -221,11 +282,17 @@ void HomePage::on_ImportBtn_clicked()
         importFailed = true;
     }
 
+    if (!importDetailsSuccess) {
+        errorMsg += "Details of the drone could not be loaded! Is droneDetails.txt missing from the appdata directory?\n";
+        importFailed = true;
+    }
+
     if (!importLogSuccess || !importConfSuccess || !importPLYSuccess) {
         msg.setText(errorMsg);
         msg.exec();
     } else {
         errorMsg = "Import Successful!";
+        importFailed = false;
         msg.setText(errorMsg);
         msg.exec();
     }
@@ -295,7 +362,6 @@ bool HomePage::importPLY(QString droneCSVFile){
 
     bool isSuccessful = false; // Remembers if the import was successful
 
-    qDebug() <<droneCSVFile << " - dest: " << dest << Qt::endl;
     DataTranslator translator = DataTranslator();
 
     translator.SetFilePath(droneCSVFile, dest);
@@ -304,7 +370,7 @@ bool HomePage::importPLY(QString droneCSVFile){
     return isSuccessful;
 }
 
-bool HomePage::importConf(QString droneConfFile){
+bool HomePage::importConf(QString droneConfFile, QMap<QString, QString> *dest){
     //store into vector arrays
     QFile file(droneConfFile);
 
@@ -325,15 +391,13 @@ bool HomePage::importConf(QString droneConfFile){
                     // Token 0 key, Token 1 Value
                     tokens = line.split(QRegularExpression("[:]"), Qt::SkipEmptyParts);
 
-                    droneConfigList.append(tokens[0] + " : "  + tokens[1]);
-                    droneConfig[tokens[0]] = tokens[1];
+                    (*dest)[tokens[0]] = tokens[1];
                 }
         file.close();
         isSuccessful = true;
         }
     }
     return isSuccessful;
-
 }
 
 
@@ -636,5 +700,7 @@ void HomePage::closeEvent (QCloseEvent *event)
     //Remove temp files
     std::filesystem::remove_all("temp");
 }
+
+
 
 
