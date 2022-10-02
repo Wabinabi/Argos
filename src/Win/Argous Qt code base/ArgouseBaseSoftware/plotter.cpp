@@ -25,7 +25,7 @@ Plotter::Plotter(Q3DScatter* scatter)
 
         QScatterDataProxy* proxy = new QScatterDataProxy;
         QScatter3DSeries* series = new QScatter3DSeries(proxy);
-        series->setItemLabelFormat(QStringLiteral("@xTitle: @xLabel @yTitle: @yLabel @zTitle: @zLabel"));
+        series->setItemLabelFormat(QStringLiteral("@xTitle: @xLabel @zTitle: @zLabel @yTitle: @yLabel"));
         series->setMeshSmooth(m_smooth);
         m_graph->addSeries(series);
 
@@ -41,8 +41,16 @@ void Plotter::addData()
 {
     // Configure the axes according to the data
     m_graph->axisX()->setTitle("X");
-    m_graph->axisY()->setTitle("Y");
-    m_graph->axisZ()->setTitle("Z");
+    m_graph->axisX()->setTitleVisible(true);
+
+    m_graph->axisY()->setTitle("Z");
+    //m_graph->axisY()->setLabelFormat("%.2f mm");
+    m_graph->axisY()->setTitleVisible(true);
+
+    m_graph->axisZ()->setTitle("Y");
+    m_graph->axisZ()->setTitleVisible(true);
+
+
 
     QScatterDataArray* dataArray = new QScatterDataArray;
     dataArray->resize(m_itemCount);
@@ -94,8 +102,8 @@ QVector3D Plotter::PLYPoint(QString line){
         if(c == ' '){pos += 1;}
         else{
            if(pos == 0){stX = stX + c;}
-           else if(pos == 1){stY = stY + c;}
-           else if(pos == 2){stZ = stZ + c;}
+           else if(pos == 1){stZ = stZ + c;}
+           else if(pos == 2){stY = stY + c;}
         }
     }
 
