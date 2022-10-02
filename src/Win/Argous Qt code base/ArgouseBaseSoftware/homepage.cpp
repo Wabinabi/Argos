@@ -105,7 +105,7 @@ void HomePage::on_pushButton_4_clicked()
             connect(detailResetButton, &QPushButton::released, this, &HomePage::on_droneDetailReset_clicked);
 
 
-            QFormLayout *layout = new QFormLayout(droneDetails);
+            QFormLayout *layout = new QFormLayout();//B1 Removed droneDetails
             layout->addRow("Drone Configuration", new QLabel(""));
 
 
@@ -128,10 +128,17 @@ void HomePage::on_pushButton_4_clicked()
                 layout->addRow(i.key(), aValue);
             }
 
-            layout->addWidget(detailsCloseButton);
+            //layout->addWidget(detailsCloseButton);
             //B1 added widgets
-            layout->addWidget(detailSaveButton);
-            layout->addWidget(detailResetButton);
+            //layout->addWidget(detailSaveButton);
+            //layout->addWidget(detailResetButton);
+            QHBoxLayout *boxLayout = new QHBoxLayout();
+            boxLayout->addWidget(detailResetButton);
+            boxLayout->addWidget(detailSaveButton);
+            boxLayout->addWidget(detailsCloseButton);
+
+            droneDetails->addLayout(layout);
+            droneDetails->addLayout(boxLayout);
 
             droneDetails->resize(595, droneDetails->height());
             droneDetails->show();
@@ -151,7 +158,7 @@ void HomePage::on_droneDetailSave_clicked() {
 }
 
 void HomePage::on_droneDetailReset_clicked() {
-    qDebug() << "SaveButtonClicked";
+    qDebug() << "ResetButtonClicked";
 }
 
 HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString colName)
