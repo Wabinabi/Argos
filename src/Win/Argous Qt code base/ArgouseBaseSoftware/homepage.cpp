@@ -73,6 +73,50 @@ void HomePage::on_pushButton_clicked()
     tripData.exec();
 }
 
+HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> droneLogData)
+{
+    DroneEvent data;
+    QString msg;
+    QStringList tokens;
+
+    QVector<HomePage::DroneDataPoint> throttleData;
+
+    for (int i = 0; i < droneLogData.size(); i++) {
+        data = droneLogData[i];
+        if (data.message.contains("DATA:", Qt::CaseInsensitive)) {
+            // This is a drone log event in the form:
+            // DATA: 0 TX: <16 TX Chs> RX: <16 RX Chs>
+            //
+            // The tokens are therefore:
+            /*
+             * 0: DATA:
+             * 1: Data Value    (0 = Malformed Frame Received, 1 = Valid Frame received)
+             * 2: Tx:           (Tx Marker)
+             * 3: Tx Ch 1
+             * 4: Tx Ch 2
+             * 5: Tx Ch 3
+             * 6..17 Tx Channels
+             * 19: RX:          (Rx Marker)
+             * 20..35 Rx Channels
+             * As we only want throttle (Ch3), we take token 4 of this message.
+             */
+            tokens = data.message.split(QRegularExpression("\\s+"),Qt::SkipEmptyParts);
+
+            HomePage::DroneDataPoint point {
+                .time = data.time,
+                .y = tokens[5].toFloat()
+            };
+
+            throttleData.append(point);
+        }
+    }
+    DroneSeriesData throttleSeries;
+    throttleSeries.seriesName = "Throttle Data";
+    throttleSeries.data = throttleData;
+
+    return throttleSeries;
+}
+
 void HomePage::on_ImportBtn_clicked()
 {
     // Load explorer and browse for file if no file has been selected
@@ -107,7 +151,15 @@ void HomePage::on_ImportBtn_clicked()
         importFailed = true;
     }
 
+    // next we need altitude, throttle, and temp
+    //  Altitude and Temp are given in the CSV
+    //
+    //  Throttle is slightly different as it's given in the log files
+
     if (!importLogSuccess || !importConfSuccess || !importPLYSuccess) {msg.exec();}
+
+    // Extract throttle data from inform logs
+    throttle = extractThrottleValues(verboseEvents);
 
 
     /*Removed by Jimmy as the following has been moved to new functions
@@ -143,9 +195,6 @@ void HomePage::on_ImportBtn_clicked()
 
     // Create a temp directory where we store temp files
     std::filesystem::create_directory("temp");
-
-    // Create a text file within the temp folder and populate with the PLY data from the drone
-    stashTempPLY();
 
     //updateRecentFileActions(filename);
 }
@@ -202,6 +251,8 @@ bool HomePage::importConf(QString droneConfFile){
 
 }
 
+
+
 bool HomePage::importLog(QString droneLogFile){
     QFile file(droneLogFile);
     QMessageBox msg;
@@ -254,8 +305,8 @@ bool HomePage::importLog(QString droneLogFile){
     return isSuccessful;
 }
 
-// this ONLY copies the file over
-//  processing is done in the previous importPLY file
+/* Removed in favour of importPLY()
+ * importPLY saves into ../appdata/
 void HomePage::stashTempPLY(){
     QString fileName = "temp/tempPLY.txt";
     QFile file(fileName);
@@ -279,10 +330,7 @@ void HomePage::stashTempPLY(){
               file.close();
           }
 }
-
-void HomePage::stashTempEvents(){}
-
-
+*/
 
 void HomePage::on_BrowseBtn_clicked()
 {

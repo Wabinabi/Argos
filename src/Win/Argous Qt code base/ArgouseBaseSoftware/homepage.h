@@ -79,6 +79,8 @@ private:
     QMap<QString, QString> droneConfig; // The drone config as a key-value map
     QVector<QString> droneConfigList; // A basic list of strings from the config file
 
+
+
     bool importFailed = false; // Set to true if any data import is not successful
 
     // Read coils for SCADA, essentially.
@@ -94,6 +96,9 @@ private:
     DroneSeriesData temperature;
     DroneSeriesData throttle;
 
+    DroneSeriesData extractThrottleValues(QVector<DroneEvent> droneLogData);
+
+
 
 
     void readDroneStats(); // Read in the drone stats from the appdata dir
@@ -107,7 +112,6 @@ private:
 
     //Create Temp Working files
     void stashTempPLY();
-    void stashTempEvents();
 
     //Close
     void closeEvent (QCloseEvent *event);
