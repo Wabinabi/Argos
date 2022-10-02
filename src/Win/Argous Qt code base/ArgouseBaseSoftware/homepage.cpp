@@ -390,17 +390,17 @@ void HomePage::writeMapToFile(QString dest, QMap<QString, QString> *map) {
     }
 
     if(file.open(QIODevice::WriteOnly | QIODevice::Text))
-          {
-              // We're going to streaming text to the file
-              QTextStream stream(&file);
+    {
+        // We're going to streaming text to the file
+        QTextStream stream(&file);
 
-              QMap<QString, QString>::iterator i;
-              for (i = (*map).begin(); i != (*map).end(); ++i) {
-                  stream << i.key() << ":" << i.value() << '\n';
+        QMap<QString, QString>::iterator i;
+        for (i = (*map).begin(); i != (*map).end(); ++i) {
+            stream << i.key() << ":" << i.value() << '\n';
 
-              }
-              file.close();
-          }
+        }
+        file.close();
+    }
 }
 
 
