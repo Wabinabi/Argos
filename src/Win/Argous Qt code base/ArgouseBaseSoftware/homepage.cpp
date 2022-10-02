@@ -16,7 +16,6 @@ HomePage::HomePage(QWidget *parent) :
     createMenus();
     (void)statusBar();
 
-
     setWindowFilePath(QString());
 }
 
@@ -55,6 +54,8 @@ void HomePage::readDroneStats(){
 
     //file.open(QFile::ReadOnly | QFile::Text);
     //droneStats->setText(file.readAll());
+
+    ui->droneStats->setReadOnly(true);
 
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream stream(&file);
