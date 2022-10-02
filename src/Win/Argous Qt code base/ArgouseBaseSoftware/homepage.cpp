@@ -312,7 +312,24 @@ void HomePage::on_ImportBtn_clicked()
         temperature = readTempValues(filename + "\\data.csv");
 
         // Extract trip details
+        // Get sample rate from config
         sampleRate = droneConfig["SAMPLE_RATE"].toInt();
+
+        // Get average temperature by summing and dividing across temperature series
+        float totalTemp = 0;
+        for (int i = 0; i < temperature.data.size(); i++) {
+            totalTemp+=temperature.data[i].y;
+        }
+
+        averageTemp = totalTemp / temperature.data.size();
+
+        // Get the number of events by looking at the size of the vector arrays
+        numberCriticalEvents = emergencyEvents.size();
+        numberEvents = verboseEvents.size() + informEvents.size() + emergencyEvents.size();
+
+        // We should have all of the information we need to update trip data and running data
+
+
 
     }
 
@@ -351,6 +368,8 @@ void HomePage::on_ImportBtn_clicked()
 
     // Create a temp directory where we store temp files
     std::filesystem::create_directory("temp");
+
+    // Update drone stats
     readDroneStats();
 
     //updateRecentFileActions(filename);

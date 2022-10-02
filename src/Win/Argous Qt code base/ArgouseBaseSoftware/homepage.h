@@ -85,14 +85,14 @@ private:
     QMap<QString, QString> runningStats; // The drone runningStats as a key-value map
     QMap<QString, QString> tripStats; // The drone tripStats as a key-value map
 
+
+    // All of the following are set at import
     int tripDuration = 0;
     int numberDataPoints = 0;
     int sampleRate = 0;
-    int averageTemp = 0;
-    int numberCritiicalEvents = 0;
-    int numberEStops = 0;
-    bool operatorControlTriggered = false;
-    bool eStopTriggered = false;
+    float averageTemp = 0;
+    int numberEvents;
+    int numberCriticalEvents = 0;
 
 
 
