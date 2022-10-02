@@ -150,7 +150,7 @@ void HomePage::on_droneDetailSave_clicked() {
 }
 
 void HomePage::on_droneDetailReset_clicked() {
-    qDebug() << "SaveButtonClicked";
+    qDebug() << "ResetButtonClicked";
 }
 
 HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString colName)
