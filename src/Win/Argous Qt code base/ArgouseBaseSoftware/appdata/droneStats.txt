@@ -1,11 +1,3 @@
-test
-test
-test
-WE
-ARE
-TESTING
-SO
-HARD
-CORE
-RIGHT
-NOW
+Lifetime Starts:14
+Total Trip Duration (s):529
+Last Maintenance Date: 02/10/2022

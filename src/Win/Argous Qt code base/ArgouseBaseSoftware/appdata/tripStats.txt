@@ -1,0 +1,8 @@
+Number of Points During Flight:
+Duration of that flight:
+Sample Rate:
+Average Temp
+Number of Events:
+Number of Critical Events:
+Operator Override:
+E-Stop:
