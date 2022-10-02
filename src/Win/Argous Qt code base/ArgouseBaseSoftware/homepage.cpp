@@ -73,7 +73,7 @@ void HomePage::readDroneStats(){
 
 void HomePage::on_pushButton_clicked()
 {
-    TripData tripData(this, &emergencyEvents, &verboseEvents, &informEvents);
+    TripData tripData(this, &emergencyEvents, &verboseEvents, &informEvents, &altitude, &temperature, &throttle);
     tripData.setModal(false); //takes arguement for True/False, this determines whether the previous window can be accessed while the popup is open
     tripData.exec();
 }
@@ -122,10 +122,10 @@ void HomePage::on_pushButton_4_clicked()
             layout->addRow("Drone Details", new QLabel(""));
 
             for (i = droneDetailsMap.begin(); i != droneDetailsMap.end(); ++i) {
-                QLineEdit *aValue = new QLineEdit(i.value());
-                aValue->setReadOnly(false);
+                //aValue = new QLineEdit(i.value());
+                //aValue->setReadOnly(false);
 
-                layout->addRow(i.key(), aValue);
+                //layout->addRow(i.key(), aValue);
             }
 
             //layout->addWidget(detailsCloseButton);
@@ -157,17 +157,27 @@ void HomePage::on_droneDetailClose_clicked() {
 
 //B1 Added button functions
 void HomePage::on_droneDetailSave_clicked() {
+//    qDebug() << "SaveButtonClicked";
+//    QList items = droneDetails->children();
+
+//    QLabel test;
+
+//    for (int i = 0; i < items.count();i++){
+//        if (!qobject_cast<QLabel*>(items[i]) == NULL){
+//            //test = qobject;
+//            qDebug() << test.text();
+//        }
+//    }
+
     qDebug() << "SaveButtonClicked";
-    QList items = droneDetails->children();
 
-    QLabel test;
+        const QList<QLineEdit> lineEdits = droneDetails->findChildren<QLineEdit>();
+        QLineEdit test;
 
-    for (int i = 0; i < items.count();i++){
-        if (!qobject_cast<QLabel*>(items[i]) == NULL){
-            //test = qobject;
-            qDebug() << test.text();
+        for (int i = 0; i < lineEdits.count();i++){
+            //test = lineEdits.data(i);
+            qDebug() << lineEdits[i].text();
         }
-    }
 
 }
 

@@ -9,7 +9,13 @@
 HomePage *homePage;
 
 
-TripData::TripData(QWidget *parent, QVector<HomePage::DroneEvent> *emergencyEvents) :
+TripData::TripData(QWidget *parent,
+                   QVector<HomePage::DroneEvent> *emergencyEvents,
+                   QVector<HomePage::DroneEvent> *verboseEvents,
+                   QVector<HomePage::DroneEvent> *informEvents,
+                   HomePage::DroneSeriesData *altitude,
+                   HomePage::DroneSeriesData *temperature,
+                   HomePage::DroneSeriesData *throttle) :
     QDialog(parent),
     ui(new Ui::TripData)
 {
@@ -20,6 +26,13 @@ TripData::TripData(QWidget *parent, QVector<HomePage::DroneEvent> *emergencyEven
     void passData();
 
     locEmergencyEvents = *emergencyEvents;
+    locVerboseEvents = *verboseEvents;
+    locInformEvents = *informEvents;
+
+
+    locThrottle = *throttle;
+    locTemperature = *temperature;
+    locAltitude = *altitude;
 
     eventsIndex = 0;
     tempIndex = 1;
@@ -34,11 +47,11 @@ TripData::TripData(QWidget *parent, QVector<HomePage::DroneEvent> *emergencyEven
 
     //probs need to process test data with a sim function
 
-    //drawXYSeries(throttleIndex);
-    //drawXYSeries(altitudeIndex);
-    drawXYSeries(tempIndex);
-
     drawEventsPlot();
+    drawXYSeries(tempIndex, locTemperature);
+    drawXYSeries(throttleIndex, locThrottle);
+    drawXYSeries(altitudeIndex, locAltitude);
+
     // QLineSeries *series = new QLineSeries();
     // function that opens the data:
     //     QFile sunSpots(":sun");
@@ -59,23 +72,27 @@ TripData::~TripData()
 //}
 //QLineSeries *XYSeries
 
-void TripData::drawXYSeries(int stackIndex){
+void TripData::drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData){
     QLineSeries *XYSeries = new QLineSeries();
-    QFile File("../ArgouseBaseSoftware/test2DPlot.txt");
+    //QFile File("../ArgouseBaseSoftware/test2DPlot.txt");
 
-    if (File.open(QIODevice::ReadOnly | QIODevice::Text)){
-        QTextStream stream(&File);
-        while (!stream.atEnd()) {
-            QString line = stream.readLine();
-            if (line.startsWith("#") || line.startsWith(":"))
-                continue;
-            QStringList values = line.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-            QDateTime momentInTime;
-            momentInTime.setTime(QTime(values[0].toInt(), values[1].toInt()));
-            XYSeries->append(momentInTime.toMSecsSinceEpoch(), values[2].toDouble());
-        }
+    //if (File.open(QIODevice::ReadOnly | QIODevice::Text)){
+        //QTextStream stream(&File);
+        //while (!stream.atEnd()) {
+            //QString line = stream.readLine();
+            //if (line.startsWith("#") || line.startsWith(":"))
+            //    continue;
+
+    for (int i = 0; i < droneData.data.size(); ++i) {
+        XYSeries->append(droneData.data[i].time, droneData.data[i].y);
     }
-    File.close();
+//            QStringList values = line.split(QLatin1Char(' '), Qt::SkipEmptyParts);
+//            QDateTime momentInTime;
+//            momentInTime.setTime(QTime(values[0].toInt(), values[1].toInt()));
+//            XYSeries->append(momentInTime.toMSecsSinceEpoch(), values[2].toDouble());
+//        }
+
+    //File.close();
 
     //QFile file("../ArgouseBaseSoftware/droneStats.txt");
 
@@ -125,46 +142,49 @@ void TripData::drawXYSeries(int stackIndex){
 }
 
 void TripData::drawEventsPlot(){
-
-    QChart *chart = new QChart();
-    eventsChart = new QChartView(chart);
-    eventsChart->setRenderHint(QPainter::Antialiasing);
-
     //chart->setTitle("Click to interact with scatter points");
 
     m_scatter = new QScatterSeries();
+    m_scatter2 = new QScatterSeries();
 
     // For each drone events timeline, create a scatter plot
     // Events in the same timeline should stay on the same row
     //
 
-    m_scatter->setName("scatter1");
-
-
-    for (int i = 0; i < 1; i++){
+    m_scatter->setName("Emergencies");
+    //plot emergency events on row 1
+    for (int i = 0; i < locEmergencyEvents.size(); i++){
         int x = locEmergencyEvents[i].time;
-        //emergencyEvents[i].
-        //x = HomePage::emergencyEvents[i].time;
-
         *m_scatter << QPointF(x, 1);
     }
 
-//    for (qreal x(0.5); x <= 4.0; x += 0.5) {
-//        for (qreal y(0.5); y <= 4.0; y += 0.5)
-//            *m_scatter << QPointF(x, y);
+//    m_scatter2->setName("Verbose");
+//    //plot verbose events on row 2
+//    for (int i = 0; i < locVerboseEvents.size(); i++){
+//        int x = locVerboseEvents[i].time;
+//        *m_scatter << QPointF(x, 2);
 //    }
 
-    m_scatter2 = new QScatterSeries();
-    m_scatter2->setName("scatter2");
+    m_scatter2->setName("Informative");
+    //plot informative events on row 3
+    for (int i = 0; i < locInformEvents.size(); i++){
+        int x = locInformEvents[i].time;
+        *m_scatter2 << QPointF(x, 3);
+    }
 
+    QChart *chart = new QChart();
+    eventsChart = new QChartView(chart);
+    eventsChart->setRenderHint(QPainter::Antialiasing);
+    //chart->addSeries(m_scatter3);
     chart->addSeries(m_scatter2);
     chart->addSeries(m_scatter);
     chart->createDefaultAxes();
-    chart->axes(Qt::Horizontal).first()->setRange(0, 200);
+    //update dissss
+    //chart->axes(Qt::Horizontal).first()->setRange(0, 200);
     chart->axes(Qt::Vertical).first()->setRange(0, 4.5);
 
     ui->stackedWidget->insertWidget(eventsIndex, eventsChart);
-    connect(m_scatter, &QScatterSeries::clicked, this, &TripData::handleClickedPoint);
+    //connect(m_scatter, &QScatterSeries::clicked, this, &TripData::handleClickedPoint);
 }
 
 void TripData::on_HomeBtn_clicked()

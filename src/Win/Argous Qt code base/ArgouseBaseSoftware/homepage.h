@@ -65,7 +65,6 @@ public:
     DroneSeriesData temperature;
     DroneSeriesData throttle;
 
-    QVector<DroneEvent> getEmergencyEvents() {return emergencyEvents;}
 
 private slots:
 
@@ -176,6 +175,7 @@ private:
 
     enum { MaxRecentFiles = 5 };
     QAction *recentFileActs[MaxRecentFiles];
+
 };
 
 #endif // HOMEPAGE_H
