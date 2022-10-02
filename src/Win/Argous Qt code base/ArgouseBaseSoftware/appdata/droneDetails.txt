@@ -13,3 +13,5 @@ Microcontroller: ESP32 Devkic C
 Ultrasonic Sensors: HC-SR04
 Compass: Duinotech XC-4496
 Accelerometer: DFROBOT SEN0168 Triple Axis Accelerometer BMA220
+CASA License: CASA-13QFCC
+Aviation Reference Number: 1179999
