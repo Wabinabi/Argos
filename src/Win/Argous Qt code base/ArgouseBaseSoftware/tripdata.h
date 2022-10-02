@@ -63,7 +63,7 @@ private slots:
 
 private:
     //Getter/Setter getting me yummy data
-
+    QVector<HomePage::DroneEvent> locEmergencyEvents;
 
     Ui::TripData *ui;
     QScatterSeries *m_scatter;

@@ -19,6 +19,8 @@ TripData::TripData(QWidget *parent, QVector<HomePage::DroneEvent> *emergencyEven
 
     void passData();
 
+    locEmergencyEvents = *emergencyEvents;
+
     eventsIndex = 0;
     tempIndex = 1;
     throttleIndex = 2;
@@ -27,7 +29,7 @@ TripData::TripData(QWidget *parent, QVector<HomePage::DroneEvent> *emergencyEven
 
 
 
-    //ui->stackedWidget->setCurrentIndex(1);
+    ui->stackedWidget->setCurrentIndex(1);
 
 
     //probs need to process test data with a sim function
@@ -139,12 +141,12 @@ void TripData::drawEventsPlot(){
     m_scatter->setName("scatter1");
 
 
-    for (int i = 0; 10; i++){
-        //int x = homePage->emergencyEvents[i].time;
+    for (int i = 0; i < 1; i++){
+        int x = locEmergencyEvents[i].time;
         //emergencyEvents[i].
         //x = HomePage::emergencyEvents[i].time;
 
-        //*m_scatter << QPointF(x, 1);
+        *m_scatter << QPointF(x, 1);
     }
 
 //    for (qreal x(0.5); x <= 4.0; x += 0.5) {
@@ -158,7 +160,7 @@ void TripData::drawEventsPlot(){
     chart->addSeries(m_scatter2);
     chart->addSeries(m_scatter);
     chart->createDefaultAxes();
-    chart->axes(Qt::Horizontal).first()->setRange(0, 4.5);
+    chart->axes(Qt::Horizontal).first()->setRange(0, 200);
     chart->axes(Qt::Vertical).first()->setRange(0, 4.5);
 
     ui->stackedWidget->insertWidget(eventsIndex, eventsChart);
