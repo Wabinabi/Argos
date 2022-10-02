@@ -94,6 +94,8 @@ private:
     int numberEvents;
     int numberCriticalEvents = 0;
 
+    void writeMapToFile(QString dest, QMap<QString, QString> *map);
+
 
 
 

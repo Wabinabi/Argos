@@ -328,6 +328,10 @@ void HomePage::on_ImportBtn_clicked()
         numberEvents = verboseEvents.size() + informEvents.size() + emergencyEvents.size();
 
         // We should have all of the information we need to update trip data and running data
+        // the trip data we write fresh intot he dict and store
+
+        // the running data we read from what's existing, update, and store
+
 
 
 
@@ -374,6 +378,31 @@ void HomePage::on_ImportBtn_clicked()
 
     //updateRecentFileActions(filename);
 }
+
+void HomePage::writeMapToFile(QString dest, QMap<QString, QString> *map) {
+
+    QFile file(dest);
+
+    if(!file.exists()){
+        file.open(QIODevice::WriteOnly | QIODevice::Text);
+        QTextStream out(&file);
+        file.close();
+    }
+
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
+          {
+              // We're going to streaming text to the file
+              QTextStream stream(&file);
+
+              QMap<QString, QString>::iterator i;
+              for (i = (*map).begin(); i != (*map).end(); ++i) {
+                  stream << i.key() << ":" << i.value() << '\n';
+
+              }
+              file.close();
+          }
+}
+
 
 bool HomePage::importPLY(QString droneCSVFile){
     // Import the CSV file from the drone and generate a PLY file
