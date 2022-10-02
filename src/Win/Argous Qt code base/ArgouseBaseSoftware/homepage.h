@@ -11,8 +11,9 @@
 #include <QCloseEvent>
 #include <QScrollArea>
 #include <QDebug>
+#include <iostream>
 
-#include "tripdata.h"
+//#include "tripdata.h"
 #include "datatranslator.h"
 #include "ui_homepage.h"
 
@@ -31,6 +32,8 @@ class HomePage : public QMainWindow
 public:
     explicit HomePage(QWidget *parent = nullptr);
     ~HomePage();
+
+//TripData* tripData = nullptr;
 
     typedef struct {
         int time;
@@ -61,6 +64,8 @@ public:
     DroneSeriesData altitude;
     DroneSeriesData temperature;
     DroneSeriesData throttle;
+
+    QVector<DroneEvent> getEmergencyEvents() {return emergencyEvents;}
 
 private slots:
 

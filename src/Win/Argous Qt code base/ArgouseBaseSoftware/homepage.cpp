@@ -2,6 +2,7 @@
 #include <QLineEdit>
 #include <QFormLayout>
 
+#include "tripdata.h"
 
 HomePage::HomePage(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::HomePage)
@@ -72,7 +73,7 @@ void HomePage::readDroneStats(){
 
 void HomePage::on_pushButton_clicked()
 {
-    TripData tripData;
+    TripData tripData = new TripData();
     tripData.setModal(false); //takes arguement for True/False, this determines whether the previous window can be accessed while the popup is open
     tripData.exec();
 }
