@@ -73,7 +73,7 @@ void HomePage::readDroneStats(){
 
 void HomePage::on_pushButton_clicked()
 {
-    TripData tripData(this, &emergencyEvents);
+    TripData tripData(this, &emergencyEvents, &verboseEvents, &informEvents);
     tripData.setModal(false); //takes arguement for True/False, this determines whether the previous window can be accessed while the popup is open
     tripData.exec();
 }
@@ -158,10 +158,14 @@ void HomePage::on_droneDetailClose_clicked() {
 //B1 Added button functions
 void HomePage::on_droneDetailSave_clicked() {
     qDebug() << "SaveButtonClicked";
-    QList items = droneDetails->children()
-    for (i = 0, i < items.count(),i++){
+    QList items = droneDetails->children();
+
+    QLabel test;
+
+    for (int i = 0; i < items.count();i++){
         if (!qobject_cast<QLabel*>(items[i]) == NULL){
-            qDebug() << items[i]->(text);
+            //test = qobject;
+            qDebug() << test.text();
         }
     }
 
