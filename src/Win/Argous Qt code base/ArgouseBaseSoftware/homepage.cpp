@@ -132,13 +132,16 @@ void HomePage::on_pushButton_4_clicked()
             //B1 added widgets
             //layout->addWidget(detailSaveButton);
             //layout->addWidget(detailResetButton);
-            QHBoxLayout *boxLayout = new QHBoxLayout();
+            QVBoxLayout *boxLayout = new QVBoxLayout();
+
+            boxLayout->addLayout(layout);
+
             boxLayout->addWidget(detailResetButton);
             boxLayout->addWidget(detailSaveButton);
             boxLayout->addWidget(detailsCloseButton);
 
-            droneDetails->addLayout(layout);
-            droneDetails->addLayout(boxLayout);
+            droneDetails->setLayout(boxLayout);
+            //droneDetails->
 
             droneDetails->resize(595, droneDetails->height());
             droneDetails->show();
