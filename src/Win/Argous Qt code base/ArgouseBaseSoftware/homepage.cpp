@@ -330,10 +330,30 @@ void HomePage::on_ImportBtn_clicked()
         // We should have all of the information we need to update trip data and running data
         // the trip data we write fresh intot he dict and store
 
+        tripStats["Number of Points During Flight"] = QString::number(numberDataPoints);
+        tripStats["Duration of flight (s)"] = QString::number(tripDuration/1000);
+        tripStats["Sample Rate (Hz)"] = QString::number(sampleRate);
+        tripStats["Average Temp (c)"] = QString::number(averageTemp);
+        tripStats["Number of Events"] = QString::number(numberEvents);
+        tripStats["Number of Critical Events"] = QString::number(numberCriticalEvents);
+
+        writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\tripStats.txt", &tripStats);
+
         // the running data we read from what's existing, update, and store
 
+        int lifetimeStarts = runningStats["Lifetime Starts"].toInt();
+        int totalTripDur = runningStats["Total Trip Duration (s)"].toInt();
 
 
+        lifetimeStarts += 1;
+        totalTripDur += tripDuration/1000;
+
+        runningStats["Lifetime Starts"] = QString::number(lifetimeStarts);
+        runningStats["Total Trip Duration (s)"] = QString::number(totalTripDur);
+        runningStats["Date of Last Trip Imported"] =QDate::currentDate().toString("yyyy-MM-dd");
+        runningStats["Last Maintenance Date"] = "2022-10-03";
+
+        writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneStats.txt", &runningStats);
 
     }
 

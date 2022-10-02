@@ -1,3 +1,4 @@
-Lifetime Starts:14
-Total Trip Duration (s):529
-Last Maintenance Date: 02/10/2022
+Date of Last Trip Imported:2022-10-03
+Last Maintenance Date:
+Lifetime Starts:1
+Total Trip Duration (s):38
