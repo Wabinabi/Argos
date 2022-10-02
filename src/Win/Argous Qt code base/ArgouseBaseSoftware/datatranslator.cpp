@@ -116,6 +116,7 @@ bool DataTranslator::Calculate(){
                 }
             }
             file.close();
+            numberDataPoints = _points.size();
         } else return false;
 
     return true;

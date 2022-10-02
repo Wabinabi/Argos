@@ -80,7 +80,21 @@ private:
     QVector<DroneEvent> emergencyEvents;    // Warning, Fatal, and Error events
 
     QMap<QString, QString> droneConfig; // The drone config as a key-value map
-    QMap<QString, QString> droneDetailsMap; // The drone config as a key-value map
+    QMap<QString, QString> droneDetailsMap; // The drone details as a key-value map
+
+    QMap<QString, QString> runningStats; // The drone runningStats as a key-value map
+    QMap<QString, QString> tripStats; // The drone tripStats as a key-value map
+
+    int tripDuration = 0;
+    int numberDataPoints = 0;
+    int sampleRate = 0;
+    int averageTemp = 0;
+    int numberCritiicalEvents = 0;
+    int numberEStops = 0;
+    bool operatorControlTriggered = false;
+    bool eStopTriggered = false;
+
+
 
 
 

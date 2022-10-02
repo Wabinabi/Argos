@@ -262,6 +262,9 @@ void HomePage::on_ImportBtn_clicked()
     bool importConfSuccess = importConf(filename + "\\as7.config", &droneConfig);
     bool importPLYSuccess = importPLY(filename + "\\data.csv");
 
+    bool importTripsSuccess = importConf(filename + ".\\ArgouseBaseSoftware\\appdata\\tripStats.txt", &tripStats);
+    bool importDroneStats = importConf(filename + ".\\ArgouseBaseSoftware\\appdata\\droneStats.txt", &runningStats);
+
     bool importDetailsSuccess = importConf("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
 
     // Create error message
@@ -296,6 +299,9 @@ void HomePage::on_ImportBtn_clicked()
         importFailed = false;
         msg.setText(errorMsg);
         msg.exec();
+
+        // TODO: read lifetimes and increment here (e.g. total trip duration (ms)
+
     }
 
     if (!importFailed) {
@@ -348,6 +354,7 @@ void HomePage::on_ImportBtn_clicked()
 
     // Create a temp directory where we store temp files
     std::filesystem::create_directory("temp");
+    readDroneStats();
 
     //updateRecentFileActions(filename);
 }
@@ -367,6 +374,8 @@ bool HomePage::importPLY(QString droneCSVFile){
 
     translator.SetFilePath(droneCSVFile, dest);
     isSuccessful = translator.GenerateFile();
+
+    numberDataPoints = translator.numberDataPoints;
 
     return isSuccessful;
 }
@@ -450,6 +459,9 @@ bool HomePage::importLog(QString droneLogFile){
                 }
         file.close();
         isSuccessful = true;
+
+        DroneEvent finalEvent = verboseEvents.last();
+        tripDuration = finalEvent.time;
         }
     }
     return isSuccessful;

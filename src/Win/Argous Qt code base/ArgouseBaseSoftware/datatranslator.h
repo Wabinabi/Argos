@@ -22,6 +22,8 @@ public:
     void SetFilePath(QString dataLocation,QString dataDestination);
     bool GenerateFile();
 
+    int numberDataPoints = 0;
+
 private:
     QString _dataPath;
     QString _destPath;
