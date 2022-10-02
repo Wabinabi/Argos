@@ -1,7 +1,7 @@
 Number of Points During Flight:
-Duration of that flight:
-Sample Rate:
-Average Temp
+Duration of that flight (s):
+Sample Rate (Hz):
+Average Temp (c):
 Number of Events:
 Number of Critical Events:
 Operator Override:

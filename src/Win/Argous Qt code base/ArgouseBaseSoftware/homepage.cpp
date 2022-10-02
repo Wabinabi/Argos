@@ -305,17 +305,14 @@ void HomePage::on_ImportBtn_clicked()
     }
 
     if (!importFailed) {
-        // next we need altitude, throttle, and temp
-        //  Altitude and Temp are given in the CSV
-        //
-        //  Throttle is slightly different as it's given in the log files
-
-
 
         // Extract throttle data from inform logs
         throttle = extractThrottleValues(verboseEvents);
         altitude = readAltValues(filename + "\\data.csv");
         temperature = readTempValues(filename + "\\data.csv");
+
+        // Extract trip details
+        sampleRate = droneConfig["SAMPLE_RATE"].toInt();
 
     }
 
