@@ -34,13 +34,12 @@ Things that need to be done:
 
 ===========================================================
 What Mink is working on now:
-- completing all the dummy buttons
+- source the data from the vector point instead of text file (altitude, no. of points, throttle, no. of events)
 
 
 What Mink is working on next:
 -------------------------------
 - Drone diagnostics (flight time needs to updated with each export)
-- UI theme development 
 - delete "temp files" at software close
 - Save feature (diags and ply get saved)
 - update open feature to open the saved file format
@@ -67,10 +66,10 @@ Recent files:
 
 
 ===========STUFF THAT HAS BEEN COMPLETED RECENTLY===================
-- Destroy temp files when closing
-- Copy PLY files over to temp PLY file
-- read model from the temp file
 - When "import" is hit, a PLY file needs to be generated. 
+- completing all the dummy buttons
+- display an embedded 2D plot on the Trip Data page
+- change 2D plot x scale to time (instead of date)
 
 =================Useful links========================
 - Wire frame: https://drive.google.com/file/d/1HZjIMIIsOeRHFitesahdV5oPBWg40f4h/view?usp=sharing

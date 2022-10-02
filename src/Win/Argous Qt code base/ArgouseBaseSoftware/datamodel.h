@@ -33,6 +33,8 @@ public:
 
 private:
     Ui::DataModel *ui;
+
+    void generate3DWidget();
 };
 
 #endif // DATAMODEL_H

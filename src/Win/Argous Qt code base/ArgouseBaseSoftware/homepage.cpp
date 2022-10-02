@@ -121,6 +121,8 @@ void HomePage::on_ImportBtn_clicked()
         //importLog();
 
 
+
+
         // This block of text is temporarily substituting PLY processor
 
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -142,7 +144,7 @@ void HomePage::on_ImportBtn_clicked()
     std::filesystem::create_directory("temp");
 
     // Create a text file within the temp folder and populate with the PLY data from the drone
-    //generate_temp_PLY();
+    stashTempPLY();
 
     //updateRecentFileActions(filename);
 }
@@ -236,7 +238,7 @@ bool HomePage::importLog(QString droneLogFile){
     return isSuccessful;
 }
 
-void HomePage::generate_temp_PLY(){
+void HomePage::stashTempPLY(){
     QString fileName = "temp/tempPLY.txt";
     QFile file(fileName);
     QMessageBox msg;
@@ -265,6 +267,10 @@ void HomePage::generate_temp_PLY(){
               file.close();
           }
 }
+
+void HomePage::stashTempEvents(){}
+
+
 
 void HomePage::on_BrowseBtn_clicked()
 {

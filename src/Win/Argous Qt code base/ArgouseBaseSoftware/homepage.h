@@ -38,7 +38,6 @@ private slots:
     void on_ImportBtn_clicked();
     void on_BrowseBtn_clicked();
 
-
     //Recent Files
     //void newFile();
     //void open();
@@ -106,7 +105,8 @@ private:
     QVector<QString> recentFiles;
 
     //Create Temp Working files
-    void generate_temp_PLY();
+    void stashTempPLY();
+    void stashTempEvents();
 
     //Close
     void closeEvent (QCloseEvent *event);
