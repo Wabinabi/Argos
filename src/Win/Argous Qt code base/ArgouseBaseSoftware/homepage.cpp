@@ -66,6 +66,8 @@ void HomePage::readDroneStats(){
     file.close();
 }
 
+
+
 void HomePage::on_pushButton_clicked()
 {
     TripData tripData;
@@ -73,10 +75,78 @@ void HomePage::on_pushButton_clicked()
     tripData.exec();
 }
 
+HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString colName)
+{
+    /* Returns a column from the CSV, similar to the data translator
+     *
+     * - Read the CSV as as a stream
+     * - Extract by ,
+     * - Get the column number
+     * - read for those columns
+     * - don't worry about efficiency for now
+     */
+
+    QVector<HomePage::DroneDataPoint> data;
+
+
+    QFile file(dataFile);
+    if (!file.open(QIODevice::ReadOnly)) {
+        // throw some soort of error. A messagebox perhaps?
+        qDebug() << "Could not open CSV File (" << dataFile<< ") for Column Series (" << colName << ") extraction";
+    } else {
+        QString headers = file.readLine();
+        QVector<QString> headerList = headers.split(',');
+        int colNumber;
+        int foundCol = false;
+
+        for (int i = 0; i < headerList.size(); i++) {
+            if (headerList[i].contains(colName, Qt::CaseInsensitive)) {
+                foundCol = true;
+                colNumber = i;
+            }
+        }
+
+        if (!foundCol) {
+            // Could not locate target column in CSV
+            qDebug() << "Target Column (" << colName << ") not found in CSV";
+
+        } else {
+            while (!file.atEnd()) {
+                QString row = file.readLine();
+                QVector<QString> cells = row.split(',');
+
+                // Get the ColNumber element and add as a data point
+                HomePage::DroneDataPoint point {
+                    .time = cells[32].toInt(), // column number for millis
+                    .y = cells[colNumber].toFloat()
+                };
+
+                data.append(point);
+            }
+        }
+
+        HomePage::DroneSeriesData seriesData;
+
+        seriesData.seriesName = colName,
+        seriesData.data = data;
+
+        return seriesData;
+    }
+}
+
+
+HomePage::DroneSeriesData HomePage::readTempValues(QString dataFile)
+{
+    return readColumnFromCSV(dataFile, "temp");
+}
+HomePage::DroneSeriesData HomePage::readAltValues(QString dataFile)
+{
+    return readColumnFromCSV(dataFile, "us_1");
+}
+
 HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> droneLogData)
 {
     DroneEvent data;
-    QString msg;
     QStringList tokens;
 
     QVector<HomePage::DroneDataPoint> throttleData;
@@ -152,9 +222,11 @@ void HomePage::on_ImportBtn_clicked()
     }
 
     if (!importLogSuccess || !importConfSuccess || !importPLYSuccess) {
+        msg.setText(errorMsg);
         msg.exec();
     } else {
         errorMsg = "Import Successful!";
+        msg.setText(errorMsg);
         msg.exec();
     }
 
@@ -168,6 +240,8 @@ void HomePage::on_ImportBtn_clicked()
 
         // Extract throttle data from inform logs
         throttle = extractThrottleValues(verboseEvents);
+        altitude = readAltValues(filename + "\\data.csv");
+        temperature = readTempValues(filename + "\\data.csv");
 
     }
 

@@ -97,7 +97,9 @@ private:
     DroneSeriesData throttle;
 
     DroneSeriesData extractThrottleValues(QVector<DroneEvent> droneLogData);
-
+    DroneSeriesData readColumnFromCSV(QString dataFile, QString colName);
+    DroneSeriesData readTempValues(QString dataFile);
+    DroneSeriesData readAltValues(QString dataFile);
 
 
 
