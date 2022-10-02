@@ -133,15 +133,15 @@ void HomePage::on_pushButton_4_clicked()
             //layout->addWidget(detailSaveButton);
             //layout->addWidget(detailResetButton);
             QVBoxLayout *boxLayout = new QVBoxLayout();
-
-            boxLayout->addLayout(layout);
-
             boxLayout->addWidget(detailResetButton);
             boxLayout->addWidget(detailSaveButton);
             boxLayout->addWidget(detailsCloseButton);
 
-            droneDetails->setLayout(boxLayout);
-            //droneDetails->
+            QHBoxLayout *mainLayout = new QHBoxLayout();
+            mainLayout->addLayout(layout);
+            mainLayout->addLayout(boxLayout)
+
+            droneDetails->setLayout(mainLayout);
 
             droneDetails->resize(595, droneDetails->height());
             droneDetails->show();
@@ -158,6 +158,8 @@ void HomePage::on_droneDetailClose_clicked() {
 //B1 Added button functions
 void HomePage::on_droneDetailSave_clicked() {
     qDebug() << "SaveButtonClicked";
+    qDebug() << droneDetails->container->children();
+
 }
 
 void HomePage::on_droneDetailReset_clicked() {
