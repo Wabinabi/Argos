@@ -114,7 +114,15 @@ private:
     DroneSeriesData readAltValues(QString dataFile);
 
     void on_droneDetailClose_clicked();
+    //B1-Detail button actions
+    void on_droneDetailSave_clicked();
+    void on_droneDetailReset_clicked();
+
     QPushButton *detailsCloseButton ;
+    //B1-Edit detail buttons
+    QPushButton *detailSaveButton;
+    QPushButton *detailResetButton;
+
     QWidget *droneDetails = new QWidget;
     bool detailsOpened = false;
 
