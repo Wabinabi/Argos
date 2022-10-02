@@ -2,6 +2,7 @@
 #include <QLineEdit>
 #include <QFormLayout>
 
+#include "tripdata.h"
 
 HomePage::HomePage(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::HomePage)
@@ -72,7 +73,7 @@ void HomePage::readDroneStats(){
 
 void HomePage::on_pushButton_clicked()
 {
-    TripData tripData;
+    TripData tripData = new TripData();
     tripData.setModal(false); //takes arguement for True/False, this determines whether the previous window can be accessed while the popup is open
     tripData.exec();
 }
@@ -202,8 +203,8 @@ HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString 
 
                 // Get the ColNumber element and add as a data point
                 HomePage::DroneDataPoint point {
-                    .time = cells[32].toInt(), // column number for millis
-                    .y = cells[colNumber].toFloat()
+                    point.time = cells[32].toInt(), // column number for millis
+                    point.y = cells[colNumber].toFloat()
                 };
 
                 data.append(point);
@@ -258,8 +259,8 @@ HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> dr
             tokens = data.message.split(QRegularExpression("\\s+"),Qt::SkipEmptyParts);
 
             HomePage::DroneDataPoint point {
-                .time = data.time,
-                .y = tokens[5].toFloat()
+                point.time = data.time,
+                point.y = tokens[5].toFloat()
             };
 
             throttleData.append(point);

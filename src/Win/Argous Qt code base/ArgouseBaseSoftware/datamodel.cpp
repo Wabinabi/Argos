@@ -14,7 +14,7 @@ void DataModel::generate3DWidget(){
     QWidget* container = QWidget::createWindowContainer(graph);
 
     QSize screenSize = graph->screen()->size();
-    container->setMinimumSize(QSize(screenSize.width() / 2, screenSize.height() / 1.5));
+    container->setMinimumSize(QSize(screenSize.width() / 2, screenSize.height() / 1.3));
     container->setMaximumSize(screenSize);
     container->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     container->setFocusPolicy(Qt::StrongFocus);

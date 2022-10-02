@@ -11,8 +11,9 @@
 #include <QCloseEvent>
 #include <QScrollArea>
 #include <QDebug>
+#include <iostream>
 
-#include "tripdata.h"
+//#include "tripdata.h"
 #include "datatranslator.h"
 #include "ui_homepage.h"
 
@@ -32,26 +33,7 @@ public:
     explicit HomePage(QWidget *parent = nullptr);
     ~HomePage();
 
-
-private slots:
-
-    // Buttons
-    void on_pushButton_clicked();
-    void on_ImportBtn_clicked();
-    void on_BrowseBtn_clicked();
-
-    //Recent Files
-    //void newFile();
-    //void open();
-    //void save();
-    //void saveAs();
-    //void openRecentFile();
-    void about();
-
-    void on_pushButton_4_clicked();
-
-private:
-    Ui::HomePage *ui;
+//TripData* tripData = nullptr;
 
     typedef struct {
         int time;
@@ -69,15 +51,40 @@ private:
         QVector<DroneDataPoint> data;
     } DroneSeriesData;
 
-    // Import/process data
-    //  We're assuming that the user imports one trip at a time
-    //  and therefore the following repo-style variables will relate
-    //  to only one trip
+//    // Import/process data
+//    //  We're assuming that the user imports one trip at a time
+//    //  and therefore the following repo-style variables will relate
+//    //  to only one trip
     QVector<QString> importedData;          // Data from PLY File
     QVector<DroneEvent> informEvents;          // All Verbose and Inform events
     // Processed data
     QVector<DroneEvent> verboseEvents;          // All Verbose and Inform events
     QVector<DroneEvent> emergencyEvents;    // Warning, Fatal, and Error events
+
+    DroneSeriesData altitude;
+    DroneSeriesData temperature;
+    DroneSeriesData throttle;
+
+    QVector<DroneEvent> getEmergencyEvents() {return emergencyEvents;}
+
+private slots:
+
+    // Buttons
+    void on_pushButton_clicked();
+    void on_ImportBtn_clicked();
+    void on_BrowseBtn_clicked();
+    void on_pushButton_4_clicked();
+
+    //Recent Files
+    //void newFile();
+    //void open();
+    //void save();
+    //void saveAs();
+    //void openRecentFile();
+    void about();
+
+private:
+    Ui::HomePage *ui;
 
     QMap<QString, QString> droneConfig; // The drone config as a key-value map
     QMap<QString, QString> droneDetailsMap; // The drone details as a key-value map
@@ -96,24 +103,15 @@ private:
 
     void writeMapToFile(QString dest, QMap<QString, QString> *map);
 
-
-
-
-
     bool importFailed = true; // Set to true if any data import is not successful
 
     // Read coils for SCADA, essentially.
     bool tripEStopTriggered = false; // Flag to indicate that an E-Stop was hit
     bool tripOpOverrideTriggered = false; // Flag to indicate that an Operator Override occurrred
 
-
     // Statistics/Information
     int flightDuration; //
     int importDateTime;
-
-    DroneSeriesData altitude;
-    DroneSeriesData temperature;
-    DroneSeriesData throttle;
 
     DroneSeriesData extractThrottleValues(QVector<DroneEvent> droneLogData);
     DroneSeriesData readColumnFromCSV(QString dataFile, QString colName);
