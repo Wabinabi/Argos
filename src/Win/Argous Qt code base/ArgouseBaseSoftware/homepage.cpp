@@ -151,15 +151,26 @@ void HomePage::on_ImportBtn_clicked()
         importFailed = true;
     }
 
-    // next we need altitude, throttle, and temp
-    //  Altitude and Temp are given in the CSV
-    //
-    //  Throttle is slightly different as it's given in the log files
+    if (!importLogSuccess || !importConfSuccess || !importPLYSuccess) {
+        msg.exec();
+    } else {
+        errorMsg = "Import Successful!";
+        msg.exec();
+    }
 
-    if (!importLogSuccess || !importConfSuccess || !importPLYSuccess) {msg.exec();}
+    if (!importFailed) {
+        // next we need altitude, throttle, and temp
+        //  Altitude and Temp are given in the CSV
+        //
+        //  Throttle is slightly different as it's given in the log files
 
-    // Extract throttle data from inform logs
-    throttle = extractThrottleValues(verboseEvents);
+
+
+        // Extract throttle data from inform logs
+        throttle = extractThrottleValues(verboseEvents);
+
+    }
+
 
 
     /*Removed by Jimmy as the following has been moved to new functions
