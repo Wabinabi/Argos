@@ -92,7 +92,7 @@ void DataModel::generate3DWidget(){
     vLayout->addWidget(new QLabel(QStringLiteral("Change font")));
     vLayout->addWidget(fontList, 1, Qt::AlignTop);
 
-    Plotter* modifier = new  Plotter(graph);
+    modifier = new  Plotter(graph);
 
     QObject::connect(cameraButton, &QPushButton::clicked, modifier,
         & Plotter::changePresetCamera);
@@ -131,6 +131,12 @@ void DataModel::generate3DWidget(){
 
     QObject::connect(modifier, & Plotter::fontChanged, fontList,
         &QFontComboBox::setCurrentFont);
+}
+
+
+void DataModel::showEvent( QShowEvent* event ) {
+    QWidget::showEvent( event );
+    modifier->toggleItemCount();
 }
 
 DataModel::~DataModel()

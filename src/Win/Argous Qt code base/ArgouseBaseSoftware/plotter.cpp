@@ -76,7 +76,7 @@ void Plotter::addData()
                     importedPLYData.append(line);
                 }
         msg.setText("Import complete!");
-        msg.exec();
+        //msg.exec();
 
         file.close();
         }

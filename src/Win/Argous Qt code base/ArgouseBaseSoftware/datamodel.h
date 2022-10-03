@@ -33,8 +33,13 @@ public:
 
 private:
     Ui::DataModel *ui;
+    void showEvent( QShowEvent* event );
 
     void generate3DWidget();
+
+    Plotter* modifier;
+
+
 };
 
 #endif // DATAMODEL_H
