@@ -18,7 +18,7 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>90</y>
+      <y>70</y>
       <width>411</width>
       <height>161</height>
      </rect>
@@ -129,7 +129,7 @@ color: rgb(255, 255, 255)</string>
     <property name="geometry">
      <rect>
       <x>540</x>
-      <y>30</y>
+      <y>10</y>
       <width>241</width>
       <height>221</height>
      </rect>
@@ -187,9 +187,9 @@ color: rgb(255, 255, 255)</string>
     <property name="geometry">
      <rect>
       <x>540</x>
-      <y>249</y>
+      <y>229</y>
       <width>241</width>
-      <height>191</height>
+      <height>211</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -201,9 +201,9 @@ color: rgb(255, 255, 255)</string>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>20</x>
        <y>0</y>
-       <width>241</width>
+       <width>221</width>
        <height>41</height>
       </rect>
      </property>
@@ -218,7 +218,7 @@ color: rgb(255, 255, 255)</string>
       <string>Running drone stats</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
     <widget class="QTextEdit" name="droneStats">
@@ -227,7 +227,7 @@ color: rgb(255, 255, 255)</string>
        <x>20</x>
        <y>40</y>
        <width>201</width>
-       <height>121</height>
+       <height>151</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -253,9 +253,9 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>250</y>
+      <y>230</y>
       <width>411</width>
-      <height>191</height>
+      <height>211</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -264,6 +264,52 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QScrollArea" name="scrollArea_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>391</width>
+       <height>151</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(65, 65, 65);
+border-radius: 5px;</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOn</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>374</width>
+        <height>151</height>
+       </rect>
+      </property>
+      <widget class="QScrollBar" name="verticalScrollBar_2">
+       <property name="geometry">
+        <rect>
+         <x>390</x>
+         <y>0</y>
+         <width>16</width>
+         <height>291</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </widget>
+    </widget>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
@@ -323,7 +369,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>50</y>
+       <y>20</y>
        <width>101</width>
        <height>81</height>
       </rect>
@@ -445,7 +491,7 @@ border-radius: 0px;</string>
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>50</y>
+      <y>30</y>
       <width>381</width>
       <height>31</height>
      </rect>

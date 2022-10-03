@@ -123,14 +123,26 @@ void TripData::drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData,
     QValueAxis *axisX = new QValueAxis;
     //axisX->setTickCount(10);
     //axisX->setFormat("hh:mm");
-    //axisX->setTitleText("Date");
+    axisX->setTitleText("Time (ms)");
     selChart->addAxis(axisX, Qt::AlignBottom);
     XYSeries->attachAxis(axisX);
 
     //Y Axis
     QValueAxis *axisY = new QValueAxis;
     //axisY->setLabelFormat("%i");
-    //axisY->setTitleText("Temp Data");
+
+    if (ui->stackedWidget->currentIndex() == 4){
+        axisY->setTitleText("Height above ground (cm)");
+    }
+
+    if (ui->stackedWidget->currentIndex() == 3){
+        axisY->setTitleText("Throttle (x/2056)");
+    }
+
+    if (ui->stackedWidget->currentIndex() == 2){
+        axisY->setTitleText("Temperature (deg c)");
+    }
+
     selChart->addAxis(axisY, Qt::AlignLeft);
     XYSeries->attachAxis(axisY);
 
@@ -162,7 +174,7 @@ void TripData::drawEventsPlot(){
 //        *m_scatter << QPointF(x, 2);
 //    }
 
-    m_scatter2->setName("Informative");
+    m_scatter2->setName("Events");
     //plot informative events on row 3
     for (int i = 0; i < locInformEvents.size(); i++){
         int x = locInformEvents[i].time;

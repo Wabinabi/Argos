@@ -695,14 +695,17 @@ void HomePage::stashTempPLY(){
 //        saveFile(curFile);
 //}
 
-//void HomePage::saveAs()
-//{
-//    QString fileName = QFileDialog::getSaveFileName(this);
-//    if (fileName.isEmpty())
-//        return;
+void HomePage::exportPLY()
+{
 
-//    saveFile(fileName);
-//}
+    QString fileName = "..\\ArgouseBaseSoftware\\appdata\\as7-map.ply";
+    QFile file(fileName);
+
+    if (fileName.isEmpty())
+        return;
+
+    saveFile(fileName);
+}
 
 //void HomePage::openRecentFile()
 //{
@@ -715,8 +718,10 @@ void HomePage::about()
 {
    //UPDATE
    QMessageBox::about(this, tr("About Recent Files"),
-            tr("The <b>Recent Files</b> example demonstrates how to provide a "
-               "recently used file menu in a Qt application."));
+            tr("The <b>Argous S7 Base Software</b> accompanies the AS7 drone. \
+                Its purpose is to display drone diagnostic data, drone specs, "
+               "and generate a 3D model from the collected data.\
+                The repo for this project can be found at https://github.com/Wabinabi/Argous."));
 }
 
 void HomePage::createActions()
@@ -736,10 +741,10 @@ void HomePage::createActions()
 //    saveAct->setStatusTip(tr("Save the document to disk"));
 //    connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
 
-//    saveAsAct = new QAction(tr("Save &As..."), this);
-//    saveAsAct->setShortcuts(QKeySequence::SaveAs);
-//    saveAsAct->setStatusTip(tr("Save the document under a new name"));
-//    connect(saveAsAct, SIGNAL(triggered()), this, SLOT(saveAs()));
+    exportAct = new QAction(tr("Export PLY..."), this);
+    //exportAct->setShortcuts(QKeySequence::SaveAs);
+    exportAct->setStatusTip(tr("Export text document"));
+    //connect(exportAct, SIGNAL(triggered()), this, SLOT(exportPLY()));
 
 
     //for (int i = 0; i < MaxRecentFiles; ++i) {
@@ -765,11 +770,11 @@ void HomePage::createActions()
 
 void HomePage::createMenus()
 {
-    //fileMenu = menuBar()->addMenu(tr("&File"));
+    fileMenu = menuBar()->addMenu(tr("&File"));
     //fileMenu->addAction(newAct);
     //fileMenu->addAction(openAct);
     //fileMenu->addAction(saveAct);
-    //fileMenu->addAction(saveAsAct);
+    fileMenu->addAction(exportAct);
 
     //fileMenu->addSeparator();
 
@@ -810,25 +815,25 @@ void HomePage::createMenus()
 //    statusBar()->showMessage(tr("File loaded"), 2000);
 //}
 
-//void HomePage::saveFile(const QString &fileName)
-//{
-//    QFile file(fileName);
-//    if (!file.open(QFile::WriteOnly | QFile::Text)) {
-//        QMessageBox::warning(this, tr("Recent Files"),
-//                             tr("Cannot write file %1:\n%2.")
-//                             .arg(fileName)
-//                             .arg(file.errorString()));
-//        return;
-//    }
+void HomePage::saveFile(const QString &fileName)
+{
+    QFile file(fileName);
+    if (!file.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::warning(this, tr("Recent Files"),
+                             tr("Cannot write file %1:\n%2.")
+                             .arg(fileName)
+                             .arg(file.errorString()));
+        return;
+    }
 
-//    QTextStream out(&file);
-//    QApplication::setOverrideCursor(Qt::WaitCursor);
-//    out << textEdit->toPlainText();
-//    QApplication::restoreOverrideCursor();
+    QTextStream out(&file);
+    QApplication::setOverrideCursor(Qt::WaitCursor);
+    out << textEdit->toPlainText();
+    QApplication::restoreOverrideCursor();
 
-//    setCurrentFile(fileName);
-//    statusBar()->showMessage(tr("File saved"), 2000);
-//}
+    //setCurrentFile(fileName);
+    statusBar()->showMessage(tr("File exported"), 2000);
+}
 
 //void HomePage::setCurrentFile(const QString &fileName)
 //{
