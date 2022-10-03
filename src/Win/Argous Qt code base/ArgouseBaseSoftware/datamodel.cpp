@@ -23,7 +23,7 @@ void DataModel::generate3DWidget(){
     QVBoxLayout* vLayout = new QVBoxLayout();
     hLayout->addWidget(container, 1);
     hLayout->addLayout(vLayout);
-    this->setWindowTitle(QStringLiteral("Le fancy 3D model"));
+    this->setWindowTitle(QStringLiteral("Drone Data Visualisation"));
 
     QComboBox* themeList = new QComboBox(this);
     themeList->addItem(QStringLiteral("Qt"));

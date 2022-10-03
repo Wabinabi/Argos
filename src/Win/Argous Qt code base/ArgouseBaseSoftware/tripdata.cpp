@@ -23,6 +23,7 @@ TripData::TripData(QWidget *parent,
     ui->setupUi(this);
 
     QVector<QString> testData;
+    this->setWindowTitle(QStringLiteral("Drone Trip Data"));
 
 
     //setRubberBand(QChartView::RectangleRubberBand);
