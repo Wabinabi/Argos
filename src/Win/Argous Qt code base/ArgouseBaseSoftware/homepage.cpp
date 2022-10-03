@@ -41,6 +41,9 @@ void HomePage::readRecentFilesLog()
     QFile file(fileName);
     QMessageBox msg;
 
+    recentFilesQueue.clear();
+    ui->recentFiles->clear();
+
     //Reads text file log line by line, if no log file exists- it is built.
     if(!file.exists()){
         file.open(QIODevice::WriteOnly | QIODevice::Text);
@@ -52,11 +55,58 @@ void HomePage::readRecentFilesLog()
                 QTextStream stream(&file);
                 while (!stream.atEnd()){
                     line = stream.readLine();
-                    recentFiles.append(line);
+                    ui->recentFiles->addItem(line);
+
+                    recentFilesQueue.enqueue(line);
                 }
         file.close();
         }
     }
+}
+
+
+void HomePage::addRecentFile(QString recentFile) {
+
+
+
+
+    while (recentFilesQueue.size() > 4) {
+        recentFilesQueue.dequeue();
+    }
+
+    // Check if the file is already there
+    bool fileAlreadyImported = false;
+    for (int i = 0; i < recentFilesQueue.size(); i++ ) {
+        if (recentFilesQueue[i] == recentFile) {
+            fileAlreadyImported = true;
+        }
+    }
+    recentFilesQueue.enqueue(recentFile);
+
+    if (!fileAlreadyImported) {
+        // Update the recent files text file
+        QFile file("FileLog.txt");
+
+        if(!file.exists()){
+            file.open(QIODevice::WriteOnly | QIODevice::Text);
+            QTextStream out(&file);
+            file.close();
+        }
+
+
+
+        if(file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            QTextStream stream(&file);
+            for (int i = 0; i < recentFilesQueue.size(); i++ ) {
+                stream << recentFilesQueue[i] << '\n';
+            }
+            file.close();
+        }
+
+        readRecentFilesLog();
+    }
+
 }
 
 void HomePage::readDroneStats(){  
@@ -418,6 +468,8 @@ void HomePage::on_ImportBtn_clicked()
 
         writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneStats.txt", &runningStats);
 
+        //updateRecentFileActions(filename);
+        addRecentFile(filename);
     }
 
 
@@ -459,7 +511,7 @@ void HomePage::on_ImportBtn_clicked()
     // Update drone stats
     readDroneStats();
 
-    //updateRecentFileActions(filename);
+
 }
 
 void HomePage::writeMapToFile(QString dest, QMap<QString, QString> *map) {
@@ -799,27 +851,7 @@ void HomePage::createMenus()
 ////    }
 //}
 
-void HomePage::updateRecentFileActions(const QString &fullFileName)
-{
-    // Shift all elements downwards by working through the vector array backwards.
-    for (int i = recentFiles.size() - 1; i >= 1; i--)
-        recentFiles[i] = recentFiles[i-1];
-    // Add the imported file details to most recent slot
-    recentFiles[0] = fullFileName;
 
-    // Updates the log file
-    QFile file("FileLog.txt");
-    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
-          {
-              // We're going to streaming text to the file
-              QTextStream stream(&file);
-
-              stream << recentFiles[0] << '\n' << recentFiles[1]
-                        << '\n' << recentFiles[2] << '\n' << recentFiles[3] <<'\n';
-
-              file.close();
-          }
-}
 
 QString HomePage::strippedName(const QString &fullFileName)
 {

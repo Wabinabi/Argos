@@ -142,7 +142,9 @@ private:
 
     //Read logs
     void readRecentFilesLog();
+    void addRecentFile(QString recentFile);
     QVector<QString> recentFiles;
+    QQueue<QString> recentFilesQueue;
 
     //Create Temp Working files
     void stashTempPLY();
