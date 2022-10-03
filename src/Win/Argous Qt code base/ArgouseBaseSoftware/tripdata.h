@@ -16,9 +16,9 @@
 #include <QtCharts/QValueAxis>
 #include <QMainWindow>
 #include <QtCharts/QChartGlobal>
-#include <QtCharts/QChartView>
 #include <QtCharts/QScatterSeries>
 #include <QStackedLayout>
+#include <QtWidgets/QRubberBand>
 
 #include <homepage.h>
 
@@ -45,8 +45,15 @@ public:
 
     void testPublicFunction();
 
+protected:
+
 
 private slots:
+    //bool viewportEvent(QEvent *event);
+    //void mousePressEvent(QMouseEvent *event);
+    //void mouseMoveEvent(QMouseEvent *event);
+    //void mouseReleaseEvent(QMouseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
     //UI buttons
     void on_HomeBtn_clicked();
@@ -56,7 +63,7 @@ private slots:
     //Plotting 2D data
     //QLineSeries reshapeVector(QVector<QString> XYData);
     //QLineSeries *XYSeries
-    void drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData);
+    void drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData, QChart *selChart, QChartView *selChartView);
     void drawEventsPlot();
     //void drawXYSeries(QVector<QString> XYData);
 
@@ -65,6 +72,7 @@ private slots:
     void on_ThrottleBtn_clicked();
     void on_TempBtn_clicked();
     void on_AltitudeBtn_clicked();
+    void readDroneStats();
 
 private:
     //Getter/Setter getting me yummy data
@@ -84,15 +92,25 @@ private:
 
 
     //Chart Views for 2D plot & stacked layout
-    QChartView *eventsChart;
-    QChartView *tempChart;
-    QChartView *throttleChart;
-    QChartView *altitudeChart;
+
+    QChart *currentChart = new QChart();
+
+    QChart *eventsChart = new QChart();
+    QChart *tempChart = new QChart();
+    QChart *throttleChart = new QChart();
+    QChart *altitudeChart = new QChart();
+
+    QChartView *eventsChartView = new QChartView(eventsChart);
+    QChartView *tempChartView = new QChartView(tempChart);
+    QChartView *throttleChartView = new QChartView(throttleChart);
+    QChartView *altitudeChartView = new QChartView(altitudeChart);
 
     int eventsIndex;
     int tempIndex;
     int throttleIndex;
     int altitudeIndex;
+
+    bool m_isTouching;
 };
 
 #endif // TRIPDATA_H

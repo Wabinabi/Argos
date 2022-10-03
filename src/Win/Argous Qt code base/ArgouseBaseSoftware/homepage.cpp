@@ -9,9 +9,11 @@ HomePage::HomePage(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    readRecentFilesLog();
-    readDroneStats();
+    // Uncomment to run in "Usability Test" mode. This means disabling unused features.
+    UsabilityTestSim();
 
+    readRecentFilesLog();
+    readDroneStats();   
 
     createActions();
     createMenus();
@@ -23,6 +25,14 @@ HomePage::HomePage(QWidget *parent) :
 HomePage::~HomePage()
 {
     delete ui;
+}
+
+void HomePage::UsabilityTestSim(){
+    ui->DroneDisplay->setEnabled(false);
+    ui->FileBtn->setVisible(false);
+    ui->SettingsBtn->setVisible(false);
+    ui->HelpBtn->setVisible(false);
+    ui->ResetBtn->setVisible(false);
 }
 
 void HomePage::readRecentFilesLog()
@@ -68,8 +78,6 @@ void HomePage::readDroneStats(){
     }
     file.close();
 }
-
-
 
 void HomePage::on_pushButton_clicked()
 {
@@ -128,8 +136,12 @@ void HomePage::on_pushButton_4_clicked()
                 //layout->addRow(i.key(), aValue);
             }
 
+            //layout->addWidget(detailsCloseButton);
+            //B1 added widgets
+            //layout->addWidget(detailSaveButton);
+            //layout->addWidget(detailResetButton);
             QHBoxLayout *boxLayout = new QHBoxLayout();
-            //boxLayout->addWidget(detailResetButton);
+            boxLayout->addWidget(detailResetButton);
             boxLayout->addWidget(detailSaveButton);
             boxLayout->addWidget(detailsCloseButton);
 
@@ -151,6 +163,7 @@ void HomePage::on_droneDetailClose_clicked() {
     detailsOpened = false;
 }
 
+//B1 Added button functions
 void HomePage::on_droneDetailSave_clicked() {
 //    qDebug() << "SaveButtonClicked";
 //    QList items = droneDetails->children();
@@ -165,33 +178,15 @@ void HomePage::on_droneDetailSave_clicked() {
 //    }
 
     qDebug() << "SaveButtonClicked";
-    QList items = droneDetails->children();
 
-    for (int i = 0; i < items.count(); i++){
-        if (qobject_cast<QLabel*>(items[i]) != NULL){
-            QString labelText = qobject_cast<QLabel*>(items[i])->text();
+        const QList<QLineEdit> lineEdits = droneDetails->findChildren<QLineEdit>();
+        QLineEdit test;
 
-            qDebug() << "Finding: " << labelText;
-
-            if (droneConfig.find(labelText) != droneConfig.end()) {
-                droneConfig[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
-                qDebug() << "Found config: " << qobject_cast<QLineEdit*>(items[i+1])->text();
-            }
-
-            if (droneDetailsMap.find(labelText) != droneDetailsMap.end()) {
-                droneDetailsMap[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
-                qDebug() << "Found details: " << qobject_cast<QLineEdit*>(items[i+1])->text();
-            }
-
+        for (int i = 0; i < lineEdits.count();i++){
+            //test = lineEdits.data(i);
+            qDebug() << lineEdits[i].text();
         }
 
-
-    }
-
-    writeMapToFile(configFileLocation + "\\as7.config", &droneConfig);
-    writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
-
-    on_droneDetailClose_clicked();
 }
 
 void HomePage::on_droneDetailReset_clicked() {
@@ -315,11 +310,11 @@ void HomePage::on_ImportBtn_clicked()
     // Load explorer and browse for file if no file has been selected
     QString filename = ui->FileLocation->toPlainText();
     if(filename.isEmpty()){
-        on_BrowseBtn_clicked();
+        on_Browse_clicked();
         filename = ui->FileLocation->toPlainText();
     }
 
-    configFileLocation = filename;
+
 
     bool importLogSuccess = importLog(filename + "\\as7.log");
     bool importConfSuccess = importConf(filename + "\\as7.config", &droneConfig);
@@ -622,16 +617,6 @@ void HomePage::stashTempPLY(){
 }
 */
 
-void HomePage::on_BrowseBtn_clicked()
-{
-    //QString fileLocationStr = QFileDialog::getOpenFileName(this, tr("Open File"),"/path/to/file/",tr("Txt Files (*.txt)"));
-    QString fileLocationStr = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
-                                                    "/",
-                                                    QFileDialog::DontResolveSymlinks);
-
-    ui->FileLocation->insertPlainText(fileLocationStr);
-}
-
 //void HomePage::newFile()
 //{
 //    HomePage *other = new HomePage;
@@ -723,7 +708,7 @@ void HomePage::createActions()
 
 void HomePage::createMenus()
 {
-    fileMenu = menuBar()->addMenu(tr("&File"));
+    //fileMenu = menuBar()->addMenu(tr("&File"));
     //fileMenu->addAction(newAct);
     //fileMenu->addAction(openAct);
     //fileMenu->addAction(saveAct);
@@ -733,10 +718,10 @@ void HomePage::createMenus()
 
     //separatorAct = fileMenu->addSeparator();
 
-    for (int i = 0; i < recentFiles.length(); ++i)
-        fileMenu->addAction(recentFiles[i]);
+    //for (int i = 0; i < recentFiles.length(); ++i)
+        //fileMenu->addAction(recentFiles[i]);
 
-    fileMenu->addSeparator();
+    //fileMenu->addSeparator();
 
     //fileMenu->addAction(exitAct);
     //updateRecentFileActions();
@@ -843,5 +828,12 @@ void HomePage::closeEvent (QCloseEvent *event)
 }
 
 
+void HomePage::on_Browse_clicked()
+{
+    QString fileLocationStr = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
+                                                    "/",
+                                                    QFileDialog::DontResolveSymlinks);
 
+    ui->FileLocation->insertPlainText(fileLocationStr);
+}
 

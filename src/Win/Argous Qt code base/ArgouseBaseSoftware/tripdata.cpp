@@ -17,11 +17,16 @@ TripData::TripData(QWidget *parent,
                    HomePage::DroneSeriesData *temperature,
                    HomePage::DroneSeriesData *throttle) :
     QDialog(parent),
+    m_isTouching(false),
     ui(new Ui::TripData)
 {
     ui->setupUi(this);
 
     QVector<QString> testData;
+
+
+    //setRubberBand(QChartView::RectangleRubberBand);
+
 
     void passData();
 
@@ -41,17 +46,17 @@ TripData::TripData(QWidget *parent,
     //this->setParent( parent );
 
 
-
-    ui->stackedWidget->setCurrentIndex(1);
+    readDroneStats();
 
 
     //probs need to process test data with a sim function
 
     drawEventsPlot();
-    drawXYSeries(tempIndex, locTemperature);
-    drawXYSeries(throttleIndex, locThrottle);
-    drawXYSeries(altitudeIndex, locAltitude);
+    drawXYSeries(tempIndex, locTemperature, tempChart, tempChartView);
+    drawXYSeries(throttleIndex, locThrottle, throttleChart, throttleChartView);
+    drawXYSeries(altitudeIndex, locAltitude, altitudeChart, altitudeChartView);
 
+    ui->stackedWidget->setCurrentIndex(0);
     // QLineSeries *series = new QLineSeries();
     // function that opens the data:
     //     QFile sunSpots(":sun");
@@ -72,7 +77,7 @@ TripData::~TripData()
 //}
 //QLineSeries *XYSeries
 
-void TripData::drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData){
+void TripData::drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData, QChart *selChart, QChartView *selChartView){
     QLineSeries *XYSeries = new QLineSeries();
     //QFile File("../ArgouseBaseSoftware/test2DPlot.txt");
 
@@ -105,40 +110,28 @@ void TripData::drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData)
     //XYSeries->append(momentInTime.toMSecsSinceEpoch(), values[2].toDouble());
 
     //generate a Qchart
-    QChart *chart = new QChart();
-    chart->addSeries(XYSeries);
-    chart->legend()->hide();
+    //selChart = new QChart();
+    selChart->addSeries(XYSeries);
+    selChart->legend()->hide();
     //chart->setTitle("Test Chart");
 
     //X Axis
-    QDateTimeAxis *axisX = new QDateTimeAxis;
-    axisX->setTickCount(10);
-    axisX->setFormat("hh:mm");
+    QValueAxis *axisX = new QValueAxis;
+    //axisX->setTickCount(10);
+    //axisX->setFormat("hh:mm");
     //axisX->setTitleText("Date");
-    chart->addAxis(axisX, Qt::AlignBottom);
+    selChart->addAxis(axisX, Qt::AlignBottom);
     XYSeries->attachAxis(axisX);
 
     //Y Axis
     QValueAxis *axisY = new QValueAxis;
     //axisY->setLabelFormat("%i");
     //axisY->setTitleText("Temp Data");
-    chart->addAxis(axisY, Qt::AlignLeft);
+    selChart->addAxis(axisY, Qt::AlignLeft);
     XYSeries->attachAxis(axisY);
 
-
-    //Chart View
-    QChartView *chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
-
-    //Opens a window with the graph
-    //QMainWindow window;
-
-//    window.setCentralWidget(chartView);
-//    window.resize(820, 600);
-//    window.show();
-
-    //ui->graphDisp->addWidget(chartView);
-    ui->stackedWidget->insertWidget(stackIndex, chartView);
+    selChartView->setRenderHint(QPainter::Antialiasing);
+    ui->stackedWidget->insertWidget(stackIndex, selChartView);
 }
 
 void TripData::drawEventsPlot(){
@@ -173,8 +166,8 @@ void TripData::drawEventsPlot(){
     }
 
     QChart *chart = new QChart();
-    eventsChart = new QChartView(chart);
-    eventsChart->setRenderHint(QPainter::Antialiasing);
+    eventsChartView = new QChartView(chart);
+    eventsChartView->setRenderHint(QPainter::Antialiasing);
     //chart->addSeries(m_scatter3);
     chart->addSeries(m_scatter2);
     chart->addSeries(m_scatter);
@@ -183,7 +176,7 @@ void TripData::drawEventsPlot(){
     //chart->axes(Qt::Horizontal).first()->setRange(0, 200);
     chart->axes(Qt::Vertical).first()->setRange(0, 4.5);
 
-    ui->stackedWidget->insertWidget(eventsIndex, eventsChart);
+    ui->stackedWidget->insertWidget(eventsIndex, eventsChartView);
     //connect(m_scatter, &QScatterSeries::clicked, this, &TripData::handleClickedPoint);
 }
 
@@ -231,20 +224,66 @@ void TripData::handleClickedPoint(const QPointF &point)
 void TripData::on_ThrottleBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(throttleIndex);
+    currentChart = throttleChart;
 }
 
 void TripData::on_EventsBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(eventsIndex);
+    currentChart = eventsChart;
 }
 
 void TripData::on_TempBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(tempIndex);
+    currentChart = tempChart;
 }
 
 void TripData::on_AltitudeBtn_clicked()
 {
     ui->stackedWidget->setCurrentIndex(altitudeIndex);
+    currentChart = altitudeChart;
 }
+
+void TripData::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key()) {
+    case Qt::Key_Plus:
+        currentChart->zoomIn();
+        break;
+    case Qt::Key_Minus:
+        currentChart->zoomOut();
+        break;
+    case Qt::Key_Left:
+        currentChart->scroll(-100, 0);
+        break;
+    case Qt::Key_Right:
+        currentChart->scroll(100, 0);
+        break;
+    case Qt::Key_Up:
+        currentChart->scroll(0, 100);
+        break;
+    case Qt::Key_Down:
+        currentChart->scroll(0, -100);
+        break;
+    default:
+        break;
+    }
+}
+
+void TripData::readDroneStats(){
+    QFile file("../ArgouseBaseSoftware/appdata/tripStats.txt");
+    QString line;
+
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&file);
+        while (!stream.atEnd()){
+
+            line.append(stream.readLine()+"\n");
+        }
+        ui->droneStats->setText(line);
+    }
+    file.close();
+}
+
 

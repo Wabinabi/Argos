@@ -71,7 +71,7 @@ private slots:
     // Buttons
     void on_pushButton_clicked();
     void on_ImportBtn_clicked();
-    void on_BrowseBtn_clicked();
+    void on_Browse_clicked();
     void on_pushButton_4_clicked();
 
     //Recent Files
@@ -82,8 +82,10 @@ private slots:
     //void openRecentFile();
     void about();
 
+
 private:
     Ui::HomePage *ui;
+    void UsabilityTestSim();
 
     QMap<QString, QString> droneConfig; // The drone config as a key-value map
     QMap<QString, QString> droneDetailsMap; // The drone details as a key-value map
@@ -111,8 +113,6 @@ private:
     // Statistics/Information
     int flightDuration; //
     int importDateTime;
-
-    QString configFileLocation;
 
     DroneSeriesData extractThrottleValues(QVector<DroneEvent> droneLogData);
     DroneSeriesData readColumnFromCSV(QString dataFile, QString colName);
@@ -153,7 +153,7 @@ private:
     void createMenus();
     //void loadFile(const QString &fileName);
     //void saveFile(const QString &fileName);
-    //void setCurrentFile(const QString &fileName);
+    void setCurrentFile(const QString &fileName);
     void updateRecentFileActions(const QString &fullFileName);
     QString strippedName(const QString &fullFileName);
 
