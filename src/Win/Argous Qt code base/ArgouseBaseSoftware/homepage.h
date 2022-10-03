@@ -78,7 +78,7 @@ private slots:
     //void newFile();
     //void open();
     //void save();
-    //void saveAs();
+    void exportPLY();
     //void openRecentFile();
     void about();
 
@@ -154,7 +154,7 @@ private:
     void createActions();
     void createMenus();
     //void loadFile(const QString &fileName);
-    //void saveFile(const QString &fileName);
+    void saveFile(const QString &fileName);
     void setCurrentFile(const QString &fileName);
     void updateRecentFileActions(const QString &fullFileName);
     QString strippedName(const QString &fullFileName);
@@ -170,7 +170,8 @@ private:
     QAction *newAct;
     QAction *openAct;
     QAction *saveAct;
-    QAction *saveAsAct;
+    //QAction *saveAsAct;
+    QAction *exportAct;
     QAction *exitAct;
     QAction *aboutAct;
     QAction *aboutQtAct;
