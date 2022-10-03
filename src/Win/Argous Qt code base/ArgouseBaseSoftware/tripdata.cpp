@@ -63,6 +63,10 @@ TripData::TripData(QWidget *parent,
 //    if (!sunSpots.open(QIODevice::ReadOnly | QIODevice::Text)) {
 //        return 1;
 //    }
+    ui->ThrottleBtn->setStyleSheet("background-color: ");
+    ui->EventsBtn->setStyleSheet("background-color: #FF752B");
+    ui->TempBtn->setStyleSheet("background-color: ");
+    ui->AltitudeBtn->setStyleSheet("background-color: ");
 }
 
 TripData::~TripData()
@@ -224,10 +228,7 @@ void TripData::handleClickedPoint(const QPointF &point)
 void TripData::on_ThrottleBtn_clicked()
 {
 
-    ui->ThrottleBtn->setFlat(true);
-    ui->EventsBtn->setFlat(false);
-    ui->TempBtn->setFlat(false);
-    ui->AltitudeBtn->setFlat(false);
+
 
     ui->stackedWidget->setCurrentIndex(throttleIndex);
     currentChart = throttleChart;
@@ -235,10 +236,10 @@ void TripData::on_ThrottleBtn_clicked()
 
 void TripData::on_EventsBtn_clicked()
 {
-    ui->ThrottleBtn->setFlat(false);
-    ui->EventsBtn->setFlat(true);
-    ui->TempBtn->setFlat(false);
-    ui->AltitudeBtn->setFlat(false);
+    ui->ThrottleBtn->setStyleSheet("background-color: ");
+    ui->EventsBtn->setStyleSheet("background-color: #FF752B");
+    ui->TempBtn->setStyleSheet("background-color: ");
+    ui->AltitudeBtn->setStyleSheet("background-color: ");
 
     ui->stackedWidget->setCurrentIndex(eventsIndex);
     currentChart = eventsChart;
@@ -246,21 +247,20 @@ void TripData::on_EventsBtn_clicked()
 
 void TripData::on_TempBtn_clicked()
 {
-    ui->ThrottleBtn->setFlat(false);
-    ui->EventsBtn->setFlat(false);
-    ui->TempBtn->setFlat(true);
-    ui->AltitudeBtn->setFlat(false);
-
+    ui->ThrottleBtn->setStyleSheet("background-color: ");
+    ui->EventsBtn->setStyleSheet("background-color: ");
+    ui->TempBtn->setStyleSheet("background-color: #FF752B");
+    ui->AltitudeBtn->setStyleSheet("background-color: ");
     ui->stackedWidget->setCurrentIndex(tempIndex);
     currentChart = tempChart;
 }
 
 void TripData::on_AltitudeBtn_clicked()
 {
-    ui->ThrottleBtn->setFlat(false);
-    ui->EventsBtn->setFlat(false);
-    ui->TempBtn->setFlat(false);
-    ui->AltitudeBtn->setFlat(true);
+    ui->ThrottleBtn->setStyleSheet("background-color: ");
+    ui->EventsBtn->setStyleSheet("background-color: ");
+    ui->TempBtn->setStyleSheet("background-color: ");
+    ui->AltitudeBtn->setStyleSheet("background-color: #FF752B");
 
     ui->stackedWidget->setCurrentIndex(altitudeIndex);
     currentChart = altitudeChart;
