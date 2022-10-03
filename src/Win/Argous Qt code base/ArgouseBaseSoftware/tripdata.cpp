@@ -228,6 +228,10 @@ void TripData::handleClickedPoint(const QPointF &point)
 void TripData::on_ThrottleBtn_clicked()
 {
 
+    ui->ThrottleBtn->setStyleSheet("background-color: #FF752B");
+    ui->EventsBtn->setStyleSheet("background-color: ");
+    ui->TempBtn->setStyleSheet("background-color: ");
+    ui->AltitudeBtn->setStyleSheet("background-color: ");
 
 
     ui->stackedWidget->setCurrentIndex(throttleIndex);
