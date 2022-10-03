@@ -112,11 +112,12 @@ bool DataTranslator::Calculate(){
                             _points[j].z += _points[j].value;
                         }
                         stream << _points[j].x << " " << _points[j].y << " " << _points[j].z << "\n";
+                        numberDataPoints += 3;
                     }
                 }
             }
             file.close();
-            numberDataPoints = _points.size();
+
         } else return false;
 
     return true;

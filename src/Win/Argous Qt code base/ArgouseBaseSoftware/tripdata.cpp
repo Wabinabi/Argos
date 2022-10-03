@@ -223,24 +223,45 @@ void TripData::handleClickedPoint(const QPointF &point)
 
 void TripData::on_ThrottleBtn_clicked()
 {
+
+    ui->ThrottleBtn->setFlat(true);
+    ui->EventsBtn->setFlat(false);
+    ui->TempBtn->setFlat(false);
+    ui->AltitudeBtn->setFlat(false);
+
     ui->stackedWidget->setCurrentIndex(throttleIndex);
     currentChart = throttleChart;
 }
 
 void TripData::on_EventsBtn_clicked()
 {
+    ui->ThrottleBtn->setFlat(false);
+    ui->EventsBtn->setFlat(true);
+    ui->TempBtn->setFlat(false);
+    ui->AltitudeBtn->setFlat(false);
+
     ui->stackedWidget->setCurrentIndex(eventsIndex);
     currentChart = eventsChart;
 }
 
 void TripData::on_TempBtn_clicked()
 {
+    ui->ThrottleBtn->setFlat(false);
+    ui->EventsBtn->setFlat(false);
+    ui->TempBtn->setFlat(true);
+    ui->AltitudeBtn->setFlat(false);
+
     ui->stackedWidget->setCurrentIndex(tempIndex);
     currentChart = tempChart;
 }
 
 void TripData::on_AltitudeBtn_clicked()
 {
+    ui->ThrottleBtn->setFlat(false);
+    ui->EventsBtn->setFlat(false);
+    ui->TempBtn->setFlat(false);
+    ui->AltitudeBtn->setFlat(true);
+
     ui->stackedWidget->setCurrentIndex(altitudeIndex);
     currentChart = altitudeChart;
 }

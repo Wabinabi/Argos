@@ -100,7 +100,6 @@ void HomePage::on_pushButton_4_clicked()
             msg.exec();
         } else {
             droneDetails = new QWidget;
-            droneDetails->setWindowModality(Qt::WindowModal);
 
             detailsCloseButton = new QPushButton("Close");
             connect(detailsCloseButton, &QPushButton::released, this, &HomePage::on_droneDetailClose_clicked);
