@@ -742,9 +742,9 @@ void HomePage::createActions()
 //    connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
 
     exportAct = new QAction(tr("Export PLY..."), this);
-    //exportAct->setShortcuts(QKeySequence::SaveAs);
-    exportAct->setStatusTip(tr("Export text document"));
-    //connect(exportAct, SIGNAL(triggered()), this, SLOT(exportPLY()));
+    exportAct->setShortcuts(QKeySequence::SaveAs);
+    exportAct->setStatusTip(tr("Export Map as PLY Document"));
+    connect(exportAct, SIGNAL(triggered()), this, SLOT(exportPLY()));
 
 
     //for (int i = 0; i < MaxRecentFiles; ++i) {
@@ -818,6 +818,7 @@ void HomePage::createMenus()
 void HomePage::saveFile(const QString &fileName)
 {
     QFile file(fileName);
+    /*
     if (!file.open(QFile::WriteOnly | QFile::Text)) {
         QMessageBox::warning(this, tr("Recent Files"),
                              tr("Cannot write file %1:\n%2.")
@@ -826,6 +827,7 @@ void HomePage::saveFile(const QString &fileName)
         return;
     }
 
+
     QTextStream out(&file);
     QApplication::setOverrideCursor(Qt::WaitCursor);
     out << textEdit->toPlainText();
@@ -833,6 +835,16 @@ void HomePage::saveFile(const QString &fileName)
 
     //setCurrentFile(fileName);
     statusBar()->showMessage(tr("File exported"), 2000);
+    */
+
+    QString fileLocationStr = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
+                                                    "/");
+    std::filesystem::copy(fileName.toStdString(), fileLocationStr.toStdString(), std::filesystem::copy_options::recursive);
+
+    QMessageBox msg;
+    msg.setText("File saved!");
+    msg.exec();
+
 }
 
 //void HomePage::setCurrentFile(const QString &fileName)
