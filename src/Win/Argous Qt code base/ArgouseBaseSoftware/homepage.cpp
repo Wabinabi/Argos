@@ -175,12 +175,11 @@ void HomePage::on_droneDetailSave_clicked() {
 
             if (droneConfig.find(labelText) != droneConfig.end()) {
                 droneConfig[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
-                qDebug() << "Found config: " << qobject_cast<QLineEdit*>(items[i+1])->text();
+
             }
 
             if (droneDetailsMap.find(labelText) != droneDetailsMap.end()) {
                 droneDetailsMap[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
-                qDebug() << "Found details: " << qobject_cast<QLineEdit*>(items[i+1])->text();
             }
 
         }
