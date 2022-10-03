@@ -128,12 +128,8 @@ void HomePage::on_pushButton_4_clicked()
                 //layout->addRow(i.key(), aValue);
             }
 
-            //layout->addWidget(detailsCloseButton);
-            //B1 added widgets
-            //layout->addWidget(detailSaveButton);
-            //layout->addWidget(detailResetButton);
             QHBoxLayout *boxLayout = new QHBoxLayout();
-            boxLayout->addWidget(detailResetButton);
+            //boxLayout->addWidget(detailResetButton);
             boxLayout->addWidget(detailSaveButton);
             boxLayout->addWidget(detailsCloseButton);
 
@@ -155,7 +151,6 @@ void HomePage::on_droneDetailClose_clicked() {
     detailsOpened = false;
 }
 
-//B1 Added button functions
 void HomePage::on_droneDetailSave_clicked() {
 //    qDebug() << "SaveButtonClicked";
 //    QList items = droneDetails->children();
@@ -170,15 +165,33 @@ void HomePage::on_droneDetailSave_clicked() {
 //    }
 
     qDebug() << "SaveButtonClicked";
+    QList items = droneDetails->children();
 
-        const QList<QLineEdit> lineEdits = droneDetails->findChildren<QLineEdit>();
-        QLineEdit test;
+    for (int i = 0; i < items.count(); i++){
+        if (qobject_cast<QLabel*>(items[i]) != NULL){
+            QString labelText = qobject_cast<QLabel*>(items[i])->text();
 
-        for (int i = 0; i < lineEdits.count();i++){
-            //test = lineEdits.data(i);
-            qDebug() << lineEdits[i].text();
+            qDebug() << "Finding: " << labelText;
+
+            if (droneConfig.find(labelText) != droneConfig.end()) {
+                droneConfig[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
+                qDebug() << "Found config: " << qobject_cast<QLineEdit*>(items[i+1])->text();
+            }
+
+            if (droneDetailsMap.find(labelText) != droneDetailsMap.end()) {
+                droneDetailsMap[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
+                qDebug() << "Found details: " << qobject_cast<QLineEdit*>(items[i+1])->text();
+            }
+
         }
 
+
+    }
+
+    writeMapToFile(configFileLocation + "\\as7.config", &droneConfig);
+    writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
+
+    on_droneDetailClose_clicked();
 }
 
 void HomePage::on_droneDetailReset_clicked() {
@@ -306,7 +319,7 @@ void HomePage::on_ImportBtn_clicked()
         filename = ui->FileLocation->toPlainText();
     }
 
-
+    configFileLocation = filename;
 
     bool importLogSuccess = importLog(filename + "\\as7.log");
     bool importConfSuccess = importConf(filename + "\\as7.config", &droneConfig);

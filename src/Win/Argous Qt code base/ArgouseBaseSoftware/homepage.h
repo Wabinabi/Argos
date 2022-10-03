@@ -112,6 +112,8 @@ private:
     int flightDuration; //
     int importDateTime;
 
+    QString configFileLocation;
+
     DroneSeriesData extractThrottleValues(QVector<DroneEvent> droneLogData);
     DroneSeriesData readColumnFromCSV(QString dataFile, QString colName);
     DroneSeriesData readTempValues(QString dataFile);
