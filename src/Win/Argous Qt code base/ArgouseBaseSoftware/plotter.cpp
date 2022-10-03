@@ -40,14 +40,14 @@ Plotter::~Plotter()
 void Plotter::addData()
 {
     // Configure the axes according to the data
-    m_graph->axisX()->setTitle("X");
+    m_graph->axisX()->setTitle("X (cm)");
     m_graph->axisX()->setTitleVisible(true);
 
-    m_graph->axisY()->setTitle("Z");
+    m_graph->axisY()->setTitle("Z (cm)");
     //m_graph->axisY()->setLabelFormat("%.2f mm");
     m_graph->axisY()->setTitleVisible(true);
 
-    m_graph->axisZ()->setTitle("Y");
+    m_graph->axisZ()->setTitle("Y (cm)");
     m_graph->axisZ()->setTitleVisible(true);
 
 
