@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>778</width>
-    <height>501</height>
+    <height>630</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <x>-10</x>
      <y>200</y>
      <width>781</width>
-     <height>361</height>
+     <height>421</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -31,14 +31,14 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>781</width>
-      <height>271</height>
+      <x>50</x>
+      <y>10</y>
+      <width>721</width>
+      <height>401</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="page_3"/>
     <widget class="QWidget" name="page_4"/>
@@ -126,9 +126,9 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>550</x>
+     <x>540</x>
      <y>40</y>
-     <width>211</width>
+     <width>221</width>
      <height>151</height>
     </rect>
    </property>
@@ -147,7 +147,7 @@ border-radius: 5px;
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>0</y>
       <width>201</width>
       <height>41</height>
@@ -162,6 +162,29 @@ border-radius: 5px;
     </property>
     <property name="text">
      <string>Usability Testers - Please Note!</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>10</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>- Events Trend is still under DEV </string>
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

@@ -646,7 +646,7 @@ void HomePage::stashTempPLY(){
 void HomePage::exportPLY()
 {
 
-    QString fileName = "../ArgousBaseSoftware/appdata/as7-map.ply";
+    QString fileName = "..\\ArgouseBaseSoftware\\appdata\\as7-map.ply";
     QFile file(fileName);
 
     if (fileName.isEmpty())
@@ -692,7 +692,7 @@ void HomePage::createActions()
     exportAct = new QAction(tr("Export PLY..."), this);
     //exportAct->setShortcuts(QKeySequence::SaveAs);
     exportAct->setStatusTip(tr("Export text document"));
-    connect(exportAct, SIGNAL(triggered()), this, SLOT(saveAs()));
+    //connect(exportAct, SIGNAL(triggered()), this, SLOT(exportPLY()));
 
 
     //for (int i = 0; i < MaxRecentFiles; ++i) {
