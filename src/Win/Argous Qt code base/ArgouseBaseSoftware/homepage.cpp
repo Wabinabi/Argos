@@ -839,7 +839,6 @@ void HomePage::on_Browse_clicked()
     QString fileLocationStr = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                                     "/",
                                                     QFileDialog::DontResolveSymlinks);
-
-    ui->FileLocation->insertPlainText(fileLocationStr);
+    ui->FileLocation->setPlainText(fileLocationStr);
 }
 
