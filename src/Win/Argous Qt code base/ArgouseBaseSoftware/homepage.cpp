@@ -130,10 +130,10 @@ void HomePage::on_pushButton_4_clicked()
             layout->addRow("Drone Details", new QLabel(""));
 
             for (i = droneDetailsMap.begin(); i != droneDetailsMap.end(); ++i) {
-                //aValue = new QLineEdit(i.value());
-                //aValue->setReadOnly(false);
+                QLineEdit *aValue = new QLineEdit(i.value());
+                aValue->setReadOnly(false);
 
-                //layout->addRow(i.key(), aValue);
+                layout->addRow(i.key(), aValue);
             }
 
             //layout->addWidget(detailsCloseButton);
@@ -141,7 +141,7 @@ void HomePage::on_pushButton_4_clicked()
             //layout->addWidget(detailSaveButton);
             //layout->addWidget(detailResetButton);
             QHBoxLayout *boxLayout = new QHBoxLayout();
-            boxLayout->addWidget(detailResetButton);
+            //boxLayout->addWidget(detailResetButton);
             boxLayout->addWidget(detailSaveButton);
             boxLayout->addWidget(detailsCloseButton);
 
@@ -165,28 +165,33 @@ void HomePage::on_droneDetailClose_clicked() {
 
 //B1 Added button functions
 void HomePage::on_droneDetailSave_clicked() {
-//    qDebug() << "SaveButtonClicked";
-//    QList items = droneDetails->children();
+    QList items = droneDetails->children();
 
-//    QLabel test;
+    for (int i = 0; i < items.count(); i++){
+        if (qobject_cast<QLabel*>(items[i]) != NULL){
+            QString labelText = qobject_cast<QLabel*>(items[i])->text();
 
-//    for (int i = 0; i < items.count();i++){
-//        if (!qobject_cast<QLabel*>(items[i]) == NULL){
-//            //test = qobject;
-//            qDebug() << test.text();
-//        }
-//    }
+            qDebug() << "Finding: " << labelText;
 
-    qDebug() << "SaveButtonClicked";
+            if (droneConfig.find(labelText) != droneConfig.end()) {
+                droneConfig[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
+                qDebug() << "Found config: " << qobject_cast<QLineEdit*>(items[i+1])->text();
+            }
 
-        const QList<QLineEdit> lineEdits = droneDetails->findChildren<QLineEdit>();
-        QLineEdit test;
+            if (droneDetailsMap.find(labelText) != droneDetailsMap.end()) {
+                droneDetailsMap[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
+                qDebug() << "Found details: " << qobject_cast<QLineEdit*>(items[i+1])->text();
+            }
 
-        for (int i = 0; i < lineEdits.count();i++){
-            //test = lineEdits.data(i);
-            qDebug() << lineEdits[i].text();
         }
 
+
+    }
+
+    writeMapToFile(configFileLocation + "\\as7.config", &droneConfig);
+    writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
+
+    on_droneDetailClose_clicked();
 }
 
 void HomePage::on_droneDetailReset_clicked() {
@@ -313,6 +318,8 @@ void HomePage::on_ImportBtn_clicked()
         on_Browse_clicked();
         filename = ui->FileLocation->toPlainText();
     }
+
+    configFileLocation = filename;
 
 
 

@@ -1,6 +1,6 @@
 Average Temp (c):15.2195
 Duration of flight (s):38
-Number of Critical Events:2
-Number of Events:3246
+Number of Critical Events:6
+Number of Events:9738
 Number of Points During Flight:6
 Sample Rate (Hz):200

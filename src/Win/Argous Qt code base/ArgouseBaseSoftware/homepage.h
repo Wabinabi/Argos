@@ -119,6 +119,8 @@ private:
     DroneSeriesData readTempValues(QString dataFile);
     DroneSeriesData readAltValues(QString dataFile);
 
+    QString configFileLocation;
+
     void on_droneDetailClose_clicked();
     //B1-Detail button actions
     void on_droneDetailSave_clicked();
