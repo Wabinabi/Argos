@@ -36,6 +36,12 @@ Things that need to be done:
 What Mink is working on now:
 - source the data from the vector point instead of text file (altitude, no. of points, throttle, no. of events)
 
+- informEvents
+- verboseEvents
+-emergencyEvents
+
+QVector<DroneEvent> emergencyEvents;
+
 
 What Mink is working on next:
 -------------------------------

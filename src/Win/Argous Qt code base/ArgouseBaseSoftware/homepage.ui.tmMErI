@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>492</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>90</y>
-      <width>411</width>
-      <height>161</height>
+      <y>30</y>
+      <width>401</width>
+      <height>151</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -34,21 +34,15 @@
       <rect>
        <x>10</x>
        <y>30</y>
-       <width>391</width>
+       <width>381</width>
        <height>31</height>
       </rect>
-     </property>
-     <property name="autoFillBackground">
-      <bool>false</bool>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(190, 190, 190);</string>
      </property>
     </widget>
     <widget class="QPushButton" name="ImportBtn">
      <property name="geometry">
       <rect>
-       <x>220</x>
+       <x>210</x>
        <y>70</y>
        <width>181</width>
        <height>31</height>
@@ -61,20 +55,33 @@
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>210</x>
        <y>110</y>
-       <width>391</width>
+       <width>181</width>
        <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>View Trip Data</string>
+      <string>Trip Data</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>0</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Import Data Widget</string>
      </property>
     </widget>
     <widget class="QToolButton" name="Browse">
      <property name="geometry">
       <rect>
-       <x>380</x>
+       <x>370</x>
        <y>30</y>
        <width>21</width>
        <height>31</height>
@@ -82,46 +89,6 @@
      </property>
      <property name="text">
       <string>...</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>-10</y>
-       <width>241</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Bahnschrift SemiBold</family>
-       <pointsize>15</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Import Drone Data</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="ImportBtn_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>70</y>
-       <width>201</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(112, 112, 112);
-color: rgb(255, 255, 255)</string>
-     </property>
-     <property name="text">
-      <string>Clear</string>
      </property>
     </widget>
    </widget>
@@ -189,7 +156,7 @@ color: rgb(255, 255, 255)</string>
       <x>540</x>
       <y>249</y>
       <width>241</width>
-      <height>191</height>
+      <height>291</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -225,18 +192,13 @@ color: rgb(255, 255, 255)</string>
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>40</y>
+       <y>30</y>
        <width>201</width>
-       <height>121</height>
+       <height>251</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">
-background-color: rgb(65, 65, 65);
-border-radius: 5px;
-
-
-QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</string>
+      <string notr="true">QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</string>
      </property>
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
@@ -244,18 +206,15 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <property name="lineWidth">
       <number>0</number>
      </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOn</enum>
-     </property>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>250</y>
-      <width>411</width>
-      <height>191</height>
+      <y>190</y>
+      <width>401</width>
+      <height>351</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -264,24 +223,27 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Recent Files</string>
+     </property>
+    </widget>
     <widget class="QScrollArea" name="scrollArea_2">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>40</y>
-       <width>391</width>
-       <height>121</height>
+       <width>381</width>
+       <height>301</height>
       </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(65, 65, 65);
-border-radius: 5px;</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOn</enum>
      </property>
      <property name="widgetResizable">
       <bool>true</bool>
@@ -291,8 +253,8 @@ border-radius: 5px;</string>
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>374</width>
-        <height>121</height>
+        <width>379</width>
+        <height>299</height>
        </rect>
       </property>
       <widget class="QScrollBar" name="verticalScrollBar_2">
@@ -310,37 +272,14 @@ border-radius: 5px;</string>
       </widget>
      </widget>
     </widget>
-    <widget class="QLabel" name="label_6">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>0</y>
-       <width>241</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Bahnschrift SemiBold</family>
-       <pointsize>15</pointsize>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="text">
-      <string>Recent Imports</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-     </property>
-    </widget>
    </widget>
    <widget class="QFrame" name="frame_3">
     <property name="geometry">
      <rect>
       <x>-1</x>
       <y>-1</y>
-      <width>101</width>
-      <height>471</height>
+      <width>91</width>
+      <height>561</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -358,9 +297,9 @@ border-radius: 5px;</string>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>50</y>
-       <width>101</width>
+       <x>10</x>
+       <y>10</y>
+       <width>71</width>
        <height>81</height>
       </rect>
      </property>
@@ -374,11 +313,11 @@ border-radius: 5px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="SettingsBtn">
+    <widget class="QPushButton" name="pushButton_2">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>380</y>
+       <y>480</y>
        <width>111</width>
        <height>31</height>
       </rect>
@@ -404,11 +343,11 @@ border-radius: 0px;</string>
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="FileBtn">
+    <widget class="QPushButton" name="pushButton_6">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>320</y>
+       <y>420</y>
        <width>111</width>
        <height>31</height>
       </rect>
@@ -428,11 +367,11 @@ border-radius: 0px;</string>
        <normaloff>../../Graphic Assets/icons/15ppi/fileArtboard 12.png</normaloff>../../Graphic Assets/icons/15ppi/fileArtboard 12.png</iconset>
      </property>
     </widget>
-    <widget class="QPushButton" name="ResetBtn">
+    <widget class="QPushButton" name="pushButton_7">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>350</y>
+       <y>450</y>
        <width>111</width>
        <height>31</height>
       </rect>
@@ -452,11 +391,11 @@ border-radius: 0px;</string>
        <normaloff>../../Graphic Assets/icons/15ppi/iconArtboard 8.png</normaloff>../../Graphic Assets/icons/15ppi/iconArtboard 8.png</iconset>
      </property>
     </widget>
-    <widget class="QPushButton" name="HelpBtn">
+    <widget class="QPushButton" name="pushButton_3">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>410</y>
+       <y>510</y>
        <width>111</width>
        <height>31</height>
       </rect>
@@ -476,29 +415,6 @@ border-radius: 0px;</string>
        <normaloff>../../Graphic Assets/icons/15ppi/helpArtboard 10.png</normaloff>../../Graphic Assets/icons/15ppi/helpArtboard 10.png</iconset>
      </property>
     </widget>
-   </widget>
-   <widget class="QLabel" name="label_8">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>50</y>
-      <width>381</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Bahnschrift SemiBold</family>
-      <pointsize>22</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Argous AS7 Base Software</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

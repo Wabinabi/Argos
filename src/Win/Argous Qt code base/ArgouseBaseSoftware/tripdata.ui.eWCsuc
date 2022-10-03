@@ -7,19 +7,32 @@
     <x>0</x>
     <y>0</y>
     <width>778</width>
-    <height>501</height>
+    <height>661</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <widget class="QPushButton" name="DisplayModel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>201</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Display 3D Point Cloud Model</string>
+   </property>
+  </widget>
   <widget class="QFrame" name="frame_3">
    <property name="geometry">
     <rect>
      <x>-10</x>
-     <y>200</y>
+     <y>270</y>
      <width>781</width>
-     <height>361</height>
+     <height>291</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -31,10 +44,10 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>0</y>
+      <x>9</x>
+      <y>-1</y>
       <width>781</width>
-      <height>271</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -47,10 +60,10 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>0</y>
+     <x>10</x>
+     <y>60</y>
      <width>241</width>
-     <height>201</height>
+     <height>221</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -88,7 +101,7 @@
       <x>20</x>
       <y>40</y>
       <width>201</width>
-      <height>111</height>
+      <height>131</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -109,27 +122,14 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <enum>Qt::ScrollBarAlwaysOn</enum>
     </property>
    </widget>
-   <widget class="QPushButton" name="DisplayModel">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>160</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Display 3D Point Cloud Model</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>40</y>
-     <width>211</width>
-     <height>151</height>
+     <x>300</x>
+     <y>60</y>
+     <width>461</width>
+     <height>211</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -144,6 +144,85 @@ border-radius: 5px;
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
+   <widget class="QTextEdit" name="TrendInfo">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>20</y>
+      <width>221</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(255, 255, 255);
+border-radius: 5px;
+
+
+QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ThrottleBtn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>130</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DisplayThrottle Trend</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="TempBtn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>90</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display Temperature Trend</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="EventsBtn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>50</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display Events Trend</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="AltitudeBtn">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>170</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display Height Above Ground Trend</string>
+    </property>
+   </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
@@ -156,101 +235,28 @@ border-radius: 5px;
     <property name="font">
      <font>
       <family>Bahnschrift SemiBold</family>
-      <pointsize>10</pointsize>
+      <pointsize>15</pointsize>
       <bold>true</bold>
      </font>
     </property>
     <property name="text">
-     <string>Usability Testers - Please Note!</string>
+     <string>Trip Details</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-  </widget>
-  <widget class="QPushButton" name="EventsBtn">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>40</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Display Events Trend</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="TempBtn">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>120</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Display Temperature Trend</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="ThrottleBtn">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>160</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>DisplayThrottle Trend</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="AltitudeBtn">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>80</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Display Height Above Ground Trend</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>0</y>
-     <width>221</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Bahnschrift SemiBold</family>
-     <pointsize>15</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Trip Details</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-   </property>
+   <zorder>ThrottleBtn</zorder>
+   <zorder>TempBtn</zorder>
+   <zorder>TrendInfo</zorder>
+   <zorder>EventsBtn</zorder>
+   <zorder>AltitudeBtn</zorder>
+   <zorder>label_4</zorder>
   </widget>
   <zorder>frame</zorder>
   <zorder>frame_2</zorder>
+  <zorder>DisplayModel</zorder>
   <zorder>frame_3</zorder>
-  <zorder>EventsBtn</zorder>
-  <zorder>TempBtn</zorder>
-  <zorder>ThrottleBtn</zorder>
-  <zorder>AltitudeBtn</zorder>
-  <zorder>label_5</zorder>
  </widget>
  <resources/>
  <connections/>
