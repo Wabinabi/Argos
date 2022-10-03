@@ -264,52 +264,6 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QScrollArea" name="scrollArea_2">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>40</y>
-       <width>391</width>
-       <height>151</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(65, 65, 65);
-border-radius: 5px;</string>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="verticalScrollBarPolicy">
-      <enum>Qt::ScrollBarAlwaysOn</enum>
-     </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
-     </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents_2">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>374</width>
-        <height>151</height>
-       </rect>
-      </property>
-      <widget class="QScrollBar" name="verticalScrollBar_2">
-       <property name="geometry">
-        <rect>
-         <x>390</x>
-         <y>0</y>
-         <width>16</width>
-         <height>291</height>
-        </rect>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-      </widget>
-     </widget>
-    </widget>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
@@ -339,7 +293,7 @@ border-radius: 5px;</string>
        <x>10</x>
        <y>40</y>
        <width>391</width>
-       <height>121</height>
+       <height>151</height>
       </rect>
      </property>
     </widget>
