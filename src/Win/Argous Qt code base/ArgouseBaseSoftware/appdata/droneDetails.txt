@@ -9,7 +9,7 @@ ESC:T-Motor F45A V3
 Firmware:Ardupilot Firmware Matek H743 v. stable-4.1.5
 Flight Controller:Matek H743 SLIM
 Frame:HGLRC Sector 7 V3
-Microcontroller:SP32 Device C
+Microcontroller:ESP32-DEVKIT D
 Motors:T-Motor BMS Racing V2 2306.5 2000kv
 Propellers:Gemfan 5" props, Pitch 3"
 RX Protocol:SBUS
