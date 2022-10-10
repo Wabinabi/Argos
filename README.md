@@ -23,13 +23,7 @@ The AS7 project contains two parts: the on-board and off-board software The on-b
 
 
 
-### Future Improvements
 
-With additional time, the following improvements or features could be added:
-
-* [ ] Code Documentation generated through Doxygen
-* [ ] More guided commands and not just tunnel-flight
-* [ ] Reading drone commands from the SD card using keywords in a text file
 
 
 
