@@ -1,0 +1,8 @@
+One Dimensional Tests + Spin Test
+
+Spin tests demonstrate compass accuracy in relation to using the US sensors to map a room
+
+Comments from Josh, who evaluated the data:
+
+- the 1d test is rly good to show off measurements
+- the spin tests should produce recentagular shapes (mostly) if the data points are all set to a position of 0,0,0
