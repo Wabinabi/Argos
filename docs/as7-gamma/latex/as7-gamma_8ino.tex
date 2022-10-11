@@ -1,0 +1,1164 @@
+\hypertarget{as7-gamma_8ino}{}\doxysection{H\+:/repos/\+Argous/src/esp32/as7-\/gamma/as7-\/gamma.ino File Reference}
+\label{as7-gamma_8ino}\index{H:/repos/Argous/src/esp32/as7-\/gamma/as7-\/gamma.ino@{H:/repos/Argous/src/esp32/as7-\/gamma/as7-\/gamma.ino}}
+{\ttfamily \#include $<$sbus.\+h$>$}\newline
+{\ttfamily \#include $<$Fast\+LED.\+h$>$}\newline
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+{\ttfamily \#include $<$SD.\+h$>$}\newline
+{\ttfamily \#include $<$Wire.\+h$>$}\newline
+{\ttfamily \#include $<$Adafruit\+\_\+\+MMC5883.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include \char`\"{}Sd\+Logger.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Drone.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{as7-gamma_8ino_a18aefd12ad84d4c33dc97923cb821e47}{I2\+C\+\_\+\+SDA}}~21
+\item 
+\#define \mbox{\hyperlink{as7-gamma_8ino_a212ca328a6409c98f8c3dfbbe1ba561d}{I2\+C\+\_\+\+SCL}}~22
+\item 
+\#define \mbox{\hyperlink{as7-gamma_8ino_a02238131c0258d4ecbc4352535073d17}{SIMULATION\+\_\+\+ENABLE}}~false
+\item 
+\#define \mbox{\hyperlink{as7-gamma_8ino_a364dc046543d8ab7d4214120afc9c814}{LED\+\_\+\+TYPE}}~WS2811
+\item 
+\#define \mbox{\hyperlink{as7-gamma_8ino_a00c9e5e8fdc981fc21a1e82e722980b2}{COLOR\+\_\+\+ORDER}}~GRB
+\item 
+\#define \mbox{\hyperlink{as7-gamma_8ino_aecfdaf9ab625042a96f0ac407313c3f4}{GRAVITY\+\_\+\+CMS}}~980.\+6
+\item 
+\#define \mbox{\hyperlink{as7-gamma_8ino_af3b4940148a20c2236129775ba1926ee}{ACC\+\_\+\+FREQ}}~200
+\item 
+\#define \mbox{\hyperlink{as7-gamma_8ino_a364dc046543d8ab7d4214120afc9c814}{LED\+\_\+\+TYPE}}~WS2811
+\item 
+\#define \mbox{\hyperlink{as7-gamma_8ino_a00c9e5e8fdc981fc21a1e82e722980b2}{COLOR\+\_\+\+ORDER}}~GRB
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}{Drone\+State}} \{ \newline
+\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5}{Initialise}}
+, \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa0e73e048b83849a411148a8dddc6dfcb}{Ready}}
+, \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa0943115c51834114c13d76fb189f56d0}{Armed}}
+, \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6}{Flying}}
+, \newline
+\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa35c9d80844bfd2ac69918d47907210b9}{Landing}}
+, \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75}{Stopped}}
+, \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa6d1a9784f755744a34ba1ea0bef3c143}{Faulted}}
+, \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fac909e86054cb6ad83c22bfc2b3e6e5b8}{Debug}}
+ \}
+\item 
+enum \mbox{\hyperlink{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1e}{Drone\+Flight\+Mode}} \{ \mbox{\hyperlink{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1ea567625001f1533ade930e1cb874b513c}{Operator\+Control}}
+, \mbox{\hyperlink{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1eafeb18f4796965b7af3bb84228e0e2254}{Auto\+Straight\+Line}}
+, \mbox{\hyperlink{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1ea351029b82a2c6a942b73ddfa1567ecf2}{Arm\+Only}}
+ \}
+\item 
+enum \mbox{\hyperlink{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cf}{Drone\+Debug\+Test}} \{ \mbox{\hyperlink{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfa3c301a06b119720d62d8854cb2227ad5}{SBUS\+\_\+\+COMMS}}
+, \mbox{\hyperlink{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfa9a6af90317539b700a1bbf957dd78773}{ARMING\+\_\+\+DISARMING}}
+, \mbox{\hyperlink{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfabf3a555f00f481f3fe8fec4243640100}{SD\+\_\+\+READ\+\_\+\+WRITE}}
+, \mbox{\hyperlink{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfa63e5012d9b086b553093cfdc533670dd}{LED\+\_\+\+RESPONSE}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{as7-gamma_8ino_a35e40b6939321ca3f3124a8a2bd20246}{DEFINE\+\_\+\+GRADIENT\+\_\+\+PALETTE}} (DEV\+\_\+\+PALLETE)
+\item 
+void \mbox{\hyperlink{as7-gamma_8ino_a9251110f67b3076df96738c0147c8c7b}{read\+Accelerometer}} ()
+\item 
+void \mbox{\hyperlink{as7-gamma_8ino_a004c49bc4bad80a498ec337546adbd4e}{task\+Ultrasonic\+Sensor}} (void $\ast$parameters)
+\item 
+void \mbox{\hyperlink{as7-gamma_8ino_a269d866f9e9be55bd9db8da9bdb79b34}{task\+Accelerometer}} (void $\ast$parameters)
+\item 
+void \mbox{\hyperlink{as7-gamma_8ino_a9e70b84539dd0735b33f007dcfcd558a}{debug\+\_\+switch\+Modes}} (void $\ast$parameters)
+\item 
+void \mbox{\hyperlink{as7-gamma_8ino_ac9aa665109baa327f1f01596c2f2c703}{task\+Status\+Leds}} (void $\ast$parameters)
+\item 
+void \mbox{\hyperlink{as7-gamma_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{as7-gamma_8ino_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a0da32dc70b8b1ae6ff5b9ff2322c3c5b}{STATUS\+\_\+\+FASTLED\+\_\+\+PIN}} = 3
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a49c5693416bd00651f5f16acac3de2cb}{STATUS\+\_\+\+NUM\+\_\+\+LEDS}} = 8
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a0d06b68f5eb9fbaa15c05d4a22f3828f}{STATUS\+\_\+\+LED\+\_\+\+BRIGHTNESS}} = 32
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}{NUM\+\_\+\+US\+\_\+\+SENSORS}} = 6
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a0512681638b4fe3dbe6e2a1c0a610e45}{NUM\+\_\+\+US\+\_\+\+POINTS}} = 3
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a1c19e8b43fa480534233d4dda7126c7a}{MAX\+\_\+\+US\+\_\+\+DISTANCE}} = 2000
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a71d390b0a316011c172e852dfc531cc2}{US\+\_\+\+TRIGPIN\+\_\+0}} = 32
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a0226f19093bf2730da653bba0f81389c}{US\+\_\+\+ECHOPIN\+\_\+0}} = 35
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a77ca5a1f8545d7a0f6001f9f43565358}{US\+\_\+\+TRIGPIN\+\_\+1}} = 25
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_ab8f775191b246fa2d2d4787749758e21}{US\+\_\+\+ECHOPIN\+\_\+1}} = 33
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a50d8a54d1059b673ea8023ad55354af4}{US\+\_\+\+TRIGPIN\+\_\+2}} = 12
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_afd1484788ca7da0d31722c93d3a0db40}{US\+\_\+\+ECHOPIN\+\_\+2}} = 13
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a739ff47fbd1aa38aaf467f5b219ce4a8}{US\+\_\+\+TRIGPIN\+\_\+3}} = 14
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_ae0beba2839ddb71081af64ccc9af1f04}{US\+\_\+\+ECHOPIN\+\_\+3}} = 27
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_af9158fae1327db307304389a99ac4a5f}{US\+\_\+\+TRIGPIN\+\_\+4}} = 0
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a473953a96d42f2baa21927850a231156}{US\+\_\+\+ECHOPIN\+\_\+4}} = 4
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a742a7edccad0ffb3629ab0c801a2d914}{US\+\_\+\+TRIGPIN\+\_\+5}} = 2
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_affac03286bf4e90c8234aba0414f9af9}{US\+\_\+\+ECHOPIN\+\_\+5}} = 15
+\item 
+int \mbox{\hyperlink{as7-gamma_8ino_ab719d08addca503c59f95b24622a3555}{US\+\_\+\+TRIGPIN}} \mbox{[}\mbox{\hyperlink{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}{NUM\+\_\+\+US\+\_\+\+SENSORS}}\mbox{]} = \{\}
+\item 
+int \mbox{\hyperlink{as7-gamma_8ino_a458184d2f6faa1c8f2d583e8a4aa8096}{US\+\_\+\+ECHOPIN}} \mbox{[}\mbox{\hyperlink{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}{NUM\+\_\+\+US\+\_\+\+SENSORS}}\mbox{]} = \{\}
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a08b1a4d2c92f43fa4a921fb59f3bdb87}{FL\+\_\+\+LEDPIN}} = 3
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_a749fd1351d5d5a0e985d85bc270a87b6}{SBUS\+\_\+\+RXPIN}} = 16
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_aac3361274267f5963c01ea1d2882e559}{SBUS\+\_\+\+TXPIN}} = 17
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_aadc35ed1f9010d3a48b4fbbdeef0cee9}{TEMP\+\_\+\+PIN}} = 34
+\item 
+const Tick\+Type\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a2d5fcbc85876f014543cf98139de51e0}{TICK\+\_\+\+US\+\_\+\+DELAY}} = 80 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS
+\item 
+const Tick\+Type\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a37324bc59f05a1e87cfeb75c3e3235e8}{TICK\+\_\+\+SHORT}} = 200 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS
+\item 
+const Tick\+Type\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_afda8f7bca490ba490a29c375000aae71}{TICK\+\_\+\+MEDIUM}} = 500 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS
+\item 
+const Tick\+Type\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_abd55eac8923dc4e26930b92901bd1a93}{TICK\+\_\+\+LONG}} = 1000 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS
+\item 
+const Tick\+Type\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_ac60f61de386cc2baa7c4ea0255e87ff2}{TICK\+\_\+\+LONGLONG}} = 5000 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_ac46d95694a0133c02481735bbcf1a02e}{FL\+\_\+\+LEDNUM}} = 8
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_ac9aec1f51deffc2045331cda6f4b7a15}{FL\+\_\+\+LEDBRIGHTNESS}} = 64
+\item 
+CRGB \mbox{\hyperlink{as7-gamma_8ino_abb0cf8f6d5cdd238e306d36ec89e2f2a}{FL\+\_\+\+LED}} \mbox{[}\mbox{\hyperlink{as7-gamma_8ino_ac46d95694a0133c02481735bbcf1a02e}{FL\+\_\+\+LEDNUM}}\mbox{]}
+\item 
+CRGBPalette16 \mbox{\hyperlink{as7-gamma_8ino_ac43c5f61fa8a71ac067bda88ac440b35}{DEVPAL}} = DEV\+\_\+\+PALLETE
+\item 
+int8\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a21d50749848a04f76f42f36006d779fd}{accel\+\_\+x\+\_\+int}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_ae5ce68e4879d1ec6cdf1c1a8e269c1d6}{accel\+\_\+y\+\_\+int}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a8142604eaec8d982b0b3699280c2465d}{accel\+\_\+z\+\_\+int}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_af25d4b6a879495fd15675a4fa63bd26f}{accel\+\_\+total\+\_\+x}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_af9d701da1a3e43705f91ebd516724866}{accel\+\_\+total\+\_\+y}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a975f654d15f5adf3f54bb7aabef7b7cd}{accel\+\_\+total\+\_\+z}}
+\item 
+const float \mbox{\hyperlink{as7-gamma_8ino_a8b6d7c233a70fcccb2683ad7df872dc0}{DIV\+\_\+I}} =16
+\item 
+byte \mbox{\hyperlink{as7-gamma_8ino_a7cb1a2b987662b73e48e395c2ce1b83b}{accel\+Data}} \mbox{[}3\mbox{]}
+\item 
+const int \mbox{\hyperlink{as7-gamma_8ino_ab709d59721b2f8ff4de889d7d3717136}{NUM\+\_\+\+ACCEL\+\_\+\+READINGS}} = 5
+\item 
+unsigned long \mbox{\hyperlink{as7-gamma_8ino_a21e83a74cfdc26492dec4e377741ea30}{accel\+\_\+prev\+\_\+millis}} = 0
+\item 
+unsigned long \mbox{\hyperlink{as7-gamma_8ino_af33470774a4324abf65189ae4f9f692f}{accel\+\_\+curr\+\_\+millis}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a0c3c71ed0884fc0bb5d0bee005e0867e}{accel\+\_\+delta\+\_\+s}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_ac02445996c84c18c64ce6c1e0933203e}{accel\+\_\+x\+\_\+readings}} \mbox{[}\mbox{\hyperlink{as7-gamma_8ino_ab709d59721b2f8ff4de889d7d3717136}{NUM\+\_\+\+ACCEL\+\_\+\+READINGS}}\mbox{]}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a06fb66afb76478d09bc4068fc10a6a73}{accel\+\_\+y\+\_\+readings}} \mbox{[}\mbox{\hyperlink{as7-gamma_8ino_ab709d59721b2f8ff4de889d7d3717136}{NUM\+\_\+\+ACCEL\+\_\+\+READINGS}}\mbox{]}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a0549b5f681688715ef88d2ece08f22d9}{accel\+\_\+z\+\_\+readings}} \mbox{[}\mbox{\hyperlink{as7-gamma_8ino_ab709d59721b2f8ff4de889d7d3717136}{NUM\+\_\+\+ACCEL\+\_\+\+READINGS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{as7-gamma_8ino_a62f72c7215541f5df632cb8fbf8d4f66}{accel\+\_\+index}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a7afe3a6c26cdd445178cd83179491e40}{accel\+\_\+x}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_ad8d3e4986ab0b0e7a17c77972b2d29e5}{accel\+\_\+y}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_ab0ba2b834f44f31e60538b2f2dc01b40}{accel\+\_\+z}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_afb94218f4ad855d9bf4884665a742f4b}{accel\+\_\+filt\+\_\+x}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a7f5145b41363a2f34c0bfa58a2c42969}{accel\+\_\+filt\+\_\+y}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_af460d3f510213e59a8862fb6f5245b7a}{accel\+\_\+filt\+\_\+z}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_add728009960de41c7c30e0a1e6864799}{raw\+\_\+vel\+\_\+x}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_ab931483e477f41546324fac1745b67ee}{raw\+\_\+vel\+\_\+y}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_af910f58c2420bef2de8e0e09e0566e90}{raw\+\_\+vel\+\_\+z}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_aa6c09b8420e2d121af89de60fef1e896}{filt\+\_\+vel\+\_\+x}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_aa98d7a46db4e6e43ba45fd7b9b93d57b}{filt\+\_\+vel\+\_\+y}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_aae7484d69c1db670303b159d09e5bcbc}{filt\+\_\+vel\+\_\+z}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a4e4473c78eb2ca66a9890ae83b089508}{raw\+\_\+pos\+\_\+x}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_aaf18d25a41ecab4da7aa84e53a3088a3}{raw\+\_\+pos\+\_\+y}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a529ad6c56d4bb03d13a48c4b7092db13}{raw\+\_\+pos\+\_\+z}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a1bd013f0a2910bfef19d58fdc4478900}{filt\+\_\+pos\+\_\+x}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a6af589c3905c35f58f0477c1ff91f882}{filt\+\_\+pos\+\_\+y}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_ad31f35f5294be4e9763a902098b6fb4c}{filt\+\_\+pos\+\_\+z}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a1e2923b15e5bf0370bef4e11329c8ce6}{compass\+\_\+x}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a093a22024b6e36f7bf6ba1358c634b49}{compass\+\_\+y}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_ac7a47b7082abf0b1413f16ea76f5f5a6}{compass\+\_\+z}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_ae7557b4c57bf5145d28e8fa753b480bc}{compass\+\_\+heading}}
+\item 
+const float \mbox{\hyperlink{as7-gamma_8ino_adacddcf53a65109c141bfcf0a5624320}{declination\+Angle}} = 0.\+192228625
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_aee216f18b5cd992c8a9125a5a5557924}{accel\+\_\+x\+\_\+offset}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a29d1a8de573887ad52a539bf56aadd01}{accel\+\_\+y\+\_\+offset}} = 0
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_aedc3b559271f77b79d1d7296232ccd0c}{accel\+\_\+z\+\_\+offset}} = 0
+\item 
+bool \mbox{\hyperlink{as7-gamma_8ino_aad1f25ef4683d18b34436338ac5f16a6}{accelerometer\+Calibrated}} = false
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a1d7046cd5908242bf052d1572eb656b4}{est\+Drone\+Pos\+\_\+x}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a606f7ef1c2f06539fd4fc917c7c23ef1}{est\+Drone\+Pos\+\_\+y}}
+\item 
+float \mbox{\hyperlink{as7-gamma_8ino_a47fafe0eea9eeda50b39c6f8b78fc323}{est\+Drone\+Pos\+\_\+z}}
+\item 
+sensors\+\_\+event\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a141458eca343b354a4f3e70a4a83715b}{compass\+\_\+event}}
+\item 
+bfs\+::\+Sbus\+Rx sbus\+Rx \& \mbox{\hyperlink{as7-gamma_8ino_a860b52844568915233db35045b264543}{Serial1}}
+\item 
+std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{as7-gamma_8ino_ad8aa3dbf9d73b05079999aafcd82c0aa}{sbus\+Tx\+Data}}
+\item 
+std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{as7-gamma_8ino_ae954d5f24f3233c5678f7e10ea72a3cd}{sbus\+Rx\+Data}}
+\item 
+File \mbox{\hyperlink{as7-gamma_8ino_a3b343c8eae181e67cb8e77507864594c}{config\+\_\+file}}
+\item 
+File \mbox{\hyperlink{as7-gamma_8ino_ac8f53dee796d9d58b81b57feb667ee5f}{output\+\_\+file}}
+\item 
+File \mbox{\hyperlink{as7-gamma_8ino_a737b87acaf3d7946c91b4a078f8e0bcb}{log\+\_\+file}}
+\item 
+bool \mbox{\hyperlink{as7-gamma_8ino_ae1f9ba2c2784ae6e3be098358e760103}{recording\+Enabled}} = false
+\item 
+int \mbox{\hyperlink{as7-gamma_8ino_a598cfbccc194ebd143cb1663c5201a87}{us\+\_\+distance}} \mbox{[}\mbox{\hyperlink{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}{NUM\+\_\+\+US\+\_\+\+SENSORS}}\mbox{]}\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_a0512681638b4fe3dbe6e2a1c0a610e45}{NUM\+\_\+\+US\+\_\+\+POINTS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{as7-gamma_8ino_afb71d20790b4f6762aa0559d783631f1}{us\+\_\+raw\+Distance}} \mbox{[}\mbox{\hyperlink{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}{NUM\+\_\+\+US\+\_\+\+SENSORS}}\mbox{]}
+\item 
+int \mbox{\hyperlink{as7-gamma_8ino_aa003a6794024b8b6c3dbe9459f271d1f}{tmp\+\_\+temperature}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_afd7f951eab4954b994f79fc33ae92e77}{enable\+\_\+us\+Semaphore}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a5fc08cb23a3c31e13a2e676e39a37c3a}{enable\+\_\+pilot\+Semaphore}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a7a46ce6e13713b43bfb98d336570d055}{debug\+\_\+switch\+Modes\+Semaphore}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a71d1e6b7d070c0e77df8d2bcd632aa9b}{enable\+\_\+scribe\+Semaphore}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_ace587fb5ab88545465a500c78e42a04c}{scribe\+\_\+log\+Semaphore}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a2889f01962216cac62bb27e7ffd676c6}{scribe\+\_\+msg\+Semaphore}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a81cdfbd5e2da7bc7c1beade668e2b314}{scribe\+\_\+log\+Stack\+Mutex}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_ab636b7c57f5db286da0aebc7dbb8a370}{scribe\+\_\+msg\+Stack\+Mutex}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a61271cd1cb00b7b3398ac960d65b5bad}{th\+\_\+\+Ultrasonic}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_ae73d533a449da8b8c732746849a80a7a}{th\+\_\+\+Comms}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_ae906dfa26c76bc84731c33214d259533}{th\+\_\+\+Accel}}
+\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{as7-gamma_8ino_a2e3d75d3d24979823e9b5daef329ef23}{th\+\_\+\+Switch}}
+\item 
+std\+::map$<$ \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}{Drone\+State}}, std\+::string $>$ \mbox{\hyperlink{as7-gamma_8ino_a5ef6efb656dfc43dc4f4ff1e8e6a143a}{drone\+State\+Map}}
+\item 
+\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}{Drone\+State}} \mbox{\hyperlink{as7-gamma_8ino_ab35bc72f63f70168ffdbeb1e4dc21480}{current\+State}} = \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5}{Initialise}}
+\item 
+\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}{Drone\+State}} \mbox{\hyperlink{as7-gamma_8ino_a0e3daf4238c6ea71e791ac6041b6a5ca}{next\+State}} = \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5}{Initialise}}
+\item 
+\mbox{\hyperlink{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1e}{Drone\+Flight\+Mode}} \mbox{\hyperlink{as7-gamma_8ino_a0d8a2e387af038b85c17a03567e2aea3}{current\+Flight\+Mode}} = \mbox{\hyperlink{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1eafeb18f4796965b7af3bb84228e0e2254}{Auto\+Straight\+Line}}
+\item 
+\mbox{\hyperlink{class_a_s7_1_1_logger}{AS7\+::\+Logger}} \mbox{\hyperlink{as7-gamma_8ino_a99d2a4a087d451eb0554bfa08a3f2dba}{logger}} \& \mbox{\hyperlink{as7-gamma_8ino_a8cdfc9a38ff58075799bfd56f654f095}{Serial}}
+\item 
+\mbox{\hyperlink{class_a_s7_1_1_drone}{AS7\+::\+Drone}} drone \& \mbox{\hyperlink{as7-gamma_8ino_a99d2a4a087d451eb0554bfa08a3f2dba}{logger}}
+\item 
+Adafruit\+\_\+\+MMC5883 \mbox{\hyperlink{as7-gamma_8ino_a686c30966ca3672496cb6c19d52846cb}{compass}} = Adafruit\+\_\+\+MMC5883(11111)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{as7-gamma_8ino_af3b4940148a20c2236129775ba1926ee}\label{as7-gamma_8ino_af3b4940148a20c2236129775ba1926ee}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!ACC\_FREQ@{ACC\_FREQ}}
+\index{ACC\_FREQ@{ACC\_FREQ}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{ACC\_FREQ}{ACC\_FREQ}}
+{\footnotesize\ttfamily \#define ACC\+\_\+\+FREQ~200}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a00c9e5e8fdc981fc21a1e82e722980b2}\label{as7-gamma_8ino_a00c9e5e8fdc981fc21a1e82e722980b2}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!COLOR\_ORDER@{COLOR\_ORDER}}
+\index{COLOR\_ORDER@{COLOR\_ORDER}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{COLOR\_ORDER}{COLOR\_ORDER}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+ORDER~GRB}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a00c9e5e8fdc981fc21a1e82e722980b2}\label{as7-gamma_8ino_a00c9e5e8fdc981fc21a1e82e722980b2}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!COLOR\_ORDER@{COLOR\_ORDER}}
+\index{COLOR\_ORDER@{COLOR\_ORDER}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{COLOR\_ORDER}{COLOR\_ORDER}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+ORDER~GRB}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aecfdaf9ab625042a96f0ac407313c3f4}\label{as7-gamma_8ino_aecfdaf9ab625042a96f0ac407313c3f4}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!GRAVITY\_CMS@{GRAVITY\_CMS}}
+\index{GRAVITY\_CMS@{GRAVITY\_CMS}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{GRAVITY\_CMS}{GRAVITY\_CMS}}
+{\footnotesize\ttfamily \#define GRAVITY\+\_\+\+CMS~980.\+6}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a212ca328a6409c98f8c3dfbbe1ba561d}\label{as7-gamma_8ino_a212ca328a6409c98f8c3dfbbe1ba561d}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!I2C\_SCL@{I2C\_SCL}}
+\index{I2C\_SCL@{I2C\_SCL}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{I2C\_SCL}{I2C\_SCL}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SCL~22}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a18aefd12ad84d4c33dc97923cb821e47}\label{as7-gamma_8ino_a18aefd12ad84d4c33dc97923cb821e47}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!I2C\_SDA@{I2C\_SDA}}
+\index{I2C\_SDA@{I2C\_SDA}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{I2C\_SDA}{I2C\_SDA}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+SDA~21}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a364dc046543d8ab7d4214120afc9c814}\label{as7-gamma_8ino_a364dc046543d8ab7d4214120afc9c814}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!LED\_TYPE@{LED\_TYPE}}
+\index{LED\_TYPE@{LED\_TYPE}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{LED\_TYPE}{LED\_TYPE}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \#define LED\+\_\+\+TYPE~WS2811}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a364dc046543d8ab7d4214120afc9c814}\label{as7-gamma_8ino_a364dc046543d8ab7d4214120afc9c814}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!LED\_TYPE@{LED\_TYPE}}
+\index{LED\_TYPE@{LED\_TYPE}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{LED\_TYPE}{LED\_TYPE}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \#define LED\+\_\+\+TYPE~WS2811}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a02238131c0258d4ecbc4352535073d17}\label{as7-gamma_8ino_a02238131c0258d4ecbc4352535073d17}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!SIMULATION\_ENABLE@{SIMULATION\_ENABLE}}
+\index{SIMULATION\_ENABLE@{SIMULATION\_ENABLE}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{SIMULATION\_ENABLE}{SIMULATION\_ENABLE}}
+{\footnotesize\ttfamily \#define SIMULATION\+\_\+\+ENABLE~false}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cf}\label{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cf}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!DroneDebugTest@{DroneDebugTest}}
+\index{DroneDebugTest@{DroneDebugTest}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{DroneDebugTest}{DroneDebugTest}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cf}{Drone\+Debug\+Test}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SBUS\_COMMS@{SBUS\_COMMS}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!SBUS\_COMMS@{SBUS\_COMMS}}}\mbox{\Hypertarget{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfa3c301a06b119720d62d8854cb2227ad5}\label{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfa3c301a06b119720d62d8854cb2227ad5}} 
+SBUS\+\_\+\+COMMS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ARMING\_DISARMING@{ARMING\_DISARMING}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!ARMING\_DISARMING@{ARMING\_DISARMING}}}\mbox{\Hypertarget{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfa9a6af90317539b700a1bbf957dd78773}\label{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfa9a6af90317539b700a1bbf957dd78773}} 
+ARMING\+\_\+\+DISARMING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD\_READ\_WRITE@{SD\_READ\_WRITE}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!SD\_READ\_WRITE@{SD\_READ\_WRITE}}}\mbox{\Hypertarget{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfabf3a555f00f481f3fe8fec4243640100}\label{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfabf3a555f00f481f3fe8fec4243640100}} 
+SD\+\_\+\+READ\+\_\+\+WRITE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LED\_RESPONSE@{LED\_RESPONSE}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!LED\_RESPONSE@{LED\_RESPONSE}}}\mbox{\Hypertarget{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfa63e5012d9b086b553093cfdc533670dd}\label{as7-gamma_8ino_aac8d0f36e4b65832f446fa8b2c8262cfa63e5012d9b086b553093cfdc533670dd}} 
+LED\+\_\+\+RESPONSE&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1e}\label{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1e}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!DroneFlightMode@{DroneFlightMode}}
+\index{DroneFlightMode@{DroneFlightMode}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{DroneFlightMode}{DroneFlightMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1e}{Drone\+Flight\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OperatorControl@{OperatorControl}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!OperatorControl@{OperatorControl}}}\mbox{\Hypertarget{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1ea567625001f1533ade930e1cb874b513c}\label{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1ea567625001f1533ade930e1cb874b513c}} 
+Operator\+Control&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AutoStraightLine@{AutoStraightLine}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!AutoStraightLine@{AutoStraightLine}}}\mbox{\Hypertarget{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1eafeb18f4796965b7af3bb84228e0e2254}\label{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1eafeb18f4796965b7af3bb84228e0e2254}} 
+Auto\+Straight\+Line&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ArmOnly@{ArmOnly}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!ArmOnly@{ArmOnly}}}\mbox{\Hypertarget{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1ea351029b82a2c6a942b73ddfa1567ecf2}\label{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1ea351029b82a2c6a942b73ddfa1567ecf2}} 
+Arm\+Only&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}\label{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!DroneState@{DroneState}}
+\index{DroneState@{DroneState}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{DroneState}{DroneState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}{Drone\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Initialise@{Initialise}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Initialise@{Initialise}}}\mbox{\Hypertarget{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5}\label{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5}} 
+Initialise&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Ready@{Ready}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Ready@{Ready}}}\mbox{\Hypertarget{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa0e73e048b83849a411148a8dddc6dfcb}\label{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa0e73e048b83849a411148a8dddc6dfcb}} 
+Ready&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Armed@{Armed}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Armed@{Armed}}}\mbox{\Hypertarget{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa0943115c51834114c13d76fb189f56d0}\label{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa0943115c51834114c13d76fb189f56d0}} 
+Armed&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Flying@{Flying}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Flying@{Flying}}}\mbox{\Hypertarget{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6}\label{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6}} 
+Flying&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Landing@{Landing}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Landing@{Landing}}}\mbox{\Hypertarget{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa35c9d80844bfd2ac69918d47907210b9}\label{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa35c9d80844bfd2ac69918d47907210b9}} 
+Landing&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Stopped@{Stopped}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Stopped@{Stopped}}}\mbox{\Hypertarget{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75}\label{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75}} 
+Stopped&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Faulted@{Faulted}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Faulted@{Faulted}}}\mbox{\Hypertarget{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa6d1a9784f755744a34ba1ea0bef3c143}\label{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa6d1a9784f755744a34ba1ea0bef3c143}} 
+Faulted&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Debug@{Debug}!as7-\/gamma.ino@{as7-\/gamma.ino}}\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Debug@{Debug}}}\mbox{\Hypertarget{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fac909e86054cb6ad83c22bfc2b3e6e5b8}\label{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fac909e86054cb6ad83c22bfc2b3e6e5b8}} 
+Debug&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{as7-gamma_8ino_a9e70b84539dd0735b33f007dcfcd558a}\label{as7-gamma_8ino_a9e70b84539dd0735b33f007dcfcd558a}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!debug\_switchModes@{debug\_switchModes}}
+\index{debug\_switchModes@{debug\_switchModes}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{debug\_switchModes()}{debug\_switchModes()}}
+{\footnotesize\ttfamily void debug\+\_\+switch\+Modes (\begin{DoxyParamCaption}\item[{void $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a35e40b6939321ca3f3124a8a2bd20246}\label{as7-gamma_8ino_a35e40b6939321ca3f3124a8a2bd20246}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!DEFINE\_GRADIENT\_PALETTE@{DEFINE\_GRADIENT\_PALETTE}}
+\index{DEFINE\_GRADIENT\_PALETTE@{DEFINE\_GRADIENT\_PALETTE}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{DEFINE\_GRADIENT\_PALETTE()}{DEFINE\_GRADIENT\_PALETTE()}}
+{\footnotesize\ttfamily DEFINE\+\_\+\+GRADIENT\+\_\+\+PALETTE (\begin{DoxyParamCaption}\item[{DEV\+\_\+\+PALLETE}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{as7-gamma_8ino_afe461d27b9c48d5921c00d521181f12f}\label{as7-gamma_8ino_afe461d27b9c48d5921c00d521181f12f}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!loop@{loop}}
+\index{loop@{loop}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a9251110f67b3076df96738c0147c8c7b}\label{as7-gamma_8ino_a9251110f67b3076df96738c0147c8c7b}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!readAccelerometer@{readAccelerometer}}
+\index{readAccelerometer@{readAccelerometer}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{readAccelerometer()}{readAccelerometer()}}
+{\footnotesize\ttfamily void read\+Accelerometer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a4fc01d736fe50cf5b977f755b675f11d}\label{as7-gamma_8ino_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!setup@{setup}}
+\index{setup@{setup}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a269d866f9e9be55bd9db8da9bdb79b34}\label{as7-gamma_8ino_a269d866f9e9be55bd9db8da9bdb79b34}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!taskAccelerometer@{taskAccelerometer}}
+\index{taskAccelerometer@{taskAccelerometer}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{taskAccelerometer()}{taskAccelerometer()}}
+{\footnotesize\ttfamily void task\+Accelerometer (\begin{DoxyParamCaption}\item[{void $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ac9aa665109baa327f1f01596c2f2c703}\label{as7-gamma_8ino_ac9aa665109baa327f1f01596c2f2c703}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!taskStatusLeds@{taskStatusLeds}}
+\index{taskStatusLeds@{taskStatusLeds}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{taskStatusLeds()}{taskStatusLeds()}}
+{\footnotesize\ttfamily void task\+Status\+Leds (\begin{DoxyParamCaption}\item[{void $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a004c49bc4bad80a498ec337546adbd4e}\label{as7-gamma_8ino_a004c49bc4bad80a498ec337546adbd4e}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!taskUltrasonicSensor@{taskUltrasonicSensor}}
+\index{taskUltrasonicSensor@{taskUltrasonicSensor}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{taskUltrasonicSensor()}{taskUltrasonicSensor()}}
+{\footnotesize\ttfamily void task\+Ultrasonic\+Sensor (\begin{DoxyParamCaption}\item[{void $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{as7-gamma_8ino_af33470774a4324abf65189ae4f9f692f}\label{as7-gamma_8ino_af33470774a4324abf65189ae4f9f692f}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_curr\_millis@{accel\_curr\_millis}}
+\index{accel\_curr\_millis@{accel\_curr\_millis}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_curr\_millis}{accel\_curr\_millis}}
+{\footnotesize\ttfamily unsigned long accel\+\_\+curr\+\_\+millis = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a0c3c71ed0884fc0bb5d0bee005e0867e}\label{as7-gamma_8ino_a0c3c71ed0884fc0bb5d0bee005e0867e}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_delta\_s@{accel\_delta\_s}}
+\index{accel\_delta\_s@{accel\_delta\_s}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_delta\_s}{accel\_delta\_s}}
+{\footnotesize\ttfamily float accel\+\_\+delta\+\_\+s = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_afb94218f4ad855d9bf4884665a742f4b}\label{as7-gamma_8ino_afb94218f4ad855d9bf4884665a742f4b}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_filt\_x@{accel\_filt\_x}}
+\index{accel\_filt\_x@{accel\_filt\_x}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_filt\_x}{accel\_filt\_x}}
+{\footnotesize\ttfamily float accel\+\_\+filt\+\_\+x}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a7f5145b41363a2f34c0bfa58a2c42969}\label{as7-gamma_8ino_a7f5145b41363a2f34c0bfa58a2c42969}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_filt\_y@{accel\_filt\_y}}
+\index{accel\_filt\_y@{accel\_filt\_y}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_filt\_y}{accel\_filt\_y}}
+{\footnotesize\ttfamily float accel\+\_\+filt\+\_\+y}
+
+\mbox{\Hypertarget{as7-gamma_8ino_af460d3f510213e59a8862fb6f5245b7a}\label{as7-gamma_8ino_af460d3f510213e59a8862fb6f5245b7a}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_filt\_z@{accel\_filt\_z}}
+\index{accel\_filt\_z@{accel\_filt\_z}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_filt\_z}{accel\_filt\_z}}
+{\footnotesize\ttfamily float accel\+\_\+filt\+\_\+z}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a62f72c7215541f5df632cb8fbf8d4f66}\label{as7-gamma_8ino_a62f72c7215541f5df632cb8fbf8d4f66}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_index@{accel\_index}}
+\index{accel\_index@{accel\_index}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_index}{accel\_index}}
+{\footnotesize\ttfamily int accel\+\_\+index = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a21e83a74cfdc26492dec4e377741ea30}\label{as7-gamma_8ino_a21e83a74cfdc26492dec4e377741ea30}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_prev\_millis@{accel\_prev\_millis}}
+\index{accel\_prev\_millis@{accel\_prev\_millis}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_prev\_millis}{accel\_prev\_millis}}
+{\footnotesize\ttfamily unsigned long accel\+\_\+prev\+\_\+millis = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_af25d4b6a879495fd15675a4fa63bd26f}\label{as7-gamma_8ino_af25d4b6a879495fd15675a4fa63bd26f}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_total\_x@{accel\_total\_x}}
+\index{accel\_total\_x@{accel\_total\_x}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_total\_x}{accel\_total\_x}}
+{\footnotesize\ttfamily float accel\+\_\+total\+\_\+x}
+
+\mbox{\Hypertarget{as7-gamma_8ino_af9d701da1a3e43705f91ebd516724866}\label{as7-gamma_8ino_af9d701da1a3e43705f91ebd516724866}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_total\_y@{accel\_total\_y}}
+\index{accel\_total\_y@{accel\_total\_y}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_total\_y}{accel\_total\_y}}
+{\footnotesize\ttfamily float accel\+\_\+total\+\_\+y}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a975f654d15f5adf3f54bb7aabef7b7cd}\label{as7-gamma_8ino_a975f654d15f5adf3f54bb7aabef7b7cd}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_total\_z@{accel\_total\_z}}
+\index{accel\_total\_z@{accel\_total\_z}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_total\_z}{accel\_total\_z}}
+{\footnotesize\ttfamily float accel\+\_\+total\+\_\+z}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a7afe3a6c26cdd445178cd83179491e40}\label{as7-gamma_8ino_a7afe3a6c26cdd445178cd83179491e40}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_x@{accel\_x}}
+\index{accel\_x@{accel\_x}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_x}{accel\_x}}
+{\footnotesize\ttfamily float accel\+\_\+x}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a21d50749848a04f76f42f36006d779fd}\label{as7-gamma_8ino_a21d50749848a04f76f42f36006d779fd}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_x\_int@{accel\_x\_int}}
+\index{accel\_x\_int@{accel\_x\_int}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_x\_int}{accel\_x\_int}}
+{\footnotesize\ttfamily int8\+\_\+t accel\+\_\+x\+\_\+int}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aee216f18b5cd992c8a9125a5a5557924}\label{as7-gamma_8ino_aee216f18b5cd992c8a9125a5a5557924}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_x\_offset@{accel\_x\_offset}}
+\index{accel\_x\_offset@{accel\_x\_offset}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_x\_offset}{accel\_x\_offset}}
+{\footnotesize\ttfamily float accel\+\_\+x\+\_\+offset = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ac02445996c84c18c64ce6c1e0933203e}\label{as7-gamma_8ino_ac02445996c84c18c64ce6c1e0933203e}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_x\_readings@{accel\_x\_readings}}
+\index{accel\_x\_readings@{accel\_x\_readings}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_x\_readings}{accel\_x\_readings}}
+{\footnotesize\ttfamily float accel\+\_\+x\+\_\+readings\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_ab709d59721b2f8ff4de889d7d3717136}{NUM\+\_\+\+ACCEL\+\_\+\+READINGS}}\mbox{]}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ad8d3e4986ab0b0e7a17c77972b2d29e5}\label{as7-gamma_8ino_ad8d3e4986ab0b0e7a17c77972b2d29e5}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_y@{accel\_y}}
+\index{accel\_y@{accel\_y}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_y}{accel\_y}}
+{\footnotesize\ttfamily float accel\+\_\+y}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ae5ce68e4879d1ec6cdf1c1a8e269c1d6}\label{as7-gamma_8ino_ae5ce68e4879d1ec6cdf1c1a8e269c1d6}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_y\_int@{accel\_y\_int}}
+\index{accel\_y\_int@{accel\_y\_int}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_y\_int}{accel\_y\_int}}
+{\footnotesize\ttfamily int8\+\_\+t accel\+\_\+y\+\_\+int}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a29d1a8de573887ad52a539bf56aadd01}\label{as7-gamma_8ino_a29d1a8de573887ad52a539bf56aadd01}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_y\_offset@{accel\_y\_offset}}
+\index{accel\_y\_offset@{accel\_y\_offset}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_y\_offset}{accel\_y\_offset}}
+{\footnotesize\ttfamily float accel\+\_\+y\+\_\+offset = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a06fb66afb76478d09bc4068fc10a6a73}\label{as7-gamma_8ino_a06fb66afb76478d09bc4068fc10a6a73}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_y\_readings@{accel\_y\_readings}}
+\index{accel\_y\_readings@{accel\_y\_readings}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_y\_readings}{accel\_y\_readings}}
+{\footnotesize\ttfamily float accel\+\_\+y\+\_\+readings\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_ab709d59721b2f8ff4de889d7d3717136}{NUM\+\_\+\+ACCEL\+\_\+\+READINGS}}\mbox{]}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ab0ba2b834f44f31e60538b2f2dc01b40}\label{as7-gamma_8ino_ab0ba2b834f44f31e60538b2f2dc01b40}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_z@{accel\_z}}
+\index{accel\_z@{accel\_z}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_z}{accel\_z}}
+{\footnotesize\ttfamily float accel\+\_\+z}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a8142604eaec8d982b0b3699280c2465d}\label{as7-gamma_8ino_a8142604eaec8d982b0b3699280c2465d}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_z\_int@{accel\_z\_int}}
+\index{accel\_z\_int@{accel\_z\_int}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_z\_int}{accel\_z\_int}}
+{\footnotesize\ttfamily int8\+\_\+t accel\+\_\+z\+\_\+int}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aedc3b559271f77b79d1d7296232ccd0c}\label{as7-gamma_8ino_aedc3b559271f77b79d1d7296232ccd0c}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_z\_offset@{accel\_z\_offset}}
+\index{accel\_z\_offset@{accel\_z\_offset}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_z\_offset}{accel\_z\_offset}}
+{\footnotesize\ttfamily float accel\+\_\+z\+\_\+offset = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a0549b5f681688715ef88d2ece08f22d9}\label{as7-gamma_8ino_a0549b5f681688715ef88d2ece08f22d9}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accel\_z\_readings@{accel\_z\_readings}}
+\index{accel\_z\_readings@{accel\_z\_readings}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accel\_z\_readings}{accel\_z\_readings}}
+{\footnotesize\ttfamily float accel\+\_\+z\+\_\+readings\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_ab709d59721b2f8ff4de889d7d3717136}{NUM\+\_\+\+ACCEL\+\_\+\+READINGS}}\mbox{]}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a7cb1a2b987662b73e48e395c2ce1b83b}\label{as7-gamma_8ino_a7cb1a2b987662b73e48e395c2ce1b83b}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accelData@{accelData}}
+\index{accelData@{accelData}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accelData}{accelData}}
+{\footnotesize\ttfamily byte accel\+Data\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aad1f25ef4683d18b34436338ac5f16a6}\label{as7-gamma_8ino_aad1f25ef4683d18b34436338ac5f16a6}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!accelerometerCalibrated@{accelerometerCalibrated}}
+\index{accelerometerCalibrated@{accelerometerCalibrated}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{accelerometerCalibrated}{accelerometerCalibrated}}
+{\footnotesize\ttfamily bool accelerometer\+Calibrated = false}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a686c30966ca3672496cb6c19d52846cb}\label{as7-gamma_8ino_a686c30966ca3672496cb6c19d52846cb}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!compass@{compass}}
+\index{compass@{compass}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{compass}{compass}}
+{\footnotesize\ttfamily Adafruit\+\_\+\+MMC5883 compass = Adafruit\+\_\+\+MMC5883(11111)}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a141458eca343b354a4f3e70a4a83715b}\label{as7-gamma_8ino_a141458eca343b354a4f3e70a4a83715b}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!compass\_event@{compass\_event}}
+\index{compass\_event@{compass\_event}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{compass\_event}{compass\_event}}
+{\footnotesize\ttfamily sensors\+\_\+event\+\_\+t compass\+\_\+event}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ae7557b4c57bf5145d28e8fa753b480bc}\label{as7-gamma_8ino_ae7557b4c57bf5145d28e8fa753b480bc}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!compass\_heading@{compass\_heading}}
+\index{compass\_heading@{compass\_heading}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{compass\_heading}{compass\_heading}}
+{\footnotesize\ttfamily float compass\+\_\+heading}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a1e2923b15e5bf0370bef4e11329c8ce6}\label{as7-gamma_8ino_a1e2923b15e5bf0370bef4e11329c8ce6}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!compass\_x@{compass\_x}}
+\index{compass\_x@{compass\_x}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{compass\_x}{compass\_x}}
+{\footnotesize\ttfamily float compass\+\_\+x}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a093a22024b6e36f7bf6ba1358c634b49}\label{as7-gamma_8ino_a093a22024b6e36f7bf6ba1358c634b49}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!compass\_y@{compass\_y}}
+\index{compass\_y@{compass\_y}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{compass\_y}{compass\_y}}
+{\footnotesize\ttfamily float compass\+\_\+y}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ac7a47b7082abf0b1413f16ea76f5f5a6}\label{as7-gamma_8ino_ac7a47b7082abf0b1413f16ea76f5f5a6}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!compass\_z@{compass\_z}}
+\index{compass\_z@{compass\_z}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{compass\_z}{compass\_z}}
+{\footnotesize\ttfamily float compass\+\_\+z}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a3b343c8eae181e67cb8e77507864594c}\label{as7-gamma_8ino_a3b343c8eae181e67cb8e77507864594c}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!config\_file@{config\_file}}
+\index{config\_file@{config\_file}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{config\_file}{config\_file}}
+{\footnotesize\ttfamily File config\+\_\+file}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a0d8a2e387af038b85c17a03567e2aea3}\label{as7-gamma_8ino_a0d8a2e387af038b85c17a03567e2aea3}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!currentFlightMode@{currentFlightMode}}
+\index{currentFlightMode@{currentFlightMode}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{currentFlightMode}{currentFlightMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1e}{Drone\+Flight\+Mode}} current\+Flight\+Mode = \mbox{\hyperlink{as7-gamma_8ino_a5fa1839f90707a21ee55dc013e222c1eafeb18f4796965b7af3bb84228e0e2254}{Auto\+Straight\+Line}}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ab35bc72f63f70168ffdbeb1e4dc21480}\label{as7-gamma_8ino_ab35bc72f63f70168ffdbeb1e4dc21480}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!currentState@{currentState}}
+\index{currentState@{currentState}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{currentState}{currentState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}{Drone\+State}} current\+State = \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5}{Initialise}}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a7a46ce6e13713b43bfb98d336570d055}\label{as7-gamma_8ino_a7a46ce6e13713b43bfb98d336570d055}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!debug\_switchModesSemaphore@{debug\_switchModesSemaphore}}
+\index{debug\_switchModesSemaphore@{debug\_switchModesSemaphore}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{debug\_switchModesSemaphore}{debug\_switchModesSemaphore}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t debug\+\_\+switch\+Modes\+Semaphore}
+
+\mbox{\Hypertarget{as7-gamma_8ino_adacddcf53a65109c141bfcf0a5624320}\label{as7-gamma_8ino_adacddcf53a65109c141bfcf0a5624320}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!declinationAngle@{declinationAngle}}
+\index{declinationAngle@{declinationAngle}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{declinationAngle}{declinationAngle}}
+{\footnotesize\ttfamily const float declination\+Angle = 0.\+192228625}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ac43c5f61fa8a71ac067bda88ac440b35}\label{as7-gamma_8ino_ac43c5f61fa8a71ac067bda88ac440b35}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!DEVPAL@{DEVPAL}}
+\index{DEVPAL@{DEVPAL}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{DEVPAL}{DEVPAL}}
+{\footnotesize\ttfamily CRGBPalette16 DEVPAL = DEV\+\_\+\+PALLETE}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a8b6d7c233a70fcccb2683ad7df872dc0}\label{as7-gamma_8ino_a8b6d7c233a70fcccb2683ad7df872dc0}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!DIV\_I@{DIV\_I}}
+\index{DIV\_I@{DIV\_I}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{DIV\_I}{DIV\_I}}
+{\footnotesize\ttfamily const float DIV\+\_\+I =16}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a5ef6efb656dfc43dc4f4ff1e8e6a143a}\label{as7-gamma_8ino_a5ef6efb656dfc43dc4f4ff1e8e6a143a}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!droneStateMap@{droneStateMap}}
+\index{droneStateMap@{droneStateMap}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{droneStateMap}{droneStateMap}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}{Drone\+State}}, std\+::string$>$ drone\+State\+Map}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{  \{\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5}{Initialise}}, \textcolor{stringliteral}{"{}Initialise"{}}\},}
+\DoxyCodeLine{  \{\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa0e73e048b83849a411148a8dddc6dfcb}{Ready}}, \textcolor{stringliteral}{"{}Ready"{}}\},}
+\DoxyCodeLine{  \{\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa0943115c51834114c13d76fb189f56d0}{Armed}}, \textcolor{stringliteral}{"{}Armed"{}}\},}
+\DoxyCodeLine{  \{\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6}{Flying}}, \textcolor{stringliteral}{"{}Flying"{}}\},}
+\DoxyCodeLine{  \{\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa35c9d80844bfd2ac69918d47907210b9}{Landing}}, \textcolor{stringliteral}{"{}Landing"{}}\},}
+\DoxyCodeLine{  \{\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75}{Stopped}}, \textcolor{stringliteral}{"{}Stopped"{}}\},}
+\DoxyCodeLine{  \{\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa6d1a9784f755744a34ba1ea0bef3c143}{Faulted}}, \textcolor{stringliteral}{"{}Faulted"{}}\},}
+\DoxyCodeLine{  \{\mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fac909e86054cb6ad83c22bfc2b3e6e5b8}{Debug}}, \textcolor{stringliteral}{"{}Debug"{}}\}}
+\DoxyCodeLine{ \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{as7-gamma_8ino_a5fc08cb23a3c31e13a2e676e39a37c3a}\label{as7-gamma_8ino_a5fc08cb23a3c31e13a2e676e39a37c3a}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!enable\_pilotSemaphore@{enable\_pilotSemaphore}}
+\index{enable\_pilotSemaphore@{enable\_pilotSemaphore}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{enable\_pilotSemaphore}{enable\_pilotSemaphore}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t enable\+\_\+pilot\+Semaphore}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a71d1e6b7d070c0e77df8d2bcd632aa9b}\label{as7-gamma_8ino_a71d1e6b7d070c0e77df8d2bcd632aa9b}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!enable\_scribeSemaphore@{enable\_scribeSemaphore}}
+\index{enable\_scribeSemaphore@{enable\_scribeSemaphore}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{enable\_scribeSemaphore}{enable\_scribeSemaphore}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t enable\+\_\+scribe\+Semaphore}
+
+\mbox{\Hypertarget{as7-gamma_8ino_afd7f951eab4954b994f79fc33ae92e77}\label{as7-gamma_8ino_afd7f951eab4954b994f79fc33ae92e77}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!enable\_usSemaphore@{enable\_usSemaphore}}
+\index{enable\_usSemaphore@{enable\_usSemaphore}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{enable\_usSemaphore}{enable\_usSemaphore}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t enable\+\_\+us\+Semaphore}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a1d7046cd5908242bf052d1572eb656b4}\label{as7-gamma_8ino_a1d7046cd5908242bf052d1572eb656b4}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!estDronePos\_x@{estDronePos\_x}}
+\index{estDronePos\_x@{estDronePos\_x}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{estDronePos\_x}{estDronePos\_x}}
+{\footnotesize\ttfamily float est\+Drone\+Pos\+\_\+x}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a606f7ef1c2f06539fd4fc917c7c23ef1}\label{as7-gamma_8ino_a606f7ef1c2f06539fd4fc917c7c23ef1}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!estDronePos\_y@{estDronePos\_y}}
+\index{estDronePos\_y@{estDronePos\_y}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{estDronePos\_y}{estDronePos\_y}}
+{\footnotesize\ttfamily float est\+Drone\+Pos\+\_\+y}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a47fafe0eea9eeda50b39c6f8b78fc323}\label{as7-gamma_8ino_a47fafe0eea9eeda50b39c6f8b78fc323}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!estDronePos\_z@{estDronePos\_z}}
+\index{estDronePos\_z@{estDronePos\_z}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{estDronePos\_z}{estDronePos\_z}}
+{\footnotesize\ttfamily float est\+Drone\+Pos\+\_\+z}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a1bd013f0a2910bfef19d58fdc4478900}\label{as7-gamma_8ino_a1bd013f0a2910bfef19d58fdc4478900}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!filt\_pos\_x@{filt\_pos\_x}}
+\index{filt\_pos\_x@{filt\_pos\_x}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{filt\_pos\_x}{filt\_pos\_x}}
+{\footnotesize\ttfamily float filt\+\_\+pos\+\_\+x = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a6af589c3905c35f58f0477c1ff91f882}\label{as7-gamma_8ino_a6af589c3905c35f58f0477c1ff91f882}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!filt\_pos\_y@{filt\_pos\_y}}
+\index{filt\_pos\_y@{filt\_pos\_y}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{filt\_pos\_y}{filt\_pos\_y}}
+{\footnotesize\ttfamily float filt\+\_\+pos\+\_\+y = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ad31f35f5294be4e9763a902098b6fb4c}\label{as7-gamma_8ino_ad31f35f5294be4e9763a902098b6fb4c}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!filt\_pos\_z@{filt\_pos\_z}}
+\index{filt\_pos\_z@{filt\_pos\_z}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{filt\_pos\_z}{filt\_pos\_z}}
+{\footnotesize\ttfamily float filt\+\_\+pos\+\_\+z = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aa6c09b8420e2d121af89de60fef1e896}\label{as7-gamma_8ino_aa6c09b8420e2d121af89de60fef1e896}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!filt\_vel\_x@{filt\_vel\_x}}
+\index{filt\_vel\_x@{filt\_vel\_x}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{filt\_vel\_x}{filt\_vel\_x}}
+{\footnotesize\ttfamily float filt\+\_\+vel\+\_\+x = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aa98d7a46db4e6e43ba45fd7b9b93d57b}\label{as7-gamma_8ino_aa98d7a46db4e6e43ba45fd7b9b93d57b}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!filt\_vel\_y@{filt\_vel\_y}}
+\index{filt\_vel\_y@{filt\_vel\_y}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{filt\_vel\_y}{filt\_vel\_y}}
+{\footnotesize\ttfamily float filt\+\_\+vel\+\_\+y = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aae7484d69c1db670303b159d09e5bcbc}\label{as7-gamma_8ino_aae7484d69c1db670303b159d09e5bcbc}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!filt\_vel\_z@{filt\_vel\_z}}
+\index{filt\_vel\_z@{filt\_vel\_z}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{filt\_vel\_z}{filt\_vel\_z}}
+{\footnotesize\ttfamily float filt\+\_\+vel\+\_\+z = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_abb0cf8f6d5cdd238e306d36ec89e2f2a}\label{as7-gamma_8ino_abb0cf8f6d5cdd238e306d36ec89e2f2a}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!FL\_LED@{FL\_LED}}
+\index{FL\_LED@{FL\_LED}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{FL\_LED}{FL\_LED}}
+{\footnotesize\ttfamily CRGB FL\+\_\+\+LED\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_ac46d95694a0133c02481735bbcf1a02e}{FL\+\_\+\+LEDNUM}}\mbox{]}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ac9aec1f51deffc2045331cda6f4b7a15}\label{as7-gamma_8ino_ac9aec1f51deffc2045331cda6f4b7a15}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!FL\_LEDBRIGHTNESS@{FL\_LEDBRIGHTNESS}}
+\index{FL\_LEDBRIGHTNESS@{FL\_LEDBRIGHTNESS}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{FL\_LEDBRIGHTNESS}{FL\_LEDBRIGHTNESS}}
+{\footnotesize\ttfamily const int FL\+\_\+\+LEDBRIGHTNESS = 64}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ac46d95694a0133c02481735bbcf1a02e}\label{as7-gamma_8ino_ac46d95694a0133c02481735bbcf1a02e}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!FL\_LEDNUM@{FL\_LEDNUM}}
+\index{FL\_LEDNUM@{FL\_LEDNUM}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{FL\_LEDNUM}{FL\_LEDNUM}}
+{\footnotesize\ttfamily const int FL\+\_\+\+LEDNUM = 8}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a08b1a4d2c92f43fa4a921fb59f3bdb87}\label{as7-gamma_8ino_a08b1a4d2c92f43fa4a921fb59f3bdb87}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!FL\_LEDPIN@{FL\_LEDPIN}}
+\index{FL\_LEDPIN@{FL\_LEDPIN}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{FL\_LEDPIN}{FL\_LEDPIN}}
+{\footnotesize\ttfamily const int FL\+\_\+\+LEDPIN = 3}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a737b87acaf3d7946c91b4a078f8e0bcb}\label{as7-gamma_8ino_a737b87acaf3d7946c91b4a078f8e0bcb}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!log\_file@{log\_file}}
+\index{log\_file@{log\_file}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{log\_file}{log\_file}}
+{\footnotesize\ttfamily File log\+\_\+file}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a99d2a4a087d451eb0554bfa08a3f2dba}\label{as7-gamma_8ino_a99d2a4a087d451eb0554bfa08a3f2dba}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!logger@{logger}}
+\index{logger@{logger}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_s7_1_1_drone}{AS7\+::\+Drone}} drone\& logger}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a1c19e8b43fa480534233d4dda7126c7a}\label{as7-gamma_8ino_a1c19e8b43fa480534233d4dda7126c7a}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!MAX\_US\_DISTANCE@{MAX\_US\_DISTANCE}}
+\index{MAX\_US\_DISTANCE@{MAX\_US\_DISTANCE}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{MAX\_US\_DISTANCE}{MAX\_US\_DISTANCE}}
+{\footnotesize\ttfamily const int MAX\+\_\+\+US\+\_\+\+DISTANCE = 2000}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a0e3daf4238c6ea71e791ac6041b6a5ca}\label{as7-gamma_8ino_a0e3daf4238c6ea71e791ac6041b6a5ca}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!nextState@{nextState}}
+\index{nextState@{nextState}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{nextState}{nextState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919f}{Drone\+State}} next\+State = \mbox{\hyperlink{as7-gamma_8ino_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5}{Initialise}}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ab709d59721b2f8ff4de889d7d3717136}\label{as7-gamma_8ino_ab709d59721b2f8ff4de889d7d3717136}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!NUM\_ACCEL\_READINGS@{NUM\_ACCEL\_READINGS}}
+\index{NUM\_ACCEL\_READINGS@{NUM\_ACCEL\_READINGS}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{NUM\_ACCEL\_READINGS}{NUM\_ACCEL\_READINGS}}
+{\footnotesize\ttfamily const int NUM\+\_\+\+ACCEL\+\_\+\+READINGS = 5}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a0512681638b4fe3dbe6e2a1c0a610e45}\label{as7-gamma_8ino_a0512681638b4fe3dbe6e2a1c0a610e45}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!NUM\_US\_POINTS@{NUM\_US\_POINTS}}
+\index{NUM\_US\_POINTS@{NUM\_US\_POINTS}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{NUM\_US\_POINTS}{NUM\_US\_POINTS}}
+{\footnotesize\ttfamily const int NUM\+\_\+\+US\+\_\+\+POINTS = 3}
+
+\mbox{\Hypertarget{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}\label{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!NUM\_US\_SENSORS@{NUM\_US\_SENSORS}}
+\index{NUM\_US\_SENSORS@{NUM\_US\_SENSORS}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{NUM\_US\_SENSORS}{NUM\_US\_SENSORS}}
+{\footnotesize\ttfamily const int NUM\+\_\+\+US\+\_\+\+SENSORS = 6}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ac8f53dee796d9d58b81b57feb667ee5f}\label{as7-gamma_8ino_ac8f53dee796d9d58b81b57feb667ee5f}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!output\_file@{output\_file}}
+\index{output\_file@{output\_file}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{output\_file}{output\_file}}
+{\footnotesize\ttfamily File output\+\_\+file}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a4e4473c78eb2ca66a9890ae83b089508}\label{as7-gamma_8ino_a4e4473c78eb2ca66a9890ae83b089508}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!raw\_pos\_x@{raw\_pos\_x}}
+\index{raw\_pos\_x@{raw\_pos\_x}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{raw\_pos\_x}{raw\_pos\_x}}
+{\footnotesize\ttfamily float raw\+\_\+pos\+\_\+x = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aaf18d25a41ecab4da7aa84e53a3088a3}\label{as7-gamma_8ino_aaf18d25a41ecab4da7aa84e53a3088a3}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!raw\_pos\_y@{raw\_pos\_y}}
+\index{raw\_pos\_y@{raw\_pos\_y}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{raw\_pos\_y}{raw\_pos\_y}}
+{\footnotesize\ttfamily float raw\+\_\+pos\+\_\+y = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a529ad6c56d4bb03d13a48c4b7092db13}\label{as7-gamma_8ino_a529ad6c56d4bb03d13a48c4b7092db13}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!raw\_pos\_z@{raw\_pos\_z}}
+\index{raw\_pos\_z@{raw\_pos\_z}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{raw\_pos\_z}{raw\_pos\_z}}
+{\footnotesize\ttfamily float raw\+\_\+pos\+\_\+z = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_add728009960de41c7c30e0a1e6864799}\label{as7-gamma_8ino_add728009960de41c7c30e0a1e6864799}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!raw\_vel\_x@{raw\_vel\_x}}
+\index{raw\_vel\_x@{raw\_vel\_x}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{raw\_vel\_x}{raw\_vel\_x}}
+{\footnotesize\ttfamily float raw\+\_\+vel\+\_\+x = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ab931483e477f41546324fac1745b67ee}\label{as7-gamma_8ino_ab931483e477f41546324fac1745b67ee}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!raw\_vel\_y@{raw\_vel\_y}}
+\index{raw\_vel\_y@{raw\_vel\_y}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{raw\_vel\_y}{raw\_vel\_y}}
+{\footnotesize\ttfamily float raw\+\_\+vel\+\_\+y = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_af910f58c2420bef2de8e0e09e0566e90}\label{as7-gamma_8ino_af910f58c2420bef2de8e0e09e0566e90}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!raw\_vel\_z@{raw\_vel\_z}}
+\index{raw\_vel\_z@{raw\_vel\_z}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{raw\_vel\_z}{raw\_vel\_z}}
+{\footnotesize\ttfamily float raw\+\_\+vel\+\_\+z = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ae1f9ba2c2784ae6e3be098358e760103}\label{as7-gamma_8ino_ae1f9ba2c2784ae6e3be098358e760103}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!recordingEnabled@{recordingEnabled}}
+\index{recordingEnabled@{recordingEnabled}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{recordingEnabled}{recordingEnabled}}
+{\footnotesize\ttfamily bool recording\+Enabled = false}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a749fd1351d5d5a0e985d85bc270a87b6}\label{as7-gamma_8ino_a749fd1351d5d5a0e985d85bc270a87b6}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!SBUS\_RXPIN@{SBUS\_RXPIN}}
+\index{SBUS\_RXPIN@{SBUS\_RXPIN}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{SBUS\_RXPIN}{SBUS\_RXPIN}}
+{\footnotesize\ttfamily const int SBUS\+\_\+\+RXPIN = 16}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aac3361274267f5963c01ea1d2882e559}\label{as7-gamma_8ino_aac3361274267f5963c01ea1d2882e559}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!SBUS\_TXPIN@{SBUS\_TXPIN}}
+\index{SBUS\_TXPIN@{SBUS\_TXPIN}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{SBUS\_TXPIN}{SBUS\_TXPIN}}
+{\footnotesize\ttfamily const int SBUS\+\_\+\+TXPIN = 17}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ae954d5f24f3233c5678f7e10ea72a3cd}\label{as7-gamma_8ino_ae954d5f24f3233c5678f7e10ea72a3cd}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!sbusRxData@{sbusRxData}}
+\index{sbusRxData@{sbusRxData}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{sbusRxData}{sbusRxData}}
+{\footnotesize\ttfamily std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ sbus\+Rx\+Data}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ad8aa3dbf9d73b05079999aafcd82c0aa}\label{as7-gamma_8ino_ad8aa3dbf9d73b05079999aafcd82c0aa}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!sbusTxData@{sbusTxData}}
+\index{sbusTxData@{sbusTxData}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{sbusTxData}{sbusTxData}}
+{\footnotesize\ttfamily std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ sbus\+Tx\+Data}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ace587fb5ab88545465a500c78e42a04c}\label{as7-gamma_8ino_ace587fb5ab88545465a500c78e42a04c}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!scribe\_logSemaphore@{scribe\_logSemaphore}}
+\index{scribe\_logSemaphore@{scribe\_logSemaphore}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{scribe\_logSemaphore}{scribe\_logSemaphore}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t scribe\+\_\+log\+Semaphore}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a81cdfbd5e2da7bc7c1beade668e2b314}\label{as7-gamma_8ino_a81cdfbd5e2da7bc7c1beade668e2b314}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!scribe\_logStackMutex@{scribe\_logStackMutex}}
+\index{scribe\_logStackMutex@{scribe\_logStackMutex}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{scribe\_logStackMutex}{scribe\_logStackMutex}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t scribe\+\_\+log\+Stack\+Mutex}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a2889f01962216cac62bb27e7ffd676c6}\label{as7-gamma_8ino_a2889f01962216cac62bb27e7ffd676c6}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!scribe\_msgSemaphore@{scribe\_msgSemaphore}}
+\index{scribe\_msgSemaphore@{scribe\_msgSemaphore}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{scribe\_msgSemaphore}{scribe\_msgSemaphore}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t scribe\+\_\+msg\+Semaphore}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ab636b7c57f5db286da0aebc7dbb8a370}\label{as7-gamma_8ino_ab636b7c57f5db286da0aebc7dbb8a370}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!scribe\_msgStackMutex@{scribe\_msgStackMutex}}
+\index{scribe\_msgStackMutex@{scribe\_msgStackMutex}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{scribe\_msgStackMutex}{scribe\_msgStackMutex}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t scribe\+\_\+msg\+Stack\+Mutex}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a8cdfc9a38ff58075799bfd56f654f095}\label{as7-gamma_8ino_a8cdfc9a38ff58075799bfd56f654f095}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Serial@{Serial}}
+\index{Serial@{Serial}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{Serial}{Serial}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_a_s7_1_1_logger}{AS7\+::\+Logger}} \mbox{\hyperlink{as7-gamma_8ino_a99d2a4a087d451eb0554bfa08a3f2dba}{logger}}\& Serial}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a860b52844568915233db35045b264543}\label{as7-gamma_8ino_a860b52844568915233db35045b264543}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!Serial1@{Serial1}}
+\index{Serial1@{Serial1}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{Serial1}{Serial1}}
+{\footnotesize\ttfamily bfs\+::\+Sbus\+Tx sbus\+Tx \& Serial1}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a0da32dc70b8b1ae6ff5b9ff2322c3c5b}\label{as7-gamma_8ino_a0da32dc70b8b1ae6ff5b9ff2322c3c5b}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!STATUS\_FASTLED\_PIN@{STATUS\_FASTLED\_PIN}}
+\index{STATUS\_FASTLED\_PIN@{STATUS\_FASTLED\_PIN}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{STATUS\_FASTLED\_PIN}{STATUS\_FASTLED\_PIN}}
+{\footnotesize\ttfamily const int STATUS\+\_\+\+FASTLED\+\_\+\+PIN = 3}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a0d06b68f5eb9fbaa15c05d4a22f3828f}\label{as7-gamma_8ino_a0d06b68f5eb9fbaa15c05d4a22f3828f}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!STATUS\_LED\_BRIGHTNESS@{STATUS\_LED\_BRIGHTNESS}}
+\index{STATUS\_LED\_BRIGHTNESS@{STATUS\_LED\_BRIGHTNESS}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{STATUS\_LED\_BRIGHTNESS}{STATUS\_LED\_BRIGHTNESS}}
+{\footnotesize\ttfamily const int STATUS\+\_\+\+LED\+\_\+\+BRIGHTNESS = 32}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a49c5693416bd00651f5f16acac3de2cb}\label{as7-gamma_8ino_a49c5693416bd00651f5f16acac3de2cb}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!STATUS\_NUM\_LEDS@{STATUS\_NUM\_LEDS}}
+\index{STATUS\_NUM\_LEDS@{STATUS\_NUM\_LEDS}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{STATUS\_NUM\_LEDS}{STATUS\_NUM\_LEDS}}
+{\footnotesize\ttfamily const int STATUS\+\_\+\+NUM\+\_\+\+LEDS = 8}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aadc35ed1f9010d3a48b4fbbdeef0cee9}\label{as7-gamma_8ino_aadc35ed1f9010d3a48b4fbbdeef0cee9}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!TEMP\_PIN@{TEMP\_PIN}}
+\index{TEMP\_PIN@{TEMP\_PIN}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{TEMP\_PIN}{TEMP\_PIN}}
+{\footnotesize\ttfamily const int TEMP\+\_\+\+PIN = 34}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ae906dfa26c76bc84731c33214d259533}\label{as7-gamma_8ino_ae906dfa26c76bc84731c33214d259533}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!th\_Accel@{th\_Accel}}
+\index{th\_Accel@{th\_Accel}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{th\_Accel}{th\_Accel}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t th\+\_\+\+Accel}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ae73d533a449da8b8c732746849a80a7a}\label{as7-gamma_8ino_ae73d533a449da8b8c732746849a80a7a}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!th\_Comms@{th\_Comms}}
+\index{th\_Comms@{th\_Comms}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{th\_Comms}{th\_Comms}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t th\+\_\+\+Comms}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a2e3d75d3d24979823e9b5daef329ef23}\label{as7-gamma_8ino_a2e3d75d3d24979823e9b5daef329ef23}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!th\_Switch@{th\_Switch}}
+\index{th\_Switch@{th\_Switch}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{th\_Switch}{th\_Switch}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t th\+\_\+\+Switch}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a61271cd1cb00b7b3398ac960d65b5bad}\label{as7-gamma_8ino_a61271cd1cb00b7b3398ac960d65b5bad}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!th\_Ultrasonic@{th\_Ultrasonic}}
+\index{th\_Ultrasonic@{th\_Ultrasonic}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{th\_Ultrasonic}{th\_Ultrasonic}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t th\+\_\+\+Ultrasonic}
+
+\mbox{\Hypertarget{as7-gamma_8ino_abd55eac8923dc4e26930b92901bd1a93}\label{as7-gamma_8ino_abd55eac8923dc4e26930b92901bd1a93}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!TICK\_LONG@{TICK\_LONG}}
+\index{TICK\_LONG@{TICK\_LONG}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{TICK\_LONG}{TICK\_LONG}}
+{\footnotesize\ttfamily const Tick\+Type\+\_\+t TICK\+\_\+\+LONG = 1000 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ac60f61de386cc2baa7c4ea0255e87ff2}\label{as7-gamma_8ino_ac60f61de386cc2baa7c4ea0255e87ff2}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!TICK\_LONGLONG@{TICK\_LONGLONG}}
+\index{TICK\_LONGLONG@{TICK\_LONGLONG}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{TICK\_LONGLONG}{TICK\_LONGLONG}}
+{\footnotesize\ttfamily const Tick\+Type\+\_\+t TICK\+\_\+\+LONGLONG = 5000 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS}
+
+\mbox{\Hypertarget{as7-gamma_8ino_afda8f7bca490ba490a29c375000aae71}\label{as7-gamma_8ino_afda8f7bca490ba490a29c375000aae71}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!TICK\_MEDIUM@{TICK\_MEDIUM}}
+\index{TICK\_MEDIUM@{TICK\_MEDIUM}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{TICK\_MEDIUM}{TICK\_MEDIUM}}
+{\footnotesize\ttfamily const Tick\+Type\+\_\+t TICK\+\_\+\+MEDIUM = 500 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a37324bc59f05a1e87cfeb75c3e3235e8}\label{as7-gamma_8ino_a37324bc59f05a1e87cfeb75c3e3235e8}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!TICK\_SHORT@{TICK\_SHORT}}
+\index{TICK\_SHORT@{TICK\_SHORT}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{TICK\_SHORT}{TICK\_SHORT}}
+{\footnotesize\ttfamily const Tick\+Type\+\_\+t TICK\+\_\+\+SHORT = 200 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a2d5fcbc85876f014543cf98139de51e0}\label{as7-gamma_8ino_a2d5fcbc85876f014543cf98139de51e0}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!TICK\_US\_DELAY@{TICK\_US\_DELAY}}
+\index{TICK\_US\_DELAY@{TICK\_US\_DELAY}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{TICK\_US\_DELAY}{TICK\_US\_DELAY}}
+{\footnotesize\ttfamily const Tick\+Type\+\_\+t TICK\+\_\+\+US\+\_\+\+DELAY = 80 / port\+TICK\+\_\+\+PERIOD\+\_\+\+MS}
+
+\mbox{\Hypertarget{as7-gamma_8ino_aa003a6794024b8b6c3dbe9459f271d1f}\label{as7-gamma_8ino_aa003a6794024b8b6c3dbe9459f271d1f}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!tmp\_temperature@{tmp\_temperature}}
+\index{tmp\_temperature@{tmp\_temperature}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{tmp\_temperature}{tmp\_temperature}}
+{\footnotesize\ttfamily int tmp\+\_\+temperature}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a598cfbccc194ebd143cb1663c5201a87}\label{as7-gamma_8ino_a598cfbccc194ebd143cb1663c5201a87}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!us\_distance@{us\_distance}}
+\index{us\_distance@{us\_distance}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{us\_distance}{us\_distance}}
+{\footnotesize\ttfamily int us\+\_\+distance\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}{NUM\+\_\+\+US\+\_\+\+SENSORS}}\mbox{]}\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_a0512681638b4fe3dbe6e2a1c0a610e45}{NUM\+\_\+\+US\+\_\+\+POINTS}}\mbox{]}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a458184d2f6faa1c8f2d583e8a4aa8096}\label{as7-gamma_8ino_a458184d2f6faa1c8f2d583e8a4aa8096}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_ECHOPIN@{US\_ECHOPIN}}
+\index{US\_ECHOPIN@{US\_ECHOPIN}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_ECHOPIN}{US\_ECHOPIN}}
+{\footnotesize\ttfamily int US\+\_\+\+ECHOPIN\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}{NUM\+\_\+\+US\+\_\+\+SENSORS}}\mbox{]} = \{\}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a0226f19093bf2730da653bba0f81389c}\label{as7-gamma_8ino_a0226f19093bf2730da653bba0f81389c}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_ECHOPIN\_0@{US\_ECHOPIN\_0}}
+\index{US\_ECHOPIN\_0@{US\_ECHOPIN\_0}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_ECHOPIN\_0}{US\_ECHOPIN\_0}}
+{\footnotesize\ttfamily const int US\+\_\+\+ECHOPIN\+\_\+0 = 35}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ab8f775191b246fa2d2d4787749758e21}\label{as7-gamma_8ino_ab8f775191b246fa2d2d4787749758e21}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_ECHOPIN\_1@{US\_ECHOPIN\_1}}
+\index{US\_ECHOPIN\_1@{US\_ECHOPIN\_1}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_ECHOPIN\_1}{US\_ECHOPIN\_1}}
+{\footnotesize\ttfamily const int US\+\_\+\+ECHOPIN\+\_\+1 = 33}
+
+\mbox{\Hypertarget{as7-gamma_8ino_afd1484788ca7da0d31722c93d3a0db40}\label{as7-gamma_8ino_afd1484788ca7da0d31722c93d3a0db40}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_ECHOPIN\_2@{US\_ECHOPIN\_2}}
+\index{US\_ECHOPIN\_2@{US\_ECHOPIN\_2}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_ECHOPIN\_2}{US\_ECHOPIN\_2}}
+{\footnotesize\ttfamily const int US\+\_\+\+ECHOPIN\+\_\+2 = 13}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ae0beba2839ddb71081af64ccc9af1f04}\label{as7-gamma_8ino_ae0beba2839ddb71081af64ccc9af1f04}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_ECHOPIN\_3@{US\_ECHOPIN\_3}}
+\index{US\_ECHOPIN\_3@{US\_ECHOPIN\_3}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_ECHOPIN\_3}{US\_ECHOPIN\_3}}
+{\footnotesize\ttfamily const int US\+\_\+\+ECHOPIN\+\_\+3 = 27}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a473953a96d42f2baa21927850a231156}\label{as7-gamma_8ino_a473953a96d42f2baa21927850a231156}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_ECHOPIN\_4@{US\_ECHOPIN\_4}}
+\index{US\_ECHOPIN\_4@{US\_ECHOPIN\_4}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_ECHOPIN\_4}{US\_ECHOPIN\_4}}
+{\footnotesize\ttfamily const int US\+\_\+\+ECHOPIN\+\_\+4 = 4}
+
+\mbox{\Hypertarget{as7-gamma_8ino_affac03286bf4e90c8234aba0414f9af9}\label{as7-gamma_8ino_affac03286bf4e90c8234aba0414f9af9}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_ECHOPIN\_5@{US\_ECHOPIN\_5}}
+\index{US\_ECHOPIN\_5@{US\_ECHOPIN\_5}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_ECHOPIN\_5}{US\_ECHOPIN\_5}}
+{\footnotesize\ttfamily const int US\+\_\+\+ECHOPIN\+\_\+5 = 15}
+
+\mbox{\Hypertarget{as7-gamma_8ino_afb71d20790b4f6762aa0559d783631f1}\label{as7-gamma_8ino_afb71d20790b4f6762aa0559d783631f1}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!us\_rawDistance@{us\_rawDistance}}
+\index{us\_rawDistance@{us\_rawDistance}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{us\_rawDistance}{us\_rawDistance}}
+{\footnotesize\ttfamily int us\+\_\+raw\+Distance\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}{NUM\+\_\+\+US\+\_\+\+SENSORS}}\mbox{]}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_ab719d08addca503c59f95b24622a3555}\label{as7-gamma_8ino_ab719d08addca503c59f95b24622a3555}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_TRIGPIN@{US\_TRIGPIN}}
+\index{US\_TRIGPIN@{US\_TRIGPIN}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_TRIGPIN}{US\_TRIGPIN}}
+{\footnotesize\ttfamily int US\+\_\+\+TRIGPIN\mbox{[}\mbox{\hyperlink{as7-gamma_8ino_afbc5922cb9cafdba893318b3a5f86f6a}{NUM\+\_\+\+US\+\_\+\+SENSORS}}\mbox{]} = \{\}}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a71d390b0a316011c172e852dfc531cc2}\label{as7-gamma_8ino_a71d390b0a316011c172e852dfc531cc2}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_TRIGPIN\_0@{US\_TRIGPIN\_0}}
+\index{US\_TRIGPIN\_0@{US\_TRIGPIN\_0}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_TRIGPIN\_0}{US\_TRIGPIN\_0}}
+{\footnotesize\ttfamily const int US\+\_\+\+TRIGPIN\+\_\+0 = 32}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a77ca5a1f8545d7a0f6001f9f43565358}\label{as7-gamma_8ino_a77ca5a1f8545d7a0f6001f9f43565358}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_TRIGPIN\_1@{US\_TRIGPIN\_1}}
+\index{US\_TRIGPIN\_1@{US\_TRIGPIN\_1}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_TRIGPIN\_1}{US\_TRIGPIN\_1}}
+{\footnotesize\ttfamily const int US\+\_\+\+TRIGPIN\+\_\+1 = 25}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a50d8a54d1059b673ea8023ad55354af4}\label{as7-gamma_8ino_a50d8a54d1059b673ea8023ad55354af4}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_TRIGPIN\_2@{US\_TRIGPIN\_2}}
+\index{US\_TRIGPIN\_2@{US\_TRIGPIN\_2}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_TRIGPIN\_2}{US\_TRIGPIN\_2}}
+{\footnotesize\ttfamily const int US\+\_\+\+TRIGPIN\+\_\+2 = 12}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a739ff47fbd1aa38aaf467f5b219ce4a8}\label{as7-gamma_8ino_a739ff47fbd1aa38aaf467f5b219ce4a8}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_TRIGPIN\_3@{US\_TRIGPIN\_3}}
+\index{US\_TRIGPIN\_3@{US\_TRIGPIN\_3}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_TRIGPIN\_3}{US\_TRIGPIN\_3}}
+{\footnotesize\ttfamily const int US\+\_\+\+TRIGPIN\+\_\+3 = 14}
+
+\mbox{\Hypertarget{as7-gamma_8ino_af9158fae1327db307304389a99ac4a5f}\label{as7-gamma_8ino_af9158fae1327db307304389a99ac4a5f}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_TRIGPIN\_4@{US\_TRIGPIN\_4}}
+\index{US\_TRIGPIN\_4@{US\_TRIGPIN\_4}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_TRIGPIN\_4}{US\_TRIGPIN\_4}}
+{\footnotesize\ttfamily const int US\+\_\+\+TRIGPIN\+\_\+4 = 0}
+
+\mbox{\Hypertarget{as7-gamma_8ino_a742a7edccad0ffb3629ab0c801a2d914}\label{as7-gamma_8ino_a742a7edccad0ffb3629ab0c801a2d914}} 
+\index{as7-\/gamma.ino@{as7-\/gamma.ino}!US\_TRIGPIN\_5@{US\_TRIGPIN\_5}}
+\index{US\_TRIGPIN\_5@{US\_TRIGPIN\_5}!as7-\/gamma.ino@{as7-\/gamma.ino}}
+\doxysubsubsection{\texorpdfstring{US\_TRIGPIN\_5}{US\_TRIGPIN\_5}}
+{\footnotesize\ttfamily const int US\+\_\+\+TRIGPIN\+\_\+5 = 2}
+

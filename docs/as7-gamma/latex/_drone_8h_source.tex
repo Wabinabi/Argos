@@ -1,0 +1,249 @@
+\hypertarget{_drone_8h_source}{}\doxysection{Drone.\+h}
+\label{_drone_8h_source}\index{H:/repos/Argous/src/esp32/as7-\/gamma/Drone.h@{H:/repos/Argous/src/esp32/as7-\/gamma/Drone.h}}
+\mbox{\hyperlink{_drone_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#ifndef AS7DRONE}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define AS7DRONE}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <Arduino.h>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <sbus.h>}     \textcolor{comment}{// SBUS Communication Library with FC}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_sd_logger_8h}{SdLogger.h}}"{}} \textcolor{comment}{// Use the SD Logger to share messages}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define SBUS\_CHANNEL\_LOWER 0        }\textcolor{comment}{// Default lower bound for sbus channels}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define SBUS\_CHANNEL\_UPPER 2056     }\textcolor{comment}{// Default upper bound for sbus channels}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define NUM\_CH 16                   }\textcolor{comment}{// Number of SBUS channels. Always 16. Equivalent to bfs::SbusRx::NUM\_CH()}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define DOF 6                       }\textcolor{comment}{// Degrees of freedom for the drone. 0-\/5 represent x, y, z, roll (rl), pitch (pt), yaw (yw) (Euler ZYX Convention)}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{comment}{// Thread update frequencies (to reduce starvation of the watchdog)}}
+\DoxyCodeLine{30 \textcolor{comment}{//  Feed your watchdogs, people! They do important household chores!}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define NAV\_FREQ 250    }\textcolor{comment}{// Navigation update rate, Hz (Default: 250 Hz)}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define CTL\_FREQ 1000   }\textcolor{comment}{// Controller update rate, Hz (Default: 250 Hz)}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{comment}{// Channel definitions}}
+\DoxyCodeLine{35 \textcolor{comment}{//  These channels index from ZERO. Ch[0] = CH1!}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#define CH\_THROTTLE     2   }\textcolor{comment}{// Left stick y axis (starts from 0)}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#define CH\_YAW          3   }\textcolor{comment}{// Left stick x axis}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define CH\_STRAIGHT     1   }\textcolor{comment}{// Right stick y axis}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define CH\_STRAFE       0   }\textcolor{comment}{// Right stick x axis}}
+\DoxyCodeLine{40 \textcolor{comment}{//\#define CH\_BUTTON1      6   // Button on middle of controller}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#define CH\_SW1          7   }\textcolor{comment}{// Right toggle switch}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#define CH\_FLIGHTMODE   4   }\textcolor{comment}{// Left toggle switch}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#define CH\_ESTOP        6   }\textcolor{comment}{// Other button?}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define STATUS\_UPDATE\_DELAY 250 }\textcolor{comment}{// Number of updates to wait before sending controller status}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define THROTTLE\_LIMIT 0.5f}}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{comment}{// Cv = Control Value, Pv = Present Value. Use CV to control PV}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define RAMPRATE\_NONE       0   }\textcolor{comment}{// No ramp rate.            Pv = Cv}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define RAMPRATE\_LINEAR     1   }\textcolor{comment}{// Linear ramp rate,        Pv += Constant until Pv > Cv}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define RAMPRATE\_PROP       2   }\textcolor{comment}{// Proportional Ramp Rate   Pv = (Cv -\/ Pv) * Constant}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_a_s7}{AS7}} }
+\DoxyCodeLine{55 \{}
+\DoxyCodeLine{56     \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38e}{DroneCommandType}} \{\mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38eaafaf5fea89076ddc3d14865e4ed43b30}{Blind}}, \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38ea3df5cbcdac0994913922c2a2427052de}{Guided}}, \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38ea499697cfe1af1155cfe3af60f4b4bd3b}{Landing}}, \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38eacb1149b5d772ba5bc49e95194bf1df36}{Arm}}\};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{79     \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{80         \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38e}{DroneCommandType}} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ad1d406bdba067d5711e66e796eca6ca8}{type}};              \textcolor{comment}{// Blind = Purely a drone command, Guided = Assisted with sensors}}
+\DoxyCodeLine{81         std::string \mbox{\hyperlink{struct_a_s7_1_1_drone_command_af181ef3356a7b389a81ba09118411777}{desc}};                   \textcolor{comment}{// A description for the logger}}
+\DoxyCodeLine{82         std::array<float, NUM\_CH> \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a455e52fb93a740ba49a823a2ab8c268f}{channels}}; \textcolor{comment}{// A float for each channel from (-\/1, 1)}}
+\DoxyCodeLine{83         \textcolor{keywordtype}{int} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a8719da97610790b9dd0b2d95bdd6bb9a}{duration}};                       \textcolor{comment}{// in ms}}
+\DoxyCodeLine{84         \textcolor{keywordtype}{float} rateMultiplier = 1.0f;          \textcolor{comment}{// Can be thought of as "{}aggressiveness"{} of controls}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86         \textcolor{comment}{// Prefix P = Position; V = Velocity. Units on per-\/member basis and are *convention* (not checked)}}
+\DoxyCodeLine{87         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a3dd331b4c5b77d24f6e7370977d3a6ec}{p\_x}};        \textcolor{comment}{// Position to hold (some distance unit tbc)}}
+\DoxyCodeLine{88         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ad3b7dfe32adf2e9eb9efa1e08a3fccc1}{p\_y}};}
+\DoxyCodeLine{89         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a0c9b1498bfa5057d76592efe0a058b35}{p\_z}};}
+\DoxyCodeLine{90         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a6bd14aeb86624f8dee8f4e10998da6ea}{v\_x}};      \textcolor{comment}{// Velocity to hold (-\/1 to 1) floating point value}}
+\DoxyCodeLine{91         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a2f2dbe8ce1049307353e5a6f20432d5e}{v\_y}};      \textcolor{comment}{// e.g. 0.1 is equivalent to 10\% forward thrust}}
+\DoxyCodeLine{92         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ada1f0d810dcebba410c1942737ecd9e8}{v\_z}};}
+\DoxyCodeLine{93         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_acba77706f712f3dd86d0be0da54db3fd}{p\_rl}};       \textcolor{comment}{// Not directly controllable on a drone}}
+\DoxyCodeLine{94         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a6d08d39ddb97935347b6488dc3f10039}{p\_pt}};       \textcolor{comment}{// Not directly controllable on a drone}}
+\DoxyCodeLine{95         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_abd8ea7e33d6115deef125d8c0fd6505c}{p\_yw}};}
+\DoxyCodeLine{96         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_aa9de034c0b9d8b98e66c9335938099d1}{v\_rl}};     \textcolor{comment}{// Not directly controllable on a drone}}
+\DoxyCodeLine{97         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a10aea39ec717ee210698c0bc328fd683}{v\_pt}};     \textcolor{comment}{// Not directly controllable on a drone}}
+\DoxyCodeLine{98         \textcolor{keywordtype}{float} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ace167d5320a1dc6a3aaf5318faad3931}{v\_yw}};}
+\DoxyCodeLine{99         \textcolor{keywordtype}{bool} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ac267795c756adc9310565fbec101d767}{dataRecording}}; \textcolor{comment}{// indicates if the drone should record data, used to synchronise sensors and current drone state}}
+\DoxyCodeLine{100     \} \mbox{\hyperlink{struct_a_s7_1_1_drone_command}{DroneCommand}};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102     \textcolor{keyword}{class }\mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}}}
+\DoxyCodeLine{103     \{}
+\DoxyCodeLine{104     \textcolor{keyword}{private}:}
+\DoxyCodeLine{105         TaskHandle\_t thDrone;}
+\DoxyCodeLine{106         TaskHandle\_t thRemote;}
+\DoxyCodeLine{107         \textcolor{keyword}{static} \textcolor{keywordtype}{void} startNavTask(\textcolor{keywordtype}{void}*);   \textcolor{comment}{// Task implementation for classes}}
+\DoxyCodeLine{108         \textcolor{keyword}{static} \textcolor{keywordtype}{void} startCtlTask(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{109         \textcolor{keywordtype}{void} navigationTask(\textcolor{keywordtype}{void}* parameters);    \textcolor{comment}{// The threaded task}}
+\DoxyCodeLine{110         \textcolor{keywordtype}{void} controllerTask(\textcolor{keywordtype}{void}* parameters);}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112         std::queue<DroneCommand> \_droneCommandQueue;}
+\DoxyCodeLine{113 }
+\DoxyCodeLine{114         SemaphoreHandle\_t \_semDroneEnableMutex;          \textcolor{comment}{// Enables/Disables main drone task}}
+\DoxyCodeLine{115         SemaphoreHandle\_t \_semControlEnableMutex;        \textcolor{comment}{// Enables/Disables main drone task}}
+\DoxyCodeLine{116         SemaphoreHandle\_t getSemDroneEnableMutex();      \textcolor{comment}{// Returns the enable mutex}}
+\DoxyCodeLine{117         SemaphoreHandle\_t getSemControlEnableMutex();    \textcolor{comment}{// Returns the enable mutex}}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119         SemaphoreHandle\_t \_semTxChMutex;  \textcolor{comment}{// Mutex Lock for the tx data array}}
+\DoxyCodeLine{120         SemaphoreHandle\_t getTxChMutex();   \textcolor{comment}{// Returns the write mutex for threading implementation}}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{122         SemaphoreHandle\_t \_semRxChMutex;  \textcolor{comment}{// Mutex Lock for the rx data array}}
+\DoxyCodeLine{123         SemaphoreHandle\_t getRxChMutex();   \textcolor{comment}{// Returns the write mutex for threading implementation}}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125         SemaphoreHandle\_t \_semCommandQueueMutex;    \textcolor{comment}{// Mutex lock for drone command queue}}
+\DoxyCodeLine{126         SemaphoreHandle\_t getCommandQueueMutex();}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128         \mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}}* \_logger;}
+\DoxyCodeLine{129         \mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}}* getLogger();}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131         bfs::SbusRx* \_sbusRx;   \textcolor{comment}{// SBUS Receive Channel Object}}
+\DoxyCodeLine{132         bfs::SbusTx* \_sbusTx;   \textcolor{comment}{// SBUS Transmit Channel Object}}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134         std::array<int16\_t, NUM\_CH> \_sbusRxData;    \textcolor{comment}{// Array of data received from the Radio Control}}
+\DoxyCodeLine{135         std::array<int16\_t, NUM\_CH> \_sbusTxData;    \textcolor{comment}{// Array of data to transmit to the Flight Controller}}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137         std::array<bool, NUM\_CH> \_sbusAbsChannels;      \textcolor{comment}{// When true, the channel is (0, 1). Otherwise channels default to (-\/1, 1). }}
+\DoxyCodeLine{138         std::array<bool, NUM\_CH> getSbusAbsChannels();  \textcolor{comment}{// Returns an array which defines if a channel is absolute (true) or not (false).}}
+\DoxyCodeLine{139         \textcolor{keywordtype}{void} generateAbsChannels();                     \textcolor{comment}{// Sets the default Absolute Channels}}
+\DoxyCodeLine{140         }
+\DoxyCodeLine{141         \textcolor{keywordtype}{int} \_controllerStatusCount = 0;}
+\DoxyCodeLine{142         \textcolor{keywordtype}{bool} getControllerStatusCount();}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145         \textcolor{comment}{// Channels that will be transmitted to the drone}}
+\DoxyCodeLine{146         std::array<int16\_t, NUM\_CH> \_sbusTxChLower;    }
+\DoxyCodeLine{147         std::array<int16\_t, NUM\_CH> \_sbusTxChUpper;    }
+\DoxyCodeLine{149         \textcolor{comment}{// Channels that are received from the transmitter}}
+\DoxyCodeLine{150         std::array<int16\_t, NUM\_CH> \_sbusRxChLower;    \textcolor{comment}{// Lower bounds for SBUS Receiver channels}}
+\DoxyCodeLine{151         std::array<int16\_t, NUM\_CH> \_sbusRxChUpper;    \textcolor{comment}{// Upper bounds for SBUS Receiver Channels}}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153         std::array<int16\_t, NUM\_CH> \_sbusEStopTx;      \textcolor{comment}{// Data to be written in case of an E-\/Stop. Not all channels are to be zeroed! }}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155         \textcolor{comment}{// Methods for getting and setting data for task theads}}
+\DoxyCodeLine{156         \textcolor{keyword}{inline} std::array<int16\_t, NUM\_CH> getSbusRxData() \{\textcolor{keywordflow}{return} \_sbusRxData; \}}
+\DoxyCodeLine{157         \textcolor{keyword}{inline} std::array<int16\_t, NUM\_CH> getSbusTxData() \{\textcolor{keywordflow}{return} \_sbusTxData; \}}
+\DoxyCodeLine{158         \textcolor{keywordtype}{void} setSbusRxData(std::array<int16\_t, NUM\_CH> data);}
+\DoxyCodeLine{159         \textcolor{keywordtype}{void} setSbusTxData(std::array<int16\_t, NUM\_CH> data);}
+\DoxyCodeLine{160 }
+\DoxyCodeLine{161         \textcolor{keywordtype}{void} initUpperLowerBoundArrays();   \textcolor{comment}{// Sets UBound and LBound array to default}}
+\DoxyCodeLine{162 }
+\DoxyCodeLine{163         \textcolor{keywordtype}{void} writeChannel(int16\_t value, int8\_t ch);    \textcolor{comment}{// writes the value into the sbus transmit channel}}
+\DoxyCodeLine{164         \textcolor{keywordtype}{void} writeRxChannel\_f(\textcolor{keywordtype}{float} value, int8\_t ch);    \textcolor{comment}{// writes the value into the sbus transmit channel}}
+\DoxyCodeLine{165         \textcolor{keywordtype}{void} writeTxChannel\_f(\textcolor{keywordtype}{float} value, int8\_t ch);    \textcolor{comment}{// writes the value into the sbus transmit channel}}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167         int16\_t convRxChannel\_i(\textcolor{keywordtype}{float} value, int8\_t ch);  \textcolor{comment}{// Returns the adjusted int16\_t value for that channel}}
+\DoxyCodeLine{168         \textcolor{keywordtype}{float} convRxChannel\_f(int16\_t value, int8\_t ch);  \textcolor{comment}{// Returns the adjusted int16\_t value for that channel}}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{170         int16\_t convTxChannel\_i(\textcolor{keywordtype}{float} value, int8\_t ch);  \textcolor{comment}{// Returns the adjusted int16\_t value for that channel}}
+\DoxyCodeLine{171         \textcolor{keywordtype}{float} convTxChannel\_f(int16\_t value, int8\_t ch);  \textcolor{comment}{// Returns the adjusted int16\_t value for that channel}}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173         int16\_t readRxChannel(int16\_t ch);              \textcolor{comment}{// Reads the value from the channel}}
+\DoxyCodeLine{174         \textcolor{keywordtype}{float} readRxChannel\_f(int16\_t ch);              \textcolor{comment}{// Reads the floating point value from the channel, adjusted for upper and lower bounds}}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176         int16\_t readTxChannel(int16\_t ch);              \textcolor{comment}{// Reads the current value being written to the controller}}
+\DoxyCodeLine{177         \textcolor{keywordtype}{float} readTxChannel\_f(int16\_t ch);              \textcolor{comment}{// Returns the current value as a floating point number}}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179         \textcolor{comment}{// Helper/Utility functions}}
+\DoxyCodeLine{180         \textcolor{keywordtype}{float} clamp(\textcolor{keywordtype}{float} value, \textcolor{keywordtype}{float} lbound, \textcolor{keywordtype}{float} ubound);                           \textcolor{comment}{// Returns values inside of upper bound and lower bound.}}
+\DoxyCodeLine{181         std::string formatSbusArray(std::array<int16\_t, NUM\_CH> chData);                \textcolor{comment}{// Returns the channels in a formatted string  }}
+\DoxyCodeLine{182         \textcolor{keywordtype}{float} rampValue(\textcolor{keywordtype}{float} value, \textcolor{keywordtype}{float} target = 0, \textcolor{keywordtype}{float} rate = 0, \textcolor{keywordtype}{int} rampRateType = \mbox{\hyperlink{_drone_8h_a65371cb1138f70be2c8822a86a406231}{RAMPRATE\_LINEAR}});   \textcolor{comment}{// Returns the next ramped value depending on ramp type}}
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184         \textcolor{comment}{// Combines rampValue with current channel data for ramping.}}
+\DoxyCodeLine{185         \textcolor{keywordtype}{void} rampChannel(\textcolor{keywordtype}{float} target, int8\_t ch, \textcolor{keywordtype}{float} rate, \textcolor{keywordtype}{int} rampRateType = \mbox{\hyperlink{_drone_8h_a65371cb1138f70be2c8822a86a406231}{RAMPRATE\_LINEAR}});}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187         bfs::SbusRx* getSbusRx();   \textcolor{comment}{// Returns SBUS RX object for task implementation}}
+\DoxyCodeLine{188         bfs::SbusTx* getSbusTx();   \textcolor{comment}{// Returns SBUS TX object for task implementation}}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190         }
+\DoxyCodeLine{191         \textcolor{keywordtype}{bool} \_hasArmed = \textcolor{keyword}{false};         \textcolor{comment}{// Remembers if the drone has undergone an arming process}}
+\DoxyCodeLine{192         \textcolor{keywordtype}{bool} \_armingAllowed = \textcolor{keyword}{false};    \textcolor{comment}{// Set by main program. Once allowed, drone will start processing instructions}}
+\DoxyCodeLine{193         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} setDroneHasArmed() \{\_hasArmed = \textcolor{keyword}{true};\}}
+\DoxyCodeLine{194         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} getDroneHasArmed() \{\textcolor{keywordflow}{return} \_hasArmed; \}}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196         \textcolor{keywordtype}{bool} \_droneCommandsStarted = \textcolor{keyword}{false};     \textcolor{comment}{// Indicates if the drone has started processing commands}}
+\DoxyCodeLine{197         \textcolor{keywordtype}{bool} \_droneCommandsCompleted = \textcolor{keyword}{false};   \textcolor{comment}{// Indicates that there are no commands left (queue is empty)}}
+\DoxyCodeLine{198         \textcolor{keywordtype}{bool} \_droneHasActiveCommand = \textcolor{keyword}{false};}
+\DoxyCodeLine{199         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} getHasActiveComamnd()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \_droneHasActiveCommand;\}}
+\DoxyCodeLine{200         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} setHasActiveCommand(\textcolor{keywordtype}{bool} value) \{\_droneHasActiveCommand = value;\}}
+\DoxyCodeLine{201         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} setDroneCommandsStarted() \{\_droneCommandsStarted = \textcolor{keyword}{true};\}           \textcolor{comment}{// Latching check that the drone has started commands}}
+\DoxyCodeLine{202         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} setDroneCommandsCompleted() \{\_droneCommandsCompleted = \textcolor{keyword}{true};\}       \textcolor{comment}{// Latching check that the rone has completed commands. If commands haven't stareted, then this indicates empty.}}
+\DoxyCodeLine{203         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} nextCommandAvailable() \{\textcolor{keywordflow}{return} \_droneCommandQueue.size() != 0;\}     \textcolor{comment}{// Checks if command queue size is not equal to zero.}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205         \textcolor{keywordtype}{bool} \_running = \textcolor{keyword}{false};                  \textcolor{comment}{// Indicates current state of main drone task}}
+\DoxyCodeLine{206         \textcolor{keywordtype}{bool} \_enableOperatorControl = \textcolor{keyword}{false};    \textcolor{comment}{// When enabled, remote control commands are passed directly to drone from RX to TX}}
+\DoxyCodeLine{207         \textcolor{keywordtype}{bool} \_enableEmergencyStop = \textcolor{keyword}{false};      \textcolor{comment}{// When enabled, all TX channels are set to 0}}
+\DoxyCodeLine{208         \textcolor{keywordtype}{bool} \_armingComplete = \textcolor{keyword}{false};}
+\DoxyCodeLine{209 }
+\DoxyCodeLine{210     \textcolor{keyword}{public}:}
+\DoxyCodeLine{211         }
+\DoxyCodeLine{212         \mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}}(\mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}} *\mbox{\hyperlink{as7-gamma_8ino_a99d2a4a087d451eb0554bfa08a3f2dba}{logger}}, bfs::SbusRx* sbus\_rx, bfs::SbusTx* sbus\_tx);}
+\DoxyCodeLine{213         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_a_s7_1_1_drone_a917a942e76225752287df64d15acfe3d}{channelConfirm}}(int16\_t channel=1, \textcolor{keywordtype}{float} threshold=0.7f);    \textcolor{comment}{// Returns true if the channel above threshold. e.g. button press}}
+\DoxyCodeLine{214         }
+\DoxyCodeLine{215         \textcolor{comment}{// Drone status is indicated by an int, though it could be indicated by an enum later on with DEFINEs}}
+\DoxyCodeLine{216         \textcolor{comment}{//  Current statuses could be drone\_starting, drone\_waitin0gdrone\_in\_progress, drone\_estop, drone\_operator\_over, drone\_finished}}
+\DoxyCodeLine{217         \textcolor{comment}{//  Not sure how the internal mechanism could work -\/-\/ this could be a bunmch of bools with increasnig preference for noe another another? maybe we shouldn't even consider status inside the drone *command* class}}
+\DoxyCodeLine{218         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_a_s7_1_1_drone_a9b5342262b0eb7087a0a309a91bcfa66}{droneStatus}}();}
+\DoxyCodeLine{219 }
+\DoxyCodeLine{220         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_a_s7_1_1_drone_a8e539903dbf2d570a5bc0293019fae6d}{getEnableOperatorControl}}() \{\textcolor{keywordflow}{return} \_enableOperatorControl; \}        \textcolor{comment}{// Returns operator control bit}}
+\DoxyCodeLine{221         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_a_s7_1_1_drone_a15f2997ae778b2c70803732bb9d81d3d}{getEnableEmergencyStop}}() \{\textcolor{keywordflow}{return} \_enableEmergencyStop; \}          \textcolor{comment}{// Returns e-\/stop bit}}
+\DoxyCodeLine{222         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_a_s7_1_1_drone_a7b5b0bf44038f4846b81884baa959772}{getDroneArmComplete}}() \{\textcolor{keywordflow}{return} \_armingComplete; \}}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224         \textcolor{comment}{// Assume everything is far so we don't shock the drone into a position}}
+\DoxyCodeLine{225         }
+\DoxyCodeLine{226         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_aa2345fe958b69a8c9d8e66ed07a4803a}{usFront}} = 200;     \textcolor{comment}{// Distance measurement from the front US sensor}}
+\DoxyCodeLine{227         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_a693bf108e04698d8638bc878c00d5a7a}{usBack}} = 200;      \textcolor{comment}{// Distance measurement from the back US sensor}}
+\DoxyCodeLine{228         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_aa556c8e90651cacd12cfb7aaa63f8816}{usLeft}} = 200;      \textcolor{comment}{// Distance measurement from the left US sensor}}
+\DoxyCodeLine{229         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_a4b06b9cc7cb08daac6348772f75395a2}{usRight}} = 200;     \textcolor{comment}{// Distance measurement from the right US sensor}}
+\DoxyCodeLine{230         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_aa6c5b1f19e43fc3ae9008d3befd930bf}{usUp}} = 200;        \textcolor{comment}{// Distance measurement from the upwards US sensor}}
+\DoxyCodeLine{231         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_a0ebdbfbc0c08b516b56465c2a7be3017}{usDown}} = 200;      \textcolor{comment}{// Distance measurement from the downwards US sensor}}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233         \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_a9d7a1c77979cad366efc500f2bc7b12b}{getUsFront}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_a_s7_1_1_drone_aa2345fe958b69a8c9d8e66ed07a4803a}{usFront}}; \};}
+\DoxyCodeLine{234         \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_a408d06aa435e41c3e94fe919a41486d1}{getUsBack}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_a_s7_1_1_drone_a693bf108e04698d8638bc878c00d5a7a}{usBack}}; \};}
+\DoxyCodeLine{235         \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_a0bcfc0a4b25fc55711d4bdf5415add87}{getUsLeft}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_a_s7_1_1_drone_aa556c8e90651cacd12cfb7aaa63f8816}{usLeft}}; \};}
+\DoxyCodeLine{236         \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_aaf5d17b6c55055a6539a58dc3db12582}{getUsRight}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_a_s7_1_1_drone_a4b06b9cc7cb08daac6348772f75395a2}{usRight}}; \};}
+\DoxyCodeLine{237         \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_a25ea041401576c616146ba2900a3b33c}{getUsUp}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_a_s7_1_1_drone_aa6c5b1f19e43fc3ae9008d3befd930bf}{usUp}}; \};}
+\DoxyCodeLine{238         \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_a7cd9900e3c90ecf0a1e8c5af7bc5acd6}{getUsDown}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_a_s7_1_1_drone_a0ebdbfbc0c08b516b56465c2a7be3017}{usDown}}; \};}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240         \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_a567bf2b39f0b457ccacaa7d0b6d5f73c}{compassHeading}};}
+\DoxyCodeLine{241         \textcolor{keyword}{inline} \textcolor{keywordtype}{float} \mbox{\hyperlink{class_a_s7_1_1_drone_ad1aca4c57867fbf477f79bfe14a2eee0}{getCompassHeading}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_a_s7_1_1_drone_a567bf2b39f0b457ccacaa7d0b6d5f73c}{compassHeading}}; \};}
+\DoxyCodeLine{242         }
+\DoxyCodeLine{243 }
+\DoxyCodeLine{244 }
+\DoxyCodeLine{245         \textcolor{comment}{// Main thread control}}
+\DoxyCodeLine{246         \textcolor{comment}{//  Operates both the controller and navigator threads}}
+\DoxyCodeLine{247         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_a97590ac5e8120083b433eaed712e3121}{start}}(\textcolor{keywordtype}{int} core=1, \textcolor{keywordtype}{int} priority=3);}
+\DoxyCodeLine{248         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_a95f9b591ab0f351c62f0a6cb1ac8ecae}{pause}}();}
+\DoxyCodeLine{249         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_ac1a2582827dae044b6e0797edc8ef3ec}{resume}}();}
+\DoxyCodeLine{250 }
+\DoxyCodeLine{251         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_a603ccc16b94fd89a56dbd2830aafcdbe}{enqueueCommand}}(\mbox{\hyperlink{struct_a_s7_1_1_drone_command}{DroneCommand}} cmd);  \textcolor{comment}{// Adds command to drone queue}}
+\DoxyCodeLine{252         \mbox{\hyperlink{struct_a_s7_1_1_drone_command}{DroneCommand}} \mbox{\hyperlink{class_a_s7_1_1_drone_a32bba236c547413cfb0e335ec647158c}{dequeueCommand}}();          \textcolor{comment}{// Remove drone command, returns command from queue}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_a00b9cfef649a173160b309d7e09d6a47}{allowArming}}() \{\_armingAllowed = \textcolor{keyword}{true};\}  \textcolor{comment}{// Allows drone to start processing commands}}
+\DoxyCodeLine{255         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_a_s7_1_1_drone_aaed1f2baa3216be59dc4abb794576f3b}{droneAllowedToFly}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \_armingAllowed;\} \textcolor{comment}{// Returns \_armingAllowed bit}}
+\DoxyCodeLine{256         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_a_s7_1_1_drone_abb33f4d47d5f18e316c5f30e9f1646ec}{droneHasArmed}}()\textcolor{keyword}{ const }\{\textcolor{keywordflow}{return} \_hasArmed;\}          \textcolor{comment}{// Returns if dorn has armed previously}}
+\DoxyCodeLine{257 }
+\DoxyCodeLine{258         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_a8bc5d855f0a3cb35dd3c966e6fca3bbc}{enableOperatorControl}}();   \textcolor{comment}{// Enables pass-\/through from RX to TX. Latching}}
+\DoxyCodeLine{259         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_a612c4cd4c953b8a1eecb00370c99c81b}{disableOperatorControl}}();}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_ae87af6935850c386a260fb91ab86dbd2}{emergencyStop}}();}
+\DoxyCodeLine{262         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_a33b88ec2c709c0ea2819bc1be2009df0}{resetEmergencyStop}}();}
+\DoxyCodeLine{263 }
+\DoxyCodeLine{264         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\_dataGatheringEnabled}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{265         \textcolor{keyword}{inline} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_aad9f525de520ffb82f3475f73177bbf6}{setDataGathering}}(\textcolor{keywordtype}{bool} value) \{\mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\_dataGatheringEnabled}} = value; \}}
+\DoxyCodeLine{266         \textcolor{keyword}{inline} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_a_s7_1_1_drone_a7900216c76fe0c8de149d86a70f7f6d3}{recordingEnabled}}() \{\textcolor{keywordflow}{return} \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\_dataGatheringEnabled}};\} \textcolor{comment}{// Returns true if the current drone command is requesting data gathering}}
+\DoxyCodeLine{267 }
+\DoxyCodeLine{268         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_drone_a0722ac26578b383b970c1bcd86dbf3ce}{generateEStopTx}}();}
+\DoxyCodeLine{269         std::array<int16\_t, NUM\_CH> \mbox{\hyperlink{class_a_s7_1_1_drone_aff3e8bc91ecfe954a36f98b649b123df}{getEStopTx}}();}
+\DoxyCodeLine{270 }
+\DoxyCodeLine{271         std::string \mbox{\hyperlink{class_a_s7_1_1_drone_a6dc14e47b6932da53640f26aa81947be}{getSbusRxArray}}();}
+\DoxyCodeLine{272         std::string \mbox{\hyperlink{class_a_s7_1_1_drone_a8484beeb605809ee88a5287195d7fbe9}{getSbusTxArray}}();}
+\DoxyCodeLine{273     \};}
+\DoxyCodeLine{274 \}}
+\DoxyCodeLine{275 }
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,179 @@
+\hypertarget{struct_a_s7_1_1_drone_command}{}\doxysection{AS7\+::Drone\+Command Struct Reference}
+\label{struct_a_s7_1_1_drone_command}\index{AS7::DroneCommand@{AS7::DroneCommand}}
+
+
+\mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}} Command Structure/\+Format.  
+
+
+
+
+{\ttfamily \#include $<$Drone.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38e}{Drone\+Command\+Type}} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ad1d406bdba067d5711e66e796eca6ca8}{type}}
+\item 
+std\+::string \mbox{\hyperlink{struct_a_s7_1_1_drone_command_af181ef3356a7b389a81ba09118411777}{desc}}
+\item 
+std\+::array$<$ float, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a455e52fb93a740ba49a823a2ab8c268f}{channels}}
+\item 
+int \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a8719da97610790b9dd0b2d95bdd6bb9a}{duration}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a9071653b15de324d96e0ccde28a172ed}{rate\+Multiplier}} = 1.\+0f
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a3dd331b4c5b77d24f6e7370977d3a6ec}{p\+\_\+x}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ad3b7dfe32adf2e9eb9efa1e08a3fccc1}{p\+\_\+y}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a0c9b1498bfa5057d76592efe0a058b35}{p\+\_\+z}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a6bd14aeb86624f8dee8f4e10998da6ea}{v\+\_\+x}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a2f2dbe8ce1049307353e5a6f20432d5e}{v\+\_\+y}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ada1f0d810dcebba410c1942737ecd9e8}{v\+\_\+z}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_acba77706f712f3dd86d0be0da54db3fd}{p\+\_\+rl}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a6d08d39ddb97935347b6488dc3f10039}{p\+\_\+pt}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_abd8ea7e33d6115deef125d8c0fd6505c}{p\+\_\+yw}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_aa9de034c0b9d8b98e66c9335938099d1}{v\+\_\+rl}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a10aea39ec717ee210698c0bc328fd683}{v\+\_\+pt}}
+\item 
+float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ace167d5320a1dc6a3aaf5318faad3931}{v\+\_\+yw}}
+\item 
+bool \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ac267795c756adc9310565fbec101d767}{data\+Recording}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}} Command Structure/\+Format. 
+
+There are two types\+: Blind and Guided, set by enum Drone\+Command\+Type Blind commands only refer to the channel array and duration Guided commands will attempt to use on-\/board sensors to control the drone
+
+Landing is a special type where the drone will lower thrust just below its known weight to land If possible, it will use the bottom sensors to guide landing Landing is equivalent to setting v\+\_\+y to some pre-\/defined value in blind mode.
+
+Arm is a special type that will send the arming command to the drone. As SBUS is one-\/way at the moment, it\textquotesingle{}s not possible to {\itshape know} if the drone is armed but we can generally assume that after a certain duration, the drone is armed. Because of this, there is no way to know if the drone is disarmed as it will disarm automatically from the FC More advanced implementations using two-\/way SBUS or ideally MAVLink can get around this limmitation.
+
+\mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}} commands are enqueued to the drone, and will be executed FIFO.
+
+Note\+: Blind Commands can also be used as buttons and inputs to the FC, not just for navigation 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a455e52fb93a740ba49a823a2ab8c268f}\label{struct_a_s7_1_1_drone_command_a455e52fb93a740ba49a823a2ab8c268f}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!channels@{channels}}
+\index{channels@{channels}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{channels}{channels}}
+{\footnotesize\ttfamily std\+::array$<$float, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+Command\+::channels}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ac267795c756adc9310565fbec101d767}\label{struct_a_s7_1_1_drone_command_ac267795c756adc9310565fbec101d767}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!dataRecording@{dataRecording}}
+\index{dataRecording@{dataRecording}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{dataRecording}{dataRecording}}
+{\footnotesize\ttfamily bool AS7\+::\+Drone\+Command\+::data\+Recording}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_af181ef3356a7b389a81ba09118411777}\label{struct_a_s7_1_1_drone_command_af181ef3356a7b389a81ba09118411777}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!desc@{desc}}
+\index{desc@{desc}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{desc}{desc}}
+{\footnotesize\ttfamily std\+::string AS7\+::\+Drone\+Command\+::desc}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a8719da97610790b9dd0b2d95bdd6bb9a}\label{struct_a_s7_1_1_drone_command_a8719da97610790b9dd0b2d95bdd6bb9a}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!duration@{duration}}
+\index{duration@{duration}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{duration}{duration}}
+{\footnotesize\ttfamily int AS7\+::\+Drone\+Command\+::duration}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a6d08d39ddb97935347b6488dc3f10039}\label{struct_a_s7_1_1_drone_command_a6d08d39ddb97935347b6488dc3f10039}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!p\_pt@{p\_pt}}
+\index{p\_pt@{p\_pt}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{p\_pt}{p\_pt}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+pt}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_acba77706f712f3dd86d0be0da54db3fd}\label{struct_a_s7_1_1_drone_command_acba77706f712f3dd86d0be0da54db3fd}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!p\_rl@{p\_rl}}
+\index{p\_rl@{p\_rl}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{p\_rl}{p\_rl}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+rl}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a3dd331b4c5b77d24f6e7370977d3a6ec}\label{struct_a_s7_1_1_drone_command_a3dd331b4c5b77d24f6e7370977d3a6ec}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!p\_x@{p\_x}}
+\index{p\_x@{p\_x}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{p\_x}{p\_x}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+x}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ad3b7dfe32adf2e9eb9efa1e08a3fccc1}\label{struct_a_s7_1_1_drone_command_ad3b7dfe32adf2e9eb9efa1e08a3fccc1}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!p\_y@{p\_y}}
+\index{p\_y@{p\_y}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{p\_y}{p\_y}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+y}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_abd8ea7e33d6115deef125d8c0fd6505c}\label{struct_a_s7_1_1_drone_command_abd8ea7e33d6115deef125d8c0fd6505c}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!p\_yw@{p\_yw}}
+\index{p\_yw@{p\_yw}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{p\_yw}{p\_yw}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+yw}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a0c9b1498bfa5057d76592efe0a058b35}\label{struct_a_s7_1_1_drone_command_a0c9b1498bfa5057d76592efe0a058b35}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!p\_z@{p\_z}}
+\index{p\_z@{p\_z}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{p\_z}{p\_z}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+z}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a9071653b15de324d96e0ccde28a172ed}\label{struct_a_s7_1_1_drone_command_a9071653b15de324d96e0ccde28a172ed}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!rateMultiplier@{rateMultiplier}}
+\index{rateMultiplier@{rateMultiplier}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{rateMultiplier}{rateMultiplier}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::rate\+Multiplier = 1.\+0f}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ad1d406bdba067d5711e66e796eca6ca8}\label{struct_a_s7_1_1_drone_command_ad1d406bdba067d5711e66e796eca6ca8}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!type@{type}}
+\index{type@{type}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38e}{Drone\+Command\+Type}} AS7\+::\+Drone\+Command\+::type}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a10aea39ec717ee210698c0bc328fd683}\label{struct_a_s7_1_1_drone_command_a10aea39ec717ee210698c0bc328fd683}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!v\_pt@{v\_pt}}
+\index{v\_pt@{v\_pt}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{v\_pt}{v\_pt}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+pt}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_aa9de034c0b9d8b98e66c9335938099d1}\label{struct_a_s7_1_1_drone_command_aa9de034c0b9d8b98e66c9335938099d1}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!v\_rl@{v\_rl}}
+\index{v\_rl@{v\_rl}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{v\_rl}{v\_rl}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+rl}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a6bd14aeb86624f8dee8f4e10998da6ea}\label{struct_a_s7_1_1_drone_command_a6bd14aeb86624f8dee8f4e10998da6ea}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!v\_x@{v\_x}}
+\index{v\_x@{v\_x}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{v\_x}{v\_x}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+x}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a2f2dbe8ce1049307353e5a6f20432d5e}\label{struct_a_s7_1_1_drone_command_a2f2dbe8ce1049307353e5a6f20432d5e}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!v\_y@{v\_y}}
+\index{v\_y@{v\_y}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{v\_y}{v\_y}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+y}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ace167d5320a1dc6a3aaf5318faad3931}\label{struct_a_s7_1_1_drone_command_ace167d5320a1dc6a3aaf5318faad3931}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!v\_yw@{v\_yw}}
+\index{v\_yw@{v\_yw}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{v\_yw}{v\_yw}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+yw}
+
+\mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ada1f0d810dcebba410c1942737ecd9e8}\label{struct_a_s7_1_1_drone_command_ada1f0d810dcebba410c1942737ecd9e8}} 
+\index{AS7::DroneCommand@{AS7::DroneCommand}!v\_z@{v\_z}}
+\index{v\_z@{v\_z}!AS7::DroneCommand@{AS7::DroneCommand}}
+\doxysubsubsection{\texorpdfstring{v\_z}{v\_z}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+z}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+H\+:/repos/\+Argous/src/esp32/as7-\/gamma/\mbox{\hyperlink{_drone_8h}{Drone.\+h}}\end{DoxyCompactItemize}
