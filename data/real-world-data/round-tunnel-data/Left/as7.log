@@ -1,0 +1,3315 @@
+AS7 Log file - (C) Ecobat Project 2022
+[ 79 ms Inform] SD card detected. SD Logging enabled.
+[ 79 ms Inform] (C) 2022 Ecobat Project
+[ 163 ms Verbose] Setting all channel lower bounds to 0
+[ 163 ms Verbose] Setting all channel upper bounds to 2056
+[ 163 ms Inform] Generating E-Stop Tx Package
+[ 164 ms Verbose] E-Stop Tx: 	1028	1028	0	1028	411	1028	1028	411	1542	1542	1542	1542	1542	1542	1542	1542
+[ 164 ms Inform] Drone Class Initialised.
+[ 686 ms Inform] Recording data from US 0->3
+[ 714 ms Verbose] Navigation task thread reporting running status
+[ 714 ms Verbose] Ramping ch 8 -> in:-1.000000
+[ 714 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 715 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 715 ms Verbose] RampValue returned value:0.000000
+[ 715 ms Verbose] Ramping ch 9 -> in:-1.000000
+[ 715 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 715 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 715 ms Verbose] RampValue returned value:0.000000
+[ 715 ms Verbose] Ramping ch 10 -> in:-1.000000
+[ 715 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 715 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 715 ms Verbose] RampValue returned value:0.000000
+[ 716 ms Verbose] Ramping ch 11 -> in:-1.000000
+[ 716 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 716 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 716 ms Verbose] RampValue returned value:0.000000
+[ 716 ms Verbose] Ramping ch 12 -> in:-1.000000
+[ 716 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 716 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 716 ms Verbose] RampValue returned value:0.000000
+[ 716 ms Verbose] Ramping ch 13 -> in:-1.000000
+[ 716 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 717 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 717 ms Verbose] RampValue returned value:0.000000
+[ 717 ms Verbose] Ramping ch 14 -> in:-1.000000
+[ 717 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 717 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 717 ms Verbose] RampValue returned value:0.000000
+[ 717 ms Verbose] Ramping ch 15 -> in:-1.000000
+[ 717 ms Verbose] RampValue value, target, rate, rampratetype:
+[ 717 ms Verbose] -1.000000/0.000000/0.000000/0
+[ 717 ms Verbose] RampValue returned value:0.000000
+[ 717 ms Verbose] Drone active command status:0
+[ 718 ms Verbose] Navigator thread successfully started
+[ 718 ms Verbose] Controller task thread reporting running status
+[ 721 ms Verbose] Drone active command status:0
+[ 725 ms Verbose] Drone active command status:0
+[ 725 ms Verbose] Controller thread successfully started
+[ 928 ms Verbose] Drone active command status:0
+[ 932 ms Verbose] Drone active command status:0
+[ 936 ms Verbose] Drone active command status:0
+[ 940 ms Verbose] Drone active command status:0
+[ 974 ms Inform] Controller status: estop/operator: 0/0
+[ 980 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 983 ms Verbose] Drone active command status:0
+[ 987 ms Verbose] Drone active command status:0
+[ 991 ms Verbose] Drone active command status:0
+[ 995 ms Verbose] Drone active command status:0
+[ 1052 ms Verbose] Drone active command status:0
+[ 1056 ms Verbose] Drone active command status:0
+[ 1060 ms Verbose] Drone active command status:0
+[ 1064 ms Verbose] Drone active command status:0
+[ 1102 ms Verbose] Drone active command status:0
+[ 1106 ms Verbose] Drone active command status:0
+[ 1110 ms Verbose] Drone active command status:0
+[ 1114 ms Verbose] Drone active command status:0
+[ 1152 ms Verbose] Drone active command status:0
+[ 1156 ms Verbose] Drone active command status:0
+[ 1160 ms Verbose] Drone active command status:0
+[ 1164 ms Verbose] Drone active command status:0
+[ 1208 ms Verbose] Drone active command status:0
+[ 1212 ms Verbose] Drone active command status:0
+[ 1216 ms Verbose] Drone active command status:0
+[ 1220 ms Verbose] Drone active command status:0
+[ 1230 ms Inform] Controller status: estop/operator: 0/0
+[ 1254 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1258 ms Verbose] Drone active command status:0
+[ 1262 ms Verbose] Drone active command status:0
+[ 1266 ms Verbose] Drone active command status:0
+[ 1270 ms Verbose] Drone active command status:0
+[ 1326 ms Verbose] Drone active command status:0
+[ 1330 ms Verbose] Drone active command status:0
+[ 1334 ms Verbose] Drone active command status:0
+[ 1338 ms Verbose] Drone active command status:0
+[ 1432 ms Verbose] Drone active command status:0
+[ 1436 ms Verbose] Drone active command status:0
+[ 1440 ms Verbose] Drone active command status:0
+[ 1444 ms Verbose] Drone active command status:0
+[ 1488 ms Verbose] Drone active command status:0
+[ 1492 ms Verbose] Drone active command status:0
+[ 1496 ms Verbose] Drone active command status:0
+[ 1500 ms Verbose] Drone active command status:0
+[ 1504 ms Inform] Controller status: estop/operator: 0/0
+[ 1534 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1538 ms Verbose] Drone active command status:0
+[ 1542 ms Verbose] Drone active command status:0
+[ 1546 ms Verbose] Drone active command status:0
+[ 1550 ms Verbose] Drone active command status:0
+[ 1605 ms Verbose] Drone active command status:0
+[ 1609 ms Verbose] Drone active command status:0
+[ 1613 ms Verbose] Drone active command status:0
+[ 1617 ms Verbose] Drone active command status:0
+[ 1655 ms Verbose] Drone active command status:0
+[ 1659 ms Verbose] Drone active command status:0
+[ 1663 ms Verbose] Drone active command status:0
+[ 1667 ms Verbose] Drone active command status:0
+[ 1709 ms Verbose] Drone active command status:0
+[ 1713 ms Verbose] Drone active command status:0
+[ 1717 ms Verbose] Drone active command status:0
+[ 1721 ms Verbose] Drone active command status:0
+[ 1726 ms Inform] Recording data from US 1->0
+[ 1728 ms Inform] Enqueing drone command: Arming Drone
+[ 1753 ms Verbose] Command <Arming Drone> - Type 3
+[ 1753 ms Inform] Enqueing drone command: AS7 Moving to guided tunnel flight
+[ 1753 ms Verbose] Command <AS7 Moving to guided tunnel flight> - Type 1
+[ 1753 ms Inform] Enqueing drone command: Stopping Drone
+[ 1753 ms Verbose] Command <Stopping Drone> - Type 0
+[ 1753 ms Inform] Initialise: Logger is reporting healthy.
+[ 1753 ms Inform] AS7 moving to state: Ready
+[ 1756 ms Verbose] Drone active command status:0
+[ 1760 ms Verbose] Drone active command status:0
+[ 1764 ms Verbose] Drone active command status:0
+[ 1768 ms Verbose] Drone active command status:0
+[ 1784 ms Inform] Controller status: estop/operator: 0/0
+[ 1794 ms Inform] Recording data from US 2->6
+[ 1838 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 1841 ms Verbose] Drone active command status:0
+[ 1845 ms Verbose] Drone active command status:0
+[ 1849 ms Verbose] Drone active command status:0
+[ 1853 ms Verbose] Drone active command status:0
+[ 1879 ms Inform] Recording data from US 3->6
+[ 1900 ms Verbose] Drone active command status:0
+[ 1904 ms Verbose] Drone active command status:0
+[ 1908 ms Verbose] Drone active command status:0
+[ 1912 ms Verbose] Drone active command status:0
+[ 1948 ms Verbose] Drone active command status:0
+[ 1949 ms Inform] Recording data from US 4->196
+[ 1952 ms Verbose] Drone active command status:0
+[ 1956 ms Verbose] Drone active command status:0
+[ 1960 ms Verbose] Drone active command status:0
+[ 1990 ms Inform] Recording data from US 5->4
+[ 1994 ms Verbose] Drone active command status:0
+[ 1998 ms Verbose] Drone active command status:0
+[ 2002 ms Verbose] Drone active command status:0
+[ 2006 ms Verbose] Drone active command status:0
+[ 2042 ms Verbose] Drone active command status:0
+[ 2046 ms Verbose] Drone active command status:0
+[ 2050 ms Verbose] Drone active command status:0
+[ 2054 ms Verbose] Drone active command status:0
+[ 2058 ms Verbose] Drone active command status:0
+[ 2062 ms Verbose] Drone active command status:0
+[ 2066 ms Verbose] Drone active command status:0
+[ 2070 ms Verbose] Drone active command status:0
+[ 2074 ms Verbose] Drone active command status:0
+[ 2078 ms Verbose] Drone active command status:0
+[ 2088 ms Inform] Controller status: estop/operator: 0/0
+[ 2141 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2145 ms Verbose] Drone active command status:0
+[ 2149 ms Verbose] Drone active command status:0
+[ 2153 ms Verbose] Drone active command status:0
+[ 2157 ms Verbose] Drone active command status:0
+[ 2209 ms Verbose] Drone active command status:0
+[ 2213 ms Verbose] Drone active command status:0
+[ 2217 ms Verbose] Drone active command status:0
+[ 2221 ms Verbose] Drone active command status:0
+[ 2264 ms Verbose] Drone active command status:0
+[ 2268 ms Verbose] Drone active command status:0
+[ 2272 ms Verbose] Drone active command status:0
+[ 2276 ms Verbose] Drone active command status:0
+[ 2315 ms Verbose] Drone active command status:0
+[ 2319 ms Verbose] Drone active command status:0
+[ 2323 ms Verbose] Drone active command status:0
+[ 2327 ms Verbose] Drone active command status:0
+[ 2371 ms Verbose] Drone active command status:0
+[ 2375 ms Verbose] Drone active command status:0
+[ 2379 ms Verbose] Drone active command status:0
+[ 2383 ms Verbose] Drone active command status:0
+[ 2391 ms Inform] Controller status: estop/operator: 0/0
+[ 2463 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2467 ms Verbose] Drone active command status:0
+[ 2471 ms Verbose] Drone active command status:0
+[ 2475 ms Verbose] Drone active command status:0
+[ 2479 ms Verbose] Drone active command status:0
+[ 2535 ms Verbose] Drone active command status:0
+[ 2539 ms Verbose] Drone active command status:0
+[ 2543 ms Verbose] Drone active command status:0
+[ 2547 ms Verbose] Drone active command status:0
+[ 2587 ms Verbose] Drone active command status:0
+[ 2591 ms Verbose] Drone active command status:0
+[ 2595 ms Verbose] Drone active command status:0
+[ 2599 ms Verbose] Drone active command status:0
+[ 2643 ms Verbose] Drone active command status:0
+[ 2647 ms Verbose] Drone active command status:0
+[ 2651 ms Verbose] Drone active command status:0
+[ 2655 ms Verbose] Drone active command status:0
+[ 2695 ms Verbose] Drone active command status:0
+[ 2699 ms Verbose] Drone active command status:0
+[ 2703 ms Verbose] Drone active command status:0
+[ 2707 ms Verbose] Drone active command status:0
+[ 2713 ms Inform] Controller status: estop/operator: 0/0
+[ 2734 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 2738 ms Verbose] Drone active command status:0
+[ 2742 ms Verbose] Drone active command status:0
+[ 2746 ms Verbose] Drone active command status:0
+[ 2750 ms Verbose] Drone active command status:0
+[ 2806 ms Verbose] Drone active command status:0
+[ 2810 ms Verbose] Drone active command status:0
+[ 2814 ms Verbose] Drone active command status:0
+[ 2818 ms Verbose] Drone active command status:0
+[ 2858 ms Verbose] Drone active command status:0
+[ 2862 ms Verbose] Drone active command status:0
+[ 2866 ms Verbose] Drone active command status:0
+[ 2870 ms Verbose] Drone active command status:0
+[ 2913 ms Verbose] Drone active command status:0
+[ 2917 ms Verbose] Drone active command status:0
+[ 2921 ms Verbose] Drone active command status:0
+[ 2925 ms Verbose] Drone active command status:0
+[ 2965 ms Verbose] Drone active command status:0
+[ 2969 ms Verbose] Drone active command status:0
+[ 2973 ms Verbose] Drone active command status:0
+[ 2977 ms Verbose] Drone active command status:0
+[ 2984 ms Inform] Controller status: estop/operator: 0/0
+[ 3017 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 3021 ms Verbose] Drone active command status:0
+[ 3025 ms Verbose] Drone active command status:0
+[ 3029 ms Verbose] Drone active command status:0
+[ 3033 ms Verbose] Drone active command status:0
+[ 3032 ms Inform] Recording data from US 0->0
+[ 3076 ms Verbose] Drone active command status:0
+[ 3080 ms Verbose] Drone active command status:0
+[ 3084 ms Verbose] Drone active command status:0
+[ 3088 ms Verbose] Drone active command status:0
+[ 3122 ms Verbose] Drone active command status:0
+[ 3126 ms Verbose] Drone active command status:0
+[ 3130 ms Verbose] Drone active command status:0
+[ 3134 ms Verbose] Drone active command status:0
+[ 3174 ms Verbose] Drone active command status:0
+[ 3178 ms Verbose] Drone active command status:0
+[ 3182 ms Verbose] Drone active command status:0
+[ 3186 ms Verbose] Drone active command status:0
+[ 3229 ms Verbose] Drone active command status:0
+[ 3233 ms Verbose] Drone active command status:0
+[ 3237 ms Verbose] Drone active command status:0
+[ 3241 ms Verbose] Drone active command status:0
+[ 3267 ms Inform] Controller status: estop/operator: 0/0
+[ 3276 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 3280 ms Verbose] Drone active command status:0
+[ 3284 ms Verbose] Drone active command status:0
+[ 3288 ms Verbose] Drone active command status:0
+[ 3292 ms Verbose] Drone active command status:0
+[ 3348 ms Verbose] Drone active command status:0
+[ 3352 ms Verbose] Drone active command status:0
+[ 3356 ms Verbose] Drone active command status:0
+[ 3360 ms Verbose] Drone active command status:0
+[ 3399 ms Verbose] Drone active command status:0
+[ 3403 ms Verbose] Drone active command status:0
+[ 3407 ms Verbose] Drone active command status:0
+[ 3411 ms Verbose] Drone active command status:0
+[ 3496 ms Verbose] Drone active command status:0
+[ 3500 ms Verbose] Drone active command status:0
+[ 3504 ms Verbose] Drone active command status:0
+[ 3508 ms Verbose] Drone active command status:0
+[ 3526 ms Inform] Controller status: estop/operator: 0/0
+[ 3546 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 3550 ms Verbose] Drone active command status:0
+[ 3554 ms Verbose] Drone active command status:0
+[ 3558 ms Verbose] Drone active command status:0
+[ 3562 ms Verbose] Drone active command status:0
+[ 3618 ms Verbose] Drone active command status:0
+[ 3622 ms Verbose] Drone active command status:0
+[ 3626 ms Verbose] Drone active command status:0
+[ 3630 ms Verbose] Drone active command status:0
+[ 3670 ms Verbose] Drone active command status:0
+[ 3674 ms Verbose] Drone active command status:0
+[ 3678 ms Verbose] Drone active command status:0
+[ 3682 ms Verbose] Drone active command status:0
+[ 3722 ms Verbose] Drone active command status:0
+[ 3726 ms Verbose] Drone active command status:0
+[ 3730 ms Verbose] Drone active command status:0
+[ 3734 ms Verbose] Drone active command status:0
+[ 3778 ms Verbose] Drone active command status:0
+[ 3782 ms Verbose] Drone active command status:0
+[ 3786 ms Verbose] Drone active command status:0
+[ 3790 ms Verbose] Drone active command status:0
+[ 3796 ms Inform] Controller status: estop/operator: 0/0
+[ 3817 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 3821 ms Verbose] Drone active command status:0
+[ 3825 ms Verbose] Drone active command status:0
+[ 3829 ms Verbose] Drone active command status:0
+[ 3833 ms Verbose] Drone active command status:0
+[ 3889 ms Verbose] Drone active command status:0
+[ 3893 ms Verbose] Drone active command status:0
+[ 3897 ms Verbose] Drone active command status:0
+[ 3901 ms Verbose] Drone active command status:0
+[ 3940 ms Verbose] Drone active command status:0
+[ 3944 ms Verbose] Drone active command status:0
+[ 3948 ms Verbose] Drone active command status:0
+[ 3952 ms Verbose] Drone active command status:0
+[ 3993 ms Verbose] Drone active command status:0
+[ 3997 ms Verbose] Drone active command status:0
+[ 4001 ms Verbose] Drone active command status:0
+[ 4005 ms Verbose] Drone active command status:0
+[ 4044 ms Verbose] Drone active command status:0
+[ 4048 ms Verbose] Drone active command status:0
+[ 4052 ms Verbose] Drone active command status:0
+[ 4056 ms Verbose] Drone active command status:0
+[ 4067 ms Inform] Controller status: estop/operator: 0/0
+[ 4098 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 4101 ms Verbose] Drone active command status:0
+[ 4105 ms Verbose] Drone active command status:0
+[ 4109 ms Verbose] Drone active command status:0
+[ 4113 ms Verbose] Drone active command status:0
+[ 4114 ms Inform] Recording data from US 1->0
+[ 4171 ms Verbose] Drone active command status:0
+[ 4175 ms Verbose] Drone active command status:0
+[ 4179 ms Verbose] Drone active command status:0
+[ 4183 ms Verbose] Drone active command status:0
+[ 4210 ms Inform] Recording data from US 2->25
+[ 4216 ms Verbose] Drone active command status:0
+[ 4220 ms Verbose] Drone active command status:0
+[ 4224 ms Verbose] Drone active command status:0
+[ 4228 ms Verbose] Drone active command status:0
+[ 4255 ms Inform] Recording data from US 3->6
+[ 4259 ms Verbose] Drone active command status:0
+[ 4263 ms Verbose] Drone active command status:0
+[ 4267 ms Verbose] Drone active command status:0
+[ 4271 ms Verbose] Drone active command status:0
+[ 4305 ms Verbose] Drone active command status:0
+[ 4308 ms Inform] Recording data from US 4->194
+[ 4309 ms Verbose] Drone active command status:0
+[ 4313 ms Verbose] Drone active command status:0
+[ 4317 ms Verbose] Drone active command status:0
+[ 4348 ms Inform] Controller status: estop/operator: 0/0
+[ 4348 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 4349 ms Verbose] Drone active command status:0
+[ 4349 ms Inform] Recording data from US 5->14
+[ 4353 ms Verbose] Drone active command status:0
+[ 4357 ms Verbose] Drone active command status:0
+[ 4361 ms Verbose] Drone active command status:0
+[ 4390 ms Inform] Recording data from US 0->2
+[ 4418 ms Verbose] Drone active command status:0
+[ 4422 ms Verbose] Drone active command status:0
+[ 4426 ms Verbose] Drone active command status:0
+[ 4430 ms Verbose] Drone active command status:0
+[ 4434 ms Verbose] Drone active command status:0
+[ 4438 ms Verbose] Drone active command status:0
+[ 4442 ms Verbose] Drone active command status:0
+[ 4446 ms Verbose] Drone active command status:0
+[ 4450 ms Verbose] Drone active command status:0
+[ 4454 ms Verbose] Drone active command status:0
+[ 4458 ms Verbose] Drone active command status:0
+[ 4462 ms Verbose] Drone active command status:0
+[ 4466 ms Verbose] Drone active command status:0
+[ 4470 ms Verbose] Drone active command status:0
+[ 4474 ms Verbose] Drone active command status:0
+[ 4478 ms Verbose] Drone active command status:0
+[ 4482 ms Verbose] Drone active command status:0
+[ 4486 ms Verbose] Drone active command status:0
+[ 4596 ms Verbose] Drone active command status:0
+[ 4598 ms Inform] Controller status: estop/operator: 0/0
+[ 4598 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 4600 ms Verbose] Drone active command status:0
+[ 4604 ms Verbose] Drone active command status:0
+[ 4608 ms Verbose] Drone active command status:0
+[ 4670 ms Verbose] Drone active command status:0
+[ 4674 ms Verbose] Drone active command status:0
+[ 4678 ms Verbose] Drone active command status:0
+[ 4682 ms Verbose] Drone active command status:0
+[ 4722 ms Verbose] Drone active command status:0
+[ 4726 ms Verbose] Drone active command status:0
+[ 4730 ms Verbose] Drone active command status:0
+[ 4734 ms Verbose] Drone active command status:0
+[ 4774 ms Verbose] Drone active command status:0
+[ 4778 ms Verbose] Drone active command status:0
+[ 4782 ms Verbose] Drone active command status:0
+[ 4786 ms Verbose] Drone active command status:0
+[ 4829 ms Verbose] Drone active command status:0
+[ 4833 ms Verbose] Drone active command status:0
+[ 4837 ms Verbose] Drone active command status:0
+[ 4841 ms Verbose] Drone active command status:0
+[ 4848 ms Inform] Controller status: estop/operator: 0/0
+[ 4876 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 4879 ms Verbose] Drone active command status:0
+[ 4883 ms Verbose] Drone active command status:0
+[ 4887 ms Verbose] Drone active command status:0
+[ 4891 ms Verbose] Drone active command status:0
+[ 4951 ms Verbose] Drone active command status:0
+[ 4955 ms Verbose] Drone active command status:0
+[ 4959 ms Verbose] Drone active command status:0
+[ 4963 ms Verbose] Drone active command status:0
+[ 5004 ms Verbose] Drone active command status:0
+[ 5008 ms Verbose] Drone active command status:0
+[ 5012 ms Verbose] Drone active command status:0
+[ 5016 ms Verbose] Drone active command status:0
+[ 5061 ms Verbose] Drone active command status:0
+[ 5065 ms Verbose] Drone active command status:0
+[ 5069 ms Verbose] Drone active command status:0
+[ 5073 ms Verbose] Drone active command status:0
+[ 5114 ms Verbose] Drone active command status:0
+[ 5118 ms Verbose] Drone active command status:0
+[ 5122 ms Verbose] Drone active command status:0
+[ 5126 ms Verbose] Drone active command status:0
+[ 5126 ms Inform] Controller status: estop/operator: 0/0
+[ 5167 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 5171 ms Verbose] Drone active command status:0
+[ 5175 ms Verbose] Drone active command status:0
+[ 5179 ms Verbose] Drone active command status:0
+[ 5183 ms Verbose] Drone active command status:0
+[ 5236 ms Verbose] Drone active command status:0
+[ 5240 ms Verbose] Drone active command status:0
+[ 5244 ms Verbose] Drone active command status:0
+[ 5248 ms Verbose] Drone active command status:0
+[ 5292 ms Verbose] Drone active command status:0
+[ 5296 ms Verbose] Drone active command status:0
+[ 5300 ms Verbose] Drone active command status:0
+[ 5304 ms Verbose] Drone active command status:0
+[ 5345 ms Verbose] Drone active command status:0
+[ 5349 ms Verbose] Drone active command status:0
+[ 5353 ms Verbose] Drone active command status:0
+[ 5357 ms Verbose] Drone active command status:0
+[ 5396 ms Verbose] Drone active command status:0
+[ 5400 ms Verbose] Drone active command status:0
+[ 5404 ms Verbose] Drone active command status:0
+[ 5408 ms Verbose] Drone active command status:0
+[ 5417 ms Inform] Controller status: estop/operator: 0/0
+[ 5449 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 5453 ms Verbose] Drone active command status:0
+[ 5456 ms Inform] Recording data from US 1->0
+[ 5457 ms Verbose] Drone active command status:0
+[ 5461 ms Verbose] Drone active command status:0
+[ 5465 ms Verbose] Drone active command status:0
+[ 5497 ms Inform] Recording data from US 2->8
+[ 5523 ms Verbose] Drone active command status:0
+[ 5527 ms Verbose] Drone active command status:0
+[ 5531 ms Verbose] Drone active command status:0
+[ 5535 ms Verbose] Drone active command status:0
+[ 5561 ms Inform] Recording data from US 3->6
+[ 5610 ms Verbose] Drone active command status:0
+[ 5614 ms Verbose] Drone active command status:0
+[ 5618 ms Verbose] Drone active command status:0
+[ 5622 ms Verbose] Drone active command status:0
+[ 5658 ms Verbose] Drone active command status:0
+[ 5659 ms Inform] Recording data from US 4->196
+[ 5662 ms Verbose] Drone active command status:0
+[ 5666 ms Verbose] Drone active command status:0
+[ 5670 ms Verbose] Drone active command status:0
+[ 5699 ms Inform] Controller status: estop/operator: 0/0
+[ 5701 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 5701 ms Inform] Recording data from US 5->25
+[ 5705 ms Verbose] Drone active command status:0
+[ 5709 ms Verbose] Drone active command status:0
+[ 5713 ms Verbose] Drone active command status:0
+[ 5717 ms Verbose] Drone active command status:0
+[ 5744 ms Inform] Recording data from US 0->2
+[ 5773 ms Verbose] Drone active command status:0
+[ 5777 ms Verbose] Drone active command status:0
+[ 5781 ms Verbose] Drone active command status:0
+[ 5785 ms Verbose] Drone active command status:0
+[ 5789 ms Verbose] Drone active command status:0
+[ 5793 ms Verbose] Drone active command status:0
+[ 5797 ms Verbose] Drone active command status:0
+[ 5801 ms Verbose] Drone active command status:0
+[ 5860 ms Verbose] Drone active command status:0
+[ 5864 ms Verbose] Drone active command status:0
+[ 5868 ms Verbose] Drone active command status:0
+[ 5872 ms Verbose] Drone active command status:0
+[ 5913 ms Verbose] Drone active command status:0
+[ 5917 ms Verbose] Drone active command status:0
+[ 5921 ms Verbose] Drone active command status:0
+[ 5925 ms Verbose] Drone active command status:0
+[ 5951 ms Inform] Controller status: estop/operator: 0/0
+[ 5967 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 5970 ms Verbose] Drone active command status:0
+[ 5974 ms Verbose] Drone active command status:0
+[ 5978 ms Verbose] Drone active command status:0
+[ 5982 ms Verbose] Drone active command status:0
+[ 6036 ms Verbose] Drone active command status:0
+[ 6040 ms Verbose] Drone active command status:0
+[ 6044 ms Verbose] Drone active command status:0
+[ 6048 ms Verbose] Drone active command status:0
+[ 6093 ms Verbose] Drone active command status:0
+[ 6097 ms Verbose] Drone active command status:0
+[ 6101 ms Verbose] Drone active command status:0
+[ 6105 ms Verbose] Drone active command status:0
+[ 6145 ms Verbose] Drone active command status:0
+[ 6149 ms Verbose] Drone active command status:0
+[ 6153 ms Verbose] Drone active command status:0
+[ 6157 ms Verbose] Drone active command status:0
+[ 6202 ms Verbose] Drone active command status:0
+[ 6206 ms Verbose] Drone active command status:0
+[ 6210 ms Verbose] Drone active command status:0
+[ 6214 ms Verbose] Drone active command status:0
+[ 6217 ms Inform] Controller status: estop/operator: 0/0
+[ 6253 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 6256 ms Verbose] Drone active command status:0
+[ 6260 ms Verbose] Drone active command status:0
+[ 6264 ms Verbose] Drone active command status:0
+[ 6268 ms Verbose] Drone active command status:0
+[ 6328 ms Verbose] Drone active command status:0
+[ 6332 ms Verbose] Drone active command status:0
+[ 6336 ms Verbose] Drone active command status:0
+[ 6340 ms Verbose] Drone active command status:0
+[ 6380 ms Verbose] Drone active command status:0
+[ 6384 ms Verbose] Drone active command status:0
+[ 6388 ms Verbose] Drone active command status:0
+[ 6392 ms Verbose] Drone active command status:0
+[ 6436 ms Verbose] Drone active command status:0
+[ 6440 ms Verbose] Drone active command status:0
+[ 6444 ms Verbose] Drone active command status:0
+[ 6448 ms Verbose] Drone active command status:0
+[ 6488 ms Verbose] Drone active command status:0
+[ 6492 ms Verbose] Drone active command status:0
+[ 6496 ms Verbose] Drone active command status:0
+[ 6500 ms Verbose] Drone active command status:0
+[ 6503 ms Inform] Controller status: estop/operator: 0/0
+[ 6539 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 6542 ms Verbose] Drone active command status:0
+[ 6546 ms Verbose] Drone active command status:0
+[ 6550 ms Verbose] Drone active command status:0
+[ 6554 ms Verbose] Drone active command status:0
+[ 6656 ms Verbose] Drone active command status:0
+[ 6660 ms Verbose] Drone active command status:0
+[ 6664 ms Verbose] Drone active command status:0
+[ 6668 ms Verbose] Drone active command status:0
+[ 6709 ms Verbose] Drone active command status:0
+[ 6713 ms Verbose] Drone active command status:0
+[ 6717 ms Verbose] Drone active command status:0
+[ 6721 ms Verbose] Drone active command status:0
+[ 6767 ms Verbose] Drone active command status:0
+[ 6771 ms Verbose] Drone active command status:0
+[ 6775 ms Verbose] Drone active command status:0
+[ 6779 ms Verbose] Drone active command status:0
+[ 6789 ms Inform] Controller status: estop/operator: 0/0
+[ 6814 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 6810 ms Inform] Recording data from US 1->0
+[ 6818 ms Verbose] Drone active command status:0
+[ 6822 ms Verbose] Drone active command status:0
+[ 6826 ms Verbose] Drone active command status:0
+[ 6857 ms Inform] Recording data from US 2->25
+[ 6874 ms Verbose] Drone active command status:0
+[ 6878 ms Verbose] Drone active command status:0
+[ 6882 ms Verbose] Drone active command status:0
+[ 6913 ms Inform] Recording data from US 3->6
+[ 6915 ms Verbose] Drone active command status:0
+[ 6919 ms Verbose] Drone active command status:0
+[ 6923 ms Verbose] Drone active command status:0
+[ 6927 ms Verbose] Drone active command status:0
+[ 6977 ms Verbose] Drone active command status:0
+[ 6981 ms Verbose] Drone active command status:0
+[ 6985 ms Verbose] Drone active command status:0
+[ 6989 ms Verbose] Drone active command status:0
+[ 7029 ms Verbose] Drone active command status:0
+[ 7033 ms Verbose] Drone active command status:0
+[ 7037 ms Verbose] Drone active command status:0
+[ 7041 ms Verbose] Drone active command status:0
+[ 7064 ms Inform] Controller status: estop/operator: 0/0
+[ 7081 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 7084 ms Inform] Recording data from US 4->2205
+[ 7085 ms Verbose] Drone active command status:0
+[ 7089 ms Verbose] Drone active command status:0
+[ 7093 ms Verbose] Drone active command status:0
+[ 7097 ms Verbose] Drone active command status:0
+[ 7125 ms Inform] Recording data from US 5->9
+[ 7152 ms Verbose] Drone active command status:0
+[ 7156 ms Verbose] Drone active command status:0
+[ 7160 ms Verbose] Drone active command status:0
+[ 7191 ms Inform] Recording data from US 0->2
+[ 7196 ms Verbose] Drone active command status:0
+[ 7200 ms Verbose] Drone active command status:0
+[ 7204 ms Verbose] Drone active command status:0
+[ 7208 ms Verbose] Drone active command status:0
+[ 7212 ms Verbose] Drone active command status:0
+[ 7216 ms Verbose] Drone active command status:0
+[ 7220 ms Verbose] Drone active command status:0
+[ 7224 ms Verbose] Drone active command status:0
+[ 7283 ms Verbose] Drone active command status:0
+[ 7287 ms Verbose] Drone active command status:0
+[ 7291 ms Verbose] Drone active command status:0
+[ 7331 ms Inform] Controller status: estop/operator: 0/0
+[ 7331 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 7295 ms Verbose] Drone active command status:0
+[ 7335 ms Verbose] Drone active command status:0
+[ 7339 ms Verbose] Drone active command status:0
+[ 7343 ms Verbose] Drone active command status:0
+[ 7347 ms Verbose] Drone active command status:0
+[ 7406 ms Verbose] Drone active command status:0
+[ 7410 ms Verbose] Drone active command status:0
+[ 7414 ms Verbose] Drone active command status:0
+[ 7418 ms Verbose] Drone active command status:0
+[ 7458 ms Verbose] Drone active command status:0
+[ 7462 ms Verbose] Drone active command status:0
+[ 7466 ms Verbose] Drone active command status:0
+[ 7470 ms Verbose] Drone active command status:0
+[ 7514 ms Verbose] Drone active command status:0
+[ 7518 ms Verbose] Drone active command status:0
+[ 7522 ms Verbose] Drone active command status:0
+[ 7526 ms Verbose] Drone active command status:0
+[ 7565 ms Verbose] Drone active command status:0
+[ 7569 ms Verbose] Drone active command status:0
+[ 7573 ms Verbose] Drone active command status:0
+[ 7577 ms Verbose] Drone active command status:0
+[ 7581 ms Inform] Controller status: estop/operator: 0/0
+[ 7646 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 7650 ms Verbose] Drone active command status:0
+[ 7654 ms Verbose] Drone active command status:0
+[ 7658 ms Verbose] Drone active command status:0
+[ 7662 ms Verbose] Drone active command status:0
+[ 7716 ms Verbose] Drone active command status:0
+[ 7720 ms Verbose] Drone active command status:0
+[ 7724 ms Verbose] Drone active command status:0
+[ 7728 ms Verbose] Drone active command status:0
+[ 7789 ms Verbose] Drone active command status:0
+[ 7793 ms Verbose] Drone active command status:0
+[ 7797 ms Verbose] Drone active command status:0
+[ 7801 ms Verbose] Drone active command status:0
+[ 7805 ms Verbose] Drone active command status:0
+[ 7852 ms Verbose] Drone active command status:0
+[ 7856 ms Verbose] Drone active command status:0
+[ 7860 ms Verbose] Drone active command status:0
+[ 7864 ms Verbose] Drone active command status:0
+[ 7896 ms Inform] Controller status: estop/operator: 0/0
+[ 7906 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 7909 ms Verbose] Drone active command status:0
+[ 7913 ms Verbose] Drone active command status:0
+[ 7917 ms Verbose] Drone active command status:0
+[ 7921 ms Verbose] Drone active command status:0
+[ 7983 ms Verbose] Drone active command status:0
+[ 7987 ms Verbose] Drone active command status:0
+[ 7991 ms Verbose] Drone active command status:0
+[ 7995 ms Verbose] Drone active command status:0
+[ 8045 ms Verbose] Drone active command status:0
+[ 8049 ms Verbose] Drone active command status:0
+[ 8053 ms Verbose] Drone active command status:0
+[ 8057 ms Verbose] Drone active command status:0
+[ 8103 ms Verbose] Drone active command status:0
+[ 8107 ms Verbose] Drone active command status:0
+[ 8111 ms Verbose] Drone active command status:0
+[ 8115 ms Verbose] Drone active command status:0
+[ 8156 ms Inform] Controller status: estop/operator: 0/0
+[ 8157 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 8161 ms Verbose] Drone active command status:0
+[ 8165 ms Verbose] Drone active command status:0
+[ 8169 ms Verbose] Drone active command status:0
+[ 8173 ms Verbose] Drone active command status:0
+[ 8234 ms Inform] Recording data from US 1->0
+[ 8235 ms Verbose] Drone active command status:0
+[ 8239 ms Verbose] Drone active command status:0
+[ 8243 ms Verbose] Drone active command status:0
+[ 8247 ms Verbose] Drone active command status:0
+[ 8276 ms Inform] Recording data from US 2->8
+[ 8285 ms Verbose] Drone active command status:0
+[ 8289 ms Verbose] Drone active command status:0
+[ 8293 ms Verbose] Drone active command status:0
+[ 8297 ms Verbose] Drone active command status:0
+[ 8324 ms Inform] Recording data from US 3->6
+[ 8333 ms Verbose] Drone active command status:0
+[ 8337 ms Verbose] Drone active command status:0
+[ 8341 ms Verbose] Drone active command status:0
+[ 8345 ms Verbose] Drone active command status:0
+[ 8382 ms Inform] Recording data from US 4->196
+[ 8386 ms Verbose] Drone active command status:0
+[ 8390 ms Verbose] Drone active command status:0
+[ 8394 ms Verbose] Drone active command status:0
+[ 8398 ms Verbose] Drone active command status:0
+[ 8407 ms Inform] Controller status: estop/operator: 0/0
+[ 8430 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 8426 ms Inform] Recording data from US 5->25
+[ 8434 ms Verbose] Drone active command status:0
+[ 8438 ms Verbose] Drone active command status:0
+[ 8442 ms Verbose] Drone active command status:0
+[ 8446 ms Verbose] Drone active command status:0
+[ 8472 ms Inform] Recording data from US 0->2
+[ 8496 ms Verbose] Drone active command status:0
+[ 8500 ms Verbose] Drone active command status:0
+[ 8504 ms Verbose] Drone active command status:0
+[ 8508 ms Verbose] Drone active command status:0
+[ 8512 ms Verbose] Drone active command status:0
+[ 8516 ms Verbose] Drone active command status:0
+[ 8520 ms Verbose] Drone active command status:0
+[ 8586 ms Verbose] Drone active command status:0
+[ 8590 ms Verbose] Drone active command status:0
+[ 8594 ms Verbose] Drone active command status:0
+[ 8598 ms Verbose] Drone active command status:0
+[ 8680 ms Inform] Controller status: estop/operator: 0/0
+[ 8680 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 8683 ms Verbose] Drone active command status:0
+[ 8687 ms Verbose] Drone active command status:0
+[ 8691 ms Verbose] Drone active command status:0
+[ 8695 ms Verbose] Drone active command status:0
+[ 8756 ms Verbose] Drone active command status:0
+[ 8760 ms Verbose] Drone active command status:0
+[ 8764 ms Verbose] Drone active command status:0
+[ 8768 ms Verbose] Drone active command status:0
+[ 8811 ms Verbose] Drone active command status:0
+[ 8815 ms Verbose] Drone active command status:0
+[ 8819 ms Verbose] Drone active command status:0
+[ 8823 ms Verbose] Drone active command status:0
+[ 8863 ms Verbose] Drone active command status:0
+[ 8867 ms Verbose] Drone active command status:0
+[ 8871 ms Verbose] Drone active command status:0
+[ 8875 ms Verbose] Drone active command status:0
+[ 8922 ms Verbose] Drone active command status:0
+[ 8926 ms Verbose] Drone active command status:0
+[ 8930 ms Verbose] Drone active command status:0
+[ 8930 ms Inform] Controller status: estop/operator: 0/0
+[ 8930 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 8934 ms Verbose] Drone active command status:0
+[ 8998 ms Verbose] Drone active command status:0
+[ 9002 ms Verbose] Drone active command status:0
+[ 9006 ms Verbose] Drone active command status:0
+[ 9010 ms Verbose] Drone active command status:0
+[ 9056 ms Verbose] Drone active command status:0
+[ 9060 ms Verbose] Drone active command status:0
+[ 9064 ms Verbose] Drone active command status:0
+[ 9068 ms Verbose] Drone active command status:0
+[ 9104 ms Verbose] Drone active command status:0
+[ 9108 ms Verbose] Drone active command status:0
+[ 9112 ms Verbose] Drone active command status:0
+[ 9116 ms Verbose] Drone active command status:0
+[ 9166 ms Verbose] Drone active command status:0
+[ 9170 ms Verbose] Drone active command status:0
+[ 9174 ms Verbose] Drone active command status:0
+[ 9178 ms Verbose] Drone active command status:0
+[ 9180 ms Inform] Controller status: estop/operator: 0/0
+[ 9221 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 9224 ms Verbose] Drone active command status:0
+[ 9228 ms Verbose] Drone active command status:0
+[ 9232 ms Verbose] Drone active command status:0
+[ 9236 ms Verbose] Drone active command status:0
+[ 9299 ms Verbose] Drone active command status:0
+[ 9303 ms Verbose] Drone active command status:0
+[ 9307 ms Verbose] Drone active command status:0
+[ 9311 ms Verbose] Drone active command status:0
+[ 9357 ms Verbose] Drone active command status:0
+[ 9361 ms Verbose] Drone active command status:0
+[ 9365 ms Verbose] Drone active command status:0
+[ 9369 ms Verbose] Drone active command status:0
+[ 9419 ms Verbose] Drone active command status:0
+[ 9423 ms Verbose] Drone active command status:0
+[ 9427 ms Verbose] Drone active command status:0
+[ 9431 ms Verbose] Drone active command status:0
+[ 9471 ms Inform] Controller status: estop/operator: 0/0
+[ 9474 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 9477 ms Verbose] Drone active command status:0
+[ 9481 ms Verbose] Drone active command status:0
+[ 9485 ms Verbose] Drone active command status:0
+[ 9489 ms Verbose] Drone active command status:0
+[ 9534 ms Inform] Recording data from US 1->0
+[ 9547 ms Verbose] Drone active command status:0
+[ 9551 ms Verbose] Drone active command status:0
+[ 9555 ms Verbose] Drone active command status:0
+[ 9559 ms Verbose] Drone active command status:0
+[ 9586 ms Inform] Recording data from US 2->8
+[ 9595 ms Verbose] Drone active command status:0
+[ 9599 ms Verbose] Drone active command status:0
+[ 9603 ms Verbose] Drone active command status:0
+[ 9607 ms Verbose] Drone active command status:0
+[ 9634 ms Inform] Recording data from US 3->6
+[ 9645 ms Verbose] Drone active command status:0
+[ 9649 ms Verbose] Drone active command status:0
+[ 9653 ms Verbose] Drone active command status:0
+[ 9692 ms Verbose] Drone active command status:0
+[ 9693 ms Inform] Recording data from US 4->195
+[ 9696 ms Verbose] Drone active command status:0
+[ 9700 ms Verbose] Drone active command status:0
+[ 9704 ms Verbose] Drone active command status:0
+[ 9724 ms Inform] Controller status: estop/operator: 0/0
+[ 9794 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 9735 ms Inform] Recording data from US 5->25
+[ 9798 ms Verbose] Drone active command status:0
+[ 9802 ms Verbose] Drone active command status:0
+[ 9806 ms Verbose] Drone active command status:0
+[ 9836 ms Inform] Recording data from US 0->8
+[ 9858 ms Verbose] Drone active command status:0
+[ 9862 ms Verbose] Drone active command status:0
+[ 9866 ms Verbose] Drone active command status:0
+[ 9870 ms Verbose] Drone active command status:0
+[ 9874 ms Verbose] Drone active command status:0
+[ 9878 ms Verbose] Drone active command status:0
+[ 9882 ms Verbose] Drone active command status:0
+[ 9886 ms Verbose] Drone active command status:0
+[ 9947 ms Verbose] Drone active command status:0
+[ 9951 ms Verbose] Drone active command status:0
+[ 9955 ms Verbose] Drone active command status:0
+[ 9959 ms Verbose] Drone active command status:0
+[ 10007 ms Verbose] Drone active command status:0
+[ 10011 ms Verbose] Drone active command status:0
+[ 10015 ms Verbose] Drone active command status:0
+[ 10019 ms Verbose] Drone active command status:0
+[ 10044 ms Inform] Controller status: estop/operator: 0/0
+[ 10060 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 10063 ms Verbose] Drone active command status:0
+[ 10067 ms Verbose] Drone active command status:0
+[ 10071 ms Verbose] Drone active command status:0
+[ 10075 ms Verbose] Drone active command status:0
+[ 10137 ms Verbose] Drone active command status:0
+[ 10141 ms Verbose] Drone active command status:0
+[ 10145 ms Verbose] Drone active command status:0
+[ 10149 ms Verbose] Drone active command status:0
+[ 10193 ms Verbose] Drone active command status:0
+[ 10197 ms Verbose] Drone active command status:0
+[ 10201 ms Verbose] Drone active command status:0
+[ 10205 ms Verbose] Drone active command status:0
+[ 10256 ms Verbose] Drone active command status:0
+[ 10260 ms Verbose] Drone active command status:0
+[ 10264 ms Verbose] Drone active command status:0
+[ 10268 ms Verbose] Drone active command status:0
+[ 10309 ms Inform] Controller status: estop/operator: 0/0
+[ 10309 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 10312 ms Verbose] Drone active command status:0
+[ 10316 ms Verbose] Drone active command status:0
+[ 10320 ms Verbose] Drone active command status:0
+[ 10324 ms Verbose] Drone active command status:0
+[ 10386 ms Verbose] Drone active command status:0
+[ 10390 ms Verbose] Drone active command status:0
+[ 10394 ms Verbose] Drone active command status:0
+[ 10398 ms Verbose] Drone active command status:0
+[ 10444 ms Verbose] Drone active command status:0
+[ 10448 ms Verbose] Drone active command status:0
+[ 10452 ms Verbose] Drone active command status:0
+[ 10456 ms Verbose] Drone active command status:0
+[ 10504 ms Verbose] Drone active command status:0
+[ 10508 ms Verbose] Drone active command status:0
+[ 10512 ms Verbose] Drone active command status:0
+[ 10516 ms Verbose] Drone active command status:0
+[ 10559 ms Inform] Controller status: estop/operator: 0/0
+[ 10559 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 10562 ms Verbose] Drone active command status:0
+[ 10566 ms Verbose] Drone active command status:0
+[ 10570 ms Verbose] Drone active command status:0
+[ 10574 ms Verbose] Drone active command status:0
+[ 10634 ms Verbose] Drone active command status:0
+[ 10638 ms Verbose] Drone active command status:0
+[ 10642 ms Verbose] Drone active command status:0
+[ 10646 ms Verbose] Drone active command status:0
+[ 10690 ms Verbose] Drone active command status:0
+[ 10694 ms Verbose] Drone active command status:0
+[ 10698 ms Verbose] Drone active command status:0
+[ 10702 ms Verbose] Drone active command status:0
+[ 10749 ms Verbose] Drone active command status:0
+[ 10753 ms Verbose] Drone active command status:0
+[ 10757 ms Verbose] Drone active command status:0
+[ 10761 ms Verbose] Drone active command status:0
+[ 10805 ms Verbose] Drone active command status:0
+[ 10809 ms Verbose] Drone active command status:0
+[ 10809 ms Inform] Controller status: estop/operator: 0/0
+[ 10809 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 10813 ms Verbose] Drone active command status:0
+[ 10817 ms Verbose] Drone active command status:0
+[ 10896 ms Inform] Recording data from US 1->0
+[ 10924 ms Verbose] Drone active command status:0
+[ 10928 ms Verbose] Drone active command status:0
+[ 10932 ms Verbose] Drone active command status:0
+[ 10964 ms Inform] Recording data from US 2->25
+[ 10970 ms Verbose] Drone active command status:0
+[ 10974 ms Verbose] Drone active command status:0
+[ 10978 ms Verbose] Drone active command status:0
+[ 10982 ms Verbose] Drone active command status:0
+[ 11009 ms Inform] Recording data from US 3->6
+[ 11020 ms Verbose] Drone active command status:0
+[ 11024 ms Verbose] Drone active command status:0
+[ 11028 ms Verbose] Drone active command status:0
+[ 11032 ms Verbose] Drone active command status:0
+[ 11059 ms Inform] Controller status: estop/operator: 0/0
+[ 11066 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 11069 ms Inform] Recording data from US 4->195
+[ 11070 ms Verbose] Drone active command status:0
+[ 11074 ms Verbose] Drone active command status:0
+[ 11078 ms Verbose] Drone active command status:0
+[ 11082 ms Verbose] Drone active command status:0
+[ 11110 ms Inform] Recording data from US 5->11
+[ 11143 ms Verbose] Drone active command status:0
+[ 11147 ms Verbose] Drone active command status:0
+[ 11151 ms Verbose] Drone active command status:0
+[ 11155 ms Verbose] Drone active command status:0
+[ 11182 ms Inform] Recording data from US 0->21
+[ 11193 ms Verbose] Drone active command status:0
+[ 11197 ms Verbose] Drone active command status:0
+[ 11201 ms Verbose] Drone active command status:0
+[ 11205 ms Verbose] Drone active command status:0
+[ 11209 ms Verbose] Drone active command status:0
+[ 11213 ms Verbose] Drone active command status:0
+[ 11217 ms Verbose] Drone active command status:0
+[ 11221 ms Verbose] Drone active command status:0
+[ 11283 ms Verbose] Drone active command status:0
+[ 11287 ms Verbose] Drone active command status:0
+[ 11291 ms Verbose] Drone active command status:0
+[ 11295 ms Verbose] Drone active command status:0
+[ 11316 ms Inform] Controller status: estop/operator: 0/0
+[ 11337 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 11341 ms Verbose] Drone active command status:0
+[ 11345 ms Verbose] Drone active command status:0
+[ 11349 ms Verbose] Drone active command status:0
+[ 11353 ms Verbose] Drone active command status:0
+[ 11413 ms Verbose] Drone active command status:0
+[ 11417 ms Verbose] Drone active command status:0
+[ 11421 ms Verbose] Drone active command status:0
+[ 11425 ms Verbose] Drone active command status:0
+[ 11472 ms Verbose] Drone active command status:0
+[ 11476 ms Verbose] Drone active command status:0
+[ 11480 ms Verbose] Drone active command status:0
+[ 11484 ms Verbose] Drone active command status:0
+[ 11530 ms Verbose] Drone active command status:0
+[ 11534 ms Verbose] Drone active command status:0
+[ 11538 ms Verbose] Drone active command status:0
+[ 11542 ms Verbose] Drone active command status:0
+[ 11587 ms Verbose] Drone active command status:0
+[ 11587 ms Inform] Controller status: estop/operator: 0/0
+[ 11587 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 11591 ms Verbose] Drone active command status:0
+[ 11595 ms Verbose] Drone active command status:0
+[ 11599 ms Verbose] Drone active command status:0
+[ 11664 ms Verbose] Drone active command status:0
+[ 11668 ms Verbose] Drone active command status:0
+[ 11672 ms Verbose] Drone active command status:0
+[ 11676 ms Verbose] Drone active command status:0
+[ 11720 ms Verbose] Drone active command status:0
+[ 11724 ms Verbose] Drone active command status:0
+[ 11728 ms Verbose] Drone active command status:0
+[ 11732 ms Verbose] Drone active command status:0
+[ 11777 ms Verbose] Drone active command status:0
+[ 11781 ms Verbose] Drone active command status:0
+[ 11785 ms Verbose] Drone active command status:0
+[ 11789 ms Verbose] Drone active command status:0
+[ 11836 ms Verbose] Drone active command status:0
+[ 11837 ms Inform] Controller status: estop/operator: 0/0
+[ 11837 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 11840 ms Verbose] Drone active command status:0
+[ 11844 ms Verbose] Drone active command status:0
+[ 11848 ms Verbose] Drone active command status:0
+[ 11911 ms Verbose] Drone active command status:0
+[ 11915 ms Verbose] Drone active command status:0
+[ 11919 ms Verbose] Drone active command status:0
+[ 11923 ms Verbose] Drone active command status:0
+[ 12014 ms Verbose] Drone active command status:0
+[ 12018 ms Verbose] Drone active command status:0
+[ 12022 ms Verbose] Drone active command status:0
+[ 12026 ms Verbose] Drone active command status:0
+[ 12074 ms Verbose] Drone active command status:0
+[ 12078 ms Verbose] Drone active command status:0
+[ 12082 ms Verbose] Drone active command status:0
+[ 12086 ms Verbose] Drone active command status:0
+[ 12087 ms Inform] Controller status: estop/operator: 0/0
+[ 12132 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 12136 ms Verbose] Drone active command status:0
+[ 12140 ms Verbose] Drone active command status:0
+[ 12144 ms Verbose] Drone active command status:0
+[ 12148 ms Verbose] Drone active command status:0
+[ 12208 ms Verbose] Drone active command status:0
+[ 12212 ms Verbose] Drone active command status:0
+[ 12216 ms Verbose] Drone active command status:0
+[ 12220 ms Verbose] Drone active command status:0
+[ 12230 ms Inform] Recording data from US 1->0
+[ 12261 ms Verbose] Drone active command status:0
+[ 12265 ms Verbose] Drone active command status:0
+[ 12269 ms Verbose] Drone active command status:0
+[ 12273 ms Verbose] Drone active command status:0
+[ 12310 ms Inform] Recording data from US 2->195
+[ 12311 ms Verbose] Drone active command status:0
+[ 12315 ms Verbose] Drone active command status:0
+[ 12319 ms Verbose] Drone active command status:0
+[ 12323 ms Verbose] Drone active command status:0
+[ 12356 ms Inform] Recording data from US 3->98
+[ 12364 ms Verbose] Drone active command status:0
+[ 12368 ms Verbose] Drone active command status:0
+[ 12372 ms Verbose] Drone active command status:0
+[ 12382 ms Inform] Controller status: estop/operator: 0/0
+[ 12406 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 12409 ms Verbose] Drone active command status:0
+[ 12413 ms Verbose] Drone active command status:0
+[ 12417 ms Verbose] Drone active command status:0
+[ 12421 ms Verbose] Drone active command status:0
+[ 12484 ms Verbose] Drone active command status:0
+[ 12488 ms Verbose] Drone active command status:0
+[ 12492 ms Verbose] Drone active command status:0
+[ 12496 ms Verbose] Drone active command status:0
+[ 12532 ms Inform] Recording data from US 4->2209
+[ 12541 ms Verbose] Drone active command status:0
+[ 12545 ms Verbose] Drone active command status:0
+[ 12549 ms Verbose] Drone active command status:0
+[ 12553 ms Verbose] Drone active command status:0
+[ 12580 ms Inform] Recording data from US 5->33
+[ 12590 ms Verbose] Drone active command status:0
+[ 12594 ms Verbose] Drone active command status:0
+[ 12598 ms Verbose] Drone active command status:0
+[ 12602 ms Verbose] Drone active command status:0
+[ 12638 ms Verbose] Drone active command status:0
+[ 12642 ms Verbose] Drone active command status:0
+[ 12646 ms Verbose] Drone active command status:0
+[ 12650 ms Verbose] Drone active command status:0
+[ 12654 ms Verbose] Drone active command status:0
+[ 12655 ms Inform] Controller status: estop/operator: 0/0
+[ 12655 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 12658 ms Verbose] Drone active command status:0
+[ 12662 ms Verbose] Drone active command status:0
+[ 12666 ms Verbose] Drone active command status:0
+[ 12670 ms Verbose] Drone active command status:0
+[ 12749 ms Inform] Recording data from US 0->2061
+[ 12766 ms Verbose] Drone active command status:0
+[ 12770 ms Verbose] Drone active command status:0
+[ 12774 ms Verbose] Drone active command status:0
+[ 12778 ms Verbose] Drone active command status:0
+[ 12816 ms Verbose] Drone active command status:0
+[ 12820 ms Verbose] Drone active command status:0
+[ 12824 ms Verbose] Drone active command status:0
+[ 12828 ms Verbose] Drone active command status:0
+[ 12875 ms Verbose] Drone active command status:0
+[ 12879 ms Verbose] Drone active command status:0
+[ 12883 ms Verbose] Drone active command status:0
+[ 12887 ms Verbose] Drone active command status:0
+[ 12905 ms Inform] Controller status: estop/operator: 0/0
+[ 12931 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 12934 ms Verbose] Drone active command status:0
+[ 12938 ms Verbose] Drone active command status:0
+[ 12942 ms Verbose] Drone active command status:0
+[ 12946 ms Verbose] Drone active command status:0
+[ 13055 ms Verbose] Drone active command status:0
+[ 13059 ms Verbose] Drone active command status:0
+[ 13063 ms Verbose] Drone active command status:0
+[ 13067 ms Verbose] Drone active command status:0
+[ 13106 ms Verbose] Drone active command status:0
+[ 13110 ms Verbose] Drone active command status:0
+[ 13114 ms Verbose] Drone active command status:0
+[ 13118 ms Verbose] Drone active command status:0
+[ 13162 ms Verbose] Drone active command status:0
+[ 13166 ms Verbose] Drone active command status:0
+[ 13170 ms Verbose] Drone active command status:0
+[ 13174 ms Verbose] Drone active command status:0
+[ 13181 ms Inform] Controller status: estop/operator: 0/0
+[ 13217 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 13220 ms Verbose] Drone active command status:0
+[ 13224 ms Verbose] Drone active command status:0
+[ 13228 ms Verbose] Drone active command status:0
+[ 13232 ms Verbose] Drone active command status:0
+[ 13295 ms Verbose] Drone active command status:0
+[ 13299 ms Verbose] Drone active command status:0
+[ 13303 ms Verbose] Drone active command status:0
+[ 13307 ms Verbose] Drone active command status:0
+[ 13356 ms Verbose] Drone active command status:0
+[ 13360 ms Verbose] Drone active command status:0
+[ 13364 ms Verbose] Drone active command status:0
+[ 13368 ms Verbose] Drone active command status:0
+[ 13417 ms Verbose] Drone active command status:0
+[ 13421 ms Verbose] Drone active command status:0
+[ 13425 ms Verbose] Drone active command status:0
+[ 13429 ms Verbose] Drone active command status:0
+[ 13467 ms Inform] Controller status: estop/operator: 0/0
+[ 13477 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 13480 ms Verbose] Drone active command status:0
+[ 13484 ms Verbose] Drone active command status:0
+[ 13488 ms Verbose] Drone active command status:0
+[ 13492 ms Verbose] Drone active command status:0
+[ 13556 ms Verbose] Drone active command status:0
+[ 13560 ms Verbose] Drone active command status:0
+[ 13564 ms Verbose] Drone active command status:0
+[ 13568 ms Verbose] Drone active command status:0
+[ 13613 ms Verbose] Drone active command status:0
+[ 13617 ms Verbose] Drone active command status:0
+[ 13621 ms Verbose] Drone active command status:0
+[ 13625 ms Verbose] Drone active command status:0
+[ 13669 ms Verbose] Drone active command status:0
+[ 13673 ms Verbose] Drone active command status:0
+[ 13677 ms Verbose] Drone active command status:0
+[ 13681 ms Verbose] Drone active command status:0
+[ 13727 ms Inform] Controller status: estop/operator: 0/0
+[ 13727 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 13728 ms Verbose] Drone active command status:0
+[ 13732 ms Verbose] Drone active command status:0
+[ 13736 ms Verbose] Drone active command status:0
+[ 13740 ms Verbose] Drone active command status:0
+[ 13802 ms Verbose] Drone active command status:0
+[ 13803 ms Inform] Recording data from US 1->0
+[ 13806 ms Verbose] Drone active command status:0
+[ 13810 ms Verbose] Drone active command status:0
+[ 13814 ms Verbose] Drone active command status:0
+[ 13850 ms Verbose] Drone active command status:0
+[ 13854 ms Verbose] Drone active command status:0
+[ 13854 ms Inform] Recording data from US 2->190
+[ 13858 ms Verbose] Drone active command status:0
+[ 13862 ms Verbose] Drone active command status:0
+[ 13898 ms Inform] Recording data from US 3->59
+[ 13903 ms Verbose] Drone active command status:0
+[ 13907 ms Verbose] Drone active command status:0
+[ 13911 ms Verbose] Drone active command status:0
+[ 13915 ms Verbose] Drone active command status:0
+[ 13953 ms Verbose] Drone active command status:0
+[ 13957 ms Verbose] Drone active command status:0
+[ 13961 ms Verbose] Drone active command status:0
+[ 13965 ms Verbose] Drone active command status:0
+[ 13977 ms Inform] Controller status: estop/operator: 0/0
+[ 14006 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 14009 ms Verbose] Drone active command status:0
+[ 14013 ms Verbose] Drone active command status:0
+[ 14017 ms Verbose] Drone active command status:0
+[ 14021 ms Verbose] Drone active command status:0
+[ 14071 ms Inform] Recording data from US 4->2218
+[ 14082 ms Verbose] Drone active command status:0
+[ 14086 ms Verbose] Drone active command status:0
+[ 14090 ms Verbose] Drone active command status:0
+[ 14094 ms Verbose] Drone active command status:0
+[ 14121 ms Inform] Recording data from US 5->31
+[ 14174 ms Verbose] Drone active command status:0
+[ 14178 ms Verbose] Drone active command status:0
+[ 14182 ms Verbose] Drone active command status:0
+[ 14221 ms Verbose] Drone active command status:0
+[ 14225 ms Verbose] Drone active command status:0
+[ 14229 ms Verbose] Drone active command status:0
+[ 14233 ms Verbose] Drone active command status:0
+[ 14237 ms Verbose] Drone active command status:0
+[ 14241 ms Verbose] Drone active command status:0
+[ 14245 ms Verbose] Drone active command status:0
+[ 14249 ms Verbose] Drone active command status:0
+[ 14253 ms Verbose] Drone active command status:0
+[ 14256 ms Inform] Controller status: estop/operator: 0/0
+[ 14323 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 14257 ms Verbose] Drone active command status:0
+[ 14327 ms Verbose] Drone active command status:0
+[ 14331 ms Verbose] Drone active command status:0
+[ 14333 ms Inform] Recording data from US 0->2051
+[ 14335 ms Verbose] Drone active command status:0
+[ 14339 ms Verbose] Drone active command status:0
+[ 14405 ms Verbose] Drone active command status:0
+[ 14409 ms Verbose] Drone active command status:0
+[ 14413 ms Verbose] Drone active command status:0
+[ 14417 ms Verbose] Drone active command status:0
+[ 14460 ms Verbose] Drone active command status:0
+[ 14464 ms Verbose] Drone active command status:0
+[ 14468 ms Verbose] Drone active command status:0
+[ 14472 ms Verbose] Drone active command status:0
+[ 14522 ms Verbose] Drone active command status:0
+[ 14526 ms Verbose] Drone active command status:0
+[ 14530 ms Verbose] Drone active command status:0
+[ 14573 ms Inform] Controller status: estop/operator: 0/0
+[ 14573 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 14534 ms Verbose] Drone active command status:0
+[ 14577 ms Verbose] Drone active command status:0
+[ 14581 ms Verbose] Drone active command status:0
+[ 14585 ms Verbose] Drone active command status:0
+[ 14589 ms Verbose] Drone active command status:0
+[ 14649 ms Verbose] Drone active command status:0
+[ 14653 ms Verbose] Drone active command status:0
+[ 14657 ms Verbose] Drone active command status:0
+[ 14661 ms Verbose] Drone active command status:0
+[ 14707 ms Verbose] Drone active command status:0
+[ 14711 ms Verbose] Drone active command status:0
+[ 14715 ms Verbose] Drone active command status:0
+[ 14719 ms Verbose] Drone active command status:0
+[ 14768 ms Verbose] Drone active command status:0
+[ 14772 ms Verbose] Drone active command status:0
+[ 14776 ms Verbose] Drone active command status:0
+[ 14780 ms Verbose] Drone active command status:0
+[ 14823 ms Inform] Controller status: estop/operator: 0/0
+[ 14823 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 14825 ms Verbose] Drone active command status:0
+[ 14829 ms Verbose] Drone active command status:0
+[ 14833 ms Verbose] Drone active command status:0
+[ 14837 ms Verbose] Drone active command status:0
+[ 14897 ms Verbose] Drone active command status:0
+[ 14901 ms Verbose] Drone active command status:0
+[ 14905 ms Verbose] Drone active command status:0
+[ 14909 ms Verbose] Drone active command status:0
+[ 14956 ms Verbose] Drone active command status:0
+[ 14960 ms Verbose] Drone active command status:0
+[ 14964 ms Verbose] Drone active command status:0
+[ 14968 ms Verbose] Drone active command status:0
+[ 15015 ms Verbose] Drone active command status:0
+[ 15019 ms Verbose] Drone active command status:0
+[ 15023 ms Verbose] Drone active command status:0
+[ 15027 ms Verbose] Drone active command status:0
+[ 15073 ms Inform] Controller status: estop/operator: 0/0
+[ 15073 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 15074 ms Verbose] Drone active command status:0
+[ 15078 ms Verbose] Drone active command status:0
+[ 15082 ms Verbose] Drone active command status:0
+[ 15086 ms Verbose] Drone active command status:0
+[ 15146 ms Verbose] Drone active command status:0
+[ 15150 ms Verbose] Drone active command status:0
+[ 15154 ms Verbose] Drone active command status:0
+[ 15158 ms Verbose] Drone active command status:0
+[ 15246 ms Verbose] Drone active command status:0
+[ 15250 ms Verbose] Drone active command status:0
+[ 15254 ms Verbose] Drone active command status:0
+[ 15258 ms Verbose] Drone active command status:0
+[ 15308 ms Verbose] Drone active command status:0
+[ 15312 ms Verbose] Drone active command status:0
+[ 15316 ms Verbose] Drone active command status:0
+[ 15320 ms Verbose] Drone active command status:0
+[ 15323 ms Inform] Controller status: estop/operator: 0/0
+[ 15363 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 15366 ms Verbose] Drone active command status:0
+[ 15370 ms Verbose] Drone active command status:0
+[ 15373 ms Inform] Recording data from US 1->0
+[ 15374 ms Verbose] Drone active command status:0
+[ 15378 ms Verbose] Drone active command status:0
+[ 15446 ms Verbose] Drone active command status:0
+[ 15450 ms Verbose] Drone active command status:0
+[ 15454 ms Verbose] Drone active command status:0
+[ 15458 ms Verbose] Drone active command status:0
+[ 15504 ms Verbose] Drone active command status:0
+[ 15508 ms Verbose] Drone active command status:0
+[ 15512 ms Verbose] Drone active command status:0
+[ 15516 ms Verbose] Drone active command status:0
+[ 15536 ms Inform] Recording data from US 2->2093
+[ 15558 ms Verbose] Drone active command status:0
+[ 15562 ms Verbose] Drone active command status:0
+[ 15566 ms Verbose] Drone active command status:0
+[ 15570 ms Verbose] Drone active command status:0
+[ 15599 ms Inform] Recording data from US 3->59
+[ 15603 ms Verbose] Drone active command status:0
+[ 15607 ms Verbose] Drone active command status:0
+[ 15611 ms Verbose] Drone active command status:0
+[ 15613 ms Inform] Controller status: estop/operator: 0/0
+[ 15664 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 15615 ms Verbose] Drone active command status:0
+[ 15668 ms Verbose] Drone active command status:0
+[ 15672 ms Verbose] Drone active command status:0
+[ 15676 ms Verbose] Drone active command status:0
+[ 15680 ms Verbose] Drone active command status:0
+[ 15684 ms Verbose] Drone active command status:0
+[ 15762 ms Verbose] Drone active command status:0
+[ 15766 ms Verbose] Drone active command status:0
+[ 15770 ms Verbose] Drone active command status:0
+[ 15771 ms Inform] Recording data from US 4->2197
+[ 15774 ms Verbose] Drone active command status:0
+[ 15812 ms Verbose] Drone active command status:0
+[ 15813 ms Inform] Recording data from US 5->35
+[ 15816 ms Verbose] Drone active command status:0
+[ 15820 ms Verbose] Drone active command status:0
+[ 15858 ms Verbose] Drone active command status:0
+[ 15862 ms Verbose] Drone active command status:0
+[ 15866 ms Verbose] Drone active command status:0
+[ 15870 ms Verbose] Drone active command status:0
+[ 15874 ms Verbose] Drone active command status:0
+[ 15878 ms Verbose] Drone active command status:0
+[ 15882 ms Verbose] Drone active command status:0
+[ 15886 ms Verbose] Drone active command status:0
+[ 15890 ms Verbose] Drone active command status:0
+[ 15894 ms Verbose] Drone active command status:0
+[ 15914 ms Inform] Controller status: estop/operator: 0/0
+[ 15961 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 15965 ms Verbose] Drone active command status:0
+[ 15969 ms Verbose] Drone active command status:0
+[ 15973 ms Verbose] Drone active command status:0
+[ 15974 ms Inform] Recording data from US 0->2053
+[ 15977 ms Verbose] Drone active command status:0
+[ 16045 ms Verbose] Drone active command status:0
+[ 16049 ms Verbose] Drone active command status:0
+[ 16053 ms Verbose] Drone active command status:0
+[ 16057 ms Verbose] Drone active command status:0
+[ 16106 ms Verbose] Drone active command status:0
+[ 16110 ms Verbose] Drone active command status:0
+[ 16114 ms Verbose] Drone active command status:0
+[ 16118 ms Verbose] Drone active command status:0
+[ 16164 ms Verbose] Drone active command status:0
+[ 16168 ms Verbose] Drone active command status:0
+[ 16172 ms Verbose] Drone active command status:0
+[ 16176 ms Verbose] Drone active command status:0
+[ 16211 ms Inform] Controller status: estop/operator: 0/0
+[ 16218 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 16222 ms Verbose] Drone active command status:0
+[ 16226 ms Verbose] Drone active command status:0
+[ 16230 ms Verbose] Drone active command status:0
+[ 16234 ms Verbose] Drone active command status:0
+[ 16340 ms Verbose] Drone active command status:0
+[ 16344 ms Verbose] Drone active command status:0
+[ 16348 ms Verbose] Drone active command status:0
+[ 16352 ms Verbose] Drone active command status:0
+[ 16401 ms Verbose] Drone active command status:0
+[ 16405 ms Verbose] Drone active command status:0
+[ 16409 ms Verbose] Drone active command status:0
+[ 16413 ms Verbose] Drone active command status:0
+[ 16459 ms Verbose] Drone active command status:0
+[ 16463 ms Verbose] Drone active command status:0
+[ 16467 ms Verbose] Drone active command status:0
+[ 16468 ms Inform] Controller status: estop/operator: 0/0
+[ 16468 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 16471 ms Verbose] Drone active command status:0
+[ 16534 ms Verbose] Drone active command status:0
+[ 16538 ms Verbose] Drone active command status:0
+[ 16542 ms Verbose] Drone active command status:0
+[ 16546 ms Verbose] Drone active command status:0
+[ 16590 ms Verbose] Drone active command status:0
+[ 16594 ms Verbose] Drone active command status:0
+[ 16598 ms Verbose] Drone active command status:0
+[ 16602 ms Verbose] Drone active command status:0
+[ 16651 ms Verbose] Drone active command status:0
+[ 16655 ms Verbose] Drone active command status:0
+[ 16659 ms Verbose] Drone active command status:0
+[ 16663 ms Verbose] Drone active command status:0
+[ 16699 ms Verbose] Drone active command status:0
+[ 16703 ms Verbose] Drone active command status:0
+[ 16707 ms Verbose] Drone active command status:0
+[ 16711 ms Verbose] Drone active command status:0
+[ 16718 ms Inform] Controller status: estop/operator: 0/0
+[ 16745 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 16748 ms Verbose] Drone active command status:0
+[ 16752 ms Verbose] Drone active command status:0
+[ 16756 ms Verbose] Drone active command status:0
+[ 16760 ms Verbose] Drone active command status:0
+[ 16823 ms Verbose] Drone active command status:0
+[ 16827 ms Verbose] Drone active command status:0
+[ 16831 ms Verbose] Drone active command status:0
+[ 16835 ms Verbose] Drone active command status:0
+[ 16885 ms Verbose] Drone active command status:0
+[ 16889 ms Verbose] Drone active command status:0
+[ 16893 ms Verbose] Drone active command status:0
+[ 16897 ms Verbose] Drone active command status:0
+[ 16943 ms Verbose] Drone active command status:0
+[ 16947 ms Verbose] Drone active command status:0
+[ 16951 ms Verbose] Drone active command status:0
+[ 16955 ms Verbose] Drone active command status:0
+[ 16995 ms Inform] Controller status: estop/operator: 0/0
+[ 16998 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 17001 ms Verbose] Drone active command status:0
+[ 17005 ms Verbose] Drone active command status:0
+[ 17009 ms Verbose] Drone active command status:0
+[ 17013 ms Verbose] Drone active command status:0
+[ 17014 ms Inform] Recording data from US 1->0
+[ 17065 ms Verbose] Drone active command status:0
+[ 17069 ms Verbose] Drone active command status:0
+[ 17073 ms Verbose] Drone active command status:0
+[ 17110 ms Verbose] Drone active command status:0
+[ 17114 ms Verbose] Drone active command status:0
+[ 17118 ms Verbose] Drone active command status:0
+[ 17122 ms Verbose] Drone active command status:0
+[ 17172 ms Verbose] Drone active command status:0
+[ 17176 ms Verbose] Drone active command status:0
+[ 17180 ms Verbose] Drone active command status:0
+[ 17184 ms Verbose] Drone active command status:0
+[ 17226 ms Inform] Recording data from US 2->2089
+[ 17231 ms Verbose] Drone active command status:0
+[ 17235 ms Verbose] Drone active command status:0
+[ 17239 ms Verbose] Drone active command status:0
+[ 17243 ms Verbose] Drone active command status:0
+[ 17248 ms Inform] Controller status: estop/operator: 0/0
+[ 17278 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 17272 ms Inform] Recording data from US 3->41
+[ 17282 ms Verbose] Drone active command status:0
+[ 17286 ms Verbose] Drone active command status:0
+[ 17290 ms Verbose] Drone active command status:0
+[ 17395 ms Verbose] Drone active command status:0
+[ 17399 ms Verbose] Drone active command status:0
+[ 17403 ms Verbose] Drone active command status:0
+[ 17407 ms Verbose] Drone active command status:0
+[ 17443 ms Verbose] Drone active command status:0
+[ 17447 ms Verbose] Drone active command status:0
+[ 17449 ms Inform] Recording data from US 4->2200
+[ 17451 ms Verbose] Drone active command status:0
+[ 17455 ms Verbose] Drone active command status:0
+[ 17494 ms Verbose] Drone active command status:0
+[ 17498 ms Verbose] Drone active command status:0
+[ 17502 ms Verbose] Drone active command status:0
+[ 17506 ms Verbose] Drone active command status:0
+[ 17528 ms Inform] Controller status: estop/operator: 0/0
+[ 17539 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 17505 ms Inform] Recording data from US 5->263
+[ 17543 ms Verbose] Drone active command status:0
+[ 17547 ms Verbose] Drone active command status:0
+[ 17551 ms Verbose] Drone active command status:0
+[ 17608 ms Verbose] Drone active command status:0
+[ 17612 ms Verbose] Drone active command status:0
+[ 17616 ms Verbose] Drone active command status:0
+[ 17620 ms Verbose] Drone active command status:0
+[ 17624 ms Verbose] Drone active command status:0
+[ 17628 ms Verbose] Drone active command status:0
+[ 17632 ms Verbose] Drone active command status:0
+[ 17636 ms Verbose] Drone active command status:0
+[ 17640 ms Verbose] Drone active command status:0
+[ 17702 ms Inform] Recording data from US 0->2062
+[ 17705 ms Verbose] Drone active command status:0
+[ 17709 ms Verbose] Drone active command status:0
+[ 17713 ms Verbose] Drone active command status:0
+[ 17717 ms Verbose] Drone active command status:0
+[ 17759 ms Verbose] Drone active command status:0
+[ 17763 ms Verbose] Drone active command status:0
+[ 17767 ms Verbose] Drone active command status:0
+[ 17771 ms Verbose] Drone active command status:0
+[ 17789 ms Inform] Controller status: estop/operator: 0/0
+[ 17811 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 17814 ms Verbose] Drone active command status:0
+[ 17818 ms Verbose] Drone active command status:0
+[ 17822 ms Verbose] Drone active command status:0
+[ 17826 ms Verbose] Drone active command status:0
+[ 17888 ms Verbose] Drone active command status:0
+[ 17892 ms Verbose] Drone active command status:0
+[ 17896 ms Verbose] Drone active command status:0
+[ 17900 ms Verbose] Drone active command status:0
+[ 17947 ms Verbose] Drone active command status:0
+[ 17951 ms Verbose] Drone active command status:0
+[ 17955 ms Verbose] Drone active command status:0
+[ 17959 ms Verbose] Drone active command status:0
+[ 18003 ms Verbose] Drone active command status:0
+[ 18007 ms Verbose] Drone active command status:0
+[ 18011 ms Verbose] Drone active command status:0
+[ 18015 ms Verbose] Drone active command status:0
+[ 18060 ms Inform] Controller status: estop/operator: 0/0
+[ 18060 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 18061 ms Verbose] Drone active command status:0
+[ 18065 ms Verbose] Drone active command status:0
+[ 18069 ms Verbose] Drone active command status:0
+[ 18073 ms Verbose] Drone active command status:0
+[ 18133 ms Verbose] Drone active command status:0
+[ 18137 ms Verbose] Drone active command status:0
+[ 18141 ms Verbose] Drone active command status:0
+[ 18145 ms Verbose] Drone active command status:0
+[ 18188 ms Verbose] Drone active command status:0
+[ 18192 ms Verbose] Drone active command status:0
+[ 18196 ms Verbose] Drone active command status:0
+[ 18200 ms Verbose] Drone active command status:0
+[ 18248 ms Verbose] Drone active command status:0
+[ 18252 ms Verbose] Drone active command status:0
+[ 18256 ms Verbose] Drone active command status:0
+[ 18260 ms Verbose] Drone active command status:0
+[ 18303 ms Verbose] Drone active command status:0
+[ 18307 ms Verbose] Drone active command status:0
+[ 18310 ms Inform] Controller status: estop/operator: 0/0
+[ 18310 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 18311 ms Verbose] Drone active command status:0
+[ 18315 ms Verbose] Drone active command status:0
+[ 18426 ms Verbose] Drone active command status:0
+[ 18430 ms Verbose] Drone active command status:0
+[ 18434 ms Verbose] Drone active command status:0
+[ 18438 ms Verbose] Drone active command status:0
+[ 18473 ms Verbose] Drone active command status:0
+[ 18477 ms Verbose] Drone active command status:0
+[ 18481 ms Verbose] Drone active command status:0
+[ 18485 ms Verbose] Drone active command status:0
+[ 18525 ms Verbose] Drone active command status:0
+[ 18529 ms Verbose] Drone active command status:0
+[ 18533 ms Verbose] Drone active command status:0
+[ 18537 ms Verbose] Drone active command status:0
+[ 18560 ms Inform] Controller status: estop/operator: 0/0
+[ 18578 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 18582 ms Verbose] Drone active command status:0
+[ 18586 ms Verbose] Drone active command status:0
+[ 18590 ms Verbose] Drone active command status:0
+[ 18594 ms Verbose] Drone active command status:0
+[ 18655 ms Verbose] Drone active command status:0
+[ 18659 ms Verbose] Drone active command status:0
+[ 18663 ms Verbose] Drone active command status:0
+[ 18667 ms Verbose] Drone active command status:0
+[ 18713 ms Verbose] Drone active command status:0
+[ 18717 ms Verbose] Drone active command status:0
+[ 18721 ms Verbose] Drone active command status:0
+[ 18725 ms Verbose] Drone active command status:0
+[ 18742 ms Inform] Recording data from US 1->0
+[ 18780 ms Verbose] Drone active command status:0
+[ 18784 ms Verbose] Drone active command status:0
+[ 18788 ms Verbose] Drone active command status:0
+[ 18792 ms Verbose] Drone active command status:0
+[ 18828 ms Inform] Controller status: estop/operator: 0/0
+[ 18828 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 18830 ms Verbose] Drone active command status:0
+[ 18834 ms Verbose] Drone active command status:0
+[ 18838 ms Verbose] Drone active command status:0
+[ 18842 ms Verbose] Drone active command status:0
+[ 18902 ms Verbose] Drone active command status:0
+[ 18906 ms Verbose] Drone active command status:0
+[ 18910 ms Verbose] Drone active command status:0
+[ 18914 ms Verbose] Drone active command status:0
+[ 18941 ms Inform] Recording data from US 2->2099
+[ 18956 ms Verbose] Drone active command status:0
+[ 18960 ms Verbose] Drone active command status:0
+[ 18964 ms Verbose] Drone active command status:0
+[ 18968 ms Verbose] Drone active command status:0
+[ 18997 ms Inform] Recording data from US 3->59
+[ 19007 ms Verbose] Drone active command status:0
+[ 19011 ms Verbose] Drone active command status:0
+[ 19015 ms Verbose] Drone active command status:0
+[ 19054 ms Verbose] Drone active command status:0
+[ 19058 ms Verbose] Drone active command status:0
+[ 19062 ms Verbose] Drone active command status:0
+[ 19066 ms Verbose] Drone active command status:0
+[ 19078 ms Inform] Controller status: estop/operator: 0/0
+[ 19108 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 19112 ms Verbose] Drone active command status:0
+[ 19116 ms Verbose] Drone active command status:0
+[ 19120 ms Verbose] Drone active command status:0
+[ 19124 ms Verbose] Drone active command status:0
+[ 19175 ms Inform] Recording data from US 4->2201
+[ 19181 ms Verbose] Drone active command status:0
+[ 19185 ms Verbose] Drone active command status:0
+[ 19189 ms Verbose] Drone active command status:0
+[ 19193 ms Verbose] Drone active command status:0
+[ 19234 ms Inform] Recording data from US 5->263
+[ 19235 ms Verbose] Drone active command status:0
+[ 19239 ms Verbose] Drone active command status:0
+[ 19243 ms Verbose] Drone active command status:0
+[ 19247 ms Verbose] Drone active command status:0
+[ 19287 ms Verbose] Drone active command status:0
+[ 19291 ms Verbose] Drone active command status:0
+[ 19295 ms Verbose] Drone active command status:0
+[ 19299 ms Verbose] Drone active command status:0
+[ 19303 ms Verbose] Drone active command status:0
+[ 19307 ms Verbose] Drone active command status:0
+[ 19311 ms Verbose] Drone active command status:0
+[ 19315 ms Verbose] Drone active command status:0
+[ 19319 ms Verbose] Drone active command status:0
+[ 19323 ms Verbose] Drone active command status:0
+[ 19358 ms Inform] Controller status: estop/operator: 0/0
+[ 19395 ms Inform] Recording data from US 0->2053
+[ 19438 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 19441 ms Verbose] Drone active command status:0
+[ 19445 ms Verbose] Drone active command status:0
+[ 19449 ms Verbose] Drone active command status:0
+[ 19453 ms Verbose] Drone active command status:0
+[ 19507 ms Verbose] Drone active command status:0
+[ 19511 ms Verbose] Drone active command status:0
+[ 19515 ms Verbose] Drone active command status:0
+[ 19519 ms Verbose] Drone active command status:0
+[ 19569 ms Verbose] Drone active command status:0
+[ 19573 ms Verbose] Drone active command status:0
+[ 19577 ms Verbose] Drone active command status:0
+[ 19581 ms Verbose] Drone active command status:0
+[ 19627 ms Verbose] Drone active command status:0
+[ 19631 ms Verbose] Drone active command status:0
+[ 19635 ms Verbose] Drone active command status:0
+[ 19639 ms Verbose] Drone active command status:0
+[ 19686 ms Verbose] Drone active command status:0
+[ 19688 ms Inform] Controller status: estop/operator: 0/0
+[ 19688 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 19690 ms Verbose] Drone active command status:0
+[ 19694 ms Verbose] Drone active command status:0
+[ 19698 ms Verbose] Drone active command status:0
+[ 19760 ms Verbose] Drone active command status:0
+[ 19764 ms Verbose] Drone active command status:0
+[ 19768 ms Verbose] Drone active command status:0
+[ 19772 ms Verbose] Drone active command status:0
+[ 19823 ms Verbose] Drone active command status:0
+[ 19827 ms Verbose] Drone active command status:0
+[ 19831 ms Verbose] Drone active command status:0
+[ 19835 ms Verbose] Drone active command status:0
+[ 19880 ms Verbose] Drone active command status:0
+[ 19884 ms Verbose] Drone active command status:0
+[ 19888 ms Verbose] Drone active command status:0
+[ 19892 ms Verbose] Drone active command status:0
+[ 19938 ms Verbose] Drone active command status:0
+[ 19938 ms Inform] Controller status: estop/operator: 0/0
+[ 19938 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 19942 ms Verbose] Drone active command status:0
+[ 19946 ms Verbose] Drone active command status:0
+[ 19950 ms Verbose] Drone active command status:0
+[ 20015 ms Verbose] Drone active command status:0
+[ 20019 ms Verbose] Drone active command status:0
+[ 20023 ms Verbose] Drone active command status:0
+[ 20027 ms Verbose] Drone active command status:0
+[ 20078 ms Verbose] Drone active command status:0
+[ 20082 ms Verbose] Drone active command status:0
+[ 20086 ms Verbose] Drone active command status:0
+[ 20090 ms Verbose] Drone active command status:0
+[ 20137 ms Verbose] Drone active command status:0
+[ 20141 ms Verbose] Drone active command status:0
+[ 20145 ms Verbose] Drone active command status:0
+[ 20149 ms Verbose] Drone active command status:0
+[ 20188 ms Inform] Controller status: estop/operator: 0/0
+[ 20191 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 20195 ms Verbose] Drone active command status:0
+[ 20199 ms Verbose] Drone active command status:0
+[ 20203 ms Verbose] Drone active command status:0
+[ 20207 ms Verbose] Drone active command status:0
+[ 20268 ms Verbose] Drone active command status:0
+[ 20272 ms Verbose] Drone active command status:0
+[ 20276 ms Verbose] Drone active command status:0
+[ 20280 ms Verbose] Drone active command status:0
+[ 20321 ms Verbose] Drone active command status:0
+[ 20325 ms Verbose] Drone active command status:0
+[ 20329 ms Verbose] Drone active command status:0
+[ 20333 ms Verbose] Drone active command status:0
+[ 20379 ms Verbose] Drone active command status:0
+[ 20383 ms Verbose] Drone active command status:0
+[ 20387 ms Verbose] Drone active command status:0
+[ 20391 ms Verbose] Drone active command status:0
+[ 20440 ms Verbose] Drone active command status:0
+[ 20441 ms Inform] Controller status: estop/operator: 0/0
+[ 20441 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 20444 ms Verbose] Drone active command status:0
+[ 20448 ms Verbose] Drone active command status:0
+[ 20452 ms Verbose] Drone active command status:0
+[ 20478 ms Inform] Recording data from US 1->0
+[ 20553 ms Verbose] Drone active command status:0
+[ 20557 ms Verbose] Drone active command status:0
+[ 20561 ms Verbose] Drone active command status:0
+[ 20565 ms Verbose] Drone active command status:0
+[ 20605 ms Verbose] Drone active command status:0
+[ 20609 ms Verbose] Drone active command status:0
+[ 20613 ms Verbose] Drone active command status:0
+[ 20617 ms Verbose] Drone active command status:0
+[ 20663 ms Verbose] Drone active command status:0
+[ 20667 ms Verbose] Drone active command status:0
+[ 20671 ms Verbose] Drone active command status:0
+[ 20675 ms Verbose] Drone active command status:0
+[ 20691 ms Inform] Controller status: estop/operator: 0/0
+[ 20714 ms Inform] Recording data from US 2->2099
+[ 20718 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 20721 ms Verbose] Drone active command status:0
+[ 20725 ms Verbose] Drone active command status:0
+[ 20729 ms Verbose] Drone active command status:0
+[ 20733 ms Verbose] Drone active command status:0
+[ 20761 ms Inform] Recording data from US 3->45
+[ 20784 ms Verbose] Drone active command status:0
+[ 20788 ms Verbose] Drone active command status:0
+[ 20792 ms Verbose] Drone active command status:0
+[ 20796 ms Verbose] Drone active command status:0
+[ 20838 ms Verbose] Drone active command status:0
+[ 20842 ms Verbose] Drone active command status:0
+[ 20846 ms Verbose] Drone active command status:0
+[ 20850 ms Verbose] Drone active command status:0
+[ 20897 ms Verbose] Drone active command status:0
+[ 20901 ms Verbose] Drone active command status:0
+[ 20905 ms Verbose] Drone active command status:0
+[ 20909 ms Verbose] Drone active command status:0
+[ 20950 ms Inform] Recording data from US 4->2195
+[ 20957 ms Verbose] Drone active command status:0
+[ 20961 ms Verbose] Drone active command status:0
+[ 20965 ms Verbose] Drone active command status:0
+[ 20968 ms Inform] Controller status: estop/operator: 0/0
+[ 21004 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 20969 ms Verbose] Drone active command status:0
+[ 21008 ms Verbose] Drone active command status:0
+[ 21011 ms Inform] Recording data from US 5->277
+[ 21012 ms Verbose] Drone active command status:0
+[ 21016 ms Verbose] Drone active command status:0
+[ 21020 ms Verbose] Drone active command status:0
+[ 21087 ms Verbose] Drone active command status:0
+[ 21091 ms Verbose] Drone active command status:0
+[ 21095 ms Verbose] Drone active command status:0
+[ 21099 ms Verbose] Drone active command status:0
+[ 21103 ms Verbose] Drone active command status:0
+[ 21107 ms Verbose] Drone active command status:0
+[ 21111 ms Verbose] Drone active command status:0
+[ 21115 ms Verbose] Drone active command status:0
+[ 21119 ms Verbose] Drone active command status:0
+[ 21123 ms Verbose] Drone active command status:0
+[ 21173 ms Inform] Recording data from US 0->2063
+[ 21194 ms Verbose] Drone active command status:0
+[ 21198 ms Verbose] Drone active command status:0
+[ 21202 ms Verbose] Drone active command status:0
+[ 21239 ms Verbose] Drone active command status:0
+[ 21243 ms Verbose] Drone active command status:0
+[ 21247 ms Verbose] Drone active command status:0
+[ 21251 ms Verbose] Drone active command status:0
+[ 21254 ms Inform] Controller status: estop/operator: 0/0
+[ 21298 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 21301 ms Verbose] Drone active command status:0
+[ 21305 ms Verbose] Drone active command status:0
+[ 21309 ms Verbose] Drone active command status:0
+[ 21313 ms Verbose] Drone active command status:0
+[ 21375 ms Verbose] Drone active command status:0
+[ 21379 ms Verbose] Drone active command status:0
+[ 21383 ms Verbose] Drone active command status:0
+[ 21387 ms Verbose] Drone active command status:0
+[ 21430 ms Verbose] Drone active command status:0
+[ 21434 ms Verbose] Drone active command status:0
+[ 21438 ms Verbose] Drone active command status:0
+[ 21442 ms Verbose] Drone active command status:0
+[ 21533 ms Verbose] Drone active command status:0
+[ 21537 ms Verbose] Drone active command status:0
+[ 21541 ms Verbose] Drone active command status:0
+[ 21545 ms Verbose] Drone active command status:0
+[ 21548 ms Inform] Controller status: estop/operator: 0/0
+[ 21579 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 21582 ms Verbose] Drone active command status:0
+[ 21586 ms Verbose] Drone active command status:0
+[ 21590 ms Verbose] Drone active command status:0
+[ 21594 ms Verbose] Drone active command status:0
+[ 21655 ms Verbose] Drone active command status:0
+[ 21659 ms Verbose] Drone active command status:0
+[ 21663 ms Verbose] Drone active command status:0
+[ 21667 ms Verbose] Drone active command status:0
+[ 21730 ms Verbose] Drone active command status:0
+[ 21734 ms Verbose] Drone active command status:0
+[ 21738 ms Verbose] Drone active command status:0
+[ 21742 ms Verbose] Drone active command status:0
+[ 21779 ms Verbose] Drone active command status:0
+[ 21783 ms Verbose] Drone active command status:0
+[ 21787 ms Verbose] Drone active command status:0
+[ 21791 ms Verbose] Drone active command status:0
+[ 21829 ms Inform] Controller status: estop/operator: 0/0
+[ 21837 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 21841 ms Verbose] Drone active command status:0
+[ 21845 ms Verbose] Drone active command status:0
+[ 21849 ms Verbose] Drone active command status:0
+[ 21853 ms Verbose] Drone active command status:0
+[ 21912 ms Verbose] Drone active command status:0
+[ 21916 ms Verbose] Drone active command status:0
+[ 21920 ms Verbose] Drone active command status:0
+[ 21924 ms Verbose] Drone active command status:0
+[ 21974 ms Verbose] Drone active command status:0
+[ 21978 ms Verbose] Drone active command status:0
+[ 21982 ms Verbose] Drone active command status:0
+[ 21986 ms Verbose] Drone active command status:0
+[ 22033 ms Verbose] Drone active command status:0
+[ 22037 ms Verbose] Drone active command status:0
+[ 22041 ms Verbose] Drone active command status:0
+[ 22045 ms Verbose] Drone active command status:0
+[ 22087 ms Inform] Controller status: estop/operator: 0/0
+[ 22090 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 22094 ms Verbose] Drone active command status:0
+[ 22098 ms Verbose] Drone active command status:0
+[ 22102 ms Verbose] Drone active command status:0
+[ 22106 ms Verbose] Drone active command status:0
+[ 22164 ms Verbose] Drone active command status:0
+[ 22168 ms Verbose] Drone active command status:0
+[ 22172 ms Verbose] Drone active command status:0
+[ 22176 ms Verbose] Drone active command status:0
+[ 22226 ms Verbose] Drone active command status:0
+[ 22230 ms Verbose] Drone active command status:0
+[ 22232 ms Inform] Recording data from US 1->0
+[ 22234 ms Verbose] Drone active command status:0
+[ 22238 ms Verbose] Drone active command status:0
+[ 22274 ms Verbose] Drone active command status:0
+[ 22278 ms Verbose] Drone active command status:0
+[ 22282 ms Verbose] Drone active command status:0
+[ 22286 ms Verbose] Drone active command status:0
+[ 22327 ms Verbose] Drone active command status:0
+[ 22331 ms Verbose] Drone active command status:0
+[ 22335 ms Verbose] Drone active command status:0
+[ 22339 ms Verbose] Drone active command status:0
+[ 22340 ms Inform] Controller status: estop/operator: 0/0
+[ 22381 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 22384 ms Verbose] Drone active command status:0
+[ 22388 ms Verbose] Drone active command status:0
+[ 22392 ms Verbose] Drone active command status:0
+[ 22395 ms Inform] Recording data from US 2->2088
+[ 22396 ms Verbose] Drone active command status:0
+[ 22439 ms Inform] Recording data from US 3->41
+[ 22460 ms Verbose] Drone active command status:0
+[ 22464 ms Verbose] Drone active command status:0
+[ 22468 ms Verbose] Drone active command status:0
+[ 22505 ms Verbose] Drone active command status:0
+[ 22509 ms Verbose] Drone active command status:0
+[ 22513 ms Verbose] Drone active command status:0
+[ 22517 ms Verbose] Drone active command status:0
+[ 22608 ms Verbose] Drone active command status:0
+[ 22612 ms Verbose] Drone active command status:0
+[ 22616 ms Verbose] Drone active command status:0
+[ 22620 ms Verbose] Drone active command status:0
+[ 22631 ms Inform] Controller status: estop/operator: 0/0
+[ 22655 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 22628 ms Inform] Recording data from US 4->2199
+[ 22658 ms Verbose] Drone active command status:0
+[ 22662 ms Verbose] Drone active command status:0
+[ 22666 ms Verbose] Drone active command status:0
+[ 22670 ms Verbose] Drone active command status:0
+[ 22713 ms Inform] Recording data from US 5->304
+[ 22732 ms Verbose] Drone active command status:0
+[ 22736 ms Verbose] Drone active command status:0
+[ 22740 ms Verbose] Drone active command status:0
+[ 22744 ms Verbose] Drone active command status:0
+[ 22782 ms Verbose] Drone active command status:0
+[ 22786 ms Verbose] Drone active command status:0
+[ 22790 ms Verbose] Drone active command status:0
+[ 22794 ms Verbose] Drone active command status:0
+[ 22798 ms Verbose] Drone active command status:0
+[ 22802 ms Verbose] Drone active command status:0
+[ 22806 ms Verbose] Drone active command status:0
+[ 22810 ms Verbose] Drone active command status:0
+[ 22814 ms Verbose] Drone active command status:0
+[ 22887 ms Verbose] Drone active command status:0
+[ 22890 ms Inform] Recording data from US 0->2052
+[ 22891 ms Verbose] Drone active command status:0
+[ 22895 ms Verbose] Drone active command status:0
+[ 22899 ms Verbose] Drone active command status:0
+[ 22904 ms Inform] Controller status: estop/operator: 0/0
+[ 22935 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 22939 ms Verbose] Drone active command status:0
+[ 22943 ms Verbose] Drone active command status:0
+[ 22947 ms Verbose] Drone active command status:0
+[ 22951 ms Verbose] Drone active command status:0
+[ 23013 ms Verbose] Drone active command status:0
+[ 23017 ms Verbose] Drone active command status:0
+[ 23021 ms Verbose] Drone active command status:0
+[ 23025 ms Verbose] Drone active command status:0
+[ 23070 ms Verbose] Drone active command status:0
+[ 23074 ms Verbose] Drone active command status:0
+[ 23078 ms Verbose] Drone active command status:0
+[ 23082 ms Verbose] Drone active command status:0
+[ 23128 ms Verbose] Drone active command status:0
+[ 23132 ms Verbose] Drone active command status:0
+[ 23136 ms Verbose] Drone active command status:0
+[ 23140 ms Verbose] Drone active command status:0
+[ 23185 ms Inform] Controller status: estop/operator: 0/0
+[ 23185 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 23188 ms Verbose] Drone active command status:0
+[ 23192 ms Verbose] Drone active command status:0
+[ 23196 ms Verbose] Drone active command status:0
+[ 23200 ms Verbose] Drone active command status:0
+[ 23260 ms Verbose] Drone active command status:0
+[ 23264 ms Verbose] Drone active command status:0
+[ 23268 ms Verbose] Drone active command status:0
+[ 23272 ms Verbose] Drone active command status:0
+[ 23318 ms Verbose] Drone active command status:0
+[ 23322 ms Verbose] Drone active command status:0
+[ 23326 ms Verbose] Drone active command status:0
+[ 23330 ms Verbose] Drone active command status:0
+[ 23376 ms Verbose] Drone active command status:0
+[ 23380 ms Verbose] Drone active command status:0
+[ 23384 ms Verbose] Drone active command status:0
+[ 23388 ms Verbose] Drone active command status:0
+[ 23434 ms Verbose] Drone active command status:0
+[ 23435 ms Inform] Controller status: estop/operator: 0/0
+[ 23435 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 23438 ms Verbose] Drone active command status:0
+[ 23442 ms Verbose] Drone active command status:0
+[ 23446 ms Verbose] Drone active command status:0
+[ 23526 ms Verbose] Drone active command status:0
+[ 23530 ms Verbose] Drone active command status:0
+[ 23534 ms Verbose] Drone active command status:0
+[ 23538 ms Verbose] Drone active command status:0
+[ 23542 ms Verbose] Drone active command status:0
+[ 23680 ms Verbose] Drone active command status:0
+[ 23684 ms Verbose] Drone active command status:0
+[ 23685 ms Inform] Controller status: estop/operator: 0/0
+[ 23685 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 23688 ms Verbose] Drone active command status:0
+[ 23692 ms Verbose] Drone active command status:0
+[ 23751 ms Verbose] Drone active command status:0
+[ 23755 ms Verbose] Drone active command status:0
+[ 23759 ms Verbose] Drone active command status:0
+[ 23763 ms Verbose] Drone active command status:0
+[ 23812 ms Verbose] Drone active command status:0
+[ 23816 ms Verbose] Drone active command status:0
+[ 23820 ms Verbose] Drone active command status:0
+[ 23824 ms Verbose] Drone active command status:0
+[ 23873 ms Verbose] Drone active command status:0
+[ 23877 ms Verbose] Drone active command status:0
+[ 23881 ms Verbose] Drone active command status:0
+[ 23885 ms Verbose] Drone active command status:0
+[ 23931 ms Inform] Recording data from US 1->0
+[ 23931 ms Verbose] Drone active command status:0
+[ 23935 ms Verbose] Drone active command status:0
+[ 23935 ms Inform] Controller status: estop/operator: 0/0
+[ 23935 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 23939 ms Verbose] Drone active command status:0
+[ 23943 ms Verbose] Drone active command status:0
+[ 24001 ms Verbose] Drone active command status:0
+[ 24005 ms Verbose] Drone active command status:0
+[ 24009 ms Verbose] Drone active command status:0
+[ 24013 ms Verbose] Drone active command status:0
+[ 24058 ms Verbose] Drone active command status:0
+[ 24062 ms Verbose] Drone active command status:0
+[ 24066 ms Verbose] Drone active command status:0
+[ 24070 ms Verbose] Drone active command status:0
+[ 24095 ms Inform] Recording data from US 2->2099
+[ 24114 ms Verbose] Drone active command status:0
+[ 24118 ms Verbose] Drone active command status:0
+[ 24122 ms Verbose] Drone active command status:0
+[ 24126 ms Verbose] Drone active command status:0
+[ 24154 ms Inform] Recording data from US 3->40
+[ 24161 ms Verbose] Drone active command status:0
+[ 24165 ms Verbose] Drone active command status:0
+[ 24169 ms Verbose] Drone active command status:0
+[ 24173 ms Verbose] Drone active command status:0
+[ 24185 ms Inform] Controller status: estop/operator: 0/0
+[ 24209 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 24213 ms Verbose] Drone active command status:0
+[ 24217 ms Verbose] Drone active command status:0
+[ 24221 ms Verbose] Drone active command status:0
+[ 24225 ms Verbose] Drone active command status:0
+[ 24283 ms Verbose] Drone active command status:0
+[ 24287 ms Verbose] Drone active command status:0
+[ 24291 ms Verbose] Drone active command status:0
+[ 24295 ms Verbose] Drone active command status:0
+[ 24328 ms Inform] Recording data from US 4->2201
+[ 24341 ms Verbose] Drone active command status:0
+[ 24345 ms Verbose] Drone active command status:0
+[ 24349 ms Verbose] Drone active command status:0
+[ 24353 ms Verbose] Drone active command status:0
+[ 24389 ms Verbose] Drone active command status:0
+[ 24393 ms Verbose] Drone active command status:0
+[ 24397 ms Verbose] Drone active command status:0
+[ 24398 ms Inform] Recording data from US 5->327
+[ 24401 ms Verbose] Drone active command status:0
+[ 24438 ms Verbose] Drone active command status:0
+[ 24442 ms Verbose] Drone active command status:0
+[ 24446 ms Verbose] Drone active command status:0
+[ 24450 ms Verbose] Drone active command status:0
+[ 24459 ms Inform] Controller status: estop/operator: 0/0
+[ 24489 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 24493 ms Verbose] Drone active command status:0
+[ 24497 ms Verbose] Drone active command status:0
+[ 24501 ms Verbose] Drone active command status:0
+[ 24505 ms Verbose] Drone active command status:0
+[ 24509 ms Verbose] Drone active command status:0
+[ 24513 ms Verbose] Drone active command status:0
+[ 24517 ms Verbose] Drone active command status:0
+[ 24521 ms Verbose] Drone active command status:0
+[ 24525 ms Verbose] Drone active command status:0
+[ 24529 ms Verbose] Drone active command status:0
+[ 24559 ms Inform] Recording data from US 0->2052
+[ 24616 ms Verbose] Drone active command status:0
+[ 24620 ms Verbose] Drone active command status:0
+[ 24624 ms Verbose] Drone active command status:0
+[ 24677 ms Verbose] Drone active command status:0
+[ 24681 ms Verbose] Drone active command status:0
+[ 24685 ms Verbose] Drone active command status:0
+[ 24689 ms Verbose] Drone active command status:0
+[ 24734 ms Verbose] Drone active command status:0
+[ 24738 ms Verbose] Drone active command status:0
+[ 24739 ms Inform] Controller status: estop/operator: 0/0
+[ 24739 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 24742 ms Verbose] Drone active command status:0
+[ 24746 ms Verbose] Drone active command status:0
+[ 24809 ms Verbose] Drone active command status:0
+[ 24813 ms Verbose] Drone active command status:0
+[ 24817 ms Verbose] Drone active command status:0
+[ 24821 ms Verbose] Drone active command status:0
+[ 24868 ms Verbose] Drone active command status:0
+[ 24872 ms Verbose] Drone active command status:0
+[ 24876 ms Verbose] Drone active command status:0
+[ 24880 ms Verbose] Drone active command status:0
+[ 24928 ms Verbose] Drone active command status:0
+[ 24932 ms Verbose] Drone active command status:0
+[ 24936 ms Verbose] Drone active command status:0
+[ 24940 ms Verbose] Drone active command status:0
+[ 24987 ms Verbose] Drone active command status:0
+[ 24989 ms Inform] Controller status: estop/operator: 0/0
+[ 24989 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 24991 ms Verbose] Drone active command status:0
+[ 24995 ms Verbose] Drone active command status:0
+[ 24999 ms Verbose] Drone active command status:0
+[ 25063 ms Verbose] Drone active command status:0
+[ 25067 ms Verbose] Drone active command status:0
+[ 25071 ms Verbose] Drone active command status:0
+[ 25075 ms Verbose] Drone active command status:0
+[ 25122 ms Verbose] Drone active command status:0
+[ 25126 ms Verbose] Drone active command status:0
+[ 25130 ms Verbose] Drone active command status:0
+[ 25134 ms Verbose] Drone active command status:0
+[ 25185 ms Verbose] Drone active command status:0
+[ 25189 ms Verbose] Drone active command status:0
+[ 25193 ms Verbose] Drone active command status:0
+[ 25197 ms Verbose] Drone active command status:0
+[ 25239 ms Inform] Controller status: estop/operator: 0/0
+[ 25242 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 25246 ms Verbose] Drone active command status:0
+[ 25250 ms Verbose] Drone active command status:0
+[ 25254 ms Verbose] Drone active command status:0
+[ 25258 ms Verbose] Drone active command status:0
+[ 25318 ms Verbose] Drone active command status:0
+[ 25322 ms Verbose] Drone active command status:0
+[ 25326 ms Verbose] Drone active command status:0
+[ 25330 ms Verbose] Drone active command status:0
+[ 25379 ms Verbose] Drone active command status:0
+[ 25383 ms Verbose] Drone active command status:0
+[ 25387 ms Verbose] Drone active command status:0
+[ 25391 ms Verbose] Drone active command status:0
+[ 25438 ms Verbose] Drone active command status:0
+[ 25442 ms Verbose] Drone active command status:0
+[ 25446 ms Verbose] Drone active command status:0
+[ 25450 ms Verbose] Drone active command status:0
+[ 25492 ms Inform] Controller status: estop/operator: 0/0
+[ 25493 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 25497 ms Verbose] Drone active command status:0
+[ 25501 ms Verbose] Drone active command status:0
+[ 25505 ms Verbose] Drone active command status:0
+[ 25509 ms Verbose] Drone active command status:0
+[ 25570 ms Verbose] Drone active command status:0
+[ 25574 ms Verbose] Drone active command status:0
+[ 25578 ms Verbose] Drone active command status:0
+[ 25582 ms Verbose] Drone active command status:0
+[ 25636 ms Verbose] Drone active command status:0
+[ 25640 ms Verbose] Drone active command status:0
+[ 25644 ms Verbose] Drone active command status:0
+[ 25648 ms Verbose] Drone active command status:0
+[ 25654 ms Inform] Recording data from US 1->0
+[ 25688 ms Verbose] Drone active command status:0
+[ 25692 ms Verbose] Drone active command status:0
+[ 25696 ms Verbose] Drone active command status:0
+[ 25700 ms Verbose] Drone active command status:0
+[ 25738 ms Verbose] Drone active command status:0
+[ 25742 ms Verbose] Drone active command status:0
+[ 25743 ms Inform] Controller status: estop/operator: 0/0
+[ 25743 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 25746 ms Verbose] Drone active command status:0
+[ 25750 ms Verbose] Drone active command status:0
+[ 25814 ms Verbose] Drone active command status:0
+[ 25818 ms Verbose] Drone active command status:0
+[ 25822 ms Verbose] Drone active command status:0
+[ 25826 ms Verbose] Drone active command status:0
+[ 25848 ms Inform] Recording data from US 2->2087
+[ 25859 ms Verbose] Drone active command status:0
+[ 25863 ms Verbose] Drone active command status:0
+[ 25867 ms Verbose] Drone active command status:0
+[ 25871 ms Verbose] Drone active command status:0
+[ 25900 ms Inform] Recording data from US 3->40
+[ 25910 ms Verbose] Drone active command status:0
+[ 25914 ms Verbose] Drone active command status:0
+[ 25918 ms Verbose] Drone active command status:0
+[ 25922 ms Verbose] Drone active command status:0
+[ 25960 ms Verbose] Drone active command status:0
+[ 25964 ms Verbose] Drone active command status:0
+[ 25968 ms Verbose] Drone active command status:0
+[ 25972 ms Verbose] Drone active command status:0
+[ 25993 ms Inform] Controller status: estop/operator: 0/0
+[ 26015 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 26019 ms Verbose] Drone active command status:0
+[ 26023 ms Verbose] Drone active command status:0
+[ 26027 ms Verbose] Drone active command status:0
+[ 26031 ms Verbose] Drone active command status:0
+[ 26076 ms Inform] Recording data from US 4->2195
+[ 26088 ms Verbose] Drone active command status:0
+[ 26092 ms Verbose] Drone active command status:0
+[ 26096 ms Verbose] Drone active command status:0
+[ 26100 ms Verbose] Drone active command status:0
+[ 26127 ms Inform] Recording data from US 5->33
+[ 26136 ms Verbose] Drone active command status:0
+[ 26140 ms Verbose] Drone active command status:0
+[ 26144 ms Verbose] Drone active command status:0
+[ 26148 ms Verbose] Drone active command status:0
+[ 26190 ms Verbose] Drone active command status:0
+[ 26194 ms Verbose] Drone active command status:0
+[ 26198 ms Verbose] Drone active command status:0
+[ 26202 ms Verbose] Drone active command status:0
+[ 26206 ms Verbose] Drone active command status:0
+[ 26210 ms Verbose] Drone active command status:0
+[ 26214 ms Verbose] Drone active command status:0
+[ 26218 ms Verbose] Drone active command status:0
+[ 26222 ms Verbose] Drone active command status:0
+[ 26226 ms Verbose] Drone active command status:0
+[ 26265 ms Inform] Controller status: estop/operator: 0/0
+[ 26297 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 26294 ms Inform] Recording data from US 0->2052
+[ 26300 ms Verbose] Drone active command status:0
+[ 26304 ms Verbose] Drone active command status:0
+[ 26308 ms Verbose] Drone active command status:0
+[ 26312 ms Verbose] Drone active command status:0
+[ 26364 ms Verbose] Drone active command status:0
+[ 26368 ms Verbose] Drone active command status:0
+[ 26372 ms Verbose] Drone active command status:0
+[ 26376 ms Verbose] Drone active command status:0
+[ 26424 ms Verbose] Drone active command status:0
+[ 26428 ms Verbose] Drone active command status:0
+[ 26432 ms Verbose] Drone active command status:0
+[ 26436 ms Verbose] Drone active command status:0
+[ 26483 ms Verbose] Drone active command status:0
+[ 26487 ms Verbose] Drone active command status:0
+[ 26491 ms Verbose] Drone active command status:0
+[ 26495 ms Verbose] Drone active command status:0
+[ 26542 ms Verbose] Drone active command status:0
+[ 26546 ms Verbose] Drone active command status:0
+[ 26547 ms Inform] Controller status: estop/operator: 0/0
+[ 26547 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 26550 ms Verbose] Drone active command status:0
+[ 26554 ms Verbose] Drone active command status:0
+[ 26613 ms Verbose] Drone active command status:0
+[ 26617 ms Verbose] Drone active command status:0
+[ 26621 ms Verbose] Drone active command status:0
+[ 26625 ms Verbose] Drone active command status:0
+[ 26674 ms Verbose] Drone active command status:0
+[ 26678 ms Verbose] Drone active command status:0
+[ 26682 ms Verbose] Drone active command status:0
+[ 26686 ms Verbose] Drone active command status:0
+[ 26731 ms Verbose] Drone active command status:0
+[ 26735 ms Verbose] Drone active command status:0
+[ 26739 ms Verbose] Drone active command status:0
+[ 26743 ms Verbose] Drone active command status:0
+[ 26791 ms Verbose] Drone active command status:0
+[ 26795 ms Verbose] Drone active command status:0
+[ 26797 ms Inform] Controller status: estop/operator: 0/0
+[ 26797 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 26799 ms Verbose] Drone active command status:0
+[ 26803 ms Verbose] Drone active command status:0
+[ 26864 ms Verbose] Drone active command status:0
+[ 26868 ms Verbose] Drone active command status:0
+[ 26872 ms Verbose] Drone active command status:0
+[ 26876 ms Verbose] Drone active command status:0
+[ 26925 ms Verbose] Drone active command status:0
+[ 26929 ms Verbose] Drone active command status:0
+[ 26933 ms Verbose] Drone active command status:0
+[ 26937 ms Verbose] Drone active command status:0
+[ 26982 ms Verbose] Drone active command status:0
+[ 26986 ms Verbose] Drone active command status:0
+[ 26990 ms Verbose] Drone active command status:0
+[ 26994 ms Verbose] Drone active command status:0
+[ 27041 ms Verbose] Drone active command status:0
+[ 27045 ms Verbose] Drone active command status:0
+[ 27047 ms Inform] Controller status: estop/operator: 0/0
+[ 27047 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 27049 ms Verbose] Drone active command status:0
+[ 27053 ms Verbose] Drone active command status:0
+[ 27112 ms Verbose] Drone active command status:0
+[ 27116 ms Verbose] Drone active command status:0
+[ 27120 ms Verbose] Drone active command status:0
+[ 27124 ms Verbose] Drone active command status:0
+[ 27173 ms Verbose] Drone active command status:0
+[ 27177 ms Verbose] Drone active command status:0
+[ 27181 ms Verbose] Drone active command status:0
+[ 27185 ms Verbose] Drone active command status:0
+[ 27231 ms Verbose] Drone active command status:0
+[ 27235 ms Verbose] Drone active command status:0
+[ 27239 ms Verbose] Drone active command status:0
+[ 27243 ms Verbose] Drone active command status:0
+[ 27290 ms Verbose] Drone active command status:0
+[ 27294 ms Verbose] Drone active command status:0
+[ 27297 ms Inform] Controller status: estop/operator: 0/0
+[ 27297 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 27298 ms Verbose] Drone active command status:0
+[ 27302 ms Verbose] Drone active command status:0
+[ 27338 ms Inform] Recording data from US 1->0
+[ 27356 ms Verbose] Drone active command status:0
+[ 27360 ms Verbose] Drone active command status:0
+[ 27364 ms Verbose] Drone active command status:0
+[ 27368 ms Verbose] Drone active command status:0
+[ 27405 ms Inform] Recording data from US 2->195
+[ 27417 ms Verbose] Drone active command status:0
+[ 27421 ms Verbose] Drone active command status:0
+[ 27425 ms Verbose] Drone active command status:0
+[ 27429 ms Verbose] Drone active command status:0
+[ 27458 ms Inform] Recording data from US 3->42
+[ 27465 ms Verbose] Drone active command status:0
+[ 27469 ms Verbose] Drone active command status:0
+[ 27473 ms Verbose] Drone active command status:0
+[ 27477 ms Verbose] Drone active command status:0
+[ 27507 ms Inform] Recording data from US 4->71
+[ 27515 ms Verbose] Drone active command status:0
+[ 27519 ms Verbose] Drone active command status:0
+[ 27523 ms Verbose] Drone active command status:0
+[ 27527 ms Verbose] Drone active command status:0
+[ 27547 ms Inform] Controller status: estop/operator: 0/0
+[ 27560 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 27555 ms Inform] Recording data from US 5->38
+[ 27564 ms Verbose] Drone active command status:0
+[ 27568 ms Verbose] Drone active command status:0
+[ 27572 ms Verbose] Drone active command status:0
+[ 27645 ms Verbose] Drone active command status:0
+[ 27649 ms Verbose] Drone active command status:0
+[ 27653 ms Verbose] Drone active command status:0
+[ 27657 ms Verbose] Drone active command status:0
+[ 27661 ms Verbose] Drone active command status:0
+[ 27665 ms Verbose] Drone active command status:0
+[ 27669 ms Verbose] Drone active command status:0
+[ 27673 ms Verbose] Drone active command status:0
+[ 27677 ms Verbose] Drone active command status:0
+[ 27722 ms Inform] Recording data from US 0->2049
+[ 27742 ms Verbose] Drone active command status:0
+[ 27746 ms Verbose] Drone active command status:0
+[ 27750 ms Verbose] Drone active command status:0
+[ 27754 ms Verbose] Drone active command status:0
+[ 27792 ms Verbose] Drone active command status:0
+[ 27796 ms Verbose] Drone active command status:0
+[ 27800 ms Verbose] Drone active command status:0
+[ 27804 ms Verbose] Drone active command status:0
+[ 27810 ms Inform] Controller status: estop/operator: 0/0
+[ 27849 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 27853 ms Verbose] Drone active command status:0
+[ 27857 ms Verbose] Drone active command status:0
+[ 27861 ms Verbose] Drone active command status:0
+[ 27865 ms Verbose] Drone active command status:0
+[ 27927 ms Verbose] Drone active command status:0
+[ 27931 ms Verbose] Drone active command status:0
+[ 27935 ms Verbose] Drone active command status:0
+[ 27939 ms Verbose] Drone active command status:0
+[ 27976 ms Verbose] Drone active command status:0
+[ 27980 ms Verbose] Drone active command status:0
+[ 27984 ms Verbose] Drone active command status:0
+[ 27988 ms Verbose] Drone active command status:0
+[ 28033 ms Verbose] Drone active command status:0
+[ 28037 ms Verbose] Drone active command status:0
+[ 28041 ms Verbose] Drone active command status:0
+[ 28045 ms Verbose] Drone active command status:0
+[ 28096 ms Verbose] Drone active command status:0
+[ 28099 ms Inform] Controller status: estop/operator: 0/0
+[ 28099 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 28100 ms Verbose] Drone active command status:0
+[ 28104 ms Verbose] Drone active command status:0
+[ 28108 ms Verbose] Drone active command status:0
+[ 28169 ms Verbose] Drone active command status:0
+[ 28173 ms Verbose] Drone active command status:0
+[ 28177 ms Verbose] Drone active command status:0
+[ 28181 ms Verbose] Drone active command status:0
+[ 28229 ms Verbose] Drone active command status:0
+[ 28233 ms Verbose] Drone active command status:0
+[ 28237 ms Verbose] Drone active command status:0
+[ 28241 ms Verbose] Drone active command status:0
+[ 28283 ms Verbose] Drone active command status:0
+[ 28287 ms Verbose] Drone active command status:0
+[ 28291 ms Verbose] Drone active command status:0
+[ 28295 ms Verbose] Drone active command status:0
+[ 28341 ms Verbose] Drone active command status:0
+[ 28345 ms Verbose] Drone active command status:0
+[ 28349 ms Verbose] Drone active command status:0
+[ 28349 ms Inform] Controller status: estop/operator: 0/0
+[ 28349 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 28353 ms Verbose] Drone active command status:0
+[ 28410 ms Verbose] Drone active command status:0
+[ 28414 ms Verbose] Drone active command status:0
+[ 28418 ms Verbose] Drone active command status:0
+[ 28422 ms Verbose] Drone active command status:0
+[ 28470 ms Verbose] Drone active command status:0
+[ 28474 ms Verbose] Drone active command status:0
+[ 28478 ms Verbose] Drone active command status:0
+[ 28482 ms Verbose] Drone active command status:0
+[ 28527 ms Verbose] Drone active command status:0
+[ 28531 ms Verbose] Drone active command status:0
+[ 28535 ms Verbose] Drone active command status:0
+[ 28539 ms Verbose] Drone active command status:0
+[ 28590 ms Verbose] Drone active command status:0
+[ 28594 ms Verbose] Drone active command status:0
+[ 28598 ms Verbose] Drone active command status:0
+[ 28599 ms Inform] Controller status: estop/operator: 0/0
+[ 28599 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 28602 ms Verbose] Drone active command status:0
+[ 28662 ms Verbose] Drone active command status:0
+[ 28666 ms Verbose] Drone active command status:0
+[ 28670 ms Verbose] Drone active command status:0
+[ 28674 ms Verbose] Drone active command status:0
+[ 28724 ms Verbose] Drone active command status:0
+[ 28728 ms Verbose] Drone active command status:0
+[ 28732 ms Verbose] Drone active command status:0
+[ 28736 ms Verbose] Drone active command status:0
+[ 28779 ms Inform] Recording data from US 1->0
+[ 28782 ms Verbose] Drone active command status:0
+[ 28786 ms Verbose] Drone active command status:0
+[ 28790 ms Verbose] Drone active command status:0
+[ 28794 ms Verbose] Drone active command status:0
+[ 28831 ms Inform] Recording data from US 2->195
+[ 28836 ms Verbose] Drone active command status:0
+[ 28840 ms Verbose] Drone active command status:0
+[ 28844 ms Verbose] Drone active command status:0
+[ 28848 ms Verbose] Drone active command status:0
+[ 28849 ms Inform] Controller status: estop/operator: 0/0
+[ 28882 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 28877 ms Inform] Recording data from US 3->59
+[ 28886 ms Verbose] Drone active command status:0
+[ 28890 ms Verbose] Drone active command status:0
+[ 28894 ms Verbose] Drone active command status:0
+[ 28928 ms Inform] Recording data from US 4->76
+[ 28947 ms Verbose] Drone active command status:0
+[ 28951 ms Verbose] Drone active command status:0
+[ 28955 ms Verbose] Drone active command status:0
+[ 28959 ms Verbose] Drone active command status:0
+[ 28986 ms Inform] Recording data from US 5->36
+[ 28996 ms Verbose] Drone active command status:0
+[ 29000 ms Verbose] Drone active command status:0
+[ 29004 ms Verbose] Drone active command status:0
+[ 29008 ms Verbose] Drone active command status:0
+[ 29050 ms Verbose] Drone active command status:0
+[ 29054 ms Verbose] Drone active command status:0
+[ 29058 ms Verbose] Drone active command status:0
+[ 29062 ms Verbose] Drone active command status:0
+[ 29066 ms Verbose] Drone active command status:0
+[ 29070 ms Verbose] Drone active command status:0
+[ 29074 ms Verbose] Drone active command status:0
+[ 29078 ms Verbose] Drone active command status:0
+[ 29082 ms Verbose] Drone active command status:0
+[ 29086 ms Verbose] Drone active command status:0
+[ 29132 ms Inform] Controller status: estop/operator: 0/0
+[ 29167 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 29155 ms Inform] Recording data from US 0->2062
+[ 29171 ms Verbose] Drone active command status:0
+[ 29175 ms Verbose] Drone active command status:0
+[ 29179 ms Verbose] Drone active command status:0
+[ 29237 ms Verbose] Drone active command status:0
+[ 29241 ms Verbose] Drone active command status:0
+[ 29245 ms Verbose] Drone active command status:0
+[ 29249 ms Verbose] Drone active command status:0
+[ 29293 ms Verbose] Drone active command status:0
+[ 29297 ms Verbose] Drone active command status:0
+[ 29301 ms Verbose] Drone active command status:0
+[ 29305 ms Verbose] Drone active command status:0
+[ 29349 ms Verbose] Drone active command status:0
+[ 29353 ms Verbose] Drone active command status:0
+[ 29357 ms Verbose] Drone active command status:0
+[ 29361 ms Verbose] Drone active command status:0
+[ 29409 ms Verbose] Drone active command status:0
+[ 29413 ms Verbose] Drone active command status:0
+[ 29417 ms Verbose] Drone active command status:0
+[ 29417 ms Inform] Controller status: estop/operator: 0/0
+[ 29417 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 29421 ms Verbose] Drone active command status:0
+[ 29484 ms Verbose] Drone active command status:0
+[ 29488 ms Verbose] Drone active command status:0
+[ 29492 ms Verbose] Drone active command status:0
+[ 29496 ms Verbose] Drone active command status:0
+[ 29541 ms Verbose] Drone active command status:0
+[ 29545 ms Verbose] Drone active command status:0
+[ 29549 ms Verbose] Drone active command status:0
+[ 29553 ms Verbose] Drone active command status:0
+[ 29598 ms Verbose] Drone active command status:0
+[ 29602 ms Verbose] Drone active command status:0
+[ 29606 ms Verbose] Drone active command status:0
+[ 29610 ms Verbose] Drone active command status:0
+[ 29651 ms Verbose] Drone active command status:0
+[ 29655 ms Verbose] Drone active command status:0
+[ 29659 ms Verbose] Drone active command status:0
+[ 29663 ms Verbose] Drone active command status:0
+[ 29667 ms Inform] Controller status: estop/operator: 0/0
+[ 29705 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 29708 ms Verbose] Drone active command status:0
+[ 29712 ms Verbose] Drone active command status:0
+[ 29716 ms Verbose] Drone active command status:0
+[ 29720 ms Verbose] Drone active command status:0
+[ 29783 ms Verbose] Drone active command status:0
+[ 29787 ms Verbose] Drone active command status:0
+[ 29791 ms Verbose] Drone active command status:0
+[ 29795 ms Verbose] Drone active command status:0
+[ 29840 ms Verbose] Drone active command status:0
+[ 29844 ms Verbose] Drone active command status:0
+[ 29848 ms Verbose] Drone active command status:0
+[ 29852 ms Verbose] Drone active command status:0
+[ 29901 ms Verbose] Drone active command status:0
+[ 29905 ms Verbose] Drone active command status:0
+[ 29909 ms Verbose] Drone active command status:0
+[ 29913 ms Verbose] Drone active command status:0
+[ 29954 ms Inform] Controller status: estop/operator: 0/0
+[ 29954 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 29956 ms Verbose] Drone active command status:0
+[ 29960 ms Verbose] Drone active command status:0
+[ 29964 ms Verbose] Drone active command status:0
+[ 29968 ms Verbose] Drone active command status:0
+[ 30030 ms Verbose] Drone active command status:0
+[ 30034 ms Verbose] Drone active command status:0
+[ 30038 ms Verbose] Drone active command status:0
+[ 30042 ms Verbose] Drone active command status:0
+[ 30086 ms Verbose] Drone active command status:0
+[ 30090 ms Verbose] Drone active command status:0
+[ 30094 ms Verbose] Drone active command status:0
+[ 30098 ms Verbose] Drone active command status:0
+[ 30145 ms Verbose] Drone active command status:0
+[ 30149 ms Verbose] Drone active command status:0
+[ 30153 ms Verbose] Drone active command status:0
+[ 30157 ms Verbose] Drone active command status:0
+[ 30202 ms Verbose] Drone active command status:0
+[ 30204 ms Inform] Controller status: estop/operator: 0/0
+[ 30204 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 30206 ms Verbose] Drone active command status:0
+[ 30208 ms Inform] Recording data from US 1->0
+[ 30210 ms Verbose] Drone active command status:0
+[ 30214 ms Verbose] Drone active command status:0
+[ 30260 ms Inform] Recording data from US 2->190
+[ 30275 ms Verbose] Drone active command status:0
+[ 30279 ms Verbose] Drone active command status:0
+[ 30283 ms Verbose] Drone active command status:0
+[ 30287 ms Verbose] Drone active command status:0
+[ 30316 ms Inform] Recording data from US 3->59
+[ 30324 ms Verbose] Drone active command status:0
+[ 30328 ms Verbose] Drone active command status:0
+[ 30332 ms Verbose] Drone active command status:0
+[ 30364 ms Inform] Recording data from US 4->59
+[ 30373 ms Verbose] Drone active command status:0
+[ 30377 ms Verbose] Drone active command status:0
+[ 30381 ms Verbose] Drone active command status:0
+[ 30413 ms Inform] Recording data from US 5->36
+[ 30419 ms Verbose] Drone active command status:0
+[ 30423 ms Verbose] Drone active command status:0
+[ 30427 ms Verbose] Drone active command status:0
+[ 30431 ms Verbose] Drone active command status:0
+[ 30454 ms Inform] Controller status: estop/operator: 0/0
+[ 30469 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 30473 ms Verbose] Drone active command status:0
+[ 30477 ms Verbose] Drone active command status:0
+[ 30481 ms Verbose] Drone active command status:0
+[ 30485 ms Verbose] Drone active command status:0
+[ 30489 ms Verbose] Drone active command status:0
+[ 30493 ms Verbose] Drone active command status:0
+[ 30497 ms Verbose] Drone active command status:0
+[ 30501 ms Verbose] Drone active command status:0
+[ 30505 ms Verbose] Drone active command status:0
+[ 30509 ms Verbose] Drone active command status:0
+[ 30513 ms Verbose] Drone active command status:0
+[ 30517 ms Verbose] Drone active command status:0
+[ 30521 ms Verbose] Drone active command status:0
+[ 30525 ms Verbose] Drone active command status:0
+[ 30577 ms Inform] Recording data from US 0->2048
+[ 30629 ms Verbose] Drone active command status:0
+[ 30633 ms Verbose] Drone active command status:0
+[ 30637 ms Verbose] Drone active command status:0
+[ 30641 ms Verbose] Drone active command status:0
+[ 30679 ms Verbose] Drone active command status:0
+[ 30683 ms Verbose] Drone active command status:0
+[ 30687 ms Verbose] Drone active command status:0
+[ 30691 ms Verbose] Drone active command status:0
+[ 30719 ms Inform] Controller status: estop/operator: 0/0
+[ 30734 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 30738 ms Verbose] Drone active command status:0
+[ 30742 ms Verbose] Drone active command status:0
+[ 30746 ms Verbose] Drone active command status:0
+[ 30750 ms Verbose] Drone active command status:0
+[ 30810 ms Verbose] Drone active command status:0
+[ 30814 ms Verbose] Drone active command status:0
+[ 30818 ms Verbose] Drone active command status:0
+[ 30822 ms Verbose] Drone active command status:0
+[ 30871 ms Verbose] Drone active command status:0
+[ 30875 ms Verbose] Drone active command status:0
+[ 30879 ms Verbose] Drone active command status:0
+[ 30883 ms Verbose] Drone active command status:0
+[ 30930 ms Verbose] Drone active command status:0
+[ 30934 ms Verbose] Drone active command status:0
+[ 30938 ms Verbose] Drone active command status:0
+[ 30942 ms Verbose] Drone active command status:0
+[ 30984 ms Inform] Controller status: estop/operator: 0/0
+[ 30996 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 30999 ms Verbose] Drone active command status:0
+[ 31003 ms Verbose] Drone active command status:0
+[ 31007 ms Verbose] Drone active command status:0
+[ 31011 ms Verbose] Drone active command status:0
+[ 31071 ms Verbose] Drone active command status:0
+[ 31075 ms Verbose] Drone active command status:0
+[ 31079 ms Verbose] Drone active command status:0
+[ 31083 ms Verbose] Drone active command status:0
+[ 31138 ms Verbose] Drone active command status:0
+[ 31142 ms Verbose] Drone active command status:0
+[ 31146 ms Verbose] Drone active command status:0
+[ 31150 ms Verbose] Drone active command status:0
+[ 31154 ms Verbose] Drone active command status:0
+[ 31202 ms Verbose] Drone active command status:0
+[ 31206 ms Verbose] Drone active command status:0
+[ 31210 ms Verbose] Drone active command status:0
+[ 31214 ms Verbose] Drone active command status:0
+[ 31246 ms Inform] Controller status: estop/operator: 0/0
+[ 31258 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 31261 ms Verbose] Drone active command status:0
+[ 31265 ms Verbose] Drone active command status:0
+[ 31269 ms Verbose] Drone active command status:0
+[ 31273 ms Verbose] Drone active command status:0
+[ 31335 ms Verbose] Drone active command status:0
+[ 31339 ms Verbose] Drone active command status:0
+[ 31343 ms Verbose] Drone active command status:0
+[ 31347 ms Verbose] Drone active command status:0
+[ 31389 ms Verbose] Drone active command status:0
+[ 31393 ms Verbose] Drone active command status:0
+[ 31397 ms Verbose] Drone active command status:0
+[ 31401 ms Verbose] Drone active command status:0
+[ 31438 ms Verbose] Drone active command status:0
+[ 31442 ms Verbose] Drone active command status:0
+[ 31446 ms Verbose] Drone active command status:0
+[ 31450 ms Verbose] Drone active command status:0
+[ 31496 ms Verbose] Drone active command status:0
+[ 31500 ms Verbose] Drone active command status:0
+[ 31504 ms Verbose] Drone active command status:0
+[ 31508 ms Verbose] Drone active command status:0
+[ 31508 ms Inform] Controller status: estop/operator: 0/0
+[ 31553 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 31557 ms Verbose] Drone active command status:0
+[ 31561 ms Verbose] Drone active command status:0
+[ 31565 ms Verbose] Drone active command status:0
+[ 31569 ms Verbose] Drone active command status:0
+[ 31632 ms Verbose] Drone active command status:0
+[ 31636 ms Verbose] Drone active command status:0
+[ 31640 ms Verbose] Drone active command status:0
+[ 31644 ms Verbose] Drone active command status:0
+[ 31666 ms Inform] Recording data from US 1->0
+[ 31686 ms Verbose] Drone active command status:0
+[ 31690 ms Verbose] Drone active command status:0
+[ 31694 ms Verbose] Drone active command status:0
+[ 31698 ms Verbose] Drone active command status:0
+[ 31734 ms Verbose] Drone active command status:0
+[ 31735 ms Inform] Recording data from US 2->197
+[ 31738 ms Verbose] Drone active command status:0
+[ 31742 ms Verbose] Drone active command status:0
+[ 31746 ms Verbose] Drone active command status:0
+[ 31779 ms Inform] Recording data from US 3->41
+[ 31784 ms Verbose] Drone active command status:0
+[ 31788 ms Verbose] Drone active command status:0
+[ 31792 ms Verbose] Drone active command status:0
+[ 31796 ms Verbose] Drone active command status:0
+[ 31803 ms Inform] Controller status: estop/operator: 0/0
+[ 31828 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 31825 ms Inform] Recording data from US 4->59
+[ 31831 ms Verbose] Drone active command status:0
+[ 31835 ms Verbose] Drone active command status:0
+[ 31839 ms Verbose] Drone active command status:0
+[ 31843 ms Verbose] Drone active command status:0
+[ 31870 ms Inform] Recording data from US 5->29
+[ 31903 ms Verbose] Drone active command status:0
+[ 31907 ms Verbose] Drone active command status:0
+[ 31911 ms Verbose] Drone active command status:0
+[ 31915 ms Verbose] Drone active command status:0
+[ 31955 ms Verbose] Drone active command status:0
+[ 31959 ms Verbose] Drone active command status:0
+[ 31963 ms Verbose] Drone active command status:0
+[ 31967 ms Verbose] Drone active command status:0
+[ 31971 ms Verbose] Drone active command status:0
+[ 31975 ms Verbose] Drone active command status:0
+[ 31979 ms Verbose] Drone active command status:0
+[ 31983 ms Verbose] Drone active command status:0
+[ 31987 ms Verbose] Drone active command status:0
+[ 32056 ms Verbose] Drone active command status:0
+[ 32060 ms Verbose] Drone active command status:0
+[ 32061 ms Inform] Recording data from US 0->2052
+[ 32064 ms Verbose] Drone active command status:0
+[ 32068 ms Verbose] Drone active command status:0
+[ 32077 ms Inform] Controller status: estop/operator: 0/0
+[ 32104 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 32108 ms Verbose] Drone active command status:0
+[ 32112 ms Verbose] Drone active command status:0
+[ 32116 ms Verbose] Drone active command status:0
+[ 32120 ms Verbose] Drone active command status:0
+[ 32180 ms Verbose] Drone active command status:0
+[ 32184 ms Verbose] Drone active command status:0
+[ 32188 ms Verbose] Drone active command status:0
+[ 32192 ms Verbose] Drone active command status:0
+[ 32240 ms Verbose] Drone active command status:0
+[ 32244 ms Verbose] Drone active command status:0
+[ 32248 ms Verbose] Drone active command status:0
+[ 32252 ms Verbose] Drone active command status:0
+[ 32300 ms Verbose] Drone active command status:0
+[ 32304 ms Verbose] Drone active command status:0
+[ 32308 ms Verbose] Drone active command status:0
+[ 32354 ms Inform] Controller status: estop/operator: 0/0
+[ 32354 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 32312 ms Verbose] Drone active command status:0
+[ 32358 ms Verbose] Drone active command status:0
+[ 32362 ms Verbose] Drone active command status:0
+[ 32366 ms Verbose] Drone active command status:0
+[ 32370 ms Verbose] Drone active command status:0
+[ 32430 ms Verbose] Drone active command status:0
+[ 32434 ms Verbose] Drone active command status:0
+[ 32438 ms Verbose] Drone active command status:0
+[ 32442 ms Verbose] Drone active command status:0
+[ 32488 ms Verbose] Drone active command status:0
+[ 32492 ms Verbose] Drone active command status:0
+[ 32496 ms Verbose] Drone active command status:0
+[ 32500 ms Verbose] Drone active command status:0
+[ 32548 ms Verbose] Drone active command status:0
+[ 32552 ms Verbose] Drone active command status:0
+[ 32556 ms Verbose] Drone active command status:0
+[ 32604 ms Inform] Controller status: estop/operator: 0/0
+[ 32604 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 32560 ms Verbose] Drone active command status:0
+[ 32608 ms Verbose] Drone active command status:0
+[ 32612 ms Verbose] Drone active command status:0
+[ 32616 ms Verbose] Drone active command status:0
+[ 32620 ms Verbose] Drone active command status:0
+[ 32682 ms Verbose] Drone active command status:0
+[ 32686 ms Verbose] Drone active command status:0
+[ 32690 ms Verbose] Drone active command status:0
+[ 32694 ms Verbose] Drone active command status:0
+[ 32741 ms Verbose] Drone active command status:0
+[ 32745 ms Verbose] Drone active command status:0
+[ 32749 ms Verbose] Drone active command status:0
+[ 32753 ms Verbose] Drone active command status:0
+[ 32814 ms Verbose] Drone active command status:0
+[ 32818 ms Verbose] Drone active command status:0
+[ 32822 ms Verbose] Drone active command status:0
+[ 32826 ms Verbose] Drone active command status:0
+[ 32854 ms Inform] Controller status: estop/operator: 0/0
+[ 32869 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 32872 ms Verbose] Drone active command status:0
+[ 32876 ms Verbose] Drone active command status:0
+[ 32880 ms Verbose] Drone active command status:0
+[ 32884 ms Verbose] Drone active command status:0
+[ 32946 ms Verbose] Drone active command status:0
+[ 32950 ms Verbose] Drone active command status:0
+[ 32954 ms Verbose] Drone active command status:0
+[ 32958 ms Verbose] Drone active command status:0
+[ 33002 ms Verbose] Drone active command status:0
+[ 33006 ms Verbose] Drone active command status:0
+[ 33010 ms Verbose] Drone active command status:0
+[ 33014 ms Verbose] Drone active command status:0
+[ 33063 ms Verbose] Drone active command status:0
+[ 33067 ms Verbose] Drone active command status:0
+[ 33071 ms Verbose] Drone active command status:0
+[ 33075 ms Verbose] Drone active command status:0
+[ 33101 ms Inform] Recording data from US 1->0
+[ 33118 ms Verbose] Drone active command status:0
+[ 33119 ms Inform] Controller status: estop/operator: 0/0
+[ 33119 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 33122 ms Verbose] Drone active command status:0
+[ 33126 ms Verbose] Drone active command status:0
+[ 33130 ms Verbose] Drone active command status:0
+[ 33162 ms Inform] Recording data from US 2->110
+[ 33182 ms Verbose] Drone active command status:0
+[ 33186 ms Verbose] Drone active command status:0
+[ 33190 ms Verbose] Drone active command status:0
+[ 33194 ms Verbose] Drone active command status:0
+[ 33222 ms Inform] Recording data from US 3->38
+[ 33231 ms Verbose] Drone active command status:0
+[ 33235 ms Verbose] Drone active command status:0
+[ 33239 ms Verbose] Drone active command status:0
+[ 33273 ms Inform] Recording data from US 4->59
+[ 33280 ms Verbose] Drone active command status:0
+[ 33284 ms Verbose] Drone active command status:0
+[ 33288 ms Verbose] Drone active command status:0
+[ 33292 ms Verbose] Drone active command status:0
+[ 33319 ms Inform] Recording data from US 5->33
+[ 33328 ms Verbose] Drone active command status:0
+[ 33332 ms Verbose] Drone active command status:0
+[ 33336 ms Verbose] Drone active command status:0
+[ 33340 ms Verbose] Drone active command status:0
+[ 33369 ms Inform] Controller status: estop/operator: 0/0
+[ 33390 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 33394 ms Verbose] Drone active command status:0
+[ 33398 ms Verbose] Drone active command status:0
+[ 33402 ms Verbose] Drone active command status:0
+[ 33406 ms Verbose] Drone active command status:0
+[ 33410 ms Verbose] Drone active command status:0
+[ 33414 ms Verbose] Drone active command status:0
+[ 33418 ms Verbose] Drone active command status:0
+[ 33422 ms Verbose] Drone active command status:0
+[ 33426 ms Verbose] Drone active command status:0
+[ 33430 ms Verbose] Drone active command status:0
+[ 33486 ms Inform] Recording data from US 0->2048
+[ 33510 ms Verbose] Drone active command status:0
+[ 33514 ms Verbose] Drone active command status:0
+[ 33518 ms Verbose] Drone active command status:0
+[ 33522 ms Verbose] Drone active command status:0
+[ 33564 ms Verbose] Drone active command status:0
+[ 33568 ms Verbose] Drone active command status:0
+[ 33572 ms Verbose] Drone active command status:0
+[ 33576 ms Verbose] Drone active command status:0
+[ 33611 ms Verbose] Drone active command status:0
+[ 33615 ms Verbose] Drone active command status:0
+[ 33619 ms Verbose] Drone active command status:0
+[ 33623 ms Verbose] Drone active command status:0
+[ 33640 ms Inform] Controller status: estop/operator: 0/0
+[ 33666 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 33669 ms Verbose] Drone active command status:0
+[ 33673 ms Verbose] Drone active command status:0
+[ 33677 ms Verbose] Drone active command status:0
+[ 33681 ms Verbose] Drone active command status:0
+[ 33743 ms Verbose] Drone active command status:0
+[ 33747 ms Verbose] Drone active command status:0
+[ 33751 ms Verbose] Drone active command status:0
+[ 33755 ms Verbose] Drone active command status:0
+[ 33794 ms Verbose] Drone active command status:0
+[ 33798 ms Verbose] Drone active command status:0
+[ 33802 ms Verbose] Drone active command status:0
+[ 33806 ms Verbose] Drone active command status:0
+[ 33841 ms Verbose] Drone active command status:0
+[ 33845 ms Verbose] Drone active command status:0
+[ 33849 ms Verbose] Drone active command status:0
+[ 33853 ms Verbose] Drone active command status:0
+[ 33888 ms Verbose] Drone active command status:0
+[ 33892 ms Verbose] Drone active command status:0
+[ 33896 ms Verbose] Drone active command status:0
+[ 33900 ms Verbose] Drone active command status:0
+[ 33915 ms Inform] Controller status: estop/operator: 0/0
+[ 33944 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 33948 ms Verbose] Drone active command status:0
+[ 33952 ms Verbose] Drone active command status:0
+[ 33956 ms Verbose] Drone active command status:0
+[ 33960 ms Verbose] Drone active command status:0
+[ 34018 ms Verbose] Drone active command status:0
+[ 34022 ms Verbose] Drone active command status:0
+[ 34026 ms Verbose] Drone active command status:0
+[ 34030 ms Verbose] Drone active command status:0
+[ 34079 ms Verbose] Drone active command status:0
+[ 34083 ms Verbose] Drone active command status:0
+[ 34087 ms Verbose] Drone active command status:0
+[ 34091 ms Verbose] Drone active command status:0
+[ 34138 ms Verbose] Drone active command status:0
+[ 34142 ms Verbose] Drone active command status:0
+[ 34146 ms Verbose] Drone active command status:0
+[ 34150 ms Verbose] Drone active command status:0
+[ 34189 ms Verbose] Drone active command status:0
+[ 34193 ms Verbose] Drone active command status:0
+[ 34194 ms Inform] Controller status: estop/operator: 0/0
+[ 34194 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 34197 ms Verbose] Drone active command status:0
+[ 34201 ms Verbose] Drone active command status:0
+[ 34262 ms Verbose] Drone active command status:0
+[ 34266 ms Verbose] Drone active command status:0
+[ 34270 ms Verbose] Drone active command status:0
+[ 34274 ms Verbose] Drone active command status:0
+[ 34313 ms Verbose] Drone active command status:0
+[ 34317 ms Verbose] Drone active command status:0
+[ 34321 ms Verbose] Drone active command status:0
+[ 34325 ms Verbose] Drone active command status:0
+[ 34372 ms Verbose] Drone active command status:0
+[ 34376 ms Verbose] Drone active command status:0
+[ 34380 ms Verbose] Drone active command status:0
+[ 34384 ms Verbose] Drone active command status:0
+[ 34433 ms Verbose] Drone active command status:0
+[ 34437 ms Verbose] Drone active command status:0
+[ 34441 ms Verbose] Drone active command status:0
+[ 34444 ms Inform] Controller status: estop/operator: 0/0
+[ 34500 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 34445 ms Verbose] Drone active command status:0
+[ 34504 ms Verbose] Drone active command status:0
+[ 34508 ms Verbose] Drone active command status:0
+[ 34512 ms Verbose] Drone active command status:0
+[ 34516 ms Verbose] Drone active command status:0
+[ 34547 ms Inform] Recording data from US 1->0
+[ 34571 ms Verbose] Drone active command status:0
+[ 34575 ms Verbose] Drone active command status:0
+[ 34579 ms Verbose] Drone active command status:0
+[ 34583 ms Verbose] Drone active command status:0
+[ 34620 ms Inform] Recording data from US 2->198
+[ 34621 ms Verbose] Drone active command status:0
+[ 34625 ms Verbose] Drone active command status:0
+[ 34629 ms Verbose] Drone active command status:0
+[ 34633 ms Verbose] Drone active command status:0
+[ 34664 ms Inform] Recording data from US 3->40
+[ 34672 ms Verbose] Drone active command status:0
+[ 34676 ms Verbose] Drone active command status:0
+[ 34680 ms Verbose] Drone active command status:0
+[ 34684 ms Verbose] Drone active command status:0
+[ 34713 ms Inform] Recording data from US 4->59
+[ 34721 ms Verbose] Drone active command status:0
+[ 34725 ms Verbose] Drone active command status:0
+[ 34729 ms Verbose] Drone active command status:0
+[ 34733 ms Verbose] Drone active command status:0
+[ 34750 ms Inform] Controller status: estop/operator: 0/0
+[ 34765 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 34760 ms Inform] Recording data from US 5->28
+[ 34769 ms Verbose] Drone active command status:0
+[ 34773 ms Verbose] Drone active command status:0
+[ 34777 ms Verbose] Drone active command status:0
+[ 34781 ms Verbose] Drone active command status:0
+[ 34818 ms Inform] Recording data from US 0->189
+[ 34841 ms Verbose] Drone active command status:0
+[ 34845 ms Verbose] Drone active command status:0
+[ 34849 ms Verbose] Drone active command status:0
+[ 34853 ms Verbose] Drone active command status:0
+[ 34857 ms Verbose] Drone active command status:0
+[ 34861 ms Verbose] Drone active command status:0
+[ 34865 ms Verbose] Drone active command status:0
+[ 34869 ms Verbose] Drone active command status:0
+[ 34930 ms Verbose] Drone active command status:0
+[ 34934 ms Verbose] Drone active command status:0
+[ 34938 ms Verbose] Drone active command status:0
+[ 34942 ms Verbose] Drone active command status:0
+[ 34989 ms Verbose] Drone active command status:0
+[ 34993 ms Verbose] Drone active command status:0
+[ 34997 ms Verbose] Drone active command status:0
+[ 35001 ms Verbose] Drone active command status:0
+[ 35015 ms Inform] Controller status: estop/operator: 0/0
+[ 35042 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 35046 ms Verbose] Drone active command status:0
+[ 35050 ms Verbose] Drone active command status:0
+[ 35054 ms Verbose] Drone active command status:0
+[ 35058 ms Verbose] Drone active command status:0
+[ 35124 ms Verbose] Drone active command status:0
+[ 35128 ms Verbose] Drone active command status:0
+[ 35132 ms Verbose] Drone active command status:0
+[ 35136 ms Verbose] Drone active command status:0
+[ 35182 ms Verbose] Drone active command status:0
+[ 35186 ms Verbose] Drone active command status:0
+[ 35190 ms Verbose] Drone active command status:0
+[ 35194 ms Verbose] Drone active command status:0
+[ 35245 ms Verbose] Drone active command status:0
+[ 35249 ms Verbose] Drone active command status:0
+[ 35253 ms Verbose] Drone active command status:0
+[ 35257 ms Verbose] Drone active command status:0
+[ 35292 ms Inform] Controller status: estop/operator: 0/0
+[ 35299 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 35303 ms Verbose] Drone active command status:0
+[ 35307 ms Verbose] Drone active command status:0
+[ 35311 ms Verbose] Drone active command status:0
+[ 35315 ms Verbose] Drone active command status:0
+[ 35381 ms Verbose] Drone active command status:0
+[ 35385 ms Verbose] Drone active command status:0
+[ 35389 ms Verbose] Drone active command status:0
+[ 35393 ms Verbose] Drone active command status:0
+[ 35439 ms Verbose] Drone active command status:0
+[ 35443 ms Verbose] Drone active command status:0
+[ 35447 ms Verbose] Drone active command status:0
+[ 35451 ms Verbose] Drone active command status:0
+[ 35501 ms Verbose] Drone active command status:0
+[ 35505 ms Verbose] Drone active command status:0
+[ 35509 ms Verbose] Drone active command status:0
+[ 35513 ms Verbose] Drone active command status:0
+[ 35549 ms Inform] Controller status: estop/operator: 0/0
+[ 35555 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 35559 ms Verbose] Drone active command status:0
+[ 35563 ms Verbose] Drone active command status:0
+[ 35567 ms Verbose] Drone active command status:0
+[ 35571 ms Verbose] Drone active command status:0
+[ 35637 ms Verbose] Drone active command status:0
+[ 35641 ms Verbose] Drone active command status:0
+[ 35645 ms Verbose] Drone active command status:0
+[ 35649 ms Verbose] Drone active command status:0
+[ 35696 ms Verbose] Drone active command status:0
+[ 35700 ms Verbose] Drone active command status:0
+[ 35704 ms Verbose] Drone active command status:0
+[ 35708 ms Verbose] Drone active command status:0
+[ 35756 ms Verbose] Drone active command status:0
+[ 35760 ms Verbose] Drone active command status:0
+[ 35764 ms Verbose] Drone active command status:0
+[ 35768 ms Verbose] Drone active command status:0
+[ 35805 ms Inform] Controller status: estop/operator: 0/0
+[ 35807 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 35811 ms Verbose] Drone active command status:0
+[ 35815 ms Verbose] Drone active command status:0
+[ 35819 ms Verbose] Drone active command status:0
+[ 35823 ms Verbose] Drone active command status:0
+[ 35878 ms Inform] Recording data from US 1->0
+[ 35885 ms Verbose] Drone active command status:0
+[ 35889 ms Verbose] Drone active command status:0
+[ 35893 ms Verbose] Drone active command status:0
+[ 35897 ms Verbose] Drone active command status:0
+[ 35935 ms Verbose] Drone active command status:0
+[ 35939 ms Verbose] Drone active command status:0
+[ 35943 ms Verbose] Drone active command status:0
+[ 35947 ms Verbose] Drone active command status:0
+[ 35995 ms Verbose] Drone active command status:0
+[ 35999 ms Verbose] Drone active command status:0
+[ 36003 ms Verbose] Drone active command status:0
+[ 36007 ms Verbose] Drone active command status:0
+[ 36046 ms Inform] Recording data from US 2->2099
+[ 36053 ms Verbose] Drone active command status:0
+[ 36057 ms Verbose] Drone active command status:0
+[ 36057 ms Inform] Controller status: estop/operator: 0/0
+[ 36057 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 36061 ms Verbose] Drone active command status:0
+[ 36065 ms Verbose] Drone active command status:0
+[ 36093 ms Inform] Recording data from US 3->45
+[ 36125 ms Verbose] Drone active command status:0
+[ 36129 ms Verbose] Drone active command status:0
+[ 36133 ms Verbose] Drone active command status:0
+[ 36137 ms Verbose] Drone active command status:0
+[ 36177 ms Verbose] Drone active command status:0
+[ 36181 ms Verbose] Drone active command status:0
+[ 36185 ms Verbose] Drone active command status:0
+[ 36189 ms Verbose] Drone active command status:0
+[ 36253 ms Verbose] Drone active command status:0
+[ 36257 ms Verbose] Drone active command status:0
+[ 36261 ms Verbose] Drone active command status:0
+[ 36265 ms Verbose] Drone active command status:0
+[ 36307 ms Inform] Controller status: estop/operator: 0/0
+[ 36317 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 36292 ms Inform] Recording data from US 4->2201
+[ 36320 ms Verbose] Drone active command status:0
+[ 36324 ms Verbose] Drone active command status:0
+[ 36328 ms Verbose] Drone active command status:0
+[ 36332 ms Verbose] Drone active command status:0
+[ 36360 ms Inform] Recording data from US 5->50
+[ 36384 ms Verbose] Drone active command status:0
+[ 36388 ms Verbose] Drone active command status:0
+[ 36392 ms Verbose] Drone active command status:0
+[ 36432 ms Inform] Recording data from US 0->160
+[ 36435 ms Verbose] Drone active command status:0
+[ 36439 ms Verbose] Drone active command status:0
+[ 36443 ms Verbose] Drone active command status:0
+[ 36447 ms Verbose] Drone active command status:0
+[ 36451 ms Verbose] Drone active command status:0
+[ 36455 ms Verbose] Drone active command status:0
+[ 36459 ms Verbose] Drone active command status:0
+[ 36518 ms Verbose] Drone active command status:0
+[ 36522 ms Verbose] Drone active command status:0
+[ 36526 ms Verbose] Drone active command status:0
+[ 36530 ms Verbose] Drone active command status:0
+[ 36567 ms Inform] Controller status: estop/operator: 0/0
+[ 36577 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 36580 ms Verbose] Drone active command status:0
+[ 36584 ms Verbose] Drone active command status:0
+[ 36588 ms Verbose] Drone active command status:0
+[ 36592 ms Verbose] Drone active command status:0
+[ 36654 ms Verbose] Drone active command status:0
+[ 36658 ms Verbose] Drone active command status:0
+[ 36662 ms Verbose] Drone active command status:0
+[ 36666 ms Verbose] Drone active command status:0
+[ 36709 ms Verbose] Drone active command status:0
+[ 36713 ms Verbose] Drone active command status:0
+[ 36717 ms Verbose] Drone active command status:0
+[ 36721 ms Verbose] Drone active command status:0
+[ 36765 ms Verbose] Drone active command status:0
+[ 36769 ms Verbose] Drone active command status:0
+[ 36773 ms Verbose] Drone active command status:0
+[ 36777 ms Verbose] Drone active command status:0
+[ 36824 ms Verbose] Drone active command status:0
+[ 36827 ms Inform] Controller status: estop/operator: 0/0
+[ 36827 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 36828 ms Verbose] Drone active command status:0
+[ 36832 ms Verbose] Drone active command status:0
+[ 36836 ms Verbose] Drone active command status:0
+[ 36899 ms Verbose] Drone active command status:0
+[ 36903 ms Verbose] Drone active command status:0
+[ 36907 ms Verbose] Drone active command status:0
+[ 36911 ms Verbose] Drone active command status:0
+[ 36955 ms Verbose] Drone active command status:0
+[ 36959 ms Verbose] Drone active command status:0
+[ 36963 ms Verbose] Drone active command status:0
+[ 36967 ms Verbose] Drone active command status:0
+[ 37013 ms Verbose] Drone active command status:0
+[ 37017 ms Verbose] Drone active command status:0
+[ 37021 ms Verbose] Drone active command status:0
+[ 37025 ms Verbose] Drone active command status:0
+[ 37075 ms Verbose] Drone active command status:0
+[ 37077 ms Inform] Controller status: estop/operator: 0/0
+[ 37077 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 37079 ms Verbose] Drone active command status:0
+[ 37083 ms Verbose] Drone active command status:0
+[ 37087 ms Verbose] Drone active command status:0
+[ 37146 ms Verbose] Drone active command status:0
+[ 37150 ms Verbose] Drone active command status:0
+[ 37154 ms Verbose] Drone active command status:0
+[ 37158 ms Verbose] Drone active command status:0
+[ 37207 ms Verbose] Drone active command status:0
+[ 37211 ms Verbose] Drone active command status:0
+[ 37215 ms Verbose] Drone active command status:0
+[ 37219 ms Verbose] Drone active command status:0
+[ 37262 ms Verbose] Drone active command status:0
+[ 37266 ms Verbose] Drone active command status:0
+[ 37270 ms Verbose] Drone active command status:0
+[ 37274 ms Verbose] Drone active command status:0
+[ 37324 ms Verbose] Drone active command status:0
+[ 37327 ms Inform] Controller status: estop/operator: 0/0
+[ 37327 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 37328 ms Verbose] Drone active command status:0
+[ 37332 ms Verbose] Drone active command status:0
+[ 37336 ms Verbose] Drone active command status:0
+[ 37397 ms Verbose] Drone active command status:0
+[ 37401 ms Verbose] Drone active command status:0
+[ 37405 ms Verbose] Drone active command status:0
+[ 37409 ms Verbose] Drone active command status:0
+[ 37458 ms Verbose] Drone active command status:0
+[ 37462 ms Verbose] Drone active command status:0
+[ 37466 ms Verbose] Drone active command status:0
+[ 37470 ms Verbose] Drone active command status:0
+[ 37473 ms Inform] Recording data from US 1->0
+[ 37507 ms Verbose] Drone active command status:0
+[ 37511 ms Verbose] Drone active command status:0
+[ 37515 ms Verbose] Drone active command status:0
+[ 37519 ms Verbose] Drone active command status:0
+[ 37561 ms Verbose] Drone active command status:0
+[ 37565 ms Verbose] Drone active command status:0
+[ 37569 ms Verbose] Drone active command status:0
+[ 37573 ms Verbose] Drone active command status:0
+[ 37577 ms Inform] Controller status: estop/operator: 0/0
+[ 37615 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 37619 ms Verbose] Drone active command status:0
+[ 37623 ms Verbose] Drone active command status:0
+[ 37627 ms Verbose] Drone active command status:0
+[ 37631 ms Verbose] Drone active command status:0
+[ 37668 ms Inform] Recording data from US 2->2099
+[ 37687 ms Verbose] Drone active command status:0
+[ 37691 ms Verbose] Drone active command status:0
+[ 37695 ms Verbose] Drone active command status:0
+[ 37699 ms Verbose] Drone active command status:0
+[ 37728 ms Inform] Recording data from US 3->59
+[ 37735 ms Verbose] Drone active command status:0
+[ 37739 ms Verbose] Drone active command status:0
+[ 37743 ms Verbose] Drone active command status:0
+[ 37747 ms Verbose] Drone active command status:0
+[ 37789 ms Verbose] Drone active command status:0
+[ 37793 ms Verbose] Drone active command status:0
+[ 37797 ms Verbose] Drone active command status:0
+[ 37801 ms Verbose] Drone active command status:0
+[ 37846 ms Verbose] Drone active command status:0
+[ 37850 ms Verbose] Drone active command status:0
+[ 37854 ms Verbose] Drone active command status:0
+[ 37858 ms Verbose] Drone active command status:0
+[ 37865 ms Inform] Controller status: estop/operator: 0/0
+[ 37901 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 37902 ms Inform] Recording data from US 4->2201
+[ 37905 ms Verbose] Drone active command status:0
+[ 37909 ms Verbose] Drone active command status:0
+[ 37913 ms Verbose] Drone active command status:0
+[ 37917 ms Verbose] Drone active command status:0
+[ 37944 ms Inform] Recording data from US 5->34
+[ 37993 ms Verbose] Drone active command status:0
+[ 37997 ms Verbose] Drone active command status:0
+[ 38001 ms Verbose] Drone active command status:0
+[ 38005 ms Verbose] Drone active command status:0
+[ 38036 ms Inform] Recording data from US 0->101
+[ 38042 ms Verbose] Drone active command status:0
+[ 38046 ms Verbose] Drone active command status:0
+[ 38050 ms Verbose] Drone active command status:0
+[ 38054 ms Verbose] Drone active command status:0
+[ 38058 ms Verbose] Drone active command status:0
+[ 38062 ms Verbose] Drone active command status:0
+[ 38066 ms Verbose] Drone active command status:0
+[ 38070 ms Verbose] Drone active command status:0
+[ 38134 ms Verbose] Drone active command status:0
+[ 38138 ms Verbose] Drone active command status:0
+[ 38142 ms Verbose] Drone active command status:0
+[ 38146 ms Verbose] Drone active command status:0
+[ 38151 ms Inform] Controller status: estop/operator: 0/0
+[ 38189 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 38193 ms Verbose] Drone active command status:0
+[ 38197 ms Verbose] Drone active command status:0
+[ 38201 ms Verbose] Drone active command status:0
+[ 38205 ms Verbose] Drone active command status:0
+[ 38265 ms Verbose] Drone active command status:0
+[ 38269 ms Verbose] Drone active command status:0
+[ 38273 ms Verbose] Drone active command status:0
+[ 38277 ms Verbose] Drone active command status:0
+[ 38323 ms Verbose] Drone active command status:0
+[ 38327 ms Verbose] Drone active command status:0
+[ 38331 ms Verbose] Drone active command status:0
+[ 38335 ms Verbose] Drone active command status:0
+[ 38383 ms Verbose] Drone active command status:0
+[ 38387 ms Verbose] Drone active command status:0
+[ 38391 ms Verbose] Drone active command status:0
+[ 38395 ms Verbose] Drone active command status:0
+[ 38439 ms Inform] Controller status: estop/operator: 0/0
+[ 38439 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 38441 ms Verbose] Drone active command status:0
+[ 38445 ms Verbose] Drone active command status:0
+[ 38449 ms Verbose] Drone active command status:0
+[ 38453 ms Verbose] Drone active command status:0
+[ 38515 ms Verbose] Drone active command status:0
+[ 38519 ms Verbose] Drone active command status:0
+[ 38523 ms Verbose] Drone active command status:0
+[ 38527 ms Verbose] Drone active command status:0
+[ 38573 ms Verbose] Drone active command status:0
+[ 38577 ms Verbose] Drone active command status:0
+[ 38581 ms Verbose] Drone active command status:0
+[ 38585 ms Verbose] Drone active command status:0
+[ 38631 ms Verbose] Drone active command status:0
+[ 38635 ms Verbose] Drone active command status:0
+[ 38639 ms Verbose] Drone active command status:0
+[ 38643 ms Verbose] Drone active command status:0
+[ 38685 ms Verbose] Drone active command status:0
+[ 38689 ms Verbose] Drone active command status:0
+[ 38689 ms Inform] Controller status: estop/operator: 0/0
+[ 38689 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 38693 ms Verbose] Drone active command status:0
+[ 38697 ms Verbose] Drone active command status:0
+[ 38777 ms Verbose] Drone active command status:0
+[ 38781 ms Verbose] Drone active command status:0
+[ 38785 ms Verbose] Drone active command status:0
+[ 38789 ms Verbose] Drone active command status:0
+[ 38793 ms Verbose] Drone active command status:0
+[ 38838 ms Verbose] Drone active command status:0
+[ 38842 ms Verbose] Drone active command status:0
+[ 38846 ms Verbose] Drone active command status:0
+[ 38850 ms Verbose] Drone active command status:0
+[ 38901 ms Verbose] Drone active command status:0
+[ 38905 ms Verbose] Drone active command status:0
+[ 38909 ms Verbose] Drone active command status:0
+[ 38913 ms Verbose] Drone active command status:0
+[ 38939 ms Inform] Controller status: estop/operator: 0/0
+[ 38955 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 38959 ms Verbose] Drone active command status:0
+[ 38963 ms Verbose] Drone active command status:0
+[ 38967 ms Verbose] Drone active command status:0
+[ 38971 ms Verbose] Drone active command status:0
+[ 39035 ms Verbose] Drone active command status:0
+[ 39039 ms Verbose] Drone active command status:0
+[ 39043 ms Verbose] Drone active command status:0
+[ 39047 ms Verbose] Drone active command status:0
+[ 39080 ms Inform] Recording data from US 1->0
+[ 39091 ms Verbose] Drone active command status:0
+[ 39095 ms Verbose] Drone active command status:0
+[ 39099 ms Verbose] Drone active command status:0
+[ 39103 ms Verbose] Drone active command status:0
+[ 39142 ms Inform] Recording data from US 2->229
+[ 39143 ms Verbose] Drone active command status:0
+[ 39147 ms Verbose] Drone active command status:0
+[ 39151 ms Verbose] Drone active command status:0
+[ 39155 ms Verbose] Drone active command status:0
+[ 39184 ms Inform] Recording data from US 3->36
+[ 39191 ms Verbose] Drone active command status:0
+[ 39195 ms Verbose] Drone active command status:0
+[ 39199 ms Verbose] Drone active command status:0
+[ 39203 ms Verbose] Drone active command status:0
+[ 39205 ms Inform] Controller status: estop/operator: 0/0
+[ 39239 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 39243 ms Verbose] Drone active command status:0
+[ 39247 ms Verbose] Drone active command status:0
+[ 39251 ms Verbose] Drone active command status:0
+[ 39255 ms Verbose] Drone active command status:0
+[ 39331 ms Verbose] Drone active command status:0
+[ 39335 ms Verbose] Drone active command status:0
+[ 39339 ms Verbose] Drone active command status:0
+[ 39343 ms Verbose] Drone active command status:0
+[ 39357 ms Inform] Recording data from US 4->2195
+[ 39384 ms Verbose] Drone active command status:0
+[ 39388 ms Verbose] Drone active command status:0
+[ 39392 ms Verbose] Drone active command status:0
+[ 39396 ms Verbose] Drone active command status:0
+[ 39423 ms Inform] Recording data from US 5->25
+[ 39434 ms Verbose] Drone active command status:0
+[ 39438 ms Verbose] Drone active command status:0
+[ 39442 ms Verbose] Drone active command status:0
+[ 39446 ms Verbose] Drone active command status:0
+[ 39482 ms Verbose] Drone active command status:0
+[ 39486 ms Verbose] Drone active command status:0
+[ 39489 ms Inform] Controller status: estop/operator: 0/0
+[ 39489 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 39490 ms Verbose] Drone active command status:0
+[ 39494 ms Verbose] Drone active command status:0
+[ 39498 ms Verbose] Drone active command status:0
+[ 39502 ms Verbose] Drone active command status:0
+[ 39506 ms Verbose] Drone active command status:0
+[ 39510 ms Verbose] Drone active command status:0
+[ 39514 ms Verbose] Drone active command status:0
+[ 39518 ms Verbose] Drone active command status:0
+[ 39593 ms Inform] Recording data from US 0->2062
+[ 39603 ms Verbose] Drone active command status:0
+[ 39607 ms Verbose] Drone active command status:0
+[ 39611 ms Verbose] Drone active command status:0
+[ 39615 ms Verbose] Drone active command status:0
+[ 39655 ms Verbose] Drone active command status:0
+[ 39659 ms Verbose] Drone active command status:0
+[ 39663 ms Verbose] Drone active command status:0
+[ 39667 ms Verbose] Drone active command status:0
+[ 39728 ms Verbose] Drone active command status:0
+[ 39732 ms Verbose] Drone active command status:0
+[ 39736 ms Verbose] Drone active command status:0
+[ 39739 ms Inform] Controller status: estop/operator: 0/0
+[ 39786 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 39740 ms Verbose] Drone active command status:0
+[ 39790 ms Verbose] Drone active command status:0
+[ 39794 ms Verbose] Drone active command status:0
+[ 39798 ms Verbose] Drone active command status:0
+[ 39802 ms Verbose] Drone active command status:0
+[ 39859 ms Verbose] Drone active command status:0
+[ 39863 ms Verbose] Drone active command status:0
+[ 39867 ms Verbose] Drone active command status:0
+[ 39871 ms Verbose] Drone active command status:0
+[ 39921 ms Verbose] Drone active command status:0
+[ 39925 ms Verbose] Drone active command status:0
+[ 39929 ms Verbose] Drone active command status:0
+[ 39933 ms Verbose] Drone active command status:0
+[ 39979 ms Verbose] Drone active command status:0
+[ 39983 ms Verbose] Drone active command status:0
+[ 39987 ms Verbose] Drone active command status:0
+[ 39991 ms Verbose] Drone active command status:0
+[ 40032 ms Verbose] Drone active command status:0
+[ 40036 ms Verbose] Drone active command status:0
+[ 40036 ms Inform] Controller status: estop/operator: 0/0
+[ 40036 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 40040 ms Verbose] Drone active command status:0
+[ 40044 ms Verbose] Drone active command status:0
+[ 40106 ms Verbose] Drone active command status:0
+[ 40110 ms Verbose] Drone active command status:0
+[ 40114 ms Verbose] Drone active command status:0
+[ 40118 ms Verbose] Drone active command status:0
+[ 40168 ms Verbose] Drone active command status:0
+[ 40172 ms Verbose] Drone active command status:0
+[ 40176 ms Verbose] Drone active command status:0
+[ 40180 ms Verbose] Drone active command status:0
+[ 40226 ms Verbose] Drone active command status:0
+[ 40230 ms Verbose] Drone active command status:0
+[ 40234 ms Verbose] Drone active command status:0
+[ 40238 ms Verbose] Drone active command status:0
+[ 40286 ms Inform] Controller status: estop/operator: 0/0
+[ 40286 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 40287 ms Verbose] Drone active command status:0
+[ 40291 ms Verbose] Drone active command status:0
+[ 40295 ms Verbose] Drone active command status:0
+[ 40299 ms Verbose] Drone active command status:0
+[ 40357 ms Verbose] Drone active command status:0
+[ 40361 ms Verbose] Drone active command status:0
+[ 40365 ms Verbose] Drone active command status:0
+[ 40369 ms Verbose] Drone active command status:0
+[ 40418 ms Verbose] Drone active command status:0
+[ 40422 ms Verbose] Drone active command status:0
+[ 40426 ms Verbose] Drone active command status:0
+[ 40430 ms Verbose] Drone active command status:0
+[ 40476 ms Verbose] Drone active command status:0
+[ 40480 ms Verbose] Drone active command status:0
+[ 40484 ms Verbose] Drone active command status:0
+[ 40488 ms Verbose] Drone active command status:0
+[ 40529 ms Verbose] Drone active command status:0
+[ 40533 ms Verbose] Drone active command status:0
+[ 40536 ms Inform] Controller status: estop/operator: 0/0
+[ 40536 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 40537 ms Verbose] Drone active command status:0
+[ 40541 ms Verbose] Drone active command status:0
+[ 40600 ms Verbose] Drone active command status:0
+[ 40604 ms Verbose] Drone active command status:0
+[ 40608 ms Verbose] Drone active command status:0
+[ 40612 ms Verbose] Drone active command status:0
+[ 40641 ms Inform] Recording data from US 1->0
+[ 40655 ms Verbose] Drone active command status:0
+[ 40659 ms Verbose] Drone active command status:0
+[ 40663 ms Verbose] Drone active command status:0
+[ 40667 ms Verbose] Drone active command status:0
+[ 40705 ms Verbose] Drone active command status:0
+[ 40709 ms Verbose] Drone active command status:0
+[ 40713 ms Verbose] Drone active command status:0
+[ 40717 ms Verbose] Drone active command status:0
+[ 40763 ms Verbose] Drone active command status:0
+[ 40767 ms Verbose] Drone active command status:0
+[ 40771 ms Verbose] Drone active command status:0
+[ 40775 ms Verbose] Drone active command status:0
+[ 40786 ms Inform] Controller status: estop/operator: 0/0
+[ 40814 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 40816 ms Inform] Recording data from US 2->2099
+[ 40817 ms Verbose] Drone active command status:0
+[ 40821 ms Verbose] Drone active command status:0
+[ 40825 ms Verbose] Drone active command status:0
+[ 40829 ms Verbose] Drone active command status:0
+[ 40860 ms Inform] Recording data from US 3->67
+[ 40890 ms Verbose] Drone active command status:0
+[ 40894 ms Verbose] Drone active command status:0
+[ 40898 ms Verbose] Drone active command status:0
+[ 40902 ms Verbose] Drone active command status:0
+[ 40940 ms Verbose] Drone active command status:0
+[ 40944 ms Verbose] Drone active command status:0
+[ 40948 ms Verbose] Drone active command status:0
+[ 40952 ms Verbose] Drone active command status:0
+[ 41000 ms Verbose] Drone active command status:0
+[ 41004 ms Verbose] Drone active command status:0
+[ 41008 ms Verbose] Drone active command status:0
+[ 41012 ms Verbose] Drone active command status:0
+[ 41056 ms Verbose] Drone active command status:0
+[ 41057 ms Inform] Recording data from US 4->2201
+[ 41060 ms Verbose] Drone active command status:0
+[ 41063 ms Inform] Controller status: estop/operator: 0/0
+[ 41063 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 41064 ms Verbose] Drone active command status:0
+[ 41068 ms Verbose] Drone active command status:0
+[ 41098 ms Inform] Recording data from US 5->3
+[ 41130 ms Verbose] Drone active command status:0
+[ 41134 ms Verbose] Drone active command status:0
+[ 41138 ms Verbose] Drone active command status:0
+[ 41142 ms Verbose] Drone active command status:0
+[ 41169 ms Inform] Recording data from US 0->22
+[ 41180 ms Verbose] Drone active command status:0
+[ 41184 ms Verbose] Drone active command status:0
+[ 41188 ms Verbose] Drone active command status:0
+[ 41192 ms Verbose] Drone active command status:0
+[ 41196 ms Verbose] Drone active command status:0
+[ 41200 ms Verbose] Drone active command status:0
+[ 41204 ms Verbose] Drone active command status:0
+[ 41208 ms Verbose] Drone active command status:0
+[ 41266 ms Verbose] Drone active command status:0
+[ 41270 ms Verbose] Drone active command status:0
+[ 41274 ms Verbose] Drone active command status:0
+[ 41278 ms Verbose] Drone active command status:0
+[ 41313 ms Inform] Controller status: estop/operator: 0/0
+[ 41325 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 41329 ms Verbose] Drone active command status:0
+[ 41333 ms Verbose] Drone active command status:0
+[ 41337 ms Verbose] Drone active command status:0
+[ 41341 ms Verbose] Drone active command status:0
+[ 41423 ms Verbose] Drone active command status:0
+[ 41427 ms Verbose] Drone active command status:0
+[ 41431 ms Verbose] Drone active command status:0
+[ 41435 ms Verbose] Drone active command status:0
+[ 41479 ms Verbose] Drone active command status:0
+[ 41483 ms Verbose] Drone active command status:0
+[ 41487 ms Verbose] Drone active command status:0
+[ 41491 ms Verbose] Drone active command status:0
+[ 41536 ms Verbose] Drone active command status:0
+[ 41540 ms Verbose] Drone active command status:0
+[ 41544 ms Verbose] Drone active command status:0
+[ 41548 ms Verbose] Drone active command status:0
+[ 41575 ms Inform] Controller status: estop/operator: 0/0
+[ 41592 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 41595 ms Verbose] Drone active command status:0
+[ 41599 ms Verbose] Drone active command status:0
+[ 41603 ms Verbose] Drone active command status:0
+[ 41607 ms Verbose] Drone active command status:0
+[ 41671 ms Verbose] Drone active command status:0
+[ 41675 ms Verbose] Drone active command status:0
+[ 41679 ms Verbose] Drone active command status:0
+[ 41683 ms Verbose] Drone active command status:0
+[ 41729 ms Verbose] Drone active command status:0
+[ 41733 ms Verbose] Drone active command status:0
+[ 41737 ms Verbose] Drone active command status:0
+[ 41741 ms Verbose] Drone active command status:0
+[ 41787 ms Verbose] Drone active command status:0
+[ 41791 ms Verbose] Drone active command status:0
+[ 41795 ms Verbose] Drone active command status:0
+[ 41799 ms Verbose] Drone active command status:0
+[ 41842 ms Inform] Controller status: estop/operator: 0/0
+[ 41845 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 41848 ms Verbose] Drone active command status:0
+[ 41852 ms Verbose] Drone active command status:0
+[ 41856 ms Verbose] Drone active command status:0
+[ 41860 ms Verbose] Drone active command status:0
+[ 41926 ms Verbose] Drone active command status:0
+[ 41930 ms Verbose] Drone active command status:0
+[ 41934 ms Verbose] Drone active command status:0
+[ 41938 ms Verbose] Drone active command status:0
+[ 41985 ms Verbose] Drone active command status:0
+[ 41989 ms Verbose] Drone active command status:0
+[ 41993 ms Verbose] Drone active command status:0
+[ 41997 ms Verbose] Drone active command status:0
+[ 42042 ms Verbose] Drone active command status:0
+[ 42046 ms Verbose] Drone active command status:0
+[ 42050 ms Verbose] Drone active command status:0
+[ 42054 ms Verbose] Drone active command status:0
+[ 42095 ms Inform] Controller status: estop/operator: 0/0
+[ 42101 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 42104 ms Verbose] Drone active command status:0
+[ 42108 ms Verbose] Drone active command status:0
+[ 42112 ms Verbose] Drone active command status:0
+[ 42116 ms Verbose] Drone active command status:0
+[ 42176 ms Verbose] Drone active command status:0
+[ 42180 ms Verbose] Drone active command status:0
+[ 42184 ms Verbose] Drone active command status:0
+[ 42188 ms Verbose] Drone active command status:0
+[ 42217 ms Inform] Recording data from US 1->0
+[ 42247 ms Verbose] Drone active command status:0
+[ 42251 ms Verbose] Drone active command status:0
+[ 42255 ms Verbose] Drone active command status:0
+[ 42259 ms Verbose] Drone active command status:0
+[ 42297 ms Verbose] Drone active command status:0
+[ 42301 ms Verbose] Drone active command status:0
+[ 42305 ms Verbose] Drone active command status:0
+[ 42309 ms Verbose] Drone active command status:0
+[ 42351 ms Inform] Controller status: estop/operator: 0/0
+[ 42354 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 42357 ms Verbose] Drone active command status:0
+[ 42361 ms Verbose] Drone active command status:0
+[ 42365 ms Verbose] Drone active command status:0
+[ 42369 ms Verbose] Drone active command status:0
+[ 42408 ms Inform] Recording data from US 2->2099
+[ 42426 ms Verbose] Drone active command status:0
+[ 42430 ms Verbose] Drone active command status:0
+[ 42434 ms Verbose] Drone active command status:0
+[ 42438 ms Verbose] Drone active command status:0
+[ 42472 ms Verbose] Drone active command status:0
+[ 42476 ms Verbose] Drone active command status:0
+[ 42480 ms Verbose] Drone active command status:0
+[ 42484 ms Verbose] Drone active command status:0
+[ 42526 ms Verbose] Drone active command status:0
+[ 42530 ms Verbose] Drone active command status:0
+[ 42534 ms Verbose] Drone active command status:0
+[ 42538 ms Verbose] Drone active command status:0
+[ 42587 ms Verbose] Drone active command status:0
+[ 42591 ms Inform] Recording data from US 3->2166
+[ 42591 ms Verbose] Drone active command status:0
+[ 42595 ms Verbose] Drone active command status:0
+[ 42599 ms Verbose] Drone active command status:0
+[ 42604 ms Inform] Controller status: estop/operator: 0/0
+[ 42631 ms Inform] DATA: 0 TX: 	0	0	0	0	0	0	0	0	1028	1028	1028	1028	1028	1028	1028	1028 RX: 	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0
+[ 42634 ms Verbose] Drone active command status:0
+[ 42635 ms Inform] Recording data from US 4->59
+[ 42638 ms Verbose] Drone active command status:0
+[ 42642 ms Verbose] Drone active command status:0
+[ 42646 ms Verbose] Drone active command status:0
+[ 42676 ms Inform] Recording data from US 5->4
+[ 42708 ms Verbose] Drone active command status:0
+[ 42712 ms Verbose] Drone active command status:0
+[ 42716 ms Verbose] Drone active command status:0

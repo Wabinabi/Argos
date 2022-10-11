@@ -1,0 +1,3 @@
+Data from an arched pedestrian tunnel located near Swinburne Unversity.
+
+Location is wide and has a curved top surface. Used to test the robustness of the sensors under non-flat surfaces
