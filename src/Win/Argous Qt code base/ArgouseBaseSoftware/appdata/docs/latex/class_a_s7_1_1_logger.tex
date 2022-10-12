@@ -1,0 +1,149 @@
+\hypertarget{class_a_s7_1_1_logger}{}\doxysection{AS7\+::Logger Class Reference}
+\label{class_a_s7_1_1_logger}\index{AS7::Logger@{AS7::Logger}}
+
+
+{\ttfamily \#include $<$Sd\+Logger.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_s7_1_1_logger_a5d0daa8ab28aa547ece1a88813e8d266}{Logger}} (Print $\ast$output)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a685065f891d6bbee4036a17b32070656}{start}} (int core=1, int priority=1, int \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}}=\mbox{\hyperlink{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}{LOG\+\_\+\+LEVEL\+\_\+\+INFORM}})
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_ac9d7cace2308b508786f239e8c8ee2e4}{pause}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a11e21f8484f53d22c40928fca6148c89}{resume}} ()
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_logger_aad5dd58a44f99e3ec0431dcdea10a36c}{running}} ()
+\item 
+int \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_ab7bf63dfe6789fccdfc95e7ef64c714b}{set\+Verbosity}} (int \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}})
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a9c9b2cdbf787c449646de49c3b16b3b0}{record\+Data}} (std\+::string key, float value)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_ae345e2ae39089a886d74e7be62d04de8}{push\+Data}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_ab76a725a8c8794c106024700df4c58aa}{inform}} (std\+::string message)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a3919c07a9d87d652ed9aefabc5db744b}{warn}} (std\+::string message)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a5dd76d05f548ae3ebd1131e1386ee0f6}{error}} (std\+::string message)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a732d1ca90e99e6800aa6a226b24190e3}{fatal}} (std\+::string message)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a6dd9f0de9bd4cc828ab63fbeb1285889}{verbose}} (std\+::string message)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_ae6a850fae22d17e893a8c6589b0aaa74}{plot}} (std\+::string message)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}{disable\+SDLogging}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a5d0daa8ab28aa547ece1a88813e8d266}\label{class_a_s7_1_1_logger_a5d0daa8ab28aa547ece1a88813e8d266}} 
+\index{AS7::Logger@{AS7::Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}}
+{\footnotesize\ttfamily AS7\+::\+Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{Print $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}\label{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}} 
+\index{AS7::Logger@{AS7::Logger}!disableSDLogging@{disableSDLogging}}
+\index{disableSDLogging@{disableSDLogging}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{disableSDLogging()}{disableSDLogging()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::disable\+SDLogging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a5dd76d05f548ae3ebd1131e1386ee0f6}\label{class_a_s7_1_1_logger_a5dd76d05f548ae3ebd1131e1386ee0f6}} 
+\index{AS7::Logger@{AS7::Logger}!error@{error}}
+\index{error@{error}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{error()}{error()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::error (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a732d1ca90e99e6800aa6a226b24190e3}\label{class_a_s7_1_1_logger_a732d1ca90e99e6800aa6a226b24190e3}} 
+\index{AS7::Logger@{AS7::Logger}!fatal@{fatal}}
+\index{fatal@{fatal}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{fatal()}{fatal()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::fatal (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ab76a725a8c8794c106024700df4c58aa}\label{class_a_s7_1_1_logger_ab76a725a8c8794c106024700df4c58aa}} 
+\index{AS7::Logger@{AS7::Logger}!inform@{inform}}
+\index{inform@{inform}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{inform()}{inform()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::inform (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ac9d7cace2308b508786f239e8c8ee2e4}\label{class_a_s7_1_1_logger_ac9d7cace2308b508786f239e8c8ee2e4}} 
+\index{AS7::Logger@{AS7::Logger}!pause@{pause}}
+\index{pause@{pause}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ae6a850fae22d17e893a8c6589b0aaa74}\label{class_a_s7_1_1_logger_ae6a850fae22d17e893a8c6589b0aaa74}} 
+\index{AS7::Logger@{AS7::Logger}!plot@{plot}}
+\index{plot@{plot}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{plot()}{plot()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::plot (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ae345e2ae39089a886d74e7be62d04de8}\label{class_a_s7_1_1_logger_ae345e2ae39089a886d74e7be62d04de8}} 
+\index{AS7::Logger@{AS7::Logger}!pushData@{pushData}}
+\index{pushData@{pushData}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::push\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a9c9b2cdbf787c449646de49c3b16b3b0}\label{class_a_s7_1_1_logger_a9c9b2cdbf787c449646de49c3b16b3b0}} 
+\index{AS7::Logger@{AS7::Logger}!recordData@{recordData}}
+\index{recordData@{recordData}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{recordData()}{recordData()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::record\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{float}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a11e21f8484f53d22c40928fca6148c89}\label{class_a_s7_1_1_logger_a11e21f8484f53d22c40928fca6148c89}} 
+\index{AS7::Logger@{AS7::Logger}!resume@{resume}}
+\index{resume@{resume}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{resume()}{resume()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_aad5dd58a44f99e3ec0431dcdea10a36c}\label{class_a_s7_1_1_logger_aad5dd58a44f99e3ec0431dcdea10a36c}} 
+\index{AS7::Logger@{AS7::Logger}!running@{running}}
+\index{running@{running}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{running()}{running()}}
+{\footnotesize\ttfamily bool AS7\+::\+Logger\+::running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ab7bf63dfe6789fccdfc95e7ef64c714b}\label{class_a_s7_1_1_logger_ab7bf63dfe6789fccdfc95e7ef64c714b}} 
+\index{AS7::Logger@{AS7::Logger}!setVerbosity@{setVerbosity}}
+\index{setVerbosity@{setVerbosity}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{setVerbosity()}{setVerbosity()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::set\+Verbosity (\begin{DoxyParamCaption}\item[{int}]{verbosity }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a685065f891d6bbee4036a17b32070656}\label{class_a_s7_1_1_logger_a685065f891d6bbee4036a17b32070656}} 
+\index{AS7::Logger@{AS7::Logger}!start@{start}}
+\index{start@{start}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::start (\begin{DoxyParamCaption}\item[{int}]{core = {\ttfamily 1},  }\item[{int}]{priority = {\ttfamily 1},  }\item[{int}]{verbosity = {\ttfamily \mbox{\hyperlink{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}{LOG\+\_\+\+LEVEL\+\_\+\+INFORM}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a6dd9f0de9bd4cc828ab63fbeb1285889}\label{class_a_s7_1_1_logger_a6dd9f0de9bd4cc828ab63fbeb1285889}} 
+\index{AS7::Logger@{AS7::Logger}!verbose@{verbose}}
+\index{verbose@{verbose}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{verbose()}{verbose()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::verbose (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}\label{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}} 
+\index{AS7::Logger@{AS7::Logger}!verbosity@{verbosity}}
+\index{verbosity@{verbosity}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{verbosity()}{verbosity()}}
+{\footnotesize\ttfamily int AS7\+::\+Logger\+::verbosity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a3919c07a9d87d652ed9aefabc5db744b}\label{class_a_s7_1_1_logger_a3919c07a9d87d652ed9aefabc5db744b}} 
+\index{AS7::Logger@{AS7::Logger}!warn@{warn}}
+\index{warn@{warn}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{warn()}{warn()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::warn (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+H\+:/repos/\+Argous/src/esp32/as7-\/gamma/\mbox{\hyperlink{_sd_logger_8h}{Sd\+Logger.\+h}}\item 
+H\+:/repos/\+Argous/src/esp32/as7-\/gamma/\mbox{\hyperlink{_sd_logger_8cpp}{Sd\+Logger.\+cpp}}\end{DoxyCompactItemize}

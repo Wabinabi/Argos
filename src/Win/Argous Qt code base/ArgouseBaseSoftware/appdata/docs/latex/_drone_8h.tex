@@ -1,0 +1,189 @@
+\hypertarget{_drone_8h}{}\doxysection{H\+:/repos/\+Argous/src/esp32/as7-\/gamma/\+Drone.h File Reference}
+\label{_drone_8h}\index{H:/repos/Argous/src/esp32/as7-\/gamma/Drone.h@{H:/repos/Argous/src/esp32/as7-\/gamma/Drone.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$sbus.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}Sd\+Logger.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_a_s7_1_1_drone_command}{AS7\+::\+Drone\+Command}}
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}} Command Structure/\+Format. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_a_s7_1_1_drone}{AS7\+::\+Drone}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_a_s7}{AS7}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a6106bf4a8f80867a7568d29115f9d9d8}{AS7\+DRONE}}
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a0cd7954c82b0e057f7b0c61dd4e5fd7e}{SBUS\+\_\+\+CHANNEL\+\_\+\+LOWER}}~0
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a9516412e9a241882ba1bda250d359607}{SBUS\+\_\+\+CHANNEL\+\_\+\+UPPER}}~2056
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}~16
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a86aa12a61f858ae23c033cd9454cc985}{DOF}}~6
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a97a2f145e0de563497130b15333db788}{NAV\+\_\+\+FREQ}}~250
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a651fb059bfdcdb03e0368adaf252591e}{CTL\+\_\+\+FREQ}}~1000
+\item 
+\#define \mbox{\hyperlink{_drone_8h_afce93a1f5fcd18c24f704c8e1f35b3b6}{CH\+\_\+\+THROTTLE}}~2
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a079038ba64069ae141fd35356388adca}{CH\+\_\+\+YAW}}~3
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a7c1d57ef504cfcc11fdec8425c5539ff}{CH\+\_\+\+STRAIGHT}}~1
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a2f5a702dcf6f8f8f5c9d111f1ae24e51}{CH\+\_\+\+STRAFE}}~0
+\item 
+\#define \mbox{\hyperlink{_drone_8h_ae49f623ecc6dc5561e87a864d0994866}{CH\+\_\+\+SW1}}~7
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a3a6cde0eb2d957e7ce182a4ff9bdacb6}{CH\+\_\+\+FLIGHTMODE}}~4
+\item 
+\#define \mbox{\hyperlink{_drone_8h_aa3a9605f28ca34b3ebc6777a021577a7}{CH\+\_\+\+ESTOP}}~6
+\item 
+\#define \mbox{\hyperlink{_drone_8h_ac12d67178d91de9e91cb260b89653abb}{STATUS\+\_\+\+UPDATE\+\_\+\+DELAY}}~250
+\item 
+\#define \mbox{\hyperlink{_drone_8h_ac2cc7377ee6fc1abcfc3ac180f8704b1}{THROTTLE\+\_\+\+LIMIT}}~0.\+5f
+\item 
+\#define \mbox{\hyperlink{_drone_8h_aba26f4d21a0112aeef11e8ddcd9bc650}{RAMPRATE\+\_\+\+NONE}}~0
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a65371cb1138f70be2c8822a86a406231}{RAMPRATE\+\_\+\+LINEAR}}~1
+\item 
+\#define \mbox{\hyperlink{_drone_8h_a0793de5a6f45126851ab41374302bd2f}{RAMPRATE\+\_\+\+PROP}}~2
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38e}{AS7\+::\+Drone\+Command\+Type}} \{ \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38eaafaf5fea89076ddc3d14865e4ed43b30}{AS7\+::\+Blind}}
+, \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38ea3df5cbcdac0994913922c2a2427052de}{AS7\+::\+Guided}}
+, \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38ea499697cfe1af1155cfe3af60f4b4bd3b}{AS7\+::\+Landing}}
+, \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38eacb1149b5d772ba5bc49e95194bf1df36}{AS7\+::\+Arm}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_drone_8h_a6106bf4a8f80867a7568d29115f9d9d8}\label{_drone_8h_a6106bf4a8f80867a7568d29115f9d9d8}} 
+\index{Drone.h@{Drone.h}!AS7DRONE@{AS7DRONE}}
+\index{AS7DRONE@{AS7DRONE}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{AS7DRONE}{AS7DRONE}}
+{\footnotesize\ttfamily \#define AS7\+DRONE}
+
+TODO\+: THIS BANNER
+
+\mbox{\hyperlink{namespace_a_s7}{AS7}} Drone This class encapsulates talking to \mbox{\hyperlink{namespace_a_s7}{AS7}}
+
+The main program controls the state that \mbox{\hyperlink{namespace_a_s7}{AS7}} is in This class represents the inputs/outputs for \mbox{\hyperlink{namespace_a_s7}{AS7}} \mbox{\Hypertarget{_drone_8h_aa3a9605f28ca34b3ebc6777a021577a7}\label{_drone_8h_aa3a9605f28ca34b3ebc6777a021577a7}} 
+\index{Drone.h@{Drone.h}!CH\_ESTOP@{CH\_ESTOP}}
+\index{CH\_ESTOP@{CH\_ESTOP}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{CH\_ESTOP}{CH\_ESTOP}}
+{\footnotesize\ttfamily \#define CH\+\_\+\+ESTOP~6}
+
+\mbox{\Hypertarget{_drone_8h_a3a6cde0eb2d957e7ce182a4ff9bdacb6}\label{_drone_8h_a3a6cde0eb2d957e7ce182a4ff9bdacb6}} 
+\index{Drone.h@{Drone.h}!CH\_FLIGHTMODE@{CH\_FLIGHTMODE}}
+\index{CH\_FLIGHTMODE@{CH\_FLIGHTMODE}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{CH\_FLIGHTMODE}{CH\_FLIGHTMODE}}
+{\footnotesize\ttfamily \#define CH\+\_\+\+FLIGHTMODE~4}
+
+\mbox{\Hypertarget{_drone_8h_a2f5a702dcf6f8f8f5c9d111f1ae24e51}\label{_drone_8h_a2f5a702dcf6f8f8f5c9d111f1ae24e51}} 
+\index{Drone.h@{Drone.h}!CH\_STRAFE@{CH\_STRAFE}}
+\index{CH\_STRAFE@{CH\_STRAFE}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{CH\_STRAFE}{CH\_STRAFE}}
+{\footnotesize\ttfamily \#define CH\+\_\+\+STRAFE~0}
+
+\mbox{\Hypertarget{_drone_8h_a7c1d57ef504cfcc11fdec8425c5539ff}\label{_drone_8h_a7c1d57ef504cfcc11fdec8425c5539ff}} 
+\index{Drone.h@{Drone.h}!CH\_STRAIGHT@{CH\_STRAIGHT}}
+\index{CH\_STRAIGHT@{CH\_STRAIGHT}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{CH\_STRAIGHT}{CH\_STRAIGHT}}
+{\footnotesize\ttfamily \#define CH\+\_\+\+STRAIGHT~1}
+
+\mbox{\Hypertarget{_drone_8h_ae49f623ecc6dc5561e87a864d0994866}\label{_drone_8h_ae49f623ecc6dc5561e87a864d0994866}} 
+\index{Drone.h@{Drone.h}!CH\_SW1@{CH\_SW1}}
+\index{CH\_SW1@{CH\_SW1}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{CH\_SW1}{CH\_SW1}}
+{\footnotesize\ttfamily \#define CH\+\_\+\+SW1~7}
+
+\mbox{\Hypertarget{_drone_8h_afce93a1f5fcd18c24f704c8e1f35b3b6}\label{_drone_8h_afce93a1f5fcd18c24f704c8e1f35b3b6}} 
+\index{Drone.h@{Drone.h}!CH\_THROTTLE@{CH\_THROTTLE}}
+\index{CH\_THROTTLE@{CH\_THROTTLE}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{CH\_THROTTLE}{CH\_THROTTLE}}
+{\footnotesize\ttfamily \#define CH\+\_\+\+THROTTLE~2}
+
+\mbox{\Hypertarget{_drone_8h_a079038ba64069ae141fd35356388adca}\label{_drone_8h_a079038ba64069ae141fd35356388adca}} 
+\index{Drone.h@{Drone.h}!CH\_YAW@{CH\_YAW}}
+\index{CH\_YAW@{CH\_YAW}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{CH\_YAW}{CH\_YAW}}
+{\footnotesize\ttfamily \#define CH\+\_\+\+YAW~3}
+
+\mbox{\Hypertarget{_drone_8h_a651fb059bfdcdb03e0368adaf252591e}\label{_drone_8h_a651fb059bfdcdb03e0368adaf252591e}} 
+\index{Drone.h@{Drone.h}!CTL\_FREQ@{CTL\_FREQ}}
+\index{CTL\_FREQ@{CTL\_FREQ}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{CTL\_FREQ}{CTL\_FREQ}}
+{\footnotesize\ttfamily \#define CTL\+\_\+\+FREQ~1000}
+
+\mbox{\Hypertarget{_drone_8h_a86aa12a61f858ae23c033cd9454cc985}\label{_drone_8h_a86aa12a61f858ae23c033cd9454cc985}} 
+\index{Drone.h@{Drone.h}!DOF@{DOF}}
+\index{DOF@{DOF}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{DOF}{DOF}}
+{\footnotesize\ttfamily \#define DOF~6}
+
+\mbox{\Hypertarget{_drone_8h_a97a2f145e0de563497130b15333db788}\label{_drone_8h_a97a2f145e0de563497130b15333db788}} 
+\index{Drone.h@{Drone.h}!NAV\_FREQ@{NAV\_FREQ}}
+\index{NAV\_FREQ@{NAV\_FREQ}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{NAV\_FREQ}{NAV\_FREQ}}
+{\footnotesize\ttfamily \#define NAV\+\_\+\+FREQ~250}
+
+\mbox{\Hypertarget{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}\label{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}} 
+\index{Drone.h@{Drone.h}!NUM\_CH@{NUM\_CH}}
+\index{NUM\_CH@{NUM\_CH}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_CH}{NUM\_CH}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+CH~16}
+
+\mbox{\Hypertarget{_drone_8h_a65371cb1138f70be2c8822a86a406231}\label{_drone_8h_a65371cb1138f70be2c8822a86a406231}} 
+\index{Drone.h@{Drone.h}!RAMPRATE\_LINEAR@{RAMPRATE\_LINEAR}}
+\index{RAMPRATE\_LINEAR@{RAMPRATE\_LINEAR}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{RAMPRATE\_LINEAR}{RAMPRATE\_LINEAR}}
+{\footnotesize\ttfamily \#define RAMPRATE\+\_\+\+LINEAR~1}
+
+\mbox{\Hypertarget{_drone_8h_aba26f4d21a0112aeef11e8ddcd9bc650}\label{_drone_8h_aba26f4d21a0112aeef11e8ddcd9bc650}} 
+\index{Drone.h@{Drone.h}!RAMPRATE\_NONE@{RAMPRATE\_NONE}}
+\index{RAMPRATE\_NONE@{RAMPRATE\_NONE}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{RAMPRATE\_NONE}{RAMPRATE\_NONE}}
+{\footnotesize\ttfamily \#define RAMPRATE\+\_\+\+NONE~0}
+
+\mbox{\Hypertarget{_drone_8h_a0793de5a6f45126851ab41374302bd2f}\label{_drone_8h_a0793de5a6f45126851ab41374302bd2f}} 
+\index{Drone.h@{Drone.h}!RAMPRATE\_PROP@{RAMPRATE\_PROP}}
+\index{RAMPRATE\_PROP@{RAMPRATE\_PROP}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{RAMPRATE\_PROP}{RAMPRATE\_PROP}}
+{\footnotesize\ttfamily \#define RAMPRATE\+\_\+\+PROP~2}
+
+\mbox{\Hypertarget{_drone_8h_a0cd7954c82b0e057f7b0c61dd4e5fd7e}\label{_drone_8h_a0cd7954c82b0e057f7b0c61dd4e5fd7e}} 
+\index{Drone.h@{Drone.h}!SBUS\_CHANNEL\_LOWER@{SBUS\_CHANNEL\_LOWER}}
+\index{SBUS\_CHANNEL\_LOWER@{SBUS\_CHANNEL\_LOWER}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{SBUS\_CHANNEL\_LOWER}{SBUS\_CHANNEL\_LOWER}}
+{\footnotesize\ttfamily \#define SBUS\+\_\+\+CHANNEL\+\_\+\+LOWER~0}
+
+\mbox{\Hypertarget{_drone_8h_a9516412e9a241882ba1bda250d359607}\label{_drone_8h_a9516412e9a241882ba1bda250d359607}} 
+\index{Drone.h@{Drone.h}!SBUS\_CHANNEL\_UPPER@{SBUS\_CHANNEL\_UPPER}}
+\index{SBUS\_CHANNEL\_UPPER@{SBUS\_CHANNEL\_UPPER}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{SBUS\_CHANNEL\_UPPER}{SBUS\_CHANNEL\_UPPER}}
+{\footnotesize\ttfamily \#define SBUS\+\_\+\+CHANNEL\+\_\+\+UPPER~2056}
+
+\mbox{\Hypertarget{_drone_8h_ac12d67178d91de9e91cb260b89653abb}\label{_drone_8h_ac12d67178d91de9e91cb260b89653abb}} 
+\index{Drone.h@{Drone.h}!STATUS\_UPDATE\_DELAY@{STATUS\_UPDATE\_DELAY}}
+\index{STATUS\_UPDATE\_DELAY@{STATUS\_UPDATE\_DELAY}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{STATUS\_UPDATE\_DELAY}{STATUS\_UPDATE\_DELAY}}
+{\footnotesize\ttfamily \#define STATUS\+\_\+\+UPDATE\+\_\+\+DELAY~250}
+
+\mbox{\Hypertarget{_drone_8h_ac2cc7377ee6fc1abcfc3ac180f8704b1}\label{_drone_8h_ac2cc7377ee6fc1abcfc3ac180f8704b1}} 
+\index{Drone.h@{Drone.h}!THROTTLE\_LIMIT@{THROTTLE\_LIMIT}}
+\index{THROTTLE\_LIMIT@{THROTTLE\_LIMIT}!Drone.h@{Drone.h}}
+\doxysubsubsection{\texorpdfstring{THROTTLE\_LIMIT}{THROTTLE\_LIMIT}}
+{\footnotesize\ttfamily \#define THROTTLE\+\_\+\+LIMIT~0.\+5f}
+

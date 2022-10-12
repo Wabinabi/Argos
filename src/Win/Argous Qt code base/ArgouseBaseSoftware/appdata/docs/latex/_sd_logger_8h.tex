@@ -1,0 +1,113 @@
+\hypertarget{_sd_logger_8h}{}\doxysection{H\+:/repos/\+Argous/src/esp32/as7-\/gamma/\+Sd\+Logger.h File Reference}
+\label{_sd_logger_8h}\index{H:/repos/Argous/src/esp32/as7-\/gamma/SdLogger.h@{H:/repos/Argous/src/esp32/as7-\/gamma/SdLogger.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$SPI.\+h$>$}\newline
+{\ttfamily \#include $<$SD.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_a_s7_1_1_logger}{AS7\+::\+Logger}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_a_s7}{AS7}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_ac50822d1bc3b81edfc36209eb2525f21}{AS7\+SDLOGGING\+\_\+H}}
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_ae790a6856a711b0990790554693511cf}{LOG\+\_\+\+LEVEL\+\_\+\+SILENT}}~0
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_ac6b8217f1800f3adc3cf1eee30915b78}{LOG\+\_\+\+LEVEL\+\_\+\+FATAL}}~1
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_a742fc70e331d7e568bd893c514756a29}{LOG\+\_\+\+LEVEL\+\_\+\+ERROR}}~2
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_af539a66abed2a7a15e3443d70a3cf1e1}{LOG\+\_\+\+LEVEL\+\_\+\+WARNING}}~3
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}{LOG\+\_\+\+LEVEL\+\_\+\+INFORM}}~4
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_a7d2f762be61df3727748e69e4ff197c2}{LOG\+\_\+\+LEVEL\+\_\+\+VERBOSE}}~5
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_abfcf05153ddbd63d5aff5d018867cc19}{CS\+\_\+\+PIN}}~5
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_a8f202d7c22f4e54b51322f1d9b2d0141}{LOGGER\+\_\+\+FREQ}}~100
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_a4e2de6ddd8e29a422e281da735c41ee5}{PLOTTER\+\_\+\+ENABLE}}~false
+\item 
+\#define \mbox{\hyperlink{_sd_logger_8h_aaf42b76f1955f8a450b5e6480a1b1b52}{SD\+\_\+\+DISABLED}}~false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_sd_logger_8h_ac50822d1bc3b81edfc36209eb2525f21}\label{_sd_logger_8h_ac50822d1bc3b81edfc36209eb2525f21}} 
+\index{SdLogger.h@{SdLogger.h}!AS7SDLOGGING\_H@{AS7SDLOGGING\_H}}
+\index{AS7SDLOGGING\_H@{AS7SDLOGGING\_H}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{AS7SDLOGGING\_H}{AS7SDLOGGING\_H}}
+{\footnotesize\ttfamily \#define AS7\+SDLOGGING\+\_\+H}
+
+TODO\+: THIS BANNER
+
+This is \mbox{\hyperlink{namespace_a_s7}{AS7}}\textquotesingle{}s Logger. It prints to serial and SD card. The goal of this logger is to tie logging and comms into one location and delegate to a thread Read this for getters and setters inside freertos \href{https://forums.freertos.org/t/freertos-task-in-a-c-class/13984}{\texttt{ https\+://forums.\+freertos.\+org/t/freertos-\/task-\/in-\/a-\/c-\/class/13984}} \mbox{\Hypertarget{_sd_logger_8h_abfcf05153ddbd63d5aff5d018867cc19}\label{_sd_logger_8h_abfcf05153ddbd63d5aff5d018867cc19}} 
+\index{SdLogger.h@{SdLogger.h}!CS\_PIN@{CS\_PIN}}
+\index{CS\_PIN@{CS\_PIN}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{CS\_PIN}{CS\_PIN}}
+{\footnotesize\ttfamily \#define CS\+\_\+\+PIN~5}
+
+\mbox{\Hypertarget{_sd_logger_8h_a742fc70e331d7e568bd893c514756a29}\label{_sd_logger_8h_a742fc70e331d7e568bd893c514756a29}} 
+\index{SdLogger.h@{SdLogger.h}!LOG\_LEVEL\_ERROR@{LOG\_LEVEL\_ERROR}}
+\index{LOG\_LEVEL\_ERROR@{LOG\_LEVEL\_ERROR}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_LEVEL\_ERROR}{LOG\_LEVEL\_ERROR}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+LEVEL\+\_\+\+ERROR~2}
+
+\mbox{\Hypertarget{_sd_logger_8h_ac6b8217f1800f3adc3cf1eee30915b78}\label{_sd_logger_8h_ac6b8217f1800f3adc3cf1eee30915b78}} 
+\index{SdLogger.h@{SdLogger.h}!LOG\_LEVEL\_FATAL@{LOG\_LEVEL\_FATAL}}
+\index{LOG\_LEVEL\_FATAL@{LOG\_LEVEL\_FATAL}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_LEVEL\_FATAL}{LOG\_LEVEL\_FATAL}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+LEVEL\+\_\+\+FATAL~1}
+
+\mbox{\Hypertarget{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}\label{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}} 
+\index{SdLogger.h@{SdLogger.h}!LOG\_LEVEL\_INFORM@{LOG\_LEVEL\_INFORM}}
+\index{LOG\_LEVEL\_INFORM@{LOG\_LEVEL\_INFORM}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_LEVEL\_INFORM}{LOG\_LEVEL\_INFORM}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+LEVEL\+\_\+\+INFORM~4}
+
+\mbox{\Hypertarget{_sd_logger_8h_ae790a6856a711b0990790554693511cf}\label{_sd_logger_8h_ae790a6856a711b0990790554693511cf}} 
+\index{SdLogger.h@{SdLogger.h}!LOG\_LEVEL\_SILENT@{LOG\_LEVEL\_SILENT}}
+\index{LOG\_LEVEL\_SILENT@{LOG\_LEVEL\_SILENT}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_LEVEL\_SILENT}{LOG\_LEVEL\_SILENT}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+LEVEL\+\_\+\+SILENT~0}
+
+\mbox{\Hypertarget{_sd_logger_8h_a7d2f762be61df3727748e69e4ff197c2}\label{_sd_logger_8h_a7d2f762be61df3727748e69e4ff197c2}} 
+\index{SdLogger.h@{SdLogger.h}!LOG\_LEVEL\_VERBOSE@{LOG\_LEVEL\_VERBOSE}}
+\index{LOG\_LEVEL\_VERBOSE@{LOG\_LEVEL\_VERBOSE}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_LEVEL\_VERBOSE}{LOG\_LEVEL\_VERBOSE}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+LEVEL\+\_\+\+VERBOSE~5}
+
+\mbox{\Hypertarget{_sd_logger_8h_af539a66abed2a7a15e3443d70a3cf1e1}\label{_sd_logger_8h_af539a66abed2a7a15e3443d70a3cf1e1}} 
+\index{SdLogger.h@{SdLogger.h}!LOG\_LEVEL\_WARNING@{LOG\_LEVEL\_WARNING}}
+\index{LOG\_LEVEL\_WARNING@{LOG\_LEVEL\_WARNING}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_LEVEL\_WARNING}{LOG\_LEVEL\_WARNING}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+LEVEL\+\_\+\+WARNING~3}
+
+\mbox{\Hypertarget{_sd_logger_8h_a8f202d7c22f4e54b51322f1d9b2d0141}\label{_sd_logger_8h_a8f202d7c22f4e54b51322f1d9b2d0141}} 
+\index{SdLogger.h@{SdLogger.h}!LOGGER\_FREQ@{LOGGER\_FREQ}}
+\index{LOGGER\_FREQ@{LOGGER\_FREQ}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{LOGGER\_FREQ}{LOGGER\_FREQ}}
+{\footnotesize\ttfamily \#define LOGGER\+\_\+\+FREQ~100}
+
+\mbox{\Hypertarget{_sd_logger_8h_a4e2de6ddd8e29a422e281da735c41ee5}\label{_sd_logger_8h_a4e2de6ddd8e29a422e281da735c41ee5}} 
+\index{SdLogger.h@{SdLogger.h}!PLOTTER\_ENABLE@{PLOTTER\_ENABLE}}
+\index{PLOTTER\_ENABLE@{PLOTTER\_ENABLE}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{PLOTTER\_ENABLE}{PLOTTER\_ENABLE}}
+{\footnotesize\ttfamily \#define PLOTTER\+\_\+\+ENABLE~false}
+
+\mbox{\Hypertarget{_sd_logger_8h_aaf42b76f1955f8a450b5e6480a1b1b52}\label{_sd_logger_8h_aaf42b76f1955f8a450b5e6480a1b1b52}} 
+\index{SdLogger.h@{SdLogger.h}!SD\_DISABLED@{SD\_DISABLED}}
+\index{SD\_DISABLED@{SD\_DISABLED}!SdLogger.h@{SdLogger.h}}
+\doxysubsubsection{\texorpdfstring{SD\_DISABLED}{SD\_DISABLED}}
+{\footnotesize\ttfamily \#define SD\+\_\+\+DISABLED~false}
+

@@ -1,0 +1,339 @@
+\hypertarget{class_a_s7_1_1_drone}{}\doxysection{AS7\+::Drone Class Reference}
+\label{class_a_s7_1_1_drone}\index{AS7::Drone@{AS7::Drone}}
+
+
+{\ttfamily \#include $<$Drone.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_s7_1_1_drone_a55609d6f948046ab46654912cc78f425}{Drone}} (\mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}} $\ast$\mbox{\hyperlink{as7-gamma_8ino_a99d2a4a087d451eb0554bfa08a3f2dba}{logger}}, bfs\+::\+Sbus\+Rx $\ast$sbus\+\_\+rx, bfs\+::\+Sbus\+Tx $\ast$sbus\+\_\+tx)
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_drone_a917a942e76225752287df64d15acfe3d}{channel\+Confirm}} (int16\+\_\+t channel=1, float threshold=0.\+7f)
+\item 
+int \mbox{\hyperlink{class_a_s7_1_1_drone_a9b5342262b0eb7087a0a309a91bcfa66}{drone\+Status}} ()
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8e539903dbf2d570a5bc0293019fae6d}{get\+Enable\+Operator\+Control}} ()
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_drone_a15f2997ae778b2c70803732bb9d81d3d}{get\+Enable\+Emergency\+Stop}} ()
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_drone_a7b5b0bf44038f4846b81884baa959772}{get\+Drone\+Arm\+Complete}} ()
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_a9d7a1c77979cad366efc500f2bc7b12b}{get\+Us\+Front}} ()
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_a408d06aa435e41c3e94fe919a41486d1}{get\+Us\+Back}} ()
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_a0bcfc0a4b25fc55711d4bdf5415add87}{get\+Us\+Left}} ()
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_aaf5d17b6c55055a6539a58dc3db12582}{get\+Us\+Right}} ()
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_a25ea041401576c616146ba2900a3b33c}{get\+Us\+Up}} ()
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_a7cd9900e3c90ecf0a1e8c5af7bc5acd6}{get\+Us\+Down}} ()
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_ad1aca4c57867fbf477f79bfe14a2eee0}{get\+Compass\+Heading}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_a97590ac5e8120083b433eaed712e3121}{start}} (int core=1, int priority=3)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_a95f9b591ab0f351c62f0a6cb1ac8ecae}{pause}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_ac1a2582827dae044b6e0797edc8ef3ec}{resume}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_a603ccc16b94fd89a56dbd2830aafcdbe}{enqueue\+Command}} (\mbox{\hyperlink{struct_a_s7_1_1_drone_command}{Drone\+Command}} cmd)
+\item 
+\mbox{\hyperlink{struct_a_s7_1_1_drone_command}{Drone\+Command}} \mbox{\hyperlink{class_a_s7_1_1_drone_a32bba236c547413cfb0e335ec647158c}{dequeue\+Command}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_a00b9cfef649a173160b309d7e09d6a47}{allow\+Arming}} ()
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_drone_aaed1f2baa3216be59dc4abb794576f3b}{drone\+Allowed\+To\+Fly}} () const
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_drone_abb33f4d47d5f18e316c5f30e9f1646ec}{drone\+Has\+Armed}} () const
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_a8bc5d855f0a3cb35dd3c966e6fca3bbc}{enable\+Operator\+Control}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_a612c4cd4c953b8a1eecb00370c99c81b}{disable\+Operator\+Control}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_ae87af6935850c386a260fb91ab86dbd2}{emergency\+Stop}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_a33b88ec2c709c0ea2819bc1be2009df0}{reset\+Emergency\+Stop}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_aad9f525de520ffb82f3475f73177bbf6}{set\+Data\+Gathering}} (bool value)
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_drone_a7900216c76fe0c8de149d86a70f7f6d3}{recording\+Enabled}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_drone_a0722ac26578b383b970c1bcd86dbf3ce}{generate\+EStop\+Tx}} ()
+\item 
+std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_aff3e8bc91ecfe954a36f98b649b123df}{get\+EStop\+Tx}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_a_s7_1_1_drone_a6dc14e47b6932da53640f26aa81947be}{get\+Sbus\+Rx\+Array}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_a_s7_1_1_drone_a8484beeb605809ee88a5287195d7fbe9}{get\+Sbus\+Tx\+Array}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_aa2345fe958b69a8c9d8e66ed07a4803a}{us\+Front}} = 200
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_a693bf108e04698d8638bc878c00d5a7a}{us\+Back}} = 200
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_aa556c8e90651cacd12cfb7aaa63f8816}{us\+Left}} = 200
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_a4b06b9cc7cb08daac6348772f75395a2}{us\+Right}} = 200
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_aa6c5b1f19e43fc3ae9008d3befd930bf}{us\+Up}} = 200
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_a0ebdbfbc0c08b516b56465c2a7be3017}{us\+Down}} = 200
+\item 
+float \mbox{\hyperlink{class_a_s7_1_1_drone_a567bf2b39f0b457ccacaa7d0b6d5f73c}{compass\+Heading}}
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+\_\+data\+Gathering\+Enabled}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a55609d6f948046ab46654912cc78f425}\label{class_a_s7_1_1_drone_a55609d6f948046ab46654912cc78f425}} 
+\index{AS7::Drone@{AS7::Drone}!Drone@{Drone}}
+\index{Drone@{Drone}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{Drone()}{Drone()}}
+{\footnotesize\ttfamily AS7\+::\+Drone\+::\+Drone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}} $\ast$}]{logger,  }\item[{bfs\+::\+Sbus\+Rx $\ast$}]{sbus\+\_\+rx,  }\item[{bfs\+::\+Sbus\+Tx $\ast$}]{sbus\+\_\+tx }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a00b9cfef649a173160b309d7e09d6a47}\label{class_a_s7_1_1_drone_a00b9cfef649a173160b309d7e09d6a47}} 
+\index{AS7::Drone@{AS7::Drone}!allowArming@{allowArming}}
+\index{allowArming@{allowArming}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{allowArming()}{allowArming()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::allow\+Arming (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a917a942e76225752287df64d15acfe3d}\label{class_a_s7_1_1_drone_a917a942e76225752287df64d15acfe3d}} 
+\index{AS7::Drone@{AS7::Drone}!channelConfirm@{channelConfirm}}
+\index{channelConfirm@{channelConfirm}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{channelConfirm()}{channelConfirm()}}
+{\footnotesize\ttfamily bool AS7\+::\+Drone\+::channel\+Confirm (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{channel = {\ttfamily 1},  }\item[{float}]{threshold = {\ttfamily 0.7f} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a32bba236c547413cfb0e335ec647158c}\label{class_a_s7_1_1_drone_a32bba236c547413cfb0e335ec647158c}} 
+\index{AS7::Drone@{AS7::Drone}!dequeueCommand@{dequeueCommand}}
+\index{dequeueCommand@{dequeueCommand}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{dequeueCommand()}{dequeueCommand()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_a_s7_1_1_drone_command}{Drone\+Command}} AS7\+::\+Drone\+::dequeue\+Command (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a612c4cd4c953b8a1eecb00370c99c81b}\label{class_a_s7_1_1_drone_a612c4cd4c953b8a1eecb00370c99c81b}} 
+\index{AS7::Drone@{AS7::Drone}!disableOperatorControl@{disableOperatorControl}}
+\index{disableOperatorControl@{disableOperatorControl}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{disableOperatorControl()}{disableOperatorControl()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::disable\+Operator\+Control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_aaed1f2baa3216be59dc4abb794576f3b}\label{class_a_s7_1_1_drone_aaed1f2baa3216be59dc4abb794576f3b}} 
+\index{AS7::Drone@{AS7::Drone}!droneAllowedToFly@{droneAllowedToFly}}
+\index{droneAllowedToFly@{droneAllowedToFly}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{droneAllowedToFly()}{droneAllowedToFly()}}
+{\footnotesize\ttfamily bool AS7\+::\+Drone\+::drone\+Allowed\+To\+Fly (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_abb33f4d47d5f18e316c5f30e9f1646ec}\label{class_a_s7_1_1_drone_abb33f4d47d5f18e316c5f30e9f1646ec}} 
+\index{AS7::Drone@{AS7::Drone}!droneHasArmed@{droneHasArmed}}
+\index{droneHasArmed@{droneHasArmed}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{droneHasArmed()}{droneHasArmed()}}
+{\footnotesize\ttfamily bool AS7\+::\+Drone\+::drone\+Has\+Armed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a9b5342262b0eb7087a0a309a91bcfa66}\label{class_a_s7_1_1_drone_a9b5342262b0eb7087a0a309a91bcfa66}} 
+\index{AS7::Drone@{AS7::Drone}!droneStatus@{droneStatus}}
+\index{droneStatus@{droneStatus}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{droneStatus()}{droneStatus()}}
+{\footnotesize\ttfamily int AS7\+::\+Drone\+::drone\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_ae87af6935850c386a260fb91ab86dbd2}\label{class_a_s7_1_1_drone_ae87af6935850c386a260fb91ab86dbd2}} 
+\index{AS7::Drone@{AS7::Drone}!emergencyStop@{emergencyStop}}
+\index{emergencyStop@{emergencyStop}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{emergencyStop()}{emergencyStop()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::emergency\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a8bc5d855f0a3cb35dd3c966e6fca3bbc}\label{class_a_s7_1_1_drone_a8bc5d855f0a3cb35dd3c966e6fca3bbc}} 
+\index{AS7::Drone@{AS7::Drone}!enableOperatorControl@{enableOperatorControl}}
+\index{enableOperatorControl@{enableOperatorControl}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{enableOperatorControl()}{enableOperatorControl()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::enable\+Operator\+Control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a603ccc16b94fd89a56dbd2830aafcdbe}\label{class_a_s7_1_1_drone_a603ccc16b94fd89a56dbd2830aafcdbe}} 
+\index{AS7::Drone@{AS7::Drone}!enqueueCommand@{enqueueCommand}}
+\index{enqueueCommand@{enqueueCommand}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{enqueueCommand()}{enqueueCommand()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::enqueue\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_a_s7_1_1_drone_command}{Drone\+Command}}}]{cmd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a0722ac26578b383b970c1bcd86dbf3ce}\label{class_a_s7_1_1_drone_a0722ac26578b383b970c1bcd86dbf3ce}} 
+\index{AS7::Drone@{AS7::Drone}!generateEStopTx@{generateEStopTx}}
+\index{generateEStopTx@{generateEStopTx}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{generateEStopTx()}{generateEStopTx()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::generate\+EStop\+Tx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_ad1aca4c57867fbf477f79bfe14a2eee0}\label{class_a_s7_1_1_drone_ad1aca4c57867fbf477f79bfe14a2eee0}} 
+\index{AS7::Drone@{AS7::Drone}!getCompassHeading@{getCompassHeading}}
+\index{getCompassHeading@{getCompassHeading}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getCompassHeading()}{getCompassHeading()}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::get\+Compass\+Heading (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a7b5b0bf44038f4846b81884baa959772}\label{class_a_s7_1_1_drone_a7b5b0bf44038f4846b81884baa959772}} 
+\index{AS7::Drone@{AS7::Drone}!getDroneArmComplete@{getDroneArmComplete}}
+\index{getDroneArmComplete@{getDroneArmComplete}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getDroneArmComplete()}{getDroneArmComplete()}}
+{\footnotesize\ttfamily bool AS7\+::\+Drone\+::get\+Drone\+Arm\+Complete (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a15f2997ae778b2c70803732bb9d81d3d}\label{class_a_s7_1_1_drone_a15f2997ae778b2c70803732bb9d81d3d}} 
+\index{AS7::Drone@{AS7::Drone}!getEnableEmergencyStop@{getEnableEmergencyStop}}
+\index{getEnableEmergencyStop@{getEnableEmergencyStop}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getEnableEmergencyStop()}{getEnableEmergencyStop()}}
+{\footnotesize\ttfamily bool AS7\+::\+Drone\+::get\+Enable\+Emergency\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a8e539903dbf2d570a5bc0293019fae6d}\label{class_a_s7_1_1_drone_a8e539903dbf2d570a5bc0293019fae6d}} 
+\index{AS7::Drone@{AS7::Drone}!getEnableOperatorControl@{getEnableOperatorControl}}
+\index{getEnableOperatorControl@{getEnableOperatorControl}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getEnableOperatorControl()}{getEnableOperatorControl()}}
+{\footnotesize\ttfamily bool AS7\+::\+Drone\+::get\+Enable\+Operator\+Control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_aff3e8bc91ecfe954a36f98b649b123df}\label{class_a_s7_1_1_drone_aff3e8bc91ecfe954a36f98b649b123df}} 
+\index{AS7::Drone@{AS7::Drone}!getEStopTx@{getEStopTx}}
+\index{getEStopTx@{getEStopTx}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getEStopTx()}{getEStopTx()}}
+{\footnotesize\ttfamily std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ AS7\+::\+Drone\+::get\+EStop\+Tx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a6dc14e47b6932da53640f26aa81947be}\label{class_a_s7_1_1_drone_a6dc14e47b6932da53640f26aa81947be}} 
+\index{AS7::Drone@{AS7::Drone}!getSbusRxArray@{getSbusRxArray}}
+\index{getSbusRxArray@{getSbusRxArray}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getSbusRxArray()}{getSbusRxArray()}}
+{\footnotesize\ttfamily std\+::string AS7\+::\+Drone\+::get\+Sbus\+Rx\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a8484beeb605809ee88a5287195d7fbe9}\label{class_a_s7_1_1_drone_a8484beeb605809ee88a5287195d7fbe9}} 
+\index{AS7::Drone@{AS7::Drone}!getSbusTxArray@{getSbusTxArray}}
+\index{getSbusTxArray@{getSbusTxArray}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getSbusTxArray()}{getSbusTxArray()}}
+{\footnotesize\ttfamily std\+::string AS7\+::\+Drone\+::get\+Sbus\+Tx\+Array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a408d06aa435e41c3e94fe919a41486d1}\label{class_a_s7_1_1_drone_a408d06aa435e41c3e94fe919a41486d1}} 
+\index{AS7::Drone@{AS7::Drone}!getUsBack@{getUsBack}}
+\index{getUsBack@{getUsBack}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getUsBack()}{getUsBack()}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::get\+Us\+Back (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a7cd9900e3c90ecf0a1e8c5af7bc5acd6}\label{class_a_s7_1_1_drone_a7cd9900e3c90ecf0a1e8c5af7bc5acd6}} 
+\index{AS7::Drone@{AS7::Drone}!getUsDown@{getUsDown}}
+\index{getUsDown@{getUsDown}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getUsDown()}{getUsDown()}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::get\+Us\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a9d7a1c77979cad366efc500f2bc7b12b}\label{class_a_s7_1_1_drone_a9d7a1c77979cad366efc500f2bc7b12b}} 
+\index{AS7::Drone@{AS7::Drone}!getUsFront@{getUsFront}}
+\index{getUsFront@{getUsFront}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getUsFront()}{getUsFront()}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::get\+Us\+Front (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a0bcfc0a4b25fc55711d4bdf5415add87}\label{class_a_s7_1_1_drone_a0bcfc0a4b25fc55711d4bdf5415add87}} 
+\index{AS7::Drone@{AS7::Drone}!getUsLeft@{getUsLeft}}
+\index{getUsLeft@{getUsLeft}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getUsLeft()}{getUsLeft()}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::get\+Us\+Left (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_aaf5d17b6c55055a6539a58dc3db12582}\label{class_a_s7_1_1_drone_aaf5d17b6c55055a6539a58dc3db12582}} 
+\index{AS7::Drone@{AS7::Drone}!getUsRight@{getUsRight}}
+\index{getUsRight@{getUsRight}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getUsRight()}{getUsRight()}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::get\+Us\+Right (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a25ea041401576c616146ba2900a3b33c}\label{class_a_s7_1_1_drone_a25ea041401576c616146ba2900a3b33c}} 
+\index{AS7::Drone@{AS7::Drone}!getUsUp@{getUsUp}}
+\index{getUsUp@{getUsUp}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{getUsUp()}{getUsUp()}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::get\+Us\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a95f9b591ab0f351c62f0a6cb1ac8ecae}\label{class_a_s7_1_1_drone_a95f9b591ab0f351c62f0a6cb1ac8ecae}} 
+\index{AS7::Drone@{AS7::Drone}!pause@{pause}}
+\index{pause@{pause}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{pause()}{pause()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a7900216c76fe0c8de149d86a70f7f6d3}\label{class_a_s7_1_1_drone_a7900216c76fe0c8de149d86a70f7f6d3}} 
+\index{AS7::Drone@{AS7::Drone}!recordingEnabled@{recordingEnabled}}
+\index{recordingEnabled@{recordingEnabled}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{recordingEnabled()}{recordingEnabled()}}
+{\footnotesize\ttfamily bool AS7\+::\+Drone\+::recording\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a33b88ec2c709c0ea2819bc1be2009df0}\label{class_a_s7_1_1_drone_a33b88ec2c709c0ea2819bc1be2009df0}} 
+\index{AS7::Drone@{AS7::Drone}!resetEmergencyStop@{resetEmergencyStop}}
+\index{resetEmergencyStop@{resetEmergencyStop}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{resetEmergencyStop()}{resetEmergencyStop()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::reset\+Emergency\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_ac1a2582827dae044b6e0797edc8ef3ec}\label{class_a_s7_1_1_drone_ac1a2582827dae044b6e0797edc8ef3ec}} 
+\index{AS7::Drone@{AS7::Drone}!resume@{resume}}
+\index{resume@{resume}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{resume()}{resume()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_aad9f525de520ffb82f3475f73177bbf6}\label{class_a_s7_1_1_drone_aad9f525de520ffb82f3475f73177bbf6}} 
+\index{AS7::Drone@{AS7::Drone}!setDataGathering@{setDataGathering}}
+\index{setDataGathering@{setDataGathering}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{setDataGathering()}{setDataGathering()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::set\+Data\+Gathering (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a97590ac5e8120083b433eaed712e3121}\label{class_a_s7_1_1_drone_a97590ac5e8120083b433eaed712e3121}} 
+\index{AS7::Drone@{AS7::Drone}!start@{start}}
+\index{start@{start}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily void AS7\+::\+Drone\+::start (\begin{DoxyParamCaption}\item[{int}]{core = {\ttfamily 1},  }\item[{int}]{priority = {\ttfamily 3} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}\label{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}} 
+\index{AS7::Drone@{AS7::Drone}!\_dataGatheringEnabled@{\_dataGatheringEnabled}}
+\index{\_dataGatheringEnabled@{\_dataGatheringEnabled}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{\_dataGatheringEnabled}{\_dataGatheringEnabled}}
+{\footnotesize\ttfamily bool AS7\+::\+Drone\+::\+\_\+data\+Gathering\+Enabled = false}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a567bf2b39f0b457ccacaa7d0b6d5f73c}\label{class_a_s7_1_1_drone_a567bf2b39f0b457ccacaa7d0b6d5f73c}} 
+\index{AS7::Drone@{AS7::Drone}!compassHeading@{compassHeading}}
+\index{compassHeading@{compassHeading}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{compassHeading}{compassHeading}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::compass\+Heading}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a693bf108e04698d8638bc878c00d5a7a}\label{class_a_s7_1_1_drone_a693bf108e04698d8638bc878c00d5a7a}} 
+\index{AS7::Drone@{AS7::Drone}!usBack@{usBack}}
+\index{usBack@{usBack}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{usBack}{usBack}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::us\+Back = 200}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a0ebdbfbc0c08b516b56465c2a7be3017}\label{class_a_s7_1_1_drone_a0ebdbfbc0c08b516b56465c2a7be3017}} 
+\index{AS7::Drone@{AS7::Drone}!usDown@{usDown}}
+\index{usDown@{usDown}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{usDown}{usDown}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::us\+Down = 200}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_aa2345fe958b69a8c9d8e66ed07a4803a}\label{class_a_s7_1_1_drone_aa2345fe958b69a8c9d8e66ed07a4803a}} 
+\index{AS7::Drone@{AS7::Drone}!usFront@{usFront}}
+\index{usFront@{usFront}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{usFront}{usFront}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::us\+Front = 200}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_aa556c8e90651cacd12cfb7aaa63f8816}\label{class_a_s7_1_1_drone_aa556c8e90651cacd12cfb7aaa63f8816}} 
+\index{AS7::Drone@{AS7::Drone}!usLeft@{usLeft}}
+\index{usLeft@{usLeft}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{usLeft}{usLeft}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::us\+Left = 200}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a4b06b9cc7cb08daac6348772f75395a2}\label{class_a_s7_1_1_drone_a4b06b9cc7cb08daac6348772f75395a2}} 
+\index{AS7::Drone@{AS7::Drone}!usRight@{usRight}}
+\index{usRight@{usRight}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{usRight}{usRight}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::us\+Right = 200}
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_aa6c5b1f19e43fc3ae9008d3befd930bf}\label{class_a_s7_1_1_drone_aa6c5b1f19e43fc3ae9008d3befd930bf}} 
+\index{AS7::Drone@{AS7::Drone}!usUp@{usUp}}
+\index{usUp@{usUp}!AS7::Drone@{AS7::Drone}}
+\doxysubsubsection{\texorpdfstring{usUp}{usUp}}
+{\footnotesize\ttfamily float AS7\+::\+Drone\+::us\+Up = 200}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+H\+:/repos/\+Argous/src/esp32/as7-\/gamma/\mbox{\hyperlink{_drone_8h}{Drone.\+h}}\item 
+H\+:/repos/\+Argous/src/esp32/as7-\/gamma/\mbox{\hyperlink{_drone_8cpp}{Drone.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,149 @@
+\hypertarget{_sd_logger_8h_source}{}\doxysection{Sd\+Logger.\+h}
+\label{_sd_logger_8h_source}\index{H:/repos/Argous/src/esp32/as7-\/gamma/SdLogger.h@{H:/repos/Argous/src/esp32/as7-\/gamma/SdLogger.h}}
+\mbox{\hyperlink{_sd_logger_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef AS7SDLOGGING\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define AS7SDLOGGING\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <Arduino.h>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <SPI.h>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <SD.h>}}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{comment}{// Defines the maximum level of messages sent through the serial port}}
+\DoxyCodeLine{20 \textcolor{comment}{// e.g. a level of WARNING (3) will only allow warnings, errors, and fatal issues to be sent to the serial port.}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define LOG\_LEVEL\_SILENT    0}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define LOG\_LEVEL\_FATAL     1}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#define LOG\_LEVEL\_ERROR     2}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define LOG\_LEVEL\_WARNING   3}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#define LOG\_LEVEL\_INFORM    4}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define LOG\_LEVEL\_VERBOSE   5}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define CS\_PIN 5}}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#define LOGGER\_FREQ 100      }\textcolor{comment}{// Update rate in Hertz}}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#define PLOTTER\_ENABLE false }\textcolor{comment}{// only prints plots, for testing.}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#define SD\_DISABLED false}}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_a_s7}{AS7}} }
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \textcolor{keyword}{class }\mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}}}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38     \textcolor{keyword}{private}:}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         std::queue<std::string> \_msg\_Queue;}
+\DoxyCodeLine{41         std::queue<std::string> \_log\_Queue;}
+\DoxyCodeLine{42         \textcolor{comment}{// Used for reading the message Queues for the scribe task}}
+\DoxyCodeLine{43         SemaphoreHandle\_t \_sem\_log;}
+\DoxyCodeLine{44         SemaphoreHandle\_t \_sem\_msg;}
+\DoxyCodeLine{45         }
+\DoxyCodeLine{46         \textcolor{comment}{// Mutex for the message Queues}}
+\DoxyCodeLine{47         SemaphoreHandle\_t \_sem\_logQueueMutex;}
+\DoxyCodeLine{48         SemaphoreHandle\_t \_sem\_msgQueueMutex;}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50         SemaphoreHandle\_t \_sem\_dataMutex;}
+\DoxyCodeLine{51         SemaphoreHandle\_t \_sem\_dataEnqMutex;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53         \textcolor{comment}{// Sem for Enabling/Disabling Task}}
+\DoxyCodeLine{54         SemaphoreHandle\_t \_sem\_enableMutex;}
+\DoxyCodeLine{55         \textcolor{keywordtype}{bool} \_running = \textcolor{keyword}{false}; \textcolor{comment}{// tracks if the thread is running or stopped}}
+\DoxyCodeLine{56         \textcolor{keywordtype}{bool} \_sdEnabled = \textcolor{keyword}{false};}
+\DoxyCodeLine{57         \textcolor{keywordtype}{bool} \_sdDetected = \textcolor{keyword}{false};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59         std::map<std::string, float> \_activeData;     \textcolor{comment}{// Data that is actively written to}}
+\DoxyCodeLine{60         std::map<std::string, float> \_enqueuedData;   \textcolor{comment}{// Used as a buffer before being written}}
+\DoxyCodeLine{61         \textcolor{keywordtype}{bool} \_hasEnqueuedData = \textcolor{keyword}{false};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         File \_logFile;}
+\DoxyCodeLine{64         File \_dataFile;}
+\DoxyCodeLine{65         File \_configFile;}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         File getLogFile();}
+\DoxyCodeLine{68         File getDataFile();}
+\DoxyCodeLine{69         File getConfigFile();}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         \textcolor{keywordtype}{void} openLogFile();     \textcolor{comment}{// Opens Log file on SD in Append}}
+\DoxyCodeLine{72         \textcolor{keywordtype}{void} openDataFile();    \textcolor{comment}{// Opens Data file on SD in Append}}
+\DoxyCodeLine{73         \textcolor{keywordtype}{void} closeLogFile();    \textcolor{comment}{// Closes Log File}}
+\DoxyCodeLine{74         \textcolor{keywordtype}{void} closeDataFile();   \textcolor{comment}{// Closes Data File}}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76         \textcolor{keyword}{const} std::string \_logFileLocation = \textcolor{stringliteral}{"{}/as7.log"{}}; \textcolor{comment}{// Location of the logging file, includes extension. Use .c\_str() to for SD library}}
+\DoxyCodeLine{77         \textcolor{keyword}{const} std::string \_dataFileLocation = \textcolor{stringliteral}{"{}/data.csv"{}}; \textcolor{comment}{// Location of the data file, includes extension. Use .c\_str() to for SD library}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         Print* \_printer;}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         Print* getPrinter();}
+\DoxyCodeLine{82         \textcolor{keywordtype}{int} \_verbosity = \mbox{\hyperlink{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}{LOG\_LEVEL\_INFORM}};}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84         std::string getTestMessage();}
+\DoxyCodeLine{85         std::queue<std::string> getMsgQueue();}
+\DoxyCodeLine{86         std::queue<std::string> getLogQueue();}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88         SemaphoreHandle\_t getSemLog();}
+\DoxyCodeLine{89         SemaphoreHandle\_t getSemMsg();}
+\DoxyCodeLine{90         SemaphoreHandle\_t getSemLogQueueMutex();}
+\DoxyCodeLine{91         SemaphoreHandle\_t getSemMsgQueueMutex();}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93         \textcolor{keyword}{inline} SemaphoreHandle\_t getSemDataMutex() \{\textcolor{keywordflow}{return} \_sem\_dataMutex; \}}
+\DoxyCodeLine{94         \textcolor{keyword}{inline} SemaphoreHandle\_t getSemDataEnqMutex() \{\textcolor{keywordflow}{return} \_sem\_dataEnqMutex; \}}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96         SemaphoreHandle\_t getSemEnableMutex();}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99         \textcolor{comment}{// Adds a message to be recorded to the SD card}}
+\DoxyCodeLine{100         \textcolor{comment}{// diagnotics probably? will flush out later}}
+\DoxyCodeLine{101         \textcolor{keywordtype}{void} enqueueMsg(std::string message); }
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103         \textcolor{comment}{// Adds a message to be sent to the console and onto the SD card}}
+\DoxyCodeLine{104         \textcolor{keywordtype}{void} enqueueLog(std::string message, \textcolor{keywordtype}{int} \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}});}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106         \textcolor{comment}{// for PLY generation, will need to be flushed out.}}
+\DoxyCodeLine{107         \textcolor{comment}{// String since we can also send header information}}
+\DoxyCodeLine{108         \textcolor{keywordtype}{void} enqueuePnt(std::string points);}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110         std::string dequeueLog();}
+\DoxyCodeLine{111 }
+\DoxyCodeLine{112         \textcolor{comment}{// Implementation to start FreeRTOS tasks in classes}}
+\DoxyCodeLine{113         \textcolor{keyword}{static} \textcolor{keywordtype}{void} startTaskImpl(\textcolor{keywordtype}{void}*);}
+\DoxyCodeLine{114         TaskHandle\_t th\_logger;}
+\DoxyCodeLine{115         \textcolor{keywordtype}{void} mainTask(\textcolor{keywordtype}{void}* parameters);}
+\DoxyCodeLine{116 }
+\DoxyCodeLine{117         \textcolor{keywordtype}{void} initialiseSD();}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{119     \textcolor{keyword}{public}:}
+\DoxyCodeLine{120         \mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}}(Print* output);}
+\DoxyCodeLine{121         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_a685065f891d6bbee4036a17b32070656}{start}}(\textcolor{keywordtype}{int} core=1, \textcolor{keywordtype}{int} priority=1, \textcolor{keywordtype}{int} \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}}=\mbox{\hyperlink{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}{LOG\_LEVEL\_INFORM}});}
+\DoxyCodeLine{122         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_ac9d7cace2308b508786f239e8c8ee2e4}{pause}}();}
+\DoxyCodeLine{123         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_a11e21f8484f53d22c40928fca6148c89}{resume}}();}
+\DoxyCodeLine{124 }
+\DoxyCodeLine{125         \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_a_s7_1_1_logger_aad5dd58a44f99e3ec0431dcdea10a36c}{running}}();}
+\DoxyCodeLine{126         \textcolor{keywordtype}{int}  \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}}();}
+\DoxyCodeLine{127 }
+\DoxyCodeLine{128         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_ab7bf63dfe6789fccdfc95e7ef64c714b}{setVerbosity}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}});}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_a9c9b2cdbf787c449646de49c3b16b3b0}{recordData}}(std::string key, \textcolor{keywordtype}{float} value);}
+\DoxyCodeLine{131         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_ae345e2ae39089a886d74e7be62d04de8}{pushData}}();}
+\DoxyCodeLine{132 }
+\DoxyCodeLine{133         \textcolor{comment}{// The main logging tasks }}
+\DoxyCodeLine{134         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_ab76a725a8c8794c106024700df4c58aa}{inform}}(std::string message);}
+\DoxyCodeLine{135         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_a3919c07a9d87d652ed9aefabc5db744b}{warn}}(std::string message);}
+\DoxyCodeLine{136         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_a5dd76d05f548ae3ebd1131e1386ee0f6}{error}}(std::string message);}
+\DoxyCodeLine{137         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_a732d1ca90e99e6800aa6a226b24190e3}{fatal}}(std::string message);}
+\DoxyCodeLine{138         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_a6dd9f0de9bd4cc828ab63fbeb1285889}{verbose}}(std::string message);}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_ae6a850fae22d17e893a8c6589b0aaa74}{plot}}(std::string message);}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}{disableSDLogging}}();        \textcolor{comment}{// Disables SD Logging, even if SD Card is attached.}}
+\DoxyCodeLine{143 }
+\DoxyCodeLine{144     \};}
+\DoxyCodeLine{145 \}}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
