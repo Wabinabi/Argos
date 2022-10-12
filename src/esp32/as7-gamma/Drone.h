@@ -194,44 +194,73 @@ namespace AS7
         Logger* _logger;
         Logger* getLogger();
 
-        bfs::SbusRx* _sbusRx;   // SBUS Receive Channel Object
-        bfs::SbusTx* _sbusTx;   // SBUS Transmit Channel Object
+        /// @brief SBUS Receive Channel Object
+        bfs::SbusRx* _sbusRx;
+        /// @brief SBUS Transmit Channel Object 
+        bfs::SbusTx* _sbusTx;   
 
-        std::array<int16_t, NUM_CH> _sbusRxData;    // Array of data received from the Radio Control
-        std::array<int16_t, NUM_CH> _sbusTxData;    // Array of data to transmit to the Flight Controller
+        /// @brief Array of data received from the Radio Control
+        std::array<int16_t, NUM_CH> _sbusRxData;
+        /// @brief Array of data to transmit to the Flight Controller
+        std::array<int16_t, NUM_CH> _sbusTxData;
 
-        std::array<bool, NUM_CH> _sbusAbsChannels;      // When true, the channel is (0, 1). Otherwise channels default to (-1, 1). 
-        std::array<bool, NUM_CH> getSbusAbsChannels();  // Returns an array which defines if a channel is absolute (true) or not (false).
-        void generateAbsChannels();                     // Sets the default Absolute Channels
+        /// @brief Lists out the absolute channels. When true, the channel is (0, 1). Otherwise channels default to (-1, 1). 
+        std::array<bool, NUM_CH> _sbusAbsChannels;
+        /// @brief Returns an array which defines if a channel is absolute (true) or not (false).
+        std::array<bool, NUM_CH> getSbusAbsChannels();
+        /// @brief Sets the default Absolute Channels
+        void generateAbsChannels();
         
         int _controllerStatusCount = 0;
         bool getControllerStatusCount();
 
+        /// @brief Lower bounds for SBUS Transmit channels
+        std::array<int16_t, NUM_CH> _sbusTxChLower;
+        /// @brief Upper bounds for SBUS Transmit Channels
+        std::array<int16_t, NUM_CH> _sbusTxChUpper;
 
-        // Channels that will be transmitted to the drone
-        std::array<int16_t, NUM_CH> _sbusTxChLower;    /** Lower bounds for SBUS Transmit channels */
-        std::array<int16_t, NUM_CH> _sbusTxChUpper;    /** Upper bounds for SBUS Transmit Channels */
+        /// @brief Lower bounds for SBUS Receiver channels
+        std::array<int16_t, NUM_CH> _sbusRxChLower;
+        /// @brief Upper bounds for SBUS Receiver Channels
+        std::array<int16_t, NUM_CH> _sbusRxChUpper;
 
-        // Channels that are received from the transmitter
-        std::array<int16_t, NUM_CH> _sbusRxChLower;    // Lower bounds for SBUS Receiver channels
-        std::array<int16_t, NUM_CH> _sbusRxChUpper;    // Upper bounds for SBUS Receiver Channels
+        /// @brief Data to be written in case of an E-Stop. Not all channels are to be zeroed! 
+        std::array<int16_t, NUM_CH> _sbusEStopTx;
 
-        std::array<int16_t, NUM_CH> _sbusEStopTx;      // Data to be written in case of an E-Stop. Not all channels are to be zeroed! 
-
-        // Methods for getting and setting data for task theads
         inline std::array<int16_t, NUM_CH> getSbusRxData() {return _sbusRxData; }
         inline std::array<int16_t, NUM_CH> getSbusTxData() {return _sbusTxData; }
         void setSbusRxData(std::array<int16_t, NUM_CH> data);
         void setSbusTxData(std::array<int16_t, NUM_CH> data);
 
-        void initUpperLowerBoundArrays();   // Sets UBound and LBound array to default
+        /// @brief Sets UBound and LBound array to default
+        void initUpperLowerBoundArrays();
 
-        void writeChannel(int16_t value, int8_t ch);    // writes the value into the sbus transmit channel
-        void writeRxChannel_f(float value, int8_t ch);    // writes the value into the sbus transmit channel
-        void writeTxChannel_f(float value, int8_t ch);    // writes the value into the sbus transmit channel
+        /// @brief Writes the value into the SBUS transmit channel
+        /// @param value SBUS value to write to channel between [0, 2056]
+        /// @param ch  The specific channel to write to
+        void writeChannel(int16_t value, int8_t ch);
 
-        int16_t convRxChannel_i(float value, int8_t ch);  // Returns the adjusted int16_t value for that channel
-        float convRxChannel_f(int16_t value, int8_t ch);  // Returns the adjusted int16_t value for that channel
+        /// @brief Writes a percentage value to the designated receive channel
+        /// @param value SBUS value to write to channel between [-1.0f, 1.0f]
+        /// @param ch  The specific channel to write to
+        void writeRxChannel_f(float value, int8_t ch);
+
+        /// @brief Writes a percentage value to the designated transmit channel
+        /// @param value SBUS value to write to channel between [-1.0f, 1.0f]
+        /// @param ch  The specific channel to write to
+        void writeTxChannel_f(float value, int8_t ch);
+
+        /// @brief Converts the float value to the correct scaling based on channel minimums and maximums
+        /// @param value A float between [-1.0f, 1.0f] for normal channels and [0.0f to 1.0f]
+        /// @param ch The channel to write to. Channels can use enumerations `CH_`
+        /// @return Returns the adjusted int16_t value for that channel
+        int16_t convRxChannel_i(float value, int8_t ch);
+
+        /// @brief Converts the integer value to the correct scaling based on channel minimums and maximums
+        /// @param value A float between [-1.0f, 1.0f] for normal channels and [0.0f to 1.0f]
+        /// @param ch The channel to write to. Channels can use enumerations `CH_`
+        /// @return Returns the adjusted float value for that channel
+        float convRxChannel_f(int16_t value, int8_t ch);
 
         int16_t convTxChannel_i(float value, int8_t ch);  // Returns the adjusted int16_t value for that channel
         float convTxChannel_f(int16_t value, int8_t ch);  // Returns the adjusted int16_t value for that channel
@@ -242,25 +271,50 @@ namespace AS7
         int16_t readTxChannel(int16_t ch);              // Reads the current value being written to the controller
         float readTxChannel_f(int16_t ch);              // Returns the current value as a floating point number
 
-        // Helper/Utility functions
-        float clamp(float value, float lbound, float ubound);                           // Returns values inside of upper bound and lower bound.
-        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);                // Returns the channels in a formatted string  
-        float rampValue(float value, float target = 0, float rate = 0, int rampRateType = RAMPRATE_LINEAR);   // Returns the next ramped value depending on ramp type
+        /// @brief A clamping function to keep the values inside the bounds
+        /// @param value The input value
+        /// @param lbound The lower bound
+        /// @param ubound The upper bound
+        /// @return The clamped value between [min, max]
+        float clamp(float value, float lbound, float ubound);
+        /// @brief Returns the channels in a formatted string  
+        /// @param chData Rx or Tx Channel Data
+        /// @return A formatted string with all channels
+        std::string formatSbusArray(std::array<int16_t, NUM_CH> chData);
+        /// @brief Returns the next ramped value depending on ramp type
+        /// @param value The current value
+        /// @param target The target value
+        /// @param rate The ramping rate
+        /// @param rampRateType Enumerated ramping type
+        /// @return The ramped value (the next step in the ramping)
+        float rampValue(float value, float target = 0, float rate = 0, int rampRateType = RAMPRATE_LINEAR);
 
-        // Combines rampValue with current channel data for ramping.
+        /// @brief Ramping a specific channel to a target value
+        /// @param target The target ramping value
+        /// @param ch The target channel
+        /// @param rate The ramping rate
+        /// @param rampRateType Enumerated ramping type
         void rampChannel(float target, int8_t ch, float rate, int rampRateType = RAMPRATE_LINEAR);
 
-        bfs::SbusRx* getSbusRx();   // Returns SBUS RX object for task implementation
-        bfs::SbusTx* getSbusTx();   // Returns SBUS TX object for task implementation
+        /// @brief Returns SBUS RX object for task implementation
+        /// @return BFS::SBUS Rx Object
+        bfs::SbusRx* getSbusRx();
+        /// @brief Returns SBUS TX object for task implementation
+        /// @return BFS::SBUS Tx Object
+        bfs::SbusTx* getSbusTx();
 
-        
-        bool _hasArmed = false;         // Remembers if the drone has undergone an arming process
-        bool _armingAllowed = false;    // Set by main program. Once allowed, drone will start processing instructions
+        /// @brief Remembers if the drone has undergone an arming process
+        bool _hasArmed = false;
+        /// @brief Set by the operator. Confirms that the drone should start processing commands
+        bool _armingAllowed = false;
         inline void setDroneHasArmed() {_hasArmed = true;}
         inline bool getDroneHasArmed() {return _hasArmed; }
 
-        bool _droneCommandsStarted = false;     // Indicates if the drone has started processing commands
-        bool _droneCommandsCompleted = false;   // Indicates that there are no commands left (queue is empty)
+        /// @brief Indicates if the drone has started processing commands
+        bool _droneCommandsStarted = false;
+        /// @brief Indicates that there are no commands left (queue is empty)
+        bool _droneCommandsCompleted = false;
+        /// @brief Indicates if the drone has an active command
         bool _droneHasActiveCommand = false;
         inline bool getHasActiveComamnd() const {return _droneHasActiveCommand;}
         inline void setHasActiveCommand(bool value) {_droneHasActiveCommand = value;}
@@ -274,8 +328,16 @@ namespace AS7
         bool _armingComplete = false;
 
     
-        
+        /// @brief Constructor for Drone class. 
+        /// @param logger A reference to the SD logger, for data logging
+        /// @param sbus_rx A reference to the SBUS Rx Object
+        /// @param sbus_tx A reference to the SBUS Tx Object
         Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx);
+
+        /// @brief Returns true if the target channel is above a threshold. Can be used for button presses or detecting the state of a switch
+        /// @param channel The channel. See defines for channel enumerations
+        /// @param threshold Floating-point threshold
+        /// @return True if channel is above threshold on the received SBUS packets.
         bool channelConfirm(int16_t channel=1, float threshold=0.7f);    // Returns true if the channel above threshold. e.g. button press
         
         // Drone status is indicated by an int, though it could be indicated by an enum later on with DEFINEs

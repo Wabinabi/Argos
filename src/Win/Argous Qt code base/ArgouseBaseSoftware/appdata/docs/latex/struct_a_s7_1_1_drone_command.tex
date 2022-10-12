@@ -13,7 +13,7 @@ Ecapsulates commands to be carried out by drone.
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38e}{Drone\+Command\+Type}} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ad1d406bdba067d5711e66e796eca6ca8}{type}}
-\item 
+\begin{DoxyCompactList}\small\item\em Defines the main function of the command. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{struct_a_s7_1_1_drone_command_af181ef3356a7b389a81ba09118411777}{desc}}
 \begin{DoxyCompactList}\small\item\em A description for logging and verbosity. \end{DoxyCompactList}\item 
 std\+::array$<$ float, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a455e52fb93a740ba49a823a2ab8c268f}{channels}}
@@ -23,31 +23,31 @@ int \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a8719da97610790b9dd0b2d95bdd6
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a9071653b15de324d96e0ccde28a172ed}{rate\+Multiplier}} = 1.\+0f
 \begin{DoxyCompactList}\small\item\em The rate multiplier to adjust ramping speed if applicable. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a3dd331b4c5b77d24f6e7370977d3a6ec}{p\+\_\+x}}
-\item 
+\begin{DoxyCompactList}\small\item\em Position control in the forward axis. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ad3b7dfe32adf2e9eb9efa1e08a3fccc1}{p\+\_\+y}}
-\item 
+\begin{DoxyCompactList}\small\item\em Position control in the sideways axis. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a0c9b1498bfa5057d76592efe0a058b35}{p\+\_\+z}}
-\item 
+\begin{DoxyCompactList}\small\item\em Position control of the height of the drone. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a6bd14aeb86624f8dee8f4e10998da6ea}{v\+\_\+x}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velocity control in the forward axis. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a2f2dbe8ce1049307353e5a6f20432d5e}{v\+\_\+y}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velocity control in the sideways axis. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ada1f0d810dcebba410c1942737ecd9e8}{v\+\_\+z}}
-\item 
+\begin{DoxyCompactList}\small\item\em Upwards thrust. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_acba77706f712f3dd86d0be0da54db3fd}{p\+\_\+rl}}
-\item 
+\begin{DoxyCompactList}\small\item\em Position control in the roll axis. Nod directly controllable on a drone. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a6d08d39ddb97935347b6488dc3f10039}{p\+\_\+pt}}
-\item 
+\begin{DoxyCompactList}\small\item\em Position control in the pitch axis. Nod directly controllable on a drone. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_abd8ea7e33d6115deef125d8c0fd6505c}{p\+\_\+yw}}
-\item 
+\begin{DoxyCompactList}\small\item\em Position control in the yaw axis. Uses the compass to control heading. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_aa9de034c0b9d8b98e66c9335938099d1}{v\+\_\+rl}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velocity control in the roll axis. Nod directly controllable on a drone. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a10aea39ec717ee210698c0bc328fd683}{v\+\_\+pt}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velocity control in the pitch axis. Nod directly controllable on a drone. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ace167d5320a1dc6a3aaf5318faad3931}{v\+\_\+yw}}
-\item 
+\begin{DoxyCompactList}\small\item\em Velcocity control in the yaw axis. Rotates drone left/right. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ac267795c756adc9310565fbec101d767}{data\+Recording}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Indicates if the drone should be recording data in this command. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -119,6 +119,10 @@ A float for each channel from (-\/1 1) for normal channels and (0, 1) for absolu
 \doxysubsubsection{\texorpdfstring{dataRecording}{dataRecording}}
 {\footnotesize\ttfamily bool AS7\+::\+Drone\+Command\+::data\+Recording}
 
+
+
+Indicates if the drone should be recording data in this command. 
+
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_af181ef3356a7b389a81ba09118411777}\label{struct_a_s7_1_1_drone_command_af181ef3356a7b389a81ba09118411777}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!desc@{desc}}
 \index{desc@{desc}!AS7::DroneCommand@{AS7::DroneCommand}}
@@ -145,11 +149,19 @@ The duration of the command in milliseconds.
 \doxysubsubsection{\texorpdfstring{p\_pt}{p\_pt}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+pt}
 
+
+
+Position control in the pitch axis. Nod directly controllable on a drone. 
+
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_acba77706f712f3dd86d0be0da54db3fd}\label{struct_a_s7_1_1_drone_command_acba77706f712f3dd86d0be0da54db3fd}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!p\_rl@{p\_rl}}
 \index{p\_rl@{p\_rl}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{p\_rl}{p\_rl}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+rl}
+
+
+
+Position control in the roll axis. Nod directly controllable on a drone. 
 
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a3dd331b4c5b77d24f6e7370977d3a6ec}\label{struct_a_s7_1_1_drone_command_a3dd331b4c5b77d24f6e7370977d3a6ec}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!p\_x@{p\_x}}
@@ -157,11 +169,19 @@ The duration of the command in milliseconds.
 \doxysubsubsection{\texorpdfstring{p\_x}{p\_x}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+x}
 
+
+
+Position control in the forward axis. 
+
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ad3b7dfe32adf2e9eb9efa1e08a3fccc1}\label{struct_a_s7_1_1_drone_command_ad3b7dfe32adf2e9eb9efa1e08a3fccc1}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!p\_y@{p\_y}}
 \index{p\_y@{p\_y}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{p\_y}{p\_y}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+y}
+
+
+
+Position control in the sideways axis. 
 
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_abd8ea7e33d6115deef125d8c0fd6505c}\label{struct_a_s7_1_1_drone_command_abd8ea7e33d6115deef125d8c0fd6505c}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!p\_yw@{p\_yw}}
@@ -169,11 +189,19 @@ The duration of the command in milliseconds.
 \doxysubsubsection{\texorpdfstring{p\_yw}{p\_yw}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+yw}
 
+
+
+Position control in the yaw axis. Uses the compass to control heading. 
+
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a0c9b1498bfa5057d76592efe0a058b35}\label{struct_a_s7_1_1_drone_command_a0c9b1498bfa5057d76592efe0a058b35}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!p\_z@{p\_z}}
 \index{p\_z@{p\_z}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{p\_z}{p\_z}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::p\+\_\+z}
+
+
+
+Position control of the height of the drone. 
 
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a9071653b15de324d96e0ccde28a172ed}\label{struct_a_s7_1_1_drone_command_a9071653b15de324d96e0ccde28a172ed}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!rateMultiplier@{rateMultiplier}}
@@ -191,11 +219,19 @@ The rate multiplier to adjust ramping speed if applicable.
 \doxysubsubsection{\texorpdfstring{type}{type}}
 {\footnotesize\ttfamily \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38e}{Drone\+Command\+Type}} AS7\+::\+Drone\+Command\+::type}
 
+
+
+Defines the main function of the command. 
+
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a10aea39ec717ee210698c0bc328fd683}\label{struct_a_s7_1_1_drone_command_a10aea39ec717ee210698c0bc328fd683}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!v\_pt@{v\_pt}}
 \index{v\_pt@{v\_pt}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{v\_pt}{v\_pt}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+pt}
+
+
+
+Velocity control in the pitch axis. Nod directly controllable on a drone. 
 
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_aa9de034c0b9d8b98e66c9335938099d1}\label{struct_a_s7_1_1_drone_command_aa9de034c0b9d8b98e66c9335938099d1}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!v\_rl@{v\_rl}}
@@ -203,11 +239,19 @@ The rate multiplier to adjust ramping speed if applicable.
 \doxysubsubsection{\texorpdfstring{v\_rl}{v\_rl}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+rl}
 
+
+
+Velocity control in the roll axis. Nod directly controllable on a drone. 
+
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a6bd14aeb86624f8dee8f4e10998da6ea}\label{struct_a_s7_1_1_drone_command_a6bd14aeb86624f8dee8f4e10998da6ea}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!v\_x@{v\_x}}
 \index{v\_x@{v\_x}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{v\_x}{v\_x}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+x}
+
+
+
+Velocity control in the forward axis. 
 
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a2f2dbe8ce1049307353e5a6f20432d5e}\label{struct_a_s7_1_1_drone_command_a2f2dbe8ce1049307353e5a6f20432d5e}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!v\_y@{v\_y}}
@@ -215,17 +259,29 @@ The rate multiplier to adjust ramping speed if applicable.
 \doxysubsubsection{\texorpdfstring{v\_y}{v\_y}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+y}
 
+
+
+Velocity control in the sideways axis. 
+
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ace167d5320a1dc6a3aaf5318faad3931}\label{struct_a_s7_1_1_drone_command_ace167d5320a1dc6a3aaf5318faad3931}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!v\_yw@{v\_yw}}
 \index{v\_yw@{v\_yw}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{v\_yw}{v\_yw}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+yw}
 
+
+
+Velcocity control in the yaw axis. Rotates drone left/right. 
+
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ada1f0d810dcebba410c1942737ecd9e8}\label{struct_a_s7_1_1_drone_command_ada1f0d810dcebba410c1942737ecd9e8}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!v\_z@{v\_z}}
 \index{v\_z@{v\_z}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{v\_z}{v\_z}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::v\+\_\+z}
+
+
+
+Upwards thrust. 
 
 
 

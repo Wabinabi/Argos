@@ -105,8 +105,10 @@ $(document).ready(function(){initNavTree('class_a_s7_1_1_drone.html',''); initRe
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3ce90288eb2862a54e396c4eb246d452"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a3ce90288eb2862a54e396c4eb246d452">navigationTask</a> (void *parameters)</td></tr>
+<tr class="memdesc:a3ce90288eb2862a54e396c4eb246d452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task implementation for classes. Only used by the task thread.  <a href="class_a_s7_1_1_drone.html#a3ce90288eb2862a54e396c4eb246d452">More...</a><br /></td></tr>
 <tr class="separator:a3ce90288eb2862a54e396c4eb246d452"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d54814e3a63089c1895923876614d19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a0d54814e3a63089c1895923876614d19">controllerTask</a> (void *parameters)</td></tr>
+<tr class="memdesc:a0d54814e3a63089c1895923876614d19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task implementation for classes. Only used by the task thread.  <a href="class_a_s7_1_1_drone.html#a0d54814e3a63089c1895923876614d19">More...</a><br /></td></tr>
 <tr class="separator:a0d54814e3a63089c1895923876614d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a628116b9099a08933f6be9f0f92c1956"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a628116b9099a08933f6be9f0f92c1956">getSemDroneEnableMutex</a> ()</td></tr>
 <tr class="separator:a628116b9099a08933f6be9f0f92c1956"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,8 +123,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a16a1b892144cb174af26a33792dc71f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_s7_1_1_logger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a16a1b892144cb174af26a33792dc71f4">getLogger</a> ()</td></tr>
 <tr class="separator:a16a1b892144cb174af26a33792dc71f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68366c5578333185254d658984c6f136"><td class="memItemLeft" align="right" valign="top">std::array&lt; bool, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a68366c5578333185254d658984c6f136">getSbusAbsChannels</a> ()</td></tr>
+<tr class="memdesc:a68366c5578333185254d658984c6f136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an array which defines if a channel is absolute (true) or not (false).  <a href="class_a_s7_1_1_drone.html#a68366c5578333185254d658984c6f136">More...</a><br /></td></tr>
 <tr class="separator:a68366c5578333185254d658984c6f136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a745ed6fc9487e90dca8f3fc5e157fba6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a745ed6fc9487e90dca8f3fc5e157fba6">generateAbsChannels</a> ()</td></tr>
+<tr class="memdesc:a745ed6fc9487e90dca8f3fc5e157fba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the default Absolute Channels.  <a href="class_a_s7_1_1_drone.html#a745ed6fc9487e90dca8f3fc5e157fba6">More...</a><br /></td></tr>
 <tr class="separator:a745ed6fc9487e90dca8f3fc5e157fba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07a3d7166dbb2463365787c72cdd45a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a07a3d7166dbb2463365787c72cdd45a4">getControllerStatusCount</a> ()</td></tr>
 <tr class="separator:a07a3d7166dbb2463365787c72cdd45a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -135,16 +139,22 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a799cfe6823e99b2964af3278bd4a089b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a799cfe6823e99b2964af3278bd4a089b">setSbusTxData</a> (std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt; data)</td></tr>
 <tr class="separator:a799cfe6823e99b2964af3278bd4a089b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d7771142e194781e1f644d365c9bc1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a6d7771142e194781e1f644d365c9bc1a">initUpperLowerBoundArrays</a> ()</td></tr>
+<tr class="memdesc:a6d7771142e194781e1f644d365c9bc1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets UBound and LBound array to default.  <a href="class_a_s7_1_1_drone.html#a6d7771142e194781e1f644d365c9bc1a">More...</a><br /></td></tr>
 <tr class="separator:a6d7771142e194781e1f644d365c9bc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11ab8632e3587588903a0a241e95a145"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a11ab8632e3587588903a0a241e95a145">writeChannel</a> (int16_t value, int8_t ch)</td></tr>
+<tr class="memdesc:a11ab8632e3587588903a0a241e95a145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the value into the SBUS transmit channel.  <a href="class_a_s7_1_1_drone.html#a11ab8632e3587588903a0a241e95a145">More...</a><br /></td></tr>
 <tr class="separator:a11ab8632e3587588903a0a241e95a145"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42d4d86670c346130a10fbdbb3a4d3bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a42d4d86670c346130a10fbdbb3a4d3bb">writeRxChannel_f</a> (float value, int8_t ch)</td></tr>
+<tr class="memdesc:a42d4d86670c346130a10fbdbb3a4d3bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a percentage value to the designated receive channel.  <a href="class_a_s7_1_1_drone.html#a42d4d86670c346130a10fbdbb3a4d3bb">More...</a><br /></td></tr>
 <tr class="separator:a42d4d86670c346130a10fbdbb3a4d3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaca09f11f2f113ac8d6d3bedee441c78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aaca09f11f2f113ac8d6d3bedee441c78">writeTxChannel_f</a> (float value, int8_t ch)</td></tr>
+<tr class="memdesc:aaca09f11f2f113ac8d6d3bedee441c78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a percentage value to the designated transmit channel.  <a href="class_a_s7_1_1_drone.html#aaca09f11f2f113ac8d6d3bedee441c78">More...</a><br /></td></tr>
 <tr class="separator:aaca09f11f2f113ac8d6d3bedee441c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaec0554c4aa4e12d96d6170fa323dac4"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aaec0554c4aa4e12d96d6170fa323dac4">convRxChannel_i</a> (float value, int8_t ch)</td></tr>
+<tr class="memdesc:aaec0554c4aa4e12d96d6170fa323dac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the float value to the correct scaling based on channel minimums and maximums.  <a href="class_a_s7_1_1_drone.html#aaec0554c4aa4e12d96d6170fa323dac4">More...</a><br /></td></tr>
 <tr class="separator:aaec0554c4aa4e12d96d6170fa323dac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dbe792dffa38c68ddcb9722342af989"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a6dbe792dffa38c68ddcb9722342af989">convRxChannel_f</a> (int16_t value, int8_t ch)</td></tr>
+<tr class="memdesc:a6dbe792dffa38c68ddcb9722342af989"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the integer value to the correct scaling based on channel minimums and maximums.  <a href="class_a_s7_1_1_drone.html#a6dbe792dffa38c68ddcb9722342af989">More...</a><br /></td></tr>
 <tr class="separator:a6dbe792dffa38c68ddcb9722342af989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a626d3b50c7249971c756edc50f6f1718"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a626d3b50c7249971c756edc50f6f1718">convTxChannel_i</a> (float value, int8_t ch)</td></tr>
 <tr class="separator:a626d3b50c7249971c756edc50f6f1718"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,16 +169,23 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f7c17a69f9913e887dd038e50e64848"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a0f7c17a69f9913e887dd038e50e64848">readTxChannel_f</a> (int16_t ch)</td></tr>
 <tr class="separator:a0f7c17a69f9913e887dd038e50e64848"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af372b0d49a573e83c10a61a0bb24deaa"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#af372b0d49a573e83c10a61a0bb24deaa">clamp</a> (float value, float lbound, float ubound)</td></tr>
+<tr class="memdesc:af372b0d49a573e83c10a61a0bb24deaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">A clamping function to keep the values inside the bounds.  <a href="class_a_s7_1_1_drone.html#af372b0d49a573e83c10a61a0bb24deaa">More...</a><br /></td></tr>
 <tr class="separator:af372b0d49a573e83c10a61a0bb24deaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a325eda9ab7a5e021ac881a16f2e8680e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a325eda9ab7a5e021ac881a16f2e8680e">formatSbusArray</a> (std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt; chData)</td></tr>
+<tr class="memdesc:a325eda9ab7a5e021ac881a16f2e8680e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the channels in a formatted string <br  />
+  <a href="class_a_s7_1_1_drone.html#a325eda9ab7a5e021ac881a16f2e8680e">More...</a><br /></td></tr>
 <tr class="separator:a325eda9ab7a5e021ac881a16f2e8680e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba256ab85e09dcf2124fab1bc8bbf3ae"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aba256ab85e09dcf2124fab1bc8bbf3ae">rampValue</a> (float value, float target=0, float rate=0, int rampRateType=<a class="el" href="_drone_8h.html#a65371cb1138f70be2c8822a86a406231">RAMPRATE_LINEAR</a>)</td></tr>
+<tr class="memdesc:aba256ab85e09dcf2124fab1bc8bbf3ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next ramped value depending on ramp type.  <a href="class_a_s7_1_1_drone.html#aba256ab85e09dcf2124fab1bc8bbf3ae">More...</a><br /></td></tr>
 <tr class="separator:aba256ab85e09dcf2124fab1bc8bbf3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a336ffaba2c3df9b923d03ffa2b275609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a336ffaba2c3df9b923d03ffa2b275609">rampChannel</a> (float target, int8_t ch, float rate, int rampRateType=<a class="el" href="_drone_8h.html#a65371cb1138f70be2c8822a86a406231">RAMPRATE_LINEAR</a>)</td></tr>
+<tr class="memdesc:a336ffaba2c3df9b923d03ffa2b275609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ramping a specific channel to a target value.  <a href="class_a_s7_1_1_drone.html#a336ffaba2c3df9b923d03ffa2b275609">More...</a><br /></td></tr>
 <tr class="separator:a336ffaba2c3df9b923d03ffa2b275609"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a182e977f8c7452076382fd2d6a8abe3b"><td class="memItemLeft" align="right" valign="top">bfs::SbusRx *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a182e977f8c7452076382fd2d6a8abe3b">getSbusRx</a> ()</td></tr>
+<tr class="memdesc:a182e977f8c7452076382fd2d6a8abe3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns SBUS RX object for task implementation.  <a href="class_a_s7_1_1_drone.html#a182e977f8c7452076382fd2d6a8abe3b">More...</a><br /></td></tr>
 <tr class="separator:a182e977f8c7452076382fd2d6a8abe3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab858258286a888df39b74d970d427b1f"><td class="memItemLeft" align="right" valign="top">bfs::SbusTx *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#ab858258286a888df39b74d970d427b1f">getSbusTx</a> ()</td></tr>
+<tr class="memdesc:ab858258286a888df39b74d970d427b1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns SBUS TX object for task implementation.  <a href="class_a_s7_1_1_drone.html#ab858258286a888df39b74d970d427b1f">More...</a><br /></td></tr>
 <tr class="separator:ab858258286a888df39b74d970d427b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1730ac114fc9e1727bdc288f2542c097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a1730ac114fc9e1727bdc288f2542c097">setDroneHasArmed</a> ()</td></tr>
 <tr class="separator:a1730ac114fc9e1727bdc288f2542c097"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,8 +202,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a65059ccf5554d3f68ac2ceddf22949d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a65059ccf5554d3f68ac2ceddf22949d4">nextCommandAvailable</a> ()</td></tr>
 <tr class="separator:a65059ccf5554d3f68ac2ceddf22949d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55609d6f948046ab46654912cc78f425"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a55609d6f948046ab46654912cc78f425">Drone</a> (<a class="el" href="class_a_s7_1_1_logger.html">Logger</a> *<a class="el" href="as7-gamma_8ino.html#a99d2a4a087d451eb0554bfa08a3f2dba">logger</a>, bfs::SbusRx *sbus_rx, bfs::SbusTx *sbus_tx)</td></tr>
+<tr class="memdesc:a55609d6f948046ab46654912cc78f425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_a_s7_1_1_drone.html">Drone</a> class.  <a href="class_a_s7_1_1_drone.html#a55609d6f948046ab46654912cc78f425">More...</a><br /></td></tr>
 <tr class="separator:a55609d6f948046ab46654912cc78f425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a917a942e76225752287df64d15acfe3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a917a942e76225752287df64d15acfe3d">channelConfirm</a> (int16_t channel=1, float threshold=0.7f)</td></tr>
+<tr class="memdesc:a917a942e76225752287df64d15acfe3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the target channel is above a threshold. Can be used for button presses or detecting the state of a switch.  <a href="class_a_s7_1_1_drone.html#a917a942e76225752287df64d15acfe3d">More...</a><br /></td></tr>
 <tr class="separator:a917a942e76225752287df64d15acfe3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b5342262b0eb7087a0a309a91bcfa66"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a9b5342262b0eb7087a0a309a91bcfa66">droneStatus</a> ()</td></tr>
 <tr class="separator:a9b5342262b0eb7087a0a309a91bcfa66"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -250,9 +269,10 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1821604dbb64afa2696fd4b4b7ae09a4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a1821604dbb64afa2696fd4b4b7ae09a4">startNavTask</a> (void *)</td></tr>
-<tr class="memdesc:a1821604dbb64afa2696fd4b4b7ae09a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task implementation for classes. Used only by the.  <a href="class_a_s7_1_1_drone.html#a1821604dbb64afa2696fd4b4b7ae09a4">More...</a><br /></td></tr>
+<tr class="memdesc:a1821604dbb64afa2696fd4b4b7ae09a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task implementation for classes. Only used by the task thread.  <a href="class_a_s7_1_1_drone.html#a1821604dbb64afa2696fd4b4b7ae09a4">More...</a><br /></td></tr>
 <tr class="separator:a1821604dbb64afa2696fd4b4b7ae09a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e419f124b95a0725beb463ae22d0778"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a1e419f124b95a0725beb463ae22d0778">startCtlTask</a> (void *)</td></tr>
+<tr class="memdesc:a1e419f124b95a0725beb463ae22d0778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task implementation for classes. Only used by the task thread.  <a href="class_a_s7_1_1_drone.html#a1e419f124b95a0725beb463ae22d0778">More...</a><br /></td></tr>
 <tr class="separator:a1e419f124b95a0725beb463ae22d0778"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
@@ -276,36 +296,51 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a76057893d2a71fba29f20a518fb608c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_s7_1_1_logger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a76057893d2a71fba29f20a518fb608c8">_logger</a></td></tr>
 <tr class="separator:a76057893d2a71fba29f20a518fb608c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a48ffba5506019eb88dd17e7b75924dcc"><td class="memItemLeft" align="right" valign="top">bfs::SbusRx *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a48ffba5506019eb88dd17e7b75924dcc">_sbusRx</a></td></tr>
+<tr class="memdesc:a48ffba5506019eb88dd17e7b75924dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">SBUS Receive Channel Object.  <a href="class_a_s7_1_1_drone.html#a48ffba5506019eb88dd17e7b75924dcc">More...</a><br /></td></tr>
 <tr class="separator:a48ffba5506019eb88dd17e7b75924dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af60800e0b5970e88565d51b1dc213e98"><td class="memItemLeft" align="right" valign="top">bfs::SbusTx *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#af60800e0b5970e88565d51b1dc213e98">_sbusTx</a></td></tr>
+<tr class="memdesc:af60800e0b5970e88565d51b1dc213e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">SBUS Transmit Channel Object.  <a href="class_a_s7_1_1_drone.html#af60800e0b5970e88565d51b1dc213e98">More...</a><br /></td></tr>
 <tr class="separator:af60800e0b5970e88565d51b1dc213e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d1184f2e56dd1b4655bf97bbd749e9b"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a1d1184f2e56dd1b4655bf97bbd749e9b">_sbusRxData</a></td></tr>
+<tr class="memdesc:a1d1184f2e56dd1b4655bf97bbd749e9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of data received from the Radio Control.  <a href="class_a_s7_1_1_drone.html#a1d1184f2e56dd1b4655bf97bbd749e9b">More...</a><br /></td></tr>
 <tr class="separator:a1d1184f2e56dd1b4655bf97bbd749e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90556597db7ae9d1e2ba335d25f6b74b"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a90556597db7ae9d1e2ba335d25f6b74b">_sbusTxData</a></td></tr>
+<tr class="memdesc:a90556597db7ae9d1e2ba335d25f6b74b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Array of data to transmit to the Flight Controller.  <a href="class_a_s7_1_1_drone.html#a90556597db7ae9d1e2ba335d25f6b74b">More...</a><br /></td></tr>
 <tr class="separator:a90556597db7ae9d1e2ba335d25f6b74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a078ebda6f0e06990101bed651b95ad21"><td class="memItemLeft" align="right" valign="top">std::array&lt; bool, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a078ebda6f0e06990101bed651b95ad21">_sbusAbsChannels</a></td></tr>
+<tr class="memdesc:a078ebda6f0e06990101bed651b95ad21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lists out the absolute channels. When true, the channel is (0, 1). Otherwise channels default to (-1, 1).  <a href="class_a_s7_1_1_drone.html#a078ebda6f0e06990101bed651b95ad21">More...</a><br /></td></tr>
 <tr class="separator:a078ebda6f0e06990101bed651b95ad21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0d103c78b4e36cb3476ebf9e3a7a68d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#ad0d103c78b4e36cb3476ebf9e3a7a68d">_controllerStatusCount</a> = 0</td></tr>
 <tr class="separator:ad0d103c78b4e36cb3476ebf9e3a7a68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cc2bd7f829691198f0ea5d018147dc9"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a9cc2bd7f829691198f0ea5d018147dc9">_sbusTxChLower</a></td></tr>
+<tr class="memdesc:a9cc2bd7f829691198f0ea5d018147dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower bounds for SBUS Transmit channels.  <a href="class_a_s7_1_1_drone.html#a9cc2bd7f829691198f0ea5d018147dc9">More...</a><br /></td></tr>
 <tr class="separator:a9cc2bd7f829691198f0ea5d018147dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f5fdd21f608d6b90ff3d07cf912fcc8"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a6f5fdd21f608d6b90ff3d07cf912fcc8">_sbusTxChUpper</a></td></tr>
+<tr class="memdesc:a6f5fdd21f608d6b90ff3d07cf912fcc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upper bounds for SBUS Transmit Channels.  <a href="class_a_s7_1_1_drone.html#a6f5fdd21f608d6b90ff3d07cf912fcc8">More...</a><br /></td></tr>
 <tr class="separator:a6f5fdd21f608d6b90ff3d07cf912fcc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42c814e8324ad90e5ef84bfaef417a6b"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a42c814e8324ad90e5ef84bfaef417a6b">_sbusRxChLower</a></td></tr>
+<tr class="memdesc:a42c814e8324ad90e5ef84bfaef417a6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lower bounds for SBUS Receiver channels.  <a href="class_a_s7_1_1_drone.html#a42c814e8324ad90e5ef84bfaef417a6b">More...</a><br /></td></tr>
 <tr class="separator:a42c814e8324ad90e5ef84bfaef417a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a666d3d7587bab65000835d14b2bf3401"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a666d3d7587bab65000835d14b2bf3401">_sbusRxChUpper</a></td></tr>
+<tr class="memdesc:a666d3d7587bab65000835d14b2bf3401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Upper bounds for SBUS Receiver Channels.  <a href="class_a_s7_1_1_drone.html#a666d3d7587bab65000835d14b2bf3401">More...</a><br /></td></tr>
 <tr class="separator:a666d3d7587bab65000835d14b2bf3401"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c5f793e112a0e540075d3454aa4243c"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a3c5f793e112a0e540075d3454aa4243c">_sbusEStopTx</a></td></tr>
+<tr class="memdesc:a3c5f793e112a0e540075d3454aa4243c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data to be written in case of an E-Stop. Not all channels are to be zeroed!  <a href="class_a_s7_1_1_drone.html#a3c5f793e112a0e540075d3454aa4243c">More...</a><br /></td></tr>
 <tr class="separator:a3c5f793e112a0e540075d3454aa4243c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb551090d2df3fb9f3fc93c2b904fc03"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#abb551090d2df3fb9f3fc93c2b904fc03">_hasArmed</a> = false</td></tr>
+<tr class="memdesc:abb551090d2df3fb9f3fc93c2b904fc03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remembers if the drone has undergone an arming process.  <a href="class_a_s7_1_1_drone.html#abb551090d2df3fb9f3fc93c2b904fc03">More...</a><br /></td></tr>
 <tr class="separator:abb551090d2df3fb9f3fc93c2b904fc03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa870ef26f37aefe757338fb664e20d90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aa870ef26f37aefe757338fb664e20d90">_armingAllowed</a> = false</td></tr>
+<tr class="memdesc:aa870ef26f37aefe757338fb664e20d90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set by the operator. Confirms that the drone should start processing commands.  <a href="class_a_s7_1_1_drone.html#aa870ef26f37aefe757338fb664e20d90">More...</a><br /></td></tr>
 <tr class="separator:aa870ef26f37aefe757338fb664e20d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af91a10a18749f8c5a6adf798358b8fa3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#af91a10a18749f8c5a6adf798358b8fa3">_droneCommandsStarted</a> = false</td></tr>
+<tr class="memdesc:af91a10a18749f8c5a6adf798358b8fa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if the drone has started processing commands.  <a href="class_a_s7_1_1_drone.html#af91a10a18749f8c5a6adf798358b8fa3">More...</a><br /></td></tr>
 <tr class="separator:af91a10a18749f8c5a6adf798358b8fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad39490b4415be4c2b201f37671ed0a67"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#ad39490b4415be4c2b201f37671ed0a67">_droneCommandsCompleted</a> = false</td></tr>
+<tr class="memdesc:ad39490b4415be4c2b201f37671ed0a67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates that there are no commands left (queue is empty)  <a href="class_a_s7_1_1_drone.html#ad39490b4415be4c2b201f37671ed0a67">More...</a><br /></td></tr>
 <tr class="separator:ad39490b4415be4c2b201f37671ed0a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e5d98d8236fb30fe15ddb2809c50253"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a7e5d98d8236fb30fe15ddb2809c50253">_droneHasActiveCommand</a> = false</td></tr>
+<tr class="memdesc:a7e5d98d8236fb30fe15ddb2809c50253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates if the drone has an active command.  <a href="class_a_s7_1_1_drone.html#a7e5d98d8236fb30fe15ddb2809c50253">More...</a><br /></td></tr>
 <tr class="separator:a7e5d98d8236fb30fe15ddb2809c50253"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a803ee14eea159a95ebcb91ea5d4b2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a7a803ee14eea159a95ebcb91ea5d4b2f">_running</a> = false</td></tr>
 <tr class="separator:a7a803ee14eea159a95ebcb91ea5d4b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -365,6 +400,16 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructor for <a class="el" href="class_a_s7_1_1_drone.html">Drone</a> class. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>A reference to the SD logger, for data logging </td></tr>
+    <tr><td class="paramname">sbus_rx</td><td>A reference to the SBUS Rx Object </td></tr>
+    <tr><td class="paramname">sbus_tx</td><td>A reference to the SBUS Tx Object </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -419,6 +464,16 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns true if the target channel is above a threshold. Can be used for button presses or detecting the state of a switch. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>The channel. See defines for channel enumerations </td></tr>
+    <tr><td class="paramname">threshold</td><td>Floating-point threshold </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if channel is above threshold on the received SBUS packets. </dd></dl>
+
 </div>
 </div>
 <a id="af372b0d49a573e83c10a61a0bb24deaa" name="af372b0d49a573e83c10a61a0bb24deaa"></a>
@@ -453,6 +508,17 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A clamping function to keep the values inside the bounds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The input value </td></tr>
+    <tr><td class="paramname">lbound</td><td>The lower bound </td></tr>
+    <tr><td class="paramname">ubound</td><td>The upper bound </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The clamped value between [min, max] </dd></dl>
+
 </div>
 </div>
 <a id="a0d54814e3a63089c1895923876614d19" name="a0d54814e3a63089c1895923876614d19"></a>
@@ -470,6 +536,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Task implementation for classes. Only used by the task thread. </p>
 
 </div>
 </div>
@@ -499,6 +567,16 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Converts the integer value to the correct scaling based on channel minimums and maximums. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>A float between [-1.0f, 1.0f] for normal channels and [0.0f to 1.0f] </td></tr>
+    <tr><td class="paramname">ch</td><td>The channel to write to. Channels can use enumerations <code>CH_</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the adjusted float value for that channel </dd></dl>
+
 </div>
 </div>
 <a id="aaec0554c4aa4e12d96d6170fa323dac4" name="aaec0554c4aa4e12d96d6170fa323dac4"></a>
@@ -526,6 +604,16 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Converts the float value to the correct scaling based on channel minimums and maximums. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>A float between [-1.0f, 1.0f] for normal channels and [0.0f to 1.0f] </td></tr>
+    <tr><td class="paramname">ch</td><td>The channel to write to. Channels can use enumerations <code>CH_</code> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the adjusted int16_t value for that channel </dd></dl>
 
 </div>
 </div>
@@ -754,6 +842,16 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the channels in a formatted string <br  />
+ </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chData</td><td>Rx or Tx Channel Data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A formatted string with all channels </dd></dl>
+
 </div>
 </div>
 <a id="a745ed6fc9487e90dca8f3fc5e157fba6" name="a745ed6fc9487e90dca8f3fc5e157fba6"></a>
@@ -770,6 +868,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the default Absolute Channels. </p>
 
 </div>
 </div>
@@ -1040,6 +1140,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns an array which defines if a channel is absolute (true) or not (false). </p>
+
 </div>
 </div>
 <a id="a182e977f8c7452076382fd2d6a8abe3b" name="a182e977f8c7452076382fd2d6a8abe3b"></a>
@@ -1056,6 +1158,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns SBUS RX object for task implementation. </p>
+<dl class="section return"><dt>Returns</dt><dd>BFS::SBUS Rx Object </dd></dl>
 
 </div>
 </div>
@@ -1115,6 +1220,9 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns SBUS TX object for task implementation. </p>
+<dl class="section return"><dt>Returns</dt><dd>BFS::SBUS Tx Object </dd></dl>
 
 </div>
 </div>
@@ -1376,6 +1484,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Sets UBound and LBound array to default. </p>
+
 </div>
 </div>
 <a id="a3ce90288eb2862a54e396c4eb246d452" name="a3ce90288eb2862a54e396c4eb246d452"></a>
@@ -1393,6 +1503,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Task implementation for classes. Only used by the task thread. </p>
 
 </div>
 </div>
@@ -1476,6 +1588,17 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Ramping a specific channel to a target value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">target</td><td>The target ramping value </td></tr>
+    <tr><td class="paramname">ch</td><td>The target channel </td></tr>
+    <tr><td class="paramname">rate</td><td>The ramping rate </td></tr>
+    <tr><td class="paramname">rampRateType</td><td>Enumerated ramping type </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="aba256ab85e09dcf2124fab1bc8bbf3ae" name="aba256ab85e09dcf2124fab1bc8bbf3ae"></a>
@@ -1515,6 +1638,18 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Returns the next ramped value depending on ramp type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The current value </td></tr>
+    <tr><td class="paramname">target</td><td>The target value </td></tr>
+    <tr><td class="paramname">rate</td><td>The ramping rate </td></tr>
+    <tr><td class="paramname">rampRateType</td><td>Enumerated ramping type </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ramped value (the next step in the ramping) </dd></dl>
 
 </div>
 </div>
@@ -1864,6 +1999,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Task implementation for classes. Only used by the task thread. </p>
+
 </div>
 </div>
 <a id="a1821604dbb64afa2696fd4b4b7ae09a4" name="a1821604dbb64afa2696fd4b4b7ae09a4"></a>
@@ -1890,13 +2027,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Task implementation for classes. Used only by the. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Task implementation for classes. Only used by the task thread. </p>
 
 </div>
 </div>
@@ -1926,6 +2057,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Writes the value into the SBUS transmit channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>SBUS value to write to channel between [0, 2056] </td></tr>
+    <tr><td class="paramname">ch</td><td>The specific channel to write to </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a42d4d86670c346130a10fbdbb3a4d3bb" name="a42d4d86670c346130a10fbdbb3a4d3bb"></a>
@@ -1953,6 +2093,15 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Writes a percentage value to the designated receive channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>SBUS value to write to channel between [-1.0f, 1.0f] </td></tr>
+    <tr><td class="paramname">ch</td><td>The specific channel to write to </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1982,6 +2131,15 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Writes a percentage value to the designated transmit channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>SBUS value to write to channel between [-1.0f, 1.0f] </td></tr>
+    <tr><td class="paramname">ch</td><td>The specific channel to write to </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -1996,6 +2154,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Set by the operator. Confirms that the drone should start processing commands. </p>
 
 </div>
 </div>
@@ -2067,6 +2227,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Indicates that there are no commands left (queue is empty) </p>
+
 </div>
 </div>
 <a id="af91a10a18749f8c5a6adf798358b8fa3" name="af91a10a18749f8c5a6adf798358b8fa3"></a>
@@ -2081,6 +2243,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Indicates if the drone has started processing commands. </p>
+
 </div>
 </div>
 <a id="a7e5d98d8236fb30fe15ddb2809c50253" name="a7e5d98d8236fb30fe15ddb2809c50253"></a>
@@ -2094,6 +2258,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Indicates if the drone has an active command. </p>
 
 </div>
 </div>
@@ -2137,6 +2303,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Remembers if the drone has undergone an arming process. </p>
+
 </div>
 </div>
 <a id="a76057893d2a71fba29f20a518fb608c8" name="a76057893d2a71fba29f20a518fb608c8"></a>
@@ -2179,6 +2347,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Lists out the absolute channels. When true, the channel is (0, 1). Otherwise channels default to (-1, 1). </p>
+
 </div>
 </div>
 <a id="a3c5f793e112a0e540075d3454aa4243c" name="a3c5f793e112a0e540075d3454aa4243c"></a>
@@ -2192,6 +2362,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Data to be written in case of an E-Stop. Not all channels are to be zeroed! </p>
 
 </div>
 </div>
@@ -2207,6 +2379,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>SBUS Receive Channel Object. </p>
+
 </div>
 </div>
 <a id="a42c814e8324ad90e5ef84bfaef417a6b" name="a42c814e8324ad90e5ef84bfaef417a6b"></a>
@@ -2220,7 +2394,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Upper bounds for SBUS Transmit Channels </p>
+
+<p>Lower bounds for SBUS Receiver channels. </p>
 
 </div>
 </div>
@@ -2236,6 +2411,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Upper bounds for SBUS Receiver Channels. </p>
+
 </div>
 </div>
 <a id="a1d1184f2e56dd1b4655bf97bbd749e9b" name="a1d1184f2e56dd1b4655bf97bbd749e9b"></a>
@@ -2249,6 +2426,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Array of data received from the Radio Control. </p>
 
 </div>
 </div>
@@ -2264,6 +2443,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>SBUS Transmit Channel Object. </p>
+
 </div>
 </div>
 <a id="a9cc2bd7f829691198f0ea5d018147dc9" name="a9cc2bd7f829691198f0ea5d018147dc9"></a>
@@ -2278,6 +2459,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Lower bounds for SBUS Transmit channels. </p>
+
 </div>
 </div>
 <a id="a6f5fdd21f608d6b90ff3d07cf912fcc8" name="a6f5fdd21f608d6b90ff3d07cf912fcc8"></a>
@@ -2291,7 +2474,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Lower bounds for SBUS Transmit channels </p>
+
+<p>Upper bounds for SBUS Transmit Channels. </p>
 
 </div>
 </div>
@@ -2306,6 +2490,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Array of data to transmit to the Flight Controller. </p>
 
 </div>
 </div>

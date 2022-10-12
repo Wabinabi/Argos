@@ -8,9 +8,9 @@
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{class_a_s7_1_1_drone_a3ce90288eb2862a54e396c4eb246d452}{navigation\+Task}} (void $\ast$parameters)
-\item 
+\begin{DoxyCompactList}\small\item\em Task implementation for classes. Only used by the task thread. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_drone_a0d54814e3a63089c1895923876614d19}{controller\+Task}} (void $\ast$parameters)
-\item 
+\begin{DoxyCompactList}\small\item\em Task implementation for classes. Only used by the task thread. \end{DoxyCompactList}\item 
 Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_drone_a628116b9099a08933f6be9f0f92c1956}{get\+Sem\+Drone\+Enable\+Mutex}} ()
 \item 
 Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_drone_a4b6c408c676c2833631794727d2b3b65}{get\+Sem\+Control\+Enable\+Mutex}} ()
@@ -24,9 +24,9 @@ Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_drone_a87af11737ff20934
 \mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}} $\ast$ \mbox{\hyperlink{class_a_s7_1_1_drone_a16a1b892144cb174af26a33792dc71f4}{get\+Logger}} ()
 \item 
 std\+::array$<$ bool, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_a68366c5578333185254d658984c6f136}{get\+Sbus\+Abs\+Channels}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns an array which defines if a channel is absolute (true) or not (false). \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_drone_a745ed6fc9487e90dca8f3fc5e157fba6}{generate\+Abs\+Channels}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the default Absolute Channels. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_a07a3d7166dbb2463365787c72cdd45a4}{get\+Controller\+Status\+Count}} ()
 \item 
 std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_aad83c9d3a0fe8875a2d8b3a1aa7aa8a1}{get\+Sbus\+Rx\+Data}} ()
@@ -38,17 +38,17 @@ void \mbox{\hyperlink{class_a_s7_1_1_drone_a79577b2ead584ebf87e8d96fff392429}{se
 void \mbox{\hyperlink{class_a_s7_1_1_drone_a799cfe6823e99b2964af3278bd4a089b}{set\+Sbus\+Tx\+Data}} (std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ data)
 \item 
 void \mbox{\hyperlink{class_a_s7_1_1_drone_a6d7771142e194781e1f644d365c9bc1a}{init\+Upper\+Lower\+Bound\+Arrays}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Sets UBound and LBound array to default. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_drone_a11ab8632e3587588903a0a241e95a145}{write\+Channel}} (int16\+\_\+t value, int8\+\_\+t ch)
-\item 
+\begin{DoxyCompactList}\small\item\em Writes the value into the SBUS transmit channel. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_drone_a42d4d86670c346130a10fbdbb3a4d3bb}{write\+Rx\+Channel\+\_\+f}} (float value, int8\+\_\+t ch)
-\item 
+\begin{DoxyCompactList}\small\item\em Writes a percentage value to the designated receive channel. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_drone_aaca09f11f2f113ac8d6d3bedee441c78}{write\+Tx\+Channel\+\_\+f}} (float value, int8\+\_\+t ch)
-\item 
+\begin{DoxyCompactList}\small\item\em Writes a percentage value to the designated transmit channel. \end{DoxyCompactList}\item 
 int16\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_drone_aaec0554c4aa4e12d96d6170fa323dac4}{conv\+Rx\+Channel\+\_\+i}} (float value, int8\+\_\+t ch)
-\item 
+\begin{DoxyCompactList}\small\item\em Converts the float value to the correct scaling based on channel minimums and maximums. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{class_a_s7_1_1_drone_a6dbe792dffa38c68ddcb9722342af989}{conv\+Rx\+Channel\+\_\+f}} (int16\+\_\+t value, int8\+\_\+t ch)
-\item 
+\begin{DoxyCompactList}\small\item\em Converts the integer value to the correct scaling based on channel minimums and maximums. \end{DoxyCompactList}\item 
 int16\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_drone_a626d3b50c7249971c756edc50f6f1718}{conv\+Tx\+Channel\+\_\+i}} (float value, int8\+\_\+t ch)
 \item 
 float \mbox{\hyperlink{class_a_s7_1_1_drone_a0cd97f37931224a480d6467a83f5e193}{conv\+Tx\+Channel\+\_\+f}} (int16\+\_\+t value, int8\+\_\+t ch)
@@ -62,17 +62,18 @@ int16\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_drone_a7f3b677b6bb65c0114bdb4b4d7bf
 float \mbox{\hyperlink{class_a_s7_1_1_drone_a0f7c17a69f9913e887dd038e50e64848}{read\+Tx\+Channel\+\_\+f}} (int16\+\_\+t ch)
 \item 
 float \mbox{\hyperlink{class_a_s7_1_1_drone_af372b0d49a573e83c10a61a0bb24deaa}{clamp}} (float value, float lbound, float ubound)
-\item 
+\begin{DoxyCompactList}\small\item\em A clamping function to keep the values inside the bounds. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{class_a_s7_1_1_drone_a325eda9ab7a5e021ac881a16f2e8680e}{format\+Sbus\+Array}} (std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ ch\+Data)
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the channels in a formatted string ~\newline
+ \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{class_a_s7_1_1_drone_aba256ab85e09dcf2124fab1bc8bbf3ae}{ramp\+Value}} (float value, float target=0, float rate=0, int ramp\+Rate\+Type=\mbox{\hyperlink{_drone_8h_a65371cb1138f70be2c8822a86a406231}{RAMPRATE\+\_\+\+LINEAR}})
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the next ramped value depending on ramp type. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_drone_a336ffaba2c3df9b923d03ffa2b275609}{ramp\+Channel}} (float target, int8\+\_\+t ch, float rate, int ramp\+Rate\+Type=\mbox{\hyperlink{_drone_8h_a65371cb1138f70be2c8822a86a406231}{RAMPRATE\+\_\+\+LINEAR}})
-\item 
+\begin{DoxyCompactList}\small\item\em Ramping a specific channel to a target value. \end{DoxyCompactList}\item 
 bfs\+::\+Sbus\+Rx $\ast$ \mbox{\hyperlink{class_a_s7_1_1_drone_a182e977f8c7452076382fd2d6a8abe3b}{get\+Sbus\+Rx}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns SBUS RX object for task implementation. \end{DoxyCompactList}\item 
 bfs\+::\+Sbus\+Tx $\ast$ \mbox{\hyperlink{class_a_s7_1_1_drone_ab858258286a888df39b74d970d427b1f}{get\+Sbus\+Tx}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns SBUS TX object for task implementation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_drone_a1730ac114fc9e1727bdc288f2542c097}{set\+Drone\+Has\+Armed}} ()
 \item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_a097088e892236c5b0544e57a4de098d7}{get\+Drone\+Has\+Armed}} ()
@@ -88,9 +89,9 @@ void \mbox{\hyperlink{class_a_s7_1_1_drone_a70cc62509c445ebb35e6bf0bf9115b0d}{se
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_a65059ccf5554d3f68ac2ceddf22949d4}{next\+Command\+Available}} ()
 \item 
 \mbox{\hyperlink{class_a_s7_1_1_drone_a55609d6f948046ab46654912cc78f425}{Drone}} (\mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}} $\ast$\mbox{\hyperlink{as7-gamma_8ino_a99d2a4a087d451eb0554bfa08a3f2dba}{logger}}, bfs\+::\+Sbus\+Rx $\ast$sbus\+\_\+rx, bfs\+::\+Sbus\+Tx $\ast$sbus\+\_\+tx)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor for \mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}} class. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_a917a942e76225752287df64d15acfe3d}{channel\+Confirm}} (int16\+\_\+t channel=1, float threshold=0.\+7f)
-\item 
+\begin{DoxyCompactList}\small\item\em Returns true if the target channel is above a threshold. Can be used for button presses or detecting the state of a switch. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_a_s7_1_1_drone_a9b5342262b0eb7087a0a309a91bcfa66}{drone\+Status}} ()
 \item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8e539903dbf2d570a5bc0293019fae6d}{get\+Enable\+Operator\+Control}} ()
@@ -153,9 +154,9 @@ std\+::string \mbox{\hyperlink{class_a_s7_1_1_drone_a8484beeb605809ee88a5287195d
 \begin{DoxyCompactItemize}
 \item 
 static void \mbox{\hyperlink{class_a_s7_1_1_drone_a1821604dbb64afa2696fd4b4b7ae09a4}{start\+Nav\+Task}} (void $\ast$)
-\begin{DoxyCompactList}\small\item\em Task implementation for classes. Used only by the. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Task implementation for classes. Only used by the task thread. \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{class_a_s7_1_1_drone_a1e419f124b95a0725beb463ae22d0778}{start\+Ctl\+Task}} (void $\ast$)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Task implementation for classes. Only used by the task thread. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -178,37 +179,37 @@ Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_drone_ac5022867b39e1684
 \mbox{\hyperlink{class_a_s7_1_1_logger}{Logger}} $\ast$ \mbox{\hyperlink{class_a_s7_1_1_drone_a76057893d2a71fba29f20a518fb608c8}{\+\_\+logger}}
 \item 
 bfs\+::\+Sbus\+Rx $\ast$ \mbox{\hyperlink{class_a_s7_1_1_drone_a48ffba5506019eb88dd17e7b75924dcc}{\+\_\+sbus\+Rx}}
-\item 
+\begin{DoxyCompactList}\small\item\em SBUS Receive Channel Object. \end{DoxyCompactList}\item 
 bfs\+::\+Sbus\+Tx $\ast$ \mbox{\hyperlink{class_a_s7_1_1_drone_af60800e0b5970e88565d51b1dc213e98}{\+\_\+sbus\+Tx}}
-\item 
+\begin{DoxyCompactList}\small\item\em SBUS Transmit Channel Object. \end{DoxyCompactList}\item 
 std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_a1d1184f2e56dd1b4655bf97bbd749e9b}{\+\_\+sbus\+Rx\+Data}}
-\item 
+\begin{DoxyCompactList}\small\item\em Array of data received from the Radio Control. \end{DoxyCompactList}\item 
 std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_a90556597db7ae9d1e2ba335d25f6b74b}{\+\_\+sbus\+Tx\+Data}}
-\item 
+\begin{DoxyCompactList}\small\item\em Array of data to transmit to the Flight Controller. \end{DoxyCompactList}\item 
 std\+::array$<$ bool, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_a078ebda6f0e06990101bed651b95ad21}{\+\_\+sbus\+Abs\+Channels}}
-\item 
+\begin{DoxyCompactList}\small\item\em Lists out the absolute channels. When true, the channel is (0, 1). Otherwise channels default to (-\/1, 1). \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_a_s7_1_1_drone_ad0d103c78b4e36cb3476ebf9e3a7a68d}{\+\_\+controller\+Status\+Count}} = 0
 \item 
 std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_a9cc2bd7f829691198f0ea5d018147dc9}{\+\_\+sbus\+Tx\+Ch\+Lower}}
-\item 
+\begin{DoxyCompactList}\small\item\em Lower bounds for SBUS Transmit channels. \end{DoxyCompactList}\item 
 std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_a6f5fdd21f608d6b90ff3d07cf912fcc8}{\+\_\+sbus\+Tx\+Ch\+Upper}}
-\item 
+\begin{DoxyCompactList}\small\item\em Upper bounds for SBUS Transmit Channels. \end{DoxyCompactList}\item 
 std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_a42c814e8324ad90e5ef84bfaef417a6b}{\+\_\+sbus\+Rx\+Ch\+Lower}}
-\item 
+\begin{DoxyCompactList}\small\item\em Lower bounds for SBUS Receiver channels. \end{DoxyCompactList}\item 
 std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_a666d3d7587bab65000835d14b2bf3401}{\+\_\+sbus\+Rx\+Ch\+Upper}}
-\item 
+\begin{DoxyCompactList}\small\item\em Upper bounds for SBUS Receiver Channels. \end{DoxyCompactList}\item 
 std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{class_a_s7_1_1_drone_a3c5f793e112a0e540075d3454aa4243c}{\+\_\+sbus\+EStop\+Tx}}
-\item 
+\begin{DoxyCompactList}\small\item\em Data to be written in case of an E-\/\+Stop. Not all channels are to be zeroed! \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_abb551090d2df3fb9f3fc93c2b904fc03}{\+\_\+has\+Armed}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Remembers if the drone has undergone an arming process. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_aa870ef26f37aefe757338fb664e20d90}{\+\_\+arming\+Allowed}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Set by the operator. Confirms that the drone should start processing commands. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_af91a10a18749f8c5a6adf798358b8fa3}{\+\_\+drone\+Commands\+Started}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Indicates if the drone has started processing commands. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_ad39490b4415be4c2b201f37671ed0a67}{\+\_\+drone\+Commands\+Completed}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Indicates that there are no commands left (queue is empty) \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_a7e5d98d8236fb30fe15ddb2809c50253}{\+\_\+drone\+Has\+Active\+Command}} = false
-\item 
+\begin{DoxyCompactList}\small\item\em Indicates if the drone has an active command. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_a7a803ee14eea159a95ebcb91ea5d4b2f}{\+\_\+running}} = false
 \item 
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_aeaa4bc5e93eb81ed885f7fce00538a29}{\+\_\+enable\+Operator\+Control}} = false
@@ -244,6 +245,19 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 
 
 
+Constructor for \mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em logger} & A reference to the SD logger, for data logging \\
+\hline
+{\em sbus\+\_\+rx} & A reference to the SBUS Rx Object \\
+\hline
+{\em sbus\+\_\+tx} & A reference to the SBUS Tx Object \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a00b9cfef649a173160b309d7e09d6a47}\label{class_a_s7_1_1_drone_a00b9cfef649a173160b309d7e09d6a47}} 
 \index{AS7::Drone@{AS7::Drone}!allowArming@{allowArming}}
@@ -257,17 +271,51 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 \doxysubsubsection{\texorpdfstring{channelConfirm()}{channelConfirm()}}
 {\footnotesize\ttfamily bool AS7\+::\+Drone\+::channel\+Confirm (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{channel = {\ttfamily 1},  }\item[{float}]{threshold = {\ttfamily 0.7f} }\end{DoxyParamCaption})}
 
+
+
+Returns true if the target channel is above a threshold. Can be used for button presses or detecting the state of a switch. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & The channel. See defines for channel enumerations \\
+\hline
+{\em threshold} & Floating-\/point threshold \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if channel is above threshold on the received SBUS packets. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_af372b0d49a573e83c10a61a0bb24deaa}\label{class_a_s7_1_1_drone_af372b0d49a573e83c10a61a0bb24deaa}} 
 \index{AS7::Drone@{AS7::Drone}!clamp@{clamp}}
 \index{clamp@{clamp}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{clamp()}{clamp()}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+::clamp (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{float}]{lbound,  }\item[{float}]{ubound }\end{DoxyParamCaption})}
 
+
+
+A clamping function to keep the values inside the bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The input value \\
+\hline
+{\em lbound} & The lower bound \\
+\hline
+{\em ubound} & The upper bound \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The clamped value between \mbox{[}min, max\mbox{]} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a0d54814e3a63089c1895923876614d19}\label{class_a_s7_1_1_drone_a0d54814e3a63089c1895923876614d19}} 
 \index{AS7::Drone@{AS7::Drone}!controllerTask@{controllerTask}}
 \index{controllerTask@{controllerTask}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{controllerTask()}{controllerTask()}}
 {\footnotesize\ttfamily void AS7\+::\+Drone\+::controller\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Task implementation for classes. Only used by the task thread. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a6dbe792dffa38c68ddcb9722342af989}\label{class_a_s7_1_1_drone_a6dbe792dffa38c68ddcb9722342af989}} 
 \index{AS7::Drone@{AS7::Drone}!convRxChannel\_f@{convRxChannel\_f}}
@@ -275,12 +323,40 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 \doxysubsubsection{\texorpdfstring{convRxChannel\_f()}{convRxChannel\_f()}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+::conv\+Rx\+Channel\+\_\+f (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{value,  }\item[{int8\+\_\+t}]{ch }\end{DoxyParamCaption})}
 
+
+
+Converts the integer value to the correct scaling based on channel minimums and maximums. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & A float between \mbox{[}-\/1.\+0f, 1.\+0f\mbox{]} for normal channels and \mbox{[}0.\+0f to 1.\+0f\mbox{]} \\
+\hline
+{\em ch} & The channel to write to. Channels can use enumerations {\ttfamily CH\+\_\+} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the adjusted float value for that channel 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_aaec0554c4aa4e12d96d6170fa323dac4}\label{class_a_s7_1_1_drone_aaec0554c4aa4e12d96d6170fa323dac4}} 
 \index{AS7::Drone@{AS7::Drone}!convRxChannel\_i@{convRxChannel\_i}}
 \index{convRxChannel\_i@{convRxChannel\_i}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{convRxChannel\_i()}{convRxChannel\_i()}}
 {\footnotesize\ttfamily int16\+\_\+t AS7\+::\+Drone\+::conv\+Rx\+Channel\+\_\+i (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{int8\+\_\+t}]{ch }\end{DoxyParamCaption})}
 
+
+
+Converts the float value to the correct scaling based on channel minimums and maximums. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & A float between \mbox{[}-\/1.\+0f, 1.\+0f\mbox{]} for normal channels and \mbox{[}0.\+0f to 1.\+0f\mbox{]} \\
+\hline
+{\em ch} & The channel to write to. Channels can use enumerations {\ttfamily CH\+\_\+} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the adjusted int16\+\_\+t value for that channel 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a0cd97f37931224a480d6467a83f5e193}\label{class_a_s7_1_1_drone_a0cd97f37931224a480d6467a83f5e193}} 
 \index{AS7::Drone@{AS7::Drone}!convTxChannel\_f@{convTxChannel\_f}}
 \index{convTxChannel\_f@{convTxChannel\_f}!AS7::Drone@{AS7::Drone}}
@@ -347,11 +423,28 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 \doxysubsubsection{\texorpdfstring{formatSbusArray()}{formatSbusArray()}}
 {\footnotesize\ttfamily std\+::string AS7\+::\+Drone\+::format\+Sbus\+Array (\begin{DoxyParamCaption}\item[{std\+::array$<$ int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$}]{ch\+Data }\end{DoxyParamCaption})}
 
+
+
+Returns the channels in a formatted string ~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch\+Data} & Rx or Tx Channel Data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A formatted string with all channels 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a745ed6fc9487e90dca8f3fc5e157fba6}\label{class_a_s7_1_1_drone_a745ed6fc9487e90dca8f3fc5e157fba6}} 
 \index{AS7::Drone@{AS7::Drone}!generateAbsChannels@{generateAbsChannels}}
 \index{generateAbsChannels@{generateAbsChannels}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{generateAbsChannels()}{generateAbsChannels()}}
 {\footnotesize\ttfamily void AS7\+::\+Drone\+::generate\+Abs\+Channels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets the default Absolute Channels. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a0722ac26578b383b970c1bcd86dbf3ce}\label{class_a_s7_1_1_drone_a0722ac26578b383b970c1bcd86dbf3ce}} 
 \index{AS7::Drone@{AS7::Drone}!generateEStopTx@{generateEStopTx}}
@@ -431,12 +524,23 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 \doxysubsubsection{\texorpdfstring{getSbusAbsChannels()}{getSbusAbsChannels()}}
 {\footnotesize\ttfamily std\+::array$<$ bool, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ AS7\+::\+Drone\+::get\+Sbus\+Abs\+Channels (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Returns an array which defines if a channel is absolute (true) or not (false). 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a182e977f8c7452076382fd2d6a8abe3b}\label{class_a_s7_1_1_drone_a182e977f8c7452076382fd2d6a8abe3b}} 
 \index{AS7::Drone@{AS7::Drone}!getSbusRx@{getSbusRx}}
 \index{getSbusRx@{getSbusRx}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{getSbusRx()}{getSbusRx()}}
 {\footnotesize\ttfamily bfs\+::\+Sbus\+Rx $\ast$ AS7\+::\+Drone\+::get\+Sbus\+Rx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Returns SBUS RX object for task implementation. 
+
+\begin{DoxyReturn}{Returns}
+BFS\+::\+SBUS Rx Object 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a6dc14e47b6932da53640f26aa81947be}\label{class_a_s7_1_1_drone_a6dc14e47b6932da53640f26aa81947be}} 
 \index{AS7::Drone@{AS7::Drone}!getSbusRxArray@{getSbusRxArray}}
 \index{getSbusRxArray@{getSbusRxArray}!AS7::Drone@{AS7::Drone}}
@@ -455,6 +559,13 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 \doxysubsubsection{\texorpdfstring{getSbusTx()}{getSbusTx()}}
 {\footnotesize\ttfamily bfs\+::\+Sbus\+Tx $\ast$ AS7\+::\+Drone\+::get\+Sbus\+Tx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Returns SBUS TX object for task implementation. 
+
+\begin{DoxyReturn}{Returns}
+BFS\+::\+SBUS Tx Object 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a8484beeb605809ee88a5287195d7fbe9}\label{class_a_s7_1_1_drone_a8484beeb605809ee88a5287195d7fbe9}} 
 \index{AS7::Drone@{AS7::Drone}!getSbusTxArray@{getSbusTxArray}}
 \index{getSbusTxArray@{getSbusTxArray}!AS7::Drone@{AS7::Drone}}
@@ -527,11 +638,19 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 \doxysubsubsection{\texorpdfstring{initUpperLowerBoundArrays()}{initUpperLowerBoundArrays()}}
 {\footnotesize\ttfamily void AS7\+::\+Drone\+::init\+Upper\+Lower\+Bound\+Arrays (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Sets UBound and LBound array to default. 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a3ce90288eb2862a54e396c4eb246d452}\label{class_a_s7_1_1_drone_a3ce90288eb2862a54e396c4eb246d452}} 
 \index{AS7::Drone@{AS7::Drone}!navigationTask@{navigationTask}}
 \index{navigationTask@{navigationTask}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{navigationTask()}{navigationTask()}}
 {\footnotesize\ttfamily void AS7\+::\+Drone\+::navigation\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+
+
+Task implementation for classes. Only used by the task thread. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a65059ccf5554d3f68ac2ceddf22949d4}\label{class_a_s7_1_1_drone_a65059ccf5554d3f68ac2ceddf22949d4}} 
 \index{AS7::Drone@{AS7::Drone}!nextCommandAvailable@{nextCommandAvailable}}
@@ -551,12 +670,45 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 \doxysubsubsection{\texorpdfstring{rampChannel()}{rampChannel()}}
 {\footnotesize\ttfamily void AS7\+::\+Drone\+::ramp\+Channel (\begin{DoxyParamCaption}\item[{float}]{target,  }\item[{int8\+\_\+t}]{ch,  }\item[{float}]{rate,  }\item[{int}]{ramp\+Rate\+Type = {\ttfamily \mbox{\hyperlink{_drone_8h_a65371cb1138f70be2c8822a86a406231}{RAMPRATE\+\_\+\+LINEAR}}} }\end{DoxyParamCaption})}
 
+
+
+Ramping a specific channel to a target value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em target} & The target ramping value \\
+\hline
+{\em ch} & The target channel \\
+\hline
+{\em rate} & The ramping rate \\
+\hline
+{\em ramp\+Rate\+Type} & Enumerated ramping type \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_aba256ab85e09dcf2124fab1bc8bbf3ae}\label{class_a_s7_1_1_drone_aba256ab85e09dcf2124fab1bc8bbf3ae}} 
 \index{AS7::Drone@{AS7::Drone}!rampValue@{rampValue}}
 \index{rampValue@{rampValue}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{rampValue()}{rampValue()}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+::ramp\+Value (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{float}]{target = {\ttfamily 0},  }\item[{float}]{rate = {\ttfamily 0},  }\item[{int}]{ramp\+Rate\+Type = {\ttfamily \mbox{\hyperlink{_drone_8h_a65371cb1138f70be2c8822a86a406231}{RAMPRATE\+\_\+\+LINEAR}}} }\end{DoxyParamCaption})}
 
+
+
+Returns the next ramped value depending on ramp type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The current value \\
+\hline
+{\em target} & The target value \\
+\hline
+{\em rate} & The ramping rate \\
+\hline
+{\em ramp\+Rate\+Type} & Enumerated ramping type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The ramped value (the next step in the ramping) 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_af377c115cae2c27a6e22b19d35238a81}\label{class_a_s7_1_1_drone_af377c115cae2c27a6e22b19d35238a81}} 
 \index{AS7::Drone@{AS7::Drone}!readRxChannel@{readRxChannel}}
 \index{readRxChannel@{readRxChannel}!AS7::Drone@{AS7::Drone}}
@@ -653,6 +805,10 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 \doxysubsubsection{\texorpdfstring{startCtlTask()}{startCtlTask()}}
 {\footnotesize\ttfamily void AS7\+::\+Drone\+::start\+Ctl\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{\+\_\+this }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
+
+
+Task implementation for classes. Only used by the task thread. 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a1821604dbb64afa2696fd4b4b7ae09a4}\label{class_a_s7_1_1_drone_a1821604dbb64afa2696fd4b4b7ae09a4}} 
 \index{AS7::Drone@{AS7::Drone}!startNavTask@{startNavTask}}
 \index{startNavTask@{startNavTask}!AS7::Drone@{AS7::Drone}}
@@ -661,25 +817,42 @@ bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+
 
 
 
-Task implementation for classes. Used only by the. 
+Task implementation for classes. Only used by the task thread. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em $<$br$>$} & \\
-\hline
-\end{DoxyParams}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a11ab8632e3587588903a0a241e95a145}\label{class_a_s7_1_1_drone_a11ab8632e3587588903a0a241e95a145}} 
 \index{AS7::Drone@{AS7::Drone}!writeChannel@{writeChannel}}
 \index{writeChannel@{writeChannel}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{writeChannel()}{writeChannel()}}
 {\footnotesize\ttfamily void AS7\+::\+Drone\+::write\+Channel (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{value,  }\item[{int8\+\_\+t}]{ch }\end{DoxyParamCaption})}
 
+
+
+Writes the value into the SBUS transmit channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & SBUS value to write to channel between \mbox{[}0, 2056\mbox{]} \\
+\hline
+{\em ch} & The specific channel to write to \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a42d4d86670c346130a10fbdbb3a4d3bb}\label{class_a_s7_1_1_drone_a42d4d86670c346130a10fbdbb3a4d3bb}} 
 \index{AS7::Drone@{AS7::Drone}!writeRxChannel\_f@{writeRxChannel\_f}}
 \index{writeRxChannel\_f@{writeRxChannel\_f}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{writeRxChannel\_f()}{writeRxChannel\_f()}}
 {\footnotesize\ttfamily void AS7\+::\+Drone\+::write\+Rx\+Channel\+\_\+f (\begin{DoxyParamCaption}\item[{float}]{value,  }\item[{int8\+\_\+t}]{ch }\end{DoxyParamCaption})}
 
+
+
+Writes a percentage value to the designated receive channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & SBUS value to write to channel between \mbox{[}-\/1.\+0f, 1.\+0f\mbox{]} \\
+\hline
+{\em ch} & The specific channel to write to \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_aaca09f11f2f113ac8d6d3bedee441c78}\label{class_a_s7_1_1_drone_aaca09f11f2f113ac8d6d3bedee441c78}} 
 \index{AS7::Drone@{AS7::Drone}!writeTxChannel\_f@{writeTxChannel\_f}}
 \index{writeTxChannel\_f@{writeTxChannel\_f}!AS7::Drone@{AS7::Drone}}
@@ -688,12 +861,27 @@ Task implementation for classes. Used only by the.
 
 
 
+Writes a percentage value to the designated transmit channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & SBUS value to write to channel between \mbox{[}-\/1.\+0f, 1.\+0f\mbox{]} \\
+\hline
+{\em ch} & The specific channel to write to \\
+\hline
+\end{DoxyParams}
+
+
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_aa870ef26f37aefe757338fb664e20d90}\label{class_a_s7_1_1_drone_aa870ef26f37aefe757338fb664e20d90}} 
 \index{AS7::Drone@{AS7::Drone}!\_armingAllowed@{\_armingAllowed}}
 \index{\_armingAllowed@{\_armingAllowed}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{\_armingAllowed}{\_armingAllowed}}
 {\footnotesize\ttfamily bool AS7\+::\+Drone\+::\+\_\+arming\+Allowed = false}
+
+
+
+Set by the operator. Confirms that the drone should start processing commands. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a39602f7e8b968382fe1d63807ea756cd}\label{class_a_s7_1_1_drone_a39602f7e8b968382fe1d63807ea756cd}} 
 \index{AS7::Drone@{AS7::Drone}!\_armingComplete@{\_armingComplete}}
@@ -725,17 +913,29 @@ Task implementation for classes. Used only by the.
 \doxysubsubsection{\texorpdfstring{\_droneCommandsCompleted}{\_droneCommandsCompleted}}
 {\footnotesize\ttfamily bool AS7\+::\+Drone\+::\+\_\+drone\+Commands\+Completed = false}
 
+
+
+Indicates that there are no commands left (queue is empty) 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_af91a10a18749f8c5a6adf798358b8fa3}\label{class_a_s7_1_1_drone_af91a10a18749f8c5a6adf798358b8fa3}} 
 \index{AS7::Drone@{AS7::Drone}!\_droneCommandsStarted@{\_droneCommandsStarted}}
 \index{\_droneCommandsStarted@{\_droneCommandsStarted}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{\_droneCommandsStarted}{\_droneCommandsStarted}}
 {\footnotesize\ttfamily bool AS7\+::\+Drone\+::\+\_\+drone\+Commands\+Started = false}
 
+
+
+Indicates if the drone has started processing commands. 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a7e5d98d8236fb30fe15ddb2809c50253}\label{class_a_s7_1_1_drone_a7e5d98d8236fb30fe15ddb2809c50253}} 
 \index{AS7::Drone@{AS7::Drone}!\_droneHasActiveCommand@{\_droneHasActiveCommand}}
 \index{\_droneHasActiveCommand@{\_droneHasActiveCommand}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{\_droneHasActiveCommand}{\_droneHasActiveCommand}}
 {\footnotesize\ttfamily bool AS7\+::\+Drone\+::\+\_\+drone\+Has\+Active\+Command = false}
+
+
+
+Indicates if the drone has an active command. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a5bd22e7ea0388fda95755c33af8bc3a2}\label{class_a_s7_1_1_drone_a5bd22e7ea0388fda95755c33af8bc3a2}} 
 \index{AS7::Drone@{AS7::Drone}!\_enableEmergencyStop@{\_enableEmergencyStop}}
@@ -755,6 +955,10 @@ Task implementation for classes. Used only by the.
 \doxysubsubsection{\texorpdfstring{\_hasArmed}{\_hasArmed}}
 {\footnotesize\ttfamily bool AS7\+::\+Drone\+::\+\_\+has\+Armed = false}
 
+
+
+Remembers if the drone has undergone an arming process. 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a76057893d2a71fba29f20a518fb608c8}\label{class_a_s7_1_1_drone_a76057893d2a71fba29f20a518fb608c8}} 
 \index{AS7::Drone@{AS7::Drone}!\_logger@{\_logger}}
 \index{\_logger@{\_logger}!AS7::Drone@{AS7::Drone}}
@@ -773,11 +977,19 @@ Task implementation for classes. Used only by the.
 \doxysubsubsection{\texorpdfstring{\_sbusAbsChannels}{\_sbusAbsChannels}}
 {\footnotesize\ttfamily std\+::array$<$bool, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+::\+\_\+sbus\+Abs\+Channels}
 
+
+
+Lists out the absolute channels. When true, the channel is (0, 1). Otherwise channels default to (-\/1, 1). 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a3c5f793e112a0e540075d3454aa4243c}\label{class_a_s7_1_1_drone_a3c5f793e112a0e540075d3454aa4243c}} 
 \index{AS7::Drone@{AS7::Drone}!\_sbusEStopTx@{\_sbusEStopTx}}
 \index{\_sbusEStopTx@{\_sbusEStopTx}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{\_sbusEStopTx}{\_sbusEStopTx}}
 {\footnotesize\ttfamily std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+::\+\_\+sbus\+EStop\+Tx}
+
+
+
+Data to be written in case of an E-\/\+Stop. Not all channels are to be zeroed! 
 
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a48ffba5506019eb88dd17e7b75924dcc}\label{class_a_s7_1_1_drone_a48ffba5506019eb88dd17e7b75924dcc}} 
 \index{AS7::Drone@{AS7::Drone}!\_sbusRx@{\_sbusRx}}
@@ -785,17 +997,29 @@ Task implementation for classes. Used only by the.
 \doxysubsubsection{\texorpdfstring{\_sbusRx}{\_sbusRx}}
 {\footnotesize\ttfamily bfs\+::\+Sbus\+Rx$\ast$ AS7\+::\+Drone\+::\+\_\+sbus\+Rx}
 
+
+
+SBUS Receive Channel Object. 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a42c814e8324ad90e5ef84bfaef417a6b}\label{class_a_s7_1_1_drone_a42c814e8324ad90e5ef84bfaef417a6b}} 
 \index{AS7::Drone@{AS7::Drone}!\_sbusRxChLower@{\_sbusRxChLower}}
 \index{\_sbusRxChLower@{\_sbusRxChLower}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{\_sbusRxChLower}{\_sbusRxChLower}}
 {\footnotesize\ttfamily std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+::\+\_\+sbus\+Rx\+Ch\+Lower}
 
-Upper bounds for SBUS Transmit Channels \mbox{\Hypertarget{class_a_s7_1_1_drone_a666d3d7587bab65000835d14b2bf3401}\label{class_a_s7_1_1_drone_a666d3d7587bab65000835d14b2bf3401}} 
+
+
+Lower bounds for SBUS Receiver channels. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a666d3d7587bab65000835d14b2bf3401}\label{class_a_s7_1_1_drone_a666d3d7587bab65000835d14b2bf3401}} 
 \index{AS7::Drone@{AS7::Drone}!\_sbusRxChUpper@{\_sbusRxChUpper}}
 \index{\_sbusRxChUpper@{\_sbusRxChUpper}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{\_sbusRxChUpper}{\_sbusRxChUpper}}
 {\footnotesize\ttfamily std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+::\+\_\+sbus\+Rx\+Ch\+Upper}
+
+
+
+Upper bounds for SBUS Receiver Channels. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a1d1184f2e56dd1b4655bf97bbd749e9b}\label{class_a_s7_1_1_drone_a1d1184f2e56dd1b4655bf97bbd749e9b}} 
 \index{AS7::Drone@{AS7::Drone}!\_sbusRxData@{\_sbusRxData}}
@@ -803,11 +1027,19 @@ Upper bounds for SBUS Transmit Channels \mbox{\Hypertarget{class_a_s7_1_1_drone_
 \doxysubsubsection{\texorpdfstring{\_sbusRxData}{\_sbusRxData}}
 {\footnotesize\ttfamily std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+::\+\_\+sbus\+Rx\+Data}
 
+
+
+Array of data received from the Radio Control. 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_af60800e0b5970e88565d51b1dc213e98}\label{class_a_s7_1_1_drone_af60800e0b5970e88565d51b1dc213e98}} 
 \index{AS7::Drone@{AS7::Drone}!\_sbusTx@{\_sbusTx}}
 \index{\_sbusTx@{\_sbusTx}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{\_sbusTx}{\_sbusTx}}
 {\footnotesize\ttfamily bfs\+::\+Sbus\+Tx$\ast$ AS7\+::\+Drone\+::\+\_\+sbus\+Tx}
+
+
+
+SBUS Transmit Channel Object. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a9cc2bd7f829691198f0ea5d018147dc9}\label{class_a_s7_1_1_drone_a9cc2bd7f829691198f0ea5d018147dc9}} 
 \index{AS7::Drone@{AS7::Drone}!\_sbusTxChLower@{\_sbusTxChLower}}
@@ -815,17 +1047,29 @@ Upper bounds for SBUS Transmit Channels \mbox{\Hypertarget{class_a_s7_1_1_drone_
 \doxysubsubsection{\texorpdfstring{\_sbusTxChLower}{\_sbusTxChLower}}
 {\footnotesize\ttfamily std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+::\+\_\+sbus\+Tx\+Ch\+Lower}
 
+
+
+Lower bounds for SBUS Transmit channels. 
+
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a6f5fdd21f608d6b90ff3d07cf912fcc8}\label{class_a_s7_1_1_drone_a6f5fdd21f608d6b90ff3d07cf912fcc8}} 
 \index{AS7::Drone@{AS7::Drone}!\_sbusTxChUpper@{\_sbusTxChUpper}}
 \index{\_sbusTxChUpper@{\_sbusTxChUpper}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{\_sbusTxChUpper}{\_sbusTxChUpper}}
 {\footnotesize\ttfamily std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+::\+\_\+sbus\+Tx\+Ch\+Upper}
 
-Lower bounds for SBUS Transmit channels \mbox{\Hypertarget{class_a_s7_1_1_drone_a90556597db7ae9d1e2ba335d25f6b74b}\label{class_a_s7_1_1_drone_a90556597db7ae9d1e2ba335d25f6b74b}} 
+
+
+Upper bounds for SBUS Transmit Channels. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_drone_a90556597db7ae9d1e2ba335d25f6b74b}\label{class_a_s7_1_1_drone_a90556597db7ae9d1e2ba335d25f6b74b}} 
 \index{AS7::Drone@{AS7::Drone}!\_sbusTxData@{\_sbusTxData}}
 \index{\_sbusTxData@{\_sbusTxData}!AS7::Drone@{AS7::Drone}}
 \doxysubsubsection{\texorpdfstring{\_sbusTxData}{\_sbusTxData}}
 {\footnotesize\ttfamily std\+::array$<$int16\+\_\+t, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+::\+\_\+sbus\+Tx\+Data}
+
+
+
+Array of data to transmit to the Flight Controller. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_drone_ac5022867b39e168413e4aac155e5d2f2}\label{class_a_s7_1_1_drone_ac5022867b39e168413e4aac155e5d2f2}} 
 \index{AS7::Drone@{AS7::Drone}!\_semCommandQueueMutex@{\_semCommandQueueMutex}}
