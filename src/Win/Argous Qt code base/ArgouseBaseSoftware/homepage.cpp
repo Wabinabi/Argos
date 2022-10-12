@@ -714,14 +714,20 @@ void HomePage::exportPLY()
 //        loadFile(action->data().toString());
 //}
 
+void HomePage::help()
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile("../ArgouseBaseSoftware/appdata/docs/html/index.html"));
+}
+
 void HomePage::about()
 {
-   //UPDATE
-   QMessageBox::about(this, tr("About Recent Files"),
+    //UPDATE
+   QMessageBox::about(this, tr("About Argous AS7 Base Software"),
             tr("The <b>Argous S7 Base Software</b> accompanies the AS7 drone. \
                 Its purpose is to display drone diagnostic data, drone specs, "
                "and generate a 3D model from the collected data.\
                 The repo for this project can be found at https://github.com/Wabinabi/Argous."));
+
 }
 
 void HomePage::createActions()
@@ -759,8 +765,12 @@ void HomePage::createActions()
 //    exitAct->setStatusTip(tr("Exit the application"));
 //    connect(exitAct, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
 
-    aboutAct = new QAction(tr("&About"), this);
-    aboutAct->setStatusTip(tr("Show the application's About box"));
+    helpAct = new QAction(tr("Open User Manual"), this);
+    helpAct->setStatusTip(tr("Opens the user manual in the default web browser"));
+    connect(helpAct, SIGNAL(triggered()), this, SLOT(help()));
+
+    aboutAct = new QAction(tr("About AS7 Base Software"), this);
+    aboutAct->setStatusTip(tr("Opens the about box for base software"));
     connect(aboutAct, SIGNAL(triggered()), this, SLOT(about()));
 
     aboutQtAct = new QAction(tr("About &Qt"), this);
@@ -791,6 +801,7 @@ void HomePage::createMenus()
     menuBar()->addSeparator();
 
     helpMenu = menuBar()->addMenu(tr("&Help"));
+    helpMenu->addAction(helpAct);
     helpMenu->addAction(aboutAct);
     helpMenu->addAction(aboutQtAct);
 }

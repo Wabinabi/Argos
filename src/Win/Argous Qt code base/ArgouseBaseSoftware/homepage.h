@@ -81,6 +81,7 @@ private slots:
     void exportPLY();
     //void openRecentFile();
     void about();
+    void help();
 
 
 private:
@@ -176,6 +177,7 @@ private:
     QAction *exportAct;
     QAction *exitAct;
     QAction *aboutAct;
+    QAction *helpAct;
     QAction *aboutQtAct;
     QAction *separatorAct;
     QAction *TestRecentFile;
