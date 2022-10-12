@@ -56,57 +56,123 @@ namespace AS7
     enum DroneCommandType {Blind, Guided, Landing, Arm};
 
     /**
-     * @brief Drone Command Structure/Format
+     * @brief Ecapsulates commands to be carried out by drone
      * 
-     * There are two types: Blind and Guided, set by enum DroneCommandType
-     *  Blind commands only refer to the channel array and duration
-     *  Guided commands will attempt to use on-board sensors to control the drone
-     *
-     * Landing is a special type where the drone will lower thrust just below its known weight to land
-     *  If possible, it will use the bottom sensors to guide landing
-     *  Landing is equivalent to setting v_y to some pre-defined value in blind mode.
-     *
-     * Arm is a special type that will send the arming command to the drone.
-     *  As SBUS is one-way at the moment, it's not possible to *know* if the drone is armed but we can generally assume
-     *   that after a certain duration, the drone is armed.
-     *  Because of this, there is no way to know if the drone is disarmed as it will disarm automatically from the FC
-     *  More advanced implementations using two-way SBUS or ideally MAVLink can get around this limmitation.
-     *
-     * Drone commands are enqueued to the drone, and will be executed FIFO.
-     *
-     * Note: Blind Commands can also be used as buttons and inputs to the FC, not just for navigation
+     * Characterised by type `{Blind, Guided, Landing, Arm}`, drone commands make up the basic unit for controlling the connected drone.
+     * 
+     * ### Attribute Characteristics
+     * 
+     * Under `blind` commands, only the velocities of the controllable channels are used. These values are written directly to the channel. Command convention is prefixing `v_` for velocity control and `p_` for position control. The available axes of freedom are:
+     * 
+     * 
+     * Cartesian co-ordinates where the origin is the starting point of the drone
+     * * `x`, `y`, `z`
+     * 
+     * Axes of rotation -- pitch (tilt forward/back), roll (wiggle side to side), yaw (turn normally)
+     * * `rl`, `pt`, `yw`
+     * 
+     * Hence, to control the forward velocity of the drone, the command is:
+     * 
+     * ```
+     * DroneCommand aCommand;
+     * aCommand.v_x = 0.5f
+     * ```
+     * 
+     * ### Command Ramping and Ramp Types
+     * 
+     * For all channels, `drone.cpp` defines a set 'ramp rate' depending on the application and control desired for the drone. Ramp rates are often found in motor applications where a motor has to be speed up at a certain rate to reduce damage or shock. In the case of drones, a linear ramp rate helps with ensuring the commands are carried out smoothly. Additionally, they allow for less rigid movement of the drone as as the channels transition smoothly and thus keep the channels alive, rather than emulating a disconnect. This has the added advantage of ensuring that the frame is not dropped due to suddden shifts in values.
+     * Ramp rates are defined by the `RAMPRATE` enumeration. The following ramping methods have been implemented:
+     * 
+     * * `RAMPRATE_NONE` - The channel is instantly set to the target value
+     * * `RAMPRATE_LINEAR` - The channel is increased linearly by the ramping value
+     * * `RAMPRATE_PROP` - Tha channel is increased proportionately to the amount of travel left. If the target is far, the ramping is faster. If the target is close, the ramping is slower.
+     * 
+     * ### Channel values and non-pure values
+     * 
+     * In testing, it was noted that the best results came from using channel values that were between 0.1f and 0.9f. User discretion is advised when setting channel values to write. 
+     * 
+     * ### Blind Commands
+     * 
+     * ```
+     * DroneCommand.v_z = 0.1f
+     * ```
+     * 
+     * This will emulate the user pulling up the 'throttle' stick to about 10%.
+     * 
+     * ### Guided Commands
+     * 
+     * Guided commands aim to position-control the drone using the on-board ultrasonic sensors.
+     * 
+     * In the case of AS7, the left-right channels will aim to avoid obstacles whilst the z (height) channel will aim to keep the drone a constant height about the ground.
+     * 
+     * #### Proportional Control Guided Commands
+     * 
+     * The current implementation of the z-height guided command is a form of proportional control from control theory. The amount of thrust applied to the TX Thrust Channel is proprtional to `target-current_value` or error measured in the Z-axis. This is multiplied by a proportionality constant and re-evaluated in the next loop.
+     * Fine-tuning of the proportionality constant is recommended for different propellers and drone configurations
+     * 
+     * ### Channels not controllable by drone
+     * 
+     * * Roll
+     * * Pitch
+     * 
      */
     typedef struct {
+        /// @brief  Defines the main function of the command
         DroneCommandType type;              // Blind = Purely a drone command, Guided = Assisted with sensors
+        /// @brief A description for logging and verbosity
         std::string desc;                   // A description for the logger
+        /// @brief A float for each channel from (-1 1) for normal channels and (0, 1) for absolute channels
         std::array<float, NUM_CH> channels; // A float for each channel from (-1, 1)
+        /// @brief  The duration of the command in milliseconds
         int duration;                       // in ms
+        /// @brief The rate multiplier to adjust ramping speed if applicable.
         float rateMultiplier = 1.0f;          // Can be thought of as "aggressiveness" of controls
 
         // Prefix P = Position; V = Velocity. Units on per-member basis and are *convention* (not checked)
+
+        /// @brief Position control in the forward axis
         float p_x;        // Position to hold (some distance unit tbc)
+        /// @brief Position control in the sideways axis
         float p_y;
+        /// @brief Position control of the height of the drone
         float p_z;
+        /// @brief Velocity control in the forward axis
         float v_x;      // Velocity to hold (-1 to 1) floating point value
+        /// @brief Velocity control in the sideways axis
         float v_y;      // e.g. 0.1 is equivalent to 10% forward thrust
+        /// @brief Upwards thrust
         float v_z;
+        /// @brief Position control in the roll axis. Nod directly controllable on a drone.
         float p_rl;       // Not directly controllable on a drone
+        /// @brief Position control in the pitch axis. Nod directly controllable on a drone.
         float p_pt;       // Not directly controllable on a drone
+        /// @brief Position control in the yaw axis. Uses the compass to control heading
         float p_yw;
+        /// @brief Velocity control in the roll axis. Nod directly controllable on a drone.
         float v_rl;     // Not directly controllable on a drone
+        /// @brief Velocity control in the pitch axis. Nod directly controllable on a drone.
         float v_pt;     // Not directly controllable on a drone
+        /// @brief Velcocity control in the yaw axis. Rotates drone left/right.
         float v_yw;
+        /// @brief Indicates if the drone should be recording data in this command.
         bool dataRecording; // indicates if the drone should record data, used to synchronise sensors and current drone state
     } DroneCommand;
 
     class Drone
     {
     private:
+
+    public:
         TaskHandle_t thDrone;
         TaskHandle_t thRemote;
+
+        /// @brief Task implementation for classes. Only used by the task thread
         static void startNavTask(void*);   // Task implementation for classes
+        /// @brief Task implementation for classes. Only used by the task thread
         static void startCtlTask(void*);
+        /// @brief Task implementation for classes. Only used by the task thread
         void navigationTask(void* parameters);    // The threaded task
+        /// @brief Task implementation for classes. Only used by the task thread
         void controllerTask(void* parameters);
 
         std::queue<DroneCommand> _droneCommandQueue;
@@ -207,7 +273,7 @@ namespace AS7
         bool _enableEmergencyStop = false;      // When enabled, all TX channels are set to 0
         bool _armingComplete = false;
 
-    public:
+    
         
         Drone(Logger *logger, bfs::SbusRx* sbus_rx, bfs::SbusTx* sbus_tx);
         bool channelConfirm(int16_t channel=1, float threshold=0.7f);    // Returns true if the channel above threshold. e.g. button press

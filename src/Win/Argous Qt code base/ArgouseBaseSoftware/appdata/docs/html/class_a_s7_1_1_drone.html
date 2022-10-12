@@ -93,6 +93,7 @@ $(document).ready(function(){initNavTree('class_a_s7_1_1_drone.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_a_s7_1_1_drone-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">AS7::Drone Class Reference</div></div>
@@ -103,6 +104,86 @@ $(document).ready(function(){initNavTree('class_a_s7_1_1_drone.html',''); initRe
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a3ce90288eb2862a54e396c4eb246d452"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a3ce90288eb2862a54e396c4eb246d452">navigationTask</a> (void *parameters)</td></tr>
+<tr class="separator:a3ce90288eb2862a54e396c4eb246d452"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d54814e3a63089c1895923876614d19"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a0d54814e3a63089c1895923876614d19">controllerTask</a> (void *parameters)</td></tr>
+<tr class="separator:a0d54814e3a63089c1895923876614d19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a628116b9099a08933f6be9f0f92c1956"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a628116b9099a08933f6be9f0f92c1956">getSemDroneEnableMutex</a> ()</td></tr>
+<tr class="separator:a628116b9099a08933f6be9f0f92c1956"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b6c408c676c2833631794727d2b3b65"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a4b6c408c676c2833631794727d2b3b65">getSemControlEnableMutex</a> ()</td></tr>
+<tr class="separator:a4b6c408c676c2833631794727d2b3b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d99af93470af27c28f6b3b23f361428"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a5d99af93470af27c28f6b3b23f361428">getTxChMutex</a> ()</td></tr>
+<tr class="separator:a5d99af93470af27c28f6b3b23f361428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eb3f6471f0e0eca69d0a6d7eedc95d9"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a8eb3f6471f0e0eca69d0a6d7eedc95d9">getRxChMutex</a> ()</td></tr>
+<tr class="separator:a8eb3f6471f0e0eca69d0a6d7eedc95d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87af11737ff20934b8d246799bc61092"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a87af11737ff20934b8d246799bc61092">getCommandQueueMutex</a> ()</td></tr>
+<tr class="separator:a87af11737ff20934b8d246799bc61092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16a1b892144cb174af26a33792dc71f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_s7_1_1_logger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a16a1b892144cb174af26a33792dc71f4">getLogger</a> ()</td></tr>
+<tr class="separator:a16a1b892144cb174af26a33792dc71f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68366c5578333185254d658984c6f136"><td class="memItemLeft" align="right" valign="top">std::array&lt; bool, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a68366c5578333185254d658984c6f136">getSbusAbsChannels</a> ()</td></tr>
+<tr class="separator:a68366c5578333185254d658984c6f136"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a745ed6fc9487e90dca8f3fc5e157fba6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a745ed6fc9487e90dca8f3fc5e157fba6">generateAbsChannels</a> ()</td></tr>
+<tr class="separator:a745ed6fc9487e90dca8f3fc5e157fba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07a3d7166dbb2463365787c72cdd45a4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a07a3d7166dbb2463365787c72cdd45a4">getControllerStatusCount</a> ()</td></tr>
+<tr class="separator:a07a3d7166dbb2463365787c72cdd45a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad83c9d3a0fe8875a2d8b3a1aa7aa8a1"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aad83c9d3a0fe8875a2d8b3a1aa7aa8a1">getSbusRxData</a> ()</td></tr>
+<tr class="separator:aad83c9d3a0fe8875a2d8b3a1aa7aa8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a356b2a37c9e21fb4347113eb91aa5eeb"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a356b2a37c9e21fb4347113eb91aa5eeb">getSbusTxData</a> ()</td></tr>
+<tr class="separator:a356b2a37c9e21fb4347113eb91aa5eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79577b2ead584ebf87e8d96fff392429"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a79577b2ead584ebf87e8d96fff392429">setSbusRxData</a> (std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt; data)</td></tr>
+<tr class="separator:a79577b2ead584ebf87e8d96fff392429"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a799cfe6823e99b2964af3278bd4a089b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a799cfe6823e99b2964af3278bd4a089b">setSbusTxData</a> (std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt; data)</td></tr>
+<tr class="separator:a799cfe6823e99b2964af3278bd4a089b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d7771142e194781e1f644d365c9bc1a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a6d7771142e194781e1f644d365c9bc1a">initUpperLowerBoundArrays</a> ()</td></tr>
+<tr class="separator:a6d7771142e194781e1f644d365c9bc1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11ab8632e3587588903a0a241e95a145"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a11ab8632e3587588903a0a241e95a145">writeChannel</a> (int16_t value, int8_t ch)</td></tr>
+<tr class="separator:a11ab8632e3587588903a0a241e95a145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42d4d86670c346130a10fbdbb3a4d3bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a42d4d86670c346130a10fbdbb3a4d3bb">writeRxChannel_f</a> (float value, int8_t ch)</td></tr>
+<tr class="separator:a42d4d86670c346130a10fbdbb3a4d3bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaca09f11f2f113ac8d6d3bedee441c78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aaca09f11f2f113ac8d6d3bedee441c78">writeTxChannel_f</a> (float value, int8_t ch)</td></tr>
+<tr class="separator:aaca09f11f2f113ac8d6d3bedee441c78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec0554c4aa4e12d96d6170fa323dac4"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aaec0554c4aa4e12d96d6170fa323dac4">convRxChannel_i</a> (float value, int8_t ch)</td></tr>
+<tr class="separator:aaec0554c4aa4e12d96d6170fa323dac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbe792dffa38c68ddcb9722342af989"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a6dbe792dffa38c68ddcb9722342af989">convRxChannel_f</a> (int16_t value, int8_t ch)</td></tr>
+<tr class="separator:a6dbe792dffa38c68ddcb9722342af989"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a626d3b50c7249971c756edc50f6f1718"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a626d3b50c7249971c756edc50f6f1718">convTxChannel_i</a> (float value, int8_t ch)</td></tr>
+<tr class="separator:a626d3b50c7249971c756edc50f6f1718"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cd97f37931224a480d6467a83f5e193"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a0cd97f37931224a480d6467a83f5e193">convTxChannel_f</a> (int16_t value, int8_t ch)</td></tr>
+<tr class="separator:a0cd97f37931224a480d6467a83f5e193"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af377c115cae2c27a6e22b19d35238a81"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#af377c115cae2c27a6e22b19d35238a81">readRxChannel</a> (int16_t ch)</td></tr>
+<tr class="separator:af377c115cae2c27a6e22b19d35238a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acecac502b59386151287e747674a4af6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#acecac502b59386151287e747674a4af6">readRxChannel_f</a> (int16_t ch)</td></tr>
+<tr class="separator:acecac502b59386151287e747674a4af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f3b677b6bb65c0114bdb4b4d7bff387"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a7f3b677b6bb65c0114bdb4b4d7bff387">readTxChannel</a> (int16_t ch)</td></tr>
+<tr class="separator:a7f3b677b6bb65c0114bdb4b4d7bff387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f7c17a69f9913e887dd038e50e64848"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a0f7c17a69f9913e887dd038e50e64848">readTxChannel_f</a> (int16_t ch)</td></tr>
+<tr class="separator:a0f7c17a69f9913e887dd038e50e64848"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af372b0d49a573e83c10a61a0bb24deaa"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#af372b0d49a573e83c10a61a0bb24deaa">clamp</a> (float value, float lbound, float ubound)</td></tr>
+<tr class="separator:af372b0d49a573e83c10a61a0bb24deaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a325eda9ab7a5e021ac881a16f2e8680e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a325eda9ab7a5e021ac881a16f2e8680e">formatSbusArray</a> (std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt; chData)</td></tr>
+<tr class="separator:a325eda9ab7a5e021ac881a16f2e8680e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba256ab85e09dcf2124fab1bc8bbf3ae"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aba256ab85e09dcf2124fab1bc8bbf3ae">rampValue</a> (float value, float target=0, float rate=0, int rampRateType=<a class="el" href="_drone_8h.html#a65371cb1138f70be2c8822a86a406231">RAMPRATE_LINEAR</a>)</td></tr>
+<tr class="separator:aba256ab85e09dcf2124fab1bc8bbf3ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a336ffaba2c3df9b923d03ffa2b275609"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a336ffaba2c3df9b923d03ffa2b275609">rampChannel</a> (float target, int8_t ch, float rate, int rampRateType=<a class="el" href="_drone_8h.html#a65371cb1138f70be2c8822a86a406231">RAMPRATE_LINEAR</a>)</td></tr>
+<tr class="separator:a336ffaba2c3df9b923d03ffa2b275609"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a182e977f8c7452076382fd2d6a8abe3b"><td class="memItemLeft" align="right" valign="top">bfs::SbusRx *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a182e977f8c7452076382fd2d6a8abe3b">getSbusRx</a> ()</td></tr>
+<tr class="separator:a182e977f8c7452076382fd2d6a8abe3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab858258286a888df39b74d970d427b1f"><td class="memItemLeft" align="right" valign="top">bfs::SbusTx *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#ab858258286a888df39b74d970d427b1f">getSbusTx</a> ()</td></tr>
+<tr class="separator:ab858258286a888df39b74d970d427b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1730ac114fc9e1727bdc288f2542c097"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a1730ac114fc9e1727bdc288f2542c097">setDroneHasArmed</a> ()</td></tr>
+<tr class="separator:a1730ac114fc9e1727bdc288f2542c097"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a097088e892236c5b0544e57a4de098d7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a097088e892236c5b0544e57a4de098d7">getDroneHasArmed</a> ()</td></tr>
+<tr class="separator:a097088e892236c5b0544e57a4de098d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e501bbc0e5e13453f072e23188e4dbc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a1e501bbc0e5e13453f072e23188e4dbc">getHasActiveComamnd</a> () const</td></tr>
+<tr class="separator:a1e501bbc0e5e13453f072e23188e4dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada1e81a7281b0c3e1350f774845af818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#ada1e81a7281b0c3e1350f774845af818">setHasActiveCommand</a> (bool value)</td></tr>
+<tr class="separator:ada1e81a7281b0c3e1350f774845af818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab341c99b26af425e79c5cf7b464a51d6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#ab341c99b26af425e79c5cf7b464a51d6">setDroneCommandsStarted</a> ()</td></tr>
+<tr class="separator:ab341c99b26af425e79c5cf7b464a51d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70cc62509c445ebb35e6bf0bf9115b0d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a70cc62509c445ebb35e6bf0bf9115b0d">setDroneCommandsCompleted</a> ()</td></tr>
+<tr class="separator:a70cc62509c445ebb35e6bf0bf9115b0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65059ccf5554d3f68ac2ceddf22949d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a65059ccf5554d3f68ac2ceddf22949d4">nextCommandAvailable</a> ()</td></tr>
+<tr class="separator:a65059ccf5554d3f68ac2ceddf22949d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55609d6f948046ab46654912cc78f425"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a55609d6f948046ab46654912cc78f425">Drone</a> (<a class="el" href="class_a_s7_1_1_logger.html">Logger</a> *<a class="el" href="as7-gamma_8ino.html#a99d2a4a087d451eb0554bfa08a3f2dba">logger</a>, bfs::SbusRx *sbus_rx, bfs::SbusTx *sbus_tx)</td></tr>
 <tr class="separator:a55609d6f948046ab46654912cc78f425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a917a942e76225752287df64d15acfe3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a917a942e76225752287df64d15acfe3d">channelConfirm</a> (int16_t channel=1, float threshold=0.7f)</td></tr>
@@ -166,8 +247,74 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8484beeb605809ee88a5287195d7fbe9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a8484beeb605809ee88a5287195d7fbe9">getSbusTxArray</a> ()</td></tr>
 <tr class="separator:a8484beeb605809ee88a5287195d7fbe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a1821604dbb64afa2696fd4b4b7ae09a4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a1821604dbb64afa2696fd4b4b7ae09a4">startNavTask</a> (void *)</td></tr>
+<tr class="memdesc:a1821604dbb64afa2696fd4b4b7ae09a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task implementation for classes. Used only by the.  <a href="class_a_s7_1_1_drone.html#a1821604dbb64afa2696fd4b4b7ae09a4">More...</a><br /></td></tr>
+<tr class="separator:a1821604dbb64afa2696fd4b4b7ae09a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e419f124b95a0725beb463ae22d0778"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a1e419f124b95a0725beb463ae22d0778">startCtlTask</a> (void *)</td></tr>
+<tr class="separator:a1e419f124b95a0725beb463ae22d0778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a025b438cd807e9ee677e1060d17bd15a"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a025b438cd807e9ee677e1060d17bd15a">thDrone</a></td></tr>
+<tr class="separator:a025b438cd807e9ee677e1060d17bd15a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfa35c35a96d502f53d5090c9ac174b7"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#acfa35c35a96d502f53d5090c9ac174b7">thRemote</a></td></tr>
+<tr class="separator:acfa35c35a96d502f53d5090c9ac174b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a342e3cb02fbdae0ec420bbbd749e2744"><td class="memItemLeft" align="right" valign="top">std::queue&lt; <a class="el" href="struct_a_s7_1_1_drone_command.html">DroneCommand</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a342e3cb02fbdae0ec420bbbd749e2744">_droneCommandQueue</a></td></tr>
+<tr class="separator:a342e3cb02fbdae0ec420bbbd749e2744"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51de3e507928755ad3260c3d150da399"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a51de3e507928755ad3260c3d150da399">_semDroneEnableMutex</a></td></tr>
+<tr class="separator:a51de3e507928755ad3260c3d150da399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57fe5dda3c4512319c3e49e1b1167fce"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a57fe5dda3c4512319c3e49e1b1167fce">_semControlEnableMutex</a></td></tr>
+<tr class="separator:a57fe5dda3c4512319c3e49e1b1167fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c08d0f67c33bda17db382bcca2a8d57"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a8c08d0f67c33bda17db382bcca2a8d57">_semTxChMutex</a></td></tr>
+<tr class="separator:a8c08d0f67c33bda17db382bcca2a8d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea33197843e8cf05ec0dc88dd21a1101"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aea33197843e8cf05ec0dc88dd21a1101">_semRxChMutex</a></td></tr>
+<tr class="separator:aea33197843e8cf05ec0dc88dd21a1101"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5022867b39e168413e4aac155e5d2f2"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#ac5022867b39e168413e4aac155e5d2f2">_semCommandQueueMutex</a></td></tr>
+<tr class="separator:ac5022867b39e168413e4aac155e5d2f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76057893d2a71fba29f20a518fb608c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_a_s7_1_1_logger.html">Logger</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a76057893d2a71fba29f20a518fb608c8">_logger</a></td></tr>
+<tr class="separator:a76057893d2a71fba29f20a518fb608c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48ffba5506019eb88dd17e7b75924dcc"><td class="memItemLeft" align="right" valign="top">bfs::SbusRx *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a48ffba5506019eb88dd17e7b75924dcc">_sbusRx</a></td></tr>
+<tr class="separator:a48ffba5506019eb88dd17e7b75924dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af60800e0b5970e88565d51b1dc213e98"><td class="memItemLeft" align="right" valign="top">bfs::SbusTx *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#af60800e0b5970e88565d51b1dc213e98">_sbusTx</a></td></tr>
+<tr class="separator:af60800e0b5970e88565d51b1dc213e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d1184f2e56dd1b4655bf97bbd749e9b"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a1d1184f2e56dd1b4655bf97bbd749e9b">_sbusRxData</a></td></tr>
+<tr class="separator:a1d1184f2e56dd1b4655bf97bbd749e9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90556597db7ae9d1e2ba335d25f6b74b"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a90556597db7ae9d1e2ba335d25f6b74b">_sbusTxData</a></td></tr>
+<tr class="separator:a90556597db7ae9d1e2ba335d25f6b74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078ebda6f0e06990101bed651b95ad21"><td class="memItemLeft" align="right" valign="top">std::array&lt; bool, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a078ebda6f0e06990101bed651b95ad21">_sbusAbsChannels</a></td></tr>
+<tr class="separator:a078ebda6f0e06990101bed651b95ad21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0d103c78b4e36cb3476ebf9e3a7a68d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#ad0d103c78b4e36cb3476ebf9e3a7a68d">_controllerStatusCount</a> = 0</td></tr>
+<tr class="separator:ad0d103c78b4e36cb3476ebf9e3a7a68d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9cc2bd7f829691198f0ea5d018147dc9"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a9cc2bd7f829691198f0ea5d018147dc9">_sbusTxChLower</a></td></tr>
+<tr class="separator:a9cc2bd7f829691198f0ea5d018147dc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f5fdd21f608d6b90ff3d07cf912fcc8"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a6f5fdd21f608d6b90ff3d07cf912fcc8">_sbusTxChUpper</a></td></tr>
+<tr class="separator:a6f5fdd21f608d6b90ff3d07cf912fcc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42c814e8324ad90e5ef84bfaef417a6b"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a42c814e8324ad90e5ef84bfaef417a6b">_sbusRxChLower</a></td></tr>
+<tr class="separator:a42c814e8324ad90e5ef84bfaef417a6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a666d3d7587bab65000835d14b2bf3401"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a666d3d7587bab65000835d14b2bf3401">_sbusRxChUpper</a></td></tr>
+<tr class="separator:a666d3d7587bab65000835d14b2bf3401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c5f793e112a0e540075d3454aa4243c"><td class="memItemLeft" align="right" valign="top">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a3c5f793e112a0e540075d3454aa4243c">_sbusEStopTx</a></td></tr>
+<tr class="separator:a3c5f793e112a0e540075d3454aa4243c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb551090d2df3fb9f3fc93c2b904fc03"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#abb551090d2df3fb9f3fc93c2b904fc03">_hasArmed</a> = false</td></tr>
+<tr class="separator:abb551090d2df3fb9f3fc93c2b904fc03"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa870ef26f37aefe757338fb664e20d90"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aa870ef26f37aefe757338fb664e20d90">_armingAllowed</a> = false</td></tr>
+<tr class="separator:aa870ef26f37aefe757338fb664e20d90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af91a10a18749f8c5a6adf798358b8fa3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#af91a10a18749f8c5a6adf798358b8fa3">_droneCommandsStarted</a> = false</td></tr>
+<tr class="separator:af91a10a18749f8c5a6adf798358b8fa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad39490b4415be4c2b201f37671ed0a67"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#ad39490b4415be4c2b201f37671ed0a67">_droneCommandsCompleted</a> = false</td></tr>
+<tr class="separator:ad39490b4415be4c2b201f37671ed0a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e5d98d8236fb30fe15ddb2809c50253"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a7e5d98d8236fb30fe15ddb2809c50253">_droneHasActiveCommand</a> = false</td></tr>
+<tr class="separator:a7e5d98d8236fb30fe15ddb2809c50253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a803ee14eea159a95ebcb91ea5d4b2f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a7a803ee14eea159a95ebcb91ea5d4b2f">_running</a> = false</td></tr>
+<tr class="separator:a7a803ee14eea159a95ebcb91ea5d4b2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaa4bc5e93eb81ed885f7fce00538a29"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aeaa4bc5e93eb81ed885f7fce00538a29">_enableOperatorControl</a> = false</td></tr>
+<tr class="separator:aeaa4bc5e93eb81ed885f7fce00538a29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bd22e7ea0388fda95755c33af8bc3a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a5bd22e7ea0388fda95755c33af8bc3a2">_enableEmergencyStop</a> = false</td></tr>
+<tr class="separator:a5bd22e7ea0388fda95755c33af8bc3a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39602f7e8b968382fe1d63807ea756cd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a39602f7e8b968382fe1d63807ea756cd">_armingComplete</a> = false</td></tr>
+<tr class="separator:a39602f7e8b968382fe1d63807ea756cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2345fe958b69a8c9d8e66ed07a4803a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#aa2345fe958b69a8c9d8e66ed07a4803a">usFront</a> = 200</td></tr>
 <tr class="separator:aa2345fe958b69a8c9d8e66ed07a4803a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a693bf108e04698d8638bc878c00d5a7a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a693bf108e04698d8638bc878c00d5a7a">usBack</a> = 200</td></tr>
@@ -263,6 +410,170 @@ Public Attributes</h2></td></tr>
           <td></td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>threshold</em> = <code>0.7f</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af372b0d49a573e83c10a61a0bb24deaa" name="af372b0d49a573e83c10a61a0bb24deaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af372b0d49a573e83c10a61a0bb24deaa">&#9670;&#160;</a></span>clamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AS7::Drone::clamp </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>lbound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>ubound</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d54814e3a63089c1895923876614d19" name="a0d54814e3a63089c1895923876614d19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d54814e3a63089c1895923876614d19">&#9670;&#160;</a></span>controllerTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::controllerTask </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>parameters</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6dbe792dffa38c68ddcb9722342af989" name="a6dbe792dffa38c68ddcb9722342af989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dbe792dffa38c68ddcb9722342af989">&#9670;&#160;</a></span>convRxChannel_f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AS7::Drone::convRxChannel_f </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaec0554c4aa4e12d96d6170fa323dac4" name="aaec0554c4aa4e12d96d6170fa323dac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaec0554c4aa4e12d96d6170fa323dac4">&#9670;&#160;</a></span>convRxChannel_i()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t AS7::Drone::convRxChannel_i </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0cd97f37931224a480d6467a83f5e193" name="a0cd97f37931224a480d6467a83f5e193"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cd97f37931224a480d6467a83f5e193">&#9670;&#160;</a></span>convTxChannel_f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AS7::Drone::convTxChannel_f </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a626d3b50c7249971c756edc50f6f1718" name="a626d3b50c7249971c756edc50f6f1718"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a626d3b50c7249971c756edc50f6f1718">&#9670;&#160;</a></span>convTxChannel_i()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t AS7::Drone::convTxChannel_i </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -427,6 +738,41 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a325eda9ab7a5e021ac881a16f2e8680e" name="a325eda9ab7a5e021ac881a16f2e8680e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a325eda9ab7a5e021ac881a16f2e8680e">&#9670;&#160;</a></span>formatSbusArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AS7::Drone::formatSbusArray </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td>
+          <td class="paramname"><em>chData</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a745ed6fc9487e90dca8f3fc5e157fba6" name="a745ed6fc9487e90dca8f3fc5e157fba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a745ed6fc9487e90dca8f3fc5e157fba6">&#9670;&#160;</a></span>generateAbsChannels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::generateAbsChannels </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a0722ac26578b383b970c1bcd86dbf3ce" name="a0722ac26578b383b970c1bcd86dbf3ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0722ac26578b383b970c1bcd86dbf3ce">&#9670;&#160;</a></span>generateEStopTx()</h2>
 
@@ -435,6 +781,23 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">void AS7::Drone::generateEStopTx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87af11737ff20934b8d246799bc61092" name="a87af11737ff20934b8d246799bc61092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87af11737ff20934b8d246799bc61092">&#9670;&#160;</a></span>getCommandQueueMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::getCommandQueueMutex </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -469,6 +832,23 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a07a3d7166dbb2463365787c72cdd45a4" name="a07a3d7166dbb2463365787c72cdd45a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07a3d7166dbb2463365787c72cdd45a4">&#9670;&#160;</a></span>getControllerStatusCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::getControllerStatusCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7b5b0bf44038f4846b81884baa959772" name="a7b5b0bf44038f4846b81884baa959772"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b5b0bf44038f4846b81884baa959772">&#9670;&#160;</a></span>getDroneArmComplete()</h2>
 
@@ -480,6 +860,31 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">bool AS7::Drone::getDroneArmComplete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a097088e892236c5b0544e57a4de098d7" name="a097088e892236c5b0544e57a4de098d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a097088e892236c5b0544e57a4de098d7">&#9670;&#160;</a></span>getDroneHasArmed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::getDroneHasArmed </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -561,6 +966,99 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a1e501bbc0e5e13453f072e23188e4dbc" name="a1e501bbc0e5e13453f072e23188e4dbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e501bbc0e5e13453f072e23188e4dbc">&#9670;&#160;</a></span>getHasActiveComamnd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::getHasActiveComamnd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a16a1b892144cb174af26a33792dc71f4" name="a16a1b892144cb174af26a33792dc71f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a1b892144cb174af26a33792dc71f4">&#9670;&#160;</a></span>getLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_a_s7_1_1_logger.html">Logger</a> * AS7::Drone::getLogger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8eb3f6471f0e0eca69d0a6d7eedc95d9" name="a8eb3f6471f0e0eca69d0a6d7eedc95d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8eb3f6471f0e0eca69d0a6d7eedc95d9">&#9670;&#160;</a></span>getRxChMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::getRxChMutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68366c5578333185254d658984c6f136" name="a68366c5578333185254d658984c6f136"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68366c5578333185254d658984c6f136">&#9670;&#160;</a></span>getSbusAbsChannels()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; bool, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt; AS7::Drone::getSbusAbsChannels </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a182e977f8c7452076382fd2d6a8abe3b" name="a182e977f8c7452076382fd2d6a8abe3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a182e977f8c7452076382fd2d6a8abe3b">&#9670;&#160;</a></span>getSbusRx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bfs::SbusRx * AS7::Drone::getSbusRx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6dc14e47b6932da53640f26aa81947be" name="a6dc14e47b6932da53640f26aa81947be"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6dc14e47b6932da53640f26aa81947be">&#9670;&#160;</a></span>getSbusRxArray()</h2>
 
@@ -578,6 +1076,48 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="aad83c9d3a0fe8875a2d8b3a1aa7aa8a1" name="aad83c9d3a0fe8875a2d8b3a1aa7aa8a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad83c9d3a0fe8875a2d8b3a1aa7aa8a1">&#9670;&#160;</a></span>getSbusRxData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt; AS7::Drone::getSbusRxData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab858258286a888df39b74d970d427b1f" name="ab858258286a888df39b74d970d427b1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab858258286a888df39b74d970d427b1f">&#9670;&#160;</a></span>getSbusTx()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bfs::SbusTx * AS7::Drone::getSbusTx </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8484beeb605809ee88a5287195d7fbe9" name="a8484beeb605809ee88a5287195d7fbe9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8484beeb605809ee88a5287195d7fbe9">&#9670;&#160;</a></span>getSbusTxArray()</h2>
 
@@ -586,6 +1126,82 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">std::string AS7::Drone::getSbusTxArray </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a356b2a37c9e21fb4347113eb91aa5eeb" name="a356b2a37c9e21fb4347113eb91aa5eeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a356b2a37c9e21fb4347113eb91aa5eeb">&#9670;&#160;</a></span>getSbusTxData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt; AS7::Drone::getSbusTxData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4b6c408c676c2833631794727d2b3b65" name="a4b6c408c676c2833631794727d2b3b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b6c408c676c2833631794727d2b3b65">&#9670;&#160;</a></span>getSemControlEnableMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::getSemControlEnableMutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a628116b9099a08933f6be9f0f92c1956" name="a628116b9099a08933f6be9f0f92c1956"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a628116b9099a08933f6be9f0f92c1956">&#9670;&#160;</a></span>getSemDroneEnableMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::getSemDroneEnableMutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5d99af93470af27c28f6b3b23f361428" name="a5d99af93470af27c28f6b3b23f361428"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d99af93470af27c28f6b3b23f361428">&#9670;&#160;</a></span>getTxChMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::getTxChMutex </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -745,6 +1361,66 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a6d7771142e194781e1f644d365c9bc1a" name="a6d7771142e194781e1f644d365c9bc1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d7771142e194781e1f644d365c9bc1a">&#9670;&#160;</a></span>initUpperLowerBoundArrays()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::initUpperLowerBoundArrays </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ce90288eb2862a54e396c4eb246d452" name="a3ce90288eb2862a54e396c4eb246d452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce90288eb2862a54e396c4eb246d452">&#9670;&#160;</a></span>navigationTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::navigationTask </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>parameters</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a65059ccf5554d3f68ac2ceddf22949d4" name="a65059ccf5554d3f68ac2ceddf22949d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65059ccf5554d3f68ac2ceddf22949d4">&#9670;&#160;</a></span>nextCommandAvailable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::nextCommandAvailable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a95f9b591ab0f351c62f0a6cb1ac8ecae" name="a95f9b591ab0f351c62f0a6cb1ac8ecae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95f9b591ab0f351c62f0a6cb1ac8ecae">&#9670;&#160;</a></span>pause()</h2>
 
@@ -755,6 +1431,158 @@ Public Attributes</h2></td></tr>
           <td class="memname">void AS7::Drone::pause </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a336ffaba2c3df9b923d03ffa2b275609" name="a336ffaba2c3df9b923d03ffa2b275609"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a336ffaba2c3df9b923d03ffa2b275609">&#9670;&#160;</a></span>rampChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::rampChannel </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>ch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rampRateType</em> = <code><a class="el" href="_drone_8h.html#a65371cb1138f70be2c8822a86a406231">RAMPRATE_LINEAR</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aba256ab85e09dcf2124fab1bc8bbf3ae" name="aba256ab85e09dcf2124fab1bc8bbf3ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba256ab85e09dcf2124fab1bc8bbf3ae">&#9670;&#160;</a></span>rampValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AS7::Drone::rampValue </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>target</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>rate</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>rampRateType</em> = <code><a class="el" href="_drone_8h.html#a65371cb1138f70be2c8822a86a406231">RAMPRATE_LINEAR</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af377c115cae2c27a6e22b19d35238a81" name="af377c115cae2c27a6e22b19d35238a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af377c115cae2c27a6e22b19d35238a81">&#9670;&#160;</a></span>readRxChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t AS7::Drone::readRxChannel </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>ch</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acecac502b59386151287e747674a4af6" name="acecac502b59386151287e747674a4af6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acecac502b59386151287e747674a4af6">&#9670;&#160;</a></span>readRxChannel_f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AS7::Drone::readRxChannel_f </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>ch</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f3b677b6bb65c0114bdb4b4d7bff387" name="a7f3b677b6bb65c0114bdb4b4d7bff387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f3b677b6bb65c0114bdb4b4d7bff387">&#9670;&#160;</a></span>readTxChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t AS7::Drone::readTxChannel </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>ch</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f7c17a69f9913e887dd038e50e64848" name="a0f7c17a69f9913e887dd038e50e64848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f7c17a69f9913e887dd038e50e64848">&#9670;&#160;</a></span>readTxChannel_f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float AS7::Drone::readTxChannel_f </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>ch</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -847,6 +1675,143 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a70cc62509c445ebb35e6bf0bf9115b0d" name="a70cc62509c445ebb35e6bf0bf9115b0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70cc62509c445ebb35e6bf0bf9115b0d">&#9670;&#160;</a></span>setDroneCommandsCompleted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::setDroneCommandsCompleted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab341c99b26af425e79c5cf7b464a51d6" name="ab341c99b26af425e79c5cf7b464a51d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab341c99b26af425e79c5cf7b464a51d6">&#9670;&#160;</a></span>setDroneCommandsStarted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::setDroneCommandsStarted </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1730ac114fc9e1727bdc288f2542c097" name="a1730ac114fc9e1727bdc288f2542c097"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1730ac114fc9e1727bdc288f2542c097">&#9670;&#160;</a></span>setDroneHasArmed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::setDroneHasArmed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada1e81a7281b0c3e1350f774845af818" name="ada1e81a7281b0c3e1350f774845af818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada1e81a7281b0c3e1350f774845af818">&#9670;&#160;</a></span>setHasActiveCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::setHasActiveCommand </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a79577b2ead584ebf87e8d96fff392429" name="a79577b2ead584ebf87e8d96fff392429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79577b2ead584ebf87e8d96fff392429">&#9670;&#160;</a></span>setSbusRxData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::setSbusRxData </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a799cfe6823e99b2964af3278bd4a089b" name="a799cfe6823e99b2964af3278bd4a089b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a799cfe6823e99b2964af3278bd4a089b">&#9670;&#160;</a></span>setSbusTxData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::setSbusTxData </td>
+          <td>(</td>
+          <td class="paramtype">std::array&lt; int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a97590ac5e8120083b433eaed712e3121" name="a97590ac5e8120083b433eaed712e3121"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97590ac5e8120083b433eaed712e3121">&#9670;&#160;</a></span>start()</h2>
 
@@ -875,7 +1840,193 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a1e419f124b95a0725beb463ae22d0778" name="a1e419f124b95a0725beb463ae22d0778"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e419f124b95a0725beb463ae22d0778">&#9670;&#160;</a></span>startCtlTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::startCtlTask </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>_this</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1821604dbb64afa2696fd4b4b7ae09a4" name="a1821604dbb64afa2696fd4b4b7ae09a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1821604dbb64afa2696fd4b4b7ae09a4">&#9670;&#160;</a></span>startNavTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::startNavTask </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>_this</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Task implementation for classes. Used only by the. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">&lt;br&gt;</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a11ab8632e3587588903a0a241e95a145" name="a11ab8632e3587588903a0a241e95a145"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ab8632e3587588903a0a241e95a145">&#9670;&#160;</a></span>writeChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::writeChannel </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42d4d86670c346130a10fbdbb3a4d3bb" name="a42d4d86670c346130a10fbdbb3a4d3bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42d4d86670c346130a10fbdbb3a4d3bb">&#9670;&#160;</a></span>writeRxChannel_f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::writeRxChannel_f </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaca09f11f2f113ac8d6d3bedee441c78" name="aaca09f11f2f113ac8d6d3bedee441c78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaca09f11f2f113ac8d6d3bedee441c78">&#9670;&#160;</a></span>writeTxChannel_f()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Drone::writeTxChannel_f </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>ch</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
+<a id="aa870ef26f37aefe757338fb664e20d90" name="aa870ef26f37aefe757338fb664e20d90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa870ef26f37aefe757338fb664e20d90">&#9670;&#160;</a></span>_armingAllowed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::_armingAllowed = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a39602f7e8b968382fe1d63807ea756cd" name="a39602f7e8b968382fe1d63807ea756cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39602f7e8b968382fe1d63807ea756cd">&#9670;&#160;</a></span>_armingComplete</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::_armingComplete = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad0d103c78b4e36cb3476ebf9e3a7a68d" name="ad0d103c78b4e36cb3476ebf9e3a7a68d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0d103c78b4e36cb3476ebf9e3a7a68d">&#9670;&#160;</a></span>_controllerStatusCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AS7::Drone::_controllerStatusCount = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8dcc42a3e5329e70209dce1de850274f" name="a8dcc42a3e5329e70209dce1de850274f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8dcc42a3e5329e70209dce1de850274f">&#9670;&#160;</a></span>_dataGatheringEnabled</h2>
 
@@ -890,6 +2041,344 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a342e3cb02fbdae0ec420bbbd749e2744" name="a342e3cb02fbdae0ec420bbbd749e2744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a342e3cb02fbdae0ec420bbbd749e2744">&#9670;&#160;</a></span>_droneCommandQueue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;<a class="el" href="struct_a_s7_1_1_drone_command.html">DroneCommand</a>&gt; AS7::Drone::_droneCommandQueue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad39490b4415be4c2b201f37671ed0a67" name="ad39490b4415be4c2b201f37671ed0a67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad39490b4415be4c2b201f37671ed0a67">&#9670;&#160;</a></span>_droneCommandsCompleted</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::_droneCommandsCompleted = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af91a10a18749f8c5a6adf798358b8fa3" name="af91a10a18749f8c5a6adf798358b8fa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af91a10a18749f8c5a6adf798358b8fa3">&#9670;&#160;</a></span>_droneCommandsStarted</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::_droneCommandsStarted = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7e5d98d8236fb30fe15ddb2809c50253" name="a7e5d98d8236fb30fe15ddb2809c50253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e5d98d8236fb30fe15ddb2809c50253">&#9670;&#160;</a></span>_droneHasActiveCommand</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::_droneHasActiveCommand = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bd22e7ea0388fda95755c33af8bc3a2" name="a5bd22e7ea0388fda95755c33af8bc3a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bd22e7ea0388fda95755c33af8bc3a2">&#9670;&#160;</a></span>_enableEmergencyStop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::_enableEmergencyStop = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeaa4bc5e93eb81ed885f7fce00538a29" name="aeaa4bc5e93eb81ed885f7fce00538a29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaa4bc5e93eb81ed885f7fce00538a29">&#9670;&#160;</a></span>_enableOperatorControl</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::_enableOperatorControl = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abb551090d2df3fb9f3fc93c2b904fc03" name="abb551090d2df3fb9f3fc93c2b904fc03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb551090d2df3fb9f3fc93c2b904fc03">&#9670;&#160;</a></span>_hasArmed</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::_hasArmed = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a76057893d2a71fba29f20a518fb608c8" name="a76057893d2a71fba29f20a518fb608c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76057893d2a71fba29f20a518fb608c8">&#9670;&#160;</a></span>_logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_a_s7_1_1_logger.html">Logger</a>* AS7::Drone::_logger</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7a803ee14eea159a95ebcb91ea5d4b2f" name="a7a803ee14eea159a95ebcb91ea5d4b2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a803ee14eea159a95ebcb91ea5d4b2f">&#9670;&#160;</a></span>_running</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Drone::_running = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a078ebda6f0e06990101bed651b95ad21" name="a078ebda6f0e06990101bed651b95ad21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078ebda6f0e06990101bed651b95ad21">&#9670;&#160;</a></span>_sbusAbsChannels</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;bool, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a>&gt; AS7::Drone::_sbusAbsChannels</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3c5f793e112a0e540075d3454aa4243c" name="a3c5f793e112a0e540075d3454aa4243c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c5f793e112a0e540075d3454aa4243c">&#9670;&#160;</a></span>_sbusEStopTx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a>&gt; AS7::Drone::_sbusEStopTx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48ffba5506019eb88dd17e7b75924dcc" name="a48ffba5506019eb88dd17e7b75924dcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48ffba5506019eb88dd17e7b75924dcc">&#9670;&#160;</a></span>_sbusRx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bfs::SbusRx* AS7::Drone::_sbusRx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a42c814e8324ad90e5ef84bfaef417a6b" name="a42c814e8324ad90e5ef84bfaef417a6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42c814e8324ad90e5ef84bfaef417a6b">&#9670;&#160;</a></span>_sbusRxChLower</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a>&gt; AS7::Drone::_sbusRxChLower</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Upper bounds for SBUS Transmit Channels </p>
+
+</div>
+</div>
+<a id="a666d3d7587bab65000835d14b2bf3401" name="a666d3d7587bab65000835d14b2bf3401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a666d3d7587bab65000835d14b2bf3401">&#9670;&#160;</a></span>_sbusRxChUpper</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a>&gt; AS7::Drone::_sbusRxChUpper</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1d1184f2e56dd1b4655bf97bbd749e9b" name="a1d1184f2e56dd1b4655bf97bbd749e9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d1184f2e56dd1b4655bf97bbd749e9b">&#9670;&#160;</a></span>_sbusRxData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a>&gt; AS7::Drone::_sbusRxData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af60800e0b5970e88565d51b1dc213e98" name="af60800e0b5970e88565d51b1dc213e98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af60800e0b5970e88565d51b1dc213e98">&#9670;&#160;</a></span>_sbusTx</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bfs::SbusTx* AS7::Drone::_sbusTx</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9cc2bd7f829691198f0ea5d018147dc9" name="a9cc2bd7f829691198f0ea5d018147dc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cc2bd7f829691198f0ea5d018147dc9">&#9670;&#160;</a></span>_sbusTxChLower</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a>&gt; AS7::Drone::_sbusTxChLower</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f5fdd21f608d6b90ff3d07cf912fcc8" name="a6f5fdd21f608d6b90ff3d07cf912fcc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f5fdd21f608d6b90ff3d07cf912fcc8">&#9670;&#160;</a></span>_sbusTxChUpper</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a>&gt; AS7::Drone::_sbusTxChUpper</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Lower bounds for SBUS Transmit channels </p>
+
+</div>
+</div>
+<a id="a90556597db7ae9d1e2ba335d25f6b74b" name="a90556597db7ae9d1e2ba335d25f6b74b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90556597db7ae9d1e2ba335d25f6b74b">&#9670;&#160;</a></span>_sbusTxData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::array&lt;int16_t, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a>&gt; AS7::Drone::_sbusTxData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac5022867b39e168413e4aac155e5d2f2" name="ac5022867b39e168413e4aac155e5d2f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5022867b39e168413e4aac155e5d2f2">&#9670;&#160;</a></span>_semCommandQueueMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::_semCommandQueueMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a57fe5dda3c4512319c3e49e1b1167fce" name="a57fe5dda3c4512319c3e49e1b1167fce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57fe5dda3c4512319c3e49e1b1167fce">&#9670;&#160;</a></span>_semControlEnableMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::_semControlEnableMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51de3e507928755ad3260c3d150da399" name="a51de3e507928755ad3260c3d150da399"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51de3e507928755ad3260c3d150da399">&#9670;&#160;</a></span>_semDroneEnableMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::_semDroneEnableMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea33197843e8cf05ec0dc88dd21a1101" name="aea33197843e8cf05ec0dc88dd21a1101"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea33197843e8cf05ec0dc88dd21a1101">&#9670;&#160;</a></span>_semRxChMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::_semRxChMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c08d0f67c33bda17db382bcca2a8d57" name="a8c08d0f67c33bda17db382bcca2a8d57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c08d0f67c33bda17db382bcca2a8d57">&#9670;&#160;</a></span>_semTxChMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Drone::_semTxChMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a567bf2b39f0b457ccacaa7d0b6d5f73c" name="a567bf2b39f0b457ccacaa7d0b6d5f73c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a567bf2b39f0b457ccacaa7d0b6d5f73c">&#9670;&#160;</a></span>compassHeading</h2>
 
@@ -898,6 +2387,34 @@ Public Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">float AS7::Drone::compassHeading</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a025b438cd807e9ee677e1060d17bd15a" name="a025b438cd807e9ee677e1060d17bd15a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a025b438cd807e9ee677e1060d17bd15a">&#9670;&#160;</a></span>thDrone</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t AS7::Drone::thDrone</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acfa35c35a96d502f53d5090c9ac174b7" name="acfa35c35a96d502f53d5090c9ac174b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfa35c35a96d502f53d5090c9ac174b7">&#9670;&#160;</a></span>thRemote</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t AS7::Drone::thRemote</td>
         </tr>
       </table>
 </div><div class="memdoc">

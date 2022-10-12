@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('struct_a_s7_1_1_drone_command.html',''
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="class_a_s7_1_1_drone.html">Drone</a> Command Structure/Format.  
+<p>Ecapsulates commands to be carried out by drone.  
  <a href="struct_a_s7_1_1_drone_command.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_drone_8h_source.html">Drone.h</a>&gt;</code></p>
@@ -108,12 +108,16 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ad1d406bdba067d5711e66e796eca6ca8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespace_a_s7.html#aa12774c158a129fcda3ca5f80679b38e">DroneCommandType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_s7_1_1_drone_command.html#ad1d406bdba067d5711e66e796eca6ca8">type</a></td></tr>
 <tr class="separator:ad1d406bdba067d5711e66e796eca6ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af181ef3356a7b389a81ba09118411777"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_s7_1_1_drone_command.html#af181ef3356a7b389a81ba09118411777">desc</a></td></tr>
+<tr class="memdesc:af181ef3356a7b389a81ba09118411777"><td class="mdescLeft">&#160;</td><td class="mdescRight">A description for logging and verbosity.  <a href="struct_a_s7_1_1_drone_command.html#af181ef3356a7b389a81ba09118411777">More...</a><br /></td></tr>
 <tr class="separator:af181ef3356a7b389a81ba09118411777"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a455e52fb93a740ba49a823a2ab8c268f"><td class="memItemLeft" align="right" valign="top">std::array&lt; float, <a class="el" href="_drone_8h.html#a82cd47956acdb3edc0e6f5227b9f70c2">NUM_CH</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_s7_1_1_drone_command.html#a455e52fb93a740ba49a823a2ab8c268f">channels</a></td></tr>
+<tr class="memdesc:a455e52fb93a740ba49a823a2ab8c268f"><td class="mdescLeft">&#160;</td><td class="mdescRight">A float for each channel from (-1 1) for normal channels and (0, 1) for absolute channels.  <a href="struct_a_s7_1_1_drone_command.html#a455e52fb93a740ba49a823a2ab8c268f">More...</a><br /></td></tr>
 <tr class="separator:a455e52fb93a740ba49a823a2ab8c268f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8719da97610790b9dd0b2d95bdd6bb9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_s7_1_1_drone_command.html#a8719da97610790b9dd0b2d95bdd6bb9a">duration</a></td></tr>
+<tr class="memdesc:a8719da97610790b9dd0b2d95bdd6bb9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The duration of the command in milliseconds.  <a href="struct_a_s7_1_1_drone_command.html#a8719da97610790b9dd0b2d95bdd6bb9a">More...</a><br /></td></tr>
 <tr class="separator:a8719da97610790b9dd0b2d95bdd6bb9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9071653b15de324d96e0ccde28a172ed"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_s7_1_1_drone_command.html#a9071653b15de324d96e0ccde28a172ed">rateMultiplier</a> = 1.0f</td></tr>
+<tr class="memdesc:a9071653b15de324d96e0ccde28a172ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">The rate multiplier to adjust ramping speed if applicable.  <a href="struct_a_s7_1_1_drone_command.html#a9071653b15de324d96e0ccde28a172ed">More...</a><br /></td></tr>
 <tr class="separator:a9071653b15de324d96e0ccde28a172ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3dd331b4c5b77d24f6e7370977d3a6ec"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_s7_1_1_drone_command.html#a3dd331b4c5b77d24f6e7370977d3a6ec">p_x</a></td></tr>
 <tr class="separator:a3dd331b4c5b77d24f6e7370977d3a6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,12 +147,51 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ac267795c756adc9310565fbec101d767"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="class_a_s7_1_1_drone.html">Drone</a> Command Structure/Format. </p>
-<p >There are two types: Blind and Guided, set by enum DroneCommandType Blind commands only refer to the channel array and duration Guided commands will attempt to use on-board sensors to control the drone</p>
-<p >Landing is a special type where the drone will lower thrust just below its known weight to land If possible, it will use the bottom sensors to guide landing Landing is equivalent to setting v_y to some pre-defined value in blind mode.</p>
-<p >Arm is a special type that will send the arming command to the drone. As SBUS is one-way at the moment, it's not possible to <em>know</em> if the drone is armed but we can generally assume that after a certain duration, the drone is armed. Because of this, there is no way to know if the drone is disarmed as it will disarm automatically from the FC More advanced implementations using two-way SBUS or ideally MAVLink can get around this limmitation.</p>
-<p ><a class="el" href="class_a_s7_1_1_drone.html">Drone</a> commands are enqueued to the drone, and will be executed FIFO.</p>
-<p >Note: Blind Commands can also be used as buttons and inputs to the FC, not just for navigation </p>
+<div class="textblock"><p >Ecapsulates commands to be carried out by drone. </p>
+<p >Characterised by type <code>{Blind, Guided, Landing, Arm}</code>, drone commands make up the basic unit for controlling the connected drone.</p>
+<h3><a class="anchor" id="autotoc_md0"></a>
+Attribute Characteristics</h3>
+<p >Under <code>blind</code> commands, only the velocities of the controllable channels are used. These values are written directly to the channel. Command convention is prefixing <code>v_</code> for velocity control and <code>p_</code> for position control. The available axes of freedom are:</p>
+<p >Cartesian co-ordinates where the origin is the starting point of the drone</p><ul>
+<li><code>x</code>, <code>y</code>, <code>z</code></li>
+</ul>
+<p >Axes of rotation &ndash; pitch (tilt forward/back), roll (wiggle side to side), yaw (turn normally)</p><ul>
+<li><code>rl</code>, <code>pt</code>, <code>yw</code></li>
+</ul>
+<p >Hence, to control the forward velocity of the drone, the command is:</p>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct_a_s7_1_1_drone_command.html">DroneCommand</a> aCommand;</div>
+<div class="line">aCommand.<a class="code hl_variable" href="struct_a_s7_1_1_drone_command.html#a6bd14aeb86624f8dee8f4e10998da6ea">v_x</a> = 0.5f</div>
+<div class="ttc" id="astruct_a_s7_1_1_drone_command_html"><div class="ttname"><a href="struct_a_s7_1_1_drone_command.html">AS7::DroneCommand</a></div><div class="ttdoc">Ecapsulates commands to be carried out by drone.</div><div class="ttdef"><b>Definition:</b> Drone.h:119</div></div>
+<div class="ttc" id="astruct_a_s7_1_1_drone_command_html_a6bd14aeb86624f8dee8f4e10998da6ea"><div class="ttname"><a href="struct_a_s7_1_1_drone_command.html#a6bd14aeb86624f8dee8f4e10998da6ea">AS7::DroneCommand::v_x</a></div><div class="ttdeci">float v_x</div><div class="ttdef"><b>Definition:</b> Drone.h:134</div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md1"></a>
+Command Ramping and Ramp Types</h3>
+<p >For all channels, <code><a class="el" href="_drone_8cpp.html">drone.cpp</a></code> defines a set 'ramp rate' depending on the application and control desired for the drone. Ramp rates are often found in motor applications where a motor has to be speed up at a certain rate to reduce damage or shock. In the case of drones, a linear ramp rate helps with ensuring the commands are carried out smoothly. Additionally, they allow for less rigid movement of the drone as as the channels transition smoothly and thus keep the channels alive, rather than emulating a disconnect. This has the added advantage of ensuring that the frame is not dropped due to suddden shifts in values. Ramp rates are defined by the <code>RAMPRATE</code> enumeration. The following ramping methods have been implemented:</p>
+<ul>
+<li><code>RAMPRATE_NONE</code> - The channel is instantly set to the target value</li>
+<li><code>RAMPRATE_LINEAR</code> - The channel is increased linearly by the ramping value</li>
+<li><code>RAMPRATE_PROP</code> - Tha channel is increased proportionately to the amount of travel left. If the target is far, the ramping is faster. If the target is close, the ramping is slower.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md2"></a>
+Channel values and non-pure values</h3>
+<p >In testing, it was noted that the best results came from using channel values that were between 0.1f and 0.9f. User discretion is advised when setting channel values to write.</p>
+<h3><a class="anchor" id="autotoc_md3"></a>
+Blind Commands</h3>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct_a_s7_1_1_drone_command.html">DroneCommand</a>.<a class="code hl_variable" href="struct_a_s7_1_1_drone_command.html#ada1f0d810dcebba410c1942737ecd9e8">v_z</a> = 0.1f</div>
+<div class="ttc" id="astruct_a_s7_1_1_drone_command_html_ada1f0d810dcebba410c1942737ecd9e8"><div class="ttname"><a href="struct_a_s7_1_1_drone_command.html#ada1f0d810dcebba410c1942737ecd9e8">AS7::DroneCommand::v_z</a></div><div class="ttdeci">float v_z</div><div class="ttdef"><b>Definition:</b> Drone.h:136</div></div>
+</div><!-- fragment --><p >This will emulate the user pulling up the 'throttle' stick to about 10%.</p>
+<h3><a class="anchor" id="autotoc_md4"></a>
+Guided Commands</h3>
+<p >Guided commands aim to position-control the drone using the on-board ultrasonic sensors.</p>
+<p >In the case of <a class="el" href="namespace_a_s7.html">AS7</a>, the left-right channels will aim to avoid obstacles whilst the z (height) channel will aim to keep the drone a constant height about the ground.</p>
+<h4><a class="anchor" id="autotoc_md5"></a>
+Proportional Control Guided Commands</h4>
+<p >The current implementation of the z-height guided command is a form of proportional control from control theory. The amount of thrust applied to the TX Thrust Channel is proprtional to <code>target-current_value</code> or error measured in the Z-axis. This is multiplied by a proportionality constant and re-evaluated in the next loop. Fine-tuning of the proportionality constant is recommended for different propellers and drone configurations</p>
+<h3><a class="anchor" id="autotoc_md6"></a>
+Channels not controllable by drone</h3>
+<ul>
+<li>Roll</li>
+<li>Pitch </li>
+</ul>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a455e52fb93a740ba49a823a2ab8c268f" name="a455e52fb93a740ba49a823a2ab8c268f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a455e52fb93a740ba49a823a2ab8c268f">&#9670;&#160;</a></span>channels</h2>
@@ -161,6 +204,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>A float for each channel from (-1 1) for normal channels and (0, 1) for absolute channels. </p>
 
 </div>
 </div>
@@ -190,6 +235,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>A description for logging and verbosity. </p>
+
 </div>
 </div>
 <a id="a8719da97610790b9dd0b2d95bdd6bb9a" name="a8719da97610790b9dd0b2d95bdd6bb9a"></a>
@@ -203,6 +250,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The duration of the command in milliseconds. </p>
 
 </div>
 </div>
@@ -301,6 +350,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The rate multiplier to adjust ramping speed if applicable. </p>
 
 </div>
 </div>

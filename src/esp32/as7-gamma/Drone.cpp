@@ -2,7 +2,6 @@
 
 namespace AS7 
 {
-    /* ---------------------------------- Task Methods ---------------------------------- */ 
     
     void Drone::startNavTask(void* _this) {
         ((Drone*)_this)->navigationTask(NULL);

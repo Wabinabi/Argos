@@ -2,7 +2,7 @@
 \label{struct_a_s7_1_1_drone_command}\index{AS7::DroneCommand@{AS7::DroneCommand}}
 
 
-\mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}} Command Structure/\+Format.  
+Ecapsulates commands to be carried out by drone.  
 
 
 
@@ -15,13 +15,13 @@
 \mbox{\hyperlink{namespace_a_s7_aa12774c158a129fcda3ca5f80679b38e}{Drone\+Command\+Type}} \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ad1d406bdba067d5711e66e796eca6ca8}{type}}
 \item 
 std\+::string \mbox{\hyperlink{struct_a_s7_1_1_drone_command_af181ef3356a7b389a81ba09118411777}{desc}}
-\item 
+\begin{DoxyCompactList}\small\item\em A description for logging and verbosity. \end{DoxyCompactList}\item 
 std\+::array$<$ float, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}} $>$ \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a455e52fb93a740ba49a823a2ab8c268f}{channels}}
-\item 
+\begin{DoxyCompactList}\small\item\em A float for each channel from (-\/1 1) for normal channels and (0, 1) for absolute channels. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a8719da97610790b9dd0b2d95bdd6bb9a}{duration}}
-\item 
+\begin{DoxyCompactList}\small\item\em The duration of the command in milliseconds. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a9071653b15de324d96e0ccde28a172ed}{rate\+Multiplier}} = 1.\+0f
-\item 
+\begin{DoxyCompactList}\small\item\em The rate multiplier to adjust ramping speed if applicable. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_a3dd331b4c5b77d24f6e7370977d3a6ec}{p\+\_\+x}}
 \item 
 float \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ad3b7dfe32adf2e9eb9efa1e08a3fccc1}{p\+\_\+y}}
@@ -51,17 +51,56 @@ bool \mbox{\hyperlink{struct_a_s7_1_1_drone_command_ac267795c756adc9310565fbec10
 
 
 \doxysubsection{Detailed Description}
-\mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}} Command Structure/\+Format. 
+Ecapsulates commands to be carried out by drone. 
 
-There are two types\+: Blind and Guided, set by enum Drone\+Command\+Type Blind commands only refer to the channel array and duration Guided commands will attempt to use on-\/board sensors to control the drone
+Characterised by type {\ttfamily \{Blind, Guided, Landing, Arm\}}, drone commands make up the basic unit for controlling the connected drone.\hypertarget{struct_a_s7_1_1_drone_command_autotoc_md0}{}\doxyparagraph{Attribute Characteristics}\label{struct_a_s7_1_1_drone_command_autotoc_md0}
+Under {\ttfamily blind} commands, only the velocities of the controllable channels are used. These values are written directly to the channel. Command convention is prefixing {\ttfamily v\+\_\+} for velocity control and {\ttfamily p\+\_\+} for position control. The available axes of freedom are\+:
 
-Landing is a special type where the drone will lower thrust just below its known weight to land If possible, it will use the bottom sensors to guide landing Landing is equivalent to setting v\+\_\+y to some pre-\/defined value in blind mode.
+Cartesian co-\/ordinates where the origin is the starting point of the drone
+\begin{DoxyItemize}
+\item {\ttfamily x}, {\ttfamily y}, {\ttfamily z}
+\end{DoxyItemize}
 
-Arm is a special type that will send the arming command to the drone. As SBUS is one-\/way at the moment, it\textquotesingle{}s not possible to {\itshape know} if the drone is armed but we can generally assume that after a certain duration, the drone is armed. Because of this, there is no way to know if the drone is disarmed as it will disarm automatically from the FC More advanced implementations using two-\/way SBUS or ideally MAVLink can get around this limmitation.
+Axes of rotation -- pitch (tilt forward/back), roll (wiggle side to side), yaw (turn normally)
+\begin{DoxyItemize}
+\item {\ttfamily rl}, {\ttfamily pt}, {\ttfamily yw}
+\end{DoxyItemize}
 
-\mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}} commands are enqueued to the drone, and will be executed FIFO.
+Hence, to control the forward velocity of the drone, the command is\+:
 
-Note\+: Blind Commands can also be used as buttons and inputs to the FC, not just for navigation 
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DroneCommand aCommand;}
+\DoxyCodeLine{aCommand.v\_x = 0.5f}
+
+\end{DoxyCode}
+\hypertarget{struct_a_s7_1_1_drone_command_autotoc_md1}{}\doxyparagraph{Command Ramping and Ramp Types}\label{struct_a_s7_1_1_drone_command_autotoc_md1}
+For all channels, {\ttfamily \mbox{\hyperlink{_drone_8cpp}{drone.\+cpp}}} defines a set \textquotesingle{}ramp rate\textquotesingle{} depending on the application and control desired for the drone. Ramp rates are often found in motor applications where a motor has to be speed up at a certain rate to reduce damage or shock. In the case of drones, a linear ramp rate helps with ensuring the commands are carried out smoothly. Additionally, they allow for less rigid movement of the drone as as the channels transition smoothly and thus keep the channels alive, rather than emulating a disconnect. This has the added advantage of ensuring that the frame is not dropped due to suddden shifts in values. Ramp rates are defined by the {\ttfamily RAMPRATE} enumeration. The following ramping methods have been implemented\+:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily RAMPRATE\+\_\+\+NONE} -\/ The channel is instantly set to the target value
+\item {\ttfamily RAMPRATE\+\_\+\+LINEAR} -\/ The channel is increased linearly by the ramping value
+\item {\ttfamily RAMPRATE\+\_\+\+PROP} -\/ Tha channel is increased proportionately to the amount of travel left. If the target is far, the ramping is faster. If the target is close, the ramping is slower.
+\end{DoxyItemize}\hypertarget{struct_a_s7_1_1_drone_command_autotoc_md2}{}\doxyparagraph{Channel values and non-\/pure values}\label{struct_a_s7_1_1_drone_command_autotoc_md2}
+In testing, it was noted that the best results came from using channel values that were between 0.\+1f and 0.\+9f. User discretion is advised when setting channel values to write.\hypertarget{struct_a_s7_1_1_drone_command_autotoc_md3}{}\doxyparagraph{Blind Commands}\label{struct_a_s7_1_1_drone_command_autotoc_md3}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{DroneCommand.v\_z = 0.1f}
+
+\end{DoxyCode}
+
+
+This will emulate the user pulling up the \textquotesingle{}throttle\textquotesingle{} stick to about 10\%.\hypertarget{struct_a_s7_1_1_drone_command_autotoc_md4}{}\doxyparagraph{Guided Commands}\label{struct_a_s7_1_1_drone_command_autotoc_md4}
+Guided commands aim to position-\/control the drone using the on-\/board ultrasonic sensors.
+
+In the case of \mbox{\hyperlink{namespace_a_s7}{AS7}}, the left-\/right channels will aim to avoid obstacles whilst the z (height) channel will aim to keep the drone a constant height about the ground.\hypertarget{struct_a_s7_1_1_drone_command_autotoc_md5}{}\doxysubparagraph{Proportional Control Guided Commands}\label{struct_a_s7_1_1_drone_command_autotoc_md5}
+The current implementation of the z-\/height guided command is a form of proportional control from control theory. The amount of thrust applied to the TX Thrust Channel is proprtional to {\ttfamily target-\/current\+\_\+value} or error measured in the Z-\/axis. This is multiplied by a proportionality constant and re-\/evaluated in the next loop. Fine-\/tuning of the proportionality constant is recommended for different propellers and drone configurations\hypertarget{struct_a_s7_1_1_drone_command_autotoc_md6}{}\doxyparagraph{Channels not controllable by drone}\label{struct_a_s7_1_1_drone_command_autotoc_md6}
+
+\begin{DoxyItemize}
+\item Roll
+\item Pitch 
+\end{DoxyItemize}
 
 \doxysubsection{Member Data Documentation}
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a455e52fb93a740ba49a823a2ab8c268f}\label{struct_a_s7_1_1_drone_command_a455e52fb93a740ba49a823a2ab8c268f}} 
@@ -69,6 +108,10 @@ Note\+: Blind Commands can also be used as buttons and inputs to the FC, not jus
 \index{channels@{channels}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{channels}{channels}}
 {\footnotesize\ttfamily std\+::array$<$float, \mbox{\hyperlink{_drone_8h_a82cd47956acdb3edc0e6f5227b9f70c2}{NUM\+\_\+\+CH}}$>$ AS7\+::\+Drone\+Command\+::channels}
+
+
+
+A float for each channel from (-\/1 1) for normal channels and (0, 1) for absolute channels. 
 
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ac267795c756adc9310565fbec101d767}\label{struct_a_s7_1_1_drone_command_ac267795c756adc9310565fbec101d767}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!dataRecording@{dataRecording}}
@@ -82,11 +125,19 @@ Note\+: Blind Commands can also be used as buttons and inputs to the FC, not jus
 \doxysubsubsection{\texorpdfstring{desc}{desc}}
 {\footnotesize\ttfamily std\+::string AS7\+::\+Drone\+Command\+::desc}
 
+
+
+A description for logging and verbosity. 
+
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a8719da97610790b9dd0b2d95bdd6bb9a}\label{struct_a_s7_1_1_drone_command_a8719da97610790b9dd0b2d95bdd6bb9a}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!duration@{duration}}
 \index{duration@{duration}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{duration}{duration}}
 {\footnotesize\ttfamily int AS7\+::\+Drone\+Command\+::duration}
+
+
+
+The duration of the command in milliseconds. 
 
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_a6d08d39ddb97935347b6488dc3f10039}\label{struct_a_s7_1_1_drone_command_a6d08d39ddb97935347b6488dc3f10039}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!p\_pt@{p\_pt}}
@@ -129,6 +180,10 @@ Note\+: Blind Commands can also be used as buttons and inputs to the FC, not jus
 \index{rateMultiplier@{rateMultiplier}!AS7::DroneCommand@{AS7::DroneCommand}}
 \doxysubsubsection{\texorpdfstring{rateMultiplier}{rateMultiplier}}
 {\footnotesize\ttfamily float AS7\+::\+Drone\+Command\+::rate\+Multiplier = 1.\+0f}
+
+
+
+The rate multiplier to adjust ramping speed if applicable. 
 
 \mbox{\Hypertarget{struct_a_s7_1_1_drone_command_ad1d406bdba067d5711e66e796eca6ca8}\label{struct_a_s7_1_1_drone_command_ad1d406bdba067d5711e66e796eca6ca8}} 
 \index{AS7::DroneCommand@{AS7::DroneCommand}!type@{type}}

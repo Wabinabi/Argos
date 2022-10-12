@@ -12,5 +12,6 @@ var searchData=
   ['fl_5fledbrightness_9',['FL_LEDBRIGHTNESS',['../as7-gamma_8ino.html#ac9aec1f51deffc2045331cda6f4b7a15',1,'as7-gamma.ino']]],
   ['fl_5flednum_10',['FL_LEDNUM',['../as7-gamma_8ino.html#ac46d95694a0133c02481735bbcf1a02e',1,'as7-gamma.ino']]],
   ['fl_5fledpin_11',['FL_LEDPIN',['../as7-gamma_8ino.html#a08b1a4d2c92f43fa4a921fb59f3bdb87',1,'as7-gamma.ino']]],
-  ['flying_12',['Flying',['../as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6',1,'as7-gamma.ino']]]
+  ['flying_12',['Flying',['../as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6',1,'as7-gamma.ino']]],
+  ['formatsbusarray_13',['formatSbusArray',['../class_a_s7_1_1_drone.html#a325eda9ab7a5e021ac881a16f2e8680e',1,'AS7::Drone']]]
 ];
