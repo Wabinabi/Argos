@@ -11,26 +11,28 @@ Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
 - MED: Dynamic scaling
 
 ===========================================================
-Jimmy - please help! Ordered in priority...
-x Create sample data folder as per discussion (as7.log, data,csv, as7.config)
-   -> Done! Data under DATA/SAMPLE_DATA for the respective SD cards. There's also a NOT_README file with details on the features of each
+Usability Feature Improvements:
 
-- Start writing the code that identifies events (struct that associates the time log with it)
-   -> Events identified but they're not being used 
-
-- Running stats (when file is imported, check whether this flight no. has been imported previously. If not, update total flight time and no. of trips, is this is the largest flight no. also update "most recent flight")
-   -> currently working on, part of information storage
-
-- Dynamic drone specs textboxes in a window
-   -> LATER
-
-- Create text file with drone specs as per discussion
-   -> LATER
-
-Things that need to be done:
-
-* Importing B1's code in
-
+- [ ] Selection of folder instead of files when selecting a folder to import.
+- [ ] Pop up of multiple Import has been successful message boxes when opening the cloud file.
+- [ ] Units on graphs.
+- [ ] 3D manipulation panning capability.
+- [ ] Fromatting for trip details to better draw the eye.
+- [ ] Amount of points generated for the 3D map was expected to be within the 3D cloud widget themselves.
+- [ ] Pop up to indicate to the user that the drone details had been saved.
+- [ ] Option to revert drone details to  default values?
+- [ ] Implement widget focus to allow multiple windows be open and active at once.
+- [ ] Placement of the Export function.   Next to the import function?   In the 3D point cloud widget?  Multiple export buttons?
+- [ ] Saving settings for the 3D model view.
+- [ ] Fix checkboxes for the 3D model view.
+- [ ] Drop down box for font selection.
+- [ ] Remove toggle button from the 3D model view.
+- [ ] Loading time between switching graphs?
+- [ ] Additional tool tips and help.
+- [ ] Time series playback?
+- [ ] Flight path depiction.
+- [ ] Some of the fonts are too hard to see.
+- [ ] Drone details resize and add scroll capability.
 
 ===========================================================
 What Mink is working on now:
