@@ -956,3 +956,21 @@ void HomePage::on_ExportButton_clicked()
     exportPLY();
 }
 
+
+void HomePage::on_HelpBtn_clicked()
+{
+    // Open the user manual
+    help();
+}
+
+
+void HomePage::on_ResetBtn_clicked()
+{
+    ui->FileLocation->setPlainText("");
+    importFailed = true; // Require user to import new data
+    ui->droneStats->setPlainText("");
+    QMessageBox msg;
+
+    msg.setText("Imported data reset!");
+}
+

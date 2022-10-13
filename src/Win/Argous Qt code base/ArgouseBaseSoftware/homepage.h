@@ -88,6 +88,10 @@ private slots:
 
     void on_ExportButton_clicked();
 
+    void on_HelpBtn_clicked();
+
+    void on_ResetBtn_clicked();
+
 private:
     Ui::HomePage *ui;
     void UsabilityTestSim();

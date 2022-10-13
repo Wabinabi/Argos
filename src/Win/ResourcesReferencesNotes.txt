@@ -1,12 +1,9 @@
 Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
-- LOW: When hiding pages, the close child window closes the program
+
 - MED: "Browse" text window, change to side scroll when file directory is too long.
-- HIGH: Closing the software fucks it up real bad lol
 - HIGH: and Units indications somewhere on the 3D model
 - URGENT: Update import to look for 
 - HIGH: Chance camera preset to be striaght on or not
-- MED: if recent files are the same then don't double list them
-- LOW: the recent files doesn't update if you're to import more than once in a software. I.e., if the current file updates then the 
 - URGENT: The 3D model doesn't pan or select points or zoom on initial implementation. Needs to have stuff clicked prior to working with full functionality
 - MED: Dynamic scaling
 
