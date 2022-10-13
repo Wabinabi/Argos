@@ -90,6 +90,7 @@ private:
 
     QMap<QString, QString> droneConfig; // The drone config as a key-value map
     QMap<QString, QString> droneDetailsMap; // The drone details as a key-value map
+    QMap<QString, QString> defaultDroneDetailsMap; // The drone details as a key-value map
 
     QMap<QString, QString> runningStats; // The drone runningStats as a key-value map
     QMap<QString, QString> tripStats; // The drone tripStats as a key-value map
@@ -122,8 +123,9 @@ private:
 
     QString configFileLocation;
 
+    void saveDroneDetails();
+
     void on_droneDetailClose_clicked();
-    //B1-Detail button actions
     void on_droneDetailSave_clicked();
     void on_droneDetailReset_clicked();
 

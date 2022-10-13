@@ -14,21 +14,27 @@ Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
 Usability Feature Improvements:
 
 - [ ] Selection of folder instead of files when selecting a folder to import.
+  - [ ] Not too hard but needs to find a definition
+
 - [ ] Pop up of multiple Import has been successful message boxes when opening the cloud file.
+  - [ ] this is a weird bug to fix
+
 - [ ] Units on graphs.
 - [ ] 3D manipulation panning capability.
-- [ ] Fromatting for trip details to better draw the eye.
+- [ ] Formatting for trip details to better draw the eye.
+  - [ ] probably some sort of thing similar to… the drone details will take some time
+
 - [ ] Amount of points generated for the 3D map was expected to be within the 3D cloud widget themselves.
-- [ ] Pop up to indicate to the user that the drone details had been saved.
-- [ ] Option to revert drone details to  default values?
-- [ ] Implement widget focus to allow multiple windows be open and active at once.
-- [ ] Placement of the Export function.   Next to the import function?   In the 3D point cloud widget?  Multiple export buttons?
+- [ ] Pop up to indicate to the user that the drone details had been saved. ==XS==
+- [x] Option to revert drone details to  default values? ==S==
+- [ ] Implement widget focus to allow multiple windows be open and active at once.==XL==
+- [ ] Placement of the Export function.   Next to the import function?   In the 3D point cloud widget?  Multiple export buttons? ==S==
 - [ ] Saving settings for the 3D model view.
 - [ ] Fix checkboxes for the 3D model view.
-- [ ] Drop down box for font selection.
+- [ ] Drop down box for font selection. ==S==
 - [ ] Remove toggle button from the 3D model view.
 - [ ] Loading time between switching graphs?
-- [ ] Additional tool tips and help.
+- [ ] Additional tool tips and help. ==S==
 - [ ] Time series playback?
 - [ ] Flight path depiction.
 - [ ] Some of the fonts are too hard to see.

@@ -190,7 +190,7 @@ void HomePage::on_pushButton_4_clicked()
             //layout->addWidget(detailSaveButton);
             //layout->addWidget(detailResetButton);
             QHBoxLayout *boxLayout = new QHBoxLayout();
-            //boxLayout->addWidget(detailResetButton);
+            boxLayout->addWidget(detailResetButton);
             boxLayout->addWidget(detailSaveButton);
             boxLayout->addWidget(detailsCloseButton);
 
@@ -212,8 +212,7 @@ void HomePage::on_droneDetailClose_clicked() {
     detailsOpened = false;
 }
 
-//B1 Added button functions
-void HomePage::on_droneDetailSave_clicked() {
+void HomePage::saveDroneDetails() {
     QList items = droneDetails->children();
 
     for (int i = 0; i < items.count(); i++){
@@ -239,11 +238,31 @@ void HomePage::on_droneDetailSave_clicked() {
     writeMapToFile(configFileLocation + "\\as7.config", &droneConfig);
     writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
 
+}
+
+void HomePage::on_droneDetailSave_clicked() {
+    saveDroneDetails();
     on_droneDetailClose_clicked();
+
+    QMessageBox msg;
+    msg.setText("Drone details saved!");
+    msg.exec();
 }
 
 void HomePage::on_droneDetailReset_clicked() {
-    qDebug() << "ResetButtonClicked";
+
+    QMap<QString, QString>::iterator i;
+    for (i = defaultDroneDetailsMap.begin(); i != defaultDroneDetailsMap.end(); ++i) {
+        droneDetailsMap[i.key()] = i.value();
+    }
+
+    writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
+    on_droneDetailClose_clicked();
+
+    QMessageBox msg;
+    msg.setText("Drone details reset!");
+    msg.exec();
+    on_pushButton_4_clicked();
 }
 
 HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString colName)
@@ -379,6 +398,8 @@ void HomePage::on_ImportBtn_clicked()
     bool importDroneStats = importConf(filename + ".\\ArgouseBaseSoftware\\appdata\\droneStats.txt", &runningStats);
 
     bool importDetailsSuccess = importConf("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
+    importDetailsSuccess = importConf("..\\ArgouseBaseSoftware\\appdata\\defaultDroneDetails.txt", &defaultDroneDetailsMap);
+
 
     // Create error message
     QMessageBox msg;
