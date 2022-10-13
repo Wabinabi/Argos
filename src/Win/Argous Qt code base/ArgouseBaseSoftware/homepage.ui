@@ -42,7 +42,10 @@
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(190, 190, 190);</string>
+      <string notr="true">background-color: rgb(190, 190, 190); color: #272727;</string>
+     </property>
+     <property name="plainText">
+      <string/>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton">
@@ -94,7 +97,7 @@
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -396,7 +399,7 @@ border-radius: 0px;</string>
      <property name="styleSheet">
       <string notr="true">Text-align:left;
 padding: 6px;
-background-color: rgb(69, 142, 149, 100);
+background-color: rgb(69, 142, 149);
 border-color: rgb(105, 193, 203);
 border-radius: 0px;</string>
      </property>

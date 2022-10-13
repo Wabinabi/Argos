@@ -138,7 +138,7 @@ private:
     QPushButton *detailSaveButton;
     QPushButton *detailResetButton;
 
-    QWidget *droneDetails = new QWidget;
+    QDialog *droneDetails = new QDialog;
     bool detailsOpened = false;
 
 

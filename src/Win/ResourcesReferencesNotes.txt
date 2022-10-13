@@ -25,9 +25,9 @@ Usability Feature Improvements:
   - [ ] probably some sort of thing similar to… the drone details will take some time
 
 - [ ] Amount of points generated for the 3D map was expected to be within the 3D cloud widget themselves.
-- [ ] Pop up to indicate to the user that the drone details had been saved. ==XS==
+- [x] Pop up to indicate to the user that the drone details had been saved. ==XS==
 - [x] Option to revert drone details to  default values? ==S==
-- [ ] Implement widget focus to allow multiple windows be open and active at once.==XL==
+- [x] Implement widget focus to allow multiple windows be open and active at once.==XL==
 - [x] Placement of the Export function.   Next to the import function?   In the 3D point cloud widget?  Multiple export buttons? ==S==
 - [ ] Saving settings for the 3D model view.
 - [ ] Fix checkboxes for the 3D model view.
@@ -38,10 +38,11 @@ Usability Feature Improvements:
 - [ ] Time series playback?
 - [ ] Flight path depiction.
 - [ ] Some of the fonts are too hard to see.
-- [ ] Drone details resize and add scroll capability.
+- [x] Drone details resize and add scroll capability.
 
 ===========================================================
 What Mink is working on now:
+
 - source the data from the vector point instead of text file (altitude, no. of points, throttle, no. of events)
 
 - informEvents

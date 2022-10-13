@@ -29,10 +29,10 @@ HomePage::~HomePage()
 
 void HomePage::UsabilityTestSim(){
     ui->DroneDisplay->setEnabled(false);
-    ui->FileBtn->setVisible(false);
-    ui->SettingsBtn->setVisible(false);
-    ui->HelpBtn->setVisible(false);
-    ui->ResetBtn->setVisible(false);
+    //ui->FileBtn->setVisible(false);
+    //ui->SettingsBtn->setVisible(false);
+    //ui->HelpBtn->setVisible(false);
+    //ui->ResetBtn->setVisible(false);
 }
 
 void HomePage::readRecentFilesLog()
@@ -149,7 +149,7 @@ void HomePage::on_pushButton_4_clicked()
             msg.setText("Please import drone data first");
             msg.exec();
         } else {
-            droneDetails = new QWidget;
+            droneDetails = new QDialog(this);
             QWidget *detailsScrollBox = new QWidget;
 
             detailsCloseButton = new QPushButton("Close");
@@ -209,8 +209,9 @@ void HomePage::on_pushButton_4_clicked()
 
             droneDetails->setWindowTitle("Argous S7 Drone Details");
 
-            droneDetails->resize(595, droneDetails->height());
-            droneDetails->show();
+            droneDetails->resize(595, 450);
+            droneDetails->setWindowModality(Qt::WindowModal);
+            droneDetails->exec();
             detailsOpened = true;
         }
     }
