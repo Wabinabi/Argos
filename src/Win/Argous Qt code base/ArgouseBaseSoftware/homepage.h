@@ -92,6 +92,8 @@ private slots:
 
     void on_ResetBtn_clicked();
 
+    void on_FileBtn_clicked();
+
 private:
     Ui::HomePage *ui;
     void UsabilityTestSim();

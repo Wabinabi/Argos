@@ -398,6 +398,9 @@ void HomePage::on_ImportBtn_clicked()
 
     configFileLocation = filename;
 
+    if(filename.isEmpty()){
+        return;
+    }
 
 
     bool importLogSuccess = importLog(filename + "\\as7.log");
@@ -972,5 +975,12 @@ void HomePage::on_ResetBtn_clicked()
     QMessageBox msg;
 
     msg.setText("Imported data reset!");
+    msg.exec();
+}
+
+
+void HomePage::on_FileBtn_clicked()
+{
+    on_ImportBtn_clicked();
 }
 

@@ -404,7 +404,7 @@ border-color: rgb(105, 193, 203);
 border-radius: 0px;</string>
      </property>
      <property name="text">
-      <string>  File</string>
+      <string>  Import</string>
      </property>
      <property name="icon">
       <iconset>
