@@ -869,13 +869,25 @@ void HomePage::saveFile(const QString &fileName)
     statusBar()->showMessage(tr("File exported"), 2000);
     */
 
-    QString fileLocationStr = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
-                                                    "/");
-    std::filesystem::copy(fileName.toStdString(), fileLocationStr.toStdString(), std::filesystem::copy_options::recursive);
+    //QString fileLocationStr = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
+    //                                                "/");
 
-    QMessageBox msg;
-    msg.setText("File saved!");
-    msg.exec();
+    QFileDialog dialog(this);
+    dialog.setFileMode(QFileDialog::AnyFile);
+    dialog.setNameFilter("3D Point Cloud (*.PLY)");
+    dialog.setAcceptMode(QFileDialog::AcceptSave);
+
+    //QString fileLocationStr = QFileDialog::getOpenFileName(this, tr("Save 3D Map"), "map.ply", tr("Mapping File (*.PLY)"));
+    QString fileLocationStr;
+    if (dialog.exec()) {
+        fileLocationStr = dialog.selectedFiles()[0];
+    }
+    if (fileLocationStr.toStdString() != "") {
+        std::filesystem::copy(fileName.toStdString(), fileLocationStr.toStdString(), std::filesystem::copy_options::recursive);
+        QMessageBox msg;
+        msg.setText("File saved!");
+        msg.exec();
+    }
 
 }
 
@@ -932,8 +944,5 @@ void HomePage::on_recentFiles_itemClicked(QListWidgetItem *item)
 void HomePage::on_ExportButton_clicked()
 {
     exportPLY();
-    QMessageBox msg;
-    msg.setText("Mapping data successfully exported!");
-    msg.exec();
 }
 

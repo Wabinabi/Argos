@@ -103,9 +103,12 @@
        <height>41</height>
       </rect>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,0">
       <property name="spacing">
        <number>6</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
       </property>
       <item>
        <widget class="QPushButton" name="ImportBtn_2">
@@ -119,14 +122,17 @@ color: rgb(255, 255, 255)</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="ImportBtn_3">
+       <widget class="QPushButton" name="ExportButton">
         <property name="text">
-         <string>Import</string>
+         <string>Export</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="ImportBtn">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="text">
          <string>Import</string>
         </property>
