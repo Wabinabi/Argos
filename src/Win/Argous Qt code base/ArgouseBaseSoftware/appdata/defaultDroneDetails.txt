@@ -1,0 +1,17 @@
+Accelerometer:DFROBOT SEN0168 Triple Axis Accelerometer BMA220
+Aviation Reference Number:1179999
+Battery:1100 mAh 6s 100c
+CASA License:CASA-13QFCC
+Charger:ToolkitRC M6 Multifunctional Charger
+Charger Adapter:Refurbished Toshiba PA5114E-1AC3
+Compass:Duinotech XC-4496
+ESC:T-Motor F45A V3
+Firmware:Ardupilot Firmware Matek H743 v. stable-4.1.5
+Flight Controller:Matek H743 SLIM
+Frame:HGLRC Sector 7 V3
+Microcontroller:ESP32-DEVKIT C
+Motors:T-Motor BMS Racing V2 2306.5 2000kv
+Propellers:Gemfan 5" props, Pitch 3"
+RX Protocol:SBUS
+RX/TX System:Turnigy HK-MT6B
+Ultrasonic Sensors:HC-SR04
