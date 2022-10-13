@@ -150,11 +150,11 @@ void HomePage::on_pushButton_4_clicked()
             msg.exec();
         } else {
             droneDetails = new QWidget;
+            QWidget *detailsScrollBox = new QWidget;
 
             detailsCloseButton = new QPushButton("Close");
             connect(detailsCloseButton, &QPushButton::released, this, &HomePage::on_droneDetailClose_clicked);
 
-            //B1-Connect save and reset buttons
             detailSaveButton = new QPushButton("Save");
             connect(detailSaveButton, &QPushButton::released, this, &HomePage::on_droneDetailSave_clicked);
 
@@ -162,7 +162,7 @@ void HomePage::on_pushButton_4_clicked()
             connect(detailResetButton, &QPushButton::released, this, &HomePage::on_droneDetailReset_clicked);
 
 
-            QFormLayout *layout = new QFormLayout();//B1 Removed droneDetails
+            QFormLayout *layout = new QFormLayout();
             layout->addRow("Drone Configuration", new QLabel(""));
 
 
@@ -184,6 +184,7 @@ void HomePage::on_pushButton_4_clicked()
 
                 layout->addRow(i.key(), aValue);
             }
+            layout->addWidget(new QLabel(""));
 
             //layout->addWidget(detailsCloseButton);
             //B1 added widgets
@@ -198,7 +199,15 @@ void HomePage::on_pushButton_4_clicked()
             mainLayout->addLayout(layout);
             mainLayout->addLayout(boxLayout);
 
-            droneDetails->setLayout(mainLayout);
+            detailsScrollBox->setLayout(mainLayout);
+            QScrollArea *detailsScrollArea = new QScrollArea();
+            detailsScrollArea->setStyleSheet("QWidget { border: 0px solid black };");
+            detailsScrollArea->setWidgetResizable(true);
+            detailsScrollArea->setWidget(detailsScrollBox);
+            droneDetails->setLayout(new QVBoxLayout);
+            droneDetails->layout()->addWidget(detailsScrollArea);
+
+            droneDetails->setWindowTitle("Argous S7 Drone Details");
 
             droneDetails->resize(595, droneDetails->height());
             droneDetails->show();
