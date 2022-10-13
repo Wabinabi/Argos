@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Argous S7 Base Station</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="ImportData">
@@ -195,7 +195,7 @@ color: rgb(255, 255, 255)</string>
       </rect>
      </property>
      <property name="text">
-      <string>View Drone Specs</string>
+      <string>View Drone Details</string>
      </property>
     </widget>
    </widget>
@@ -474,7 +474,7 @@ border-radius: 0px;</string>
      </font>
     </property>
     <property name="text">
-     <string>Argous AS7 Base Software</string>
+     <string>Argous S7 Base Station</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
