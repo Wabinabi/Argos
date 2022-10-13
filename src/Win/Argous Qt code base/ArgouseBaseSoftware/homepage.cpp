@@ -922,3 +922,9 @@ void HomePage::on_Browse_clicked()
     ui->FileLocation->setPlainText(fileLocationStr);
 }
 
+
+void HomePage::on_recentFiles_itemClicked(QListWidgetItem *item)
+{
+    ui->FileLocation->setPlainText(item->text());
+}
+

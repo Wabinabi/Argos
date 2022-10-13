@@ -84,6 +84,8 @@ private slots:
     void help();
 
 
+    void on_recentFiles_itemClicked(QListWidgetItem *item);
+
 private:
     Ui::HomePage *ui;
     void UsabilityTestSim();
