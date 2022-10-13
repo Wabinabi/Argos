@@ -928,3 +928,12 @@ void HomePage::on_recentFiles_itemClicked(QListWidgetItem *item)
     ui->FileLocation->setPlainText(item->text());
 }
 
+
+void HomePage::on_ExportButton_clicked()
+{
+    exportPLY();
+    QMessageBox msg;
+    msg.setText("Mapping data successfully exported!");
+    msg.exec();
+}
+

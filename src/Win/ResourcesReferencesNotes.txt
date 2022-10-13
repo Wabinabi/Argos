@@ -28,7 +28,7 @@ Usability Feature Improvements:
 - [ ] Pop up to indicate to the user that the drone details had been saved. ==XS==
 - [x] Option to revert drone details to  default values? ==S==
 - [ ] Implement widget focus to allow multiple windows be open and active at once.==XL==
-- [ ] Placement of the Export function.   Next to the import function?   In the 3D point cloud widget?  Multiple export buttons? ==S==
+- [x] Placement of the Export function.   Next to the import function?   In the 3D point cloud widget?  Multiple export buttons? ==S==
 - [ ] Saving settings for the 3D model view.
 - [ ] Fix checkboxes for the 3D model view.
 - [ ] Drop down box for font selection. ==S==

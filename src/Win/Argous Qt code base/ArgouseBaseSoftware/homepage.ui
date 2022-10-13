@@ -45,19 +45,6 @@
       <string notr="true">background-color: rgb(190, 190, 190);</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="ImportBtn">
-     <property name="geometry">
-      <rect>
-       <x>220</x>
-       <y>70</y>
-       <width>181</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Import</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
@@ -107,22 +94,45 @@
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="ImportBtn_2">
+    <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>70</y>
-       <width>201</width>
-       <height>31</height>
+       <width>391</width>
+       <height>41</height>
       </rect>
      </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(112, 112, 112);
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="ImportBtn_2">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(112, 112, 112);
 color: rgb(255, 255, 255)</string>
-     </property>
-     <property name="text">
-      <string>Clear</string>
-     </property>
+        </property>
+        <property name="text">
+         <string>Clear</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ImportBtn_3">
+        <property name="text">
+         <string>Import</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ImportBtn">
+        <property name="text">
+         <string>Import</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QFrame" name="DroneVisual">
