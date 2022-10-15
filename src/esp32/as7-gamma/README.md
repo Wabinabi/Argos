@@ -12,24 +12,52 @@ The AS7 project contains two parts: the on-board and off-board software The on-b
 
 
 
-## To implement in this README:
+==This section mostly focuses on what details are where==
 
-* A higher level overview of the goals of this project
-* Documenting the files supplied in `docs`
-* Photos and diagrams
-* Raw data collected from drone
-* Acknowledgements
-* License for this repo
+* This document goes through isntall
+* The other two go through user and more details
 
 
 
-### Future Improvements
+NOTE: USE THIS FOR TOC https://ecotrust-canada.github.io/markdown-toc/
 
-With additional time, the following improvements or features could be added:
+## Table of contents
 
-* [ ] Code Documentation generated through Doxygen
-* [ ] More guided commands and not just tunnel-flight
-* [ ] Reading drone commands from the SD card using keywords in a text file
+[toc]
+
+## Getting started
 
 
+
+### Environment and Set up
+
+* Win10 and software used
+* Ardupilot and the speecific firmware used
+* ESP Devkit C
+
+### On Board Software
+
+#### Microcontroller and IDE
+
+#### Required Dependencies and Libraries
+
+
+
+### Off Board Software
+
+#### Qt Configuration
+
+#### Documentation Generation with Doxygen
+
+
+
+## Credits
+
+
+
+## License
+
+
+
+## Authors
 
