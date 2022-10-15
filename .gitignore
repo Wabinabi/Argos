@@ -2,6 +2,6 @@
 src/esp32/*/.vscode/
 src/esp32/*/arduino.json
 src/esp32/as7-beta/build/*
-B1Code/QtCode/build-TestCase-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/*
+B1Code/QtCode/build*
 src/Win/Argous Qt code base/ArgouseBaseSoftware/ArgouseBaseSoftware.pro.user
 src/Win/Argous Qt code base/build*
