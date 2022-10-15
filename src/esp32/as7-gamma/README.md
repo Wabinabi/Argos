@@ -14,7 +14,7 @@ The AS7 project contains two parts: the on-board and off-board software The on-b
 
 ==This section mostly focuses on what details are where==
 
-* This document goes through isntall
+* This document goes through install
 * The other two go through user and more details
 
 
