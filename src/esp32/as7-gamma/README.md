@@ -74,21 +74,24 @@ To verify library installation, they can be found under `C:\Users\<<Your Usernam
 
 ### Off Board Software
 
-#### Qt Configuration
+Development of the off-board software or the base station software requires the Qt IDE and framework. An open-source version of Qt can be found here: https://www.qt.io/download-open-source.
 
-
+The base station software uses Qt 4.3.2 and does not require any additional modules.
 
 #### Documentation Generation with Doxygen
 
+Documentation (this file plus the reference) uses [Doxygen](https://doxygen.nl/). The specific configuration can be found inside `docs/doxygen` with the input as `src/esp32/as7-gamma` and output folder as `src\Win\Argous Qt code base\ArgouseBaseSoftware\appdata`.
 
+The documentation uses [Doxygen Awesome CSS](https://github.com/jothepro/doxygen-awesome-css) with minor modifications to match the overall theme of the system. The additional CSS is located at `docs/doxygen/as7-custom.css`. The doxyfile configuration is as follows:
 
-## Credits
-
-
-
-## License
-
-
+```css
+HTML_EXTRA_STYLESHEET = doxygen-awesome.css as7-custom.css
+```
 
 ## Authors
 
+Jimmy Trac jt@nekox.net
+
+Monique Kuhn monique.n.kuhn@gmail.com
+
+Bi Wan Low bwlow39@gmail.com
