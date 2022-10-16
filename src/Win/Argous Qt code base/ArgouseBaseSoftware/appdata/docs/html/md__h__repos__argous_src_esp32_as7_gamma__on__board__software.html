@@ -99,62 +99,69 @@ Table of Contents</h1>
 <p >[toc]</p>
 <h1><a class="anchor" id="autotoc_md29"></a>
 Outline</h1>
-<p >// What this contains</p>
-<p >// what sort of software do we use &ndash; e.g. mission planner</p>
-<p >// the configuration for the drone</p>
-<p >// assumption &ndash; this iS SPECIFICALLY FOR <a class="el" href="namespace_a_s7.html">AS7</a></p>
+<p >The on-board software refers to the program flashed onto the ESP32 Microcontroller present on the <a class="el" href="namespace_a_s7.html">AS7</a> Electronics and Sensor Package. This is located underneath the drone.</p>
+<p >This document provides an overview of the primary features on the drone. It includes the process before a flight, during, and after, alongside software configuration.</p>
+<p >The drone will come with a software configuration already loaded onto the ESP32. Even if development is not required, the <a href="https://www.arduino.cc/en/software/">Arduino IDE</a> is recommended to interface with the Serial transmissions from the drone for fault diagnostics.</p>
 <h1><a class="anchor" id="autotoc_md30"></a>
 Before flight</h1>
+<p >Preparing for a survey flight includes inspection of the drone hardware and ensuring all equipment is set up.</p>
 <ul>
 <li>Contains operating features, concerns for data gathering, and why do one thing or another things</li>
+<li></li>
 </ul>
 <h2><a class="anchor" id="autotoc_md31"></a>
-Operating Features</h2>
-<ul>
-<li>The remote, its controls, and the specific channel guides</li>
-<li>Battery, charging, and correct mounting</li>
-<li>Hardware inspections and checks</li>
-<li>Pre flight checklist</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md32"></a>
-Remote Control System</h3>
+Remote Control System</h2>
+<p >The Remote Control (RC) system is consists of a transmitter and receiver. The transmitter is the handheld ‘remote control’ and is also known as the “TX”. The Receiver is located on the drone located above the communications lights and is known as the “RX”.</p>
 <ul>
 <li>The control system is composed of the remote control transmitter (the tx) and the receiver on the drop (rx)</li>
 <li>The control has the following channels<ul>
 <li>channel descriptions</li>
 <li>There are channels on the sbus specification that aren't being used</li>
 <li>channels can be configured to this and that</li>
-<li></li>
 </ul>
 </li>
+<li>The remote, its controls, and the specific channel guides</li>
+<li>Battery, charging, and correct mounting</li>
+<li>Hardware inspections and checks</li>
+<li>Pre flight checklist</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md33"></a>
-Drone Battery and Charging</h3>
+<h2><a class="anchor" id="autotoc_md32"></a>
+Drone Battery and Charging</h2>
 <p >goes over the parts of the system that needs to be charged</p>
-<h4><a class="anchor" id="autotoc_md34"></a>
+<h4><a class="anchor" id="autotoc_md33"></a>
 Charging the Remote</h4>
 <p >using micro B</p>
-<h4><a class="anchor" id="autotoc_md35"></a>
+<h4><a class="anchor" id="autotoc_md34"></a>
 Charging the Drone Batteries</h4>
 <p >Using the multifunctional kit</p>
-<h4><a class="anchor" id="autotoc_md36"></a>
+<h4><a class="anchor" id="autotoc_md35"></a>
 Drone Battery Specifications</h4>
 <ul>
 <li>the drone batteries must be between 4S-6S Poly</li>
 <li>Ideally above a certain C value</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md37"></a>
-Recommended Hardware Inspection</h3>
-<ul>
-<li>the drone hardware should be chcked and tightened before each flight</li>
-<li>all the drone uses M2 and M2.5 allen keys</li>
-<li>the propellers should be mounetd in the following configuration</li>
-</ul>
-<h3><a class="anchor" id="autotoc_md38"></a>
-The Pre-Flight Checklist</h3>
-<p >the drone goes through a pre flight checklist before opreation, however, many of these have been disable for use in underground and gps denied environments</p>
-<p >It should be noted that the drone accelerometer and drone compass are independent of the ones present on the flight controller. Thus, the drone is capable of flight without the compass and accelrometer modules attached to the main pcb. as they are used for data collection, you won' be able to gather that specific data without the module present.</p>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md36"></a>
+Recommended Hardware Inspection</h2>
+<ol type="1">
+<li>Inspect the Drone Frame for any damage</li>
+<li>Inspect the 3D printed parts for any damage. Ensure that the locking bolts on all four drone legs are pushed in as far as they can or held in securely with a nut.</li>
+<li>Tighten all nuts on the drone to ensure that none are loose. They can be tightened using a 2mm or 2.5mm Allen Key.</li>
+<li>Ensure that there are no loose wires in the main electronics package.</li>
+<li>Follow the wires from the package and ensure that they are connected to the following modules:<ol type="a">
+<li>The communication lights</li>
+<li>The Flight Controller</li>
+<li>The Compass and Accelerometer Modules</li>
+<li>All 6 Ultrasonic Sensors</li>
+</ol>
+</li>
+<li>Ensure the propellers are securely mounted onto the motors. The propellers can be removed using a 6mm Hex Socket</li>
+</ol>
+<p >The propellers should be mounted in the following layout:</p>
+<center><img src="https://ardupilot.org/copter/_images/motororder-quad-x-2d.png" alt="Drone Propeller Configuration" width="400" class="inline"/></center><h3><a class="anchor" id="autotoc_md37"></a>
+The Pre-Flight Checklist, External Compass, and Accelerometer</h3>
+<p >Conventional drones complete a pre-flight checklist before operation, however, this is not the case with <a class="el" href="namespace_a_s7.html">AS7</a>. Given the GPS-denied nature of the drone, these interlocks have been disabled. Thus the only requirement for arming is that a battery and motors be present.</p>
+<p >The electronics package contains an accelerometer and compass, in addition to the ones mounted on the flight controller. These operate independently of the flight system and are not required for flight. They are, however, used for data collection and position estimation for the 3D map.</p>
+<h2><a class="anchor" id="autotoc_md38"></a>
 Data Gathering and Hardware Features</h2>
 <ul>
 <li>SD card set up</li>
@@ -169,24 +176,27 @@ Data Gathering and Hardware Features</h2>
 <li>the compass</li>
 <li>the internal clock from the esp32</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md40"></a>
-Arming and Flight set up</h2>
-<p >After all pre flight checks are done, the drone can be set down, armed, and then flown.</p>
-<p >The process is as follows:</p>
-<ol type="1">
-<li>Strap the battery securely onto the donr but do not flug it in</li>
-<li>Place the drone down with the signal lights facing rear</li>
-</ol>
-<h3><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md39"></a>
+Arming and Flight Setup</h2>
+<p >Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-flight checks are done, strap the battery to the drone <b>but to not plug it in</b>. The transmitter should be kept <b>off</b> until the operator is ready to start the mission.</p>
+<p >Place the drone down in the mission area in the intended orientation. The battery should then be plugged in the the operator should hear a series of beeps. <br  />
+</p>
+<blockquote class="doxtable">
+<p >&zwj;There should be a three start-up beeps, followed by two pairs of beeps. The drone is only ready after the second set of beeps. </p>
+</blockquote>
+<p>The drone will start flashing the communication lights on the rear. Once the drone is ready, the lights should flash blue on and off.</p>
+<p >The remote control should be turned on <b>only when the operator is ready to start the mission</b>. The drone will remain interlocked if the remote control is off. To start the mission, flick the left position switch to the middle position. This is the start command for the drone.</p>
+<p >In case of an <b>emergency</b> or to stop the drone abruptly, <b>press and hold the middle button</b>. This button is under the power button on the remote control.</p>
+<h3><a class="anchor" id="autotoc_md40"></a>
 The Remote Interlock</h3>
-<p >As part of the safety feature set, the drone will not allow arming unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.</p>
-<h1><a class="anchor" id="autotoc_md42"></a>
+<p >As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.</p>
+<h1><a class="anchor" id="autotoc_md41"></a>
 During Flight</h1>
 <p >this section mostly details with things that could happen in flight, how do what the lights mean, and how to get out of flight</p>
-<h2><a class="anchor" id="autotoc_md43"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Flight modes</h2>
 <p >the drone has primary modes &mdash; automated mode and operator override.</p>
-<h3><a class="anchor" id="autotoc_md44"></a>
+<h3><a class="anchor" id="autotoc_md43"></a>
 Automated Flight</h3>
 <p >In automated mode, the drone will follow its internal instructions and aim to execute them. these are loaded on drone start-up.</p>
 <p >Drone commands are enqueued on an internal stack and are executed first in last out. Dorne commands are composed of the following:</p>
@@ -195,7 +205,7 @@ Automated Flight</h3>
 <li>A duration dor the command</li>
 <li>Drone command parameters.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md45"></a>
+<h3><a class="anchor" id="autotoc_md44"></a>
 Drone Command Parameters</h3>
 <p >The drone has 6 degrees of freedom:</p>
 <ul>
@@ -208,11 +218,11 @@ Drone Command Parameters</h3>
 </ul>
 <p >On a quadcopter, pitch and roll are not directly controllable. For each axis, A drone command has parameter for position and velocity. Thus there are 12 parameters, of which 4 are not directly controllable.</p>
 <p >The command parameters are used differently depending on the type of the command</p>
-<h3><a class="anchor" id="autotoc_md46"></a>
+<h3><a class="anchor" id="autotoc_md45"></a>
 Blind Commands</h3>
 <p >Blind commands represent a configuration of the remote control. the blind commands only use velocity parameters, and map directly to the remote control.</p>
 <p >For example, setting a <code>droneCommand.v_x</code> to <code>0.2f</code> represents the right hand side forward stick at the 20% position.</p>
-<h3><a class="anchor" id="autotoc_md47"></a>
+<h3><a class="anchor" id="autotoc_md46"></a>
 Guided Commands</h3>
 <p >Guided commands represent a guided operation of the drone using the on-board instruments. The current implementation of guided commands use the four available parameters for tunnel-based operation.</p>
 <ul>
@@ -220,23 +230,23 @@ Guided Commands</h3>
 <li>In the Y (sideways) axis, the drone aims to avoid obstacles using the left and right ultrasonic sensors for collision detection. The sideways input is a weighted average of the two values, representing a tendency to balance both measurements. No command parameter is used for this at current.</li>
 <li>In the Z (upwards) axis, the drone aims to hold a position about the ground through PID control. The command parameter uses <code>droneCommand.p_z</code> in centimetres. The vertical thrust of the system is adjusted based on the measurement of the bottom sensor.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md48"></a>
+<h3><a class="anchor" id="autotoc_md47"></a>
 Operator Override Mode</h3>
 <p >In operator override mode, the drone will not respond to internal commands and will be directly controllable as per normal drone oepration.</p>
 <p >In this mode, the PCB and main microcontroller pass through signals from the receiver directly</p>
-<h3><a class="anchor" id="autotoc_md49"></a>
+<h3><a class="anchor" id="autotoc_md48"></a>
 Emergency Stop</h3>
 <p >In an emergency situation, the drone can be stopped using the provided emergency stop button. In the current implementation, this function is bound to the central button on the remote control.</p>
 <p >When pressed and held, the emergency stop will interlock drone command, setting all output channels to zero and disallowing further commands. The drone will then move to a faulted state, in which it will not respond to any further commands. Only pressing the reset button on the main PCB will release the emergency stop.</p>
 <p >it should be noted that the drone may not stop its propellers under emergency stop.</p>
-<h2><a class="anchor" id="autotoc_md50"></a>
+<h2><a class="anchor" id="autotoc_md49"></a>
 Communication Signals (Lights)</h2>
-<h2><a class="anchor" id="autotoc_md51"></a>
+<h2><a class="anchor" id="autotoc_md50"></a>
 Data gathering Details</h2>
 <p >mention base software here</p>
-<h2><a class="anchor" id="autotoc_md52"></a>
+<h2><a class="anchor" id="autotoc_md51"></a>
 Automated Flight Details</h2>
-<h1><a class="anchor" id="autotoc_md53"></a>
+<h1><a class="anchor" id="autotoc_md52"></a>
 Software Features</h1>
 <p >Automated flgiht ramping and details</p>
 <ul>
@@ -246,20 +256,20 @@ Software Features</h1>
 <p >SBUS details</p>
 <p >Communication protocols</p>
 <p >SD configuration</p>
-<h1><a class="anchor" id="autotoc_md54"></a>
+<h1><a class="anchor" id="autotoc_md53"></a>
 Maintenance</h1>
 <p >General details on keeping drone clean</p>
 <p >Notes on specific fragile parts</p>
-<h2><a class="anchor" id="autotoc_md55"></a>
+<h2><a class="anchor" id="autotoc_md54"></a>
 Disassembly</h2>
 <p >How to remove props</p>
 <p >How to remove FC</p>
 <p >How to remove other thigns</p>
-<h2><a class="anchor" id="autotoc_md56"></a>
+<h2><a class="anchor" id="autotoc_md55"></a>
 Manufactured Parts</h2>
 <p >Details on 3D printed parts and the files (physically provide them in the repo)</p>
 <p >Specific material proeprties and alternatives</p>
-<h2><a class="anchor" id="autotoc_md57"></a>
+<h2><a class="anchor" id="autotoc_md56"></a>
 Drone Specifications</h2>
 <p >Just a big list on the drone specs (like in drone details) </p>
 </div></div><!-- contents -->

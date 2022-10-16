@@ -6,37 +6,46 @@
 
 ## Outline
 
-// What this contains
+The on-board software refers to the program flashed onto the ESP32 Microcontroller present on the AS7 Electronics and Sensor Package. This is located underneath the drone. 
 
-// what sort of software do we use -- e.g. mission planner
+This document provides an overview of the primary features on the drone. It includes the process before a flight, during, and after, alongside software configuration.
 
-// the configuration for the drone
-
-// assumption -- this iS SPECIFICALLY FOR AS7
-
-
+The drone will come with a software configuration already loaded onto the ESP32. Even if development is not required, the [Arduino IDE](https://www.arduino.cc/en/software/) is recommended to interface with the Serial transmissions from the drone for fault diagnostics.
 
 ## Before flight
 
+Preparing for a survey flight includes inspection of the drone hardware and ensuring all equipment is set up. 
+
+
+
+
+
 * Contains operating features, concerns for data gathering, and why do one thing or another things
 
-### Operating Features
+* 
 
-* The remote, its controls, and the specific channel guides
-* Battery, charging, and correct mounting
-* Hardware inspections and checks
-* Pre flight checklist
+### Remote Control System
 
-#### Remote Control System
+The Remote Control (RC) system is consists of a transmitter and receiver. The transmitter is the handheld ‘remote control’ and is also known as the “TX”. The Receiver is located on the drone located above the communications lights and is known as the “RX”. 
+
+
 
 * The control system is composed of the remote control transmitter (the tx) and the receiver on the drop (rx)
 * The control has the following channels
   * channel descriptions
   * There are channels on the sbus specification that aren't being used
   * channels can be configured to this and that
-  * 
 
-#### Drone Battery and Charging
+
+
+
+
+* The remote, its controls, and the specific channel guides
+* Battery, charging, and correct mounting
+* Hardware inspections and checks
+* Pre flight checklist
+
+### Drone Battery and Charging
 
 goes over the parts of the system that needs to be charged
 
@@ -55,19 +64,31 @@ Using the multifunctional kit
 
 
 
-#### Recommended Hardware Inspection
+### Recommended Hardware Inspection
 
-* the drone hardware should be chcked and tightened before each flight
-* all the drone uses M2 and M2.5 allen keys
-* the propellers should be mounetd in the following configuration
+1. Inspect the Drone Frame for any damage
+2. Inspect the 3D printed parts for any damage. Ensure that the locking bolts on all four drone legs are pushed in as far as they can or held in securely with a nut.
+3. Tighten all nuts on the drone to ensure that none are loose. They can be tightened using a 2mm or 2.5mm Allen Key.
+4. Ensure that there are no loose wires in the main electronics package. 
+5. Follow the wires from the package and ensure that they are connected to the following modules:
+   1. The communication lights
+   2. The Flight Controller
+   3. The Compass and Accelerometer Modules
+   4. All 6 Ultrasonic Sensors
 
-#### The Pre-Flight Checklist
-
-the drone goes through a pre flight checklist before opreation, however, many of these have been disable for use in underground and gps denied environments
-
-It should be noted that the drone accelerometer and drone compass are independent of the ones present on the flight controller. Thus, the drone is capable of flight without the compass and accelrometer modules attached to the main pcb. as they are used for data collection, you won' be able to gather that specific data without the module present.
+6. Ensure the propellers are securely mounted onto the motors. The propellers can be removed using a 6mm Hex Socket
 
 
+
+The propellers should be mounted in the following layout:
+
+<center><img src="https://ardupilot.org/copter/_images/motororder-quad-x-2d.png" alt="Drone Propeller Configuration" width="400" /></center>
+
+#### The Pre-Flight Checklist, External Compass, and Accelerometer
+
+Conventional drones complete a pre-flight checklist before operation, however, this is not the case with AS7. Given the GPS-denied nature of the drone, these interlocks have been disabled. Thus the only requirement for arming is that a battery and motors be present.
+
+The electronics package contains an accelerometer and compass, in addition to the ones mounted on the flight controller. These operate independently of the flight system and are not required for flight. They are, however, used for data collection and position estimation for the 3D map.
 
 ### Data Gathering and Hardware Features
 
@@ -84,22 +105,23 @@ The data is gathered from the following sources:
 * the compass
 * the internal clock from the esp32
 
-### Arming and Flight set up
+### Arming and Flight Setup
 
-After all pre flight checks are done, the drone can be set down, armed, and then flown.
+Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-flight checks are done, strap the battery to the drone **but to not plug it in**. The transmitter should be kept **off** until the operator is ready to start the mission.
 
-The process is as follows:
+Place the drone down in the mission area in the intended orientation. The battery should then be plugged in the the operator should hear a series of beeps.  
 
-1. Strap the battery securely onto the donr but do not flug it in
-2. Place the drone down with the signal lights facing rear
+> There should be a three start-up beeps, followed by two pairs of beeps. The drone is only ready after the second set of beeps.
 
+The drone will start flashing the communication lights on the rear. Once the drone is ready, the lights should flash blue on and off.
 
+The remote control should be turned on **only when the operator is ready to start the mission**. The drone will remain interlocked if the remote control is off. To start the mission, flick the left position switch to the middle position. This is the start command for the drone.
+
+In case of an **emergency** or to stop the drone abruptly, **press and hold the middle button**. This button is under the power button on the remote control.
 
 #### The Remote Interlock
 
-As part of the safety feature set, the drone will not allow arming unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.
-
-
+As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.
 
 ## During Flight
 
