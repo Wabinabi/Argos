@@ -1,1 +1,151 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md8}{}\doxysubsection{test start}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md8}
+\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md28}{}\doxysection{Table of Contents}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md28}
+\mbox{[}toc\mbox{]}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md29}{}\doxysection{Outline}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md29}
+// What this contains
+
+// what sort of software do we use -- e.\+g. mission planner
+
+// the configuration for the drone
+
+// assumption -- this iS SPECIFICALLY FOR \mbox{\hyperlink{namespace_a_s7}{AS7}}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md30}{}\doxysection{Before flight}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md30}
+
+\begin{DoxyItemize}
+\item Contains operating features, concerns for data gathering, and why do one thing or another things
+\end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md31}{}\doxysubsection{Operating Features}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md31}
+
+\begin{DoxyItemize}
+\item The remote, its controls, and the specific channel guides
+\item Battery, charging, and correct mounting
+\item Hardware inspections and checks
+\item Pre flight checklist
+\end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md32}{}\doxysubsubsection{Remote Control System}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md32}
+
+\begin{DoxyItemize}
+\item The control system is composed of the remote control transmitter (the tx) and the receiver on the drop (rx)
+\item The control has the following channels
+\begin{DoxyItemize}
+\item channel descriptions
+\item There are channels on the sbus specification that aren\textquotesingle{}t being used
+\item channels can be configured to this and that
+\item 
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md33}{}\doxysubsubsection{Drone Battery and Charging}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md33}
+goes over the parts of the system that needs to be charged\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md34}{}\doxyparagraph{Charging the Remote}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md34}
+using micro B\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md35}{}\doxyparagraph{Charging the Drone Batteries}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md35}
+Using the multifunctional kit\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md36}{}\doxyparagraph{Drone Battery Specifications}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md36}
+
+\begin{DoxyItemize}
+\item the drone batteries must be between 4S-\/6S Poly
+\item Ideally above a certain C value
+\end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md37}{}\doxysubsubsection{Recommended Hardware Inspection}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md37}
+
+\begin{DoxyItemize}
+\item the drone hardware should be chcked and tightened before each flight
+\item all the drone uses M2 and M2.\+5 allen keys
+\item the propellers should be mounetd in the following configuration
+\end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md38}{}\doxysubsubsection{The Pre-\/\+Flight Checklist}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md38}
+the drone goes through a pre flight checklist before opreation, however, many of these have been disable for use in underground and gps denied environments
+
+It should be noted that the drone accelerometer and drone compass are independent of the ones present on the flight controller. Thus, the drone is capable of flight without the compass and accelrometer modules attached to the main pcb. as they are used for data collection, you won\textquotesingle{} be able to gather that specific data without the module present.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md39}{}\doxysubsection{Data Gathering and Hardware Features}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md39}
+
+\begin{DoxyItemize}
+\item SD card set up
+\item US sensors and their details
+\item Compass and accel details
+\end{DoxyItemize}
+
+The main PCV mainly focuses on data gathering and drone control. Data gathered from the drone is written onto the Sd card in batches
+
+The data is gathered from the following sources\+:
+
+
+\begin{DoxyItemize}
+\item the ultrasonic sensors
+\item the accelerometers
+\item the compass
+\item the internal clock from the esp32
+\end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md40}{}\doxysubsection{Arming and Flight set up}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md40}
+After all pre flight checks are done, the drone can be set down, armed, and then flown.
+
+The process is as follows\+:
+
+
+\begin{DoxyEnumerate}
+\item Strap the battery securely onto the donr but do not flug it in
+\item Place the drone down with the signal lights facing rear
+\end{DoxyEnumerate}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md41}{}\doxysubsubsection{The Remote Interlock}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md41}
+As part of the safety feature set, the drone will not allow arming unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md42}{}\doxysection{During Flight}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md42}
+this section mostly details with things that could happen in flight, how do what the lights mean, and how to get out of flight\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md43}{}\doxysubsection{Flight modes}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md43}
+the drone has primary modes --- automated mode and operator override.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md44}{}\doxysubsubsection{Automated Flight}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md44}
+In automated mode, the drone will follow its internal instructions and aim to execute them. these are loaded on drone start-\/up.
+
+Drone commands are enqueued on an internal stack and are executed first in last out. Dorne commands are composed of the following\+:
+
+
+\begin{DoxyItemize}
+\item A drone comamnd type, typically blind, guided, or arming
+\item A duration dor the command
+\item Drone command parameters.
+\end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md45}{}\doxysubsubsection{Drone Command Parameters}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md45}
+The drone has 6 degrees of freedom\+:
+
+
+\begin{DoxyItemize}
+\item X (Forward/backward)
+\item Y (Sideways)
+\item Z (Up/\+Down)
+\item Pitch (Point Nose up/down)
+\item Roll (Sway Side to Side)
+\item Yaw (Rotate/\+Turn)
+\end{DoxyItemize}
+
+On a quadcopter, pitch and roll are not directly controllable. For each axis, A drone command has parameter for position and velocity. Thus there are 12 parameters, of which 4 are not directly controllable.
+
+The command parameters are used differently depending on the type of the command\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md46}{}\doxysubsubsection{Blind Commands}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md46}
+Blind commands represent a configuration of the remote control. the blind commands only use velocity parameters, and map directly to the remote control.
+
+For example, setting a {\ttfamily drone\+Command.\+v\+\_\+x} to {\ttfamily 0.\+2f} represents the right hand side forward stick at the 20\% position.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md47}{}\doxysubsubsection{Guided Commands}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md47}
+Guided commands represent a guided operation of the drone using the on-\/board instruments. The current implementation of guided commands use the four available parameters for tunnel-\/based operation.
+
+
+\begin{DoxyItemize}
+\item In the X (forward) axis, the drone operates on blind velocity control, representing a blind movement forward
+\item In the Y (sideways) axis, the drone aims to avoid obstacles using the left and right ultrasonic sensors for collision detection. The sideways input is a weighted average of the two values, representing a tendency to balance both measurements. No command parameter is used for this at current.
+\item In the Z (upwards) axis, the drone aims to hold a position about the ground through PID control. The command parameter uses {\ttfamily drone\+Command.\+p\+\_\+z} in centimetres. The vertical thrust of the system is adjusted based on the measurement of the bottom sensor.
+\end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md48}{}\doxysubsubsection{Operator Override Mode}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md48}
+In operator override mode, the drone will not respond to internal commands and will be directly controllable as per normal drone oepration.
+
+In this mode, the PCB and main microcontroller pass through signals from the receiver directly\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md49}{}\doxysubsubsection{Emergency Stop}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md49}
+In an emergency situation, the drone can be stopped using the provided emergency stop button. In the current implementation, this function is bound to the central button on the remote control.
+
+When pressed and held, the emergency stop will interlock drone command, setting all output channels to zero and disallowing further commands. The drone will then move to a faulted state, in which it will not respond to any further commands. Only pressing the reset button on the main PCB will release the emergency stop.
+
+it should be noted that the drone may not stop its propellers under emergency stop.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md50}{}\doxysubsection{Communication Signals (\+Lights)}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md50}
+\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md51}{}\doxysubsection{Data gathering Details}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md51}
+mention base software here\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md52}{}\doxysubsection{Automated Flight Details}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md52}
+\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md53}{}\doxysection{Software Features}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md53}
+Automated flgiht ramping and details
+
+
+\begin{DoxyItemize}
+\item this details the flight and communication system
+\end{DoxyItemize}
+
+Logging and data capture
+
+SBUS details
+
+Communication protocols
+
+SD configuration\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md54}{}\doxysection{Maintenance}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md54}
+General details on keeping drone clean
+
+Notes on specific fragile parts\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md55}{}\doxysubsection{Disassembly}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md55}
+How to remove props
+
+How to remove FC
+
+How to remove other thigns\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md56}{}\doxysubsection{Manufactured Parts}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md56}
+Details on 3D printed parts and the files (physically provide them in the repo)
+
+Specific material proeprties and alternatives\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md57}{}\doxysubsection{Drone Specifications}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md57}
+Just a big list on the drone specs (like in drone details) 

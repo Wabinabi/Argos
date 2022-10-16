@@ -101,11 +101,13 @@ $(document).ready(function(){initNavTree('namespace_a_s7.html',''); initResizabl
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html">Drone</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The drone model and control class for the physical <a class="el" href="namespace_a_s7.html">AS7</a> <a class="el" href="class_a_s7_1_1_drone.html" title="The drone model and control class for the physical AS7 Drone.">Drone</a>.  <a href="class_a_s7_1_1_drone.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_a_s7_1_1_drone_command.html">DroneCommand</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ecapsulates commands to be carried out by drone.  <a href="struct_a_s7_1_1_drone_command.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html">Logger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The threaded logging module for drone with both Serial and SD capability.  <a href="class_a_s7_1_1_logger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
@@ -115,6 +117,7 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespace_a_s7.html#aa12774c158a129fcda3ca5f80679b38ea499697cfe1af1155cfe3af60f4b4bd3b">Landing</a>
 , <a class="el" href="namespace_a_s7.html#aa12774c158a129fcda3ca5f80679b38eacb1149b5d772ba5bc49e95194bf1df36">Arm</a>
  }</td></tr>
+<tr class="memdesc:aa12774c158a129fcda3ca5f80679b38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command types for the DroneCommand Struct.  <a href="namespace_a_s7.html#aa12774c158a129fcda3ca5f80679b38e">More...</a><br /></td></tr>
 <tr class="separator:aa12774c158a129fcda3ca5f80679b38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -129,11 +132,17 @@ Enumerations</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Command types for the <a class="el" href="struct_a_s7_1_1_drone_command.html" title="Ecapsulates commands to be carried out by drone.">DroneCommand</a> Struct. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa12774c158a129fcda3ca5f80679b38eaafaf5fea89076ddc3d14865e4ed43b30" name="aa12774c158a129fcda3ca5f80679b38eaafaf5fea89076ddc3d14865e4ed43b30"></a>Blind&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa12774c158a129fcda3ca5f80679b38ea3df5cbcdac0994913922c2a2427052de" name="aa12774c158a129fcda3ca5f80679b38ea3df5cbcdac0994913922c2a2427052de"></a>Guided&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa12774c158a129fcda3ca5f80679b38ea499697cfe1af1155cfe3af60f4b4bd3b" name="aa12774c158a129fcda3ca5f80679b38ea499697cfe1af1155cfe3af60f4b4bd3b"></a>Landing&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa12774c158a129fcda3ca5f80679b38eacb1149b5d772ba5bc49e95194bf1df36" name="aa12774c158a129fcda3ca5f80679b38eacb1149b5d772ba5bc49e95194bf1df36"></a>Arm&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa12774c158a129fcda3ca5f80679b38eaafaf5fea89076ddc3d14865e4ed43b30" name="aa12774c158a129fcda3ca5f80679b38eaafaf5fea89076ddc3d14865e4ed43b30"></a>Blind&#160;</td><td class="fielddoc"><p >A blind command representing a state that the transmmitter could be in. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa12774c158a129fcda3ca5f80679b38ea3df5cbcdac0994913922c2a2427052de" name="aa12774c158a129fcda3ca5f80679b38ea3df5cbcdac0994913922c2a2427052de"></a>Guided&#160;</td><td class="fielddoc"><p >A guided operation using in-built position control and collision avoidance. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa12774c158a129fcda3ca5f80679b38ea499697cfe1af1155cfe3af60f4b4bd3b" name="aa12774c158a129fcda3ca5f80679b38ea499697cfe1af1155cfe3af60f4b4bd3b"></a>Landing&#160;</td><td class="fielddoc"><p >A command to land the drone softly, using sensors where possible. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa12774c158a129fcda3ca5f80679b38eacb1149b5d772ba5bc49e95194bf1df36" name="aa12774c158a129fcda3ca5f80679b38eacb1149b5d772ba5bc49e95194bf1df36"></a>Arm&#160;</td><td class="fielddoc"><p >An arming command recognised by the flight controller to start drone propellers and enable drone flight. </p>
+</td></tr>
 </table>
 
 </div>

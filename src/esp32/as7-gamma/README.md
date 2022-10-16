@@ -1,51 +1,82 @@
 # Argous S7: Autonomous Mine Surveying Drone
 
-The Argous S7 (AS7) Project is the design and implementation of an autonomous mine surveying drone for a Swinburne University Final Year Project.
+The Argous Sector 7 (AS7) Project is the design and implementation of an autonomous mine surveying drone for a Swinburne University Final Year Project. The main repository can be found here: https://github.com/Wabinabi/Argous
 
 ## Outline
 
-The AS7 project contains two parts: the on-board and off-board software The on-board software is loaded onto the ESP32 and is responsible for the main control and collection of data. The off-board software runs on Windows 10 and provides data visualisation and diagnostics for the drone.
+The project is composed of the following modules:
+
+* The AS7 Quadcopter, which itself is composed of:
+  * A modified Sector 7 Racing Drone
+  * An accompanying electronics and sensor package mounted under the drone containing the ‘on-board software’, documented within the AS7 Namespace
+* The AS7 Base Station Software, or ‘Off-board software’
+
+
+
+Configuration and source files can be found in the following locations:
 
 * On-board software can be found under `src/esp32`
 * Off-board software can be found under `src/win10`
 * ArduPilot configuration can be found under `src/ardupilot`
 
-
-
-==This section mostly focuses on what details are where==
-
-* This document goes through install
-* The other two go through user and more details
-
-
-
-NOTE: USE THIS FOR TOC https://ecotrust-canada.github.io/markdown-toc/
-
 ## Table of contents
 
 [toc]
 
-## Getting started
+A full index of AS7 on-board terms can be found in [File Members](globals.html).
 
+## Getting started for surveying
 
+For surveying use, the AS7 drone comes pre-flashed with the on-board software with details configurable through the SD card. 
 
-### Environment and Set up
+### Base Station Software
 
-* Win10 and software used
-* Ardupilot and the speecific firmware used
-* ESP Devkit C
+The Base Station Software requires Windows 10 or newer to operate. It can be downloaded from the releases section of the [GitHub Repository](https://github.com/Wabinabi/Argous). 
+
+### Mission Planner
+
+The Flight Controller on AS7 uses [ArduPilot](https://ardupilot.org/) for flight control. It can be configured through [Mission Planner](https://ardupilot.org/planner/). Installation instructions for Mission Planner can be found [here](https://ardupilot.org/planner/docs/mission-planner-installation.html)
+
+## Getting started for development
+
+All source code can be found in the [GitHub Repository](https://github.com/Wabinabi/Argous), under the ‘src’ (source) folder. 
 
 ### On Board Software
 
-#### Microcontroller and IDE
+The On-Board software is written within the [Arduino IDE](https://www.arduino.cc/en/software/) with the ESP32 Dev Kit. 
+
+#### Adding the ESP32 to the Arduino IDE
+
+The add-on for the Arduino IDE can be found by adding the ESP32 Library URL to the Additional Board Manager:
+
+1. Head to `file` -> `preferences` and add the following to *Additional Board Manager URLs*
+   1. `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
+2. Press OK, and head to `Tools` -> `Board:…` -> `Boards Manager`. Searching for ESP32 should show the library package.
+3. Hit install, and you should be able to see `ESP32 Dev Kit` under `Boards.`
+
+A more extensive guide can be found [here](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/).
 
 #### Required Dependencies and Libraries
 
+The on-board software requires the following libraries:
 
+* [BFS Sbus](https://github.com/bolderflight/sbus)
+* [FASTLed](https://github.com/FastLED/FastLED)
+* (Compass and Accel)
+
+These libraries can be installed by:
+
+1. Going to `Tools` in the top bar and opening `Manage Libraries`.
+2. Search for the above libraries and hit `Install`.
+3. The libraries should be installed
+
+To verify library installation, they can be found under `C:\Users\<<Your Username>>\Documents\Arduino\libraries`.
 
 ### Off Board Software
 
 #### Qt Configuration
+
+
 
 #### Documentation Generation with Doxygen
 

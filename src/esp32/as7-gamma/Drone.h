@@ -53,7 +53,13 @@
 
 namespace AS7 
 {
-    enum DroneCommandType {Blind, Guided, Landing, Arm};
+    /// @brief Command types for the DroneCommand Struct
+    enum DroneCommandType { 
+        Blind/// A blind command representing a state that the transmmitter could be in
+        , Guided /// A guided operation using in-built position control and collision avoidance
+        , Landing /// A command to land the drone softly, using sensors where possible
+        , Arm /// An arming command recognised by the flight controller to start drone propellers and enable drone flight.
+        };
 
     /**
      * @brief Ecapsulates commands to be carried out by drone
@@ -158,6 +164,21 @@ namespace AS7
         bool dataRecording; // indicates if the drone should record data, used to synchronise sensors and current drone state
     } DroneCommand;
 
+    /**
+     * @brief The drone model and control class for the physical AS7 Drone.
+     * 
+     * The drone class handles communication and translation of the SBUS interface for controlling the drone programmatically.
+     * Built within the drone class is the drone command queue, interpreting a set of commands and transmitting them to an accompanying flight controller for flight. This module allows for guided control with sensors recording the current environment state.
+     * 
+     * Features of the drone class include:
+     * 
+     * * Filtering SBUS Frames to ensure smooth and clean communication
+     * * Flexible SBUS channels with lower/upper control limits and toggles for absolute channels
+     * * Ramping rates (similar to soft starts) for channels for smooth and precise control
+     * * A drone command interface for interpreted instructions
+     * * Guided drone commands for semi-autonomous flight
+     * * Task-based (threaded) application for continuous control of the drone 
+     */
     class Drone
     {
     private:

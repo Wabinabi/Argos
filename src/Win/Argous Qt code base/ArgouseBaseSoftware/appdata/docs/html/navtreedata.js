@@ -26,13 +26,90 @@ var NAVTREE =
 [
   [ "AS7 On-Board Software", "index.html", [
     [ "Argous S7: Autonomous Mine Surveying Drone", "index.html", [
-      [ "Outline", "index.html#autotoc_md10", null ],
-      [ "To implement in this README:", "index.html#autotoc_md11", [
-        [ "Future Improvements", "index.html#autotoc_md12", null ]
+      [ "Outline", "index.html#autotoc_md59", null ],
+      [ "Table of contents", "index.html#autotoc_md60", null ],
+      [ "Getting started for surveying", "index.html#autotoc_md61", [
+        [ "Base Station Software", "index.html#autotoc_md62", null ],
+        [ "Mission Planner", "index.html#autotoc_md63", null ]
+      ] ],
+      [ "Getting started for development", "index.html#autotoc_md64", [
+        [ "On Board Software", "index.html#autotoc_md65", [
+          [ "Adding the ESP32 to the Arduino IDE", "index.html#autotoc_md66", null ],
+          [ "Required Dependencies and Libraries", "index.html#autotoc_md67", null ]
+        ] ],
+        [ "Off Board Software", "index.html#autotoc_md68", [
+          [ "Qt Configuration", "index.html#autotoc_md69", null ],
+          [ "Documentation Generation with Doxygen", "index.html#autotoc_md70", null ]
+        ] ]
+      ] ],
+      [ "Credits", "index.html#autotoc_md71", null ],
+      [ "License", "index.html#autotoc_md72", null ],
+      [ "Authors", "index.html#autotoc_md73", null ]
+    ] ],
+    [ "AS7 Off-Board Software User Guide", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html", [
+      [ "Table of Contents", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md8", null ],
+      [ "Outline", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md9", null ],
+      [ "Importing Drone Data", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md10", [
+        [ "Locating the SD Card on the Drone", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md11", null ],
+        [ "Importing from folders", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md12", null ]
+      ] ],
+      [ "Viewing Trip Details", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md13", [
+        [ "Using the 3D Scatter Plot", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md14", null ],
+        [ "Viewing events", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md15", null ],
+        [ "Locating information", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md16", null ]
+      ] ],
+      [ "Exporting 3D Map", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md17", [
+        [ "File Format", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md18", null ],
+        [ "Export Location", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md19", null ]
+      ] ],
+      [ "Software Features and Application Data", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md20", [
+        [ "Errors and Error Codes", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md21", null ],
+        [ "Drone configuration", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md22", null ],
+        [ "Lifetime measurements", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md23", null ],
+        [ "Maintenance Recommendations", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md24", null ],
+        [ "Recent Files", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md25", null ],
+        [ "Using the AS7 Document Reference", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md26", null ]
       ] ]
     ] ],
-    [ "Off-Board Software", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html", null ],
-    [ "On-Board Software", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html", null ],
+    [ "AS7 On-Board Software User Guide", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html", [
+      [ "Table of Contents", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md28", null ],
+      [ "Outline", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md29", null ],
+      [ "Before flight", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md30", [
+        [ "Operating Features", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md31", [
+          [ "Remote Control System", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md32", null ],
+          [ "Drone Battery and Charging", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md33", [
+            [ "Charging the Remote", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md34", null ],
+            [ "Charging the Drone Batteries", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md35", null ],
+            [ "Drone Battery Specifications", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md36", null ]
+          ] ],
+          [ "Recommended Hardware Inspection", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md37", null ],
+          [ "The Pre-Flight Checklist", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md38", null ]
+        ] ],
+        [ "Data Gathering and Hardware Features", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md39", null ],
+        [ "Arming and Flight set up", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md40", [
+          [ "The Remote Interlock", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md41", null ]
+        ] ]
+      ] ],
+      [ "During Flight", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md42", [
+        [ "Flight modes", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md43", [
+          [ "Automated Flight", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md44", null ],
+          [ "Drone Command Parameters", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md45", null ],
+          [ "Blind Commands", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md46", null ],
+          [ "Guided Commands", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md47", null ],
+          [ "Operator Override Mode", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md48", null ],
+          [ "Emergency Stop", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md49", null ]
+        ] ],
+        [ "Communication Signals (Lights)", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md50", null ],
+        [ "Data gathering Details", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md51", null ],
+        [ "Automated Flight Details", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md52", null ]
+      ] ],
+      [ "Software Features", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md53", null ],
+      [ "Maintenance", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md54", [
+        [ "Disassembly", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md55", null ],
+        [ "Manufactured Parts", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md56", null ],
+        [ "Drone Specifications", "md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#autotoc_md57", null ]
+      ] ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -68,7 +145,7 @@ var NAVTREEINDEX =
 [
 "_drone_8cpp.html",
 "class_a_s7_1_1_drone.html#a42d4d86670c346130a10fbdbb3a4d3bb",
-"struct_a_s7_1_1_drone_command.html#ace167d5320a1dc6a3aaf5318faad3931"
+"class_a_s7_1_1_logger.html#ac529e991fcf56f2996058ff1bd34e9c6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

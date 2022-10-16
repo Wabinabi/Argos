@@ -1,28 +1,68 @@
 \label{index_md_H__repos_Argous_src_esp32_as7_gamma_README}%
 \Hypertarget{index_md_H__repos_Argous_src_esp32_as7_gamma_README}%
- The Argous S7 (\mbox{\hyperlink{namespace_a_s7}{AS7}}) Project is the design and implementation of an autonomous mine surveying drone for a Swinburne University Final Year Project.\hypertarget{index_autotoc_md10}{}\doxysection{Outline}\label{index_autotoc_md10}
-The \mbox{\hyperlink{namespace_a_s7}{AS7}} project contains two parts\+: the on-\/board and off-\/board software The on-\/board software is loaded onto the ESP32 and is responsible for the main control and collection of data. The off-\/board software runs on Windows 10 and provides data visualisation and diagnostics for the drone.
+ The Argous Sector 7 (\mbox{\hyperlink{namespace_a_s7}{AS7}}) Project is the design and implementation of an autonomous mine surveying drone for a Swinburne University Final Year Project. The main repository can be found here\+: \href{https://github.com/Wabinabi/Argous}{\texttt{ https\+://github.\+com/\+Wabinabi/\+Argous}}\hypertarget{index_autotoc_md59}{}\doxysection{Outline}\label{index_autotoc_md59}
+The project is composed of the following modules\+:
+
+
+\begin{DoxyItemize}
+\item The \mbox{\hyperlink{namespace_a_s7}{AS7}} Quadcopter, which itself is composed of\+:
+\begin{DoxyItemize}
+\item A modified Sector 7 Racing Drone
+\item An accompanying electronics and sensor package mounted under the drone containing the ‘on-\/board software’, documented within the \mbox{\hyperlink{namespace_a_s7}{AS7}} Namespace
+\end{DoxyItemize}
+\item The \mbox{\hyperlink{namespace_a_s7}{AS7}} Base Station Software, or ‘\+Off-\/board software’
+\end{DoxyItemize}
+
+Configuration and source files can be found in the following locations\+:
 
 
 \begin{DoxyItemize}
 \item On-\/board software can be found under {\ttfamily src/esp32}
 \item Off-\/board software can be found under {\ttfamily src/win10}
 \item Ardu\+Pilot configuration can be found under {\ttfamily src/ardupilot}
-\end{DoxyItemize}\hypertarget{index_autotoc_md11}{}\doxysection{To implement in this README\+:}\label{index_autotoc_md11}
+\end{DoxyItemize}\hypertarget{index_autotoc_md60}{}\doxysection{Table of contents}\label{index_autotoc_md60}
+\mbox{[}toc\mbox{]}
+
+A full index of \mbox{\hyperlink{namespace_a_s7}{AS7}} on-\/board terms can be found in \href{globals.html}{\texttt{ File Members}}.\hypertarget{index_autotoc_md61}{}\doxysection{Getting started for surveying}\label{index_autotoc_md61}
+For surveying use, the \mbox{\hyperlink{namespace_a_s7}{AS7}} drone comes pre-\/flashed with the on-\/board software with details configurable through the SD card.\hypertarget{index_autotoc_md62}{}\doxysubsection{Base Station Software}\label{index_autotoc_md62}
+The Base Station Software requires Windows 10 or newer to operate. It can be downloaded from the releases section of the \href{https://github.com/Wabinabi/Argous}{\texttt{ Git\+Hub Repository}}.\hypertarget{index_autotoc_md63}{}\doxysubsection{Mission Planner}\label{index_autotoc_md63}
+The Flight Controller on \mbox{\hyperlink{namespace_a_s7}{AS7}} uses \href{https://ardupilot.org/}{\texttt{ Ardu\+Pilot}} for flight control. It can be configured through \href{https://ardupilot.org/planner/}{\texttt{ Mission Planner}}. Installation instructions for Mission Planner can be found \href{https://ardupilot.org/planner/docs/mission-planner-installation.html}{\texttt{ here}}\hypertarget{index_autotoc_md64}{}\doxysection{Getting started for development}\label{index_autotoc_md64}
+All source code can be found in the \href{https://github.com/Wabinabi/Argous}{\texttt{ Git\+Hub Repository}}, under the ‘src’ (source) folder.\hypertarget{index_autotoc_md65}{}\doxysubsection{On Board Software}\label{index_autotoc_md65}
+The On-\/\+Board software is written within the \href{https://www.arduino.cc/en/software/}{\texttt{ Arduino IDE}} with the ESP32 Dev Kit.\hypertarget{index_autotoc_md66}{}\doxysubsubsection{Adding the ESP32 to the Arduino IDE}\label{index_autotoc_md66}
+The add-\/on for the Arduino IDE can be found by adding the ESP32 Library URL to the Additional Board Manager\+:
+
+
+\begin{DoxyEnumerate}
+\item Head to {\ttfamily file} -\/\texorpdfstring{$>$}{>} {\ttfamily preferences} and add the following to {\itshape Additional Board Manager URLs}
+\begin{DoxyEnumerate}
+\item {\ttfamily \href{https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json}{\texttt{ https\+://raw.\+githubusercontent.\+com/espressif/arduino-\/esp32/gh-\/pages/package\+\_\+esp32\+\_\+index.\+json}}}
+\end{DoxyEnumerate}
+\item Press OK, and head to {\ttfamily Tools} -\/\texorpdfstring{$>$}{>} {\ttfamily Board\+:…} -\/\texorpdfstring{$>$}{>} {\ttfamily Boards Manager}. Searching for ESP32 should show the library package.
+\item Hit install, and you should be able to see {\ttfamily ESP32 Dev Kit} under {\ttfamily Boards.}
+\end{DoxyEnumerate}
+
+A more extensive guide can be found \href{https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/}{\texttt{ here}}.\hypertarget{index_autotoc_md67}{}\doxysubsubsection{Required Dependencies and Libraries}\label{index_autotoc_md67}
+The on-\/board software requires the following libraries\+:
+
 
 \begin{DoxyItemize}
-\item A higher level overview of the goals of this project
-\item Documenting the files supplied in {\ttfamily docs}
-\item Photos and diagrams
-\item Raw data collected from drone
-\item Acknowledgements
-\item License for this repo
-\end{DoxyItemize}\hypertarget{index_autotoc_md12}{}\doxysubsection{Future Improvements}\label{index_autotoc_md12}
-With additional time, the following improvements or features could be added\+:
-
-
-\begin{DoxyItemize}
-\item \mbox{[} \mbox{]} Code Documentation generated through Doxygen
-\item \mbox{[} \mbox{]} More guided commands and not just tunnel-\/flight
-\item \mbox{[} \mbox{]} Reading drone commands from the SD card using keywords in a text file 
+\item \href{https://github.com/bolderflight/sbus}{\texttt{ BFS Sbus}}
+\item \href{https://github.com/FastLED/FastLED}{\texttt{ FASTLed}}
+\item (Compass and Accel)
 \end{DoxyItemize}
+
+These libraries can be installed by\+:
+
+
+\begin{DoxyEnumerate}
+\item Going to {\ttfamily Tools} in the top bar and opening {\ttfamily Manage Libraries}.
+\item Search for the above libraries and hit {\ttfamily Install}.
+\item The libraries should be installed
+\end{DoxyEnumerate}
+
+To verify library installation, they can be found under {\ttfamily C\+:\textbackslash{}Users\textbackslash{}\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}Your Username\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\textbackslash{}Documents\textbackslash{}Arduino\textbackslash{}libraries}.\hypertarget{index_autotoc_md68}{}\doxysubsection{Off Board Software}\label{index_autotoc_md68}
+\hypertarget{index_autotoc_md69}{}\doxysubsubsection{Qt Configuration}\label{index_autotoc_md69}
+\hypertarget{index_autotoc_md70}{}\doxysubsubsection{Documentation Generation with Doxygen}\label{index_autotoc_md70}
+\hypertarget{index_autotoc_md71}{}\doxysection{Credits}\label{index_autotoc_md71}
+\hypertarget{index_autotoc_md72}{}\doxysection{License}\label{index_autotoc_md72}
+\hypertarget{index_autotoc_md73}{}\doxysection{Authors}\label{index_autotoc_md73}

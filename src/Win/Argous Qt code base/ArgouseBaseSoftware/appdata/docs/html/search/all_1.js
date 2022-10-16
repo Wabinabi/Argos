@@ -32,8 +32,10 @@ var searchData=
   ['arming_5fdisarming_29',['ARMING_DISARMING',['../as7-gamma_8ino.html#aac8d0f36e4b65832f446fa8b2c8262cfa9a6af90317539b700a1bbf957dd78773',1,'as7-gamma.ino']]],
   ['armonly_30',['ArmOnly',['../as7-gamma_8ino.html#a5fa1839f90707a21ee55dc013e222c1ea351029b82a2c6a942b73ddfa1567ecf2',1,'as7-gamma.ino']]],
   ['as7_31',['AS7',['../namespace_a_s7.html',1,'']]],
-  ['as7_2dgamma_2eino_32',['as7-gamma.ino',['../as7-gamma_8ino.html',1,'']]],
-  ['as7drone_33',['AS7DRONE',['../_drone_8h.html#a6106bf4a8f80867a7568d29115f9d9d8',1,'Drone.h']]],
-  ['as7sdlogging_5fh_34',['AS7SDLOGGING_H',['../_sd_logger_8h.html#ac50822d1bc3b81edfc36209eb2525f21',1,'SdLogger.h']]],
-  ['autostraightline_35',['AutoStraightLine',['../as7-gamma_8ino.html#a5fa1839f90707a21ee55dc013e222c1eafeb18f4796965b7af3bb84228e0e2254',1,'as7-gamma.ino']]]
+  ['as7_20off_2dboard_20software_20user_20guide_32',['AS7 Off-Board Software User Guide',['../md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html',1,'']]],
+  ['as7_20on_2dboard_20software_20user_20guide_33',['AS7 On-Board Software User Guide',['../md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html',1,'']]],
+  ['as7_2dgamma_2eino_34',['as7-gamma.ino',['../as7-gamma_8ino.html',1,'']]],
+  ['as7drone_35',['AS7DRONE',['../_drone_8h.html#a6106bf4a8f80867a7568d29115f9d9d8',1,'Drone.h']]],
+  ['as7sdlogging_5fh_36',['AS7SDLOGGING_H',['../_sd_logger_8h.html#ac50822d1bc3b81edfc36209eb2525f21',1,'SdLogger.h']]],
+  ['autostraightline_37',['AutoStraightLine',['../as7-gamma_8ino.html#a5fa1839f90707a21ee55dc013e222c1eafeb18f4796965b7af3bb84228e0e2254',1,'as7-gamma.ino']]]
 ];

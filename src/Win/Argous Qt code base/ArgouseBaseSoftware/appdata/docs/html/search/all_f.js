@@ -30,9 +30,10 @@ var searchData=
   ['start_27',['start',['../class_a_s7_1_1_logger.html#a685065f891d6bbee4036a17b32070656',1,'AS7::Logger::start()'],['../class_a_s7_1_1_drone.html#a97590ac5e8120083b433eaed712e3121',1,'AS7::Drone::start(int core=1, int priority=3)']]],
   ['startctltask_28',['startCtlTask',['../class_a_s7_1_1_drone.html#a1e419f124b95a0725beb463ae22d0778',1,'AS7::Drone']]],
   ['startnavtask_29',['startNavTask',['../class_a_s7_1_1_drone.html#a1821604dbb64afa2696fd4b4b7ae09a4',1,'AS7::Drone']]],
-  ['status_5ffastled_5fpin_30',['STATUS_FASTLED_PIN',['../as7-gamma_8ino.html#a0da32dc70b8b1ae6ff5b9ff2322c3c5b',1,'as7-gamma.ino']]],
-  ['status_5fled_5fbrightness_31',['STATUS_LED_BRIGHTNESS',['../as7-gamma_8ino.html#a0d06b68f5eb9fbaa15c05d4a22f3828f',1,'as7-gamma.ino']]],
-  ['status_5fnum_5fleds_32',['STATUS_NUM_LEDS',['../as7-gamma_8ino.html#a49c5693416bd00651f5f16acac3de2cb',1,'as7-gamma.ino']]],
-  ['status_5fupdate_5fdelay_33',['STATUS_UPDATE_DELAY',['../_drone_8h.html#ac12d67178d91de9e91cb260b89653abb',1,'Drone.h']]],
-  ['stopped_34',['Stopped',['../as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75',1,'as7-gamma.ino']]]
+  ['starttaskimpl_30',['startTaskImpl',['../class_a_s7_1_1_logger.html#afc3c5071670f1799d6f37c765d5a6407',1,'AS7::Logger']]],
+  ['status_5ffastled_5fpin_31',['STATUS_FASTLED_PIN',['../as7-gamma_8ino.html#a0da32dc70b8b1ae6ff5b9ff2322c3c5b',1,'as7-gamma.ino']]],
+  ['status_5fled_5fbrightness_32',['STATUS_LED_BRIGHTNESS',['../as7-gamma_8ino.html#a0d06b68f5eb9fbaa15c05d4a22f3828f',1,'as7-gamma.ino']]],
+  ['status_5fnum_5fleds_33',['STATUS_NUM_LEDS',['../as7-gamma_8ino.html#a49c5693416bd00651f5f16acac3de2cb',1,'as7-gamma.ino']]],
+  ['status_5fupdate_5fdelay_34',['STATUS_UPDATE_DELAY',['../_drone_8h.html#ac12d67178d91de9e91cb260b89653abb',1,'Drone.h']]],
+  ['stopped_35',['Stopped',['../as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75',1,'as7-gamma.ino']]]
 ];

@@ -93,49 +93,198 @@ $(document).ready(function(){initNavTree('class_a_s7_1_1_logger.html',''); initR
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_a_s7_1_1_logger-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">AS7::Logger Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
+<p>The threaded logging module for drone with both Serial and SD capability.  
+ <a href="class_a_s7_1_1_logger.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_sd_logger_8h_source.html">SdLogger.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a90e815eb85abf8d684ccd6e5aabedb6e"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a90e815eb85abf8d684ccd6e5aabedb6e">getLogFile</a> ()</td></tr>
+<tr class="separator:a90e815eb85abf8d684ccd6e5aabedb6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c18346bdaadf7771e024f894b4270f4"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a9c18346bdaadf7771e024f894b4270f4">getDataFile</a> ()</td></tr>
+<tr class="separator:a9c18346bdaadf7771e024f894b4270f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99fe9c588746fc16f09208c3889f2bab"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a99fe9c588746fc16f09208c3889f2bab">getConfigFile</a> ()</td></tr>
+<tr class="separator:a99fe9c588746fc16f09208c3889f2bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6217d1a69304253259c5ad3e199a83c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ab6217d1a69304253259c5ad3e199a83c">openLogFile</a> ()</td></tr>
+<tr class="memdesc:ab6217d1a69304253259c5ad3e199a83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the log file in Append mode.  <a href="class_a_s7_1_1_logger.html#ab6217d1a69304253259c5ad3e199a83c">More...</a><br /></td></tr>
+<tr class="separator:ab6217d1a69304253259c5ad3e199a83c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab6478d747cea5ca88742998a9fe5aeb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#aab6478d747cea5ca88742998a9fe5aeb">openDataFile</a> ()</td></tr>
+<tr class="memdesc:aab6478d747cea5ca88742998a9fe5aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the dat afile in Append mode.  <a href="class_a_s7_1_1_logger.html#aab6478d747cea5ca88742998a9fe5aeb">More...</a><br /></td></tr>
+<tr class="separator:aab6478d747cea5ca88742998a9fe5aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99dd66c52cdc0888e378f3f9985870b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a99dd66c52cdc0888e378f3f9985870b3">closeLogFile</a> ()</td></tr>
+<tr class="separator:a99dd66c52cdc0888e378f3f9985870b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8a9f7c0bd1d94b48fe8f395c324d3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a5a8a9f7c0bd1d94b48fe8f395c324d3a">closeDataFile</a> ()</td></tr>
+<tr class="separator:a5a8a9f7c0bd1d94b48fe8f395c324d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac529e991fcf56f2996058ff1bd34e9c6"><td class="memItemLeft" align="right" valign="top">Print *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ac529e991fcf56f2996058ff1bd34e9c6">getPrinter</a> ()</td></tr>
+<tr class="separator:ac529e991fcf56f2996058ff1bd34e9c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a385b9fa7b683a84d8d54bdb6fd3e8235"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a385b9fa7b683a84d8d54bdb6fd3e8235">getTestMessage</a> ()</td></tr>
+<tr class="separator:a385b9fa7b683a84d8d54bdb6fd3e8235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3a037f97512e687f6c0210a54d2cc89"><td class="memItemLeft" align="right" valign="top">std::queue&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ad3a037f97512e687f6c0210a54d2cc89">getMsgQueue</a> ()</td></tr>
+<tr class="separator:ad3a037f97512e687f6c0210a54d2cc89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb527457a023f418af6af19d6422af16"><td class="memItemLeft" align="right" valign="top">std::queue&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#aeb527457a023f418af6af19d6422af16">getLogQueue</a> ()</td></tr>
+<tr class="separator:aeb527457a023f418af6af19d6422af16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51c342ed8472c82eca52cc1786808fb4"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a51c342ed8472c82eca52cc1786808fb4">getSemLog</a> ()</td></tr>
+<tr class="separator:a51c342ed8472c82eca52cc1786808fb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a7279f206913622766cb80c03e7ae04"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a4a7279f206913622766cb80c03e7ae04">getSemMsg</a> ()</td></tr>
+<tr class="separator:a4a7279f206913622766cb80c03e7ae04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af30c6c7c3aff6f621526ebd68f99ac44"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#af30c6c7c3aff6f621526ebd68f99ac44">getSemLogQueueMutex</a> ()</td></tr>
+<tr class="separator:af30c6c7c3aff6f621526ebd68f99ac44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad47dd46ccbd6e30657f023b67dda233a"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ad47dd46ccbd6e30657f023b67dda233a">getSemMsgQueueMutex</a> ()</td></tr>
+<tr class="separator:ad47dd46ccbd6e30657f023b67dda233a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4ef06fcb9a3ec5c4e53e221800d63b5"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#af4ef06fcb9a3ec5c4e53e221800d63b5">getSemDataMutex</a> ()</td></tr>
+<tr class="separator:af4ef06fcb9a3ec5c4e53e221800d63b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedf0de2398b3dacfeae0d38918b8c6d0"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#aedf0de2398b3dacfeae0d38918b8c6d0">getSemDataEnqMutex</a> ()</td></tr>
+<tr class="separator:aedf0de2398b3dacfeae0d38918b8c6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef659109967fa63ffb44f659413de9fe"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#aef659109967fa63ffb44f659413de9fe">getSemEnableMutex</a> ()</td></tr>
+<tr class="separator:aef659109967fa63ffb44f659413de9fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8837fb6f9e1514324f71cc08325a36e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ac8837fb6f9e1514324f71cc08325a36e">enqueueMsg</a> (std::string message)</td></tr>
+<tr class="memdesc:ac8837fb6f9e1514324f71cc08325a36e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a message to be recorded to the SD card.  <a href="class_a_s7_1_1_logger.html#ac8837fb6f9e1514324f71cc08325a36e">More...</a><br /></td></tr>
+<tr class="separator:ac8837fb6f9e1514324f71cc08325a36e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d4bdb2928751dfe6747ff57eb27924"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a85d4bdb2928751dfe6747ff57eb27924">enqueueLog</a> (std::string message, int <a class="el" href="class_a_s7_1_1_logger.html#a097ff991454548b105b16a9751a94df3">verbosity</a>)</td></tr>
+<tr class="memdesc:a85d4bdb2928751dfe6747ff57eb27924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a logging message to be logged to the SD card and sent to the serial monitor.  <a href="class_a_s7_1_1_logger.html#a85d4bdb2928751dfe6747ff57eb27924">More...</a><br /></td></tr>
+<tr class="separator:a85d4bdb2928751dfe6747ff57eb27924"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47f0a167338a6904440a20b221aa754d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a47f0a167338a6904440a20b221aa754d">enqueuePnt</a> (std::string points)</td></tr>
+<tr class="memdesc:a47f0a167338a6904440a20b221aa754d"><td class="mdescLeft">&#160;</td><td class="mdescRight">For logging points to the PLY file. Deprecated.  <a href="class_a_s7_1_1_logger.html#a47f0a167338a6904440a20b221aa754d">More...</a><br /></td></tr>
+<tr class="separator:a47f0a167338a6904440a20b221aa754d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0411102210be46a6a8338ce24d85fdd5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a0411102210be46a6a8338ce24d85fdd5">dequeueLog</a> ()</td></tr>
+<tr class="memdesc:a0411102210be46a6a8338ce24d85fdd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dequeues a logging message from the log buffer.  <a href="class_a_s7_1_1_logger.html#a0411102210be46a6a8338ce24d85fdd5">More...</a><br /></td></tr>
+<tr class="separator:a0411102210be46a6a8338ce24d85fdd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1b62523f9a6b6b37c21b5bb440fcfe4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ac1b62523f9a6b6b37c21b5bb440fcfe4">mainTask</a> (void *parameters)</td></tr>
+<tr class="separator:ac1b62523f9a6b6b37c21b5bb440fcfe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4714309dfeaf55b0067143cabf671315"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a4714309dfeaf55b0067143cabf671315">initialiseSD</a> ()</td></tr>
+<tr class="memdesc:a4714309dfeaf55b0067143cabf671315"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialises the SD card and clears previous files.  <a href="class_a_s7_1_1_logger.html#a4714309dfeaf55b0067143cabf671315">More...</a><br /></td></tr>
+<tr class="separator:a4714309dfeaf55b0067143cabf671315"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d0daa8ab28aa547ece1a88813e8d266"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a5d0daa8ab28aa547ece1a88813e8d266">Logger</a> (Print *output)</td></tr>
 <tr class="separator:a5d0daa8ab28aa547ece1a88813e8d266"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a685065f891d6bbee4036a17b32070656"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a685065f891d6bbee4036a17b32070656">start</a> (int core=1, int priority=1, int <a class="el" href="class_a_s7_1_1_logger.html#a097ff991454548b105b16a9751a94df3">verbosity</a>=<a class="el" href="_sd_logger_8h.html#a89fed76d83e0dcc0c399efa21ead4f47">LOG_LEVEL_INFORM</a>)</td></tr>
+<tr class="memdesc:a685065f891d6bbee4036a17b32070656"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts logger and intialises SD card.  <a href="class_a_s7_1_1_logger.html#a685065f891d6bbee4036a17b32070656">More...</a><br /></td></tr>
 <tr class="separator:a685065f891d6bbee4036a17b32070656"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac9d7cace2308b508786f239e8c8ee2e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ac9d7cace2308b508786f239e8c8ee2e4">pause</a> ()</td></tr>
+<tr class="memdesc:ac9d7cace2308b508786f239e8c8ee2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses the Logging thread. Logs can be enqueued but they are not acted on.  <a href="class_a_s7_1_1_logger.html#ac9d7cace2308b508786f239e8c8ee2e4">More...</a><br /></td></tr>
 <tr class="separator:ac9d7cace2308b508786f239e8c8ee2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11e21f8484f53d22c40928fca6148c89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a11e21f8484f53d22c40928fca6148c89">resume</a> ()</td></tr>
+<tr class="memdesc:a11e21f8484f53d22c40928fca6148c89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the logging thread.  <a href="class_a_s7_1_1_logger.html#a11e21f8484f53d22c40928fca6148c89">More...</a><br /></td></tr>
 <tr class="separator:a11e21f8484f53d22c40928fca6148c89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad5dd58a44f99e3ec0431dcdea10a36c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#aad5dd58a44f99e3ec0431dcdea10a36c">running</a> ()</td></tr>
+<tr class="memdesc:aad5dd58a44f99e3ec0431dcdea10a36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current health of the logger.  <a href="class_a_s7_1_1_logger.html#aad5dd58a44f99e3ec0431dcdea10a36c">More...</a><br /></td></tr>
 <tr class="separator:aad5dd58a44f99e3ec0431dcdea10a36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a097ff991454548b105b16a9751a94df3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a097ff991454548b105b16a9751a94df3">verbosity</a> ()</td></tr>
+<tr class="memdesc:a097ff991454548b105b16a9751a94df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current vebosity level of the logger.  <a href="class_a_s7_1_1_logger.html#a097ff991454548b105b16a9751a94df3">More...</a><br /></td></tr>
 <tr class="separator:a097ff991454548b105b16a9751a94df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7bf63dfe6789fccdfc95e7ef64c714b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ab7bf63dfe6789fccdfc95e7ef64c714b">setVerbosity</a> (int <a class="el" href="class_a_s7_1_1_logger.html#a097ff991454548b105b16a9751a94df3">verbosity</a>)</td></tr>
+<tr class="memdesc:ab7bf63dfe6789fccdfc95e7ef64c714b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the verbosity level of the logger.  <a href="class_a_s7_1_1_logger.html#ab7bf63dfe6789fccdfc95e7ef64c714b">More...</a><br /></td></tr>
 <tr class="separator:ab7bf63dfe6789fccdfc95e7ef64c714b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c9b2cdbf787c449646de49c3b16b3b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a9c9b2cdbf787c449646de49c3b16b3b0">recordData</a> (std::string key, float value)</td></tr>
+<tr class="memdesc:a9c9b2cdbf787c449646de49c3b16b3b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a piece of data to be recorded as defined by the CSV mapping.  <a href="class_a_s7_1_1_logger.html#a9c9b2cdbf787c449646de49c3b16b3b0">More...</a><br /></td></tr>
 <tr class="separator:a9c9b2cdbf787c449646de49c3b16b3b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae345e2ae39089a886d74e7be62d04de8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ae345e2ae39089a886d74e7be62d04de8">pushData</a> ()</td></tr>
+<tr class="memdesc:ae345e2ae39089a886d74e7be62d04de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes data to be enqueued and written. Typically done by the most imporatnt recorded data, the US Sensors.  <a href="class_a_s7_1_1_logger.html#ae345e2ae39089a886d74e7be62d04de8">More...</a><br /></td></tr>
 <tr class="separator:ae345e2ae39089a886d74e7be62d04de8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab76a725a8c8794c106024700df4c58aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ab76a725a8c8794c106024700df4c58aa">inform</a> (std::string message)</td></tr>
+<tr class="memdesc:ab76a725a8c8794c106024700df4c58aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an inform-level message.  <a href="class_a_s7_1_1_logger.html#ab76a725a8c8794c106024700df4c58aa">More...</a><br /></td></tr>
 <tr class="separator:ab76a725a8c8794c106024700df4c58aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3919c07a9d87d652ed9aefabc5db744b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a3919c07a9d87d652ed9aefabc5db744b">warn</a> (std::string message)</td></tr>
+<tr class="memdesc:a3919c07a9d87d652ed9aefabc5db744b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an warn-level message.  <a href="class_a_s7_1_1_logger.html#a3919c07a9d87d652ed9aefabc5db744b">More...</a><br /></td></tr>
 <tr class="separator:a3919c07a9d87d652ed9aefabc5db744b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5dd76d05f548ae3ebd1131e1386ee0f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a5dd76d05f548ae3ebd1131e1386ee0f6">error</a> (std::string message)</td></tr>
+<tr class="memdesc:a5dd76d05f548ae3ebd1131e1386ee0f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an error-level message.  <a href="class_a_s7_1_1_logger.html#a5dd76d05f548ae3ebd1131e1386ee0f6">More...</a><br /></td></tr>
 <tr class="separator:a5dd76d05f548ae3ebd1131e1386ee0f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a732d1ca90e99e6800aa6a226b24190e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a732d1ca90e99e6800aa6a226b24190e3">fatal</a> (std::string message)</td></tr>
+<tr class="memdesc:a732d1ca90e99e6800aa6a226b24190e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an fatal-level message.  <a href="class_a_s7_1_1_logger.html#a732d1ca90e99e6800aa6a226b24190e3">More...</a><br /></td></tr>
 <tr class="separator:a732d1ca90e99e6800aa6a226b24190e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dd9f0de9bd4cc828ab63fbeb1285889"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a6dd9f0de9bd4cc828ab63fbeb1285889">verbose</a> (std::string message)</td></tr>
+<tr class="memdesc:a6dd9f0de9bd4cc828ab63fbeb1285889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs an verbose-level message.  <a href="class_a_s7_1_1_logger.html#a6dd9f0de9bd4cc828ab63fbeb1285889">More...</a><br /></td></tr>
 <tr class="separator:a6dd9f0de9bd4cc828ab63fbeb1285889"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6a850fae22d17e893a8c6589b0aaa74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ae6a850fae22d17e893a8c6589b0aaa74">plot</a> (std::string message)</td></tr>
 <tr class="separator:ae6a850fae22d17e893a8c6589b0aaa74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23f83dcb2ec036b96d5732c9fca4795d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a23f83dcb2ec036b96d5732c9fca4795d">disableSDLogging</a> ()</td></tr>
+<tr class="memdesc:a23f83dcb2ec036b96d5732c9fca4795d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables SD Logging, even if SD Card is attached.  <a href="class_a_s7_1_1_logger.html#a23f83dcb2ec036b96d5732c9fca4795d">More...</a><br /></td></tr>
 <tr class="separator:a23f83dcb2ec036b96d5732c9fca4795d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:afc3c5071670f1799d6f37c765d5a6407"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#afc3c5071670f1799d6f37c765d5a6407">startTaskImpl</a> (void *)</td></tr>
+<tr class="memdesc:afc3c5071670f1799d6f37c765d5a6407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation to start FreeRTOS tasks in classes.  <a href="class_a_s7_1_1_logger.html#afc3c5071670f1799d6f37c765d5a6407">More...</a><br /></td></tr>
+<tr class="separator:afc3c5071670f1799d6f37c765d5a6407"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ae16e64f28e02a86f692956b8a72c4cdf"><td class="memItemLeft" align="right" valign="top">std::queue&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ae16e64f28e02a86f692956b8a72c4cdf">_msg_Queue</a></td></tr>
+<tr class="memdesc:ae16e64f28e02a86f692956b8a72c4cdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Message Queue, acts as a buffer to hold messages before writing to SD.  <a href="class_a_s7_1_1_logger.html#ae16e64f28e02a86f692956b8a72c4cdf">More...</a><br /></td></tr>
+<tr class="separator:ae16e64f28e02a86f692956b8a72c4cdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2325f737e0c9b3cec698ceb988d530b"><td class="memItemLeft" align="right" valign="top">std::queue&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ad2325f737e0c9b3cec698ceb988d530b">_log_Queue</a></td></tr>
+<tr class="memdesc:ad2325f737e0c9b3cec698ceb988d530b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging Queue, acts as a buffer to hold log messages before writing to SD.  <a href="class_a_s7_1_1_logger.html#ad2325f737e0c9b3cec698ceb988d530b">More...</a><br /></td></tr>
+<tr class="separator:ad2325f737e0c9b3cec698ceb988d530b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d608c727cdef8de79b28a86ea1fdfbb"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a8d608c727cdef8de79b28a86ea1fdfbb">_sem_log</a></td></tr>
+<tr class="memdesc:a8d608c727cdef8de79b28a86ea1fdfbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deprecated.  <a href="class_a_s7_1_1_logger.html#a8d608c727cdef8de79b28a86ea1fdfbb">More...</a><br /></td></tr>
+<tr class="separator:a8d608c727cdef8de79b28a86ea1fdfbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a803925d017b83c3cfc8fd3ee57058068"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a803925d017b83c3cfc8fd3ee57058068">_sem_msg</a></td></tr>
+<tr class="separator:a803925d017b83c3cfc8fd3ee57058068"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b1bae0cf157bfc92d53dc33975d206a"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a6b1bae0cf157bfc92d53dc33975d206a">_sem_logQueueMutex</a></td></tr>
+<tr class="memdesc:a6b1bae0cf157bfc92d53dc33975d206a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for Log Queue, ensures that the data is not overwritten and that the SD is only used by one thread at any one time.  <a href="class_a_s7_1_1_logger.html#a6b1bae0cf157bfc92d53dc33975d206a">More...</a><br /></td></tr>
+<tr class="separator:a6b1bae0cf157bfc92d53dc33975d206a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27ed2b1429fd994f61981ace75e972a"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ac27ed2b1429fd994f61981ace75e972a">_sem_msgQueueMutex</a></td></tr>
+<tr class="memdesc:ac27ed2b1429fd994f61981ace75e972a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for Message Queue, ensures that the data is not overwritten and that the SD is only used by one thread at any one time.  <a href="class_a_s7_1_1_logger.html#ac27ed2b1429fd994f61981ace75e972a">More...</a><br /></td></tr>
+<tr class="separator:ac27ed2b1429fd994f61981ace75e972a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74f8eabbb71f70f11c53f1afd5ce8d76"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a74f8eabbb71f70f11c53f1afd5ce8d76">_sem_dataMutex</a></td></tr>
+<tr class="memdesc:a74f8eabbb71f70f11c53f1afd5ce8d76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex for the data dictionary.  <a href="class_a_s7_1_1_logger.html#a74f8eabbb71f70f11c53f1afd5ce8d76">More...</a><br /></td></tr>
+<tr class="separator:a74f8eabbb71f70f11c53f1afd5ce8d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0c43eb09cd88e4f44eb950be8bda1b0"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ac0c43eb09cd88e4f44eb950be8bda1b0">_sem_dataEnqMutex</a></td></tr>
+<tr class="memdesc:ac0c43eb09cd88e4f44eb950be8bda1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueue mutex to protect message queue.  <a href="class_a_s7_1_1_logger.html#ac0c43eb09cd88e4f44eb950be8bda1b0">More...</a><br /></td></tr>
+<tr class="separator:ac0c43eb09cd88e4f44eb950be8bda1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae73ce22d56befef401a8f5fa1e3857f1"><td class="memItemLeft" align="right" valign="top">SemaphoreHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#ae73ce22d56befef401a8f5fa1e3857f1">_sem_enableMutex</a></td></tr>
+<tr class="memdesc:ae73ce22d56befef401a8f5fa1e3857f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables/disables the task.  <a href="class_a_s7_1_1_logger.html#ae73ce22d56befef401a8f5fa1e3857f1">More...</a><br /></td></tr>
+<tr class="separator:ae73ce22d56befef401a8f5fa1e3857f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4381133602f0d399d313b50f19b4cd92"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a4381133602f0d399d313b50f19b4cd92">_running</a> = false</td></tr>
+<tr class="memdesc:a4381133602f0d399d313b50f19b4cd92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracks if the thread is running or stopped. Written to by the thread.  <a href="class_a_s7_1_1_logger.html#a4381133602f0d399d313b50f19b4cd92">More...</a><br /></td></tr>
+<tr class="separator:a4381133602f0d399d313b50f19b4cd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbd3f95b2357de43fc793ef4b5a11f01"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#abbd3f95b2357de43fc793ef4b5a11f01">_sdEnabled</a> = false</td></tr>
+<tr class="separator:abbd3f95b2357de43fc793ef4b5a11f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1883cdc251d30f0efc7701597a430a05"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a1883cdc251d30f0efc7701597a430a05">_sdDetected</a> = false</td></tr>
+<tr class="separator:a1883cdc251d30f0efc7701597a430a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a715de8369c9dc8d28794501478bf3924"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a715de8369c9dc8d28794501478bf3924">_activeData</a></td></tr>
+<tr class="memdesc:a715de8369c9dc8d28794501478bf3924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data dictionary to store the current data that is actively being written to.  <a href="class_a_s7_1_1_logger.html#a715de8369c9dc8d28794501478bf3924">More...</a><br /></td></tr>
+<tr class="separator:a715de8369c9dc8d28794501478bf3924"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d9e6b0a8c572a4432017196351f206e"><td class="memItemLeft" align="right" valign="top">std::map&lt; std::string, float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a7d9e6b0a8c572a4432017196351f206e">_enqueuedData</a></td></tr>
+<tr class="memdesc:a7d9e6b0a8c572a4432017196351f206e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data dictionary to store the data before being written to SD.  <a href="class_a_s7_1_1_logger.html#a7d9e6b0a8c572a4432017196351f206e">More...</a><br /></td></tr>
+<tr class="separator:a7d9e6b0a8c572a4432017196351f206e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a100dba93e1411d1e699c0d0fcad4ec07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a100dba93e1411d1e699c0d0fcad4ec07">_hasEnqueuedData</a> = false</td></tr>
+<tr class="separator:a100dba93e1411d1e699c0d0fcad4ec07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84d2e07b1f38f31e8e48ad52a8192170"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a84d2e07b1f38f31e8e48ad52a8192170">_logFile</a></td></tr>
+<tr class="separator:a84d2e07b1f38f31e8e48ad52a8192170"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd3001eb476863a0a090998472bf70a8"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#acd3001eb476863a0a090998472bf70a8">_dataFile</a></td></tr>
+<tr class="separator:acd3001eb476863a0a090998472bf70a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18b2d6cd2ee2f82305ce7cc1603b1bbf"><td class="memItemLeft" align="right" valign="top">File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a18b2d6cd2ee2f82305ce7cc1603b1bbf">_configFile</a></td></tr>
+<tr class="separator:a18b2d6cd2ee2f82305ce7cc1603b1bbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addb378a78a43de3643b70a2db448d849"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#addb378a78a43de3643b70a2db448d849">_logFileLocation</a> = &quot;/as7.log&quot;</td></tr>
+<tr class="memdesc:addb378a78a43de3643b70a2db448d849"><td class="mdescLeft">&#160;</td><td class="mdescRight">Location of the logging file, includes extension. Use .c_str() to for SD library.  <a href="class_a_s7_1_1_logger.html#addb378a78a43de3643b70a2db448d849">More...</a><br /></td></tr>
+<tr class="separator:addb378a78a43de3643b70a2db448d849"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38dbf435a9b1f1013d7fb391ac2b3e5a"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a38dbf435a9b1f1013d7fb391ac2b3e5a">_dataFileLocation</a> = &quot;/data.csv&quot;</td></tr>
+<tr class="memdesc:a38dbf435a9b1f1013d7fb391ac2b3e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Location of the logging file, includes extension. Use .c_str() to for SD library.  <a href="class_a_s7_1_1_logger.html#a38dbf435a9b1f1013d7fb391ac2b3e5a">More...</a><br /></td></tr>
+<tr class="separator:a38dbf435a9b1f1013d7fb391ac2b3e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fdf08868d90013b5a5e60eee134bc76"><td class="memItemLeft" align="right" valign="top">Print *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a1fdf08868d90013b5a5e60eee134bc76">_printer</a></td></tr>
+<tr class="memdesc:a1fdf08868d90013b5a5e60eee134bc76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to the serial momnitor.  <a href="class_a_s7_1_1_logger.html#a1fdf08868d90013b5a5e60eee134bc76">More...</a><br /></td></tr>
+<tr class="separator:a1fdf08868d90013b5a5e60eee134bc76"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0052f5914180b02825f18fd53d6b7da0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a0052f5914180b02825f18fd53d6b7da0">_verbosity</a> = <a class="el" href="_sd_logger_8h.html#a89fed76d83e0dcc0c399efa21ead4f47">LOG_LEVEL_INFORM</a></td></tr>
+<tr class="memdesc:a0052f5914180b02825f18fd53d6b7da0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Level of messages to be printed to the Serial Monitor. All messages are always printed to the SD card.  <a href="class_a_s7_1_1_logger.html#a0052f5914180b02825f18fd53d6b7da0">More...</a><br /></td></tr>
+<tr class="separator:a0052f5914180b02825f18fd53d6b7da0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a607c108fbfa485fc8aeb99d15d0143b9"><td class="memItemLeft" align="right" valign="top">TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html#a607c108fbfa485fc8aeb99d15d0143b9">th_logger</a></td></tr>
+<tr class="separator:a607c108fbfa485fc8aeb99d15d0143b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The threaded logging module for drone with both Serial and SD capability. </p>
+<p >The logger is the primary method of data movement and management within the off-board software. Providing a common interface for messaging and handling, the logger handles SD File Management and data recording.</p>
+<p >Messages sent to the logger are sent to the serial monitor based on verbosity and are logged into the SD card in batches. The batch frequency can be set with with task priority to adjust the immediacy and impact of logging functionality.</p>
+<p >The logger also maintains a flexible method for recording data into the SD card. Data is recorded onto a map and pushed to the SD card when requested. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5d0daa8ab28aa547ece1a88813e8d266" name="a5d0daa8ab28aa547ece1a88813e8d266"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5d0daa8ab28aa547ece1a88813e8d266">&#9670;&#160;</a></span>Logger()</h2>
 
@@ -155,6 +304,60 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5a8a9f7c0bd1d94b48fe8f395c324d3a" name="a5a8a9f7c0bd1d94b48fe8f395c324d3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a8a9f7c0bd1d94b48fe8f395c324d3a">&#9670;&#160;</a></span>closeDataFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::closeDataFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99dd66c52cdc0888e378f3f9985870b3" name="a99dd66c52cdc0888e378f3f9985870b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99dd66c52cdc0888e378f3f9985870b3">&#9670;&#160;</a></span>closeLogFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::closeLogFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0411102210be46a6a8338ce24d85fdd5" name="a0411102210be46a6a8338ce24d85fdd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0411102210be46a6a8338ce24d85fdd5">&#9670;&#160;</a></span>dequeueLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AS7::Logger::dequeueLog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dequeues a logging message from the log buffer. </p>
+<dl class="section return"><dt>Returns</dt><dd>The next logging message as a <code>std::string</code> </dd></dl>
+
+</div>
+</div>
 <a id="a23f83dcb2ec036b96d5732c9fca4795d" name="a23f83dcb2ec036b96d5732c9fca4795d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23f83dcb2ec036b96d5732c9fca4795d">&#9670;&#160;</a></span>disableSDLogging()</h2>
 
@@ -169,6 +372,99 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Disables SD Logging, even if SD Card is attached. </p>
+
+</div>
+</div>
+<a id="a85d4bdb2928751dfe6747ff57eb27924" name="a85d4bdb2928751dfe6747ff57eb27924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85d4bdb2928751dfe6747ff57eb27924">&#9670;&#160;</a></span>enqueueLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::enqueueLog </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>verbosity</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a logging message to be logged to the SD card and sent to the serial monitor. </p>
+<p >The message may not be printed to the serial monitor if the verbosity level of the monitor is greater than the provided verbosity level.</p>
+<p >This action enqueues the message to be written. Messages are buffered into the queue and then dequeued when the logger awakes every cycle. The logging rate is determined by <code>LOGGER_FREQ</code></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to be sent </td></tr>
+    <tr><td class="paramname">verbosity</td><td>The verbosity level. If unsure, use <a class="el" href="class_a_s7_1_1_logger.html#a3919c07a9d87d652ed9aefabc5db744b" title="Logs an warn-level message.">Logger.warn()</a>, <a class="el" href="class_a_s7_1_1_logger.html#ab76a725a8c8794c106024700df4c58aa" title="Logs an inform-level message.">Logger.inform()</a>... </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac8837fb6f9e1514324f71cc08325a36e" name="ac8837fb6f9e1514324f71cc08325a36e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8837fb6f9e1514324f71cc08325a36e">&#9670;&#160;</a></span>enqueueMsg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::enqueueMsg </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a message to be recorded to the SD card. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>String to be logged </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a47f0a167338a6904440a20b221aa754d" name="a47f0a167338a6904440a20b221aa754d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47f0a167338a6904440a20b221aa754d">&#9670;&#160;</a></span>enqueuePnt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::enqueuePnt </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>points</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>For logging points to the PLY file. Deprecated. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">points</td><td>The point to log in string format </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -188,6 +484,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Logs an error-level message. </p>
+<p >Messages of this level has a direct and immediate impact on the drone, however, may still allow for operation of unaffected modules. An exmaple of an error would be a compass or accelerometer failure, though the drone will still collect data.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to be enqueued </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a732d1ca90e99e6800aa6a226b24190e3" name="a732d1ca90e99e6800aa6a226b24190e3"></a>
@@ -201,6 +506,269 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>message</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs an fatal-level message. </p>
+<p >Messages of this level indicate that the drone is in a fault and cannot be operated. An example fatal error would be an emergency stop.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to be enqueued </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a99fe9c588746fc16f09208c3889f2bab" name="a99fe9c588746fc16f09208c3889f2bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99fe9c588746fc16f09208c3889f2bab">&#9670;&#160;</a></span>getConfigFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">File AS7::Logger::getConfigFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9c18346bdaadf7771e024f894b4270f4" name="a9c18346bdaadf7771e024f894b4270f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c18346bdaadf7771e024f894b4270f4">&#9670;&#160;</a></span>getDataFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">File AS7::Logger::getDataFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90e815eb85abf8d684ccd6e5aabedb6e" name="a90e815eb85abf8d684ccd6e5aabedb6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90e815eb85abf8d684ccd6e5aabedb6e">&#9670;&#160;</a></span>getLogFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">File AS7::Logger::getLogFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb527457a023f418af6af19d6422af16" name="aeb527457a023f418af6af19d6422af16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb527457a023f418af6af19d6422af16">&#9670;&#160;</a></span>getLogQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt; std::string &gt; AS7::Logger::getLogQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3a037f97512e687f6c0210a54d2cc89" name="ad3a037f97512e687f6c0210a54d2cc89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3a037f97512e687f6c0210a54d2cc89">&#9670;&#160;</a></span>getMsgQueue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt; std::string &gt; AS7::Logger::getMsgQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac529e991fcf56f2996058ff1bd34e9c6" name="ac529e991fcf56f2996058ff1bd34e9c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac529e991fcf56f2996058ff1bd34e9c6">&#9670;&#160;</a></span>getPrinter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Print * AS7::Logger::getPrinter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedf0de2398b3dacfeae0d38918b8c6d0" name="aedf0de2398b3dacfeae0d38918b8c6d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedf0de2398b3dacfeae0d38918b8c6d0">&#9670;&#160;</a></span>getSemDataEnqMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::getSemDataEnqMutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af4ef06fcb9a3ec5c4e53e221800d63b5" name="af4ef06fcb9a3ec5c4e53e221800d63b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4ef06fcb9a3ec5c4e53e221800d63b5">&#9670;&#160;</a></span>getSemDataMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::getSemDataMutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef659109967fa63ffb44f659413de9fe" name="aef659109967fa63ffb44f659413de9fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef659109967fa63ffb44f659413de9fe">&#9670;&#160;</a></span>getSemEnableMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::getSemEnableMutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51c342ed8472c82eca52cc1786808fb4" name="a51c342ed8472c82eca52cc1786808fb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51c342ed8472c82eca52cc1786808fb4">&#9670;&#160;</a></span>getSemLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::getSemLog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af30c6c7c3aff6f621526ebd68f99ac44" name="af30c6c7c3aff6f621526ebd68f99ac44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af30c6c7c3aff6f621526ebd68f99ac44">&#9670;&#160;</a></span>getSemLogQueueMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::getSemLogQueueMutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4a7279f206913622766cb80c03e7ae04" name="a4a7279f206913622766cb80c03e7ae04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a7279f206913622766cb80c03e7ae04">&#9670;&#160;</a></span>getSemMsg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::getSemMsg </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad47dd46ccbd6e30657f023b67dda233a" name="ad47dd46ccbd6e30657f023b67dda233a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad47dd46ccbd6e30657f023b67dda233a">&#9670;&#160;</a></span>getSemMsgQueueMutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::getSemMsgQueueMutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a385b9fa7b683a84d8d54bdb6fd3e8235" name="a385b9fa7b683a84d8d54bdb6fd3e8235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a385b9fa7b683a84d8d54bdb6fd3e8235">&#9670;&#160;</a></span>getTestMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string AS7::Logger::getTestMessage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -224,6 +792,90 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Logs an inform-level message. </p>
+<p >Messages of this level should be useful to know but are not critical or concerning to the operation of the drone</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to be enqueued </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4714309dfeaf55b0067143cabf671315" name="a4714309dfeaf55b0067143cabf671315"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4714309dfeaf55b0067143cabf671315">&#9670;&#160;</a></span>initialiseSD()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::initialiseSD </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialises the SD card and clears previous files. </p>
+
+</div>
+</div>
+<a id="ac1b62523f9a6b6b37c21b5bb440fcfe4" name="ac1b62523f9a6b6b37c21b5bb440fcfe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1b62523f9a6b6b37c21b5bb440fcfe4">&#9670;&#160;</a></span>mainTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::mainTask </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>parameters</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aab6478d747cea5ca88742998a9fe5aeb" name="aab6478d747cea5ca88742998a9fe5aeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab6478d747cea5ca88742998a9fe5aeb">&#9670;&#160;</a></span>openDataFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::openDataFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Opens the dat afile in Append mode. </p>
+
+</div>
+</div>
+<a id="ab6217d1a69304253259c5ad3e199a83c" name="ab6217d1a69304253259c5ad3e199a83c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6217d1a69304253259c5ad3e199a83c">&#9670;&#160;</a></span>openLogFile()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::openLogFile </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Opens the log file in Append mode. </p>
+
 </div>
 </div>
 <a id="ac9d7cace2308b508786f239e8c8ee2e4" name="ac9d7cace2308b508786f239e8c8ee2e4"></a>
@@ -240,6 +892,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Pauses the Logging thread. Logs can be enqueued but they are not acted on. </p>
 
 </div>
 </div>
@@ -276,6 +930,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Pushes data to be enqueued and written. Typically done by the most imporatnt recorded data, the US Sensors. </p>
+
 </div>
 </div>
 <a id="a9c9b2cdbf787c449646de49c3b16b3b0" name="a9c9b2cdbf787c449646de49c3b16b3b0"></a>
@@ -304,6 +960,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Pushes a piece of data to be recorded as defined by the CSV mapping. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>The data column </td></tr>
+    <tr><td class="paramname">value</td><td>The data value, as a float. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a11e21f8484f53d22c40928fca6148c89" name="a11e21f8484f53d22c40928fca6148c89"></a>
@@ -320,6 +985,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Resumes the logging thread. </p>
 
 </div>
 </div>
@@ -338,6 +1005,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the current health of the logger. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if logger is running with no issues </dd></dl>
+
 </div>
 </div>
 <a id="ab7bf63dfe6789fccdfc95e7ef64c714b" name="ab7bf63dfe6789fccdfc95e7ef64c714b"></a>
@@ -355,6 +1025,14 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sets the verbosity level of the logger. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">verbosity</td><td>Int, use definitions <code>LOG_LEVEL_INFORM</code>, LOG_LEVEL_WARN`... defined in <a class="el" href="_sd_logger_8h.html">sdlogger.h</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -390,6 +1068,44 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Starts logger and intialises SD card. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">core</td><td>The core to run the logger on. Valid values are 0 and 1. </td></tr>
+    <tr><td class="paramname">priority</td><td>The priority of the logger. The higher, the more likely it is to be scheduled in front of other tasks. Default 1. </td></tr>
+    <tr><td class="paramname">verbosity</td><td>The verbosity level of the logger. If messages are less than the vebosity level, they are not written to the Serial Monitor. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afc3c5071670f1799d6f37c765d5a6407" name="afc3c5071670f1799d6f37c765d5a6407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc3c5071670f1799d6f37c765d5a6407">&#9670;&#160;</a></span>startTaskImpl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AS7::Logger::startTaskImpl </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>_this</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implementation to start FreeRTOS tasks in classes. </p>
+
 </div>
 </div>
 <a id="a6dd9f0de9bd4cc828ab63fbeb1285889" name="a6dd9f0de9bd4cc828ab63fbeb1285889"></a>
@@ -408,6 +1124,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Logs an verbose-level message. </p>
+<p >Messages of this level may not be informative but indicate some sort of running or function of the drone. An example verbose message may be the status logs showing the current state of the RX/TX Terminals</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to be enqueued </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a097ff991454548b105b16a9751a94df3" name="a097ff991454548b105b16a9751a94df3"></a>
@@ -425,6 +1150,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns the current vebosity level of the logger. </p>
+<dl class="section return"><dt>Returns</dt><dd>Verbosity Level (Int) </dd></dl>
+
 </div>
 </div>
 <a id="a3919c07a9d87d652ed9aefabc5db744b" name="a3919c07a9d87d652ed9aefabc5db744b"></a>
@@ -439,6 +1167,368 @@ Public Member Functions</h2></td></tr>
           <td class="paramtype">std::string&#160;</td>
           <td class="paramname"><em>message</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logs an warn-level message. </p>
+<p >Messages of this level should be concerning but otherwise do not have an immediate impact do the drone. An example warning may be a thread being paused programmatically.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>The message to be enqueued </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a715de8369c9dc8d28794501478bf3924" name="a715de8369c9dc8d28794501478bf3924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a715de8369c9dc8d28794501478bf3924">&#9670;&#160;</a></span>_activeData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, float&gt; AS7::Logger::_activeData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Data dictionary to store the current data that is actively being written to. </p>
+
+</div>
+</div>
+<a id="a18b2d6cd2ee2f82305ce7cc1603b1bbf" name="a18b2d6cd2ee2f82305ce7cc1603b1bbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18b2d6cd2ee2f82305ce7cc1603b1bbf">&#9670;&#160;</a></span>_configFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">File AS7::Logger::_configFile</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acd3001eb476863a0a090998472bf70a8" name="acd3001eb476863a0a090998472bf70a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd3001eb476863a0a090998472bf70a8">&#9670;&#160;</a></span>_dataFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">File AS7::Logger::_dataFile</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38dbf435a9b1f1013d7fb391ac2b3e5a" name="a38dbf435a9b1f1013d7fb391ac2b3e5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38dbf435a9b1f1013d7fb391ac2b3e5a">&#9670;&#160;</a></span>_dataFileLocation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string AS7::Logger::_dataFileLocation = &quot;/data.csv&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Location of the logging file, includes extension. Use .c_str() to for SD library. </p>
+
+</div>
+</div>
+<a id="a7d9e6b0a8c572a4432017196351f206e" name="a7d9e6b0a8c572a4432017196351f206e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d9e6b0a8c572a4432017196351f206e">&#9670;&#160;</a></span>_enqueuedData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt;std::string, float&gt; AS7::Logger::_enqueuedData</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Data dictionary to store the data before being written to SD. </p>
+
+</div>
+</div>
+<a id="a100dba93e1411d1e699c0d0fcad4ec07" name="a100dba93e1411d1e699c0d0fcad4ec07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a100dba93e1411d1e699c0d0fcad4ec07">&#9670;&#160;</a></span>_hasEnqueuedData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Logger::_hasEnqueuedData = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad2325f737e0c9b3cec698ceb988d530b" name="ad2325f737e0c9b3cec698ceb988d530b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2325f737e0c9b3cec698ceb988d530b">&#9670;&#160;</a></span>_log_Queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;std::string&gt; AS7::Logger::_log_Queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Logging Queue, acts as a buffer to hold log messages before writing to SD. </p>
+
+</div>
+</div>
+<a id="a84d2e07b1f38f31e8e48ad52a8192170" name="a84d2e07b1f38f31e8e48ad52a8192170"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84d2e07b1f38f31e8e48ad52a8192170">&#9670;&#160;</a></span>_logFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">File AS7::Logger::_logFile</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="addb378a78a43de3643b70a2db448d849" name="addb378a78a43de3643b70a2db448d849"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addb378a78a43de3643b70a2db448d849">&#9670;&#160;</a></span>_logFileLocation</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string AS7::Logger::_logFileLocation = &quot;/as7.log&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Location of the logging file, includes extension. Use .c_str() to for SD library. </p>
+
+</div>
+</div>
+<a id="ae16e64f28e02a86f692956b8a72c4cdf" name="ae16e64f28e02a86f692956b8a72c4cdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae16e64f28e02a86f692956b8a72c4cdf">&#9670;&#160;</a></span>_msg_Queue</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::queue&lt;std::string&gt; AS7::Logger::_msg_Queue</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Message Queue, acts as a buffer to hold messages before writing to SD. </p>
+
+</div>
+</div>
+<a id="a1fdf08868d90013b5a5e60eee134bc76" name="a1fdf08868d90013b5a5e60eee134bc76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fdf08868d90013b5a5e60eee134bc76">&#9670;&#160;</a></span>_printer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Print* AS7::Logger::_printer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reference to the serial momnitor. </p>
+
+</div>
+</div>
+<a id="a4381133602f0d399d313b50f19b4cd92" name="a4381133602f0d399d313b50f19b4cd92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4381133602f0d399d313b50f19b4cd92">&#9670;&#160;</a></span>_running</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Logger::_running = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tracks if the thread is running or stopped. Written to by the thread. </p>
+
+</div>
+</div>
+<a id="a1883cdc251d30f0efc7701597a430a05" name="a1883cdc251d30f0efc7701597a430a05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1883cdc251d30f0efc7701597a430a05">&#9670;&#160;</a></span>_sdDetected</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Logger::_sdDetected = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abbd3f95b2357de43fc793ef4b5a11f01" name="abbd3f95b2357de43fc793ef4b5a11f01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbd3f95b2357de43fc793ef4b5a11f01">&#9670;&#160;</a></span>_sdEnabled</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AS7::Logger::_sdEnabled = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac0c43eb09cd88e4f44eb950be8bda1b0" name="ac0c43eb09cd88e4f44eb950be8bda1b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0c43eb09cd88e4f44eb950be8bda1b0">&#9670;&#160;</a></span>_sem_dataEnqMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::_sem_dataEnqMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enqueue mutex to protect message queue. </p>
+
+</div>
+</div>
+<a id="a74f8eabbb71f70f11c53f1afd5ce8d76" name="a74f8eabbb71f70f11c53f1afd5ce8d76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74f8eabbb71f70f11c53f1afd5ce8d76">&#9670;&#160;</a></span>_sem_dataMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::_sem_dataMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutex for the data dictionary. </p>
+
+</div>
+</div>
+<a id="ae73ce22d56befef401a8f5fa1e3857f1" name="ae73ce22d56befef401a8f5fa1e3857f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae73ce22d56befef401a8f5fa1e3857f1">&#9670;&#160;</a></span>_sem_enableMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::_sem_enableMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enables/disables the task. </p>
+
+</div>
+</div>
+<a id="a8d608c727cdef8de79b28a86ea1fdfbb" name="a8d608c727cdef8de79b28a86ea1fdfbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d608c727cdef8de79b28a86ea1fdfbb">&#9670;&#160;</a></span>_sem_log</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::_sem_log</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deprecated. </p>
+
+</div>
+</div>
+<a id="a6b1bae0cf157bfc92d53dc33975d206a" name="a6b1bae0cf157bfc92d53dc33975d206a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b1bae0cf157bfc92d53dc33975d206a">&#9670;&#160;</a></span>_sem_logQueueMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::_sem_logQueueMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutex for Log Queue, ensures that the data is not overwritten and that the SD is only used by one thread at any one time. </p>
+
+</div>
+</div>
+<a id="a803925d017b83c3cfc8fd3ee57058068" name="a803925d017b83c3cfc8fd3ee57058068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a803925d017b83c3cfc8fd3ee57058068">&#9670;&#160;</a></span>_sem_msg</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::_sem_msg</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac27ed2b1429fd994f61981ace75e972a" name="ac27ed2b1429fd994f61981ace75e972a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27ed2b1429fd994f61981ace75e972a">&#9670;&#160;</a></span>_sem_msgQueueMutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t AS7::Logger::_sem_msgQueueMutex</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mutex for Message Queue, ensures that the data is not overwritten and that the SD is only used by one thread at any one time. </p>
+
+</div>
+</div>
+<a id="a0052f5914180b02825f18fd53d6b7da0" name="a0052f5914180b02825f18fd53d6b7da0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0052f5914180b02825f18fd53d6b7da0">&#9670;&#160;</a></span>_verbosity</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int AS7::Logger::_verbosity = <a class="el" href="_sd_logger_8h.html#a89fed76d83e0dcc0c399efa21ead4f47">LOG_LEVEL_INFORM</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Level of messages to be printed to the Serial Monitor. All messages are always printed to the SD card. </p>
+
+</div>
+</div>
+<a id="a607c108fbfa485fc8aeb99d15d0143b9" name="a607c108fbfa485fc8aeb99d15d0143b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a607c108fbfa485fc8aeb99d15d0143b9">&#9670;&#160;</a></span>th_logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t AS7::Logger::th_logger</td>
         </tr>
       </table>
 </div><div class="memdoc">

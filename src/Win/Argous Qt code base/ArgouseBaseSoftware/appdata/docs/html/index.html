@@ -94,33 +94,82 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
   <div class="headertitle"><div class="title">Argous S7: Autonomous Mine Surveying Drone </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p ><a class="anchor" id="md_H__repos_Argous_src_esp32_as7_gamma_README"></a> The Argous S7 (<a class="el" href="namespace_a_s7.html">AS7</a>) Project is the design and implementation of an autonomous mine surveying drone for a Swinburne University Final Year Project.</p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<div class="textblock"><p ><a class="anchor" id="md_H__repos_Argous_src_esp32_as7_gamma_README"></a> The Argous Sector 7 (<a class="el" href="namespace_a_s7.html">AS7</a>) Project is the design and implementation of an autonomous mine surveying drone for a Swinburne University Final Year Project. The main repository can be found here: <a href="https://github.com/Wabinabi/Argous">https://github.com/Wabinabi/Argous</a></p>
+<h1><a class="anchor" id="autotoc_md59"></a>
 Outline</h1>
-<p >The <a class="el" href="namespace_a_s7.html">AS7</a> project contains two parts: the on-board and off-board software The on-board software is loaded onto the ESP32 and is responsible for the main control and collection of data. The off-board software runs on Windows 10 and provides data visualisation and diagnostics for the drone.</p>
+<p >The project is composed of the following modules:</p>
+<ul>
+<li>The <a class="el" href="namespace_a_s7.html">AS7</a> Quadcopter, which itself is composed of:<ul>
+<li>A modified Sector 7 Racing Drone</li>
+<li>An accompanying electronics and sensor package mounted under the drone containing the ‘on-board software’, documented within the <a class="el" href="namespace_a_s7.html">AS7</a> Namespace</li>
+</ul>
+</li>
+<li>The <a class="el" href="namespace_a_s7.html">AS7</a> Base Station Software, or ‘Off-board software’</li>
+</ul>
+<p >Configuration and source files can be found in the following locations:</p>
 <ul>
 <li>On-board software can be found under <code>src/esp32</code></li>
 <li>Off-board software can be found under <code>src/win10</code></li>
 <li>ArduPilot configuration can be found under <code>src/ardupilot</code></li>
 </ul>
-<h1><a class="anchor" id="autotoc_md11"></a>
-To implement in this README:</h1>
+<h1><a class="anchor" id="autotoc_md60"></a>
+Table of contents</h1>
+<p >[toc]</p>
+<p >A full index of <a class="el" href="namespace_a_s7.html">AS7</a> on-board terms can be found in <a href="globals.html">File Members</a>.</p>
+<h1><a class="anchor" id="autotoc_md61"></a>
+Getting started for surveying</h1>
+<p >For surveying use, the <a class="el" href="namespace_a_s7.html">AS7</a> drone comes pre-flashed with the on-board software with details configurable through the SD card.</p>
+<h2><a class="anchor" id="autotoc_md62"></a>
+Base Station Software</h2>
+<p >The Base Station Software requires Windows 10 or newer to operate. It can be downloaded from the releases section of the <a href="https://github.com/Wabinabi/Argous">GitHub Repository</a>.</p>
+<h2><a class="anchor" id="autotoc_md63"></a>
+Mission Planner</h2>
+<p >The Flight Controller on <a class="el" href="namespace_a_s7.html">AS7</a> uses <a href="https://ardupilot.org/">ArduPilot</a> for flight control. It can be configured through <a href="https://ardupilot.org/planner/">Mission Planner</a>. Installation instructions for Mission Planner can be found <a href="https://ardupilot.org/planner/docs/mission-planner-installation.html">here</a></p>
+<h1><a class="anchor" id="autotoc_md64"></a>
+Getting started for development</h1>
+<p >All source code can be found in the <a href="https://github.com/Wabinabi/Argous">GitHub Repository</a>, under the ‘src’ (source) folder.</p>
+<h2><a class="anchor" id="autotoc_md65"></a>
+On Board Software</h2>
+<p >The On-Board software is written within the <a href="https://www.arduino.cc/en/software/">Arduino IDE</a> with the ESP32 Dev Kit.</p>
+<h3><a class="anchor" id="autotoc_md66"></a>
+Adding the ESP32 to the Arduino IDE</h3>
+<p >The add-on for the Arduino IDE can be found by adding the ESP32 Library URL to the Additional Board Manager:</p>
+<ol type="1">
+<li>Head to <code>file</code> -&gt; <code>preferences</code> and add the following to <em>Additional Board Manager URLs</em><ol type="a">
+<li><code><a href="https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json">https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json</a></code></li>
+</ol>
+</li>
+<li>Press OK, and head to <code>Tools</code> -&gt; <code>Board:…</code> -&gt; <code>Boards Manager</code>. Searching for ESP32 should show the library package.</li>
+<li>Hit install, and you should be able to see <code>ESP32 Dev Kit</code> under <code>Boards.</code></li>
+</ol>
+<p >A more extensive guide can be found <a href="https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/">here</a>.</p>
+<h3><a class="anchor" id="autotoc_md67"></a>
+Required Dependencies and Libraries</h3>
+<p >The on-board software requires the following libraries:</p>
 <ul>
-<li>A higher level overview of the goals of this project</li>
-<li>Documenting the files supplied in <code>docs</code></li>
-<li>Photos and diagrams</li>
-<li>Raw data collected from drone</li>
-<li>Acknowledgements</li>
-<li>License for this repo</li>
+<li><a href="https://github.com/bolderflight/sbus">BFS Sbus</a></li>
+<li><a href="https://github.com/FastLED/FastLED">FASTLed</a></li>
+<li>(Compass and Accel)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md12"></a>
-Future Improvements</h2>
-<p >With additional time, the following improvements or features could be added:</p>
-<ul>
-<li>[ ] Code Documentation generated through Doxygen</li>
-<li>[ ] More guided commands and not just tunnel-flight</li>
-<li>[ ] Reading drone commands from the SD card using keywords in a text file </li>
-</ul>
+<p >These libraries can be installed by:</p>
+<ol type="1">
+<li>Going to <code>Tools</code> in the top bar and opening <code>Manage Libraries</code>.</li>
+<li>Search for the above libraries and hit <code>Install</code>.</li>
+<li>The libraries should be installed</li>
+</ol>
+<p >To verify library installation, they can be found under <code>C:\Users\&lt;&lt;Your Username&gt;&gt;\Documents\Arduino\libraries</code>.</p>
+<h2><a class="anchor" id="autotoc_md68"></a>
+Off Board Software</h2>
+<h3><a class="anchor" id="autotoc_md69"></a>
+Qt Configuration</h3>
+<h3><a class="anchor" id="autotoc_md70"></a>
+Documentation Generation with Doxygen</h3>
+<h1><a class="anchor" id="autotoc_md71"></a>
+Credits</h1>
+<h1><a class="anchor" id="autotoc_md72"></a>
+License</h1>
+<h1><a class="anchor" id="autotoc_md73"></a>
+Authors</h1>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

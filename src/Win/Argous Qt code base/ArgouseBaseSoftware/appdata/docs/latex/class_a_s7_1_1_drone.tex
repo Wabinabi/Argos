@@ -2,6 +2,11 @@
 \label{class_a_s7_1_1_drone}\index{AS7::Drone@{AS7::Drone}}
 
 
+The drone model and control class for the physical \mbox{\hyperlink{namespace_a_s7}{AS7}} \mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}}.  
+
+
+
+
 {\ttfamily \#include $<$Drone.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
@@ -235,6 +240,23 @@ float \mbox{\hyperlink{class_a_s7_1_1_drone_a567bf2b39f0b457ccacaa7d0b6d5f73c}{c
 bool \mbox{\hyperlink{class_a_s7_1_1_drone_a8dcc42a3e5329e70209dce1de850274f}{\+\_\+data\+Gathering\+Enabled}} = false
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The drone model and control class for the physical \mbox{\hyperlink{namespace_a_s7}{AS7}} \mbox{\hyperlink{class_a_s7_1_1_drone}{Drone}}. 
+
+The drone class handles communication and translation of the SBUS interface for controlling the drone programmatically. Built within the drone class is the drone command queue, interpreting a set of commands and transmitting them to an accompanying flight controller for flight. This module allows for guided control with sensors recording the current environment state.
+
+Features of the drone class include\+:
+
+
+\begin{DoxyItemize}
+\item Filtering SBUS Frames to ensure smooth and clean communication
+\item Flexible SBUS channels with lower/upper control limits and toggles for absolute channels
+\item Ramping rates (similar to soft starts) for channels for smooth and precise control
+\item A drone command interface for interpreted instructions
+\item Guided drone commands for semi-\/autonomous flight
+\item Task-\/based (threaded) application for continuous control of the drone 
+\end{DoxyItemize}
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_a_s7_1_1_drone_a55609d6f948046ab46654912cc78f425}\label{class_a_s7_1_1_drone_a55609d6f948046ab46654912cc78f425}} 

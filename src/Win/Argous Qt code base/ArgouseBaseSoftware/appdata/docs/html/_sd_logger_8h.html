@@ -109,6 +109,7 @@ $(document).ready(function(){initNavTree('_sd_logger_8h.html',''); initResizable
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_logger.html">AS7::Logger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The threaded logging module for drone with both Serial and SD capability.  <a href="class_a_s7_1_1_logger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -135,10 +136,12 @@ Macros</h2></td></tr>
 <tr class="memitem:abfcf05153ddbd63d5aff5d018867cc19"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sd_logger_8h.html#abfcf05153ddbd63d5aff5d018867cc19">CS_PIN</a>&#160;&#160;&#160;5</td></tr>
 <tr class="separator:abfcf05153ddbd63d5aff5d018867cc19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f202d7c22f4e54b51322f1d9b2d0141"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sd_logger_8h.html#a8f202d7c22f4e54b51322f1d9b2d0141">LOGGER_FREQ</a>&#160;&#160;&#160;100</td></tr>
+<tr class="memdesc:a8f202d7c22f4e54b51322f1d9b2d0141"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logger update rate in Hertz.  <a href="_sd_logger_8h.html#a8f202d7c22f4e54b51322f1d9b2d0141">More...</a><br /></td></tr>
 <tr class="separator:a8f202d7c22f4e54b51322f1d9b2d0141"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e2de6ddd8e29a422e281da735c41ee5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sd_logger_8h.html#a4e2de6ddd8e29a422e281da735c41ee5">PLOTTER_ENABLE</a>&#160;&#160;&#160;false</td></tr>
 <tr class="separator:a4e2de6ddd8e29a422e281da735c41ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf42b76f1955f8a450b5e6480a1b1b52"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_sd_logger_8h.html#aaf42b76f1955f8a450b5e6480a1b1b52">SD_DISABLED</a>&#160;&#160;&#160;false</td></tr>
+<tr class="memdesc:aaf42b76f1955f8a450b5e6480a1b1b52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables SD output for testing.  <a href="_sd_logger_8h.html#aaf42b76f1955f8a450b5e6480a1b1b52">More...</a><br /></td></tr>
 <tr class="separator:aaf42b76f1955f8a450b5e6480a1b1b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -153,8 +156,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >TODO: THIS BANNER</p>
-<p >This is <a class="el" href="namespace_a_s7.html">AS7</a>'s Logger. It prints to serial and SD card. The goal of this logger is to tie logging and comms into one location and delegate to a thread Read this for getters and setters inside freertos <a href="https://forums.freertos.org/t/freertos-task-in-a-c-class/13984">https://forums.freertos.org/t/freertos-task-in-a-c-class/13984</a> </p>
+<p >This is <a class="el" href="namespace_a_s7.html">AS7</a>'s Logger. It prints to serial and SD card. The goal of this logger is to tie logging and comms into one location and delegate to a thread </p>
 
 </div>
 </div>
@@ -268,6 +270,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Logger update rate in Hertz. </p>
+
 </div>
 </div>
 <a id="a4e2de6ddd8e29a422e281da735c41ee5" name="a4e2de6ddd8e29a422e281da735c41ee5"></a>
@@ -295,6 +299,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Disables SD output for testing. </p>
 
 </div>
 </div>

@@ -100,6 +100,9 @@ $(document).ready(function(){initNavTree('class_a_s7_1_1_drone.html',''); initRe
 </div><!--header-->
 <div class="contents">
 
+<p>The drone model and control class for the physical <a class="el" href="namespace_a_s7.html">AS7</a> <a class="el" href="class_a_s7_1_1_drone.html" title="The drone model and control class for the physical AS7 Drone.">Drone</a>.  
+ <a href="class_a_s7_1_1_drone.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_drone_8h_source.html">Drone.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -202,7 +205,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a65059ccf5554d3f68ac2ceddf22949d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a65059ccf5554d3f68ac2ceddf22949d4">nextCommandAvailable</a> ()</td></tr>
 <tr class="separator:a65059ccf5554d3f68ac2ceddf22949d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a55609d6f948046ab46654912cc78f425"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a55609d6f948046ab46654912cc78f425">Drone</a> (<a class="el" href="class_a_s7_1_1_logger.html">Logger</a> *<a class="el" href="as7-gamma_8ino.html#a99d2a4a087d451eb0554bfa08a3f2dba">logger</a>, bfs::SbusRx *sbus_rx, bfs::SbusTx *sbus_tx)</td></tr>
-<tr class="memdesc:a55609d6f948046ab46654912cc78f425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_a_s7_1_1_drone.html">Drone</a> class.  <a href="class_a_s7_1_1_drone.html#a55609d6f948046ab46654912cc78f425">More...</a><br /></td></tr>
+<tr class="memdesc:a55609d6f948046ab46654912cc78f425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="class_a_s7_1_1_drone.html" title="The drone model and control class for the physical AS7 Drone.">Drone</a> class.  <a href="class_a_s7_1_1_drone.html#a55609d6f948046ab46654912cc78f425">More...</a><br /></td></tr>
 <tr class="separator:a55609d6f948046ab46654912cc78f425"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a917a942e76225752287df64d15acfe3d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a917a942e76225752287df64d15acfe3d">channelConfirm</a> (int16_t channel=1, float threshold=0.7f)</td></tr>
 <tr class="memdesc:a917a942e76225752287df64d15acfe3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the target channel is above a threshold. Can be used for button presses or detecting the state of a switch.  <a href="class_a_s7_1_1_drone.html#a917a942e76225752287df64d15acfe3d">More...</a><br /></td></tr>
@@ -367,7 +370,19 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a8dcc42a3e5329e70209dce1de850274f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_a_s7_1_1_drone.html#a8dcc42a3e5329e70209dce1de850274f">_dataGatheringEnabled</a> = false</td></tr>
 <tr class="separator:a8dcc42a3e5329e70209dce1de850274f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >The drone model and control class for the physical <a class="el" href="namespace_a_s7.html">AS7</a> <a class="el" href="class_a_s7_1_1_drone.html" title="The drone model and control class for the physical AS7 Drone.">Drone</a>. </p>
+<p >The drone class handles communication and translation of the SBUS interface for controlling the drone programmatically. Built within the drone class is the drone command queue, interpreting a set of commands and transmitting them to an accompanying flight controller for flight. This module allows for guided control with sensors recording the current environment state.</p>
+<p >Features of the drone class include:</p>
+<ul>
+<li>Filtering SBUS Frames to ensure smooth and clean communication</li>
+<li>Flexible SBUS channels with lower/upper control limits and toggles for absolute channels</li>
+<li>Ramping rates (similar to soft starts) for channels for smooth and precise control</li>
+<li>A drone command interface for interpreted instructions</li>
+<li>Guided drone commands for semi-autonomous flight</li>
+<li>Task-based (threaded) application for continuous control of the drone </li>
+</ul>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a55609d6f948046ab46654912cc78f425" name="a55609d6f948046ab46654912cc78f425"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a55609d6f948046ab46654912cc78f425">&#9670;&#160;</a></span>Drone()</h2>
 
@@ -400,7 +415,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constructor for <a class="el" href="class_a_s7_1_1_drone.html">Drone</a> class. </p>
+<p>Constructor for <a class="el" href="class_a_s7_1_1_drone.html" title="The drone model and control class for the physical AS7 Drone.">Drone</a> class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">logger</td><td>A reference to the SD logger, for data logging </td></tr>

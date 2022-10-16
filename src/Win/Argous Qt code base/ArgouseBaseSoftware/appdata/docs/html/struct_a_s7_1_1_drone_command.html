@@ -175,8 +175,8 @@ Attribute Characteristics</h3>
 <p >Hence, to control the forward velocity of the drone, the command is:</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_a_s7_1_1_drone_command.html">DroneCommand</a> aCommand;</div>
 <div class="line">aCommand.<a class="code hl_variable" href="struct_a_s7_1_1_drone_command.html#a6bd14aeb86624f8dee8f4e10998da6ea">v_x</a> = 0.5f</div>
-<div class="ttc" id="astruct_a_s7_1_1_drone_command_html"><div class="ttname"><a href="struct_a_s7_1_1_drone_command.html">AS7::DroneCommand</a></div><div class="ttdoc">Ecapsulates commands to be carried out by drone.</div><div class="ttdef"><b>Definition:</b> Drone.h:119</div></div>
-<div class="ttc" id="astruct_a_s7_1_1_drone_command_html_a6bd14aeb86624f8dee8f4e10998da6ea"><div class="ttname"><a href="struct_a_s7_1_1_drone_command.html#a6bd14aeb86624f8dee8f4e10998da6ea">AS7::DroneCommand::v_x</a></div><div class="ttdeci">float v_x</div><div class="ttdoc">Velocity control in the forward axis.</div><div class="ttdef"><b>Definition:</b> Drone.h:140</div></div>
+<div class="ttc" id="astruct_a_s7_1_1_drone_command_html"><div class="ttname"><a href="struct_a_s7_1_1_drone_command.html">AS7::DroneCommand</a></div><div class="ttdoc">Ecapsulates commands to be carried out by drone.</div><div class="ttdef"><b>Definition:</b> Drone.h:125</div></div>
+<div class="ttc" id="astruct_a_s7_1_1_drone_command_html_a6bd14aeb86624f8dee8f4e10998da6ea"><div class="ttname"><a href="struct_a_s7_1_1_drone_command.html#a6bd14aeb86624f8dee8f4e10998da6ea">AS7::DroneCommand::v_x</a></div><div class="ttdeci">float v_x</div><div class="ttdoc">Velocity control in the forward axis.</div><div class="ttdef"><b>Definition:</b> Drone.h:146</div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md1"></a>
 Command Ramping and Ramp Types</h3>
 <p >For all channels, <code><a class="el" href="_drone_8cpp.html">drone.cpp</a></code> defines a set 'ramp rate' depending on the application and control desired for the drone. Ramp rates are often found in motor applications where a motor has to be speed up at a certain rate to reduce damage or shock. In the case of drones, a linear ramp rate helps with ensuring the commands are carried out smoothly. Additionally, they allow for less rigid movement of the drone as as the channels transition smoothly and thus keep the channels alive, rather than emulating a disconnect. This has the added advantage of ensuring that the frame is not dropped due to suddden shifts in values. Ramp rates are defined by the <code>RAMPRATE</code> enumeration. The following ramping methods have been implemented:</p>
@@ -191,7 +191,7 @@ Channel values and non-pure values</h3>
 <h3><a class="anchor" id="autotoc_md3"></a>
 Blind Commands</h3>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_a_s7_1_1_drone_command.html">DroneCommand</a>.<a class="code hl_variable" href="struct_a_s7_1_1_drone_command.html#ada1f0d810dcebba410c1942737ecd9e8">v_z</a> = 0.1f</div>
-<div class="ttc" id="astruct_a_s7_1_1_drone_command_html_ada1f0d810dcebba410c1942737ecd9e8"><div class="ttname"><a href="struct_a_s7_1_1_drone_command.html#ada1f0d810dcebba410c1942737ecd9e8">AS7::DroneCommand::v_z</a></div><div class="ttdeci">float v_z</div><div class="ttdoc">Upwards thrust.</div><div class="ttdef"><b>Definition:</b> Drone.h:144</div></div>
+<div class="ttc" id="astruct_a_s7_1_1_drone_command_html_ada1f0d810dcebba410c1942737ecd9e8"><div class="ttname"><a href="struct_a_s7_1_1_drone_command.html#ada1f0d810dcebba410c1942737ecd9e8">AS7::DroneCommand::v_z</a></div><div class="ttdeci">float v_z</div><div class="ttdoc">Upwards thrust.</div><div class="ttdef"><b>Definition:</b> Drone.h:150</div></div>
 </div><!-- fragment --><p >This will emulate the user pulling up the 'throttle' stick to about 10%.</p>
 <h3><a class="anchor" id="autotoc_md4"></a>
 Guided Commands</h3>

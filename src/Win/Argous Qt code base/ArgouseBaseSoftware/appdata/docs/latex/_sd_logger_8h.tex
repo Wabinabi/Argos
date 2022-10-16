@@ -9,7 +9,7 @@
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_a_s7_1_1_logger}{AS7\+::\+Logger}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em The threaded logging module for drone with both Serial and SD capability. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -35,11 +35,11 @@ namespace \mbox{\hyperlink{namespace_a_s7}{AS7}}
 \#define \mbox{\hyperlink{_sd_logger_8h_abfcf05153ddbd63d5aff5d018867cc19}{CS\+\_\+\+PIN}}~5
 \item 
 \#define \mbox{\hyperlink{_sd_logger_8h_a8f202d7c22f4e54b51322f1d9b2d0141}{LOGGER\+\_\+\+FREQ}}~100
-\item 
+\begin{DoxyCompactList}\small\item\em Logger update rate in Hertz. \end{DoxyCompactList}\item 
 \#define \mbox{\hyperlink{_sd_logger_8h_a4e2de6ddd8e29a422e281da735c41ee5}{PLOTTER\+\_\+\+ENABLE}}~false
 \item 
 \#define \mbox{\hyperlink{_sd_logger_8h_aaf42b76f1955f8a450b5e6480a1b1b52}{SD\+\_\+\+DISABLED}}~false
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Disables SD output for testing. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Macro Definition Documentation}
@@ -49,9 +49,7 @@ namespace \mbox{\hyperlink{namespace_a_s7}{AS7}}
 \doxysubsubsection{\texorpdfstring{AS7SDLOGGING\_H}{AS7SDLOGGING\_H}}
 {\footnotesize\ttfamily \#define AS7\+SDLOGGING\+\_\+H}
 
-TODO\+: THIS BANNER
-
-This is \mbox{\hyperlink{namespace_a_s7}{AS7}}\textquotesingle{}s Logger. It prints to serial and SD card. The goal of this logger is to tie logging and comms into one location and delegate to a thread Read this for getters and setters inside freertos \href{https://forums.freertos.org/t/freertos-task-in-a-c-class/13984}{\texttt{ https\+://forums.\+freertos.\+org/t/freertos-\/task-\/in-\/a-\/c-\/class/13984}} \mbox{\Hypertarget{_sd_logger_8h_abfcf05153ddbd63d5aff5d018867cc19}\label{_sd_logger_8h_abfcf05153ddbd63d5aff5d018867cc19}} 
+This is \mbox{\hyperlink{namespace_a_s7}{AS7}}\textquotesingle{}s Logger. It prints to serial and SD card. The goal of this logger is to tie logging and comms into one location and delegate to a thread \mbox{\Hypertarget{_sd_logger_8h_abfcf05153ddbd63d5aff5d018867cc19}\label{_sd_logger_8h_abfcf05153ddbd63d5aff5d018867cc19}} 
 \index{SdLogger.h@{SdLogger.h}!CS\_PIN@{CS\_PIN}}
 \index{CS\_PIN@{CS\_PIN}!SdLogger.h@{SdLogger.h}}
 \doxysubsubsection{\texorpdfstring{CS\_PIN}{CS\_PIN}}
@@ -99,6 +97,10 @@ This is \mbox{\hyperlink{namespace_a_s7}{AS7}}\textquotesingle{}s Logger. It pri
 \doxysubsubsection{\texorpdfstring{LOGGER\_FREQ}{LOGGER\_FREQ}}
 {\footnotesize\ttfamily \#define LOGGER\+\_\+\+FREQ~100}
 
+
+
+Logger update rate in Hertz. 
+
 \mbox{\Hypertarget{_sd_logger_8h_a4e2de6ddd8e29a422e281da735c41ee5}\label{_sd_logger_8h_a4e2de6ddd8e29a422e281da735c41ee5}} 
 \index{SdLogger.h@{SdLogger.h}!PLOTTER\_ENABLE@{PLOTTER\_ENABLE}}
 \index{PLOTTER\_ENABLE@{PLOTTER\_ENABLE}!SdLogger.h@{SdLogger.h}}
@@ -110,4 +112,8 @@ This is \mbox{\hyperlink{namespace_a_s7}{AS7}}\textquotesingle{}s Logger. It pri
 \index{SD\_DISABLED@{SD\_DISABLED}!SdLogger.h@{SdLogger.h}}
 \doxysubsubsection{\texorpdfstring{SD\_DISABLED}{SD\_DISABLED}}
 {\footnotesize\ttfamily \#define SD\+\_\+\+DISABLED~false}
+
+
+
+Disables SD output for testing. 
 

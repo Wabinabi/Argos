@@ -33,6 +33,18 @@
 
 namespace AS7 
 {
+    /**
+     * @brief The threaded logging module for drone with both Serial and SD capability.
+     * 
+     * The logger is the primary method of data movement and management within the off-board software. 
+     * Providing a common interface for messaging and handling, the logger handles SD File Management and data recording.
+     * 
+     * Messages sent to the logger are sent to the serial monitor based on verbosity and are logged into the SD card in batches.
+     * The batch frequency can be set with with task priority to adjust the immediacy and impact of logging functionality.
+     * 
+     * The logger also maintains a flexible method for recording data into the SD card. Data is recorded onto a map and pushed to the SD card when requested.
+     * 
+     */
     class Logger
     {
     private:

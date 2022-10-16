@@ -2,44 +2,160 @@
 \label{class_a_s7_1_1_logger}\index{AS7::Logger@{AS7::Logger}}
 
 
+The threaded logging module for drone with both Serial and SD capability.  
+
+
+
+
 {\ttfamily \#include $<$Sd\+Logger.\+h$>$}
 
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+File \mbox{\hyperlink{class_a_s7_1_1_logger_a90e815eb85abf8d684ccd6e5aabedb6e}{get\+Log\+File}} ()
+\item 
+File \mbox{\hyperlink{class_a_s7_1_1_logger_a9c18346bdaadf7771e024f894b4270f4}{get\+Data\+File}} ()
+\item 
+File \mbox{\hyperlink{class_a_s7_1_1_logger_a99fe9c588746fc16f09208c3889f2bab}{get\+Config\+File}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_ab6217d1a69304253259c5ad3e199a83c}{open\+Log\+File}} ()
+\begin{DoxyCompactList}\small\item\em Opens the log file in Append mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_aab6478d747cea5ca88742998a9fe5aeb}{open\+Data\+File}} ()
+\begin{DoxyCompactList}\small\item\em Opens the dat afile in Append mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a99dd66c52cdc0888e378f3f9985870b3}{close\+Log\+File}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a5a8a9f7c0bd1d94b48fe8f395c324d3a}{close\+Data\+File}} ()
+\item 
+Print $\ast$ \mbox{\hyperlink{class_a_s7_1_1_logger_ac529e991fcf56f2996058ff1bd34e9c6}{get\+Printer}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_a_s7_1_1_logger_a385b9fa7b683a84d8d54bdb6fd3e8235}{get\+Test\+Message}} ()
+\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{class_a_s7_1_1_logger_ad3a037f97512e687f6c0210a54d2cc89}{get\+Msg\+Queue}} ()
+\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{class_a_s7_1_1_logger_aeb527457a023f418af6af19d6422af16}{get\+Log\+Queue}} ()
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_a51c342ed8472c82eca52cc1786808fb4}{get\+Sem\+Log}} ()
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_a4a7279f206913622766cb80c03e7ae04}{get\+Sem\+Msg}} ()
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_af30c6c7c3aff6f621526ebd68f99ac44}{get\+Sem\+Log\+Queue\+Mutex}} ()
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_ad47dd46ccbd6e30657f023b67dda233a}{get\+Sem\+Msg\+Queue\+Mutex}} ()
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_af4ef06fcb9a3ec5c4e53e221800d63b5}{get\+Sem\+Data\+Mutex}} ()
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_aedf0de2398b3dacfeae0d38918b8c6d0}{get\+Sem\+Data\+Enq\+Mutex}} ()
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_aef659109967fa63ffb44f659413de9fe}{get\+Sem\+Enable\+Mutex}} ()
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_ac8837fb6f9e1514324f71cc08325a36e}{enqueue\+Msg}} (std\+::string message)
+\begin{DoxyCompactList}\small\item\em Adds a message to be recorded to the SD card. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a85d4bdb2928751dfe6747ff57eb27924}{enqueue\+Log}} (std\+::string message, int \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}})
+\begin{DoxyCompactList}\small\item\em Adds a logging message to be logged to the SD card and sent to the serial monitor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a47f0a167338a6904440a20b221aa754d}{enqueue\+Pnt}} (std\+::string points)
+\begin{DoxyCompactList}\small\item\em For logging points to the PLY file. Deprecated. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_a_s7_1_1_logger_a0411102210be46a6a8338ce24d85fdd5}{dequeue\+Log}} ()
+\begin{DoxyCompactList}\small\item\em Dequeues a logging message from the log buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_ac1b62523f9a6b6b37c21b5bb440fcfe4}{main\+Task}} (void $\ast$parameters)
+\item 
+void \mbox{\hyperlink{class_a_s7_1_1_logger_a4714309dfeaf55b0067143cabf671315}{initialise\+SD}} ()
+\begin{DoxyCompactList}\small\item\em Initialises the SD card and clears previous files. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_a_s7_1_1_logger_a5d0daa8ab28aa547ece1a88813e8d266}{Logger}} (Print $\ast$output)
 \item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_a685065f891d6bbee4036a17b32070656}{start}} (int core=1, int priority=1, int \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}}=\mbox{\hyperlink{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}{LOG\+\_\+\+LEVEL\+\_\+\+INFORM}})
-\item 
+\begin{DoxyCompactList}\small\item\em Starts logger and intialises SD card. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_ac9d7cace2308b508786f239e8c8ee2e4}{pause}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Pauses the Logging thread. Logs can be enqueued but they are not acted on. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_a11e21f8484f53d22c40928fca6148c89}{resume}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Resumes the logging thread. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_a_s7_1_1_logger_aad5dd58a44f99e3ec0431dcdea10a36c}{running}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the current health of the logger. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Returns the current vebosity level of the logger. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_ab7bf63dfe6789fccdfc95e7ef64c714b}{set\+Verbosity}} (int \mbox{\hyperlink{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}{verbosity}})
-\item 
+\begin{DoxyCompactList}\small\item\em Sets the verbosity level of the logger. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_a9c9b2cdbf787c449646de49c3b16b3b0}{record\+Data}} (std\+::string key, float value)
-\item 
+\begin{DoxyCompactList}\small\item\em Pushes a piece of data to be recorded as defined by the CSV mapping. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_ae345e2ae39089a886d74e7be62d04de8}{push\+Data}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Pushes data to be enqueued and written. Typically done by the most imporatnt recorded data, the US Sensors. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_ab76a725a8c8794c106024700df4c58aa}{inform}} (std\+::string message)
-\item 
+\begin{DoxyCompactList}\small\item\em Logs an inform-\/level message. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_a3919c07a9d87d652ed9aefabc5db744b}{warn}} (std\+::string message)
-\item 
+\begin{DoxyCompactList}\small\item\em Logs an warn-\/level message. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_a5dd76d05f548ae3ebd1131e1386ee0f6}{error}} (std\+::string message)
-\item 
+\begin{DoxyCompactList}\small\item\em Logs an error-\/level message. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_a732d1ca90e99e6800aa6a226b24190e3}{fatal}} (std\+::string message)
-\item 
+\begin{DoxyCompactList}\small\item\em Logs an fatal-\/level message. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_a6dd9f0de9bd4cc828ab63fbeb1285889}{verbose}} (std\+::string message)
-\item 
+\begin{DoxyCompactList}\small\item\em Logs an verbose-\/level message. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_ae6a850fae22d17e893a8c6589b0aaa74}{plot}} (std\+::string message)
 \item 
 void \mbox{\hyperlink{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}{disable\+SDLogging}} ()
+\begin{DoxyCompactList}\small\item\em Disables SD Logging, even if SD Card is attached. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_a_s7_1_1_logger_afc3c5071670f1799d6f37c765d5a6407}{start\+Task\+Impl}} (void $\ast$)
+\begin{DoxyCompactList}\small\item\em Implementation to start Free\+RTOS tasks in classes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{class_a_s7_1_1_logger_ae16e64f28e02a86f692956b8a72c4cdf}{\+\_\+msg\+\_\+\+Queue}}
+\begin{DoxyCompactList}\small\item\em Message Queue, acts as a buffer to hold messages before writing to SD. \end{DoxyCompactList}\item 
+std\+::queue$<$ std\+::string $>$ \mbox{\hyperlink{class_a_s7_1_1_logger_ad2325f737e0c9b3cec698ceb988d530b}{\+\_\+log\+\_\+\+Queue}}
+\begin{DoxyCompactList}\small\item\em Logging Queue, acts as a buffer to hold log messages before writing to SD. \end{DoxyCompactList}\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_a8d608c727cdef8de79b28a86ea1fdfbb}{\+\_\+sem\+\_\+log}}
+\begin{DoxyCompactList}\small\item\em Deprecated. \end{DoxyCompactList}\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_a803925d017b83c3cfc8fd3ee57058068}{\+\_\+sem\+\_\+msg}}
+\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_a6b1bae0cf157bfc92d53dc33975d206a}{\+\_\+sem\+\_\+log\+Queue\+Mutex}}
+\begin{DoxyCompactList}\small\item\em Mutex for Log Queue, ensures that the data is not overwritten and that the SD is only used by one thread at any one time. \end{DoxyCompactList}\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_ac27ed2b1429fd994f61981ace75e972a}{\+\_\+sem\+\_\+msg\+Queue\+Mutex}}
+\begin{DoxyCompactList}\small\item\em Mutex for Message Queue, ensures that the data is not overwritten and that the SD is only used by one thread at any one time. \end{DoxyCompactList}\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_a74f8eabbb71f70f11c53f1afd5ce8d76}{\+\_\+sem\+\_\+data\+Mutex}}
+\begin{DoxyCompactList}\small\item\em Mutex for the data dictionary. \end{DoxyCompactList}\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_ac0c43eb09cd88e4f44eb950be8bda1b0}{\+\_\+sem\+\_\+data\+Enq\+Mutex}}
+\begin{DoxyCompactList}\small\item\em Enqueue mutex to protect message queue. \end{DoxyCompactList}\item 
+Semaphore\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_ae73ce22d56befef401a8f5fa1e3857f1}{\+\_\+sem\+\_\+enable\+Mutex}}
+\begin{DoxyCompactList}\small\item\em Enables/disables the task. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_logger_a4381133602f0d399d313b50f19b4cd92}{\+\_\+running}} = false
+\begin{DoxyCompactList}\small\item\em Tracks if the thread is running or stopped. Written to by the thread. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_logger_abbd3f95b2357de43fc793ef4b5a11f01}{\+\_\+sd\+Enabled}} = false
+\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_logger_a1883cdc251d30f0efc7701597a430a05}{\+\_\+sd\+Detected}} = false
+\item 
+std\+::map$<$ std\+::string, float $>$ \mbox{\hyperlink{class_a_s7_1_1_logger_a715de8369c9dc8d28794501478bf3924}{\+\_\+active\+Data}}
+\begin{DoxyCompactList}\small\item\em Data dictionary to store the current data that is actively being written to. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, float $>$ \mbox{\hyperlink{class_a_s7_1_1_logger_a7d9e6b0a8c572a4432017196351f206e}{\+\_\+enqueued\+Data}}
+\begin{DoxyCompactList}\small\item\em Data dictionary to store the data before being written to SD. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_s7_1_1_logger_a100dba93e1411d1e699c0d0fcad4ec07}{\+\_\+has\+Enqueued\+Data}} = false
+\item 
+File \mbox{\hyperlink{class_a_s7_1_1_logger_a84d2e07b1f38f31e8e48ad52a8192170}{\+\_\+log\+File}}
+\item 
+File \mbox{\hyperlink{class_a_s7_1_1_logger_acd3001eb476863a0a090998472bf70a8}{\+\_\+data\+File}}
+\item 
+File \mbox{\hyperlink{class_a_s7_1_1_logger_a18b2d6cd2ee2f82305ce7cc1603b1bbf}{\+\_\+config\+File}}
+\item 
+const std\+::string \mbox{\hyperlink{class_a_s7_1_1_logger_addb378a78a43de3643b70a2db448d849}{\+\_\+log\+File\+Location}} = \char`\"{}/as7.\+log\char`\"{}
+\begin{DoxyCompactList}\small\item\em Location of the logging file, includes extension. Use .c\+\_\+str() to for SD library. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_a_s7_1_1_logger_a38dbf435a9b1f1013d7fb391ac2b3e5a}{\+\_\+data\+File\+Location}} = \char`\"{}/data.\+csv\char`\"{}
+\begin{DoxyCompactList}\small\item\em Location of the logging file, includes extension. Use .c\+\_\+str() to for SD library. \end{DoxyCompactList}\item 
+Print $\ast$ \mbox{\hyperlink{class_a_s7_1_1_logger_a1fdf08868d90013b5a5e60eee134bc76}{\+\_\+printer}}
+\begin{DoxyCompactList}\small\item\em Reference to the serial momnitor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_a_s7_1_1_logger_a0052f5914180b02825f18fd53d6b7da0}{\+\_\+verbosity}} = \mbox{\hyperlink{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}{LOG\+\_\+\+LEVEL\+\_\+\+INFORM}}
+\begin{DoxyCompactList}\small\item\em Level of messages to be printed to the Serial Monitor. All messages are always printed to the SD card. \end{DoxyCompactList}\item 
+Task\+Handle\+\_\+t \mbox{\hyperlink{class_a_s7_1_1_logger_a607c108fbfa485fc8aeb99d15d0143b9}{th\+\_\+logger}}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+The threaded logging module for drone with both Serial and SD capability. 
+
+The logger is the primary method of data movement and management within the off-\/board software. Providing a common interface for messaging and handling, the logger handles SD File Management and data recording.
+
+Messages sent to the logger are sent to the serial monitor based on verbosity and are logged into the SD card in batches. The batch frequency can be set with with task priority to adjust the immediacy and impact of logging functionality.
+
+The logger also maintains a flexible method for recording data into the SD card. Data is recorded onto a map and pushed to the SD card when requested. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a5d0daa8ab28aa547ece1a88813e8d266}\label{class_a_s7_1_1_logger_a5d0daa8ab28aa547ece1a88813e8d266}} 
@@ -51,23 +167,209 @@ void \mbox{\hyperlink{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}{d
 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a5a8a9f7c0bd1d94b48fe8f395c324d3a}\label{class_a_s7_1_1_logger_a5a8a9f7c0bd1d94b48fe8f395c324d3a}} 
+\index{AS7::Logger@{AS7::Logger}!closeDataFile@{closeDataFile}}
+\index{closeDataFile@{closeDataFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{closeDataFile()}{closeDataFile()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::close\+Data\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a99dd66c52cdc0888e378f3f9985870b3}\label{class_a_s7_1_1_logger_a99dd66c52cdc0888e378f3f9985870b3}} 
+\index{AS7::Logger@{AS7::Logger}!closeLogFile@{closeLogFile}}
+\index{closeLogFile@{closeLogFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{closeLogFile()}{closeLogFile()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::close\+Log\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a0411102210be46a6a8338ce24d85fdd5}\label{class_a_s7_1_1_logger_a0411102210be46a6a8338ce24d85fdd5}} 
+\index{AS7::Logger@{AS7::Logger}!dequeueLog@{dequeueLog}}
+\index{dequeueLog@{dequeueLog}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{dequeueLog()}{dequeueLog()}}
+{\footnotesize\ttfamily std\+::string AS7\+::\+Logger\+::dequeue\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Dequeues a logging message from the log buffer. 
+
+\begin{DoxyReturn}{Returns}
+The next logging message as a {\ttfamily std\+::string} 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}\label{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}} 
 \index{AS7::Logger@{AS7::Logger}!disableSDLogging@{disableSDLogging}}
 \index{disableSDLogging@{disableSDLogging}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{disableSDLogging()}{disableSDLogging()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::disable\+SDLogging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Disables SD Logging, even if SD Card is attached. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a85d4bdb2928751dfe6747ff57eb27924}\label{class_a_s7_1_1_logger_a85d4bdb2928751dfe6747ff57eb27924}} 
+\index{AS7::Logger@{AS7::Logger}!enqueueLog@{enqueueLog}}
+\index{enqueueLog@{enqueueLog}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{enqueueLog()}{enqueueLog()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::enqueue\+Log (\begin{DoxyParamCaption}\item[{std\+::string}]{message,  }\item[{int}]{verbosity }\end{DoxyParamCaption})}
+
+
+
+Adds a logging message to be logged to the SD card and sent to the serial monitor. 
+
+The message may not be printed to the serial monitor if the verbosity level of the monitor is greater than the provided verbosity level.
+
+This action enqueues the message to be written. Messages are buffered into the queue and then dequeued when the logger awakes every cycle. The logging rate is determined by {\ttfamily LOGGER\+\_\+\+FREQ}
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be sent \\
+\hline
+{\em verbosity} & The verbosity level. If unsure, use \mbox{\hyperlink{class_a_s7_1_1_logger_a3919c07a9d87d652ed9aefabc5db744b}{Logger.\+warn()}}, \mbox{\hyperlink{class_a_s7_1_1_logger_ab76a725a8c8794c106024700df4c58aa}{Logger.\+inform()}}... \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ac8837fb6f9e1514324f71cc08325a36e}\label{class_a_s7_1_1_logger_ac8837fb6f9e1514324f71cc08325a36e}} 
+\index{AS7::Logger@{AS7::Logger}!enqueueMsg@{enqueueMsg}}
+\index{enqueueMsg@{enqueueMsg}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{enqueueMsg()}{enqueueMsg()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::enqueue\+Msg (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+
+
+Adds a message to be recorded to the SD card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & String to be logged \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a47f0a167338a6904440a20b221aa754d}\label{class_a_s7_1_1_logger_a47f0a167338a6904440a20b221aa754d}} 
+\index{AS7::Logger@{AS7::Logger}!enqueuePnt@{enqueuePnt}}
+\index{enqueuePnt@{enqueuePnt}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{enqueuePnt()}{enqueuePnt()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::enqueue\+Pnt (\begin{DoxyParamCaption}\item[{std\+::string}]{points }\end{DoxyParamCaption})}
+
+
+
+For logging points to the PLY file. Deprecated. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & The point to log in string format \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a5dd76d05f548ae3ebd1131e1386ee0f6}\label{class_a_s7_1_1_logger_a5dd76d05f548ae3ebd1131e1386ee0f6}} 
 \index{AS7::Logger@{AS7::Logger}!error@{error}}
 \index{error@{error}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{error()}{error()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::error (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
 
+
+
+Logs an error-\/level message. 
+
+Messages of this level has a direct and immediate impact on the drone, however, may still allow for operation of unaffected modules. An exmaple of an error would be a compass or accelerometer failure, though the drone will still collect data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be enqueued \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a732d1ca90e99e6800aa6a226b24190e3}\label{class_a_s7_1_1_logger_a732d1ca90e99e6800aa6a226b24190e3}} 
 \index{AS7::Logger@{AS7::Logger}!fatal@{fatal}}
 \index{fatal@{fatal}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{fatal()}{fatal()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::fatal (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+
+
+Logs an fatal-\/level message. 
+
+Messages of this level indicate that the drone is in a fault and cannot be operated. An example fatal error would be an emergency stop.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be enqueued \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a99fe9c588746fc16f09208c3889f2bab}\label{class_a_s7_1_1_logger_a99fe9c588746fc16f09208c3889f2bab}} 
+\index{AS7::Logger@{AS7::Logger}!getConfigFile@{getConfigFile}}
+\index{getConfigFile@{getConfigFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getConfigFile()}{getConfigFile()}}
+{\footnotesize\ttfamily File AS7\+::\+Logger\+::get\+Config\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a9c18346bdaadf7771e024f894b4270f4}\label{class_a_s7_1_1_logger_a9c18346bdaadf7771e024f894b4270f4}} 
+\index{AS7::Logger@{AS7::Logger}!getDataFile@{getDataFile}}
+\index{getDataFile@{getDataFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getDataFile()}{getDataFile()}}
+{\footnotesize\ttfamily File AS7\+::\+Logger\+::get\+Data\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a90e815eb85abf8d684ccd6e5aabedb6e}\label{class_a_s7_1_1_logger_a90e815eb85abf8d684ccd6e5aabedb6e}} 
+\index{AS7::Logger@{AS7::Logger}!getLogFile@{getLogFile}}
+\index{getLogFile@{getLogFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getLogFile()}{getLogFile()}}
+{\footnotesize\ttfamily File AS7\+::\+Logger\+::get\+Log\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_aeb527457a023f418af6af19d6422af16}\label{class_a_s7_1_1_logger_aeb527457a023f418af6af19d6422af16}} 
+\index{AS7::Logger@{AS7::Logger}!getLogQueue@{getLogQueue}}
+\index{getLogQueue@{getLogQueue}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getLogQueue()}{getLogQueue()}}
+{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ AS7\+::\+Logger\+::get\+Log\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ad3a037f97512e687f6c0210a54d2cc89}\label{class_a_s7_1_1_logger_ad3a037f97512e687f6c0210a54d2cc89}} 
+\index{AS7::Logger@{AS7::Logger}!getMsgQueue@{getMsgQueue}}
+\index{getMsgQueue@{getMsgQueue}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getMsgQueue()}{getMsgQueue()}}
+{\footnotesize\ttfamily std\+::queue$<$ std\+::string $>$ AS7\+::\+Logger\+::get\+Msg\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ac529e991fcf56f2996058ff1bd34e9c6}\label{class_a_s7_1_1_logger_ac529e991fcf56f2996058ff1bd34e9c6}} 
+\index{AS7::Logger@{AS7::Logger}!getPrinter@{getPrinter}}
+\index{getPrinter@{getPrinter}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getPrinter()}{getPrinter()}}
+{\footnotesize\ttfamily Print $\ast$ AS7\+::\+Logger\+::get\+Printer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_aedf0de2398b3dacfeae0d38918b8c6d0}\label{class_a_s7_1_1_logger_aedf0de2398b3dacfeae0d38918b8c6d0}} 
+\index{AS7::Logger@{AS7::Logger}!getSemDataEnqMutex@{getSemDataEnqMutex}}
+\index{getSemDataEnqMutex@{getSemDataEnqMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getSemDataEnqMutex()}{getSemDataEnqMutex()}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::get\+Sem\+Data\+Enq\+Mutex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_af4ef06fcb9a3ec5c4e53e221800d63b5}\label{class_a_s7_1_1_logger_af4ef06fcb9a3ec5c4e53e221800d63b5}} 
+\index{AS7::Logger@{AS7::Logger}!getSemDataMutex@{getSemDataMutex}}
+\index{getSemDataMutex@{getSemDataMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getSemDataMutex()}{getSemDataMutex()}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::get\+Sem\+Data\+Mutex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_aef659109967fa63ffb44f659413de9fe}\label{class_a_s7_1_1_logger_aef659109967fa63ffb44f659413de9fe}} 
+\index{AS7::Logger@{AS7::Logger}!getSemEnableMutex@{getSemEnableMutex}}
+\index{getSemEnableMutex@{getSemEnableMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getSemEnableMutex()}{getSemEnableMutex()}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::get\+Sem\+Enable\+Mutex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a51c342ed8472c82eca52cc1786808fb4}\label{class_a_s7_1_1_logger_a51c342ed8472c82eca52cc1786808fb4}} 
+\index{AS7::Logger@{AS7::Logger}!getSemLog@{getSemLog}}
+\index{getSemLog@{getSemLog}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getSemLog()}{getSemLog()}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::get\+Sem\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_af30c6c7c3aff6f621526ebd68f99ac44}\label{class_a_s7_1_1_logger_af30c6c7c3aff6f621526ebd68f99ac44}} 
+\index{AS7::Logger@{AS7::Logger}!getSemLogQueueMutex@{getSemLogQueueMutex}}
+\index{getSemLogQueueMutex@{getSemLogQueueMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getSemLogQueueMutex()}{getSemLogQueueMutex()}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::get\+Sem\+Log\+Queue\+Mutex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a4a7279f206913622766cb80c03e7ae04}\label{class_a_s7_1_1_logger_a4a7279f206913622766cb80c03e7ae04}} 
+\index{AS7::Logger@{AS7::Logger}!getSemMsg@{getSemMsg}}
+\index{getSemMsg@{getSemMsg}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getSemMsg()}{getSemMsg()}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::get\+Sem\+Msg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ad47dd46ccbd6e30657f023b67dda233a}\label{class_a_s7_1_1_logger_ad47dd46ccbd6e30657f023b67dda233a}} 
+\index{AS7::Logger@{AS7::Logger}!getSemMsgQueueMutex@{getSemMsgQueueMutex}}
+\index{getSemMsgQueueMutex@{getSemMsgQueueMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getSemMsgQueueMutex()}{getSemMsgQueueMutex()}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::get\+Sem\+Msg\+Queue\+Mutex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a385b9fa7b683a84d8d54bdb6fd3e8235}\label{class_a_s7_1_1_logger_a385b9fa7b683a84d8d54bdb6fd3e8235}} 
+\index{AS7::Logger@{AS7::Logger}!getTestMessage@{getTestMessage}}
+\index{getTestMessage@{getTestMessage}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{getTestMessage()}{getTestMessage()}}
+{\footnotesize\ttfamily std\+::string AS7\+::\+Logger\+::get\+Test\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_a_s7_1_1_logger_ab76a725a8c8794c106024700df4c58aa}\label{class_a_s7_1_1_logger_ab76a725a8c8794c106024700df4c58aa}} 
 \index{AS7::Logger@{AS7::Logger}!inform@{inform}}
@@ -75,11 +377,62 @@ void \mbox{\hyperlink{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}{d
 \doxysubsubsection{\texorpdfstring{inform()}{inform()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::inform (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
 
+
+
+Logs an inform-\/level message. 
+
+Messages of this level should be useful to know but are not critical or concerning to the operation of the drone
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be enqueued \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a4714309dfeaf55b0067143cabf671315}\label{class_a_s7_1_1_logger_a4714309dfeaf55b0067143cabf671315}} 
+\index{AS7::Logger@{AS7::Logger}!initialiseSD@{initialiseSD}}
+\index{initialiseSD@{initialiseSD}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{initialiseSD()}{initialiseSD()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::initialise\+SD (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialises the SD card and clears previous files. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ac1b62523f9a6b6b37c21b5bb440fcfe4}\label{class_a_s7_1_1_logger_ac1b62523f9a6b6b37c21b5bb440fcfe4}} 
+\index{AS7::Logger@{AS7::Logger}!mainTask@{mainTask}}
+\index{mainTask@{mainTask}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{mainTask()}{mainTask()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::main\+Task (\begin{DoxyParamCaption}\item[{void $\ast$}]{parameters }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_aab6478d747cea5ca88742998a9fe5aeb}\label{class_a_s7_1_1_logger_aab6478d747cea5ca88742998a9fe5aeb}} 
+\index{AS7::Logger@{AS7::Logger}!openDataFile@{openDataFile}}
+\index{openDataFile@{openDataFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{openDataFile()}{openDataFile()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::open\+Data\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Opens the dat afile in Append mode. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ab6217d1a69304253259c5ad3e199a83c}\label{class_a_s7_1_1_logger_ab6217d1a69304253259c5ad3e199a83c}} 
+\index{AS7::Logger@{AS7::Logger}!openLogFile@{openLogFile}}
+\index{openLogFile@{openLogFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{openLogFile()}{openLogFile()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::open\+Log\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Opens the log file in Append mode. 
+
 \mbox{\Hypertarget{class_a_s7_1_1_logger_ac9d7cace2308b508786f239e8c8ee2e4}\label{class_a_s7_1_1_logger_ac9d7cace2308b508786f239e8c8ee2e4}} 
 \index{AS7::Logger@{AS7::Logger}!pause@{pause}}
 \index{pause@{pause}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{pause()}{pause()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Pauses the Logging thread. Logs can be enqueued but they are not acted on. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_logger_ae6a850fae22d17e893a8c6589b0aaa74}\label{class_a_s7_1_1_logger_ae6a850fae22d17e893a8c6589b0aaa74}} 
 \index{AS7::Logger@{AS7::Logger}!plot@{plot}}
@@ -93,17 +446,36 @@ void \mbox{\hyperlink{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}{d
 \doxysubsubsection{\texorpdfstring{pushData()}{pushData()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::push\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Pushes data to be enqueued and written. Typically done by the most imporatnt recorded data, the US Sensors. 
+
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a9c9b2cdbf787c449646de49c3b16b3b0}\label{class_a_s7_1_1_logger_a9c9b2cdbf787c449646de49c3b16b3b0}} 
 \index{AS7::Logger@{AS7::Logger}!recordData@{recordData}}
 \index{recordData@{recordData}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{recordData()}{recordData()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::record\+Data (\begin{DoxyParamCaption}\item[{std\+::string}]{key,  }\item[{float}]{value }\end{DoxyParamCaption})}
 
+
+
+Pushes a piece of data to be recorded as defined by the CSV mapping. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & The data column \\
+\hline
+{\em value} & The data value, as a float. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a11e21f8484f53d22c40928fca6148c89}\label{class_a_s7_1_1_logger_a11e21f8484f53d22c40928fca6148c89}} 
 \index{AS7::Logger@{AS7::Logger}!resume@{resume}}
 \index{resume@{resume}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{resume()}{resume()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resumes the logging thread. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_logger_aad5dd58a44f99e3ec0431dcdea10a36c}\label{class_a_s7_1_1_logger_aad5dd58a44f99e3ec0431dcdea10a36c}} 
 \index{AS7::Logger@{AS7::Logger}!running@{running}}
@@ -111,17 +483,56 @@ void \mbox{\hyperlink{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}{d
 \doxysubsubsection{\texorpdfstring{running()}{running()}}
 {\footnotesize\ttfamily bool AS7\+::\+Logger\+::running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Returns the current health of the logger. 
+
+\begin{DoxyReturn}{Returns}
+True if logger is running with no issues 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_logger_ab7bf63dfe6789fccdfc95e7ef64c714b}\label{class_a_s7_1_1_logger_ab7bf63dfe6789fccdfc95e7ef64c714b}} 
 \index{AS7::Logger@{AS7::Logger}!setVerbosity@{setVerbosity}}
 \index{setVerbosity@{setVerbosity}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{setVerbosity()}{setVerbosity()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::set\+Verbosity (\begin{DoxyParamCaption}\item[{int}]{verbosity }\end{DoxyParamCaption})}
 
+
+
+Sets the verbosity level of the logger. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em verbosity} & Int, use definitions {\ttfamily LOG\+\_\+\+LEVEL\+\_\+\+INFORM}, LOG\+\_\+\+LEVEL\+\_\+\+WARN\`{}... defined in \mbox{\hyperlink{_sd_logger_8h}{sdlogger.\+h}} \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a685065f891d6bbee4036a17b32070656}\label{class_a_s7_1_1_logger_a685065f891d6bbee4036a17b32070656}} 
 \index{AS7::Logger@{AS7::Logger}!start@{start}}
 \index{start@{start}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{start()}{start()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::start (\begin{DoxyParamCaption}\item[{int}]{core = {\ttfamily 1},  }\item[{int}]{priority = {\ttfamily 1},  }\item[{int}]{verbosity = {\ttfamily \mbox{\hyperlink{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}{LOG\+\_\+\+LEVEL\+\_\+\+INFORM}}} }\end{DoxyParamCaption})}
+
+
+
+Starts logger and intialises SD card. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em core} & The core to run the logger on. Valid values are 0 and 1. \\
+\hline
+{\em priority} & The priority of the logger. The higher, the more likely it is to be scheduled in front of other tasks. Default 1. \\
+\hline
+{\em verbosity} & The verbosity level of the logger. If messages are less than the vebosity level, they are not written to the Serial Monitor. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_a_s7_1_1_logger_afc3c5071670f1799d6f37c765d5a6407}\label{class_a_s7_1_1_logger_afc3c5071670f1799d6f37c765d5a6407}} 
+\index{AS7::Logger@{AS7::Logger}!startTaskImpl@{startTaskImpl}}
+\index{startTaskImpl@{startTaskImpl}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{startTaskImpl()}{startTaskImpl()}}
+{\footnotesize\ttfamily void AS7\+::\+Logger\+::start\+Task\+Impl (\begin{DoxyParamCaption}\item[{void $\ast$}]{\+\_\+this }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Implementation to start Free\+RTOS tasks in classes. 
 
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a6dd9f0de9bd4cc828ab63fbeb1285889}\label{class_a_s7_1_1_logger_a6dd9f0de9bd4cc828ab63fbeb1285889}} 
 \index{AS7::Logger@{AS7::Logger}!verbose@{verbose}}
@@ -129,17 +540,247 @@ void \mbox{\hyperlink{class_a_s7_1_1_logger_a23f83dcb2ec036b96d5732c9fca4795d}{d
 \doxysubsubsection{\texorpdfstring{verbose()}{verbose()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::verbose (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
 
+
+
+Logs an verbose-\/level message. 
+
+Messages of this level may not be informative but indicate some sort of running or function of the drone. An example verbose message may be the status logs showing the current state of the RX/\+TX Terminals
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be enqueued \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}\label{class_a_s7_1_1_logger_a097ff991454548b105b16a9751a94df3}} 
 \index{AS7::Logger@{AS7::Logger}!verbosity@{verbosity}}
 \index{verbosity@{verbosity}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{verbosity()}{verbosity()}}
 {\footnotesize\ttfamily int AS7\+::\+Logger\+::verbosity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Returns the current vebosity level of the logger. 
+
+\begin{DoxyReturn}{Returns}
+Verbosity Level (Int) 
+\end{DoxyReturn}
 \mbox{\Hypertarget{class_a_s7_1_1_logger_a3919c07a9d87d652ed9aefabc5db744b}\label{class_a_s7_1_1_logger_a3919c07a9d87d652ed9aefabc5db744b}} 
 \index{AS7::Logger@{AS7::Logger}!warn@{warn}}
 \index{warn@{warn}!AS7::Logger@{AS7::Logger}}
 \doxysubsubsection{\texorpdfstring{warn()}{warn()}}
 {\footnotesize\ttfamily void AS7\+::\+Logger\+::warn (\begin{DoxyParamCaption}\item[{std\+::string}]{message }\end{DoxyParamCaption})}
+
+
+
+Logs an warn-\/level message. 
+
+Messages of this level should be concerning but otherwise do not have an immediate impact do the drone. An example warning may be a thread being paused programmatically.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & The message to be enqueued \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a715de8369c9dc8d28794501478bf3924}\label{class_a_s7_1_1_logger_a715de8369c9dc8d28794501478bf3924}} 
+\index{AS7::Logger@{AS7::Logger}!\_activeData@{\_activeData}}
+\index{\_activeData@{\_activeData}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_activeData}{\_activeData}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, float$>$ AS7\+::\+Logger\+::\+\_\+active\+Data}
+
+
+
+Data dictionary to store the current data that is actively being written to. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a18b2d6cd2ee2f82305ce7cc1603b1bbf}\label{class_a_s7_1_1_logger_a18b2d6cd2ee2f82305ce7cc1603b1bbf}} 
+\index{AS7::Logger@{AS7::Logger}!\_configFile@{\_configFile}}
+\index{\_configFile@{\_configFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_configFile}{\_configFile}}
+{\footnotesize\ttfamily File AS7\+::\+Logger\+::\+\_\+config\+File}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_acd3001eb476863a0a090998472bf70a8}\label{class_a_s7_1_1_logger_acd3001eb476863a0a090998472bf70a8}} 
+\index{AS7::Logger@{AS7::Logger}!\_dataFile@{\_dataFile}}
+\index{\_dataFile@{\_dataFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_dataFile}{\_dataFile}}
+{\footnotesize\ttfamily File AS7\+::\+Logger\+::\+\_\+data\+File}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a38dbf435a9b1f1013d7fb391ac2b3e5a}\label{class_a_s7_1_1_logger_a38dbf435a9b1f1013d7fb391ac2b3e5a}} 
+\index{AS7::Logger@{AS7::Logger}!\_dataFileLocation@{\_dataFileLocation}}
+\index{\_dataFileLocation@{\_dataFileLocation}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_dataFileLocation}{\_dataFileLocation}}
+{\footnotesize\ttfamily const std\+::string AS7\+::\+Logger\+::\+\_\+data\+File\+Location = \char`\"{}/data.\+csv\char`\"{}}
+
+
+
+Location of the logging file, includes extension. Use .c\+\_\+str() to for SD library. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a7d9e6b0a8c572a4432017196351f206e}\label{class_a_s7_1_1_logger_a7d9e6b0a8c572a4432017196351f206e}} 
+\index{AS7::Logger@{AS7::Logger}!\_enqueuedData@{\_enqueuedData}}
+\index{\_enqueuedData@{\_enqueuedData}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_enqueuedData}{\_enqueuedData}}
+{\footnotesize\ttfamily std\+::map$<$std\+::string, float$>$ AS7\+::\+Logger\+::\+\_\+enqueued\+Data}
+
+
+
+Data dictionary to store the data before being written to SD. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a100dba93e1411d1e699c0d0fcad4ec07}\label{class_a_s7_1_1_logger_a100dba93e1411d1e699c0d0fcad4ec07}} 
+\index{AS7::Logger@{AS7::Logger}!\_hasEnqueuedData@{\_hasEnqueuedData}}
+\index{\_hasEnqueuedData@{\_hasEnqueuedData}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_hasEnqueuedData}{\_hasEnqueuedData}}
+{\footnotesize\ttfamily bool AS7\+::\+Logger\+::\+\_\+has\+Enqueued\+Data = false}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ad2325f737e0c9b3cec698ceb988d530b}\label{class_a_s7_1_1_logger_ad2325f737e0c9b3cec698ceb988d530b}} 
+\index{AS7::Logger@{AS7::Logger}!\_log\_Queue@{\_log\_Queue}}
+\index{\_log\_Queue@{\_log\_Queue}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_log\_Queue}{\_log\_Queue}}
+{\footnotesize\ttfamily std\+::queue$<$std\+::string$>$ AS7\+::\+Logger\+::\+\_\+log\+\_\+\+Queue}
+
+
+
+Logging Queue, acts as a buffer to hold log messages before writing to SD. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a84d2e07b1f38f31e8e48ad52a8192170}\label{class_a_s7_1_1_logger_a84d2e07b1f38f31e8e48ad52a8192170}} 
+\index{AS7::Logger@{AS7::Logger}!\_logFile@{\_logFile}}
+\index{\_logFile@{\_logFile}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_logFile}{\_logFile}}
+{\footnotesize\ttfamily File AS7\+::\+Logger\+::\+\_\+log\+File}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_addb378a78a43de3643b70a2db448d849}\label{class_a_s7_1_1_logger_addb378a78a43de3643b70a2db448d849}} 
+\index{AS7::Logger@{AS7::Logger}!\_logFileLocation@{\_logFileLocation}}
+\index{\_logFileLocation@{\_logFileLocation}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_logFileLocation}{\_logFileLocation}}
+{\footnotesize\ttfamily const std\+::string AS7\+::\+Logger\+::\+\_\+log\+File\+Location = \char`\"{}/as7.\+log\char`\"{}}
+
+
+
+Location of the logging file, includes extension. Use .c\+\_\+str() to for SD library. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ae16e64f28e02a86f692956b8a72c4cdf}\label{class_a_s7_1_1_logger_ae16e64f28e02a86f692956b8a72c4cdf}} 
+\index{AS7::Logger@{AS7::Logger}!\_msg\_Queue@{\_msg\_Queue}}
+\index{\_msg\_Queue@{\_msg\_Queue}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_msg\_Queue}{\_msg\_Queue}}
+{\footnotesize\ttfamily std\+::queue$<$std\+::string$>$ AS7\+::\+Logger\+::\+\_\+msg\+\_\+\+Queue}
+
+
+
+Message Queue, acts as a buffer to hold messages before writing to SD. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a1fdf08868d90013b5a5e60eee134bc76}\label{class_a_s7_1_1_logger_a1fdf08868d90013b5a5e60eee134bc76}} 
+\index{AS7::Logger@{AS7::Logger}!\_printer@{\_printer}}
+\index{\_printer@{\_printer}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_printer}{\_printer}}
+{\footnotesize\ttfamily Print$\ast$ AS7\+::\+Logger\+::\+\_\+printer}
+
+
+
+Reference to the serial momnitor. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a4381133602f0d399d313b50f19b4cd92}\label{class_a_s7_1_1_logger_a4381133602f0d399d313b50f19b4cd92}} 
+\index{AS7::Logger@{AS7::Logger}!\_running@{\_running}}
+\index{\_running@{\_running}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_running}{\_running}}
+{\footnotesize\ttfamily bool AS7\+::\+Logger\+::\+\_\+running = false}
+
+
+
+Tracks if the thread is running or stopped. Written to by the thread. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a1883cdc251d30f0efc7701597a430a05}\label{class_a_s7_1_1_logger_a1883cdc251d30f0efc7701597a430a05}} 
+\index{AS7::Logger@{AS7::Logger}!\_sdDetected@{\_sdDetected}}
+\index{\_sdDetected@{\_sdDetected}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_sdDetected}{\_sdDetected}}
+{\footnotesize\ttfamily bool AS7\+::\+Logger\+::\+\_\+sd\+Detected = false}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_abbd3f95b2357de43fc793ef4b5a11f01}\label{class_a_s7_1_1_logger_abbd3f95b2357de43fc793ef4b5a11f01}} 
+\index{AS7::Logger@{AS7::Logger}!\_sdEnabled@{\_sdEnabled}}
+\index{\_sdEnabled@{\_sdEnabled}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_sdEnabled}{\_sdEnabled}}
+{\footnotesize\ttfamily bool AS7\+::\+Logger\+::\+\_\+sd\+Enabled = false}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ac0c43eb09cd88e4f44eb950be8bda1b0}\label{class_a_s7_1_1_logger_ac0c43eb09cd88e4f44eb950be8bda1b0}} 
+\index{AS7::Logger@{AS7::Logger}!\_sem\_dataEnqMutex@{\_sem\_dataEnqMutex}}
+\index{\_sem\_dataEnqMutex@{\_sem\_dataEnqMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_sem\_dataEnqMutex}{\_sem\_dataEnqMutex}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::\+\_\+sem\+\_\+data\+Enq\+Mutex}
+
+
+
+Enqueue mutex to protect message queue. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a74f8eabbb71f70f11c53f1afd5ce8d76}\label{class_a_s7_1_1_logger_a74f8eabbb71f70f11c53f1afd5ce8d76}} 
+\index{AS7::Logger@{AS7::Logger}!\_sem\_dataMutex@{\_sem\_dataMutex}}
+\index{\_sem\_dataMutex@{\_sem\_dataMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_sem\_dataMutex}{\_sem\_dataMutex}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::\+\_\+sem\+\_\+data\+Mutex}
+
+
+
+Mutex for the data dictionary. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ae73ce22d56befef401a8f5fa1e3857f1}\label{class_a_s7_1_1_logger_ae73ce22d56befef401a8f5fa1e3857f1}} 
+\index{AS7::Logger@{AS7::Logger}!\_sem\_enableMutex@{\_sem\_enableMutex}}
+\index{\_sem\_enableMutex@{\_sem\_enableMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_sem\_enableMutex}{\_sem\_enableMutex}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::\+\_\+sem\+\_\+enable\+Mutex}
+
+
+
+Enables/disables the task. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a8d608c727cdef8de79b28a86ea1fdfbb}\label{class_a_s7_1_1_logger_a8d608c727cdef8de79b28a86ea1fdfbb}} 
+\index{AS7::Logger@{AS7::Logger}!\_sem\_log@{\_sem\_log}}
+\index{\_sem\_log@{\_sem\_log}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_sem\_log}{\_sem\_log}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::\+\_\+sem\+\_\+log}
+
+
+
+Deprecated. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a6b1bae0cf157bfc92d53dc33975d206a}\label{class_a_s7_1_1_logger_a6b1bae0cf157bfc92d53dc33975d206a}} 
+\index{AS7::Logger@{AS7::Logger}!\_sem\_logQueueMutex@{\_sem\_logQueueMutex}}
+\index{\_sem\_logQueueMutex@{\_sem\_logQueueMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_sem\_logQueueMutex}{\_sem\_logQueueMutex}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::\+\_\+sem\+\_\+log\+Queue\+Mutex}
+
+
+
+Mutex for Log Queue, ensures that the data is not overwritten and that the SD is only used by one thread at any one time. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a803925d017b83c3cfc8fd3ee57058068}\label{class_a_s7_1_1_logger_a803925d017b83c3cfc8fd3ee57058068}} 
+\index{AS7::Logger@{AS7::Logger}!\_sem\_msg@{\_sem\_msg}}
+\index{\_sem\_msg@{\_sem\_msg}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_sem\_msg}{\_sem\_msg}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::\+\_\+sem\+\_\+msg}
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_ac27ed2b1429fd994f61981ace75e972a}\label{class_a_s7_1_1_logger_ac27ed2b1429fd994f61981ace75e972a}} 
+\index{AS7::Logger@{AS7::Logger}!\_sem\_msgQueueMutex@{\_sem\_msgQueueMutex}}
+\index{\_sem\_msgQueueMutex@{\_sem\_msgQueueMutex}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_sem\_msgQueueMutex}{\_sem\_msgQueueMutex}}
+{\footnotesize\ttfamily Semaphore\+Handle\+\_\+t AS7\+::\+Logger\+::\+\_\+sem\+\_\+msg\+Queue\+Mutex}
+
+
+
+Mutex for Message Queue, ensures that the data is not overwritten and that the SD is only used by one thread at any one time. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a0052f5914180b02825f18fd53d6b7da0}\label{class_a_s7_1_1_logger_a0052f5914180b02825f18fd53d6b7da0}} 
+\index{AS7::Logger@{AS7::Logger}!\_verbosity@{\_verbosity}}
+\index{\_verbosity@{\_verbosity}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{\_verbosity}{\_verbosity}}
+{\footnotesize\ttfamily int AS7\+::\+Logger\+::\+\_\+verbosity = \mbox{\hyperlink{_sd_logger_8h_a89fed76d83e0dcc0c399efa21ead4f47}{LOG\+\_\+\+LEVEL\+\_\+\+INFORM}}}
+
+
+
+Level of messages to be printed to the Serial Monitor. All messages are always printed to the SD card. 
+
+\mbox{\Hypertarget{class_a_s7_1_1_logger_a607c108fbfa485fc8aeb99d15d0143b9}\label{class_a_s7_1_1_logger_a607c108fbfa485fc8aeb99d15d0143b9}} 
+\index{AS7::Logger@{AS7::Logger}!th\_logger@{th\_logger}}
+\index{th\_logger@{th\_logger}!AS7::Logger@{AS7::Logger}}
+\doxysubsubsection{\texorpdfstring{th\_logger}{th\_logger}}
+{\footnotesize\ttfamily Task\+Handle\+\_\+t AS7\+::\+Logger\+::th\+\_\+logger}
 
 
 
