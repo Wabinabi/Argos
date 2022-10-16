@@ -38,13 +38,10 @@ var NAVTREE =
           [ "Required Dependencies and Libraries", "index.html#autotoc_md67", null ]
         ] ],
         [ "Off Board Software", "index.html#autotoc_md68", [
-          [ "Qt Configuration", "index.html#autotoc_md69", null ],
-          [ "Documentation Generation with Doxygen", "index.html#autotoc_md70", null ]
+          [ "Documentation Generation with Doxygen", "index.html#autotoc_md69", null ]
         ] ]
       ] ],
-      [ "Credits", "index.html#autotoc_md71", null ],
-      [ "License", "index.html#autotoc_md72", null ],
-      [ "Authors", "index.html#autotoc_md73", null ]
+      [ "Authors", "index.html#autotoc_md70", null ]
     ] ],
     [ "AS7 Off-Board Software User Guide", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html", [
       [ "Table of Contents", "md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#autotoc_md8", null ],

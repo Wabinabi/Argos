@@ -19,14 +19,40 @@ Configuration and source files can be found in the following locations\+:
 \begin{DoxyItemize}
 \item On-\/board software can be found under {\ttfamily src/esp32}
 \item Off-\/board software can be found under {\ttfamily src/win10}
-\item Ardu\+Pilot configuration can be found under {\ttfamily src/ardupilot}
+\item Ardu\+Pilot configuration can be found under {\ttfamily src/ardupilot} \label{index_table-of-contents}%
+\Hypertarget{index_table-of-contents}%
+ 
 \end{DoxyItemize}\hypertarget{index_autotoc_md60}{}\doxysection{Table of contents}\label{index_autotoc_md60}
-\mbox{[}toc\mbox{]}
 
-A full index of \mbox{\hyperlink{namespace_a_s7}{AS7}} on-\/board terms can be found in \href{globals.html}{\texttt{ File Members}}.\hypertarget{index_autotoc_md61}{}\doxysection{Getting started for surveying}\label{index_autotoc_md61}
-For surveying use, the \mbox{\hyperlink{namespace_a_s7}{AS7}} drone comes pre-\/flashed with the on-\/board software with details configurable through the SD card.\hypertarget{index_autotoc_md62}{}\doxysubsection{Base Station Software}\label{index_autotoc_md62}
+\begin{DoxyItemize}
+\item \href{index.html\#argous-s7-autonomous-mine-surveying-drone}{\texttt{ Argous S7\+: Autonomous Mine Surveying Drone}}
+\begin{DoxyItemize}
+\item \href{index.html\#outline}{\texttt{ Outline}}
+\item \href{index.html\#table-of-contents}{\texttt{ Table of contents}}
+\item \href{index.html\#getting-started-for-surveying}{\texttt{ Getting started for surveying}}
+\item \href{index.html\#getting-started-for-development}{\texttt{ Getting started for development}}
+\item \href{index.html\#authors}{\texttt{ Authors}}
+\end{DoxyItemize}
+\item \href{md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html}{\texttt{ Off-\/\+Board Software User Guide}}
+\item \href{md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html}{\texttt{ On-\/\+Board Software User Guide}}
+\end{DoxyItemize}
+
+A full index of \mbox{\hyperlink{namespace_a_s7}{AS7}} on-\/board terms can be found in \href{globals.html}{\texttt{ File Members}}.
+
+\label{index_getting-started-for-surveying}%
+\Hypertarget{index_getting-started-for-surveying}%
+\hypertarget{index_autotoc_md61}{}\doxysection{Getting started for surveying}\label{index_autotoc_md61}
+For surveying use, the \mbox{\hyperlink{namespace_a_s7}{AS7}} drone comes pre-\/flashed with the on-\/board software with details configurable through the SD card.
+
+\label{index_getting-started-for-surveying}%
+\Hypertarget{index_getting-started-for-surveying}%
+\hypertarget{index_autotoc_md62}{}\doxysubsection{Base Station Software}\label{index_autotoc_md62}
 The Base Station Software requires Windows 10 or newer to operate. It can be downloaded from the releases section of the \href{https://github.com/Wabinabi/Argous}{\texttt{ Git\+Hub Repository}}.\hypertarget{index_autotoc_md63}{}\doxysubsection{Mission Planner}\label{index_autotoc_md63}
-The Flight Controller on \mbox{\hyperlink{namespace_a_s7}{AS7}} uses \href{https://ardupilot.org/}{\texttt{ Ardu\+Pilot}} for flight control. It can be configured through \href{https://ardupilot.org/planner/}{\texttt{ Mission Planner}}. Installation instructions for Mission Planner can be found \href{https://ardupilot.org/planner/docs/mission-planner-installation.html}{\texttt{ here}}\hypertarget{index_autotoc_md64}{}\doxysection{Getting started for development}\label{index_autotoc_md64}
+The Flight Controller on \mbox{\hyperlink{namespace_a_s7}{AS7}} uses \href{https://ardupilot.org/}{\texttt{ Ardu\+Pilot}} for flight control. It can be configured through \href{https://ardupilot.org/planner/}{\texttt{ Mission Planner}}. Installation instructions for Mission Planner can be found \href{https://ardupilot.org/planner/docs/mission-planner-installation.html}{\texttt{ here}}
+
+\label{index_getting-started-for-development}%
+\Hypertarget{index_getting-started-for-development}%
+\hypertarget{index_autotoc_md64}{}\doxysection{Getting started for development}\label{index_autotoc_md64}
 All source code can be found in the \href{https://github.com/Wabinabi/Argous}{\texttt{ Git\+Hub Repository}}, under the ‘src’ (source) folder.\hypertarget{index_autotoc_md65}{}\doxysubsection{On Board Software}\label{index_autotoc_md65}
 The On-\/\+Board software is written within the \href{https://www.arduino.cc/en/software/}{\texttt{ Arduino IDE}} with the ESP32 Dev Kit.\hypertarget{index_autotoc_md66}{}\doxysubsubsection{Adding the ESP32 to the Arduino IDE}\label{index_autotoc_md66}
 The add-\/on for the Arduino IDE can be found by adding the ESP32 Library URL to the Additional Board Manager\+:
@@ -61,8 +87,25 @@ These libraries can be installed by\+:
 \end{DoxyEnumerate}
 
 To verify library installation, they can be found under {\ttfamily C\+:\textbackslash{}Users\textbackslash{}\texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}Your Username\texorpdfstring{$>$}{>}\texorpdfstring{$>$}{>}\textbackslash{}Documents\textbackslash{}Arduino\textbackslash{}libraries}.\hypertarget{index_autotoc_md68}{}\doxysubsection{Off Board Software}\label{index_autotoc_md68}
-\hypertarget{index_autotoc_md69}{}\doxysubsubsection{Qt Configuration}\label{index_autotoc_md69}
-\hypertarget{index_autotoc_md70}{}\doxysubsubsection{Documentation Generation with Doxygen}\label{index_autotoc_md70}
-\hypertarget{index_autotoc_md71}{}\doxysection{Credits}\label{index_autotoc_md71}
-\hypertarget{index_autotoc_md72}{}\doxysection{License}\label{index_autotoc_md72}
-\hypertarget{index_autotoc_md73}{}\doxysection{Authors}\label{index_autotoc_md73}
+Development of the off-\/board software or the base station software requires the Qt IDE and framework. An open-\/source version of Qt can be found here\+: \href{https://www.qt.io/download-open-source}{\texttt{ https\+://www.\+qt.\+io/download-\/open-\/source}}.
+
+The base station software uses Qt 4.\+3.\+2 and does not require any additional modules.\hypertarget{index_autotoc_md69}{}\doxysubsubsection{Documentation Generation with Doxygen}\label{index_autotoc_md69}
+Documentation (this file plus the reference) uses \href{https://doxygen.nl/}{\texttt{ Doxygen}}. The specific configuration can be found inside {\ttfamily docs/doxygen} with the input as {\ttfamily src/esp32/as7-\/gamma} and output folder as {\ttfamily src\textbackslash{}Win\textbackslash{}Argous Qt code base\textbackslash{}Argouse\+Base\+Software\textbackslash{}appdata}.
+
+The documentation uses \href{https://github.com/jothepro/doxygen-awesome-css}{\texttt{ Doxygen Awesome CSS}} with minor modifications to match the overall theme of the system. The additional CSS is located at {\ttfamily docs/doxygen/as7-\/custom.\+css}. The doxyfile configuration is as follows\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{HTML\_EXTRA\_STYLESHEET = doxygen-\/awesome.css as7-\/custom.css}
+
+\end{DoxyCode}
+
+
+\label{index_authors}%
+\Hypertarget{index_authors}%
+\hypertarget{index_autotoc_md70}{}\doxysection{Authors}\label{index_autotoc_md70}
+Jimmy Trac \href{mailto:jt@nekox.net}{\texttt{ jt@nekox.\+net}}
+
+Monique Kuhn \href{mailto:monique.n.kuhn@gmail.com}{\texttt{ monique.\+n.\+kuhn@gmail.\+com}}
+
+Bi Wan Low \href{mailto:bwlow39@gmail.com}{\texttt{ bwlow39@gmail.\+com}} 

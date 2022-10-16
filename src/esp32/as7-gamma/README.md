@@ -11,23 +11,32 @@ The project is composed of the following modules:
   * An accompanying electronics and sensor package mounted under the drone containing the ‘on-board software’, documented within the AS7 Namespace
 * The AS7 Base Station Software, or ‘Off-board software’
 
-
-
 Configuration and source files can be found in the following locations:
 
 * On-board software can be found under `src/esp32`
 * Off-board software can be found under `src/win10`
 * ArduPilot configuration can be found under `src/ardupilot`
-
+<a id="table-of-contents"></a>
 ## Table of contents
 
-[toc]
+- [Argous S7: Autonomous Mine Surveying Drone](index.html#argous-s7-autonomous-mine-surveying-drone)
+  - [Outline](index.html#outline)
+  - [Table of contents](index.html#table-of-contents)
+  - [Getting started for surveying](index.html#getting-started-for-surveying)
+  - [Getting started for development](index.html#getting-started-for-development)
+  - [Authors](index.html#authors)
+- [Off-Board Software User Guide](md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html)
+- [On-Board Software User Guide](md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html)
 
 A full index of AS7 on-board terms can be found in [File Members](globals.html).
+
+<a id="getting-started-for-surveying"></a>
 
 ## Getting started for surveying
 
 For surveying use, the AS7 drone comes pre-flashed with the on-board software with details configurable through the SD card. 
+
+<a id="getting-started-for-surveying"></a>
 
 ### Base Station Software
 
@@ -36,6 +45,8 @@ The Base Station Software requires Windows 10 or newer to operate. It can be dow
 ### Mission Planner
 
 The Flight Controller on AS7 uses [ArduPilot](https://ardupilot.org/) for flight control. It can be configured through [Mission Planner](https://ardupilot.org/planner/). Installation instructions for Mission Planner can be found [here](https://ardupilot.org/planner/docs/mission-planner-installation.html)
+
+<a id="getting-started-for-development"></a>
 
 ## Getting started for development
 
@@ -87,6 +98,8 @@ The documentation uses [Doxygen Awesome CSS](https://github.com/jothepro/doxygen
 ```css
 HTML_EXTRA_STYLESHEET = doxygen-awesome.css as7-custom.css
 ```
+
+<a id="authors"></a>
 
 ## Authors
 
