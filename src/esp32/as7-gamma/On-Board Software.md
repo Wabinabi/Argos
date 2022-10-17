@@ -28,6 +28,27 @@ Preparing for a survey flight includes inspection of the drone hardware and ensu
 
 The Remote Control (RC) system is consists of a transmitter and receiver. The transmitter is the handheld ‘remote control’ and is also known as the “TX”. The Receiver is located on the drone located above the communications lights and is known as the “RX”. 
 
+This system uses the SBUS communication protocol to transfer channel information from the receiver to the flight controller. Though SBUS can support up to 16 channels, 8 are used for communication with the drone. They are:
+
+```C++
+#define CH_THROTTLE     2   // Left stick y axis (starts from 0)
+#define CH_YAW          3   // Left stick x axis
+#define CH_STRAIGHT     1   // Right stick y axis
+#define CH_STRAFE       0   // Right stick x axis
+#define CH_BUTTON1      6   // Button on middle of controller
+#define CH_SW1          7   // Right toggle switch
+#define CH_FLIGHTMODE   4   // Left toggle switch
+#define CH_ESTOP        6   // Other button?
+```
+
+The remainder are not used but are generally set to 50% of the channel width (about 1024). SBUS values are unitless, and the controller emits and receives values from 0 to 2056, though the channel can allow for 2^15 values. Internally, the on-board software uses `int_16t` or `word` for each channel.
+
+
+
+
+
+
+
 
 
 * The control system is composed of the remote control transmitter (the tx) and the receiver on the drop (rx)
