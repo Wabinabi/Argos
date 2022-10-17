@@ -79,7 +79,7 @@ void DataModel::generate3DWidget(){
 
     vLayout->addWidget(labelButton, 0, Qt::AlignTop);
     vLayout->addWidget(cameraButton, 0, Qt::AlignTop);
-    vLayout->addWidget(itemCountButton, 0, Qt::AlignTop);
+    //vLayout->addWidget(itemCountButton, 0, Qt::AlignTop);
     vLayout->addWidget(backgroundCheckBox);
     vLayout->addWidget(gridCheckBox);
     vLayout->addWidget(smoothCheckBox, 0, Qt::AlignTop);
