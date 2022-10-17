@@ -43,47 +43,46 @@ This system uses the SBUS communication protocol to transfer channel information
 
 The remainder are not used but are generally set to 50% of the channel width (about 1024). SBUS values are unitless, and the controller emits and receives values from 0 to 2056, though the channel can allow for 2^15 values. Internally, the on-board software uses `int_16t` or `word` for each channel.
 
+Each channel can be configured independently through the drone configuration file to have a differing minimum and maximum range. An example configuration (if implemented), would be:
+
+```
+SBUS_RX_CH_1_MIN:100
+SBUS_RX_CH_1_MAX:2000
+```
+
+The channel range would then be between the minimum and maximum values. For example, a 50% value for the above configuration would be (2000 - 100) * 0.5 + 100 = 1150.
+
+Channels can also be configured to be absolute. Typically, the floating-point range of a channel is between [-1.0f, 1.0f], where 0.0f represents 50% of the channel value. This is analogous to the right stick on the remote control, where the default resting position is in-between the axes. The only exception is the thrust channel, which the default resting position is 0%. These are coined *absolute channels*, and have a range of [0.0f, 1.0f. If implemented, the channel configuration would be:
+
+```
+SBUS_RX_CH_1_ABS:TRUE
+```
+
+Channels 9-16 are not recommended for use as they fall outside of the scope of the controller. Additionally, these auxiliary channels are currently used for filtering incomplete or offset data frames. As the channels are typically not used, an incomplete or offset data frame will produce a result very different from the standard value of the channel (around 1024), allowing for the filtering of only complete frames. The checks that these channels are around the 1000 value for use, if not, the frame is dropped.
 
 
 
-
-
-
-
-
-* The control system is composed of the remote control transmitter (the tx) and the receiver on the drop (rx)
-* The control has the following channels
-  * channel descriptions
-  * There are channels on the sbus specification that aren't being used
-  * channels can be configured to this and that
-
-
-
-
-
-* The remote, its controls, and the specific channel guides
 * Battery, charging, and correct mounting
 * Hardware inspections and checks
 * Pre flight checklist
 
 ### Drone Battery and Charging
 
-goes over the parts of the system that needs to be charged
+The drone is primarily powered by the Lithium Polymer (Li-Po) battery strapped on the 'back' of the drone. The battery supplies power to both the drone and the electronics package underneath the drone. Commonly used in racing drones, the the drone requires a 4-cell or 6-cell Li-Po battery to function. These are normally referred to as '4S' or '6S' cells. The battery will require an XT-60 connector to power the drone.
 
-##### Charging the Remote
+Calibration should not be required when changing between 4S and 6S batteries, however, it should be noted that 6S batteries carry significantly more voltage than 4S models. At 3.7v per cell, a 4S battery is 14.8v whereas a 6S battery is 22.2v.
 
-using micro B
+The voltage of the battery is dropped to 5v with the on-board voltage regulator, and dropped to a further 3.3v on the ESP32. There are both 5v and 3.3v rails on the electronics package if additional components are required. 
 
 ##### Charging the Drone Batteries
 
-Using the multifunctional kit
+The drone batteries are charged with a balance or multi-functional charger for Li-Po batteries. Supplied with the drone is a ToolkitRC M6 Multifunctional Charger with a Refurbished Toshiba PA5114E-1AC3 Power Supply connected to an XT-60 adaptor. Further resources on using the Toolkit M6 is provided in the box.
 
-##### Drone Battery Specifications
+**Under no circumstances should the power supply be directly connected to the battery!** This may result in serious injury and Li-Po battery fires!
 
-* the drone batteries must be between 4S-6S Poly
-* Ideally above a certain C value
+##### Charging the Remote
 
-
+The remote control (Tx) is charged through a Micro-B USB Port on the right hand side of the device, near the screen. 
 
 ### Recommended Hardware Inspection
 
