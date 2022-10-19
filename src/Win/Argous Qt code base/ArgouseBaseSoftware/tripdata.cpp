@@ -311,15 +311,22 @@ void TripData::keyPressEvent(QKeyEvent *event)
 
 void TripData::readDroneStats(){
     QFile file("../ArgouseBaseSoftware/appdata/tripStats.txt");
-    QString line;
+    QString line, htmlLine, textBlock;
+
+    QStringList tokens;
 
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream stream(&file);
         while (!stream.atEnd()){
 
-            line.append(stream.readLine()+"\n");
+            line = stream.readLine();
+            tokens = line.split(QRegularExpression(":"));
+            htmlLine = "<html><b>" + tokens[0] + ": </b></html>" + tokens[1] + "<html><br></html>";
+
+            textBlock.append(htmlLine);
         }
-        ui->droneStats->setText(line);
+
+        ui->droneStats->setText(textBlock);
     }
     file.close();
 }

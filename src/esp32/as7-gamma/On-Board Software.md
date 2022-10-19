@@ -112,6 +112,14 @@ The electronics package contains an accelerometer and compass, in addition to th
 
 ### Data Gathering and Hardware Features
 
+The AS7 drone houses an electronics package for collecting mapping data of the environment. Sensors on-board collect and store the data onto the MicroSD card located the rear of the drone.
+
+#### Setting up the MicroSD Card
+
+The MicroSD Slot uses the Adafruit `MicroSD card breakout board+`. This requires the SD Card to be formatted to a FAT16 or FAT32 format. The recommended formatter is provided by the SD Foundation and can be found [here](https://www.sdcard.org/downloads/formatter/).
+
+#### On-Board instrumentation
+
 * SD card set up
 * US sensors and their details
 * Compass and accel details
@@ -143,13 +151,13 @@ In case of an **emergency** or to stop the drone abruptly, **press and hold the 
 
 As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.
 
+The remote interlock will also be enabled if the transmitter is out of range of the drone.
+
 ## During Flight
 
-this section mostly details with things that could happen in flight, how do what the lights mean, and how to get out of flight
+This section details the features of automated flight for setting up new flights and detailing the mechanisms behind drone control. 
 
 ### Flight modes
-
-the drone has primary modes --- automated mode and operator override.
 
 #### Automated Flight
 
@@ -160,8 +168,6 @@ Drone commands are enqueued on an internal stack and are executed first in last 
 * A drone comamnd type, typically blind, guided, or arming
 * A duration dor the command
 * Drone command parameters.
-
-
 
 #### Drone Command Parameters
 

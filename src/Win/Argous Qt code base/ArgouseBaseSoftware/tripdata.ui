@@ -95,58 +95,35 @@
      <string>Display 3D Point Cloud Model</string>
     </property>
    </widget>
-   <widget class="QScrollArea" name="scrollArea">
+   <widget class="QTextEdit" name="droneStats">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>171</width>
-      <height>91</height>
+      <x>20</x>
+      <y>40</y>
+      <width>201</width>
+      <height>111</height>
      </rect>
     </property>
-    <property name="lineWidth">
-     <number>1</number>
-    </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>169</width>
-       <height>89</height>
-      </rect>
-     </property>
-     <widget class="QTextEdit" name="droneStats">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>-20</y>
-        <width>201</width>
-        <height>111</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">
+    <property name="styleSheet">
+     <string notr="true">
 background-color: rgb(65, 65, 65);
 border-radius: 5px;
 
 
 QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</string>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="lineWidth">
-       <number>0</number>
-      </property>
-      <property name="verticalScrollBarPolicy">
-       <enum>Qt::ScrollBarAlwaysOn</enum>
-      </property>
-     </widget>
-    </widget>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="frame_2">
