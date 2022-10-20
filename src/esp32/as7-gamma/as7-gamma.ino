@@ -17,32 +17,30 @@
  *  HC-SR04 Ultrasonic Sensor Sonar Distance
  *  DFROBOT SEN0168 Triple Axis Accelerometer, BMA220 (Tiny)
  * 
- *                 ESP32 Devkic C
- *                  +----------+  
- *                  |          |  
- *        +-----+---+----------+---+-----+
- *       <- 3V3 |                  | GND -> 
- *       <- EN  |                  |  23 ->  
- *       <- VP  |                  |  22 -> 
- *       <- VN  |                  |  TX ->
- *       <- 34  |                  |  RX -> 
- *       <- 35  |                  |  21 -> 
- *       <- 32  |                  | GND -> 
- *       <- 33  |                  |  19 ->
- *       <- 25  |                  |  18 ->
- *       <- 26  |                  |   5 ->
- *       <- 27  |                  |  17 -> 
- *       <- 14  |                  |  16 -> 
- *       <- 12  |                  |   4 -> 
- *       <- GND |                  |   0 -> 
- *       <- 13  |                  |   2 -> 
- *       <- D2  |                  |  15 -> 
- *       <- D3  |                  |  D1 -> 
- *       <- CMD |                  |  D0 ->  
- *       <- 5V  |                  | CLK -> 
- *        +-----+------------------+-----+  
- * 
- *
+ *                     ESP32 Devkic C
+ *                      +----------+  
+ *                      |          |  
+ *            +-----+---+----------+---+-----+
+ *       VCC <- 3V3 |                  | GND -> GND
+ *           <- EN  |                  |  23 -> SD_DI
+ *           <- VP  |                  |  22 -> SCL
+ *           <- VN  |                  |  TX -> FC_TX, LED_DI
+ *  TEMP_OUT <- 34  |                  |  RX -> FC_RX
+ *  SONAR_1A <- 35  |                  |  21 -> SDA
+ *  SONAR_1B <- 32  |                  | GND -> GND
+ *  SONAR_2B <- 33  |                  |  19 -> SD_DO
+ *  SONAR_2A <- 25  |                  |  18 -> SD_CLK
+ *           <- 26  |                  |   5 -> SC_CS
+ *  SONAR_4A <- 27  |                  |  17 -> SONAR_5A
+ *  SONAR_4B <- 14  |                  |  16 -> SONAR_5B
+ *  SONAR_3A <- 12  |                  |   4 -> SONAR_6B
+ *       GND <- GND |                  |   0 -> SONAR_6A
+ *  SONAR_3B <- 13  |                  |   2 -> 
+ *           <- D2  |                  |  15 -> 
+ *           <- D3  |                  |  D1 -> 
+ *           <- CMD |                  |  D0 ->  
+ *           <- 5V  |                  | CLK -> 
+ *            +-----+------------------+-----+  
  *
  */
 #include <sbus.h>     // SBUS Communication Library with FC
