@@ -1,9 +1,5 @@
 # AS7 On-Board Software User Guide
 
-## Table of Contents
-
-[toc]
-
 ## Outline
 
 The on-board software refers to the program flashed onto the ESP32 Microcontroller present on the AS7 Electronics and Sensor Package. This is located underneath the drone. 
@@ -12,17 +8,19 @@ This document provides an overview of the primary features on the drone. It incl
 
 The drone will come with a software configuration already loaded onto the ESP32. Even if development is not required, the [Arduino IDE](https://www.arduino.cc/en/software/) is recommended to interface with the Serial transmissions from the drone for fault diagnostics.
 
+## Table of contents
+
+- [AS7 On-Board Software User Guide](#as7-on-board-software-user-guide)
+  - [Before flight](#before-flight)
+  - [During Flight](#during-flight)
+  - [After Flight](#after-flight)
+  - [Maintenance](#maintenance)
+
+<a id="before-flight"></a>
+
 ## Before flight
 
-Preparing for a survey flight includes inspection of the drone hardware and ensuring all equipment is set up. 
-
-
-
-
-
-* Contains operating features, concerns for data gathering, and why do one thing or another things
-
-* 
+Details of the systems associated with flight.
 
 ### Remote Control System
 
@@ -59,12 +57,6 @@ SBUS_RX_CH_1_ABS:TRUE
 ```
 
 Channels 9-16 are not recommended for use as they fall outside of the scope of the controller. Additionally, these auxiliary channels are currently used for filtering incomplete or offset data frames. As the channels are typically not used, an incomplete or offset data frame will produce a result very different from the standard value of the channel (around 1024), allowing for the filtering of only complete frames. The checks that these channels are around the 1000 value for use, if not, the frame is dropped.
-
-
-
-* Battery, charging, and correct mounting
-* Hardware inspections and checks
-* Pre flight checklist
 
 ### Drone Battery and Charging
 
@@ -152,6 +144,8 @@ In case of an **emergency** or to stop the drone abruptly, **press and hold the 
 As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.
 
 The remote interlock will also be enabled if the transmitter is out of range of the drone.
+
+<a id="during-flight"></a>
 
 ## During Flight
 
@@ -310,6 +304,8 @@ The following states have not been implemented and are not used:
 * Landing
 * Stopped
 
+<a id="after-flight"></a>
+
 ## After Flight
 
 Once a mission is complete, the data can be extracted from the drone and passed to the Base Station Software. The drone can also be configured by connecting to Mission Planner.
@@ -319,6 +315,8 @@ Once a mission is complete, the data can be extracted from the drone and passed 
 Data on the drone can be accessed by removing the MicroSD card on the rear of the drone. The MicroSD card is accessed in batches and can be safely removed regardless of drone state.
 
 **Please Note:** The SD Module may loosen itself over time, and thus, the files on the SD card may have not updated. The drone sends a notification through the Serial Port if it cannot detect an SD Card, however, the drone does not enter a faulted mode. This recommendation has been made for future improvements.
+
+<a id="maintenance"></a>
 
 ## Maintenance
 
@@ -358,13 +356,43 @@ The provided components have been printed on an Artillery Sidewinder X2
 
 ### Drone Specifications
 
-Just a big list on the drone specs (like in drone details)
+**Accelerometer:** DFROBOT SEN0168 Triple Axis Accelerometer BMA220
 
+**Aviation Reference Number:** 1179999
 
+**Battery:** 1100 mAh 6s 100c
+
+**CASA License:** CASA-13QFCC
+
+**Charger:** ToolkitRC M6 Multifunctional Charger
+
+**Charger Adapter:** Refurbished Toshiba PA5114E-1AC3
+
+**Compass:** Duinotech XC-4496
+
+**ESC:** T-Motor F45A V3
+
+**Firmware:** Ardupilot Firmware Matek H743 v. stable-4.1.5
+
+**Flight Controller:** Matek H743 SLIM
+
+**Frame:** HGLRC Sector 7 V3
+
+**Microcontroller:** ESP32-DEVKIT C
+
+**Motors:** T-Motor BMS Racing V2 2306.5 2000kv
+
+**Propellers:** Gemfan 5" props, Pitch 3"
+
+**RX Protocol:** SBUS
+
+**RX/TX System:** Turnigy HK-MT6B
+
+**Ultrasonic Sensors:** HC-SR04
 
 ### Wiring Diagram
 
-
+[Argous S7 Wiring Diagram - Link to PDF](ArgousS7_TryFour.pdf)
 
 
 

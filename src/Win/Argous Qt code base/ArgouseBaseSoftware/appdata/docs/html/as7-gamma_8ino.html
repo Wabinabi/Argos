@@ -108,9 +108,13 @@ $(document).ready(function(){initNavTree('as7-gamma_8ino.html',''); initResizabl
 <code>#include &lt;map&gt;</code><br />
 <code>#include &quot;<a class="el" href="_sd_logger_8h_source.html">SdLogger.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_drone_8h_source.html">Drone.h</a>&quot;</code><br />
+<code>#include &lt;DFRobot_LIS2DW12.h&gt;</code><br />
+<code>#include &quot;SparkFun_MMA8452Q.h&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
+<tr class="memitem:a6c5ce6ac8e2693de2daeaff1fad0df8b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="as7-gamma_8ino.html#a6c5ce6ac8e2693de2daeaff1fad0df8b">LIS2DW12_CS</a>&#160;&#160;&#160;D3</td></tr>
+<tr class="separator:a6c5ce6ac8e2693de2daeaff1fad0df8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18aefd12ad84d4c33dc97923cb821e47"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="as7-gamma_8ino.html#a18aefd12ad84d4c33dc97923cb821e47">I2C_SDA</a>&#160;&#160;&#160;21</td></tr>
 <tr class="separator:a18aefd12ad84d4c33dc97923cb821e47"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a212ca328a6409c98f8c3dfbbe1ba561d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="as7-gamma_8ino.html#a212ca328a6409c98f8c3dfbbe1ba561d">I2C_SCL</a>&#160;&#160;&#160;22</td></tr>
@@ -178,6 +182,8 @@ Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
+<tr class="memitem:a8f949cf60a249e071171358b114eb9cf"><td class="memItemLeft" align="right" valign="top">MMA8452Q&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="as7-gamma_8ino.html#a8f949cf60a249e071171358b114eb9cf">accel</a></td></tr>
+<tr class="separator:a8f949cf60a249e071171358b114eb9cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0da32dc70b8b1ae6ff5b9ff2322c3c5b"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="as7-gamma_8ino.html#a0da32dc70b8b1ae6ff5b9ff2322c3c5b">STATUS_FASTLED_PIN</a> = 3</td></tr>
 <tr class="separator:a0da32dc70b8b1ae6ff5b9ff2322c3c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49c5693416bd00651f5f16acac3de2cb"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="as7-gamma_8ino.html#a49c5693416bd00651f5f16acac3de2cb">STATUS_NUM_LEDS</a> = 8</td></tr>
@@ -510,6 +516,20 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a6c5ce6ac8e2693de2daeaff1fad0df8b" name="a6c5ce6ac8e2693de2daeaff1fad0df8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c5ce6ac8e2693de2daeaff1fad0df8b">&#9670;&#160;</a></span>LIS2DW12_CS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LIS2DW12_CS&#160;&#160;&#160;D3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a02238131c0258d4ecbc4352535073d17" name="a02238131c0258d4ecbc4352535073d17"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a02238131c0258d4ecbc4352535073d17">&#9670;&#160;</a></span>SIMULATION_ENABLE</h2>
 
@@ -731,6 +751,20 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="a8f949cf60a249e071171358b114eb9cf" name="a8f949cf60a249e071171358b114eb9cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f949cf60a249e071171358b114eb9cf">&#9670;&#160;</a></span>accel</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">MMA8452Q accel</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af33470774a4324abf65189ae4f9f692f" name="af33470774a4324abf65189ae4f9f692f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af33470774a4324abf65189ae4f9f692f">&#9670;&#160;</a></span>accel_curr_millis</h2>
 
@@ -1270,14 +1304,14 @@ Variables</h2></td></tr>
 <div class="line">  {<a class="code hl_enumvalue" href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa6d1a9784f755744a34ba1ea0bef3c143">Faulted</a>, <span class="stringliteral">&quot;Faulted&quot;</span>},</div>
 <div class="line">  {<a class="code hl_enumvalue" href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fac909e86054cb6ad83c22bfc2b3e6e5b8">Debug</a>, <span class="stringliteral">&quot;Debug&quot;</span>}</div>
 <div class="line"> }</div>
-<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa0943115c51834114c13d76fb189f56d0"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa0943115c51834114c13d76fb189f56d0">Armed</a></div><div class="ttdeci">@ Armed</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:250</div></div>
-<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa0e73e048b83849a411148a8dddc6dfcb"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa0e73e048b83849a411148a8dddc6dfcb">Ready</a></div><div class="ttdeci">@ Ready</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:250</div></div>
-<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa35c9d80844bfd2ac69918d47907210b9"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa35c9d80844bfd2ac69918d47907210b9">Landing</a></div><div class="ttdeci">@ Landing</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:250</div></div>
-<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6">Flying</a></div><div class="ttdeci">@ Flying</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:250</div></div>
-<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75">Stopped</a></div><div class="ttdeci">@ Stopped</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:250</div></div>
-<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa6d1a9784f755744a34ba1ea0bef3c143"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa6d1a9784f755744a34ba1ea0bef3c143">Faulted</a></div><div class="ttdeci">@ Faulted</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:250</div></div>
-<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5">Initialise</a></div><div class="ttdeci">@ Initialise</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:250</div></div>
-<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fac909e86054cb6ad83c22bfc2b3e6e5b8"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fac909e86054cb6ad83c22bfc2b3e6e5b8">Debug</a></div><div class="ttdeci">@ Debug</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:250</div></div>
+<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa0943115c51834114c13d76fb189f56d0"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa0943115c51834114c13d76fb189f56d0">Armed</a></div><div class="ttdeci">@ Armed</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:257</div></div>
+<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa0e73e048b83849a411148a8dddc6dfcb"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa0e73e048b83849a411148a8dddc6dfcb">Ready</a></div><div class="ttdeci">@ Ready</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:257</div></div>
+<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa35c9d80844bfd2ac69918d47907210b9"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa35c9d80844bfd2ac69918d47907210b9">Landing</a></div><div class="ttdeci">@ Landing</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:257</div></div>
+<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa479d4c70d45fcb2dc2c83d8a69d4eef6">Flying</a></div><div class="ttdeci">@ Flying</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:257</div></div>
+<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa4d049c6d45e08a294523df186ad77a75">Stopped</a></div><div class="ttdeci">@ Stopped</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:257</div></div>
+<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa6d1a9784f755744a34ba1ea0bef3c143"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa6d1a9784f755744a34ba1ea0bef3c143">Faulted</a></div><div class="ttdeci">@ Faulted</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:257</div></div>
+<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fa75bc657548e737a6a59df7b6b0a1f3c5">Initialise</a></div><div class="ttdeci">@ Initialise</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:257</div></div>
+<div class="ttc" id="aas7-gamma_8ino_html_a08981d449812e8fec55110b72a48919fac909e86054cb6ad83c22bfc2b3e6e5b8"><div class="ttname"><a href="as7-gamma_8ino.html#a08981d449812e8fec55110b72a48919fac909e86054cb6ad83c22bfc2b3e6e5b8">Debug</a></div><div class="ttdeci">@ Debug</div><div class="ttdef"><b>Definition:</b> as7-gamma.ino:257</div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -26,7 +26,15 @@ Configuration and source files can be found in the following locations:
   - [Getting started for development](index.html#getting-started-for-development)
   - [Authors](index.html#authors)
 - [Off-Board Software User Guide](md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html)
+  - [Importing Drone Data](md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#importing-drone-data)
+  - [Viewing Trip Details](md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#viewing-trip-details)
+  - [Exporting 3D Map](md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#exporting-3d-map)
+  - [Software Features and Application Data](md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#software-features-and-application-data)
 - [On-Board Software User Guide](md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html)
+  - [Before flight](md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#before-flight)
+  - [During Flight](md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#during-flight)
+  - [After Flight](md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#after-flight)
+  - [Maintenance](md__h__repos__argous_src_esp32_as7_gamma__on__board__software.html#maintenance)
 
 A full index of AS7 on-board terms can be found in [File Members](globals.html).
 
@@ -73,7 +81,7 @@ The on-board software requires the following libraries:
 
 * [BFS Sbus](https://github.com/bolderflight/sbus)
 * [FASTLed](https://github.com/FastLED/FastLED)
-* (Compass and Accel)
+* [Adafruit_MMC5883](https://github.com/adafruit/Adafruit_HMC5883_Unified)
 
 These libraries can be installed by:
 
@@ -108,3 +116,5 @@ Jimmy Trac jt@nekox.net
 Monique Kuhn monique.n.kuhn@gmail.com
 
 Bi Wan Low bwlow39@gmail.com
+
+Joshua Redolfi joshua.redolfi@gmail.com

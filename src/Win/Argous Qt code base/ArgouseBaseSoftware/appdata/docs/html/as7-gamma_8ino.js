@@ -8,6 +8,7 @@ var as7_gamma_8ino =
     [ "I2C_SDA", "as7-gamma_8ino.html#a18aefd12ad84d4c33dc97923cb821e47", null ],
     [ "LED_TYPE", "as7-gamma_8ino.html#a364dc046543d8ab7d4214120afc9c814", null ],
     [ "LED_TYPE", "as7-gamma_8ino.html#a364dc046543d8ab7d4214120afc9c814", null ],
+    [ "LIS2DW12_CS", "as7-gamma_8ino.html#a6c5ce6ac8e2693de2daeaff1fad0df8b", null ],
     [ "SIMULATION_ENABLE", "as7-gamma_8ino.html#a02238131c0258d4ecbc4352535073d17", null ],
     [ "DroneDebugTest", "as7-gamma_8ino.html#aac8d0f36e4b65832f446fa8b2c8262cf", [
       [ "SBUS_COMMS", "as7-gamma_8ino.html#aac8d0f36e4b65832f446fa8b2c8262cfa3c301a06b119720d62d8854cb2227ad5", null ],
@@ -38,6 +39,7 @@ var as7_gamma_8ino =
     [ "taskAccelerometer", "as7-gamma_8ino.html#a269d866f9e9be55bd9db8da9bdb79b34", null ],
     [ "taskStatusLeds", "as7-gamma_8ino.html#ac9aa665109baa327f1f01596c2f2c703", null ],
     [ "taskUltrasonicSensor", "as7-gamma_8ino.html#a004c49bc4bad80a498ec337546adbd4e", null ],
+    [ "accel", "as7-gamma_8ino.html#a8f949cf60a249e071171358b114eb9cf", null ],
     [ "accel_curr_millis", "as7-gamma_8ino.html#af33470774a4324abf65189ae4f9f692f", null ],
     [ "accel_delta_s", "as7-gamma_8ino.html#a0c3c71ed0884fc0bb5d0bee005e0867e", null ],
     [ "accel_filt_x", "as7-gamma_8ino.html#afb94218f4ad855d9bf4884665a742f4b", null ],

@@ -95,53 +95,95 @@ $(document).ready(function(){initNavTree('md__h__repos__argous_src_esp32_as7_gam
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md8"></a>
-Table of Contents</h1>
-<p >[toc]</p>
-<h1><a class="anchor" id="autotoc_md9"></a>
 Outline</h1>
-<p >Working environment for the qt software (win10 for now)</p>
-<p >what this document contains</p>
+<p >The Off-Board software, otherwise known as the Base Station Software, refers to the project desktop software. It is a Windows 10 application and processes the data gathered by the drone platform for visualisation and export. Qt Creator can be used to further develop the software. Environment and set-up instructions can be found on the <a href="index.html">main page.</a></p>
+<p >This document provides an overview of the primary features of the off-board software.</p>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Table of Contents</h1>
+<ul>
+<li>AS7 Off-Board Software User Guide<ul>
+<li><a class="el" href="md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#importing-drone-data">Importing Drone Data</a></li>
+<li><a class="el" href="md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#viewing-trip-details">Viewing Trip Details</a></li>
+<li><a class="el" href="md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#exporting-3d-map">Exporting 3D Map</a></li>
+<li><a class="el" href="md__h__repos__argous_src_esp32_as7_gamma__off__board__software.html#software-features-and-application-data">Software Features and Application Data</a></li>
+</ul>
+</li>
+</ul>
+<p ><a class="anchor" id="importing-drone-data"></a></p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Importing Drone Data</h1>
-<h2><a class="anchor" id="autotoc_md11"></a>
-Locating the SD Card on the Drone</h2>
-<h2><a class="anchor" id="autotoc_md12"></a>
-Importing from folders</h2>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<p >The on-board software does not fully process all captured data to reduce on-board processing requirements. This is done by the off-board or base station software using the outputs from the drone.</p>
+<p >Data recorded by the drone is saved to the MicroSD card as part of the electronics package. These files are <code>as7.log</code> and<code>data.csv</code>.</p>
+<p >To import data from the drone:</p>
+<ol type="1">
+<li>Plug in the MicroSD Card to this computer using an adaptor</li>
+<li>Press “Import”</li>
+<li>Locate the <b>folder</b> that the files are located in. This is typically found under “My Computer” and is the SD card itself</li>
+<li>Press “Select Folder” and the data will begin importing.</li>
+<li>There should be a prompt saying “Import Successful” if the import is successful.</li>
+</ol>
+<p ><img src="Off-Board Software.assets/image-20221020200807586.png" alt="image-20221020200807586" class="inline"/></p>
+<p ><em>The Base Station Software highlighting the import button</em></p>
+<p >Imports can also be done on recently imported files to re-generate them.</p>
+<ol type="1">
+<li>Press on the recent file under “Recent Imports”</li>
+<li>Press “Import”</li>
+<li>There should be a prompt saying “Import Successful” if the import is successful.</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md11"></a>
+Opening Drone Details</h3>
+<p >Drone details cannot be opened unless a file has been imported. Drone configuration is read from the import itself, and therefore a trip must be imported to view configuration details.</p>
+<h3><a class="anchor" id="autotoc_md12"></a>
+Editing Drone Details</h3>
+<p >The drone configuration can be edited through <code>as7.config</code> or through the base station software. This can be edited directly and saved or reset.</p>
+<p ><img src="Off-Board Software.assets/image-20221020200908283.png" alt="image-20221020200908283" class="inline"/></p>
+<p ><em>The save button (scroll down) can be used to save the drone configuration and details</em></p>
+<h3><a class="anchor" id="autotoc_md13"></a>
+Opening Trip Details Without Importing</h3>
+<p >The trip details can be opened and viewed if there has been no import. the previous import is loaded if no new import has been found.</p>
+<p ><a class="anchor" id="viewing-trip-details"></a></p>
+<h1><a class="anchor" id="autotoc_md14"></a>
 Viewing Trip Details</h1>
-<h2><a class="anchor" id="autotoc_md14"></a>
-Using the 3D Scatter Plot</h2>
+<p >The details of the trip can be viewed by pressing on “View Trip Data” on the home page.</p>
+<p ><img src="Off-Board Software.assets/image-20221020201919493.png" alt="image-20221020201919493" class="inline"/></p>
+<p ><em>View Trip Data can be seen under the import box</em></p>
+<p >This will open the trips popup, which will contain information on the imported trip. Features of the trip details window are:</p>
+<ul>
+<li>An events trend, heights trend, temperature trend, and throttle trend, which can be switched between with the middle button cluster</li>
+<li>Trip details and statistics, such as the number of gathered points during the flight or the sample rate</li>
+</ul>
+<p ><img src="Off-Board Software.assets/image-20221020202244900.png" alt="image-20221020202244900" class="inline"/></p>
+<p ><em>The plot can be changed to display different information by selecting the buttons from the main cluster</em></p>
 <h2><a class="anchor" id="autotoc_md15"></a>
-Viewing events</h2>
-<h2><a class="anchor" id="autotoc_md16"></a>
-Locating information</h2>
-<h1><a class="anchor" id="autotoc_md17"></a>
+Using the 3D Scatter Plot</h2>
+<p >The 3D Scatter plot shows a representation of the points collected by the drone based on sensor position.</p>
+<p >It can be accessed by going to “Trip Details” and then pressing on “Display 3D Point Cloud Model”</p>
+<p ><img src="Off-Board Software.assets/image-20221020202648977.png" alt="image-20221020202648977" class="inline"/></p>
+<p ><em>Pressing ‘Display 3D Point Cloud Model’ will open the visualisation of the data points</em></p>
+<p ><a class="anchor" id="exporting-3d-map"></a></p>
+<h1><a class="anchor" id="autotoc_md16"></a>
 Exporting 3D Map</h1>
-<h2><a class="anchor" id="autotoc_md18"></a>
-File Format</h2>
-<h2><a class="anchor" id="autotoc_md19"></a>
-Export Location</h2>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<p >The data can be exported by pressing “Export” on the home page or by going to ‘File &gt; Export PLY’ in the toolbar.</p>
+<p >The exported file is the most recent 3D Model. If the new trip data has not been exported yet, the exported model will be loaded from the previous trip.</p>
+<p ><a class="anchor" id="software-features-and-application-data"></a></p>
+<h1><a class="anchor" id="autotoc_md17"></a>
 Software Features and Application Data</h1>
-<p >How the software works</p>
-<p >What the application data is, where its stored, and how its contained</p>
-<p >Also software features</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
-Errors and Error Codes</h2>
-<h2><a class="anchor" id="autotoc_md22"></a>
-Drone configuration</h2>
-<p >this is under drone details</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<p >The Base Station Software is designed as a support tool for the main code modules with <a class="el" href="namespace_a_s7.html">AS7</a>. Information related to the running application can be found in the <code>appdata</code> repository, mostly containing temporary data. This includes:</p>
+<ul>
+<li>The default drone configuration</li>
+<li>The current drone details</li>
+<li>A copy of the most recent 3D Point Cloud</li>
+<li>A text file containing all recent file locations</li>
+</ul>
+<p >The files can be edited and are all encoded as text files.</p>
+<h2><a class="anchor" id="autotoc_md18"></a>
 Lifetime measurements</h2>
-<p >the stuff at the start</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
-Maintenance Recommendations</h2>
-<p >we dont have this implemented maybe</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
-Recent Files</h2>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<p >Lifetime measurements aim to provide the flight history for the drone. On every import, the statistics are updated. They can be found under “Running Drone Stats” on the homepage.</p>
+<p ><img src="Off-Board Software.assets/image-20221020210056759.png" alt="image-20221020210056759" class="inline"/></p>
+<p ><em>Lifetime measurements for the drone are inferred from imports.</em></p>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Using the AS7 Document Reference</h2>
-<p >(This readme) </p>
+<p >The reference documentation can be viewed on the left hand pane. These documents contain a complete reference for the on-board software. An example could be the <a href="annotated.html">class list</a>. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
