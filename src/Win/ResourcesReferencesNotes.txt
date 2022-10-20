@@ -20,8 +20,8 @@ Usability Feature Improvements:
 - [x] 3D manipulation panning capability. 
   - [x] Not possible in Qt due to 3D scatter plot limitations
 
-- [ ] Formatting for trip details to better draw the eye. ==M==
-  - [ ] probably some sort of thing similar to… the drone details will take some time
+- [x] Formatting for trip details to better draw the eye. ==M==
+  - [x] probably some sort of thing similar to… the drone details will take some time
 
 - [ ] Amount of points generated for the 3D map was expected to be within the 3D cloud widget themselves. ==XS==
 - [x] Pop up to indicate to the user that the drone details had been saved. ==XS==

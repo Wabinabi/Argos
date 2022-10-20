@@ -198,15 +198,11 @@ Guided commands represent a guided operation of the drone using the on-board ins
 * In the Y (sideways) axis, the drone aims to avoid obstacles using the left and right ultrasonic sensors for collision detection. The sideways input is a weighted average of the two values, representing a tendency to balance both measurements. No command parameter is used for this at current.
 * In the Z (upwards) axis, the drone aims to hold a position about the ground through PID control. The command parameter uses `droneCommand.p_z` in centimetres. The vertical thrust of the system is adjusted based on the measurement of the bottom sensor.
 
-
-
 #### Operator Override Mode
 
 In operator override mode, the drone will not respond to internal commands and will be directly controllable as per normal drone oepration.
 
 In this mode, the PCB and main microcontroller pass through signals from the receiver directly 
-
-
 
 #### Emergency Stop
 
@@ -216,81 +212,157 @@ When pressed and held, the emergency stop will interlock drone command, setting 
 
 it should be noted that the drone may not stop its propellers under emergency stop.
 
-
-
-
-
 ### Communication Signals (Lights)
 
+Mounted on the rear of the drone, the signal lights signal the current internal state of the drone. The drone has the following internal states:
 
+```
+Initialise, Ready, Armed, Flying, Landing, Stopped, Faulted, Debug
+```
 
+In the flying state, the drone can have the following substates:
 
+```
+OperatorControl, AutoStraightLine, ArmOnly
+```
 
+Each state has its own light patterns.
 
+#### The default light pattern
 
-### Data gathering Details
+Following aircraft convention, the leftmost signal light will always be red, and the rightmost light will always be green. When flying, the second-leftmost and second-rightmost lights will light up white.
 
-mention base software here
+```
+The rear lights have 8 LEDs:
+| 1 2 3 4 5 6 7 8 |
 
-### Automated Flight Details
+Under normal operation, the leftmost and rightmost are red and green:
+| RED | 2 3 4 5 6 7 | GRN |
 
+When flying, the second leftmost and second rightmost light up dim white:
+| RED | WHT | 3 4 5 6 | WHT | GRN |
+```
 
+#### Light Patterns for each state
 
+##### Initialise
 
+The drone is starting up and initialising all components. The compass and accelerometer is calibrated at this time.
 
+```
+Gold / Off / Gold / Off...
+```
 
+##### Ready
 
-## Software Features
+The drone is ready for arming and flight commands. Requires operator to acknowledge by toggling left switch
 
+```
+Blue / Off / Blue / Off...
+```
 
+##### Armed
 
-Automated flgiht ramping and details
+Drone is executing arming command to spin propellers
 
-* this details the flight and communication system
+```
+(Flashing Quickly)
+Blue / Orange / Blue / Orange...
+```
 
-Logging and data capture 
+##### Flying - Operator Control
 
-SBUS details
+The drone is being directly controlled by the operator. 
 
-Communication protocols
+```
+Pink / Black / Pink / Black...
+```
 
-SD configuration
+##### Flying - Automated Control
 
+The drone is flying based on the automated commands in its memory
 
+```
+Blue / Lime / Blue / Lime...
+```
 
+##### Faulted
 
+The drone has encountered a fatal error and/or the emergency stop has been triggered
 
-## Maintenance 
+```
+Red / Black / Red / Black...
+```
 
+##### Debug
 
+The drone is in a debugging mode, typically not accessible unless programmatically encoded onto the drone
 
-General details on keeping drone clean
+```
+(Gradient)
+Pink ---- Blue
+```
 
-Notes on specific fragile parts
+##### Unused States
 
-### Disassembly
+The following states have not been implemented and are not used:
 
-How to remove props
+* Landing
+* Stopped
 
-How to remove FC
+## After Flight
 
-How to remove other thigns
+Once a mission is complete, the data can be extracted from the drone and passed to the Base Station Software. The drone can also be configured by connecting to Mission Planner.
 
-### Manufactured Parts
+### Extracting Mission Data from the Drone
 
-Details on 3D printed parts and the files (physically provide them in the repo)
+Data on the drone can be accessed by removing the MicroSD card on the rear of the drone. The MicroSD card is accessed in batches and can be safely removed regardless of drone state.
 
-Specific material proeprties and alternatives
+**Please Note:** The SD Module may loosen itself over time, and thus, the files on the SD card may have not updated. The drone sends a notification through the Serial Port if it cannot detect an SD Card, however, the drone does not enter a faulted mode. This recommendation has been made for future improvements.
 
+## Maintenance
 
+As a mechanical device, the drone requires maintenance to ensure that it remains in optimal condition. 
 
+### General Maintenance
 
+The drone should be inspected for the following:
 
+* Ensure that there is no visible cracks to the carbon fibre frame of the drone. 
+* Ensure that the propellers have no damage, are mounted in the correct orientation, and are not warped.
+* Inspect the electronics package for loose wires. If there are any, please refer to the Connection Diagram for repair
+* Ensure the ultrasonic sensors are free of dust and debris
 
+### Drone Transport
+
+The drone legs can be folded to protect the electronics package. The locking pin can be removed and the legs can be safely held in a closed position.
+
+When transporting the drone, the propellers should be removed to reduce damage to the propellers.
+
+### Manufactured Components
+
+The drone has 3D printed parts to mount the electronics package and mount landing legs. The files have been provided on the repository under `src/stl`.
+
+The components have been manufactured from PETG, a common and flexible 3D printing filament. This material has been chosen to allow for shock absorption and a higher glass transition temperature than PLA. Other recommended materials are ABS or ASA, but not PLA. 
+
+Under high stress, the motors may generate excess heat, potentially causing the mounts to deform mid-flight. The specifications for the 3D printed parts are:
+
+* Infill type: Cubic
+* Infill Percentage: 55% to 70% (Recommended above 55%)
+* Printing Temperature: 235 Degrees Celcius
+* Layer Height: 0.1mm
+* Printing Speed: 40mm/s
+* Supports: Connected to build plate, only for Landing Legs
+
+The provided components have been printed on an Artillery Sidewinder X2
 
 ### Drone Specifications
 
 Just a big list on the drone specs (like in drone details)
+
+
+
+### Wiring Diagram
 
 
 
