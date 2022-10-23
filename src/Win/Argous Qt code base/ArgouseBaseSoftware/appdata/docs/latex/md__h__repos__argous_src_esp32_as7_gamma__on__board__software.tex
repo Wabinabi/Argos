@@ -61,7 +61,7 @@ Channels can also be configured to be absolute. Typically, the floating-\/point 
 \end{DoxyCode}
 
 
-Channels 9-\/16 are not recommended for use as they fall outside of the scope of the controller. Additionally, these auxiliary channels are currently used for filtering incomplete or offset data frames. As the channels are typically not used, an incomplete or offset data frame will produce a result very different from the standard value of the channel (around 1024), allowing for the filtering of only complete frames. The checks that these channels are around the 1000 value for use, if not, the frame is dropped.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md25}{}\doxysubsection{Drone Battery and Charging}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md25}
+Channels 9-\/16 are not recommended for use as they fall outside of the scope of the controller. Additionally, these auxiliary channels are currently used for filtering incomplete or offset data frames. As the channels are typically not used, an incomplete or offset data frame will produce a very different result from the standard value of the channel (around 1024), allowing for the filtering of only complete frames. The checks that these channels are around the 1000 value for use, if not, the frame is dropped.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md25}{}\doxysubsection{Drone Battery and Charging}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md25}
 The drone is primarily powered by the Lithium Polymer (Li-\/\+Po) battery strapped on the \textquotesingle{}back\textquotesingle{} of the drone. The battery supplies power to both the drone and the electronics package underneath the drone. Commonly used in racing drones, the the drone requires a 4-\/cell or 6-\/cell Li-\/\+Po battery to function. These are normally referred to as \textquotesingle{}4S\textquotesingle{} or \textquotesingle{}6S\textquotesingle{} cells. The battery will require an XT-\/60 connector to power the drone.
 
 Calibration should not be required when changing between 4S and 6S batteries, however, it should be noted that 6S batteries carry significantly more voltage than 4S models. At 3.\+7v per cell, a 4S battery is 14.\+8v whereas a 6S battery is 22.\+2v.
@@ -92,27 +92,22 @@ The propellers should be mounted in the following layout\+:
 \begin{center}\end{center} \hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md29}{}\doxysubsubsection{The Pre-\/\+Flight Checklist, External Compass, and Accelerometer}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md29}
 Conventional drones complete a pre-\/flight checklist before operation, however, this is not the case with \mbox{\hyperlink{namespace_a_s7}{AS7}}. Given the GPS-\/denied nature of the drone, these interlocks have been disabled. Thus the only requirement for arming is that a battery and motors be present.
 
-The electronics package contains an accelerometer and compass, in addition to the ones mounted on the flight controller. These operate independently of the flight system and are not required for flight. They are, however, used for data collection and position estimation for the 3D map.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md30}{}\doxysubsection{Data Gathering and Hardware Features}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md30}
-The \mbox{\hyperlink{namespace_a_s7}{AS7}} drone houses an electronics package for collecting mapping data of the environment. Sensors on-\/board collect and store the data onto the Micro\+SD card located the rear of the drone.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md31}{}\doxysubsubsection{Setting up the Micro\+SD Card}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md31}
+The electronics package contains an accelerometer and compass, in addition to the ones mounted on the flight controller. These operate independently of the flight system and are not required for flight. They are, however, used for data collection and position estimation for the 3D point cloud.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md30}{}\doxysubsection{Data Gathering and Hardware Features}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md30}
+The \mbox{\hyperlink{namespace_a_s7}{AS7}} drone houses an electronics package for collecting mapping data of the environment. On-\/board sensors collect and store the data onto the Micro\+SD card located on the rear of the drone.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md31}{}\doxysubsubsection{Setting up the Micro\+SD Card}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md31}
 The Micro\+SD Slot uses the Adafruit {\ttfamily Micro\+SD card breakout board+}. This requires the SD Card to be formatted to a FAT16 or FAT32 format. The recommended formatter is provided by the SD Foundation and can be found \href{https://www.sdcard.org/downloads/formatter/}{\texttt{ here}}.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md32}{}\doxysubsubsection{On-\/\+Board instrumentation}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md32}
+The electronics package contains several sensors and modules for data collection and storage. The primary sensors on the drone are\+:
+
 
 \begin{DoxyItemize}
-\item SD card set up
-\item US sensors and their details
-\item Compass and accel details
+\item 6 Ultrasonic Sensors
+\item An SD Module
+\item An I2C Accelerometer
+\item A I2C Compass
+
+Data is gathered continuously on the drone and is written to the SD card in batches, typically once every ultrasonic cycle. An ultrasonic cycle is the amunt of time taken for all 6 ultrasonic sensors to gather dat in sequence. As the ultrasonic sensors can interfere with each other in an enclosed space, each ultrasonic sensor gathers data independently, with an approximate 80ms delay between each sensor to ensure that no false signals are recorded. Thus, data is pushed to the SD card every 600-\/700ms.
 \end{DoxyItemize}
 
-The main PCV mainly focuses on data gathering and drone control. Data gathered from the drone is written onto the Sd card in batches
-
-The data is gathered from the following sources\+:
-
-
-\begin{DoxyItemize}
-\item the ultrasonic sensors
-\item the accelerometers
-\item the compass
-\item the internal clock from the esp32
-\end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md33}{}\doxysubsection{Arming and Flight Setup}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md33}
+Each ‘batch’ is pushed at the end of the ultrasonic cycle. However, data from the accelerometer and compass are collected between batches and updated internally. At the end of the ultrasonic cycle, the the current value for all sensors is gathered and pushed into an internal logger buffer for recording with the current time step. The time step of the on-\/board software is given in milliseconds after start, and is determined by the frequency of the microcontroller. Low voltage may have an impact on this and the value will overflow at 56 days, however, these were not determined to be a concern with the implemented system. The next time the logger is activated, it will record the data and any available logging messages.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md33}{}\doxysubsection{Arming and Flight Setup}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md33}
 Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-\/flight checks are done, strap the battery to the drone {\bfseries{but to not plug it in}}. The transmitter should be kept {\bfseries{off}} until the operator is ready to start the mission.
 
 Place the drone down in the mission area in the intended orientation. The battery should then be plugged in the the operator should hear a series of beeps. ~\newline

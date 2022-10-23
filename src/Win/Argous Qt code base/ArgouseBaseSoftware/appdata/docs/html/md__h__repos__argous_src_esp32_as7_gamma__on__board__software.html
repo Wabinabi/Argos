@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.5"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AS7 On-Board Software: AS7 On-Board Software User Guide</title>
+<title>AS7 Project Software Guide: AS7 On-Board Software User Guide</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">AS7 On-Board Software
+   <div id="projectname">AS7 Project Software Guide
    </div>
   </td>
  </tr>
@@ -134,7 +134,7 @@ Remote Control System</h2>
 </div><!-- fragment --><p >The channel range would then be between the minimum and maximum values. For example, a 50% value for the above configuration would be (2000 - 100) * 0.5 + 100 = 1150.</p>
 <p >Channels can also be configured to be absolute. Typically, the floating-point range of a channel is between [-1.0f, 1.0f], where 0.0f represents 50% of the channel value. This is analogous to the right stick on the remote control, where the default resting position is in-between the axes. The only exception is the thrust channel, which the default resting position is 0%. These are coined <em>absolute channels</em>, and have a range of [0.0f, 1.0f. If implemented, the channel configuration would be:</p>
 <div class="fragment"><div class="line">SBUS_RX_CH_1_ABS:TRUE</div>
-</div><!-- fragment --><p >Channels 9-16 are not recommended for use as they fall outside of the scope of the controller. Additionally, these auxiliary channels are currently used for filtering incomplete or offset data frames. As the channels are typically not used, an incomplete or offset data frame will produce a result very different from the standard value of the channel (around 1024), allowing for the filtering of only complete frames. The checks that these channels are around the 1000 value for use, if not, the frame is dropped.</p>
+</div><!-- fragment --><p >Channels 9-16 are not recommended for use as they fall outside of the scope of the controller. Additionally, these auxiliary channels are currently used for filtering incomplete or offset data frames. As the channels are typically not used, an incomplete or offset data frame will produce a very different result from the standard value of the channel (around 1024), allowing for the filtering of only complete frames. The checks that these channels are around the 1000 value for use, if not, the frame is dropped.</p>
 <h2><a class="anchor" id="autotoc_md25"></a>
 Drone Battery and Charging</h2>
 <p >The drone is primarily powered by the Lithium Polymer (Li-Po) battery strapped on the 'back' of the drone. The battery supplies power to both the drone and the electronics package underneath the drone. Commonly used in racing drones, the the drone requires a 4-cell or 6-cell Li-Po battery to function. These are normally referred to as '4S' or '6S' cells. The battery will require an XT-60 connector to power the drone.</p>
@@ -167,28 +167,25 @@ Recommended Hardware Inspection</h2>
 <center><img src="https://ardupilot.org/copter/_images/motororder-quad-x-2d.png" alt="Drone Propeller Configuration" width="400" class="inline"/></center><h3><a class="anchor" id="autotoc_md29"></a>
 The Pre-Flight Checklist, External Compass, and Accelerometer</h3>
 <p >Conventional drones complete a pre-flight checklist before operation, however, this is not the case with <a class="el" href="namespace_a_s7.html">AS7</a>. Given the GPS-denied nature of the drone, these interlocks have been disabled. Thus the only requirement for arming is that a battery and motors be present.</p>
-<p >The electronics package contains an accelerometer and compass, in addition to the ones mounted on the flight controller. These operate independently of the flight system and are not required for flight. They are, however, used for data collection and position estimation for the 3D map.</p>
+<p >The electronics package contains an accelerometer and compass, in addition to the ones mounted on the flight controller. These operate independently of the flight system and are not required for flight. They are, however, used for data collection and position estimation for the 3D point cloud.</p>
 <h2><a class="anchor" id="autotoc_md30"></a>
 Data Gathering and Hardware Features</h2>
-<p >The <a class="el" href="namespace_a_s7.html">AS7</a> drone houses an electronics package for collecting mapping data of the environment. Sensors on-board collect and store the data onto the MicroSD card located the rear of the drone.</p>
+<p >The <a class="el" href="namespace_a_s7.html">AS7</a> drone houses an electronics package for collecting mapping data of the environment. On-board sensors collect and store the data onto the MicroSD card located on the rear of the drone.</p>
 <h3><a class="anchor" id="autotoc_md31"></a>
 Setting up the MicroSD Card</h3>
 <p >The MicroSD Slot uses the Adafruit <code>MicroSD card breakout board+</code>. This requires the SD Card to be formatted to a FAT16 or FAT32 format. The recommended formatter is provided by the SD Foundation and can be found <a href="https://www.sdcard.org/downloads/formatter/">here</a>.</p>
 <h3><a class="anchor" id="autotoc_md32"></a>
 On-Board instrumentation</h3>
+<p >The electronics package contains several sensors and modules for data collection and storage. The primary sensors on the drone are:</p>
 <ul>
-<li>SD card set up</li>
-<li>US sensors and their details</li>
-<li>Compass and accel details</li>
+<li>6 Ultrasonic Sensors</li>
+<li>An SD Module</li>
+<li>An I2C Accelerometer</li>
+<li><p class="startli">A I2C Compass</p>
+<p class="startli">Data is gathered continuously on the drone and is written to the SD card in batches, typically once every ultrasonic cycle. An ultrasonic cycle is the amunt of time taken for all 6 ultrasonic sensors to gather dat in sequence. As the ultrasonic sensors can interfere with each other in an enclosed space, each ultrasonic sensor gathers data independently, with an approximate 80ms delay between each sensor to ensure that no false signals are recorded. Thus, data is pushed to the SD card every 600-700ms.</p>
+</li>
 </ul>
-<p >The main PCV mainly focuses on data gathering and drone control. Data gathered from the drone is written onto the Sd card in batches</p>
-<p >The data is gathered from the following sources:</p>
-<ul>
-<li>the ultrasonic sensors</li>
-<li>the accelerometers</li>
-<li>the compass</li>
-<li>the internal clock from the esp32</li>
-</ul>
+<p >Each ‘batch’ is pushed at the end of the ultrasonic cycle. However, data from the accelerometer and compass are collected between batches and updated internally. At the end of the ultrasonic cycle, the the current value for all sensors is gathered and pushed into an internal logger buffer for recording with the current time step. The time step of the on-board software is given in milliseconds after start, and is determined by the frequency of the microcontroller. Low voltage may have an impact on this and the value will overflow at 56 days, however, these were not determined to be a concern with the implemented system. The next time the logger is activated, it will record the data and any available logging messages.</p>
 <h2><a class="anchor" id="autotoc_md33"></a>
 Arming and Flight Setup</h2>
 <p >Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-flight checks are done, strap the battery to the drone <b>but to not plug it in</b>. The transmitter should be kept <b>off</b> until the operator is ready to start the mission.</p>

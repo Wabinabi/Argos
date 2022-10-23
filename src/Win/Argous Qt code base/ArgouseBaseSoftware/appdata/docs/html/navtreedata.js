@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "AS7 On-Board Software", "index.html", [
+  [ "AS7 Project Software Guide", "index.html", [
     [ "Argous S7: Autonomous Mine Surveying Drone", "index.html", [
       [ "Outline", "index.html#autotoc_md63", null ],
       [ "Table of contents", "index.html#autotoc_md64", null ],
@@ -141,8 +141,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_drone_8cpp.html",
-"class_a_s7_1_1_drone.html#a42c814e8324ad90e5ef84bfaef417a6b",
-"class_a_s7_1_1_logger.html#ac27ed2b1429fd994f61981ace75e972a"
+"class_a_s7_1_1_drone.html#a42d4d86670c346130a10fbdbb3a4d3bb",
+"class_a_s7_1_1_logger.html#ac529e991fcf56f2996058ff1bd34e9c6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
