@@ -2,7 +2,7 @@
 
 ## Outline
 
-The Off-Board software, otherwise known as the Base Station Software, refers to the project desktop software. It is a Windows 10 application and processes the data gathered by the drone platform for visualisation and export. Qt Creator can be used to further develop the software. Environment and set-up instructions can be found on the [main page.](index.html)
+The Off-Board software, otherwise known as the Base Station Software, refers to the project desktop software. It is a Windows 10 application that processes the data gathered by the drone platform for visualisation and export. Developed on Qt Creator, the application has to capacity to be further developed utilising this software. Environment and set-up instructions can be found on the [main page.](index.html)
 
 This document provides an overview of the primary features of the off-board software.
 
@@ -66,7 +66,7 @@ The drone configuration can be edited through `as7.config` or through the base s
 
 #### Opening Trip Details Without Importing
 
-The trip details can be opened and viewed if there has been no import. the previous import is loaded if no new import has been found.
+The trip details can be opened and viewed if there has been no import. The previous import is loaded if no new import has been found.
 
 <a id="viewing-trip-details"></a>
 
@@ -82,8 +82,8 @@ The details of the trip can be viewed by pressing on “View Trip Data” on the
 
 This will open the trips popup, which will contain information on the imported trip. Features of the trip details window are:
 
-* An events trend, heights trend, temperature trend, and throttle trend, which can be switched between with the middle button cluster
-* Trip details and statistics, such as the number of gathered points during the flight or the sample rate
+* An events trend, heights trend, temperature trend, and throttle trend, which can be toggled between with the middle button cluster.
+* Trip details and statistics, such as the number of gathered points during the flight or the sample rate are located in the left most text box.
 
 
 
@@ -109,7 +109,7 @@ It can be accessed by going to “Trip Details” and then pressing on “Displa
 
 The data can be exported by pressing “Export” on the home page or by going to ‘File > Export PLY’ in the toolbar.
 
-The exported file is the most recent 3D Model. If the new trip data has not been exported yet, the exported model will be loaded from the previous trip.
+The exported file is the most recent 3D Model. If the new trip data has not been imported yet, the exported model will be loaded from the previous trip.
 
 <a id="software-features-and-application-data"></a>
 
