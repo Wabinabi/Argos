@@ -119,13 +119,13 @@ The electronics package contains several sensors and modules for data collection
 * An I2C Accelerometer
 * A I2C Compass
 
- Data is gathered continuously on the drone and is written to the SD card in batches, typically once every ultrasonic cycle. An ultrasonic cycle is the amunt of time taken for all 6 ultrasonic sensors to gather dat in sequence. As the ultrasonic sensors can interfere with each other in an enclosed space, each ultrasonic sensor gathers data independently, with an approximate 80ms delay between each sensor to ensure that no false signals are recorded. Thus, data is pushed to the SD card every 600-700ms. 
+Data is gathered continuously on the drone and is written to the SD card in batches, typically once every ultrasonic cycle. An ultrasonic cycle is the amount of time taken for all 6 ultrasonic sensors to gather data in sequence. As the ultrasonic sensors can interfere with each other in an enclosed space, each ultrasonic sensor gathers data independently, with an approximate 80ms delay between each sensor to ensure that no false signals are recorded. Thus, data is pushed to the SD card every 600-700ms. 
 
 Each ‘batch’ is pushed at the end of the ultrasonic cycle. However, data from the accelerometer and compass are collected between batches and updated internally. At the end of the ultrasonic cycle, the the current value for all sensors is gathered and pushed into an internal logger buffer for recording with the current time step. The time step of the on-board software is given in milliseconds after start, and is determined by the frequency of the microcontroller. Low voltage may have an impact on this and the value will overflow at 56 days, however, these were not determined to be a concern with the implemented system. The next time the logger is activated, it will record the data and any available logging messages.
 
 ### Arming and Flight Setup
 
-Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-flight checks are done, strap the battery to the drone **but to not plug it in**. The transmitter should be kept **off** until the operator is ready to start the mission.
+Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-flight checks are done, strap the battery to the drone **but do not plug it in**. The transmitter should be kept **off** until the operator is ready to start the mission.
 
 Place the drone down in the mission area in the intended orientation. The battery should then be plugged in the the operator should hear a series of beeps.  
 
@@ -139,7 +139,7 @@ In case of an **emergency** or to stop the drone abruptly, **press and hold the 
 
 #### The Remote Interlock
 
-As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.
+As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with, if the remote control (the transmitter unit) is off.
 
 The remote interlock will also be enabled if the transmitter is out of range of the drone.
 
@@ -155,10 +155,10 @@ This section details the features of automated flight for setting up new flights
 
 In automated mode, the drone will follow its internal instructions and aim to execute them. these are loaded on drone start-up.
 
-Drone commands are enqueued on an internal stack and are executed first in last out. Dorne commands are composed of the following:
+Drone commands are enqueued on an internal stack and are executed first in last out. Drone commands are composed of the following:
 
-* A drone comamnd type, typically blind, guided, or arming
-* A duration dor the command
+* A drone command type, typically blind, guided, or arming
+* A duration for the command
 * Drone command parameters.
 
 #### Drone Command Parameters
@@ -172,13 +172,13 @@ The drone has 6 degrees of freedom:
 * Roll (Sway Side to Side)
 * Yaw (Rotate/Turn)
 
-On a quadcopter, pitch and roll are not directly controllable. For each axis, A drone command has parameter for position and velocity. Thus there are 12 parameters, of which 4 are not directly controllable.
+On a quadcopter, pitch and roll are not directly controllable. For each axis, a drone command has parameters for position and velocity. Thus there are 12 parameters, of which 4 are not directly controllable.
 
-The command parameters are used differently depending on the type of the command
+The command parameters are used differently depending on the type of the command.
 
 #### Blind Commands
 
-Blind commands represent a configuration of the remote control. the blind commands only use velocity parameters, and map directly to the remote control.
+Blind commands represent a configuration of the remote control. The blind commands only use velocity parameters, and map directly to the remote control.
 
 For example, setting a `droneCommand.v_x` to `0.2f` represents the right hand side forward stick at the 20% position.
 
@@ -192,7 +192,7 @@ Guided commands represent a guided operation of the drone using the on-board ins
 
 #### Operator Override Mode
 
-In operator override mode, the drone will not respond to internal commands and will be directly controllable as per normal drone oepration.
+In operator override mode, the drone will not respond to internal commands and will be directly controllable as per normal drone operation.
 
 In this mode, the PCB and main microcontroller pass through signals from the receiver directly 
 
@@ -247,7 +247,7 @@ Gold / Off / Gold / Off...
 
 ##### Ready
 
-The drone is ready for arming and flight commands. Requires operator to acknowledge by toggling left switch
+The drone is ready for arming and flight commands. Requires operator to acknowledge by toggling left switch.
 
 ```
 Blue / Off / Blue / Off...
@@ -255,7 +255,7 @@ Blue / Off / Blue / Off...
 
 ##### Armed
 
-Drone is executing arming command to spin propellers
+Drone is executing arming command to spin propellers.
 
 ```
 (Flashing Quickly)
@@ -272,7 +272,7 @@ Pink / Black / Pink / Black...
 
 ##### Flying - Automated Control
 
-The drone is flying based on the automated commands in its memory
+The drone is flying based on the automated commands in its memory.
 
 ```
 Blue / Lime / Blue / Lime...
@@ -280,7 +280,7 @@ Blue / Lime / Blue / Lime...
 
 ##### Faulted
 
-The drone has encountered a fatal error and/or the emergency stop has been triggered
+The drone has encountered a fatal error and/or the emergency stop has been triggered.
 
 ```
 Red / Black / Red / Black...
