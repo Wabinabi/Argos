@@ -56,7 +56,7 @@ Channels can also be configured to be absolute. Typically, the floating-point ra
 SBUS_RX_CH_1_ABS:TRUE
 ```
 
-Channels 9-16 are not recommended for use as they fall outside of the scope of the controller. Additionally, these auxiliary channels are currently used for filtering incomplete or offset data frames. As the channels are typically not used, an incomplete or offset data frame will produce a result very different from the standard value of the channel (around 1024), allowing for the filtering of only complete frames. The checks that these channels are around the 1000 value for use, if not, the frame is dropped.
+Channels 9-16 are not recommended for use as they fall outside of the scope of the controller. Additionally, these auxiliary channels are currently used for filtering incomplete or offset data frames. As the channels are typically not used, an incomplete or offset data frame will produce a very different result from the standard value of the channel (around 1024), allowing for the filtering of only complete frames. The checks that these channels are around the 1000 value for use, if not, the frame is dropped.
 
 ### Drone Battery and Charging
 
@@ -100,11 +100,11 @@ The propellers should be mounted in the following layout:
 
 Conventional drones complete a pre-flight checklist before operation, however, this is not the case with AS7. Given the GPS-denied nature of the drone, these interlocks have been disabled. Thus the only requirement for arming is that a battery and motors be present.
 
-The electronics package contains an accelerometer and compass, in addition to the ones mounted on the flight controller. These operate independently of the flight system and are not required for flight. They are, however, used for data collection and position estimation for the 3D map.
+The electronics package contains an accelerometer and compass, in addition to the ones mounted on the flight controller. These operate independently of the flight system and are not required for flight. They are, however, used for data collection and position estimation for the 3D point cloud.
 
 ### Data Gathering and Hardware Features
 
-The AS7 drone houses an electronics package for collecting mapping data of the environment. Sensors on-board collect and store the data onto the MicroSD card located the rear of the drone.
+The AS7 drone houses an electronics package for collecting mapping data of the environment. On-board sensors collect and store the data onto the MicroSD card located on the rear of the drone.
 
 #### Setting up the MicroSD Card
 
@@ -116,7 +116,7 @@ The MicroSD Slot uses the Adafruit `MicroSD card breakout board+`. This requires
 * US sensors and their details
 * Compass and accel details
 
-The main PCV mainly focuses on data gathering and drone control. Data gathered from the drone is written  onto the Sd card in batches 
+The main PCV mainly focuses on data gathering and drone control. Data gathered from the drone is written  onto the SD card in batches 
 
 The data is gathered from the following sources:
 
