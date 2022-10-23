@@ -103,12 +103,12 @@ The electronics package contains several sensors and modules for data collection
 \item An SD Module
 \item An I2C Accelerometer
 \item An I2C Compass
-\end{DoxyItemize}
 
 Data is gathered continuously on the drone and is written to the SD card in batches, typically once every ultrasonic cycle. An ultrasonic cycle is the amunt of time taken for all 6 ultrasonic sensors to gather dat in sequence. As the ultrasonic sensors can interfere with each other in an enclosed space, each ultrasonic sensor gathers data independently, with an approximate 80ms delay between each sensor to ensure that no false signals are recorded. Thus, data is pushed to the SD card every 600-\/700ms.
+\end{DoxyItemize}
 
 Each ‘batch’ is pushed at the end of the ultrasonic cycle. However, data from the accelerometer and compass are collected between batches and updated internally. At the end of the ultrasonic cycle, the the current value for all sensors is gathered and pushed into an internal logger buffer for recording with the current time step. The time step of the on-\/board software is given in milliseconds after start, and is determined by the frequency of the microcontroller. Low voltage may have an impact on this and the value will overflow at 56 days, however, these were not determined to be a concern with the implemented system. The next time the logger is activated, it will record the data and any available logging messages.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md33}{}\doxysubsection{Arming and Flight Setup}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md33}
-Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-\/flight checks are done, strap the battery to the drone {\bfseries{but to not plug it in}}. The transmitter should be kept {\bfseries{off}} until the operator is ready to start the mission.
+Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-\/flight checks are done, strap the battery to the drone {\bfseries{but do not plug it in}}. The transmitter should be kept {\bfseries{off}} until the operator is ready to start the mission.
 
 Place the drone down in the mission area in the intended orientation. The battery should then be plugged in the the operator should hear a series of beeps. ~\newline
 
@@ -120,7 +120,7 @@ The drone will start flashing the communication lights on the rear. Once the dro
 The remote control should be turned on {\bfseries{only when the operator is ready to start the mission}}. The drone will remain interlocked if the remote control is off. To start the mission, flick the left position switch to the middle position. This is the start command for the drone.
 
 In case of an {\bfseries{emergency}} or to stop the drone abruptly, {\bfseries{press and hold the middle button}}. This button is under the power button on the remote control.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md34}{}\doxysubsubsection{The Remote Interlock}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md34}
-As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.
+As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with, if the remote control (the transmitter unit) is off.
 
 The remote interlock will also be enabled if the transmitter is out of range of the drone.
 
@@ -131,12 +131,12 @@ This section details the features of automated flight for setting up new flights
 \hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md37}{}\doxysubsubsection{Automated Flight}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md37}
 In automated mode, the drone will follow its internal instructions and aim to execute them. these are loaded on drone start-\/up.
 
-Drone commands are enqueued on an internal stack and are executed first in last out. Dorne commands are composed of the following\+:
+Drone commands are enqueued on an internal stack and are executed first in last out. Drone commands are composed of the following\+:
 
 
 \begin{DoxyItemize}
-\item A drone comamnd type, typically blind, guided, or arming
-\item A duration dor the command
+\item A drone command type, typically blind, guided, or arming
+\item A duration for the command
 \item Drone command parameters.
 \end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md38}{}\doxysubsubsection{Drone Command Parameters}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md38}
 The drone has 6 degrees of freedom\+:
@@ -151,10 +151,10 @@ The drone has 6 degrees of freedom\+:
 \item Yaw (Rotate/\+Turn)
 \end{DoxyItemize}
 
-On a quadcopter, pitch and roll are not directly controllable. For each axis, A drone command has parameter for position and velocity. Thus there are 12 parameters, of which 4 are not directly controllable.
+On a quadcopter, pitch and roll are not directly controllable. For each axis, a drone command has parameters for position and velocity. Thus there are 12 parameters, of which 4 are not directly controllable.
 
-The command parameters are used differently depending on the type of the command\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md39}{}\doxysubsubsection{Blind Commands}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md39}
-Blind commands represent a configuration of the remote control. the blind commands only use velocity parameters, and map directly to the remote control.
+The command parameters are used differently depending on the type of the command.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md39}{}\doxysubsubsection{Blind Commands}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md39}
+Blind commands represent a configuration of the remote control. The blind commands only use velocity parameters, and map directly to the remote control.
 
 For example, setting a {\ttfamily drone\+Command.\+v\+\_\+x} to {\ttfamily 0.\+2f} represents the right hand side forward stick at the 20\% position.\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md40}{}\doxysubsubsection{Guided Commands}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md40}
 Guided commands represent a guided operation of the drone using the on-\/board instruments. The current implementation of guided commands use the four available parameters for tunnel-\/based operation.
@@ -165,7 +165,7 @@ Guided commands represent a guided operation of the drone using the on-\/board i
 \item In the Y (sideways) axis, the drone aims to avoid obstacles using the left and right ultrasonic sensors for collision detection. The sideways input is a weighted average of the two values, representing a tendency to balance both measurements. No command parameter is used for this at current.
 \item In the Z (upwards) axis, the drone aims to hold a position about the ground through PID control. The command parameter uses {\ttfamily drone\+Command.\+p\+\_\+z} in centimetres. The vertical thrust of the system is adjusted based on the measurement of the bottom sensor.
 \end{DoxyItemize}\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md41}{}\doxysubsubsection{Operator Override Mode}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md41}
-In operator override mode, the drone will not respond to internal commands and will be directly controllable as per normal drone oepration.
+In operator override mode, the drone will not respond to internal commands and will be directly controllable as per normal drone operation.
 
 In this mode, the PCB and main microcontroller pass through signals from the receiver directly\hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md42}{}\doxysubsubsection{Emergency Stop}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md42}
 In an emergency situation, the drone can be stopped using the provided emergency stop button. In the current implementation, this function is bound to the central button on the remote control.
@@ -216,7 +216,7 @@ The drone is starting up and initialising all components. The compass and accele
 
 \end{DoxyCode}
 \hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md47}{}\doxyparagraph{Ready}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md47}
-The drone is ready for arming and flight commands. Requires operator to acknowledge by toggling left switch
+The drone is ready for arming and flight commands. Requires operator to acknowledge by toggling left switch.
 
 
 \begin{DoxyCode}{0}
@@ -224,7 +224,7 @@ The drone is ready for arming and flight commands. Requires operator to acknowle
 
 \end{DoxyCode}
 \hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md48}{}\doxyparagraph{Armed}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md48}
-Drone is executing arming command to spin propellers
+Drone is executing arming command to spin propellers.
 
 
 \begin{DoxyCode}{0}
@@ -241,7 +241,7 @@ The drone is being directly controlled by the operator.
 
 \end{DoxyCode}
 \hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md50}{}\doxyparagraph{Flying -\/ Automated Control}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md50}
-The drone is flying based on the automated commands in its memory
+The drone is flying based on the automated commands in its memory.
 
 
 \begin{DoxyCode}{0}
@@ -249,7 +249,7 @@ The drone is flying based on the automated commands in its memory
 
 \end{DoxyCode}
 \hypertarget{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md51}{}\doxyparagraph{Faulted}\label{md__h__repos__argous_src_esp32_as7_gamma__on__board__software_autotoc_md51}
-The drone has encountered a fatal error and/or the emergency stop has been triggered
+The drone has encountered a fatal error and/or the emergency stop has been triggered.
 
 
 \begin{DoxyCode}{0}

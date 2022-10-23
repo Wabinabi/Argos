@@ -181,13 +181,14 @@ On-Board instrumentation</h3>
 <li>6 Ultrasonic Sensors</li>
 <li>An SD Module</li>
 <li>An I2C Accelerometer</li>
-<li>An I2C Compass</li>
+<li><p class="startli">An I2C Compass</p>
+<p class="startli">Data is gathered continuously on the drone and is written to the SD card in batches, typically once every ultrasonic cycle. An ultrasonic cycle is the amunt of time taken for all 6 ultrasonic sensors to gather dat in sequence. As the ultrasonic sensors can interfere with each other in an enclosed space, each ultrasonic sensor gathers data independently, with an approximate 80ms delay between each sensor to ensure that no false signals are recorded. Thus, data is pushed to the SD card every 600-700ms.</p>
+</li>
 </ul>
-<p >Data is gathered continuously on the drone and is written to the SD card in batches, typically once every ultrasonic cycle. An ultrasonic cycle is the amunt of time taken for all 6 ultrasonic sensors to gather dat in sequence. As the ultrasonic sensors can interfere with each other in an enclosed space, each ultrasonic sensor gathers data independently, with an approximate 80ms delay between each sensor to ensure that no false signals are recorded. Thus, data is pushed to the SD card every 600-700ms.</p>
 <p >Each ‘batch’ is pushed at the end of the ultrasonic cycle. However, data from the accelerometer and compass are collected between batches and updated internally. At the end of the ultrasonic cycle, the the current value for all sensors is gathered and pushed into an internal logger buffer for recording with the current time step. The time step of the on-board software is given in milliseconds after start, and is determined by the frequency of the microcontroller. Low voltage may have an impact on this and the value will overflow at 56 days, however, these were not determined to be a concern with the implemented system. The next time the logger is activated, it will record the data and any available logging messages.</p>
 <h2><a class="anchor" id="autotoc_md33"></a>
 Arming and Flight Setup</h2>
-<p >Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-flight checks are done, strap the battery to the drone <b>but to not plug it in</b>. The transmitter should be kept <b>off</b> until the operator is ready to start the mission.</p>
+<p >Arming the drone and starting a flight mission should be done carefully as not to risk harm to the operator. Once the pre-flight checks are done, strap the battery to the drone <b>but do not plug it in</b>. The transmitter should be kept <b>off</b> until the operator is ready to start the mission.</p>
 <p >Place the drone down in the mission area in the intended orientation. The battery should then be plugged in the the operator should hear a series of beeps. <br  />
 </p>
 <blockquote class="doxtable">
@@ -198,7 +199,7 @@ Arming and Flight Setup</h2>
 <p >In case of an <b>emergency</b> or to stop the drone abruptly, <b>press and hold the middle button</b>. This button is under the power button on the remote control.</p>
 <h3><a class="anchor" id="autotoc_md34"></a>
 The Remote Interlock</h3>
-<p >As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with if the remote control (the transmitter unit) is off.</p>
+<p >As part of the safety feature set, the drone will not allow arming or execute commands unless a remote control is detected. As such, the drone can be safely interacted with, if the remote control (the transmitter unit) is off.</p>
 <p >The remote interlock will also be enabled if the transmitter is out of range of the drone.</p>
 <p ><a class="anchor" id="during-flight"></a></p>
 <h1><a class="anchor" id="autotoc_md35"></a>
@@ -209,10 +210,10 @@ Flight modes</h2>
 <h3><a class="anchor" id="autotoc_md37"></a>
 Automated Flight</h3>
 <p >In automated mode, the drone will follow its internal instructions and aim to execute them. these are loaded on drone start-up.</p>
-<p >Drone commands are enqueued on an internal stack and are executed first in last out. Dorne commands are composed of the following:</p>
+<p >Drone commands are enqueued on an internal stack and are executed first in last out. Drone commands are composed of the following:</p>
 <ul>
-<li>A drone comamnd type, typically blind, guided, or arming</li>
-<li>A duration dor the command</li>
+<li>A drone command type, typically blind, guided, or arming</li>
+<li>A duration for the command</li>
 <li>Drone command parameters.</li>
 </ul>
 <h3><a class="anchor" id="autotoc_md38"></a>
@@ -226,11 +227,11 @@ Drone Command Parameters</h3>
 <li>Roll (Sway Side to Side)</li>
 <li>Yaw (Rotate/Turn)</li>
 </ul>
-<p >On a quadcopter, pitch and roll are not directly controllable. For each axis, A drone command has parameter for position and velocity. Thus there are 12 parameters, of which 4 are not directly controllable.</p>
-<p >The command parameters are used differently depending on the type of the command</p>
+<p >On a quadcopter, pitch and roll are not directly controllable. For each axis, a drone command has parameters for position and velocity. Thus there are 12 parameters, of which 4 are not directly controllable.</p>
+<p >The command parameters are used differently depending on the type of the command.</p>
 <h3><a class="anchor" id="autotoc_md39"></a>
 Blind Commands</h3>
-<p >Blind commands represent a configuration of the remote control. the blind commands only use velocity parameters, and map directly to the remote control.</p>
+<p >Blind commands represent a configuration of the remote control. The blind commands only use velocity parameters, and map directly to the remote control.</p>
 <p >For example, setting a <code>droneCommand.v_x</code> to <code>0.2f</code> represents the right hand side forward stick at the 20% position.</p>
 <h3><a class="anchor" id="autotoc_md40"></a>
 Guided Commands</h3>
@@ -242,7 +243,7 @@ Guided Commands</h3>
 </ul>
 <h3><a class="anchor" id="autotoc_md41"></a>
 Operator Override Mode</h3>
-<p >In operator override mode, the drone will not respond to internal commands and will be directly controllable as per normal drone oepration.</p>
+<p >In operator override mode, the drone will not respond to internal commands and will be directly controllable as per normal drone operation.</p>
 <p >In this mode, the PCB and main microcontroller pass through signals from the receiver directly</p>
 <h3><a class="anchor" id="autotoc_md42"></a>
 Emergency Stop</h3>
@@ -275,11 +276,11 @@ Initialise</h4>
 <div class="fragment"><div class="line">Gold / Off / Gold / Off...</div>
 </div><!-- fragment --><h4><a class="anchor" id="autotoc_md47"></a>
 Ready</h4>
-<p >The drone is ready for arming and flight commands. Requires operator to acknowledge by toggling left switch</p>
+<p >The drone is ready for arming and flight commands. Requires operator to acknowledge by toggling left switch.</p>
 <div class="fragment"><div class="line">Blue / Off / Blue / Off...</div>
 </div><!-- fragment --><h4><a class="anchor" id="autotoc_md48"></a>
 Armed</h4>
-<p >Drone is executing arming command to spin propellers</p>
+<p >Drone is executing arming command to spin propellers.</p>
 <div class="fragment"><div class="line">(Flashing Quickly)</div>
 <div class="line">Blue / Orange / Blue / Orange...</div>
 </div><!-- fragment --><h4><a class="anchor" id="autotoc_md49"></a>
@@ -288,11 +289,11 @@ Flying - Operator Control</h4>
 <div class="fragment"><div class="line">Pink / Black / Pink / Black...</div>
 </div><!-- fragment --><h4><a class="anchor" id="autotoc_md50"></a>
 Flying - Automated Control</h4>
-<p >The drone is flying based on the automated commands in its memory</p>
+<p >The drone is flying based on the automated commands in its memory.</p>
 <div class="fragment"><div class="line">Blue / Lime / Blue / Lime...</div>
 </div><!-- fragment --><h4><a class="anchor" id="autotoc_md51"></a>
 Faulted</h4>
-<p >The drone has encountered a fatal error and/or the emergency stop has been triggered</p>
+<p >The drone has encountered a fatal error and/or the emergency stop has been triggered.</p>
 <div class="fragment"><div class="line">Red / Black / Red / Black...</div>
 </div><!-- fragment --><h4><a class="anchor" id="autotoc_md52"></a>
 Debug</h4>
