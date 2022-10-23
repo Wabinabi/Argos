@@ -2,6 +2,8 @@
 
 The Argous Sector 7 (AS7) Project is the design and implementation of an autonomous mine surveying drone for a Swinburne University Final Year Project. The main repository can be found here: https://github.com/Wabinabi/Argous
 
+<a id="outline"></a>
+
 ## Outline
 
 The project is composed of the following modules:
@@ -19,7 +21,7 @@ Configuration and source files can be found in the following locations:
 <a id="table-of-contents"></a>
 ## Table of contents
 
-- [Argous S7: Autonomous Mine Surveying Drone](index.html#argous-s7-autonomous-mine-surveying-drone)
+- Argous S7: Autonomous Mine Surveying Drone
   - [Outline](index.html#outline)
   - [Table of contents](index.html#table-of-contents)
   - [Getting started for surveying](index.html#getting-started-for-surveying)
@@ -52,7 +54,7 @@ The Base Station Software requires Windows 10 or newer to operate. It can be dow
 
 ### Mission Planner
 
-The Flight Controller on AS7 uses [ArduPilot](https://ardupilot.org/) for flight control. It can be configured through [Mission Planner](https://ardupilot.org/planner/). Installation instructions for Mission Planner can be found [here](https://ardupilot.org/planner/docs/mission-planner-installation.html)
+The Flight Controller on AS7 uses [ArduPilot](https://ardupilot.org/) for flight control. It can be configured through [Mission Planner](https://ardupilot.org/planner/). Installation instructions for Mission Planner can be found [here](https://ardupilot.org/planner/docs/mission-planner-installation.html).
 
 <a id="getting-started-for-development"></a>
 
@@ -62,7 +64,7 @@ All source code can be found in the [GitHub Repository](https://github.com/Wabin
 
 ### On Board Software
 
-The On-Board software is written within the [Arduino IDE](https://www.arduino.cc/en/software/) with the ESP32 Dev Kit. 
+The On-Board software is written using the [Arduino IDE](https://www.arduino.cc/en/software/) with the ESP32 Dev Kit. 
 
 #### Adding the ESP32 to the Arduino IDE
 
@@ -70,7 +72,7 @@ The add-on for the Arduino IDE can be found by adding the ESP32 Library URL to t
 
 1. Head to `file` -> `preferences` and add the following to *Additional Board Manager URLs*
    1. `https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json`
-2. Press OK, and head to `Tools` -> `Board:…` -> `Boards Manager`. Searching for ESP32 should show the library package.
+2. Press OK, and head to `Tools` -> `Board:…` -> `Boards Manager`. Searching for ESP32, it should show the library package.
 3. Hit install, and you should be able to see `ESP32 Dev Kit` under `Boards.`
 
 A more extensive guide can be found [here](https://randomnerdtutorials.com/installing-the-esp32-board-in-arduino-ide-windows-instructions/).
