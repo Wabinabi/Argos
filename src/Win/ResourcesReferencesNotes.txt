@@ -41,15 +41,16 @@ Usability Feature Improvements:
 What Mink is working on now (in order):
 - [x] Hidden point button on 3D point cloud
 - [x] Double import on 3D point cloud
-- [ ] instructions for rotate/zoom on 3D
-- [ ] Access help at all times (F1 driven?)
-	- Don't lock popups
-- [ ] Dynamic Scaling
+- [x] Instructions for rotate/zoom on 3D
+- [?] Access help at all times (F1 driven?)
+	- [?] Don't lock popups
+- [x] Dynamic Scaling
 - [ ] 2D graphs events
 	- Clickable 2D points for events
 	- zoom and scroll on 2D graphs
 - [ ] Cursor messaging
-- [ ] Remove usability tester note
+- [x] Remove usability tester note
+- [ ] #1b1b1biew trip data works without import!!
 - [ ] Light Mode (Settings)
 - [ ] Link actual Github in help
 - [ ] Throttle Data??? Where Delete? Make warning if not available??
@@ -87,3 +88,17 @@ Recent files:
 
 =================INSPO QT Designs==========================
 https://www.youtube.com/watch?v=hJKVb7WpQ_c&t=21s&ab_channel=Qt (Dark with Orange dials, sleek)
+
+
+
+
+
+createMenus();
+
+
+
+create menu bar
+
+    helpAct = new QAction(tr("Open User Manual"), this);
+    helpAct->setStatusTip(tr("Opens the user manual in the default web browser"));
+    connect(helpAct, SIGNAL(triggered()), this, SLOT(help()));

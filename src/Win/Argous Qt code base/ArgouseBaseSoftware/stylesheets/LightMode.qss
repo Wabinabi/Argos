@@ -23,10 +23,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 /*-----QWidget-----*/
 QWidget
 {
-	background-color: #242424;
-	color: #fff;
-	selection-background-color: #fff;
-	selection-color: #000;
+	background-color: #fff;
+	color: #242424;
+	selection-background-color: #242424;
+	selection-color: #fff;
 
 }
 
@@ -35,7 +35,7 @@ QWidget
 QLabel
 {
 	background-color: transparent;
-	color: #fff;
+	color: #242424;
 
 }
 
@@ -44,7 +44,7 @@ QLabel
 QMenuBar 
 {
 	background-color: #69C1CB;
-	color: #fff;
+	color: #242424;
 
 }
 
@@ -52,7 +52,7 @@ QMenuBar
 QMenuBar::item 
 {
 	background-color: transparent;
-	border-left: 0px solid #003333;
+	border-left: 0px solid #308c8c;
 	padding: 5px;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -64,7 +64,7 @@ QMenuBar::item:selected
 {
 	background-color: #003333;
 	border: 1px solid #006666;
-	color: #fff;
+	color: #c7c7c7;
 
 }
 
@@ -73,7 +73,7 @@ QMenuBar::item:pressed
 {
 	background-color: #006666;
 	border: 1px solid #006666;
-	color: #fff;
+	color: #ffffff;
 
 }
 
@@ -81,10 +81,10 @@ QMenuBar::item:pressed
 /*-----QMenu-----*/
 QMenu
 {
-    background-color: #4a5157;
-    border: 1px solid #4a5157;
+    background-color: #bbc0c4;
+    border: 1px solid #bbc0c4;
     padding: 10px;
-	color: #fff;
+	color: #242424;
 
 }
 
@@ -108,7 +108,7 @@ QMenu::separator
 
 QMenu::item:disabled
 {
-    color: #555;
+    color: #919191;
     background-color: transparent;
     padding: 2px 20px 2px 20px;
 
@@ -119,7 +119,7 @@ QMenu::item:selected
 {
 	background-color: #003333;
 	border: 1px solid #006666;
-	color: #fff;
+	color: #ffffff;
 
 }
 
@@ -128,7 +128,7 @@ QMenu::item:selected
 QToolButton 
 {
 	background-color: transparent;
-	color: #fff;
+	color: #242424;
 	padding: 3px;
 	margin-left: 1px;
 }
@@ -138,7 +138,7 @@ QToolButton:hover
 {
 	background-color: rgba(70,162,218,50%);
 	border: 1px solid #46a2da;
-	color: #000;
+	color: #fff;
 	
 }
 
@@ -154,7 +154,7 @@ QToolButton:pressed
 QToolButton:checked
 {
 	background-color: #727272;
-	border: 1px solid #222;
+	border: 1px solid #d6d6d6;
 }
 
 
@@ -162,7 +162,7 @@ QToolButton:checked
 QPushButton
 {
 	background-color: #4891b4;
-	color: #fff;
+	color: #242424;
 	min-width: 80px;
 	border-radius: 4px;
 	padding: 5px;
@@ -174,7 +174,7 @@ QPushButton::flat
 {
 	background-color: transparent;
 	border: none;
-	color: #000;
+	color: #fff;
 
 }
 
@@ -215,9 +215,9 @@ QPushButton::checked
 /*-----QLineEdit-----*/
 QLineEdit
 {
-	background-color: #424242;
-	color : #fff;
-	border: 1px solid #1d1d1d;
+	background-color: #fff;
+	color : #424242;
+	border: 1px solid #fff;
 	padding: 3px;
 	padding-left: 5px;
 	border-radius: 4px;
@@ -225,12 +225,12 @@ QLineEdit
 }
 
 
-/*-----QPlainTExtEdit-----*/
+/*-----QPlainTextEdit-----*/
 QPlainTextEdit
 {
-	background-color: #242424;
-	color : #fff;
-	border: 1px solid #1d1d1d;
+	background-color: #fff;
+	color : #242424;
+	border: 1px solid #fff;
 	padding: 3px;
 	padding-left: 5px;
 	border-radius: 4px;
@@ -242,7 +242,7 @@ QPlainTextEdit
 QToolBox
 {
 	background-color: transparent;
-	border: 1px solid #1d1d1d;
+	border: 1px solid #d9d9d9;
 
 }
 
@@ -250,7 +250,7 @@ QToolBox
 QToolBox::tab
 {
 	background-color: #002b2b;
-	border: 1px solid #1d1d1d;
+	border: 1px solid #d9d9d9;
 
 }
 
@@ -258,7 +258,7 @@ QToolBox::tab
 QToolBox::tab:hover
 {
 	background-color: #006d6d;
-	border: 1px solid #1d1d1d;
+	border: 1px solid #d9d9d9;
 
 }
 
@@ -266,9 +266,9 @@ QToolBox::tab:hover
 /*-----QComboBox-----*/
 QComboBox
 {
-    background-color: #4a5157;
+    background-color: #b5bfc7;
     padding-left: 6px;
-    color: #fff;
+    color: #000;
     height: 20px;
 	border-radius: 4px;
 
@@ -277,8 +277,8 @@ QComboBox
 
 QComboBox::disabled
 {
-	background-color: #404040;
-	color: #656565;
+	background-color: #e3e3e3;
+	color: #ebebeb;
 	border-color: #051a39;
 
 }
@@ -286,8 +286,8 @@ QComboBox::disabled
 
 QComboBox:on
 {
-    background-color: #4a5157;
-	color: #fff;
+    background-color: #d6d6d6;
+	color: #000;
 
 }
 
@@ -421,7 +421,7 @@ QCalendarWidget QSpinBox::down-arrow
 QGroupBox 
 {
     border: 1px solid;
-    border-color: #1d1d1d;
+    border-color: #fafafa;
 	border-radius: 4px;
     margin-top: 23px;
 
@@ -431,7 +431,7 @@ QGroupBox
 QGroupBox::title  
 {
     background-color: #002b2b;
-    color: #fff;
+    color: #1a1a1a;
 	subcontrol-position: top left;
     subcontrol-origin: margin;
     padding: 5px;
@@ -539,7 +539,7 @@ QCalendarWidget QMenu
 QCalendarWidget QWidget 
 { 
 	alternate-background-color: #4a5157; 
-	color: #fff;
+	color: #242424;
 
 }
 
@@ -614,7 +614,7 @@ QListView
 	background-color: transparent;
 	alternate-background-color: transparent;
     border : none;
-    color: #fff;
+    color: #242424;
     show-decoration-selected: 1; 
     outline: 0;
    	border: 1px solid #1d1d1d;
@@ -643,7 +643,7 @@ QListView::item:selected
 {
 	background-color: #002b2b;
 	border: 1px solid #002b2b;
-	color: #fff;
+	color: #1b1b1b;
 
 }
 
@@ -652,7 +652,7 @@ QListView::item:selected:!active
 {
 	background-color: #002b2b;
 	border: 1px solid #002b2b;
-	color: #fff;
+	color: #1b1b1b;
 
 }
 
@@ -990,4 +990,11 @@ QSizeGrip
 	background-color: image("./ressources/sizegrip.png"); /*To replace*/
 	border: none;
 
+}
+
+
+/*-----QXYSeries-----*/
+QZYSeries{
+	color: #1a1a1a;
+	bestFitLineColor: #1a1a1a;
 }

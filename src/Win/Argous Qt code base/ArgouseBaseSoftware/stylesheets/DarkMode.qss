@@ -228,7 +228,7 @@ QLineEdit
 /*-----QPlainTExtEdit-----*/
 QPlainTextEdit
 {
-	background-color: #242424;
+	background-color: #4d4d4d;
 	color : #fff;
 	border: 1px solid #1d1d1d;
 	padding: 3px;
@@ -669,7 +669,7 @@ QListView::item:selected:active
 QListView::item:hover {
     background-color: #5e5e5e;
     border: none;
-    color: #000;
+    color: #fff;
 
 }
 

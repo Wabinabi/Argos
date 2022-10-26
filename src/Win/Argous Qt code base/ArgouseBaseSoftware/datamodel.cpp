@@ -7,6 +7,7 @@ DataModel::DataModel(QWidget *parent) :
 {
     ui->setupUi(this);
     generate3DWidget();
+
 }
 
 void DataModel::generate3DWidget(){
