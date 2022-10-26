@@ -1,72 +1,87 @@
 /****************************************************
- * Description: To plot the 3D point cloud in a popup widget which the user can interact with
+ * Description: Plotter plots the 3D visualisation using the temp .PLY data file created when importing data.
+ * It is embeded within the datamodel class.
+ *
+ * This 3D visualisation has a series of customisation options that may be called by the user. These include:
+ *      changeStyle
+ *      setSmoothDots
+ *      changeTheme
+ *      changePresetCamera
+ *      changeLabelStyle
+ *      changeFont
+ *      changeShadowQuality/shadowQualityUpdatedByVisual
+ *      setBackgroundEnabled
+ *      setGridEnabled
+ *
  * Author/s: Monique Kuhn
 ****************************************************/
 
 #include "plotter.h"
 
-//Can be edited to vary the outcome of the 3D model. Ensure that number of items will be able to hold all data points
+/*Can be edited to vary the outcome of the 3D model. Ensure that number of items will be able to hold all data points*/
 const int numberOfItems = 3600;
 const int lowerNumberOfItems = 5000;
 
 const float curveDivider = 3.0f;
 const float lowerCurveDivider = 0.75f;
 
+
 Plotter::Plotter(Q3DScatter* scatter)
-    : m_graph(scatter),
-        m_fontSize(40.0f),
-        m_style(QAbstract3DSeries::MeshSphere),
-        m_smooth(true),
-        m_itemCount(lowerNumberOfItems),
-        m_curveDivider(lowerCurveDivider)
+    : graph(scatter),
+        fontSize(40.0f),
+        style(QAbstract3DSeries::MeshSphere),
+        smooth(true),
+        itemCount(lowerNumberOfItems),
+        curveDivider(lowerCurveDivider)
 {
+    /*Sets the initial theme, font (type & size), shadow quality, and camera preset for the graph*/
+    graph->activeTheme()->setType(Q3DTheme::ThemeEbony);
+    QFont font = graph->activeTheme()->font();
+    font.setPointSize(fontSize);
+    graph->activeTheme()->setFont(font);
+    graph->setShadowQuality(QAbstract3DGraph::ShadowQualitySoftLow);
+    graph->scene()->activeCamera()->setCameraPreset(Q3DCamera::CameraPresetFront);
 
-        m_graph->activeTheme()->setType(Q3DTheme::ThemeEbony);
-        QFont font = m_graph->activeTheme()->font();
-        font.setPointSize(m_fontSize);
-        m_graph->activeTheme()->setFont(font);
-        m_graph->setShadowQuality(QAbstract3DGraph::ShadowQualitySoftLow);
-        m_graph->scene()->activeCamera()->setCameraPreset(Q3DCamera::CameraPresetFront);
+    /*Configures X, Y, Z axis units. These are hard coded to match the format the distance data is delivered in*/
+    graph->axisX()->setTitle("X (cm)");
+    graph->axisX()->setTitleVisible(true);
 
+    graph->axisY()->setTitle("Z (cm)");
+    graph->axisY()->setTitleVisible(true);
 
-        QScatterDataProxy* proxy = new QScatterDataProxy;
-        QScatter3DSeries* series = new QScatter3DSeries(proxy);
-        series->setItemLabelFormat(QStringLiteral("@xTitle: @xLabel @zTitle: @zLabel @yTitle: @yLabel"));
-        series->setMeshSmooth(m_smooth);
-        m_graph->addSeries(series);
+    graph->axisZ()->setTitle("Y (cm)");
+    graph->axisZ()->setTitleVisible(true);
+
+    /*Initialises 3D Scatter Proxy and Series*/
+    QScatterDataProxy* proxy = new QScatterDataProxy;
+    QScatter3DSeries* series = new QScatter3DSeries(proxy);
+
+    /*Formats series X, Y, Z labels and mesh before adding to the graph*/
+    series->setItemLabelFormat(QStringLiteral("@xTitle: @xLabel @zTitle: @zLabel @yTitle: @yLabel"));
+    series->setMeshSmooth(smooth);
+    graph->addSeries(series);
 }
 
 Plotter::~Plotter()
 {
-    delete m_graph;
+    delete graph;
 }
 
+
+/*addData() extracts the data from the temp .PLY file (populated on import) and loads it into the data array*/
 void Plotter::addData()
 {
-    // Configure the axes according to the data
-    m_graph->axisX()->setTitle("X (cm)");
-    m_graph->axisX()->setTitleVisible(true);
-
-    m_graph->axisY()->setTitle("Z (cm)");
-    //m_graph->axisY()->setLabelFormat("%.2f mm");
-    m_graph->axisY()->setTitleVisible(true);
-
-    m_graph->axisZ()->setTitle("Y (cm)");
-    m_graph->axisZ()->setTitleVisible(true);
-
-
     QScatterDataArray* dataArray = new QScatterDataArray;
-    dataArray->resize(m_itemCount);
+    dataArray->resize(itemCount);
     QScatterDataItem* ptrToDataArray = &dataArray->first();
 
-    //Testing reading in a text PLY file (B1's cube)
-    //Source file -> this will later link to the processed PLY file spat out by import action'
+    /*References the temporary .PLY file created on import in homepage.cpp*/
     QString filename = "../ArgouseBaseSoftware/appdata/as7-map.ply";
     QFile file(filename);
     QVector<QString> importedPLYData;
     QMessageBox msg;
 
-
+    /*Reads data from temporary .PLY file line by line*/
     if(filename.isEmpty()){
         msg.setText("Mapping data not found! Has the data been successfully imported?");
         msg.exec();
@@ -85,15 +100,16 @@ void Plotter::addData()
         }
     }
 
-    //now load the data into the 3Dscatter plot
+    /*Loads data from populated array*/
     for (int i = 0; i < importedPLYData.length(); i++){
         ptrToDataArray->setPosition(PLYPoint(importedPLYData[i]));
         ptrToDataArray++;
     }
-    m_graph->seriesList().at(0)->dataProxy()->resetArray(dataArray);
+
+    graph->seriesList().at(0)->dataProxy()->resetArray(dataArray);
 }
 
-//Processes a PLY line and spits out a single 3DVector point
+/*PLYPoint(QString line) reads a line (formatted <X> <Y> <Z>) and transforms it into a QVector3D point*/
 QVector3D Plotter::PLYPoint(QString line){
     QString stX = "";
     QString stY = "";
@@ -117,91 +133,103 @@ QVector3D Plotter::PLYPoint(QString line){
     return QVector3D(fX, fY, fZ);
 }
 
-
-void Plotter::changeStyle(int style)
+/*changeStyle() changes the style of the graph*/
+void Plotter::changeStyle(int _style)
 {
     QComboBox* comboBox = qobject_cast<QComboBox*>(sender());
     if (comboBox) {
-        m_style = QAbstract3DSeries::Mesh(comboBox->itemData(style).toInt());
-        if (m_graph->seriesList().size())
-            m_graph->seriesList().at(0)->setMesh(m_style);
+        style = QAbstract3DSeries::Mesh(comboBox->itemData(_style).toInt());
+        if (graph->seriesList().size())
+            graph->seriesList().at(0)->setMesh(style);
     }
 }
 
-void Plotter::setSmoothDots(int smooth)
+/*setSmoothDots() sets the smoothness of the dots*/
+void Plotter::setSmoothDots(int _smooth)
 {
-    m_smooth = bool(smooth);
-    QScatter3DSeries* series = m_graph->seriesList().at(0);
-    series->setMeshSmooth(m_smooth);
+    smooth = bool(_smooth);
+    QScatter3DSeries* series = graph->seriesList().at(0);
+    series->setMeshSmooth(smooth);
 }
 
-void Plotter::changeTheme(int theme)
+/*changeTheme() changes the graph theme based on checkboxes*/
+void Plotter::changeTheme(int _theme)
 {
-    Q3DTheme* currentTheme = m_graph->activeTheme();
-    currentTheme->setType(Q3DTheme::Theme(theme));
+    Q3DTheme* currentTheme = graph->activeTheme();
+    currentTheme->setType(Q3DTheme::Theme(_theme));
     emit backgroundEnabledChanged(currentTheme->isBackgroundEnabled());
     emit gridEnabledChanged(currentTheme->isGridEnabled());
     emit fontChanged(currentTheme->font());
 }
 
+/*changePresetCamera() changes the angle that the 3D visualisation is viewed from*/
 void Plotter::changePresetCamera()
 {
     static int preset = Q3DCamera::CameraPresetFrontLow;
 
-    m_graph->scene()->activeCamera()->setCameraPreset((Q3DCamera::CameraPreset)preset);
+    graph->scene()->activeCamera()->setCameraPreset((Q3DCamera::CameraPreset)preset);
 
     if (++preset > Q3DCamera::CameraPresetDirectlyBelow)
-        preset = Q3DCamera::CameraPresetFrontLow;
+    preset = Q3DCamera::CameraPresetFrontLow;
 }
 
+/*changeLabelStyle() changes the styling of the label*/
 void Plotter::changeLabelStyle()
 {
-    m_graph->activeTheme()->setLabelBackgroundEnabled(!m_graph->activeTheme()->isLabelBackgroundEnabled());
+    graph->activeTheme()->setLabelBackgroundEnabled(!graph->activeTheme()->isLabelBackgroundEnabled());
 }
 
-void Plotter::changeFont(const QFont& font)
+/*changeFont() updates the graph with the selected font*/
+void Plotter::changeFont(const QFont& _font)
 {
-    QFont newFont = font;
-    newFont.setPointSizeF(m_fontSize);
-    m_graph->activeTheme()->setFont(newFont);
+    QFont newFont = _font;
+    newFont.setPointSizeF(fontSize);
+    graph->activeTheme()->setFont(newFont);
 }
 
-void Plotter::shadowQualityUpdatedByVisual(QAbstract3DGraph::ShadowQuality sq)
+/*shadowQualityUpdatedByVisual() updates the shadow quality of the graph based on checkbox*/
+void Plotter::shadowQualityUpdatedByVisual(QAbstract3DGraph::ShadowQuality _shadowQ)
 {
-    int quality = int(sq);
-    emit shadowQualityChanged(quality); // connected to a checkbox in main.cpp
+    int shadowQ = int(_shadowQ);
+    emit shadowQualityChanged(shadowQ);
 }
 
-void Plotter::changeShadowQuality(int quality)
+/*shadowQualityUpdatedByVisual() updates the shadow quality of the graph*/
+void Plotter::changeShadowQuality(int _quality)
 {
-    QAbstract3DGraph::ShadowQuality sq = QAbstract3DGraph::ShadowQuality(quality);
-    m_graph->setShadowQuality(sq);
+    QAbstract3DGraph::ShadowQuality shadowQ = QAbstract3DGraph::ShadowQuality(_quality);
+    graph->setShadowQuality(shadowQ);
 }
 
-void Plotter::setBackgroundEnabled(int enabled)
+/*setBackgroundEnabled() sets the background*/
+void Plotter::setBackgroundEnabled(int _enabled)
 {
-    m_graph->activeTheme()->setBackgroundEnabled((bool)enabled);
+    graph->activeTheme()->setBackgroundEnabled((bool) _enabled);
 }
 
-void Plotter::setGridEnabled(int enabled)
+/*setBackgroundEnabled() sets the background*/
+void Plotter::setGridEnabled(int _enabled)
 {
-    m_graph->activeTheme()->setGridEnabled((bool)enabled);
+    graph->activeTheme()->setGridEnabled((bool) _enabled);
 }
 
+/*toggleItemCount() determines the curver divider and item count prior to adding data.
+ * This is called by the datamodel.cpp when the widget is generated.*/
 void Plotter::toggleItemCount()
 {
-    if (m_itemCount == numberOfItems) {
-        m_itemCount = lowerNumberOfItems;
-        m_curveDivider = lowerCurveDivider;
+    if (itemCount == numberOfItems) {
+        itemCount = lowerNumberOfItems;
+        curveDivider = lowerCurveDivider;
     }
     else {
-        m_itemCount = numberOfItems;
-        m_curveDivider = curveDivider;
+        itemCount = numberOfItems;
+        curveDivider = curveDivider;
     }
-    m_graph->seriesList().at(0)->dataProxy()->resetArray(0);
+    graph->seriesList().at(0)->dataProxy()->resetArray(0);
     addData();
 }
 
+/*randVector() is a useful tool for debugging. It generates a random 3D vector*/
 QVector3D Plotter::randVector()
 {
     return QVector3D(

@@ -4,7 +4,6 @@
 #include <QtDataVisualization/q3dscatter.h>
 #include <QtDataVisualization/qabstract3dseries.h>
 #include <QtGui/QFont>
-
 #include <QtDataVisualization/qscatterdataproxy.h>
 #include <QtDataVisualization/qvalue3daxis.h>
 #include <QtDataVisualization/q3dscene.h>
@@ -23,8 +22,6 @@
 #include <QFileDialog>
 #include <QLabel>
 
-
-
 class Plotter : public QObject
 {
     Q_OBJECT
@@ -37,40 +34,37 @@ public:
     void changeStyle();
     void changePresetCamera();
     void changeLabelStyle();
-    void changeFont(const QFont& font);
-    void changeFontSize(int fontsize);
-    void setBackgroundEnabled(int enabled);
-    void setGridEnabled(int enabled);
-    void setSmoothDots(int smooth);
+    void changeFont(const QFont& _font);
+    void setBackgroundEnabled(int _enabled);
+    void setGridEnabled(int _enabled);
+    void setSmoothDots(int _smooth);
     void toggleItemCount();
     void start();
     void closeEvent(QCloseEvent *event);
 
 public Q_SLOTS:
-    void changeStyle(int style);
-    void changeTheme(int theme);
-    void changeShadowQuality(int quality);
-    void shadowQualityUpdatedByVisual(QAbstract3DGraph::ShadowQuality shadowQuality);
+    void changeStyle(int _style);
+    void changeTheme(int _theme);
+    void changeShadowQuality(int _quality);
+    void shadowQualityUpdatedByVisual(QAbstract3DGraph::ShadowQuality _shadowQ);
 
 Q_SIGNALS:
-    void backgroundEnabledChanged(bool enabled);
-    void gridEnabledChanged(bool enabled);
-    void shadowQualityChanged(int quality);
-    void fontChanged(const QFont& font);
+    void backgroundEnabledChanged(bool _enabled);
+    void gridEnabledChanged(bool _enabled);
+    void shadowQualityChanged(int _quality);
+    void fontChanged(const QFont& _font);
 
 private:
-    float sourceX(QString line);
-    float sourceY(QString line);
-    float sourceZ(QString line);
     QVector3D PLYPoint(QString line);
 
     QVector3D randVector();
-    Q3DScatter* m_graph;
-    int m_fontSize;
-    QAbstract3DSeries::Mesh m_style;
-    bool m_smooth;
-    int m_itemCount;
-    float m_curveDivider;
+    Q3DScatter* graph;
+
+    int fontSize;
+    QAbstract3DSeries::Mesh style;
+    bool smooth;
+    int itemCount;
+    float curveDivider;
 };
 
 #endif // PLOTTER_H
