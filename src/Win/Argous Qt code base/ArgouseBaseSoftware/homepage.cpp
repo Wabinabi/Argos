@@ -9,6 +9,7 @@ HomePage::HomePage(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::HomePage)
 {
     ui->setupUi(this);
+    ui->DroneDisplayBlack->hide();
 
     Parent = parent;
 

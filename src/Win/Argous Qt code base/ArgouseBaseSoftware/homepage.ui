@@ -72,6 +72,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="statusTip">
+      <string>Opens window with detailed trip data</string>
+     </property>
      <property name="text">
       <string>View Trip Data</string>
      </property>
@@ -130,6 +133,9 @@
       </property>
       <item>
        <widget class="QPushButton" name="ImportBtn_2">
+        <property name="statusTip">
+         <string>Clears imported data</string>
+        </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(112, 112, 112);
 color: rgb(255, 255, 255)</string>
@@ -141,6 +147,9 @@ color: rgb(255, 255, 255)</string>
       </item>
       <item>
        <widget class="QPushButton" name="ExportButton">
+        <property name="statusTip">
+         <string>Export Map as PLY Document</string>
+        </property>
         <property name="text">
          <string>Export</string>
         </property>
@@ -150,6 +159,9 @@ color: rgb(255, 255, 255)</string>
        <widget class="QPushButton" name="ImportBtn">
         <property name="enabled">
          <bool>true</bool>
+        </property>
+        <property name="statusTip">
+         <string>Imports data</string>
         </property>
         <property name="text">
          <string>Import</string>
@@ -175,9 +187,6 @@ color: rgb(255, 255, 255)</string>
      <enum>QFrame::Raised</enum>
     </property>
     <widget class="QPushButton" name="DroneDisplayWhite">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -185,18 +194,6 @@ color: rgb(255, 255, 255)</string>
        <width>241</width>
        <height>161</height>
       </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>WhatsThisCursor</cursorShape>
-     </property>
-     <property name="toolTip">
-      <string extracomment="Argous AS7 Drone"/>
-     </property>
-     <property name="statusTip">
-      <string extracomment="Argous AS7 Drone"/>
-     </property>
-     <property name="whatsThis">
-      <string extracomment="Argous AS7 Drone">Argous AS7 Drone</string>
      </property>
      <property name="autoFillBackground">
       <bool>false</bool>
@@ -227,14 +224,14 @@ color: rgb(255, 255, 255)</string>
        <height>31</height>
       </rect>
      </property>
+     <property name="statusTip">
+      <string>Opens drone specifications</string>
+     </property>
      <property name="text">
       <string>View Drone Details</string>
      </property>
     </widget>
     <widget class="QPushButton" name="DroneDisplayBlack">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -242,15 +239,6 @@ color: rgb(255, 255, 255)</string>
        <width>241</width>
        <height>161</height>
       </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>WhatsThisCursor</cursorShape>
-     </property>
-     <property name="toolTip">
-      <string extracomment="Argous AS7 Drone"/>
-     </property>
-     <property name="whatsThis">
-      <string>Argous AS7 Drone</string>
      </property>
      <property name="autoFillBackground">
       <bool>false</bool>
@@ -272,9 +260,6 @@ color: rgb(255, 255, 255)</string>
       </size>
      </property>
     </widget>
-    <zorder>DroneDisplayBlack</zorder>
-    <zorder>DroneDisplayWhite</zorder>
-    <zorder>pushButton_4</zorder>
    </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
@@ -325,6 +310,7 @@ color: rgb(255, 255, 255)</string>
      </property>
      <property name="styleSheet">
       <string notr="true">
+background-color: rgb(65, 65, 65);
 border-radius: 5px;
 
 
@@ -388,6 +374,9 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
        <height>151</height>
       </rect>
      </property>
+     <property name="statusTip">
+      <string>Click to select previous file to import</string>
+     </property>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_3">
@@ -439,6 +428,9 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
        <height>31</height>
       </rect>
      </property>
+     <property name="statusTip">
+      <string>Imports data</string>
+     </property>
      <property name="styleSheet">
       <string notr="true">Text-align:left;
 padding: 6px;
@@ -463,6 +455,9 @@ border-radius: 0px;</string>
        <height>31</height>
       </rect>
      </property>
+     <property name="statusTip">
+      <string>Clears imported data</string>
+     </property>
      <property name="styleSheet">
       <string notr="true">Text-align:left;
 padding: 6px;
@@ -486,6 +481,9 @@ border-radius: 0px;</string>
        <width>111</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="statusTip">
+      <string>Opens the user manual in the default web browser</string>
      </property>
      <property name="styleSheet">
       <string notr="true">Text-align:left;
@@ -533,7 +531,7 @@ border-radius: 0px;</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
