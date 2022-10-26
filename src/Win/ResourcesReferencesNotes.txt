@@ -38,9 +38,9 @@ Usability Feature Improvements:
 - [x] Drone details resize and add scroll capability.
 
 ===========================================================
-What Mink is working on now:
-- [ ] Hidden point button on 3D point cloud
-- [ ] Double import on 3D point cloud
+What Mink is working on now (in order):
+- [x] Hidden point button on 3D point cloud
+- [x] Double import on 3D point cloud
 - [ ] instructions for rotate/zoom on 3D
 - [ ] Access help at all times (F1 driven?)
 	- Don't lock popups
@@ -57,6 +57,7 @@ What Mink is working on now:
 - [ ] Bold running drone stats categories
 - [ ] Styling for checkboxes in 3D point cloud
 - [ ] Naming conventions + commenting consistency
+	- [ ] Document purpose
 - [ ] .exe installation
 
 

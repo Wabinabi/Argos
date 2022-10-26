@@ -53,8 +53,8 @@ void DataModel::generate3DWidget(){
     QPushButton* cameraButton = new QPushButton(this);
     cameraButton->setText(QStringLiteral("Change camera preset"));
 
-    QPushButton* itemCountButton = new QPushButton(this);
-    itemCountButton->setText(QStringLiteral("Toggle item count"));
+    //QPushButton* itemCountButton = new QPushButton(this);
+    //itemCountButton->setText(QStringLiteral("Toggle item count"));
 
     QCheckBox* backgroundCheckBox = new QCheckBox(this);
     backgroundCheckBox->setText(QStringLiteral("Show background"));
