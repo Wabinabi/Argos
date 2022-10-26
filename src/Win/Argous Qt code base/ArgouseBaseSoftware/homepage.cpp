@@ -33,7 +33,7 @@ HomePage::~HomePage()
 }
 
 void HomePage::UsabilityTestSim(){
-    ui->DroneDisplay->setEnabled(false);
+    //ui->DroneDisplay->setEnabled(false);
     //ui->FileBtn->setVisible(false);
     //ui->SettingsBtn->setVisible(false);
     //ui->HelpBtn->setVisible(false);
@@ -759,6 +759,9 @@ void HomePage::help()
 }
 
 void HomePage::darkMode(){
+    ui->DroneDisplayBlack->hide();
+    ui->DroneDisplayWhite->show();
+
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, Qt::black);
     this->setPalette(pal);
@@ -769,6 +772,9 @@ void HomePage::darkMode(){
     this->setStyleSheet(styleSheet);
 }
 void HomePage::lightMode(){
+    ui->DroneDisplayBlack->show();
+    ui->DroneDisplayWhite->hide();
+
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, Qt::black);
     this->setPalette(pal);
