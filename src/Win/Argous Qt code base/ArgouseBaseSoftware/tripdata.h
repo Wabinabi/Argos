@@ -57,13 +57,12 @@ private slots:
     //UI buttons
     void on_HomeBtn_clicked();
     void on_DisplayModel_clicked();
-    void handleClickedPoint(const QPointF &point);
 
     //Plotting 2D data
     //QLineSeries reshapeVector(QVector<QString> XYData);
     //QLineSeries *XYSeries
     void drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData, QChart *selChart, QChartView *selChartView);
-    void drawEventsPlot();
+    void displayDroneEvents();
     //void drawXYSeries(QVector<QString> XYData);
 
     //UI buttons, these set the index associated with the page sought after by the user
@@ -71,7 +70,7 @@ private slots:
     void on_ThrottleBtn_clicked();
     void on_TempBtn_clicked();
     void on_AltitudeBtn_clicked();
-    void readDroneStats();
+    void displayDroneStats();
     void help();
 
     void drawStackedTrends();
@@ -88,9 +87,9 @@ private:
 
 
     Ui::TripData *ui;
-    QScatterSeries *m_scatter;
-    QScatterSeries *m_scatter2;
-    QScatterSeries *m_scatter3;
+    QScatterSeries *scatter;
+    QScatterSeries *scatter2;
+    QScatterSeries *scatter3;
 
 
     //Chart Views for 2D plot & stacked layout

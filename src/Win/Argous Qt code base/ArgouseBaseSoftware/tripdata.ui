@@ -132,7 +132,7 @@
      <rect>
       <x>20</x>
       <y>50</y>
-      <width>201</width>
+      <width>221</width>
       <height>91</height>
      </rect>
     </property>
@@ -161,7 +161,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <rect>
       <x>10</x>
       <y>150</y>
-      <width>211</width>
+      <width>231</width>
       <height>41</height>
      </rect>
     </property>
@@ -192,7 +192,7 @@ border-radius: 5px;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QTextEdit" name="droneEvents_3">
+   <widget class="QTextEdit" name="droneEmergency">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -247,10 +247,10 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QTextEdit" name="droneEvents_4">
+   <widget class="QTextEdit" name="droneInform">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>330</x>
       <y>60</y>
       <width>161</width>
       <height>121</height>
@@ -276,10 +276,10 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QTextEdit" name="droneEvents_5">
+   <widget class="QTextEdit" name="droneEvents">
     <property name="geometry">
      <rect>
-      <x>340</x>
+      <x>170</x>
       <y>60</y>
       <width>161</width>
       <height>121</height>

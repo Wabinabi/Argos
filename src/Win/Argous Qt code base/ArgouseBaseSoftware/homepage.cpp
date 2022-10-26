@@ -73,9 +73,6 @@ void HomePage::readRecentFilesLog()
 
 void HomePage::addRecentFile(QString recentFile) {
 
-
-
-
     while (recentFilesQueue.size() > 4) {
         recentFilesQueue.dequeue();
     }

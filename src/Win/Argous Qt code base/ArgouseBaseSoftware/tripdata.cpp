@@ -49,8 +49,8 @@ TripData::TripData(QWidget *parent,
 
     /*Populate widget with data*/
     drawStackedTrends();
-    readDroneStats();
-    //readDroneEvents();
+    displayDroneStats();
+    displayDroneEvents();
 
 }
 
@@ -123,17 +123,12 @@ void TripData::drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData,
     //Y Axis
     QValueAxis *axisY = new QValueAxis;
 
-    if (ui->stackedWidget->currentIndex() == 3){
-        axisY->setTitleText("Height above ground (cm)");
-    }
+    if (stackIndex == 0){axisY->setTitleText("Temperature (deg c)");}
 
-    if (ui->stackedWidget->currentIndex() == 2){
-        axisY->setTitleText("Throttle (x/2056)");
-    }
+    if (stackIndex == 1 ){axisY->setTitleText("Throttle (x/2056)");}
 
-    if (ui->stackedWidget->currentIndex() == 1){
-        axisY->setTitleText("Temperature (deg c)");
-    }
+    if (stackIndex == 2){axisY->setTitleText("Height above ground (cm)");}
+
 
     selChart->addAxis(axisY, Qt::AlignLeft);
     XYSeries->attachAxis(axisY);
@@ -142,50 +137,72 @@ void TripData::drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData,
     ui->stackedWidget->insertWidget(stackIndex, selChartView);
 }
 
-void TripData::drawEventsPlot(){
-    //chart->setTitle("Click to interact with scatter points");
+void TripData::displayDroneEvents(){
 
-    m_scatter = new QScatterSeries();
-    m_scatter2 = new QScatterSeries();
+    QString line, htmlLine,textBlock;
+    if (locInformEvents.size() > 0){
+        for (int i = 0; i <locInformEvents.size(); i++){
+            QString timeStr;
+            timeStr.setNum(locInformEvents[i].time);
+            htmlLine = "<html><b>" + timeStr + "ms | "
+                    + locInformEvents[i].errorType + ": </b></html>"
+                    + locInformEvents[i].message + "<html><br></html>";
 
-    // For each drone events timeline, create a scatter plot
-    // Events in the same timeline should stay on the same row
-    //
-
-    m_scatter->setName("Emergencies");
-    //plot emergency events on row 1
-    for (int i = 0; i < locEmergencyEvents.size(); i++){
-        int x = locEmergencyEvents[i].time;
-        *m_scatter << QPointF(x, 1);
+            textBlock.append(htmlLine);
+        }
+        ui->droneInform->setText(textBlock);
     }
+    else {ui->droneInform->setText("No inform events occured/recorded");}
 
-//    m_scatter2->setName("Verbose");
-//    //plot verbose events on row 2
-//    for (int i = 0; i < locVerboseEvents.size(); i++){
-//        int x = locVerboseEvents[i].time;
-//        *m_scatter << QPointF(x, 2);
-//    }
+    if (locEmergencyEvents.size() > 0){
+        for (int i = 0; i <locEmergencyEvents.size(); i++){
+            QString timeStr;
+            timeStr.setNum(locEmergencyEvents[i].time);
+            htmlLine = "<html><b>" + timeStr + "ms | "
+                    + locEmergencyEvents[i].errorType + ": </b></html>"
+                    + locEmergencyEvents[i].message + "<html><br></html>";
 
-    m_scatter2->setName("Events");
-    //plot informative events on row 3
-    for (int i = 0; i < locInformEvents.size(); i++){
-        int x = locInformEvents[i].time;
-        *m_scatter2 << QPointF(x, 3);
+            textBlock.append(htmlLine);
+        }
+        ui->droneEmergency->setText(textBlock);
     }
+    else {ui->droneEmergency->setText("No emergency events occured/recorded");}
 
-    QChart *chart = new QChart();
-    eventsChartView = new QChartView(chart);
-    eventsChartView->setRenderHint(QPainter::Antialiasing);
-    //chart->addSeries(m_scatter3);
-    chart->addSeries(m_scatter2);
-    chart->addSeries(m_scatter);
-    chart->createDefaultAxes();
-    //update dissss
-    //chart->axes(Qt::Horizontal).first()->setRange(0, 200);
-    chart->axes(Qt::Vertical).first()->setRange(0, 4.5);
+    if (locVerboseEvents.size() > 0){
+        for (int i = 0; i <locVerboseEvents.size(); i++){
+            QString timeStr;
+            timeStr.setNum(locVerboseEvents[i].time);
+            htmlLine = "<html><b>" + timeStr + "ms | "
+                    + locVerboseEvents[i].errorType + ": </b></html>"
+                    + locVerboseEvents[i].message + "<html><br></html>";
 
-    ui->stackedWidget->insertWidget(eventsIndex, eventsChartView);
-    //connect(m_scatter, &QScatterSeries::clicked, this, &TripData::handleClickedPoint);
+            textBlock.append(htmlLine);
+        }
+        ui->droneEvents->setText(textBlock);
+    }
+    else {ui->droneEvents->setText("No verbose events occured/recorded");}
+}
+
+void TripData::displayDroneStats(){
+    QFile file("../ArgouseBaseSoftware/appdata/tripStats.txt");
+    QString line, htmlLine, textBlock;
+
+    QStringList tokens;
+
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&file);
+        while (!stream.atEnd()){
+
+            line = stream.readLine();
+            tokens = line.split(QRegularExpression(":"));
+            htmlLine = "<html><b>" + tokens[0] + ": </b></html>" + tokens[1] + "<html><br></html>";
+
+            textBlock.append(htmlLine);
+        }
+
+        ui->droneStats->setText(textBlock);
+    }
+    file.close();
 }
 
 void TripData::on_HomeBtn_clicked()
@@ -194,40 +211,11 @@ void TripData::on_HomeBtn_clicked()
     close();
 }
 
-//void TripData::closeEvent (QCloseEvent *event)
-//{
-//    parentWidget()->show();
-//}
-
 void TripData::on_DisplayModel_clicked()
 {
     DataModel dataModel;
     dataModel.exec();
 }
-
-void TripData::handleClickedPoint(const QPointF &point)
-{
-    QPointF clickedPoint = point;
-    // Find the closest point from series 1
-    QPointF closest(INT_MAX, INT_MAX);
-    qreal distance(INT_MAX);
-    const auto points = m_scatter->points();
-    for (const QPointF &currentPoint : points) {
-        qreal currentDistance = qSqrt((currentPoint.x() - clickedPoint.x())
-                                      * (currentPoint.x() - clickedPoint.x())
-                                      + (currentPoint.y() - clickedPoint.y())
-                                      * (currentPoint.y() - clickedPoint.y()));
-        if (currentDistance < distance) {
-            distance = currentDistance;
-            closest = currentPoint;
-        }
-    }
-
-    // Remove the closes point from series 1 and append it to series 2
-    m_scatter->remove(closest);
-    m_scatter2->append(closest);
-}
-
 
 void TripData::on_EventsBtn_clicked()
 {
@@ -284,28 +272,6 @@ void TripData::keyPressEvent(QKeyEvent *event)
     default:
         break;
     }
-}
-
-void TripData::readDroneStats(){
-    QFile file("../ArgouseBaseSoftware/appdata/tripStats.txt");
-    QString line, htmlLine, textBlock;
-
-    QStringList tokens;
-
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
-        QTextStream stream(&file);
-        while (!stream.atEnd()){
-
-            line = stream.readLine();
-            tokens = line.split(QRegularExpression(":"));
-            htmlLine = "<html><b>" + tokens[0] + ": </b></html>" + tokens[1] + "<html><br></html>";
-
-            textBlock.append(htmlLine);
-        }
-
-        ui->droneStats->setText(textBlock);
-    }
-    file.close();
 }
 
 void TripData::help()
