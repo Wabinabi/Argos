@@ -175,6 +175,9 @@ color: rgb(255, 255, 255)</string>
      <enum>QFrame::Raised</enum>
     </property>
     <widget class="QPushButton" name="DroneDisplayWhite">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -182,6 +185,18 @@ color: rgb(255, 255, 255)</string>
        <width>241</width>
        <height>161</height>
       </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>WhatsThisCursor</cursorShape>
+     </property>
+     <property name="toolTip">
+      <string extracomment="Argous AS7 Drone"/>
+     </property>
+     <property name="statusTip">
+      <string extracomment="Argous AS7 Drone"/>
+     </property>
+     <property name="whatsThis">
+      <string extracomment="Argous AS7 Drone">Argous AS7 Drone</string>
      </property>
      <property name="autoFillBackground">
       <bool>false</bool>
@@ -218,7 +233,7 @@ color: rgb(255, 255, 255)</string>
     </widget>
     <widget class="QPushButton" name="DroneDisplayBlack">
      <property name="enabled">
-      <bool>true</bool>
+      <bool>false</bool>
      </property>
      <property name="geometry">
       <rect>
@@ -227,6 +242,15 @@ color: rgb(255, 255, 255)</string>
        <width>241</width>
        <height>161</height>
       </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>WhatsThisCursor</cursorShape>
+     </property>
+     <property name="toolTip">
+      <string extracomment="Argous AS7 Drone"/>
+     </property>
+     <property name="whatsThis">
+      <string>Argous AS7 Drone</string>
      </property>
      <property name="autoFillBackground">
       <bool>false</bool>
