@@ -217,6 +217,9 @@ color: rgb(255, 255, 255)</string>
      </property>
     </widget>
     <widget class="QPushButton" name="DroneDisplayBlack">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -245,6 +248,9 @@ color: rgb(255, 255, 255)</string>
       </size>
      </property>
     </widget>
+    <zorder>DroneDisplayBlack</zorder>
+    <zorder>DroneDisplayWhite</zorder>
+    <zorder>pushButton_4</zorder>
    </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">

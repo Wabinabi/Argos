@@ -788,12 +788,11 @@ void HomePage::lightMode(){
 void HomePage::about()
 {
     //UPDATE
-   QMessageBox::about(this, tr("About Argous AS7 Base Software"),
-            tr("The <b>Argous S7 Base Software</b> accompanies the AS7 drone. \
-                Its purpose is to display drone diagnostic data, drone specs, "
-               "and generate a 3D model from the collected data.\
-                The repo for this project can be found at https://github.com/Wabinabi/Argous."));
-
+       QMessageBox::about(this, tr("About Argous AS7 Base Software"),
+                tr("The <b>Argous S7 Base Software</b> accompanies the AS7 drone. \
+                    Its purpose is to display drone diagnostic data, drone specs, "
+                   "and generate a 3D model from the collected data.\
+                    The repo for this project can be found at <a href=\https://github.com/Wabinabi/Argous\>Argous GitHub</a>."));
 }
 
 void HomePage::createActions()

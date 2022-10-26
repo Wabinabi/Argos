@@ -30,6 +30,16 @@ QWidget
 
 }
 
+/*-----QMessageBox-----*/
+QMessageBox
+{
+	background-color: #fff;
+	color: #242424;
+	selection-background-color: #242424;
+	selection-color: #fff;
+
+}
+
 
 /*-----QLabel-----*/
 QLabel
@@ -990,11 +1000,4 @@ QSizeGrip
 	background-color: image("./ressources/sizegrip.png"); /*To replace*/
 	border: none;
 
-}
-
-
-/*-----QXYSeries-----*/
-QZYSeries{
-	color: #1a1a1a;
-	bestFitLineColor: #1a1a1a;
 }
