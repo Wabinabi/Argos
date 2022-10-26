@@ -92,6 +92,10 @@ void DataModel::generate3DWidget(){
     vLayout->addWidget(new QLabel(QStringLiteral("Change font")));
     vLayout->addWidget(fontList, 1, Qt::AlignTop);
 
+    vLayout->addWidget(new QLabel(QStringLiteral("Shortcuts:")));
+    vLayout->addWidget(new QLabel(QStringLiteral("Zoom: +/- or scroll with mouse wheel")));
+    vLayout->addWidget(new QLabel(QStringLiteral("Rotate: Mouse right click + drag")));
+
     modifier = new  Plotter(graph);
 
     QObject::connect(cameraButton, &QPushButton::clicked, modifier,
