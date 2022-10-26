@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>778</width>
-    <height>630</height>
+    <height>616</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,9 +31,9 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>10</x>
       <y>10</y>
-      <width>701</width>
+      <width>771</width>
       <height>351</height>
      </rect>
     </property>
@@ -46,9 +46,9 @@
    <widget class="QPushButton" name="TempBtn">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>20</x>
       <y>370</y>
-      <width>201</width>
+      <width>241</width>
       <height>31</height>
      </rect>
     </property>
@@ -65,9 +65,9 @@
    <widget class="QPushButton" name="ThrottleBtn">
     <property name="geometry">
      <rect>
-      <x>300</x>
+      <x>280</x>
       <y>370</y>
-      <width>201</width>
+      <width>231</width>
       <height>31</height>
      </rect>
     </property>
@@ -78,9 +78,9 @@
    <widget class="QPushButton" name="AltitudeBtn">
     <property name="geometry">
      <rect>
-      <x>520</x>
+      <x>530</x>
       <y>370</y>
-      <width>201</width>
+      <width>241</width>
       <height>31</height>
      </rect>
     </property>
@@ -92,9 +92,9 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>0</x>
      <y>0</y>
-     <width>241</width>
+     <width>251</width>
      <height>201</height>
     </rect>
    </property>
@@ -108,7 +108,7 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>0</y>
+      <y>10</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -131,9 +131,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>40</y>
+      <y>50</y>
       <width>201</width>
-      <height>111</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -156,23 +156,237 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="DisplayModel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>211</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display 3D Point Cloud Model</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QPushButton" name="DisplayModel">
+  <widget class="QFrame" name="frame_4">
    <property name="geometry">
     <rect>
-     <x>540</x>
-     <y>120</y>
-     <width>221</width>
-     <height>61</height>
+     <x>260</x>
+     <y>10</y>
+     <width>501</width>
+     <height>191</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Display 3D Point Cloud Model</string>
+   <property name="autoFillBackground">
+    <bool>false</bool>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(69, 142, 149);
+border-radius: 5px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QTextEdit" name="droneEvents_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>60</y>
+      <width>161</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-radius: 5px;
+
+
+QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>0</y>
+      <width>391</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift SemiBold</family>
+      <pointsize>15</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>Events Log</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="droneEvents_4">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>60</y>
+      <width>161</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-radius: 5px;
+
+
+QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="droneEvents_5">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>60</y>
+      <width>161</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-radius: 5px;
+
+
+QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOn</enum>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift Light</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>Emergency</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>40</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift Light</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>Verbose</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>40</y>
+      <width>161</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Bahnschrift Light</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>ArrowCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string>Inform</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <zorder>frame</zorder>
   <zorder>frame_3</zorder>
-  <zorder>DisplayModel</zorder>
+  <zorder>frame_4</zorder>
  </widget>
  <resources/>
  <connections/>
