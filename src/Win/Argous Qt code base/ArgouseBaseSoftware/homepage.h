@@ -175,6 +175,10 @@ private:
     void saveFile(const QString &fileName);
     void setCurrentFile(const QString &fileName);
     void updateRecentFileActions(const QString &fullFileName);
+
+    void darkMode();
+    void lightMode();
+
     QString strippedName(const QString &fullFileName);
 
     QString curFile;
@@ -194,6 +198,7 @@ private:
     QAction *aboutAct;
 
     QAction *darkModeAct;
+    QAction *lightModeAct;
 
     QAction *aboutQtAct;
     QAction *separatorAct;

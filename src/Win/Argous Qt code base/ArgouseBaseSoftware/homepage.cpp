@@ -755,6 +755,7 @@ void HomePage::help()
 }
 
 void darkMode(){}
+void lightMode(){}
 
 void HomePage::about()
 {
@@ -821,7 +822,11 @@ void HomePage::createActions()
 
     darkModeAct = new QAction(tr("Dark Mode"), this);
     darkModeAct->setStatusTip(tr("View software in dark mode"));
-    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT());
+    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(darkMode()));
+
+    darkModeAct = new QAction(tr("Light Mode"), this);
+    darkModeAct->setStatusTip(tr("View software in light mode"));
+    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(lightMode()));
 }
 
 void HomePage::createMenus()
@@ -840,7 +845,8 @@ void HomePage::createMenus()
     helpMenu->addAction(aboutQtAct);
 
     helpMenu = menuBar()->addMenu(tr("&Preferences"));
-    //helpMenu->addAction(darkModeAct);
+    helpMenu->addAction(darkModeAct);
+    helpMenu->addAction(lightModeAct);
 }
 
 //void HomePage::loadFile(const QString &fileName)
