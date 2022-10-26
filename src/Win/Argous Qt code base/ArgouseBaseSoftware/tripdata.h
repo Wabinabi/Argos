@@ -66,7 +66,7 @@ private slots:
     //void drawXYSeries(QVector<QString> XYData);
 
     //UI buttons, these set the index associated with the page sought after by the user
-    void on_EventsBtn_clicked();
+    //void on_EventsBtn_clicked();
     void on_ThrottleBtn_clicked();
     void on_TempBtn_clicked();
     void on_AltitudeBtn_clicked();

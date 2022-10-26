@@ -217,16 +217,6 @@ void TripData::on_DisplayModel_clicked()
     dataModel.exec();
 }
 
-void TripData::on_EventsBtn_clicked()
-{
-    ui->ThrottleBtn->setStyleSheet("background-color: ");
-    ui->TempBtn->setStyleSheet("background-color: ");
-    ui->AltitudeBtn->setStyleSheet("background-color: ");
-
-    ui->stackedWidget->setCurrentIndex(eventsIndex);
-    currentChart = eventsChart;
-}
-
 void TripData::on_ThrottleBtn_clicked()
 {
     highlightTrendButton(throttleIndex);
