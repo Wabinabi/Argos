@@ -136,9 +136,16 @@ void HomePage::readDroneStats(){
 
 void HomePage::on_pushButton_clicked()
 {
-    TripData tripData(this, &emergencyEvents, &verboseEvents, &informEvents, &altitude, &temperature, &throttle);
-    tripData.setModal(false); //takes arguement for True/False, this determines whether the previous window can be accessed while the popup is open
-    tripData.exec();
+    if (!altitude.data.empty()){
+           TripData tripData(this, &emergencyEvents, &verboseEvents, &informEvents, &altitude, &temperature, &throttle);
+           tripData.setModal(false); //takes arguement for True/False, this determines whether the previous window can be accessed while the popup is open
+           tripData.exec();
+       }
+       else{
+           QMessageBox msg;
+           msg.setText("Please import Data");
+           msg.exec();
+       }
 }
 
 
