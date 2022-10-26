@@ -31,7 +31,7 @@ public:
 private:
     Ui::DataModel *ui;
     void generate3DWidget();
-    void showEvent( QShowEvent* event );
+    void showEvent( QShowEvent* _event );
 
     Plotter* modifier;
 };
