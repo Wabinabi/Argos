@@ -801,9 +801,11 @@ void HomePage::createActions()
 //    connect(exitAct, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
 
     helpAct = new QAction(tr("Open User Manual"), this);
-    helpAct->setShortcuts(QKeySequence::HelpContents);
+    //helpAct->setShortcuts(QKeySequence::HelpContents);
     //new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q), this, SLOT(close()));
-    helpAct->setStatusTip(tr("Opens the user manual in the default web browser"));
+    //helpAct->setStatusTip(tr("Opens the user manual in the default web browser"));
+    QShortcut *shortcut = new QShortcut(QKeySequence(QKeySequence::HelpContents),this);
+    connect(shortcut, SIGNAL(activated()), this, SLOT(help()));
     connect(helpAct, SIGNAL(triggered()), this, SLOT(help()));
 
     aboutAct = new QAction(tr("About AS7 Base Software"), this);

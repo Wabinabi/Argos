@@ -66,6 +66,8 @@ public:
     DroneSeriesData temperature;
     DroneSeriesData throttle;
 
+    QAction *helpAct;
+
 
 private slots:
 
@@ -190,7 +192,7 @@ private:
     QAction *exportAct;
     QAction *exitAct;
     QAction *aboutAct;
-    QAction *helpAct;
+
     QAction *aboutQtAct;
     QAction *separatorAct;
     QAction *TestRecentFile;

@@ -22,6 +22,9 @@ TripData::TripData(QWidget *parent,
 {
     ui->setupUi(this);
 
+    QShortcut *shortcut = new QShortcut(QKeySequence(QKeySequence::HelpContents),this);
+    connect(shortcut, SIGNAL(activated()), this, SLOT(help()));
+
     QVector<QString> testData;
     this->setWindowTitle(QStringLiteral("Drone Trip Data"));
 
@@ -329,5 +332,11 @@ void TripData::readDroneStats(){
     }
     file.close();
 }
+
+void TripData::help()
+{
+    QDesktopServices::openUrl(QUrl::fromLocalFile("../ArgouseBaseSoftware/appdata/docs/html/index.html"));
+}
+
 
 

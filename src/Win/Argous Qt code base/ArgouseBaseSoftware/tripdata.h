@@ -73,6 +73,7 @@ private slots:
     void on_TempBtn_clicked();
     void on_AltitudeBtn_clicked();
     void readDroneStats();
+    void help();
 
 private:
     //Getter/Setter getting me yummy data
