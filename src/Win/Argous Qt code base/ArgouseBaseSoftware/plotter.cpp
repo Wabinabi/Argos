@@ -18,6 +18,8 @@
 
 #include "plotter.h"
 
+/***************************************************/
+
 /*Can be edited to vary the outcome of the 3D model. Ensure that number of items will be able to hold all data points*/
 const int numberOfItems = 3600;
 const int lowerNumberOfItems = 5000;
@@ -71,7 +73,7 @@ Plotter::~Plotter()
     delete graph;
 }
 
-
+/***************************************************/
 /*addData() extracts the data from the temp .PLY file (populated on import) and loads it into the data array*/
 void Plotter::addData()
 {
@@ -114,14 +116,14 @@ void Plotter::addData()
 }
 
 /*PLYPoint(QString line) reads a line (formatted <X> <Y> <Z>) and transforms it into a QVector3D point*/
-QVector3D Plotter::PLYPoint(QString line){
+QVector3D Plotter::PLYPoint(QString _line){
     QString stX = "";
     QString stY = "";
     QString stZ = "";
 
     int pos = 0;
 
-    for(QChar& c : line) {
+    for(QChar& c : _line) {
         if(c == ' '){pos += 1;}
         else{
            if(pos == 0){stX = stX + c;}

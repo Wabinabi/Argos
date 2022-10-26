@@ -1,10 +1,9 @@
 #ifndef DATAMODEL_H
 #define DATAMODEL_H
 
-#include <QDialog>
-
 #include "plotter.h"
 
+#include <QDialog>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QWidget>
 #include <QtWidgets/QHBoxLayout>
@@ -19,9 +18,7 @@
 #include <QtGui/QFontDatabase>
 #include <QCloseEvent>
 
-namespace Ui {
-class DataModel;
-}
+namespace Ui {class DataModel;}
 
 class DataModel : public QDialog
 {
@@ -33,13 +30,10 @@ public:
 
 private:
     Ui::DataModel *ui;
+    void generate3DWidget();
     void showEvent( QShowEvent* event );
 
-    void generate3DWidget();
-
     Plotter* modifier;
-
-
 };
 
 #endif // DATAMODEL_H

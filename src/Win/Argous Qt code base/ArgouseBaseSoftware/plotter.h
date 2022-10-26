@@ -26,7 +26,6 @@ class Plotter : public QObject
 {
     Q_OBJECT
 public:
-    //Plotter();
     explicit Plotter(Q3DScatter* scatter);
     ~Plotter();
 
@@ -55,7 +54,7 @@ Q_SIGNALS:
     void fontChanged(const QFont& _font);
 
 private:
-    QVector3D PLYPoint(QString line);
+    QVector3D PLYPoint(QString _line);
 
     QVector3D randVector();
     Q3DScatter* graph;
