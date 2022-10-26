@@ -116,22 +116,28 @@ void HomePage::addRecentFile(QString recentFile) {
 
 void HomePage::readDroneStats(){  
     QFile file("../ArgouseBaseSoftware/appdata/droneStats.txt");
-    QString line;
+        QString line, htmlLine,textBlock;
 
-    //file.open(QFile::ReadOnly | QFile::Text);
-    //droneStats->setText(file.readAll());
+        QStringList tokens;
 
-    ui->droneStats->setReadOnly(true);
+        //file.open(QFile::ReadOnly | QFile::Text);
+        //droneStats->setText(file.readAll());
 
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
-        QTextStream stream(&file);
-        while (!stream.atEnd()){
+        ui->droneStats->setReadOnly(true);
 
-            line.append(stream.readLine()+"\n");
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+            QTextStream stream(&file);
+            while (!stream.atEnd()){
+
+                line = stream.readLine();
+                tokens = line.split(QRegularExpression(":"));
+                htmlLine = "<html><b>" + tokens[0] + ": </b></html>" + tokens[1] + "<html><br></html>";
+
+                textBlock.append(htmlLine);
+            }
+            ui->droneStats->setText(textBlock);
         }
-        ui->droneStats->setText(line);
-    }
-    file.close();
+        file.close();
 }
 
 void HomePage::on_pushButton_clicked()
