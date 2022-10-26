@@ -7,11 +7,26 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>492</height>
+    <height>500</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>800</width>
+    <height>500</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Argous S7 Base Station</string>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QFrame" name="ImportData">
@@ -490,7 +505,7 @@ border-radius: 0px;</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
