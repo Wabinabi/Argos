@@ -193,6 +193,8 @@ private:
     QAction *exitAct;
     QAction *aboutAct;
 
+    QAction *darkModeAct;
+
     QAction *aboutQtAct;
     QAction *separatorAct;
     QAction *TestRecentFile;

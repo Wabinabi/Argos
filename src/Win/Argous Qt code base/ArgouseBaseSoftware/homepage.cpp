@@ -754,6 +754,8 @@ void HomePage::help()
     QDesktopServices::openUrl(QUrl::fromLocalFile("../ArgouseBaseSoftware/appdata/docs/html/index.html"));
 }
 
+void darkMode(){}
+
 void HomePage::about()
 {
     //UPDATE
@@ -815,6 +817,11 @@ void HomePage::createActions()
     aboutQtAct = new QAction(tr("About &Qt"), this);
     aboutQtAct->setStatusTip(tr("Show the Qt library's About box"));
     connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
+
+
+    darkModeAct = new QAction(tr("Dark Mode"), this);
+    darkModeAct->setStatusTip(tr("View software in dark mode"));
+    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT());
 }
 
 void HomePage::createMenus()
@@ -825,24 +832,15 @@ void HomePage::createMenus()
     //fileMenu->addAction(saveAct);
     fileMenu->addAction(exportAct);
 
-    //fileMenu->addSeparator();
-
-    //separatorAct = fileMenu->addSeparator();
-
-    //for (int i = 0; i < recentFiles.length(); ++i)
-        //fileMenu->addAction(recentFiles[i]);
-
-    //fileMenu->addSeparator();
-
-    //fileMenu->addAction(exitAct);
-    //updateRecentFileActions();
-
     menuBar()->addSeparator();
 
     helpMenu = menuBar()->addMenu(tr("&Help"));
     helpMenu->addAction(helpAct);
     helpMenu->addAction(aboutAct);
     helpMenu->addAction(aboutQtAct);
+
+    helpMenu = menuBar()->addMenu(tr("&Preferences"));
+    //helpMenu->addAction(darkModeAct);
 }
 
 //void HomePage::loadFile(const QString &fileName)

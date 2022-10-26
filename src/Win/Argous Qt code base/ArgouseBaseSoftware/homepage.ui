@@ -372,41 +372,11 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QPushButton" name="SettingsBtn">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>380</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">Text-align:left;
-padding: 6px;
-background-color: rgb(69, 142, 149, 100);
-border-color: rgb(105, 193, 203);
-border-radius: 0px;</string>
-     </property>
-     <property name="text">
-      <string>  Settings</string>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../../Graphic Assets/icons/15ppi/logoArtboard 6.png</normaloff>../../Graphic Assets/icons/15ppi/logoArtboard 6.png</iconset>
-     </property>
-     <property name="iconSize">
-      <size>
-       <width>20</width>
-       <height>16</height>
-      </size>
-     </property>
-    </widget>
     <widget class="QPushButton" name="FileBtn">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>320</y>
+       <y>350</y>
        <width>111</width>
        <height>31</height>
       </rect>
@@ -430,7 +400,7 @@ border-radius: 0px;</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>350</y>
+       <y>380</y>
        <width>111</width>
        <height>31</height>
       </rect>
