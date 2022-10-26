@@ -41,6 +41,10 @@ Plotter::Plotter(Q3DScatter* scatter)
     graph->activeTheme()->setFont(font);
     graph->setShadowQuality(QAbstract3DGraph::ShadowQualitySoftLow);
     graph->scene()->activeCamera()->setCameraPreset(Q3DCamera::CameraPresetFront);
+    //graph->isOrthoProjection();
+    graph->setOrthoProjection(true);
+    graph->setAspectRatio(1);
+    graph->setHorizontalAspectRatio(1);
 
     /*Configures X, Y, Z axis units. These are hard coded to match the format the distance data is delivered in*/
     graph->axisX()->setTitle("X (cm)");
