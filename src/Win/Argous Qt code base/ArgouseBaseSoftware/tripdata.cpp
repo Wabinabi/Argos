@@ -1,149 +1,137 @@
+/****************************************************
+ * Description: TripData connects to the tripdata.ui page.
+ * This page depicts overall trip data, 2D trends, and an events log.
+ * It provides the user with an overall image of how the imported flight performed.
+ * This page is opened from the homepage. From it, the users can access the 3D model.
+ *
+ * Author/s: Monique Kuhn, Jimmy Trac
+****************************************************/
+
 #include "tripdata.h"
 #include "ui_tripdata.h"
-
 #include "datamodel.h"
 
 #include <QApplication>
 #include <QMainWindow>
 
+/***************************************************/
+
 HomePage *homePage;
 
-
 TripData::TripData(QWidget *parent,
-                   QVector<HomePage::DroneEvent> *emergencyEvents,
-                   QVector<HomePage::DroneEvent> *verboseEvents,
-                   QVector<HomePage::DroneEvent> *informEvents,
-                   HomePage::DroneSeriesData *altitude,
-                   HomePage::DroneSeriesData *temperature,
-                   HomePage::DroneSeriesData *throttle) :
-    QDialog(parent),
-    m_isTouching(false),
-    ui(new Ui::TripData)
+       QVector<HomePage::DroneEvent> *emergencyEvents,
+       QVector<HomePage::DroneEvent> *verboseEvents,
+       QVector<HomePage::DroneEvent> *informEvents,
+       HomePage::DroneSeriesData *altitude,
+       HomePage::DroneSeriesData *temperature,
+       HomePage::DroneSeriesData *throttle) :
+        QDialog(parent),
+        ui(new Ui::TripData),
+        isTouching(false)
 {
     ui->setupUi(this);
 
+    /*F1 help shortcut - consider making F1 a global feature*/
     QShortcut *shortcut = new QShortcut(QKeySequence(QKeySequence::HelpContents),this);
     connect(shortcut, SIGNAL(activated()), this, SLOT(help()));
 
-    QVector<QString> testData;
     this->setWindowTitle(QStringLiteral("Drone Trip Data"));
-
-
-    //setRubberBand(QChartView::RectangleRubberBand);
-
-
     void passData();
 
+    /*Getter/Setters for events and trends data*/
     locEmergencyEvents = *emergencyEvents;
     locVerboseEvents = *verboseEvents;
     locInformEvents = *informEvents;
-
 
     locThrottle = *throttle;
     locTemperature = *temperature;
     locAltitude = *altitude;
 
-    eventsIndex = 0;
-    tempIndex = 1;
-    throttleIndex = 2;
-    altitudeIndex = 3;
-    //this->setParent( parent );
-
-
+    /*Populate widget with data*/
+    drawStackedTrends();
     readDroneStats();
+    //readDroneEvents();
 
-
-    //probs need to process test data with a sim function
-
-    drawEventsPlot();
-    drawXYSeries(tempIndex, locTemperature, tempChart, tempChartView);
-    drawXYSeries(throttleIndex, locThrottle, throttleChart, throttleChartView);
-    drawXYSeries(altitudeIndex, locAltitude, altitudeChart, altitudeChartView);
-
-    ui->stackedWidget->setCurrentIndex(0);
-    // QLineSeries *series = new QLineSeries();
-    // function that opens the data:
-    //     QFile sunSpots(":sun");
-//    if (!sunSpots.open(QIODevice::ReadOnly | QIODevice::Text)) {
-//        return 1;
-//    }
-    ui->ThrottleBtn->setStyleSheet("background-color: ");
-    ui->EventsBtn->setStyleSheet("background-color: #FF752B");
-    ui->TempBtn->setStyleSheet("background-color: ");
-    ui->AltitudeBtn->setStyleSheet("background-color: ");
 }
+
 
 TripData::~TripData()
 {
     delete ui;
 }
 
-//YOU'LL NEED TO CHANGER THJE STRUHYJCT
-//QLineSeries TripData::reshapeVector(QVector<QString> XYData){
+/***************************************************/
 
+void TripData::drawStackedTrends(){
+    /*Indexes for the stacked widget*/
+    tempIndex = 0;
+    throttleIndex = 1;
+    altitudeIndex = 2;
+    int defaultIndex = 0;
 
-//}
-//QLineSeries *XYSeries
+    drawXYSeries(tempIndex, locTemperature, tempChart, tempChartView);
+    drawXYSeries(throttleIndex, locThrottle, throttleChart, throttleChartView);
+    drawXYSeries(altitudeIndex, locAltitude, altitudeChart, altitudeChartView);
+
+    ui->stackedWidget->setCurrentIndex(defaultIndex);
+    highlightTrendButton(defaultIndex);
+}
+
+void TripData::highlightTrendButton(int _index){
+    switch (_index)  {
+        case 0:
+            ui->TempBtn->setStyleSheet("background-color: #FF752B");
+            ui->ThrottleBtn->setStyleSheet("background-color: ");
+            ui->AltitudeBtn->setStyleSheet("background-color: ");
+            break;
+
+        case 1:
+            ui->TempBtn->setStyleSheet("background-color: ");
+            ui->ThrottleBtn->setStyleSheet("background-color: #FF752B");
+            ui->AltitudeBtn->setStyleSheet("background-color: ");
+            break;
+
+        case 2:
+        ui->TempBtn->setStyleSheet("background-color: ");
+        ui->ThrottleBtn->setStyleSheet("background-color: ");
+        ui->AltitudeBtn->setStyleSheet("background-color: #FF752B");
+        break;
+
+        default:
+            ui->ThrottleBtn->setStyleSheet("background-color: ");
+            ui->TempBtn->setStyleSheet("background-color: ");
+            ui->AltitudeBtn->setStyleSheet("background-color: ");
+    }
+}
 
 void TripData::drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData, QChart *selChart, QChartView *selChartView){
     QLineSeries *XYSeries = new QLineSeries();
-    //QFile File("../ArgouseBaseSoftware/test2DPlot.txt");
-
-    //if (File.open(QIODevice::ReadOnly | QIODevice::Text)){
-        //QTextStream stream(&File);
-        //while (!stream.atEnd()) {
-            //QString line = stream.readLine();
-            //if (line.startsWith("#") || line.startsWith(":"))
-            //    continue;
-
     for (int i = 0; i < droneData.data.size(); ++i) {
-        XYSeries->append(droneData.data[i].time, droneData.data[i].y);
+        XYSeries->append(droneData.data[i].time/1000, droneData.data[i].y);
     }
-//            QStringList values = line.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-//            QDateTime momentInTime;
-//            momentInTime.setTime(QTime(values[0].toInt(), values[1].toInt()));
-//            XYSeries->append(momentInTime.toMSecsSinceEpoch(), values[2].toDouble());
-//        }
 
-    //File.close();
-
-    //QFile file("../ArgouseBaseSoftware/droneStats.txt");
-
-    //needs to know the file that it's formatting
-    //process the same formatted data file
-        //Parent.vector.time and ..vector.value is already available for all of these
-    //QStringList values = line.split(QLatin1Char(' '), Qt::SkipEmptyParts);
-    //QDateTime momentInTime;
-    //momentInTime.setDate(QDate(values[0].toInt(), values[1].toInt() , 15));
-    //XYSeries->append(momentInTime.toMSecsSinceEpoch(), values[2].toDouble());
-
-    //generate a Qchart
-    //selChart = new QChart();
     selChart->addSeries(XYSeries);
     selChart->legend()->hide();
-    //chart->setTitle("Test Chart");
 
     //X Axis
     QValueAxis *axisX = new QValueAxis;
-    //axisX->setTickCount(10);
-    //axisX->setFormat("hh:mm");
-    axisX->setTitleText("Time (ms)");
+
+    axisX->setTitleText("Time (s)");
     selChart->addAxis(axisX, Qt::AlignBottom);
     XYSeries->attachAxis(axisX);
 
     //Y Axis
     QValueAxis *axisY = new QValueAxis;
-    //axisY->setLabelFormat("%i");
 
-    if (ui->stackedWidget->currentIndex() == 4){
+    if (ui->stackedWidget->currentIndex() == 3){
         axisY->setTitleText("Height above ground (cm)");
     }
 
-    if (ui->stackedWidget->currentIndex() == 3){
+    if (ui->stackedWidget->currentIndex() == 2){
         axisY->setTitleText("Throttle (x/2056)");
     }
 
-    if (ui->stackedWidget->currentIndex() == 2){
+    if (ui->stackedWidget->currentIndex() == 1){
         axisY->setTitleText("Temperature (deg c)");
     }
 
@@ -240,23 +228,10 @@ void TripData::handleClickedPoint(const QPointF &point)
     m_scatter2->append(closest);
 }
 
-void TripData::on_ThrottleBtn_clicked()
-{
-
-    ui->ThrottleBtn->setStyleSheet("background-color: #FF752B");
-    ui->EventsBtn->setStyleSheet("background-color: ");
-    ui->TempBtn->setStyleSheet("background-color: ");
-    ui->AltitudeBtn->setStyleSheet("background-color: ");
-
-
-    ui->stackedWidget->setCurrentIndex(throttleIndex);
-    currentChart = throttleChart;
-}
 
 void TripData::on_EventsBtn_clicked()
 {
     ui->ThrottleBtn->setStyleSheet("background-color: ");
-    ui->EventsBtn->setStyleSheet("background-color: #FF752B");
     ui->TempBtn->setStyleSheet("background-color: ");
     ui->AltitudeBtn->setStyleSheet("background-color: ");
 
@@ -264,23 +239,23 @@ void TripData::on_EventsBtn_clicked()
     currentChart = eventsChart;
 }
 
+void TripData::on_ThrottleBtn_clicked()
+{
+    highlightTrendButton(throttleIndex);
+    ui->stackedWidget->setCurrentIndex(throttleIndex);
+    currentChart = throttleChart;
+}
+
 void TripData::on_TempBtn_clicked()
 {
-    ui->ThrottleBtn->setStyleSheet("background-color: ");
-    ui->EventsBtn->setStyleSheet("background-color: ");
-    ui->TempBtn->setStyleSheet("background-color: #FF752B");
-    ui->AltitudeBtn->setStyleSheet("background-color: ");
+    highlightTrendButton(tempIndex);
     ui->stackedWidget->setCurrentIndex(tempIndex);
     currentChart = tempChart;
 }
 
 void TripData::on_AltitudeBtn_clicked()
 {
-    ui->ThrottleBtn->setStyleSheet("background-color: ");
-    ui->EventsBtn->setStyleSheet("background-color: ");
-    ui->TempBtn->setStyleSheet("background-color: ");
-    ui->AltitudeBtn->setStyleSheet("background-color: #FF752B");
-
+    highlightTrendButton(altitudeIndex);
     ui->stackedWidget->setCurrentIndex(altitudeIndex);
     currentChart = altitudeChart;
 }

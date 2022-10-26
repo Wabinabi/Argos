@@ -41,7 +41,6 @@ public:
              HomePage::DroneSeriesData *temperature = nullptr,
              HomePage::DroneSeriesData *throttle = nullptr);
     ~TripData();
-    //void closeEvent(QCloseEvent *event) override;
 
     void testPublicFunction();
 
@@ -75,8 +74,10 @@ private slots:
     void readDroneStats();
     void help();
 
+    void drawStackedTrends();
+    void highlightTrendButton(int _index);
+
 private:
-    //Getter/Setter getting me yummy data
     QVector<HomePage::DroneEvent> locEmergencyEvents;
     QVector<HomePage::DroneEvent> locVerboseEvents;
     QVector<HomePage::DroneEvent> locInformEvents;
@@ -111,7 +112,7 @@ private:
     int throttleIndex;
     int altitudeIndex;
 
-    bool m_isTouching;
+    bool isTouching;
 };
 
 #endif // TRIPDATA_H

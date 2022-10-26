@@ -33,8 +33,8 @@
      <rect>
       <x>50</x>
       <y>10</y>
-      <width>721</width>
-      <height>401</height>
+      <width>701</width>
+      <height>351</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -42,6 +42,51 @@
     </property>
     <widget class="QWidget" name="page_3"/>
     <widget class="QWidget" name="page_4"/>
+   </widget>
+   <widget class="QPushButton" name="TempBtn">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>370</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display Temperature Trend</string>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ThrottleBtn">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>370</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DisplayThrottle Trend</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="AltitudeBtn">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>370</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Display Height Above Ground Trend</string>
+    </property>
    </widget>
   </widget>
   <widget class="QFrame" name="frame">
@@ -82,19 +127,6 @@
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="DisplayModel">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>160</y>
-      <width>201</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Display 3D Point Cloud Model</string>
-    </property>
-   </widget>
    <widget class="QTextEdit" name="droneStats">
     <property name="geometry">
      <rect>
@@ -125,94 +157,22 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     </property>
    </widget>
   </widget>
-  <widget class="QPushButton" name="EventsBtn">
+  <widget class="QPushButton" name="DisplayModel">
    <property name="geometry">
     <rect>
-     <x>300</x>
-     <y>40</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Display Events Trend</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="TempBtn">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
+     <x>540</x>
      <y>120</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Display Temperature Trend</string>
-   </property>
-   <property name="default">
-    <bool>false</bool>
-   </property>
-   <property name="flat">
-    <bool>false</bool>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="ThrottleBtn">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>160</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>DisplayThrottle Trend</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="AltitudeBtn">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>80</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Display Height Above Ground Trend</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>0</y>
      <width>221</width>
-     <height>41</height>
+     <height>61</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Bahnschrift SemiBold</family>
-     <pointsize>15</pointsize>
-     <bold>true</bold>
-    </font>
-   </property>
    <property name="text">
-    <string>Trip Details</string>
-   </property>
-   <property name="alignment">
-    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    <string>Display 3D Point Cloud Model</string>
    </property>
   </widget>
   <zorder>frame</zorder>
   <zorder>frame_3</zorder>
-  <zorder>EventsBtn</zorder>
-  <zorder>TempBtn</zorder>
-  <zorder>ThrottleBtn</zorder>
-  <zorder>AltitudeBtn</zorder>
-  <zorder>label_5</zorder>
+  <zorder>DisplayModel</zorder>
  </widget>
  <resources/>
  <connections/>
