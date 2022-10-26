@@ -187,6 +187,9 @@ color: rgb(255, 255, 255)</string>
      <enum>QFrame::Raised</enum>
     </property>
     <widget class="QPushButton" name="DroneDisplayWhite">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -232,6 +235,9 @@ color: rgb(255, 255, 255)</string>
      </property>
     </widget>
     <widget class="QPushButton" name="DroneDisplayBlack">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -260,6 +266,9 @@ color: rgb(255, 255, 255)</string>
       </size>
      </property>
     </widget>
+    <zorder>DroneDisplayBlack</zorder>
+    <zorder>DroneDisplayWhite</zorder>
+    <zorder>pushButton_4</zorder>
    </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
@@ -310,7 +319,6 @@ color: rgb(255, 255, 255)</string>
      </property>
      <property name="styleSheet">
       <string notr="true">
-background-color: rgb(65, 65, 65);
 border-radius: 5px;
 
 
@@ -531,7 +539,7 @@ border-radius: 0px;</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
