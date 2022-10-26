@@ -3,6 +3,7 @@
 #include <QFormLayout>
 
 #include "tripdata.h"
+#include "actions.h"
 
 HomePage::HomePage(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::HomePage)
@@ -800,6 +801,8 @@ void HomePage::createActions()
 //    connect(exitAct, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
 
     helpAct = new QAction(tr("Open User Manual"), this);
+    helpAct->setShortcuts(QKeySequence::HelpContents);
+    //new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q), this, SLOT(close()));
     helpAct->setStatusTip(tr("Opens the user manual in the default web browser"));
     connect(helpAct, SIGNAL(triggered()), this, SLOT(help()));
 

@@ -211,7 +211,6 @@ void TripData::on_HomeBtn_clicked()
 void TripData::on_DisplayModel_clicked()
 {
     DataModel dataModel;
-    dataModel.setModal(false); //takes arguement for True/False, this determines whether the previous window can be accessed while the popup is open
     dataModel.exec();
 }
 

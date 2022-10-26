@@ -12,6 +12,7 @@
 #include <QScrollArea>
 #include <QDebug>
 #include <iostream>
+#include <QShortcut>
 
 //#include "tripdata.h"
 #include "datatranslator.h"
