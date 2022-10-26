@@ -86,6 +86,9 @@ private slots:
     void about();
     void help();
 
+    void darkMode();
+    void lightMode();
+
 
     void on_recentFiles_itemClicked(QListWidgetItem *item);
 
@@ -97,9 +100,11 @@ private slots:
 
     void on_FileBtn_clicked();
 
+
 private:
     Ui::HomePage *ui;
     void UsabilityTestSim();
+    QWidget *Parent;
 
     QMap<QString, QString> droneConfig; // The drone config as a key-value map
     QMap<QString, QString> droneDetailsMap; // The drone details as a key-value map
@@ -176,8 +181,7 @@ private:
     void setCurrentFile(const QString &fileName);
     void updateRecentFileActions(const QString &fullFileName);
 
-    void darkMode();
-    void lightMode();
+
 
     QString strippedName(const QString &fullFileName);
 

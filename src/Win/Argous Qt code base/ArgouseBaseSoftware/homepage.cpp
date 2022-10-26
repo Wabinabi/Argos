@@ -10,6 +10,8 @@ HomePage::HomePage(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    Parent = parent;
+
     // Uncomment to run in "Usability Test" mode. This means disabling unused features.
     UsabilityTestSim();
 
@@ -21,6 +23,8 @@ HomePage::HomePage(QWidget *parent) :
     (void)statusBar();
 
     setWindowFilePath(QString());
+
+
 }
 
 HomePage::~HomePage()
@@ -754,8 +758,26 @@ void HomePage::help()
     QDesktopServices::openUrl(QUrl::fromLocalFile("../ArgouseBaseSoftware/appdata/docs/html/index.html"));
 }
 
-void darkMode(){}
-void lightMode(){}
+void HomePage::darkMode(){
+    QPalette pal = QPalette();
+    pal.setColor(QPalette::Window, Qt::black);
+    this->setPalette(pal);
+
+    QFile styleSheetFile("../ArgouseBaseSoftware/stylesheets/DarkMode.qss");
+    styleSheetFile.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(styleSheetFile.readAll());
+    this->setStyleSheet(styleSheet);
+}
+void HomePage::lightMode(){
+    QPalette pal = QPalette();
+    pal.setColor(QPalette::Window, Qt::black);
+    this->setPalette(pal);
+
+    QFile styleSheetFile("../ArgouseBaseSoftware/stylesheets/LightMode.qss");
+    styleSheetFile.open(QFile::ReadOnly);
+    QString styleSheet = QLatin1String(styleSheetFile.readAll());
+    this->setStyleSheet(styleSheet);
+}
 
 void HomePage::about()
 {
@@ -822,11 +844,11 @@ void HomePage::createActions()
 
     darkModeAct = new QAction(tr("Dark Mode"), this);
     darkModeAct->setStatusTip(tr("View software in dark mode"));
-    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(darkMode()));
+    connect(darkModeAct, SIGNAL(triggered()), this, SLOT(darkMode()));
 
-    darkModeAct = new QAction(tr("Light Mode"), this);
-    darkModeAct->setStatusTip(tr("View software in light mode"));
-    connect(aboutQtAct, SIGNAL(triggered()), qApp, SLOT(lightMode()));
+    lightModeAct = new QAction(tr("Light Mode"), this);
+    lightModeAct->setStatusTip(tr("View software in light mode"));
+    connect(lightModeAct, SIGNAL(triggered()), this, SLOT(lightMode()));
 }
 
 void HomePage::createMenus()

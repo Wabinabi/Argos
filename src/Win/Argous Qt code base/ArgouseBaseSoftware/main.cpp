@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     //Set the app stlye sheet
-    QFile styleSheetFile("../ArgouseBaseSoftware/Diffnes.qss");
+    QFile styleSheetFile("../ArgouseBaseSoftware/stylesheets/Diffnes.qss");
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
     a.setStyleSheet(styleSheet);
