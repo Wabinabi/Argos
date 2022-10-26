@@ -126,74 +126,6 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_2">
-   <property name="geometry">
-    <rect>
-     <x>540</x>
-     <y>40</y>
-     <width>221</width>
-     <height>151</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">
-background-color: rgb(58, 107, 145);
-border-radius: 5px;
-</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>201</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Bahnschrift SemiBold</family>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>Usability Testers - Please Note!</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>30</y>
-      <width>201</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Bahnschrift SemiBold</family>
-      <pointsize>10</pointsize>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>- Events Trend is still under DEV </string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-    </property>
-   </widget>
-  </widget>
   <widget class="QPushButton" name="EventsBtn">
    <property name="geometry">
     <rect>
@@ -276,7 +208,6 @@ border-radius: 5px;
    </property>
   </widget>
   <zorder>frame</zorder>
-  <zorder>frame_2</zorder>
   <zorder>frame_3</zorder>
   <zorder>EventsBtn</zorder>
   <zorder>TempBtn</zorder>
