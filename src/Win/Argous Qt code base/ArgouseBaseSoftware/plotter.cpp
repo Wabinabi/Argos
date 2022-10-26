@@ -1,10 +1,16 @@
+/****************************************************
+ * Description: To plot the 3D point cloud in a popup widget which the user can interact with
+ * Author/s: Monique Kuhn
+****************************************************/
+
 #include "plotter.h"
 
+//Can be edited to vary the outcome of the 3D model. Ensure that number of items will be able to hold all data points
 const int numberOfItems = 3600;
-const float curveDivider = 3.0f;
 const int lowerNumberOfItems = 5000;
-const float lowerCurveDivider = 0.75f;
 
+const float curveDivider = 3.0f;
+const float lowerCurveDivider = 0.75f;
 
 Plotter::Plotter(Q3DScatter* scatter)
     : m_graph(scatter),
@@ -28,8 +34,6 @@ Plotter::Plotter(Q3DScatter* scatter)
         series->setItemLabelFormat(QStringLiteral("@xTitle: @xLabel @zTitle: @zLabel @yTitle: @yLabel"));
         series->setMeshSmooth(m_smooth);
         m_graph->addSeries(series);
-
-        addData();
 }
 
 Plotter::~Plotter()
@@ -49,7 +53,6 @@ void Plotter::addData()
 
     m_graph->axisZ()->setTitle("Y (cm)");
     m_graph->axisZ()->setTitleVisible(true);
-
 
 
     QScatterDataArray* dataArray = new QScatterDataArray;

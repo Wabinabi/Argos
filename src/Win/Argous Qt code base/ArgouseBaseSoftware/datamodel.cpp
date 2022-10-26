@@ -98,9 +98,8 @@ void DataModel::generate3DWidget(){
         & Plotter::changePresetCamera);
     QObject::connect(labelButton, &QPushButton::clicked, modifier,
         & Plotter::changeLabelStyle);
-    QObject::connect(itemCountButton, &QPushButton::clicked, modifier,
-        & Plotter::toggleItemCount);
-
+//    QObject::connect(itemCountButton, &QPushButton::clicked, modifier,
+//        & Plotter::toggleItemCount);
     QObject::connect(backgroundCheckBox, &QCheckBox::stateChanged, modifier,
         & Plotter::setBackgroundEnabled);
     QObject::connect(gridCheckBox, &QCheckBox::stateChanged, modifier,
