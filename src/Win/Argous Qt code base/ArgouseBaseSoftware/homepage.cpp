@@ -62,7 +62,6 @@ void HomePage::readRecentFilesLog()
                 while (!stream.atEnd()){
                     line = stream.readLine();
                     ui->recentFiles->addItem(line);
-
                     recentFilesQueue.enqueue(line);
                 }
         file.close();
@@ -110,6 +109,16 @@ void HomePage::addRecentFile(QString recentFile) {
         readRecentFilesLog();
     }
 
+}
+
+void HomePage::clearRecentFiles() {
+    QString fileName = "FileLog.txt";
+    QFile file(fileName);
+
+    recentFilesQueue.clear();
+    ui->recentFiles->clear();
+
+    file.open(QFile::WriteOnly|QFile::Truncate);
 }
 
 void HomePage::readDroneStats(){  
@@ -284,6 +293,7 @@ void HomePage::on_droneDetailReset_clicked() {
 
     writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
     on_droneDetailClose_clicked();
+
 
     QMessageBox msg;
     msg.setText("Drone details reset!");
@@ -1032,6 +1042,12 @@ void HomePage::on_ResetBtn_clicked()
     importFailed = true; // Require user to import new data
     ui->droneStats->setPlainText("");
     QMessageBox msg;
+
+    verboseEvents.clear();
+    informEvents.clear();
+    emergencyEvents.clear();
+
+    clearRecentFiles();
 
     msg.setText("Imported data reset!");
     msg.exec();

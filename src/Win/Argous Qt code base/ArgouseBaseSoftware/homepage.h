@@ -164,6 +164,7 @@ private:
     //Read logs
     void readRecentFilesLog();
     void addRecentFile(QString recentFile);
+    void clearRecentFiles();
     QVector<QString> recentFiles;
     QQueue<QString> recentFilesQueue;
 
