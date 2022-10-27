@@ -27,7 +27,6 @@ const int lowerNumberOfItems = 5000;
 const float curveDivider = 3.0f;
 const float lowerCurveDivider = 0.75f;
 
-
 Plotter::Plotter(Q3DScatter* scatter)
     : graph(scatter),
         fontSize(40.0f),

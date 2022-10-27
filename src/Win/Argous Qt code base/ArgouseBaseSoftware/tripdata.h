@@ -1,5 +1,5 @@
 /****************************************************
- * Description: Header file for plotter.cpp
+ * Description: Header file for tripdata.cpp
  * Author/s: Monique Kuhn
 ****************************************************/
 
@@ -50,12 +50,9 @@ public:
              HomePage::DroneSeriesData *_throttle = nullptr);
     ~TripData();
 
-    //void testPublicFunction();
-
 private slots:
     void keyPressEvent(QKeyEvent *event);
 
-    void on_HomeBtn_clicked();
     void on_DisplayModel_clicked();
     void on_ThrottleBtn_clicked();
     void on_TempBtn_clicked();

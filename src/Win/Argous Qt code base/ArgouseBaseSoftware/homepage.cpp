@@ -1,9 +1,24 @@
+/****************************************************
+ * Description: This is the homepage. It provides the following features:
+ *      Import Data (browse for directory/recent files and import)
+ *      Menu bar with basic features (help, file, about, preferences)
+ *      Access to drone config and specs
+ *      Running drone stats display
+ *      Access to drone trip data
+ *      Clear data feature
+ *      Recent files
+ *
+ * Author/s: Monique Kuhn, Jimmy Trac, Bi Wan Low
+****************************************************/
+
 #include "homepage.h"
+#include "datatranslator.h"
+#include "tripdata.h"
+
 #include <QLineEdit>
 #include <QFormLayout>
 
-#include "tripdata.h"
-#include "actions.h"
+/***************************************************/
 
 HomePage::HomePage(QWidget *parent) :
     QMainWindow(parent), ui(new Ui::HomePage)
@@ -13,19 +28,19 @@ HomePage::HomePage(QWidget *parent) :
 
     Parent = parent;
 
-    // Uncomment to run in "Usability Test" mode. This means disabling unused features.
-    UsabilityTestSim();
+    //Uncomment to run in "Usability Test" mode. This means disabling unused features.
+    //UsabilityTestSim();
 
+    /*Read necessary files and info to display on homepage*/
     readRecentFilesLog();
     readDroneStats();   
 
+    /*Setup the page's contents*/
     createActions();
     createMenus();
     (void)statusBar();
 
     setWindowFilePath(QString());
-
-
 }
 
 HomePage::~HomePage()
@@ -33,14 +48,17 @@ HomePage::~HomePage()
     delete ui;
 }
 
-void HomePage::UsabilityTestSim(){
-    //ui->DroneDisplay->setEnabled(false);
-    //ui->FileBtn->setVisible(false);
-    //ui->SettingsBtn->setVisible(false);
-    //ui->HelpBtn->setVisible(false);
-    //ui->ResetBtn->setVisible(false);
+/***************************************************/
+
+/*Update this function to hide features that aren't to be tested in the usability mode
+Comment out this function in the main function to disable usability testing mode!*/
+void HomePage::usabilityTestSim(){
+    ui->FileBtn->setVisible(false);
+    ui->HelpBtn->setVisible(false);
+    ui->ResetBtn->setVisible(false);
 }
 
+/*Read recent files and populate the recent files list display*/
 void HomePage::readRecentFilesLog()
 {
     QString fileName = "FileLog.txt";
@@ -50,12 +68,11 @@ void HomePage::readRecentFilesLog()
     recentFilesQueue.clear();
     ui->recentFiles->clear();
 
-    //Reads text file log line by line, if no log file exists- it is built.
+    /*Reads text file log line by line, if no log file exists- it is built.*/
     if(!file.exists()){
         file.open(QIODevice::WriteOnly | QIODevice::Text);
         QTextStream out(&file);
     } else{
-
         QString line;
         if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
                 QTextStream stream(&file);
@@ -69,24 +86,23 @@ void HomePage::readRecentFilesLog()
     }
 }
 
-
-void HomePage::addRecentFile(QString recentFile) {
-
+/*Upon import, this function is called. It adds the imported file to the "recent files" text*/
+void HomePage::addRecentFile(QString _recentFile) {
     while (recentFilesQueue.size() > 4) {
         recentFilesQueue.dequeue();
     }
 
-    // Check if the file is already there
+    /*Check if the file is already there*/
     bool fileAlreadyImported = false;
     for (int i = 0; i < recentFilesQueue.size(); i++ ) {
         if (recentFilesQueue[i] == recentFile) {
             fileAlreadyImported = true;
         }
     }
-    recentFilesQueue.enqueue(recentFile);
+    recentFilesQueue.enqueue(_recentFile);
 
     if (!fileAlreadyImported) {
-        // Update the recent files text file
+        /*Update the recent files text file*/
         QFile file("FileLog.txt");
 
         if(!file.exists()){
@@ -94,8 +110,6 @@ void HomePage::addRecentFile(QString recentFile) {
             QTextStream out(&file);
             file.close();
         }
-
-
 
         if(file.open(QIODevice::WriteOnly | QIODevice::Text))
         {
@@ -105,12 +119,11 @@ void HomePage::addRecentFile(QString recentFile) {
             }
             file.close();
         }
-
         readRecentFilesLog();
     }
-
 }
 
+/*Clears all recent files from the text file*/
 void HomePage::clearRecentFiles() {
     QString fileName = "FileLog.txt";
     QFile file(fileName);
@@ -121,32 +134,30 @@ void HomePage::clearRecentFiles() {
     file.open(QFile::WriteOnly|QFile::Truncate);
 }
 
+/*Reads all the running drone stats and displays it on the page*/
 void HomePage::readDroneStats(){  
     QFile file("../ArgouseBaseSoftware/appdata/droneStats.txt");
-        QString line, htmlLine,textBlock;
+    QString line, htmlLine,textBlock;
+    QStringList tokens;
 
-        QStringList tokens;
+    ui->droneStats->setReadOnly(true);
 
-        //file.open(QFile::ReadOnly | QFile::Text);
-        //droneStats->setText(file.readAll());
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream stream(&file);
+        while (!stream.atEnd()){
+            line = stream.readLine();
+            tokens = line.split(QRegularExpression(":"));
+            htmlLine = "<html><b>" + tokens[0] + ": </b></html>" + tokens[1] + "<html><br></html>";
 
-        ui->droneStats->setReadOnly(true);
-
-        if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
-            QTextStream stream(&file);
-            while (!stream.atEnd()){
-
-                line = stream.readLine();
-                tokens = line.split(QRegularExpression(":"));
-                htmlLine = "<html><b>" + tokens[0] + ": </b></html>" + tokens[1] + "<html><br></html>";
-
-                textBlock.append(htmlLine);
-            }
-            ui->droneStats->setText(textBlock);
+            textBlock.append(htmlLine);
         }
-        file.close();
+        ui->droneStats->setText(textBlock);
+    }
+    file.close();
 }
 
+/*Loads the trip data page and passes it necessary data.
+ *Blocks trip data from being opened if data is not present.*/
 void HomePage::on_pushButton_clicked()
 {
     if (!altitude.data.empty()){
@@ -161,13 +172,11 @@ void HomePage::on_pushButton_clicked()
        }
 }
 
-
+/*This function generates a popup display that depicts the drone specs and data.
+* The display features a Save, Close, and Reset button that caters for editing capabilities*/
 void HomePage::on_pushButton_4_clicked()
 {
-    // "Drone details" button clicked
-    //  we create a new form layout
-
-
+    /*Checks if drone data file exists*/
     if (!droneDetails->isVisible()) {
         if (importFailed) {
             QMessageBox msg;
@@ -177,6 +186,7 @@ void HomePage::on_pushButton_4_clicked()
             droneDetails = new QDialog(this);
             QWidget *detailsScrollBox = new QWidget;
 
+            /*If data exists, the widget is drawn with Close, Sace, and Reset file*/
             detailsCloseButton = new QPushButton("Close");
             connect(detailsCloseButton, &QPushButton::released, this, &HomePage::on_droneDetailClose_clicked);
 
@@ -186,35 +196,29 @@ void HomePage::on_pushButton_4_clicked()
             detailResetButton = new QPushButton("Reset");
             connect(detailResetButton, &QPushButton::released, this, &HomePage::on_droneDetailReset_clicked);
 
-
+            /*Layout generation -title, and each row of details from the text file*/
             QFormLayout *layout = new QFormLayout();
+
+            /*Draw all drone config variable names*/
             layout->addRow("Drone Configuration", new QLabel(""));
-
-
-
             QMap<QString, QString>::iterator i;
             for (i = droneConfig.begin(); i != droneConfig.end(); ++i) {
                 QLineEdit *aValue = new QLineEdit(i.value());
                 aValue->setReadOnly(false);
-
                 layout->addRow(i.key(), aValue);
             }
+
+            /*Draw all drone config variable values*/
             layout->addWidget(new QLabel(""));
-
             layout->addRow("Drone Details", new QLabel(""));
-
             for (i = droneDetailsMap.begin(); i != droneDetailsMap.end(); ++i) {
                 QLineEdit *aValue = new QLineEdit(i.value());
                 aValue->setReadOnly(false);
-
                 layout->addRow(i.key(), aValue);
             }
             layout->addWidget(new QLabel(""));
 
-            //layout->addWidget(detailsCloseButton);
-            //B1 added widgets
-            //layout->addWidget(detailSaveButton);
-            //layout->addWidget(detailResetButton);
+            /*Draw buttons*/
             QHBoxLayout *boxLayout = new QHBoxLayout();
             boxLayout->addWidget(detailResetButton);
             boxLayout->addWidget(detailSaveButton);
@@ -224,16 +228,17 @@ void HomePage::on_pushButton_4_clicked()
             mainLayout->addLayout(layout);
             mainLayout->addLayout(boxLayout);
 
+            /*dynamic scaling + scroll to support dynamic scaling and varying window size*/
             detailsScrollBox->setLayout(mainLayout);
             QScrollArea *detailsScrollArea = new QScrollArea();
             detailsScrollArea->setStyleSheet("QWidget { border: 0px solid black };");
             detailsScrollArea->setWidgetResizable(true);
             detailsScrollArea->setWidget(detailsScrollBox);
+
+            /*General layout*/
             droneDetails->setLayout(new QVBoxLayout);
             droneDetails->layout()->addWidget(detailsScrollArea);
-
             droneDetails->setWindowTitle("Argous S7 Drone Details");
-
             droneDetails->resize(595, 450);
             droneDetails->setWindowModality(Qt::WindowModal);
             droneDetails->exec();
@@ -242,11 +247,13 @@ void HomePage::on_pushButton_4_clicked()
     }
 }
 
+/*Suspends/closes drone details popup*/
 void HomePage::on_droneDetailClose_clicked() {
     droneDetails->hide();
     detailsOpened = false;
 }
 
+/*Saves the drone details that are edited by the user*/
 void HomePage::saveDroneDetails() {
     QList items = droneDetails->children();
 
@@ -258,23 +265,19 @@ void HomePage::saveDroneDetails() {
 
             if (droneConfig.find(labelText) != droneConfig.end()) {
                 droneConfig[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
-
             }
 
             if (droneDetailsMap.find(labelText) != droneDetailsMap.end()) {
                 droneDetailsMap[labelText] = qobject_cast<QLineEdit*>(items[i+1])->text();
             }
-
         }
-
-
     }
 
     writeMapToFile(configFileLocation + "\\as7.config", &droneConfig);
     writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
-
 }
 
+/*Calls save function when drone save button clicked. Provides user feedback*/
 void HomePage::on_droneDetailSave_clicked() {
     saveDroneDetails();
     on_droneDetailClose_clicked();
@@ -284,8 +287,8 @@ void HomePage::on_droneDetailSave_clicked() {
     msg.exec();
 }
 
+/*Calls drone details reset function when drone save button clicked. Provides user feedback*/
 void HomePage::on_droneDetailReset_clicked() {
-
     QMap<QString, QString>::iterator i;
     for (i = defaultDroneDetailsMap.begin(); i != defaultDroneDetailsMap.end(); ++i) {
         droneDetailsMap[i.key()] = i.value();
@@ -294,14 +297,14 @@ void HomePage::on_droneDetailReset_clicked() {
     writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
     on_droneDetailClose_clicked();
 
-
     QMessageBox msg;
     msg.setText("Drone details reset!");
     msg.exec();
     on_pushButton_4_clicked();
 }
 
-HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString colName)
+/*Reads column name data from the CSV file from the passed through data*/
+HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString _dataFile, QString _colName)
 {
     /* Returns a column from the CSV, similar to the data translator
      *
@@ -315,11 +318,10 @@ HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString 
     QVector<HomePage::DroneDataPoint> data;
     data.clear();
 
-
-    QFile file(dataFile);
+    QFile file(_dataFile);
     if (!file.open(QIODevice::ReadOnly)) {
         // throw some soort of error. A messagebox perhaps?
-        qDebug() << "Could not open CSV File (" << dataFile<< ") for Column Series (" << colName << ") extraction";
+        qDebug() << "Could not open CSV File (" << _dataFile<< ") for Column Series (" << _colName << ") extraction";
     } else {
         QString headers = file.readLine();
         QVector<QString> headerList = headers.split(',');
@@ -335,7 +337,7 @@ HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString 
 
         if (!foundCol) {
             // Could not locate target column in CSV
-            qDebug() << "Target Column (" << colName << ") not found in CSV";
+            qDebug() << "Target Column (" << _colName << ") not found in CSV";
 
         } else {
             while (!file.atEnd()) {
@@ -354,7 +356,7 @@ HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString 
 
         HomePage::DroneSeriesData seriesData;
 
-        seriesData.seriesName = colName,
+        seriesData.seriesName = _colName,
         seriesData.data.clear();
         seriesData.data = data;
 
@@ -362,17 +364,20 @@ HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString 
     }
 }
 
-
-HomePage::DroneSeriesData HomePage::readTempValues(QString dataFile)
+/*Reads column temp data from the CSV file from the passed through data*/
+HomePage::DroneSeriesData HomePage::readTempValues(QString _dataFile)
 {
-    return readColumnFromCSV(dataFile, "temp");
-}
-HomePage::DroneSeriesData HomePage::readAltValues(QString dataFile)
-{
-    return readColumnFromCSV(dataFile, "us_1");
+    return readColumnFromCSV(_dataFile, "temp");
 }
 
-HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> droneLogData)
+/*Reads column altitude data from the CSV file from the passed through data*/
+HomePage::DroneSeriesData HomePage::readAltValues(QString _dataFile)
+{
+    return readColumnFromCSV(_dataFile, "us_1");
+}
+
+/*Reads column throttle data from the CSV file from the passed through data*/
+HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> _droneLogData)
 {
     DroneEvent data;
     QStringList tokens;
@@ -380,8 +385,8 @@ HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> dr
     QVector<HomePage::DroneDataPoint> throttleData;
     throttleData.clear();
 
-    for (int i = 0; i < droneLogData.size(); i++) {
-        data = droneLogData[i];
+    for (int i = 0; i < _droneLogData.size(); i++) {
+        data = _droneLogData[i];
         if (data.message.contains("DATA:", Qt::CaseInsensitive)) {
             // This is a drone log event in the form:
             // DATA: 0 TX: <16 TX Chs> RX: <16 RX Chs>
@@ -421,6 +426,7 @@ HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> dr
     return throttleSeries;
 }
 
+/*imports data when import button is clicked. Gives error messaging if directory not chosen or data missing.*/
 void HomePage::on_ImportBtn_clicked()
 {
     // Load explorer and browse for file if no file has been selected
@@ -435,7 +441,6 @@ void HomePage::on_ImportBtn_clicked()
     if(filename.isEmpty()){
         return;
     }
-
 
     bool importLogSuccess = importLog(filename + "\\as7.log");
     bool importConfSuccess = importConf(filename + "\\as7.config", &droneConfig);
@@ -582,9 +587,10 @@ void HomePage::on_ImportBtn_clicked()
 
 }
 
-void HomePage::writeMapToFile(QString dest, QMap<QString, QString> *map) {
+/*Writes data map to file*/
+void HomePage::writeMapToFile(QString _dest, QMap<QString, QString> *_map) {
 
-    QFile file(dest);
+    QFile file(_dest);
 
     if(!file.exists()){
         file.open(QIODevice::WriteOnly | QIODevice::Text);
@@ -598,7 +604,7 @@ void HomePage::writeMapToFile(QString dest, QMap<QString, QString> *map) {
         QTextStream stream(&file);
 
         QMap<QString, QString>::iterator i;
-        for (i = (*map).begin(); i != (*map).end(); ++i) {
+        for (i = (*_map).begin(); i != (*_map).end(); ++i) {
             stream << i.key() << ":" << i.value() << '\n';
 
         }
@@ -606,7 +612,7 @@ void HomePage::writeMapToFile(QString dest, QMap<QString, QString> *map) {
     }
 }
 
-
+/*Generates the PLY file upon import*/
 bool HomePage::importPLY(QString droneCSVFile){
     // Import the CSV file from the drone and generate a PLY file
     // Proceeds to call StashPLY to store the information
@@ -628,10 +634,10 @@ bool HomePage::importPLY(QString droneCSVFile){
     return isSuccessful;
 }
 
+/*Imports the drone configuration details*/
 bool HomePage::importConf(QString droneConfFile, QMap<QString, QString> *dest){
     //store into vector arrays
     QFile file(droneConfFile);
-
 
     bool isSuccessful = false; // Remembers if the import was successful
 
@@ -658,8 +664,7 @@ bool HomePage::importConf(QString droneConfFile, QMap<QString, QString> *dest){
     return isSuccessful;
 }
 
-
-
+/*Imports the drone events log details*/
 bool HomePage::importLog(QString droneLogFile){
     QFile file(droneLogFile);
     QMessageBox msg;
@@ -707,7 +712,6 @@ bool HomePage::importLog(QString droneLogFile){
                         // A verbose or identified event
                         verboseEvents.append(event);
                     }
-
                 }
         file.close();
         isSuccessful = true;
@@ -719,57 +723,9 @@ bool HomePage::importLog(QString droneLogFile){
     return isSuccessful;
 }
 
-/* Removed in favour of importPLY()
- * importPLY saves into ../appdata/
-void HomePage::stashTempPLY(){
-    QString fileName = "temp/tempPLY.txt";
-    QFile file(fileName);
-    QMessageBox msg;
-
-
-    if(!file.exists()){
-        file.open(QIODevice::WriteOnly | QIODevice::Text);
-        QTextStream out(&file);
-        file.close();
-    }
-
-    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
-          {
-              // We're going to streaming text to the file
-              QTextStream stream(&file);
-
-              for (int i = 0; i < importedData.size(); ++i)
-                  stream << importedData[i] << '\n';
-
-              file.close();
-          }
-}
-*/
-
-//void HomePage::newFile()
-//{
-//    HomePage *other = new HomePage;
-//    other->show();
-//}
-
-//void HomePage::open()
-//{
-//    QString fileName = QFileDialog::getOpenFileName(this);
-//    if (!fileName.isEmpty())
-//        loadFile(fileName);
-//}
-
-//void HomePage::save()
-//{
-//    if (curFile.isEmpty())
-//        saveAs();
-//    else
-//        saveFile(curFile);
-//}
-
+/*Saves the imported and generated PLY as a .PLY for the user*/
 void HomePage::exportPLY()
 {
-
     QString fileName = "..\\ArgouseBaseSoftware\\appdata\\as7-map.ply";
     QFile file(fileName);
 
@@ -779,18 +735,13 @@ void HomePage::exportPLY()
     saveFile(fileName);
 }
 
-//void HomePage::openRecentFile()
-//{
-//    QAction *action = qobject_cast<QAction *>(sender());
-//    if (action)
-//        loadFile(action->data().toString());
-//}
-
+/*Generates help*/
 void HomePage::help()
 {
     QDesktopServices::openUrl(QUrl::fromLocalFile("../ArgouseBaseSoftware/appdata/docs/html/index.html"));
 }
 
+/*Re-stylise to darkmode by updating apps style sheet*/
 void HomePage::darkMode(){
     ui->DroneDisplayBlack->hide();
     ui->DroneDisplayWhite->show();
@@ -804,6 +755,8 @@ void HomePage::darkMode(){
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
     appParent->setStyleSheet(styleSheet);
 }
+
+/*Re-stylise to lightmode by updating apps style sheet*/
 void HomePage::lightMode(){
     ui->DroneDisplayBlack->show();
     ui->DroneDisplayWhite->hide();
@@ -816,13 +769,12 @@ void HomePage::lightMode(){
     QFile styleSheetFile("../ArgouseBaseSoftware/stylesheets/LightMode.qss");
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
-    //this->setStyleSheet(styleSheet);
     appParent->setStyleSheet(styleSheet);
 }
 
+/*Generates about popup*/
 void HomePage::about()
 {
-    //UPDATE
        QMessageBox::about(this, tr("About Argous AS7 Base Software"),
                 tr("The <b>Argous S7 Base Software</b> accompanies the AS7 drone. \
                     Its purpose is to display drone diagnostic data, drone specs, "
@@ -830,45 +782,16 @@ void HomePage::about()
                     The repo for this project can be found at <a href=\https://github.com/Wabinabi/Argous\>Argous GitHub</a>."));
 }
 
+/*Generates all the actions that are going to be used in the menu*/
 void HomePage::createActions()
 {
-//    newAct = new QAction(tr("&New"), this);
-//    newAct->setShortcuts(QKeySequence::New);
-//    newAct->setStatusTip(tr("Create a new file"));
-//    connect(newAct, SIGNAL(triggered()), this, SLOT(newFile()));
-
-//    openAct = new QAction(tr("&Open..."), this);
-//    openAct->setShortcuts(QKeySequence::Open);
-//    openAct->setStatusTip(tr("Open an existing file"));
-//    connect(openAct, SIGNAL(triggered()), this, SLOT(open()));
-
-//    saveAct = new QAction(tr("&Save"), this);
-//    saveAct->setShortcuts(QKeySequence::Save);
-//    saveAct->setStatusTip(tr("Save the document to disk"));
-//    connect(saveAct, SIGNAL(triggered()), this, SLOT(save()));
-
     exportAct = new QAction(tr("Export PLY..."), this);
     exportAct->setShortcuts(QKeySequence::SaveAs);
     exportAct->setStatusTip(tr("Export Map as PLY Document"));
     connect(exportAct, SIGNAL(triggered()), this, SLOT(exportPLY()));
 
-
-    //for (int i = 0; i < MaxRecentFiles; ++i) {
-//        recentFileActs[i] = new QAction(this);
-//        recentFileActs[i]->setVisible(true);
-        //connect(recentFileActs[i], SIGNAL(triggered()),
-                //this, SLOT(openRecentFile()));
-    //}
-
-//    exitAct = new QAction(tr("E&xit"), this);
-//    exitAct->setShortcuts(QKeySequence::Quit);
-//    exitAct->setStatusTip(tr("Exit the application"));
-//    connect(exitAct, SIGNAL(triggered()), qApp, SLOT(closeAllWindows()));
-
     helpAct = new QAction(tr("Open User Manual"), this);
-    //helpAct->setShortcuts(QKeySequence::HelpContents);
-    //new QShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q), this, SLOT(close()));
-    //helpAct->setStatusTip(tr("Opens the user manual in the default web browser"));
+
     QShortcut *shortcut = new QShortcut(QKeySequence(QKeySequence::HelpContents),this);
     connect(shortcut, SIGNAL(activated()), this, SLOT(help()));
     connect(helpAct, SIGNAL(triggered()), this, SLOT(help()));
@@ -891,12 +814,10 @@ void HomePage::createActions()
     connect(lightModeAct, SIGNAL(triggered()), this, SLOT(lightMode()));
 }
 
+/*Creates and populates menu bar*/
 void HomePage::createMenus()
 {
     fileMenu = menuBar()->addMenu(tr("&File"));
-    //fileMenu->addAction(newAct);
-    //fileMenu->addAction(openAct);
-    //fileMenu->addAction(saveAct);
     fileMenu->addAction(exportAct);
 
     menuBar()->addSeparator();
@@ -911,50 +832,10 @@ void HomePage::createMenus()
     helpMenu->addAction(lightModeAct);
 }
 
-//void HomePage::loadFile(const QString &fileName)
-//{
-//    QFile file(fileName);
-//    if (!file.open(QFile::ReadOnly | QFile::Text)) {
-//        QMessageBox::warning(this, tr("Recent Files"),
-//                             tr("Cannot read file %1:\n%2.")
-//                             .arg(fileName)
-//                             .arg(file.errorString()));
-//        return;
-//    }
-
-//    QTextStream in(&file);
-//    QApplication::setOverrideCursor(Qt::WaitCursor);
-//    textEdit->setPlainText(in.readAll());
-//    QApplication::restoreOverrideCursor();
-
-//    setCurrentFile(fileName);
-//    statusBar()->showMessage(tr("File loaded"), 2000);
-//}
-
-void HomePage::saveFile(const QString &fileName)
+/*This is called by the export PLY function. It allows the user to choose save location*/
+void HomePage::saveFile(const QString &_fileName)
 {
-    QFile file(fileName);
-    /*
-    if (!file.open(QFile::WriteOnly | QFile::Text)) {
-        QMessageBox::warning(this, tr("Recent Files"),
-                             tr("Cannot write file %1:\n%2.")
-                             .arg(fileName)
-                             .arg(file.errorString()));
-        return;
-    }
-
-
-    QTextStream out(&file);
-    QApplication::setOverrideCursor(Qt::WaitCursor);
-    out << textEdit->toPlainText();
-    QApplication::restoreOverrideCursor();
-
-    //setCurrentFile(fileName);
-    statusBar()->showMessage(tr("File exported"), 2000);
-    */
-
-    //QString fileLocationStr = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
-    //                                                "/");
+    QFile file(_fileName);
 
     QFileDialog dialog(this);
     dialog.setFileMode(QFileDialog::AnyFile);
@@ -967,7 +848,7 @@ void HomePage::saveFile(const QString &fileName)
         fileLocationStr = dialog.selectedFiles()[0];
     }
     if (fileLocationStr.toStdString() != "") {
-        std::filesystem::copy(fileName.toStdString(), fileLocationStr.toStdString(), std::filesystem::copy_options::recursive);
+        std::filesystem::copy(_fileName.toStdString(), fileLocationStr.toStdString(), std::filesystem::copy_options::recursive);
         QMessageBox msg;
         msg.setText("File saved!");
         msg.exec();
@@ -975,41 +856,20 @@ void HomePage::saveFile(const QString &fileName)
 
 }
 
-//void HomePage::setCurrentFile(const QString &fileName)
-//{
-//    curFile = fileName;
-//    setWindowFilePath(curFile);
-
-//    //QSettings settings;
-//    files = settings.value("recentFileList").toStringList();
-//    files.removeAll(fileName);
-//    files.prepend(fileName);
-//    while (files.size() > MaxRecentFiles)
-//        files.removeLast();
-
-//    settings.setValue("recentFileList", files);
-
-////    foreach (QWidget *widget, QApplication::topLevelWidgets()) {
-////        HomePage *mainWin = qobject_cast<HomePage *>(widget);
-////        if (mainWin)
-////            mainWin->updateRecentFileActions();
-////    }
-//}
-
-
-
-QString HomePage::strippedName(const QString &fullFileName)
+/*Returns stripped name from fill file name*/
+QString HomePage::strippedName(const QString &_fullFileName)
 {
-    return QFileInfo(fullFileName).fileName();
+    return QFileInfo(_fullFileName).fileName();
 }
 
-void HomePage::closeEvent (QCloseEvent *event)
+/*Remove temp files upon closing the window*/
+void HomePage::closeEvent (QCloseEvent *_event)
 {
     //Remove temp files
     std::filesystem::remove_all("temp");
 }
 
-
+/*Opens windows explorer browsing feature upon clicking '...'*/
 void HomePage::on_Browse_clicked()
 {
     QString fileLocationStr = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
@@ -1018,26 +878,25 @@ void HomePage::on_Browse_clicked()
     ui->FileLocation->setPlainText(fileLocationStr);
 }
 
-
-void HomePage::on_recentFiles_itemClicked(QListWidgetItem *item)
+/*If recent file in fecents files is clicked, the file location directory is updated*/
+void HomePage::on_recentFiles_itemClicked(QListWidgetItem *_item)
 {
-    ui->FileLocation->setPlainText(item->text());
+    ui->FileLocation->setPlainText(_item->text());
 }
 
-
+/*Calls export function when export button clicked*/
 void HomePage::on_ExportButton_clicked()
 {
     exportPLY();
 }
 
-
+/*Opens user manual*/
 void HomePage::on_HelpBtn_clicked()
 {
-    // Open the user manual
     help();
 }
 
-
+/*When the reset button is clicked. The file location directory and data is cleared.*/
 void HomePage::on_ResetBtn_clicked()
 {
     ui->FileLocation->setPlainText("");
@@ -1055,13 +914,13 @@ void HomePage::on_ResetBtn_clicked()
     msg.exec();
 }
 
-
+/*Alternative import file button*/
 void HomePage::on_FileBtn_clicked()
 {
     on_ImportBtn_clicked();
 }
 
-
+/*Clears file location directory but NOT the data*/
 void HomePage::on_ImportBtn_2_clicked()
 {
     ui->FileLocation->setPlainText("");
