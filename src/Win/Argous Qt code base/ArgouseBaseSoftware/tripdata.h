@@ -53,10 +53,10 @@ public:
 private slots:
     void keyPressEvent(QKeyEvent *event);
 
-    void on_DisplayModel_clicked();
-    void on_ThrottleBtn_clicked();
-    void on_TempBtn_clicked();
-    void on_AltitudeBtn_clicked();
+    void on_displayModelBtn_clicked();
+    void on_tempBtn_clicked();
+    void on_throttleBtn_clicked();
+    void on_altitudeBtn_clicked();
 
     void drawStackedTrends();
     void highlightTrendButton(int _index);

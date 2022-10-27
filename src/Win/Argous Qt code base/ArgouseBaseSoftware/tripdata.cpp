@@ -77,29 +77,29 @@ void TripData::drawStackedTrends(){
     /*Disable trend button if its data is not available*/
     /*Throttle*/
     if (locThrottle.data.size() == 0) {
-        ui->ThrottleBtn->setEnabled(false);
-        ui->ThrottleBtn->setText("Throttle not Enabled");
+        ui->throttleBtn->setEnabled(false);
+        ui->throttleBtn->setText("Throttle not Enabled");
     } else {
-        ui->ThrottleBtn->setEnabled(true);
-        ui->ThrottleBtn->setText("Display Throttle Trend");
+        ui->throttleBtn->setEnabled(true);
+        ui->throttleBtn->setText("Display Throttle Trend");
     }
 
     /*Altitude*/
     if (locThrottle.data.size() == 0) {
-        ui->AltitudeBtn->setEnabled(false);
-        ui->AltitudeBtn->setText("Altitude not Enabled");
+        ui->altitudeBtn->setEnabled(false);
+        ui->altitudeBtn->setText("Altitude not Enabled");
     } else {
-        ui->AltitudeBtn->setEnabled(true);
-        ui->AltitudeBtn->setText("Display Altitude Trend");
+        ui->altitudeBtn->setEnabled(true);
+        ui->altitudeBtn->setText("Display Altitude Trend");
     }
 
     /*Temperature*/
     if (locThrottle.data.size() == 0) {
-        ui->TempBtn->setEnabled(false);
-        ui->TempBtn->setText("Temperature not Enabled");
+        ui->tempBtn->setEnabled(false);
+        ui->tempBtn->setText("Temperature not Enabled");
     } else {
-        ui->TempBtn->setEnabled(true);
-        ui->TempBtn->setText("Display Temperature Trend");
+        ui->tempBtn->setEnabled(true);
+        ui->tempBtn->setText("Display Temperature Trend");
     }
 
     /*Set the default trend*/
@@ -111,27 +111,27 @@ void TripData::drawStackedTrends(){
 void TripData::highlightTrendButton(int _index){
     switch (_index)  {
         case 0:
-            ui->TempBtn->setStyleSheet("background-color: #FF752B");
-            ui->ThrottleBtn->setStyleSheet("background-color: ");
-            ui->AltitudeBtn->setStyleSheet("background-color: ");
+            ui->tempBtn->setStyleSheet("background-color: #FF752B");
+            ui->throttleBtn->setStyleSheet("background-color: ");
+            ui->altitudeBtn->setStyleSheet("background-color: ");
             break;
 
         case 1:
-            ui->TempBtn->setStyleSheet("background-color: ");
-            ui->ThrottleBtn->setStyleSheet("background-color: #FF752B");
-            ui->AltitudeBtn->setStyleSheet("background-color: ");
+            ui->tempBtn->setStyleSheet("background-color: ");
+            ui->throttleBtn->setStyleSheet("background-color: #FF752B");
+            ui->altitudeBtn->setStyleSheet("background-color: ");
             break;
 
         case 2:
-        ui->TempBtn->setStyleSheet("background-color: ");
-        ui->ThrottleBtn->setStyleSheet("background-color: ");
-        ui->AltitudeBtn->setStyleSheet("background-color: #FF752B");
+        ui->tempBtn->setStyleSheet("background-color: ");
+        ui->throttleBtn->setStyleSheet("background-color: ");
+        ui->altitudeBtn->setStyleSheet("background-color: #FF752B");
         break;
 
         default:
-            ui->ThrottleBtn->setStyleSheet("background-color: ");
-            ui->TempBtn->setStyleSheet("background-color: ");
-            ui->AltitudeBtn->setStyleSheet("background-color: ");
+            ui->throttleBtn->setStyleSheet("background-color: ");
+            ui->tempBtn->setStyleSheet("background-color: ");
+            ui->altitudeBtn->setStyleSheet("background-color: ");
     }
 }
 
@@ -183,9 +183,9 @@ void TripData::displayDroneEvents(){
 
             textBlock.append(htmlLine);
         }
-        ui->droneInform->setText(textBlock);
+        ui->droneInformTxt->setText(textBlock);
     }
-    else {ui->droneInform->setText("No inform events occured/recorded");}
+    else {ui->droneInformTxt->setText("No inform events occured/recorded");}
 
     /*Emergency Events*/
     if (locEmergencyEvents.size() > 0){
@@ -198,9 +198,9 @@ void TripData::displayDroneEvents(){
 
             textBlock.append(htmlLine);
         }
-        ui->droneEmergency->setText(textBlock);
+        ui->droneEmergencyTxt->setText(textBlock);
     }
-    else {ui->droneEmergency->setText("No emergency events occured/recorded");}
+    else {ui->droneEmergencyTxt->setText("No emergency events occured/recorded");}
 
     /*Verbose Events*/
     if (locVerboseEvents.size() > 0){
@@ -213,9 +213,9 @@ void TripData::displayDroneEvents(){
 
             textBlock.append(htmlLine);
         }
-        ui->droneEvents->setText(textBlock);
+        ui->droneVerboseTxt->setText(textBlock);
     }
-    else {ui->droneEvents->setText("No verbose events occured/recorded");}
+    else {ui->droneVerboseTxt->setText("No verbose events occured/recorded");}
 }
 
 /*Display drone stats in text box*/
@@ -235,34 +235,34 @@ void TripData::displayDroneStats(){
             textBlock.append(htmlLine);
         }
 
-        ui->droneStats->setText(textBlock);
+        ui->droneStatsTxt->setText(textBlock);
     }
     file.close();
 }
 
 /*Generate and display the 3D visualisation*/
-void TripData::on_DisplayModel_clicked()
+void TripData::on_displayModelBtn_clicked()
 {
     DataModel dataModel;
     dataModel.exec();
 }
 
 /*Trend buttons trigger the correct stacked widget to display*/
-void TripData::on_ThrottleBtn_clicked()
+void TripData::on_throttleBtn_clicked()
 {
     highlightTrendButton(throttleIndex);
     ui->stackedWidget->setCurrentIndex(throttleIndex);
     currentChart = throttleChart;
 }
 
-void TripData::on_TempBtn_clicked()
-{
-    highlightTrendButton(tempIndex);
-    ui->stackedWidget->setCurrentIndex(tempIndex);
-    currentChart = tempChart;
-}
+void TripData::on_tempBtn_clicked()
+    {
+        highlightTrendButton(tempIndex);
+        ui->stackedWidget->setCurrentIndex(tempIndex);
+        currentChart = tempChart;
+    }
 
-void TripData::on_AltitudeBtn_clicked()
+void TripData::on_altitudeBtn_clicked()
 {
     highlightTrendButton(altitudeIndex);
     ui->stackedWidget->setCurrentIndex(altitudeIndex);
@@ -301,6 +301,16 @@ void TripData::help()
 {
     QDesktopServices::openUrl(QUrl::fromLocalFile("../ArgouseBaseSoftware/appdata/docs/html/index.html"));
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

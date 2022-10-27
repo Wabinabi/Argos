@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QFrame" name="frame_3">
+  <widget class="QFrame" name="trendsFrm">
    <property name="geometry">
     <rect>
      <x>-10</x>
@@ -43,7 +43,7 @@
     <widget class="QWidget" name="page_3"/>
     <widget class="QWidget" name="page_4"/>
    </widget>
-   <widget class="QPushButton" name="TempBtn">
+   <widget class="QPushButton" name="tempBtn">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -62,7 +62,7 @@
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="ThrottleBtn">
+   <widget class="QPushButton" name="throttleBtn">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -75,7 +75,7 @@
      <string>DisplayThrottle Trend</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="AltitudeBtn">
+   <widget class="QPushButton" name="altitudeBtn">
     <property name="geometry">
      <rect>
       <x>530</x>
@@ -89,7 +89,7 @@
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QFrame" name="tripDetailsFrm">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -104,7 +104,7 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="tripDetailsLbl">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -127,7 +127,7 @@
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
    </widget>
-   <widget class="QTextEdit" name="droneStats">
+   <widget class="QTextEdit" name="droneStatsTxt">
     <property name="geometry">
      <rect>
       <x>20</x>
@@ -156,7 +156,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="DisplayModel">
+   <widget class="QPushButton" name="displayModelBtn">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -170,7 +170,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     </property>
    </widget>
   </widget>
-  <widget class="QFrame" name="frame_4">
+  <widget class="QFrame" name="eventsLogFrm">
    <property name="geometry">
     <rect>
      <x>260</x>
@@ -192,7 +192,7 @@ border-radius: 5px;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QTextEdit" name="droneEmergency">
+   <widget class="QTextEdit" name="droneEmergencyTxt">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -221,7 +221,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="eventsLogLbl">
     <property name="geometry">
      <rect>
       <x>60</x>
@@ -247,7 +247,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QTextEdit" name="droneInform">
+   <widget class="QTextEdit" name="droneInformTxt">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -276,7 +276,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QTextEdit" name="droneEvents">
+   <widget class="QTextEdit" name="droneVerboseTxt">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -305,7 +305,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="emergencyLbl">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -331,7 +331,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="verboseLbl">
     <property name="geometry">
      <rect>
       <x>170</x>
@@ -357,7 +357,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_7">
+   <widget class="QLabel" name="informLbl">
     <property name="geometry">
      <rect>
       <x>340</x>
@@ -384,9 +384,9 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     </property>
    </widget>
   </widget>
-  <zorder>frame</zorder>
-  <zorder>frame_3</zorder>
-  <zorder>frame_4</zorder>
+  <zorder>tripDetailsFrm</zorder>
+  <zorder>trendsFrm</zorder>
+  <zorder>eventsLogFrm</zorder>
  </widget>
  <resources/>
  <connections/>

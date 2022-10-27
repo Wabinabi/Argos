@@ -9,8 +9,7 @@ Usability Feature Improvements:
 - [x] Selection of folder instead of files when selecting a folder to import. ==M==
   - [x] Not too hard but needs to find a definition
 
-- [ ] Pop up of multiple Import has been successful message boxes when opening the cloud file.
-  - [ ] this is a weird bug to fix
+- [x] Pop up of multiple Import has been successful message boxes when opening the cloud file.
 
 - [x] Units on graphs. ==XS==
 - [x] 3D manipulation panning capability. 
@@ -29,7 +28,7 @@ Usability Feature Improvements:
 - [x] Drop down box for font selection. ==S==
   - [ ] Already implemented, but icon not visible? Weird
 
-- [ ] Remove toggle button from the 3D model view.
+- [x] Remove toggle button from the 3D model view.
 - [ ] Loading time between switching graphs?
 - [ ] Additional tool tips and help. ==S==
 - [ ] Time series playback?
@@ -38,30 +37,20 @@ Usability Feature Improvements:
 - [x] Drone details resize and add scroll capability.
 
 ===========================================================
-What Mink is working on now (in order):
-- [x] Hidden point button on 3D point cloud
-- [x] Double import on 3D point cloud
-- [x] Instructions for rotate/zoom on 3D
-- [?] Access help at all times (F1 driven?)
-	- [?] Don't lock popups
-- [x] Dynamic Scaling
+High priority:
+- [x] Bold running drone stats categories
+- [x] Link actual Github in help
+- [x] Cursor messaging
 - [ ] 2D graphs events
 	- Clickable 2D points for events
 	- zoom and scroll on 2D graphs
-- [ ] Cursor messaging
-- [x] Remove usability tester note
-- [ ] #1b1b1biew trip data works without import!!
-- [ ] Light Mode (Settings)
-- [ ] Link actual Github in help
-- [ ] Throttle Data??? Where Delete? Make warning if not available??
-- [ ] 3D Panning
-- [ ] Bold running drone stats categories
-- [ ] Styling for checkboxes in 3D point cloud
+- [x] Don't allow "View Trip Data" if nothing is imported
+- [x] Indicate if data is missing (investigate throttle missing)
 - [ ] Naming conventions + commenting consistency
 	- [ ] Document purpose
 - [ ] .exe installation
 
-
+weird throttle bug with importing data more than once!!!
 
 Side thoughts:
 - In the 3D model, the different colour options can support colour blindess/ night time/blue light
@@ -89,16 +78,86 @@ Recent files:
 =================INSPO QT Designs==========================
 https://www.youtube.com/watch?v=hJKVb7WpQ_c&t=21s&ab_channel=Qt (Dark with Orange dials, sleek)
 
+================================
+Formatting:
+All functions are camel case
+class object is capital
+
+============CODE CLEANING===============
+Finish cleaning code files
+	1 header comment
+	2 commenting
+	3 passed values
+	4 general variables
+	5 update button/interaction names
+	6 reshuffle and tidy
+	
+
+plotter.cpp
+[x] 1
+[x] 2
+[x] 3
+[x] 4
+[x] 5
+
+plotter.h
+[x] 1
+[x] 4
+[x] 6
+
+
+tripdata.cpp
+[x] 1
+[x] 2
+[x] 3
+[x] 4
+[x] 5
+
+tripdata.h
+[x] 1
+[x] 4
+[x] 6
+
+homepage.cpp
+[X] 1
+[X] 2
+[X] 3
+[X] 4
+[ ] 5
+
+homepage.h
+[X] 1
+[X] 4
+[X] 6
+
+dronespecs.cpp
+[x] 1
+[x] 2
+[x] 3
+[x] 4
+[x] 5
+
+dronespecs.h
+[x] 1
+[x] 4
+[x] 6
+
+datatranslator.cpp
+[ ] 1
+[ ] 2
+[ ] 3
+[ ] 4
+[ ] 5
+
+datatranslator.h
+[ ] 1
+[ ] 4
+[ ] 6
 
 
 
 
-createMenus();
 
 
 
-create menu bar
 
-    helpAct = new QAction(tr("Open User Manual"), this);
-    helpAct->setStatusTip(tr("Opens the user manual in the default web browser"));
-    connect(helpAct, SIGNAL(triggered()), this, SLOT(help()));

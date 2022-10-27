@@ -6,6 +6,8 @@
 #ifndef DATATRANSLATOR_H
 #define DATATRANSLATOR_H
 
+/***************************************************/
+
 #include <QObject>
 #include <QFile>
 #include <QDir>
@@ -16,6 +18,7 @@
 #include <QDebug>
 #include <QMultiMap>
 
+/***************************************************/
 
 class DataTranslator : public QObject
 {
@@ -24,7 +27,7 @@ public:
     explicit DataTranslator(QObject *parent = nullptr);
     ~DataTranslator();
 
-    void SetFilePath(QString dataLocation,QString dataDestination);
+    void SetFilePath(QString _dataLocation,QString _dataDestination);
     bool GenerateFile();
 
     int numberDataPoints = 0;

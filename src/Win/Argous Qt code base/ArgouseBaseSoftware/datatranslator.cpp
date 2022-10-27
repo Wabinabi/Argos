@@ -13,9 +13,9 @@ DataTranslator::DataTranslator(QObject *parent)
 DataTranslator::~DataTranslator(){}
 
 /*Sets the file path from which the data is drawn from*/
-void DataTranslator::SetFilePath(QString dataLocation,QString dataDestination){
-    _dataPath = dataLocation;
-    _destPath = dataDestination;
+void DataTranslator::SetFilePath(QString _dataLocation,QString _dataDestination){
+    _dataPath = _dataLocation;
+    _destPath = _dataDestination;
 }
 
 /*Calls functions that generatse the local software files.

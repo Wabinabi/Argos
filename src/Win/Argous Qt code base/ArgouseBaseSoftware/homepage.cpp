@@ -95,7 +95,7 @@ void HomePage::addRecentFile(QString _recentFile) {
     /*Check if the file is already there*/
     bool fileAlreadyImported = false;
     for (int i = 0; i < recentFilesQueue.size(); i++ ) {
-        if (recentFilesQueue[i] == recentFile) {
+        if (recentFilesQueue[i] == _recentFile) {
             fileAlreadyImported = true;
         }
     }
@@ -329,7 +329,7 @@ HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString _dataFile, QString
         int foundCol = false;
 
         for (int i = 0; i < headerList.size(); i++) {
-            if (headerList[i].contains(colName, Qt::CaseInsensitive)) {
+            if (headerList[i].contains(_colName, Qt::CaseInsensitive)) {
                 foundCol = true;
                 colNumber = i;
             }
