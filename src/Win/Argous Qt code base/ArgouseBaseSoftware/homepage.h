@@ -68,6 +68,8 @@ public:
 
     QAction *helpAct;
 
+    QApplication *appParent;
+
 
 private slots:
 

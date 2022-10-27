@@ -802,11 +802,12 @@ void HomePage::darkMode(){
     QFile styleSheetFile("../ArgouseBaseSoftware/stylesheets/DarkMode.qss");
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
-    this->setStyleSheet(styleSheet);
+    appParent->setStyleSheet(styleSheet);
 }
 void HomePage::lightMode(){
     ui->DroneDisplayBlack->show();
     ui->DroneDisplayWhite->hide();
+
 
     QPalette pal = QPalette();
     pal.setColor(QPalette::Window, Qt::black);
@@ -815,7 +816,8 @@ void HomePage::lightMode(){
     QFile styleSheetFile("../ArgouseBaseSoftware/stylesheets/LightMode.qss");
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
-    this->setStyleSheet(styleSheet);
+    //this->setStyleSheet(styleSheet);
+    appParent->setStyleSheet(styleSheet);
 }
 
 void HomePage::about()

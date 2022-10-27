@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
     a.setApplicationName("Argous Base Software");
 
     HomePage homePage;
+    homePage.appParent = &a;
     homePage.show();
 
     return a.exec();
