@@ -384,16 +384,20 @@ HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> dr
              * 6..17 Tx Channels
              * 19: RX:          (Rx Marker)
              * 20..35 Rx Channels
-             * As we only want throttle (Ch3), we take token 4 of this message.
+             * As we only want throttle (Ch3), we take token 5 of this message.
              */
             tokens = data.message.split(QRegularExpression("\\s+"),Qt::SkipEmptyParts);
 
-            HomePage::DroneDataPoint point {
-                point.time = data.time,
-                point.y = tokens[5].toFloat()
-            };
+            // Only add the point of data is good
 
-            throttleData.append(point);
+            if (tokens[1] != "0") {
+                HomePage::DroneDataPoint point {
+                    point.time = data.time,
+                    point.y = tokens[5].toFloat()
+                };
+                throttleData.append(point);
+            }
+
         }
     }
     DroneSeriesData throttleSeries;

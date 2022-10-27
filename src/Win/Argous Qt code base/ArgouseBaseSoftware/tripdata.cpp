@@ -73,6 +73,15 @@ void TripData::drawStackedTrends(){
     drawXYSeries(throttleIndex, locThrottle, throttleChart, throttleChartView);
     drawXYSeries(altitudeIndex, locAltitude, altitudeChart, altitudeChartView);
 
+    // Disable the Throttle button and rename if there is no data found
+    if (locThrottle.data.size() == 0) {
+        ui->ThrottleBtn->setEnabled(false);
+        ui->ThrottleBtn->setText("Throttle not Enabled");
+    } else {
+        ui->ThrottleBtn->setEnabled(true);
+        ui->ThrottleBtn->setText("Display Throttle Trend");
+    }
+
     ui->stackedWidget->setCurrentIndex(defaultIndex);
     highlightTrendButton(defaultIndex);
 }
