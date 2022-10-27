@@ -42,47 +42,31 @@ class TripData : public QDialog
 
 public:
     TripData(QWidget *parent = nullptr,
-             QVector<HomePage::DroneEvent> *emergencyEvents = nullptr,
-             QVector<HomePage::DroneEvent> *verboseEvents = nullptr,
-             QVector<HomePage::DroneEvent> *informEvents = nullptr,
-             HomePage::DroneSeriesData *altitude = nullptr,
-             HomePage::DroneSeriesData *temperature = nullptr,
-             HomePage::DroneSeriesData *throttle = nullptr);
+             QVector<HomePage::DroneEvent> *_emergencyEvents = nullptr,
+             QVector<HomePage::DroneEvent> *_verboseEvents = nullptr,
+             QVector<HomePage::DroneEvent> *_informEvents = nullptr,
+             HomePage::DroneSeriesData *_altitude = nullptr,
+             HomePage::DroneSeriesData *_temperature = nullptr,
+             HomePage::DroneSeriesData *_throttle = nullptr);
     ~TripData();
 
-    void testPublicFunction();
-
-protected:
-
+    //void testPublicFunction();
 
 private slots:
-    //bool viewportEvent(QEvent *event);
-    //void mousePressEvent(QMouseEvent *event);
-    //void mouseMoveEvent(QMouseEvent *event);
-    //void mouseReleaseEvent(QMouseEvent *event);
     void keyPressEvent(QKeyEvent *event);
 
-    //UI buttons
     void on_HomeBtn_clicked();
     void on_DisplayModel_clicked();
-
-    //Plotting 2D data
-    //QLineSeries reshapeVector(QVector<QString> XYData);
-    //QLineSeries *XYSeries
-    void drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData, QChart *selChart, QChartView *selChartView);
-    void displayDroneEvents();
-    //void drawXYSeries(QVector<QString> XYData);
-
-    //UI buttons, these set the index associated with the page sought after by the user
-    //void on_EventsBtn_clicked();
     void on_ThrottleBtn_clicked();
     void on_TempBtn_clicked();
     void on_AltitudeBtn_clicked();
-    void displayDroneStats();
-    void help();
 
     void drawStackedTrends();
     void highlightTrendButton(int _index);
+    void drawXYSeries(int _stackIndex, HomePage::DroneSeriesData _droneData, QChart *_selChart, QChartView *_selChartView);
+    void displayDroneEvents();
+    void displayDroneStats();
+    void help();
 
 private:
     QVector<HomePage::DroneEvent> locEmergencyEvents;
@@ -93,17 +77,12 @@ private:
     HomePage::DroneSeriesData locTemperature;
     HomePage::DroneSeriesData locThrottle;
 
-
     Ui::TripData *ui;
     QScatterSeries *scatter;
     QScatterSeries *scatter2;
     QScatterSeries *scatter3;
 
-
-    //Chart Views for 2D plot & stacked layout
-
     QChart *currentChart = new QChart();
-
     QChart *eventsChart = new QChart();
     QChart *tempChart = new QChart();
     QChart *throttleChart = new QChart();

@@ -47,11 +47,10 @@ TripData::TripData(QWidget *_parent,
     locTemperature = *_temperature;
     locAltitude = *_altitude;
 
-    /*Populate widget with data*/
+    /*Populate window with data*/
     drawStackedTrends();
     displayDroneStats();
     displayDroneEvents();
-
 }
 
 
@@ -62,6 +61,7 @@ TripData::~TripData()
 
 /***************************************************/
 
+/*Draw each trend into the display stack, disable any trends that don't have data*/
 void TripData::drawStackedTrends(){
     /*Indexes for the stacked widget*/
     tempIndex = 0;
@@ -69,11 +69,12 @@ void TripData::drawStackedTrends(){
     altitudeIndex = 2;
     int defaultIndex = 0;
 
+    /*Draw each trend into the stacked widget*/
     drawXYSeries(tempIndex, locTemperature, tempChart, tempChartView);
     drawXYSeries(throttleIndex, locThrottle, throttleChart, throttleChartView);
     drawXYSeries(altitudeIndex, locAltitude, altitudeChart, altitudeChartView);
 
-    /*Disable trend button if it's data is not available*/
+    /*Disable trend button if its data is not available*/
     /*Throttle*/
     if (locThrottle.data.size() == 0) {
         ui->ThrottleBtn->setEnabled(false);
@@ -101,12 +102,12 @@ void TripData::drawStackedTrends(){
         ui->TempBtn->setText("Display Temperature Trend");
     }
 
-
     /*Set the default trend*/
     ui->stackedWidget->setCurrentIndex(defaultIndex);
     highlightTrendButton(defaultIndex);
 }
 
+/*Update which button is highlighted based on the index passed through*/
 void TripData::highlightTrendButton(int _index){
     switch (_index)  {
         case 0:
@@ -134,42 +135,44 @@ void TripData::highlightTrendButton(int _index){
     }
 }
 
-void TripData::drawXYSeries(int stackIndex, HomePage::DroneSeriesData droneData, QChart *selChart, QChartView *selChartView){
-    QLineSeries *XYSeries = new QLineSeries();
-    for (int i = 0; i < droneData.data.size(); ++i) {
-        XYSeries->append(droneData.data[i].time/1000, droneData.data[i].y);
+/*This function draws the XY series based on the index and data passed through*/
+void TripData::drawXYSeries(int _stackIndex, HomePage::DroneSeriesData _droneData, QChart *_selChart, QChartView *_selChartView){
+    /*Convert data - Append the data to an XY series*/
+    QLineSeries *_XYSeries = new QLineSeries();
+    for (int i = 0; i < _droneData.data.size(); ++i) {
+        _XYSeries->append(_droneData.data[i].time/1000, _droneData.data[i].y);
     }
 
-    selChart->addSeries(XYSeries);
-    selChart->legend()->hide();
+    /*Setup the chart with X/Y axis details*/
+    _selChart->addSeries(_XYSeries);
+    _selChart->legend()->hide();
 
     //X Axis
     QValueAxis *axisX = new QValueAxis;
 
     axisX->setTitleText("Time (s)");
-    selChart->addAxis(axisX, Qt::AlignBottom);
-    XYSeries->attachAxis(axisX);
+    _selChart->addAxis(axisX, Qt::AlignBottom);
+    _XYSeries->attachAxis(axisX);
 
     //Y Axis
     QValueAxis *axisY = new QValueAxis;
 
-    if (stackIndex == 0){axisY->setTitleText("Temperature (deg c)");}
+    if (_stackIndex == 0){axisY->setTitleText("Temperature (deg c)");}
+    if (_stackIndex == 1 ){axisY->setTitleText("Throttle (x/2056)");}
+    if (_stackIndex == 2){axisY->setTitleText("Height above ground (cm)");}
 
-    if (stackIndex == 1 ){axisY->setTitleText("Throttle (x/2056)");}
+    _selChart->addAxis(axisY, Qt::AlignLeft);
+    _XYSeries->attachAxis(axisY);
+    _selChartView->setRenderHint(QPainter::Antialiasing);
 
-    if (stackIndex == 2){axisY->setTitleText("Height above ground (cm)");}
-
-
-    selChart->addAxis(axisY, Qt::AlignLeft);
-    XYSeries->attachAxis(axisY);
-
-    selChartView->setRenderHint(QPainter::Antialiasing);
-    ui->stackedWidget->insertWidget(stackIndex, selChartView);
+    /*Insert the XY trend into the widget*/
+    ui->stackedWidget->insertWidget(_stackIndex, _selChartView);
 }
 
+/*Display the drone events in three seperate text boxes*/
 void TripData::displayDroneEvents(){
-
     QString line, htmlLine,textBlock;
+    /*Inform Events*/
     if (locInformEvents.size() > 0){
         for (int i = 0; i <locInformEvents.size(); i++){
             QString timeStr;
@@ -184,6 +187,7 @@ void TripData::displayDroneEvents(){
     }
     else {ui->droneInform->setText("No inform events occured/recorded");}
 
+    /*Emergency Events*/
     if (locEmergencyEvents.size() > 0){
         for (int i = 0; i <locEmergencyEvents.size(); i++){
             QString timeStr;
@@ -198,6 +202,7 @@ void TripData::displayDroneEvents(){
     }
     else {ui->droneEmergency->setText("No emergency events occured/recorded");}
 
+    /*Verbose Events*/
     if (locVerboseEvents.size() > 0){
         for (int i = 0; i <locVerboseEvents.size(); i++){
             QString timeStr;
@@ -213,10 +218,10 @@ void TripData::displayDroneEvents(){
     else {ui->droneEvents->setText("No verbose events occured/recorded");}
 }
 
+/*Display drone stats in text box*/
 void TripData::displayDroneStats(){
     QFile file("../ArgouseBaseSoftware/appdata/tripStats.txt");
     QString line, htmlLine, textBlock;
-
     QStringList tokens;
 
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -235,18 +240,14 @@ void TripData::displayDroneStats(){
     file.close();
 }
 
-void TripData::on_HomeBtn_clicked()
-{
-    parentWidget()->show();
-    close();
-}
-
+/*Generate and display the 3D visualisation*/
 void TripData::on_DisplayModel_clicked()
 {
     DataModel dataModel;
     dataModel.exec();
 }
 
+/*Trend buttons trigger the correct stacked widget to display*/
 void TripData::on_ThrottleBtn_clicked()
 {
     highlightTrendButton(throttleIndex);
@@ -268,6 +269,7 @@ void TripData::on_AltitudeBtn_clicked()
     currentChart = altitudeChart;
 }
 
+/*Generate response to any key presses - this is used in the 3D visualisation (data model)*/
 void TripData::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key()) {
@@ -294,6 +296,7 @@ void TripData::keyPressEvent(QKeyEvent *event)
     }
 }
 
+/*Load help*/
 void TripData::help()
 {
     QDesktopServices::openUrl(QUrl::fromLocalFile("../ArgouseBaseSoftware/appdata/docs/html/index.html"));
