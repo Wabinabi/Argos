@@ -303,6 +303,7 @@ HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString 
      */
 
     QVector<HomePage::DroneDataPoint> data;
+    data.clear();
 
 
     QFile file(dataFile);
@@ -344,6 +345,7 @@ HomePage::DroneSeriesData HomePage::readColumnFromCSV(QString dataFile, QString 
         HomePage::DroneSeriesData seriesData;
 
         seriesData.seriesName = colName,
+        seriesData.data.clear();
         seriesData.data = data;
 
         return seriesData;
@@ -366,6 +368,7 @@ HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> dr
     QStringList tokens;
 
     QVector<HomePage::DroneDataPoint> throttleData;
+    throttleData.clear();
 
     for (int i = 0; i < droneLogData.size(); i++) {
         data = droneLogData[i];
@@ -401,7 +404,8 @@ HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> dr
         }
     }
     DroneSeriesData throttleSeries;
-    throttleSeries.seriesName = "Throttle Data";
+    throttleSeries.seriesName = "Throttle Data";\
+    throttleSeries.data.clear();
     throttleSeries.data = throttleData;
 
     return throttleSeries;
@@ -651,6 +655,10 @@ bool HomePage::importLog(QString droneLogFile){
     QMessageBox msg;
 
     bool isSuccessful = false; // Remembers if the import was successful
+
+    verboseEvents.clear();
+    informEvents.clear();
+    emergencyEvents.clear();
 
     // Reads the selected file and stores each line
     // Further Processing will need to be performed here! Likely need to create a new function to call
