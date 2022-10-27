@@ -1,19 +1,25 @@
+/****************************************************
+ * Description: This file translates the raw drone data into useable data from the software.
+ * Author/s: Bi Wan Low, Monique Kuhn
+****************************************************/
+
 #include "datatranslator.h"
 
-DataTranslator::DataTranslator(QObject *parent)
-    : QObject{parent}
-{
+/***************************************************/
 
-}
+DataTranslator::DataTranslator(QObject *parent)
+    : QObject{parent}{}
 
 DataTranslator::~DataTranslator(){}
 
+/*Sets the file path from which the data is drawn from*/
 void DataTranslator::SetFilePath(QString dataLocation,QString dataDestination){
     _dataPath = dataLocation;
-    //_destPath = QFileInfo(dataDestination).absoluteDir().absolutePath();
     _destPath = dataDestination;
 }
 
+/*Calls functions that generatse the local software files.
+* Returns error messages if any fails.*/
 bool DataTranslator::GenerateFile(){
     if (!ReadData()){
         qDebug() << "ERROR: Failed to read file";
@@ -29,12 +35,13 @@ bool DataTranslator::GenerateFile(){
         return false;
     }
     if(!OutputToFile()){
-        qDebug() << "ERROR: Failed to calculate data";
+        qDebug() << "ERROR: Failed to load data";
         return false;
     }
     return true;
 }
 
+/*Read datas from raw data*/
 bool DataTranslator::ReadData(){
     QVector<QString> row;
     QFile file(_dataPath);
@@ -55,6 +62,7 @@ bool DataTranslator::ReadData(){
         return true;
 }
 
+/*Finds data columns from raw data*/
 bool DataTranslator::AssignColumn(){
     int index = 0;
     int i = 0;
@@ -74,6 +82,7 @@ bool DataTranslator::AssignColumn(){
     return true;
 }
 
+/*Calculates data from raw data*/
 bool DataTranslator::Calculate(){
       //QString today = QDate::currentDate().toString("yyyy-MM-dd");
      //QString filename = _destPath + "/" + today + ".txt";
@@ -123,6 +132,7 @@ bool DataTranslator::Calculate(){
     return true;
 }
 
+/*Loads data from raw data*/
 bool DataTranslator::OutputToFile(){
     return true;
 }

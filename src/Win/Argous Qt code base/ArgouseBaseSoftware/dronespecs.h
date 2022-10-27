@@ -1,6 +1,6 @@
 /****************************************************
  * Description: Drone Specs header file for dronespecs.cpp
- * Author/s: Jimmy
+ * Author/s: Jimmy, Monique
 ****************************************************/
 
 #ifndef DRONESPECS_H

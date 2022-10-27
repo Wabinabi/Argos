@@ -1,3 +1,8 @@
+/****************************************************
+ * Description: Header file for plotter.cpp
+ * Author/s: Bi Wan Low, Monique Kuhn
+****************************************************/
+
 #ifndef DATATRANSLATOR_H
 #define DATATRANSLATOR_H
 

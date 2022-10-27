@@ -1,6 +1,6 @@
 /****************************************************
  * Description: Drone Specs page
- * Author/s: Jimmy
+ * Author/s: Jimmy, Monique
 ****************************************************/
 
 #include "dronespecs.h"
