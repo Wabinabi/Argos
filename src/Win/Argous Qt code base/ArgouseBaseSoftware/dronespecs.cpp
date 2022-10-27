@@ -1,4 +1,11 @@
+/****************************************************
+ * Description: Drone Specs page
+ * Author/s: Jimmy
+****************************************************/
+
 #include "dronespecs.h"
+
+/***************************************************/
 
 DroneSpecs::DroneSpecs(QWidget *parent) :
     QDialog(parent),

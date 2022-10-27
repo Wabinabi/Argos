@@ -1,9 +1,15 @@
+/****************************************************
+ * Description: Drone Specs header file for dronespecs.cpp
+ * Author/s: Jimmy
+****************************************************/
+
 #ifndef DRONESPECS_H
 #define DRONESPECS_H
 
 #include <QDialog>
-
 #include "ui_dronespecs.h"
+
+/***************************************************/
 
 namespace Ui {
 class DroneSpecs;
