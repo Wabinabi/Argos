@@ -66,7 +66,7 @@ void HomePage::readRecentFilesLog()
     QMessageBox msg;
 
     recentFilesQueue.clear();
-    ui->recentFiles->clear();
+    ui->RecentFilesLst->clear();
 
     /*Reads text file log line by line, if no log file exists- it is built.*/
     if(!file.exists()){
@@ -78,7 +78,7 @@ void HomePage::readRecentFilesLog()
                 QTextStream stream(&file);
                 while (!stream.atEnd()){
                     line = stream.readLine();
-                    ui->recentFiles->addItem(line);
+                    ui->RecentFilesLst->addItem(line);
                     recentFilesQueue.enqueue(line);
                 }
         file.close();
@@ -129,18 +129,18 @@ void HomePage::clearRecentFiles() {
     QFile file(fileName);
 
     recentFilesQueue.clear();
-    ui->recentFiles->clear();
+    ui->RecentFilesLst->clear();
 
     file.open(QFile::WriteOnly|QFile::Truncate);
 }
 
 /*Reads all the running drone stats and displays it on the page*/
 void HomePage::readDroneStats(){  
-    QFile file("../ArgouseBaseSoftware/appdata/droneStats.txt");
+    QFile file("../ArgouseBaseSoftware/appdata/DroneStatsTxt.txt");
     QString line, htmlLine,textBlock;
     QStringList tokens;
 
-    ui->droneStats->setReadOnly(true);
+    ui->DroneStatsTxt->setReadOnly(true);
 
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)){
         QTextStream stream(&file);
@@ -151,14 +151,14 @@ void HomePage::readDroneStats(){
 
             textBlock.append(htmlLine);
         }
-        ui->droneStats->setText(textBlock);
+        ui->DroneStatsTxt->setText(textBlock);
     }
     file.close();
 }
 
 /*Loads the trip data page and passes it necessary data.
  *Blocks trip data from being opened if data is not present.*/
-void HomePage::on_pushButton_clicked()
+void HomePage::on_ViewTripDataBtn_clicked()
 {
     if (!altitude.data.empty()){
            TripData tripData(this, &emergencyEvents, &verboseEvents, &informEvents, &altitude, &temperature, &throttle);
@@ -174,7 +174,7 @@ void HomePage::on_pushButton_clicked()
 
 /*This function generates a popup display that depicts the drone specs and data.
 * The display features a Save, Close, and Reset button that caters for editing capabilities*/
-void HomePage::on_pushButton_4_clicked()
+void HomePage::on_ViewDroneDetsBtn_clicked()
 {
     /*Checks if drone data file exists*/
     if (!droneDetails->isVisible()) {
@@ -300,7 +300,7 @@ void HomePage::on_droneDetailReset_clicked() {
     QMessageBox msg;
     msg.setText("Drone details reset!");
     msg.exec();
-    on_pushButton_4_clicked();
+    on_ViewDroneDetsBtn_clicked();
 }
 
 /*Reads column name data from the CSV file from the passed through data*/
@@ -430,10 +430,10 @@ HomePage::DroneSeriesData HomePage::extractThrottleValues(QVector<DroneEvent> _d
 void HomePage::on_ImportBtn_clicked()
 {
     // Load explorer and browse for file if no file has been selected
-    QString filename = ui->FileLocation->toPlainText();
+    QString filename = ui->FileLocationTxt->toPlainText();
     if(filename.isEmpty()){
-        on_Browse_clicked();
-        filename = ui->FileLocation->toPlainText();
+        on_BrowseBtn_clicked();
+        filename = ui->FileLocationTxt->toPlainText();
     }
 
     configFileLocation = filename;
@@ -446,8 +446,8 @@ void HomePage::on_ImportBtn_clicked()
     bool importConfSuccess = importConf(filename + "\\as7.config", &droneConfig);
     bool importPLYSuccess = importPLY(filename + "\\data.csv");
 
-    bool importTripsSuccess = importConf(filename + ".\\ArgouseBaseSoftware\\appdata\\tripStats.txt", &tripStats);
-    bool importDroneStats = importConf(filename + ".\\ArgouseBaseSoftware\\appdata\\droneStats.txt", &runningStats);
+    //bool importTripsSuccess = importConf(filename + ".\\ArgouseBaseSoftware\\appdata\\tripStats.txt", &tripStats);
+    //bool importDroneStats = importConf(filename + ".\\ArgouseBaseSoftware\\appdata\\DroneStatsTxt.txt", &runningStats);
 
     bool importDetailsSuccess = importConf("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
     importDetailsSuccess = importConf("..\\ArgouseBaseSoftware\\appdata\\defaultDroneDetails.txt", &defaultDroneDetailsMap);
@@ -539,7 +539,7 @@ void HomePage::on_ImportBtn_clicked()
         runningStats["Date of Last Trip Imported"] =QDate::currentDate().toString("yyyy-MM-dd");
         runningStats["Last Maintenance Date"] = "2022-10-03";
 
-        writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneStats.txt", &runningStats);
+        writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\DroneStatsTxt.txt", &runningStats);
 
         //updateRecentFileActions(filename);
         addRecentFile(filename);
@@ -870,22 +870,22 @@ void HomePage::closeEvent (QCloseEvent *_event)
 }
 
 /*Opens windows explorer browsing feature upon clicking '...'*/
-void HomePage::on_Browse_clicked()
+void HomePage::on_BrowseBtn_clicked()
 {
     QString fileLocationStr = QFileDialog::getExistingDirectory(this, tr("Open Directory"),
                                                     "/",
                                                     QFileDialog::DontResolveSymlinks);
-    ui->FileLocation->setPlainText(fileLocationStr);
+    ui->FileLocationTxt->setPlainText(fileLocationStr);
 }
 
 /*If recent file in fecents files is clicked, the file location directory is updated*/
-void HomePage::on_recentFiles_itemClicked(QListWidgetItem *_item)
+void HomePage::on_RecentFilesLst_itemClicked(QListWidgetItem *_item)
 {
-    ui->FileLocation->setPlainText(_item->text());
+    ui->FileLocationTxt->setPlainText(_item->text());
 }
 
 /*Calls export function when export button clicked*/
-void HomePage::on_ExportButton_clicked()
+void HomePage::on_ExportBtn_clicked()
 {
     exportPLY();
 }
@@ -899,9 +899,9 @@ void HomePage::on_HelpBtn_clicked()
 /*When the reset button is clicked. The file location directory and data is cleared.*/
 void HomePage::on_ResetBtn_clicked()
 {
-    ui->FileLocation->setPlainText("");
+    ui->FileLocationTxt->setPlainText("");
     importFailed = true; // Require user to import new data
-    ui->droneStats->setPlainText("");
+    ui->DroneStatsTxt->setPlainText("");
     QMessageBox msg;
 
     verboseEvents.clear();
@@ -921,9 +921,9 @@ void HomePage::on_FileBtn_clicked()
 }
 
 /*Clears file location directory but NOT the data*/
-void HomePage::on_ImportBtn_2_clicked()
+void HomePage::on_ClearBtn_clicked()
 {
-    ui->FileLocation->setPlainText("");
+    ui->FileLocationTxt->setPlainText("");
     importFailed = true;
 }
 

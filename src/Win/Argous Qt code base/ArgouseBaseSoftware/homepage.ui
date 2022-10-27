@@ -29,7 +29,7 @@
    <bool>true</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="ImportData">
+   <widget class="QFrame" name="ImportDataFr">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -44,7 +44,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPlainTextEdit" name="FileLocation">
+    <widget class="QPlainTextEdit" name="FileLocationTxt">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -78,7 +78,7 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="ViewTripDataBtn">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -94,7 +94,7 @@
       <string>View Trip Data</string>
      </property>
     </widget>
-    <widget class="QToolButton" name="Browse">
+    <widget class="QToolButton" name="BrowseBtn">
      <property name="geometry">
       <rect>
        <x>380</x>
@@ -107,7 +107,7 @@
       <string>...</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label_7">
+    <widget class="QLabel" name="ImportDroneDataLbl">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -147,7 +147,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="ImportBtn_2">
+       <widget class="QPushButton" name="ClearBtn">
         <property name="statusTip">
          <string>Clears imported data</string>
         </property>
@@ -161,7 +161,7 @@ color: rgb(255, 255, 255)</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="ExportButton">
+       <widget class="QPushButton" name="ExportBtn">
         <property name="statusTip">
          <string>Export Map as PLY Document</string>
         </property>
@@ -186,7 +186,7 @@ color: rgb(255, 255, 255)</string>
      </layout>
     </widget>
    </widget>
-   <widget class="QFrame" name="DroneVisual">
+   <widget class="QFrame" name="DroneVisualFr">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -233,7 +233,7 @@ color: rgb(255, 255, 255)</string>
       </size>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton_4">
+    <widget class="QPushButton" name="ViewDroneDetsBtn">
      <property name="geometry">
       <rect>
        <x>30</x>
@@ -283,9 +283,9 @@ color: rgb(255, 255, 255)</string>
     </widget>
     <zorder>DroneDisplayBlack</zorder>
     <zorder>DroneDisplayWhite</zorder>
-    <zorder>pushButton_4</zorder>
+    <zorder>ViewDroneDetsBtn</zorder>
    </widget>
-   <widget class="QFrame" name="frame">
+   <widget class="QFrame" name="RunningStatsFrm">
     <property name="geometry">
      <rect>
       <x>540</x>
@@ -300,7 +300,7 @@ color: rgb(255, 255, 255)</string>
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_3">
+    <widget class="QLabel" name="DroneStatsLbl">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -323,7 +323,7 @@ color: rgb(255, 255, 255)</string>
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QTextEdit" name="droneStats">
+    <widget class="QTextEdit" name="DroneStatsTxt">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -350,7 +350,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_2">
+   <widget class="QFrame" name="RecentImportsFrm">
     <property name="geometry">
      <rect>
       <x>130</x>
@@ -365,7 +365,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_6">
+    <widget class="QLabel" name="RecentImportsLbl">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -388,7 +388,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
-    <widget class="QListWidget" name="recentFiles">
+    <widget class="QListWidget" name="RecentFilesLst">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -402,7 +402,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      </property>
     </widget>
    </widget>
-   <widget class="QFrame" name="frame_3">
+   <widget class="QFrame" name="SideBarFrm">
     <property name="geometry">
      <rect>
       <x>-1</x>
@@ -423,7 +423,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_5">
+    <widget class="QLabel" name="Icon">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -524,7 +524,7 @@ border-radius: 0px;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QLabel" name="TitleLbl">
     <property name="geometry">
      <rect>
       <x>140</x>

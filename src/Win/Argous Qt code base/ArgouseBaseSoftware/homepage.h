@@ -71,16 +71,16 @@ public:
 
 
 private slots:
-    void on_pushButton_clicked();
+    void on_ViewTripDataBtn_clicked();
     void on_ImportBtn_clicked();
-    void on_Browse_clicked();
-    void on_pushButton_4_clicked();
-    void on_recentFiles_itemClicked(QListWidgetItem *_item);
-    void on_ExportButton_clicked();
+    void on_BrowseBtn_clicked();
+    void on_ViewDroneDetsBtn_clicked();
+    void on_RecentFilesLst_itemClicked(QListWidgetItem *_item);
+    void on_ExportBtn_clicked();
     void on_HelpBtn_clicked();
     void on_ResetBtn_clicked();
     void on_FileBtn_clicked();
-    void on_ImportBtn_2_clicked();
+    void on_ClearBtn_clicked();
 
     void exportPLY();
 
@@ -161,7 +161,7 @@ private:
     enum { MaxRecentFiles = 5 };
     QAction *recentFileActs[MaxRecentFiles];
 
-    QVector<QString> recentFiles;
+    QVector<QString> RecentFilesLst;
     QQueue<QString> recentFilesQueue;
 
     int tripDuration = 0;

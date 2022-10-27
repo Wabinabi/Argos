@@ -1,10 +1,4 @@
-Unresolved issues (NOT IMPORTANT/LOW/MED/HIGH/URGENT):
-
-- MED: "Browse" text window, change to side scroll when file directory is too long.
-- MED: Dynamic scaling
-
-===========================================================
-Usability Feature Improvements:
+To-do (x complete, - not to be implemented)
 
 - [x] Selection of folder instead of files when selecting a folder to import. ==M==
   - [x] Not too hard but needs to find a definition
@@ -18,36 +12,35 @@ Usability Feature Improvements:
 - [x] Formatting for trip details to better draw the eye. ==M==
   - [x] probably some sort of thing similar to… the drone details will take some time
 
-- [ ] Amount of points generated for the 3D map was expected to be within the 3D cloud widget themselves. ==XS==
+- -] Amount of points generated for the 3D map was expected to be within the 3D cloud widget themselves. ==XS==
 - [x] Pop up to indicate to the user that the drone details had been saved. ==XS==
 - [x] Option to revert drone details to  default values? ==S==
 - [x] Implement widget focus to allow multiple windows be open and active at once.==XL==
 - [x] Placement of the Export function.   Next to the import function?   In the 3D point cloud widget?  Multiple export buttons? ==S==
-- [ ] Saving settings for the 3D model view.
-- [ ] Fix checkboxes for the 3D model view.
+- [x] Saving settings for the 3D model view.
+- [x] Fix checkboxes for the 3D model view.
 - [x] Drop down box for font selection. ==S==
-  - [ ] Already implemented, but icon not visible? Weird
+  - [-] Already implemented, but icon not visible? Weird
 
 - [x] Remove toggle button from the 3D model view.
-- [ ] Loading time between switching graphs?
-- [ ] Additional tool tips and help. ==S==
-- [ ] Time series playback?
-- [ ] Flight path depiction.
-- [ ] Some of the fonts are too hard to see.
+- [-] Loading time between switching graphs?
+- [x] Additional tool tips and help. ==S==
+- [-] Time series playback?
+- [-] Flight path depiction.
+- [-] Some of the fonts are too hard to see.
 - [x] Drone details resize and add scroll capability.
 
-===========================================================
-High priority:
+
 - [x] Bold running drone stats categories
 - [x] Link actual Github in help
 - [x] Cursor messaging
-- [ ] 2D graphs events
+- [-] 2D graphs events
 	- Clickable 2D points for events
 	- zoom and scroll on 2D graphs
 - [x] Don't allow "View Trip Data" if nothing is imported
 - [x] Indicate if data is missing (investigate throttle missing)
-- [ ] Naming conventions + commenting consistency
-	- [ ] Document purpose
+- [x] Naming conventions + commenting consistency
+	- [x] Document purpose
 - [ ] .exe installation
 
 weird throttle bug with importing data more than once!!!
@@ -78,11 +71,6 @@ Recent files:
 =================INSPO QT Designs==========================
 https://www.youtube.com/watch?v=hJKVb7WpQ_c&t=21s&ab_channel=Qt (Dark with Orange dials, sleek)
 
-================================
-Formatting:
-All functions are camel case
-class object is capital
-
 ============CODE CLEANING===============
 Finish cleaning code files
 	1 header comment
@@ -98,7 +86,6 @@ plotter.cpp
 [x] 2
 [x] 3
 [x] 4
-[x] 5
 
 plotter.h
 [x] 1
@@ -123,7 +110,7 @@ homepage.cpp
 [X] 2
 [X] 3
 [X] 4
-[ ] 5
+[x] 5
 
 homepage.h
 [X] 1
@@ -135,7 +122,6 @@ dronespecs.cpp
 [x] 2
 [x] 3
 [x] 4
-[x] 5
 
 dronespecs.h
 [x] 1
@@ -143,16 +129,21 @@ dronespecs.h
 [x] 6
 
 datatranslator.cpp
-[ ] 1
-[ ] 2
-[ ] 3
-[ ] 4
-[ ] 5
+[x] 1
+[x] 2
+[x] 3
+[x] 4
 
 datatranslator.h
-[ ] 1
-[ ] 4
-[ ] 6
+[x] 1
+[x] 4
+[x] 6
+
+
+
+
+
+
 
 
 
