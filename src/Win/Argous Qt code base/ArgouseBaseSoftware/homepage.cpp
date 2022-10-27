@@ -1059,3 +1059,10 @@ void HomePage::on_FileBtn_clicked()
     on_ImportBtn_clicked();
 }
 
+
+void HomePage::on_ImportBtn_2_clicked()
+{
+    ui->FileLocation->setPlainText("");
+    importFailed = true;
+}
+

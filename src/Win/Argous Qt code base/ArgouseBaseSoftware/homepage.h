@@ -101,6 +101,8 @@ private slots:
     void on_FileBtn_clicked();
 
 
+    void on_ImportBtn_2_clicked();
+
 private:
     Ui::HomePage *ui;
     void UsabilityTestSim();
