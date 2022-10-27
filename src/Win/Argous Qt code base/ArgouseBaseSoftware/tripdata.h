@@ -1,9 +1,15 @@
+/****************************************************
+ * Description: Header file for plotter.cpp
+ * Author/s: Monique Kuhn
+****************************************************/
+
 #ifndef TRIPDATA_H
 #define TRIPDATA_H
 
 #include <QDialog>
 
-//ALL THE FREAKING INCLUDES FOR A GRAPH
+/***************************************************/
+
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 #include <QtCharts/QChartView>
@@ -21,6 +27,8 @@
 #include <QtWidgets/QRubberBand>
 
 #include <homepage.h>
+
+/***************************************************/
 
 QT_USE_NAMESPACE
 

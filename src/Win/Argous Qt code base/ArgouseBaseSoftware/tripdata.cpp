@@ -18,14 +18,14 @@
 
 HomePage *homePage;
 
-TripData::TripData(QWidget *parent,
-       QVector<HomePage::DroneEvent> *emergencyEvents,
-       QVector<HomePage::DroneEvent> *verboseEvents,
-       QVector<HomePage::DroneEvent> *informEvents,
-       HomePage::DroneSeriesData *altitude,
-       HomePage::DroneSeriesData *temperature,
-       HomePage::DroneSeriesData *throttle) :
-        QDialog(parent),
+TripData::TripData(QWidget *_parent,
+       QVector<HomePage::DroneEvent> *_emergencyEvents,
+       QVector<HomePage::DroneEvent> *_verboseEvents,
+       QVector<HomePage::DroneEvent> *_informEvents,
+       HomePage::DroneSeriesData *_altitude,
+       HomePage::DroneSeriesData *_temperature,
+       HomePage::DroneSeriesData *_throttle) :
+        QDialog(_parent),
         ui(new Ui::TripData),
         isTouching(false)
 {
@@ -39,13 +39,13 @@ TripData::TripData(QWidget *parent,
     void passData();
 
     /*Getter/Setters for events and trends data*/
-    locEmergencyEvents = *emergencyEvents;
-    locVerboseEvents = *verboseEvents;
-    locInformEvents = *informEvents;
+    locEmergencyEvents = *_emergencyEvents;
+    locVerboseEvents = *_verboseEvents;
+    locInformEvents = *_informEvents;
 
-    locThrottle = *throttle;
-    locTemperature = *temperature;
-    locAltitude = *altitude;
+    locThrottle = *_throttle;
+    locTemperature = *_temperature;
+    locAltitude = *_altitude;
 
     /*Populate widget with data*/
     drawStackedTrends();
@@ -73,7 +73,8 @@ void TripData::drawStackedTrends(){
     drawXYSeries(throttleIndex, locThrottle, throttleChart, throttleChartView);
     drawXYSeries(altitudeIndex, locAltitude, altitudeChart, altitudeChartView);
 
-    // Disable the Throttle button and rename if there is no data found
+    /*Disable trend button if it's data is not available*/
+    /*Throttle*/
     if (locThrottle.data.size() == 0) {
         ui->ThrottleBtn->setEnabled(false);
         ui->ThrottleBtn->setText("Throttle not Enabled");
@@ -82,6 +83,26 @@ void TripData::drawStackedTrends(){
         ui->ThrottleBtn->setText("Display Throttle Trend");
     }
 
+    /*Altitude*/
+    if (locThrottle.data.size() == 0) {
+        ui->AltitudeBtn->setEnabled(false);
+        ui->AltitudeBtn->setText("Altitude not Enabled");
+    } else {
+        ui->AltitudeBtn->setEnabled(true);
+        ui->AltitudeBtn->setText("Display Altitude Trend");
+    }
+
+    /*Temperature*/
+    if (locThrottle.data.size() == 0) {
+        ui->TempBtn->setEnabled(false);
+        ui->TempBtn->setText("Temperature not Enabled");
+    } else {
+        ui->TempBtn->setEnabled(true);
+        ui->TempBtn->setText("Display Temperature Trend");
+    }
+
+
+    /*Set the default trend*/
     ui->stackedWidget->setCurrentIndex(defaultIndex);
     highlightTrendButton(defaultIndex);
 }
