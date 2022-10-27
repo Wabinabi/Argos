@@ -1,5 +1,12 @@
+/****************************************************
+ * Description: Header file for plotter.cpp
+ * Author/s: Monique Kuhn
+****************************************************/
+
 #ifndef PLOTTER_H
 #define PLOTTER_H
+
+/***************************************************/
 
 #include <QtDataVisualization/q3dscatter.h>
 #include <QtDataVisualization/qabstract3dseries.h>
@@ -21,6 +28,8 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QLabel>
+
+/***************************************************/
 
 class Plotter : public QObject
 {
