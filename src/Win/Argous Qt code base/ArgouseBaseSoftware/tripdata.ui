@@ -179,12 +179,11 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
      <height>191</height>
     </rect>
    </property>
+   <property name="accessibleName">
+    <string>eventsLogFrm</string>
+   </property>
    <property name="autoFillBackground">
     <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(69, 142, 149);
-border-radius: 5px;</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -195,9 +194,9 @@ border-radius: 5px;</string>
    <widget class="QTextEdit" name="droneEmergencyTxt">
     <property name="geometry">
      <rect>
-      <x>0</x>
+      <x>20</x>
       <y>60</y>
-      <width>161</width>
+      <width>151</width>
       <height>121</height>
      </rect>
     </property>

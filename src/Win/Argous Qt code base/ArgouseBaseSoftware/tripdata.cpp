@@ -79,6 +79,7 @@ void TripData::drawStackedTrends(){
     if (locThrottle.data.size() == 0) {
         ui->throttleBtn->setEnabled(false);
         ui->throttleBtn->setText("Throttle not Enabled");
+        defaultIndex = -1;
     } else {
         ui->throttleBtn->setEnabled(true);
         ui->throttleBtn->setText("Display Throttle Trend");
@@ -103,8 +104,10 @@ void TripData::drawStackedTrends(){
     }
 
     /*Set the default trend*/
-    ui->stackedWidget->setCurrentIndex(defaultIndex);
-    highlightTrendButton(defaultIndex);
+    if(defaultIndex != -1){
+        ui->stackedWidget->setCurrentIndex(defaultIndex);
+        highlightTrendButton(defaultIndex);
+    }
 }
 
 /*Update which button is highlighted based on the index passed through*/
