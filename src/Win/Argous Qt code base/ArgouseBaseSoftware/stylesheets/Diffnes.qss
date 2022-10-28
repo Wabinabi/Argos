@@ -990,3 +990,16 @@ QSizeGrip
 	border: none;
 
 }
+
+/*-----eventsLogFrm-----*/
+QFrame#eventsLogFrm
+{
+	background-color: rgb(69, 142, 149);
+	border-radius: 5px;
+}
+
+/*-----QTextEdit-----*/
+QTextEdit
+{
+	background-color: transparent;
+}

@@ -221,11 +221,11 @@ QPushButton::checked
 
 }
 
-
 /*-----QLineEdit-----*/
 QLineEdit
 {
 	background-color: #fff;
+	background-color: #bebebe;
 	color : #424242;
 	border: 1px solid #fff;
 	padding: 3px;
@@ -238,7 +238,7 @@ QLineEdit
 /*-----QPlainTextEdit-----*/
 QPlainTextEdit
 {
-	background-color: #fff;
+	background-color: transparent;
 	color : #242424;
 	border: 1px solid #fff;
 	padding: 3px;
@@ -688,7 +688,7 @@ QListView::item:hover {
 QCheckBox
 {
 	background-color: transparent;
-    color: #fff;
+    color: #000;
 	border: none;
 
 }
@@ -1000,4 +1000,17 @@ QSizeGrip
 	background-color: image("./ressources/sizegrip.png"); /*To replace*/
 	border: none;
 
+}
+
+/*-----eventsLogFrm-----*/
+QFrame#eventsLogFrm
+{
+	background-color: #69C1CB;
+	border-radius: 5px;
+}
+
+/*-----QTextEdit-----*/
+QTextEdit
+{
+	background-color: transparent;
 }
