@@ -22,7 +22,6 @@ CONFIG -= app_bundle
 SOURCES += \
         datamodel.cpp \
         datatranslator.cpp \
-        dronespecs.cpp \
         homepage.cpp \
         main.cpp \
         plotter.cpp \
@@ -35,14 +34,12 @@ SOURCES += \
 
 FORMS += \
     datamodel.ui \
-    dronespecs.ui \
     homepage.ui \
     tripdata.ui
 
 HEADERS += \
     datamodel.h \
     datatranslator.h \
-    dronespecs.h \
     homepage.h \
     plotter.h \
     tripdata.h
