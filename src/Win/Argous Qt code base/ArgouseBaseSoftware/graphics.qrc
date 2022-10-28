@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>graphics/Drone_Dark.png</file>
+        <file>graphics/droneArtboard 1.png</file>
+        <file>graphics/fileArtboard 12.png</file>
+        <file>graphics/helpArtboard 10.png</file>
+        <file>graphics/iconArtboard 8.png</file>
+        <file>graphics/logoArtboard 6.png</file>
+        <file>graphics/logoArtboard 5_1.png</file>
+    </qresource>
+</RCC>

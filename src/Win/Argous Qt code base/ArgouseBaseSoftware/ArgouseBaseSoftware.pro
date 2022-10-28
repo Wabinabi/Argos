@@ -44,4 +44,7 @@ HEADERS += \
     plotter.h \
     tripdata.h
 
+RESOURCES += \
+    graphics.qrc
+
 
