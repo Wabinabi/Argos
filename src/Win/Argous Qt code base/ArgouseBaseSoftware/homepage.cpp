@@ -791,6 +791,8 @@ void HomePage::createActions()
     connect(exportAct, SIGNAL(triggered()), this, SLOT(exportPLY()));
 
     helpAct = new QAction(tr("Open User Manual"), this);
+    helpAct->setStatusTip(tr("Opens the user manual in the default web browser"));
+    connect(helpAct, SIGNAL(triggered()), this, SLOT(help()));
 
     QShortcut *shortcut = new QShortcut(QKeySequence(QKeySequence::HelpContents),this);
     connect(shortcut, SIGNAL(activated()), this, SLOT(help()));
