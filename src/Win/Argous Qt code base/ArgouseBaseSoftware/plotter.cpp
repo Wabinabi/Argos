@@ -81,7 +81,7 @@ void Plotter::addData()
     QScatterDataItem* ptrToDataArray = &dataArray->first();
 
     /*References the temporary .PLY file created on import in homepage.cpp*/
-    QString filename = "../ArgouseBaseSoftware/appdata/as7-map.ply";
+    QString filename = "ArgouseBaseSoftware/appdata/as7-map.ply";
     QFile file(filename);
     QVector<QString> importedPLYData;
     QMessageBox msg;

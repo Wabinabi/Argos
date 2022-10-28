@@ -223,7 +223,7 @@ void TripData::displayDroneEvents(){
 
 /*Display drone stats in text box*/
 void TripData::displayDroneStats(){
-    QFile file("../ArgouseBaseSoftware/appdata/tripStats.txt");
+    QFile file("ArgouseBaseSoftware/appdata/tripStats.txt");
     QString line, htmlLine, textBlock;
     QStringList tokens;
 
@@ -302,7 +302,7 @@ void TripData::keyPressEvent(QKeyEvent *event)
 /*Load help*/
 void TripData::help()
 {
-    QDesktopServices::openUrl(QUrl::fromLocalFile("../ArgouseBaseSoftware/appdata/docs/html/index.html"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile("ArgouseBaseSoftware/appdata/docs/html/index.html"));
 }
 
 

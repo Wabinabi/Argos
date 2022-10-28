@@ -136,7 +136,7 @@ void HomePage::clearRecentFiles() {
 
 /*Reads all the running drone stats and displays it on the page*/
 void HomePage::readDroneStats(){  
-    QFile file("../ArgouseBaseSoftware/appdata/DroneStatsTxt.txt");
+    QFile file("ArgouseBaseSoftware/appdata/DroneStatsTxt.txt");
     QString line, htmlLine,textBlock;
     QStringList tokens;
 
@@ -274,7 +274,7 @@ void HomePage::saveDroneDetails() {
     }
 
     writeMapToFile(configFileLocation + "\\as7.config", &droneConfig);
-    writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
+    writeMapToFile("ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
 }
 
 /*Calls save function when drone save button clicked. Provides user feedback*/
@@ -294,7 +294,7 @@ void HomePage::on_droneDetailReset_clicked() {
         droneDetailsMap[i.key()] = i.value();
     }
 
-    writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
+    writeMapToFile("ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
     on_droneDetailClose_clicked();
 
     QMessageBox msg;
@@ -449,8 +449,8 @@ void HomePage::on_ImportBtn_clicked()
     //bool importTripsSuccess = importConf(filename + ".\\ArgouseBaseSoftware\\appdata\\tripStats.txt", &tripStats);
     //bool importDroneStats = importConf(filename + ".\\ArgouseBaseSoftware\\appdata\\DroneStatsTxt.txt", &runningStats);
 
-    bool importDetailsSuccess = importConf("..\\ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
-    importDetailsSuccess = importConf("..\\ArgouseBaseSoftware\\appdata\\defaultDroneDetails.txt", &defaultDroneDetailsMap);
+    bool importDetailsSuccess = importConf("ArgouseBaseSoftware\\appdata\\droneDetails.txt", &droneDetailsMap);
+    importDetailsSuccess = importConf("ArgouseBaseSoftware\\appdata\\defaultDroneDetails.txt", &defaultDroneDetailsMap);
 
 
     // Create error message
@@ -523,7 +523,7 @@ void HomePage::on_ImportBtn_clicked()
         tripStats["Number of Events"] = QString::number(numberEvents);
         tripStats["Number of Critical Events"] = QString::number(numberCriticalEvents);
 
-        writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\tripStats.txt", &tripStats);
+        writeMapToFile("ArgouseBaseSoftware\\appdata\\tripStats.txt", &tripStats);
 
         // the running data we read from what's existing, update, and store
 
@@ -539,7 +539,7 @@ void HomePage::on_ImportBtn_clicked()
         runningStats["Date of Last Trip Imported"] =QDate::currentDate().toString("yyyy-MM-dd");
         runningStats["Last Maintenance Date"] = "2022-10-03";
 
-        writeMapToFile("..\\ArgouseBaseSoftware\\appdata\\DroneStatsTxt.txt", &runningStats);
+        writeMapToFile("ArgouseBaseSoftware\\appdata\\DroneStatsTxt.txt", &runningStats);
 
         //updateRecentFileActions(filename);
         addRecentFile(filename);
@@ -619,7 +619,7 @@ bool HomePage::importPLY(QString droneCSVFile){
 
     // PLY file is saved to disk (probably in appdata) and referenced\
     //  by plotter.cpp
-    QString dest = "..\\ArgouseBaseSoftware\\appdata\\as7-map.ply";
+    QString dest = "ArgouseBaseSoftware\\appdata\\as7-map.ply";
 
 
     bool isSuccessful = false; // Remembers if the import was successful
@@ -726,7 +726,7 @@ bool HomePage::importLog(QString droneLogFile){
 /*Saves the imported and generated PLY as a .PLY for the user*/
 void HomePage::exportPLY()
 {
-    QString fileName = "..\\ArgouseBaseSoftware\\appdata\\as7-map.ply";
+    QString fileName = "ArgouseBaseSoftware\\appdata\\as7-map.ply";
     QFile file(fileName);
 
     if (fileName.isEmpty())
@@ -738,7 +738,7 @@ void HomePage::exportPLY()
 /*Generates help*/
 void HomePage::help()
 {
-    QDesktopServices::openUrl(QUrl::fromLocalFile("../ArgouseBaseSoftware/appdata/docs/html/index.html"));
+    QDesktopServices::openUrl(QUrl::fromLocalFile("ArgouseBaseSoftware/appdata/docs/html/index.html"));
 }
 
 /*Re-stylise to darkmode by updating apps style sheet*/
@@ -750,7 +750,7 @@ void HomePage::darkMode(){
     pal.setColor(QPalette::Window, Qt::black);
     this->setPalette(pal);
 
-    QFile styleSheetFile("../ArgouseBaseSoftware/stylesheets/DarkMode.qss");
+    QFile styleSheetFile("ArgouseBaseSoftware/stylesheets/DarkMode.qss");
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
     appParent->setStyleSheet(styleSheet);
@@ -766,7 +766,7 @@ void HomePage::lightMode(){
     pal.setColor(QPalette::Window, Qt::black);
     this->setPalette(pal);
 
-    QFile styleSheetFile("../ArgouseBaseSoftware/stylesheets/LightMode.qss");
+    QFile styleSheetFile("ArgouseBaseSoftware/stylesheets/LightMode.qss");
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
     appParent->setStyleSheet(styleSheet);

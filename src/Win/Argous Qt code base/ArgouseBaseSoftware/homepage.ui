@@ -226,8 +226,8 @@ color: rgb(255, 255, 255)</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Graphic Assets/drone/droneArtboard 1.png</normaloff>../../Graphic Assets/drone/droneArtboard 1.png</iconset>
+      <iconset resource="graphics.qrc">
+       <normaloff>:/graphics/droneArtboard 1.png</normaloff>:/graphics/droneArtboard 1.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -274,8 +274,8 @@ color: rgb(255, 255, 255)</string>
       <string/>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Graphic Assets/drone/Drone_Dark.png</normaloff>../../Graphic Assets/drone/Drone_Dark.png</iconset>
+      <iconset resource="graphics.qrc">
+       <normaloff>:/graphics/Drone_Dark.png</normaloff>:/graphics/Drone_Dark.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -439,7 +439,7 @@ QTextEdit { padding-left:7; padding-top:7; padding-bottom:7; padding-right:7}</s
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Graphic Assets/15ppi/logoArtboard 5_1.png</pixmap>
+      <pixmap resource="graphics.qrc">:/graphics/logoArtboard 5_1.png</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -468,8 +468,8 @@ border-radius: 0px;</string>
       <string>  Import</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Graphic Assets/icons/15ppi/fileArtboard 12.png</normaloff>../../Graphic Assets/icons/15ppi/fileArtboard 12.png</iconset>
+      <iconset resource="graphics.qrc">
+       <normaloff>:/graphics/fileArtboard 12.png</normaloff>:/graphics/fileArtboard 12.png</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="ResetBtn">
@@ -498,8 +498,8 @@ border-radius: 0px;</string>
       <string>  Reset</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Graphic Assets/icons/15ppi/iconArtboard 8.png</normaloff>../../Graphic Assets/icons/15ppi/iconArtboard 8.png</iconset>
+      <iconset resource="graphics.qrc">
+       <normaloff>:/graphics/iconArtboard 8.png</normaloff>:/graphics/iconArtboard 8.png</iconset>
      </property>
     </widget>
     <widget class="QPushButton" name="HelpBtn">
@@ -525,8 +525,8 @@ border-radius: 0px;</string>
       <string>  Help</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Graphic Assets/icons/15ppi/helpArtboard 10.png</normaloff>../../Graphic Assets/icons/15ppi/helpArtboard 10.png</iconset>
+      <iconset resource="graphics.qrc">
+       <normaloff>:/graphics/helpArtboard 10.png</normaloff>:/graphics/helpArtboard 10.png</iconset>
      </property>
     </widget>
    </widget>
@@ -571,6 +571,8 @@ border-radius: 0px;</string>
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="graphics.qrc"/>
+ </resources>
  <connections/>
 </ui>
